@@ -1,9 +1,11 @@
-# Project Title
+# @richardmcquiston01/unofficial-aliexpress-api
 
 - Author:  Richard McQuiston
 - Website:  https://richardmcquiston.com/
 
 ## Overview
+
+TypeScript based package wrapper for the AliExpress API.
 
 ## Getting Started
 
