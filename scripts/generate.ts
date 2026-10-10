@@ -109,6 +109,12 @@ function mapType(
   domains: ReadonlyMap<string, DomainClass>,
   topLevelRequest: boolean
 ): Mapped {
+  // The Java SDK declares `FileItem` on a few response/domain fields where no
+  // file can ever be returned (e.g. an `isDefault` flag). Only top-level
+  // request parameters are real uploads; elsewhere treat the value as opaque.
+  if (type.name === 'FileItem' && !topLevelRequest) {
+    return { ts: 'unknown', code: 'x' };
+  }
   const scalar = SCALARS[type.name];
   if (scalar && type.args.length === 0) {
     return {

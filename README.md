@@ -107,6 +107,16 @@ await client.affiliate.imageSearch({
 });
 ```
 
+## Testing
+
+```bash
+npm test            # unit + all 932 endpoints against a mock gateway
+npm run test:live   # opt-in, read-only calls against the real gateway
+```
+
+The live tests are skipped unless `ALIEXPRESS_APP_KEY`, `ALIEXPRESS_APP_SECRET` and
+`ALIEXPRESS_ACCESS_TOKEN` are set.
+
 ## Regenerating the API surface
 
 `src/generated/` is produced from AliExpress's official Java SDK (`iop-api-sdk`). To refresh it:

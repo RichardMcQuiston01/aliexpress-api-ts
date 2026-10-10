@@ -29,6 +29,7 @@
     "build": "tsup",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:live": "vitest run test/live.test.ts",
     "format": "prettier --write \"src/core/**/*.ts\" \"scripts/**/*.ts\" \"test/**/*.ts\"",
     "format:check": "prettier --check \"src/core/**/*.ts\" \"scripts/**/*.ts\" \"test/**/*.ts\"",
     "prepublishOnly": "npm run typecheck && npm test && npm run build"
