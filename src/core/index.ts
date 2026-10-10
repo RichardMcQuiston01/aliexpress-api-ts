@@ -1,4 +1,8 @@
-export { AliExpressClientBase } from './client.js';
+export {
+  AliExpressClientBase,
+  generateOAuthState,
+  redactSecrets,
+} from './client.js';
 export { AliExpressError, describeApiError } from './errors.js';
 export type { AliExpressErrorKind, AliExpressErrorDetails } from './errors.js';
 export { signRequest } from './sign.js';

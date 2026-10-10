@@ -1,6 +1,21 @@
 # CHANGELOG
 
-## Unreleased
+## 0.2.0
+
+Security hardening (fixes #3, #4, #5, #6, #7).
+
+- **Breaking:** `getAuthorizationUrl()` now requires `state`; use the new `generateOAuthState()`.
+  `redirectUri` must be an absolute `https` URL without credentials (loopback `http` allowed).
+- `baseUrl` is validated: `https` only (loopback `http` allowed), no userinfo, query or fragment.
+- Request URLs are built with the `URL` API; the duplicate raw `method` query value is gone and
+  API names containing URL syntax are rejected before sending.
+- `appSecret`, `accessToken` and the other config are private fields and namespaces are
+  non-enumerable, so serialising or logging a client no longer leaks credentials.
+- Transport error messages no longer embed the request URL; `error.cause` keeps the raw error.
+  Credentials echoed in gateway error bodies are redacted from messages.
+- Requests use `redirect: 'error'`; a redirect is reported as an `http` failure.
+
+Also in this release:
 
 - Data-driven tests for all 932 endpoints (definition sanity, request building and signing, response round-trip).
 - Opt-in live smoke tests (`npm run test:live`).
