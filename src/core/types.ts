@@ -39,7 +39,10 @@ export interface ApiDefinition<TParams = unknown, TResponse = unknown> {
 export interface ClientConfig {
   readonly appKey: string;
   readonly appSecret: string;
-  /** Defaults to `https://api-sg.aliexpress.com`. */
+  /**
+   * Defaults to `https://api-sg.aliexpress.com`. Must be https (http only for
+   * localhost) and must not contain credentials, a query or a fragment.
+   */
   readonly baseUrl?: string;
   /** Default access token (seller/user authorization) for every call. */
   readonly accessToken?: string;

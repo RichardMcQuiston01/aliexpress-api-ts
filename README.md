@@ -62,11 +62,34 @@ definition is also available through `namespaceRegistry` and `client.call(defini
 #### Authorization
 
 ```ts
-const url = client.getAuthorizationUrl({ redirectUri: 'https://example.com/callback' });
-// Send the seller to `url`; AliExpress redirects back with ?code=...
-const token = await client.auth.tokenCreate({ code });
+import { generateOAuthState } from '@richardmcquiston01/unofficial-aliexpress-api';
+
+// 1. Start: bind a random `state` to the user's session (CSRF protection).
+const state = generateOAuthState();
+session.oauthState = state;
+res.redirect(
+  client.getAuthorizationUrl({ redirectUri: 'https://example.com/callback', state })
+);
+
+// 2. Callback: AliExpress redirects back with ?code=...&state=...
+if (req.query.state !== session.oauthState) throw new Error('OAuth state mismatch');
+const token = await client.auth.tokenCreate({ code: String(req.query.code) });
 if (token.ok) console.log(token.data.accessToken, token.data.refreshToken);
 ```
+
+`redirectUri` must be `https` (loopback `http` is allowed for local development) and contain no
+credentials. Register the same URI in your AliExpress app settings.
+
+#### Security notes
+
+- `baseUrl` must be `https` (loopback `http` only for local development) with no credentials,
+  query or fragment.
+- `appSecret` and `accessToken` live in private fields: they do not appear in `JSON.stringify(client)`,
+  `Object.keys(client)` or typical loggers.
+- HTTP redirects are refused (`redirect: 'error'`), so credentials in a request body are never
+  replayed to another URL. Pass a custom `fetch` if you really need to follow them.
+- Error messages never include the request URL; the raw error is on `error.cause`. Credentials
+  echoed in gateway error bodies are redacted from messages (the untouched body is `result.rawBody`).
 
 #### Per-call options
 
