@@ -30,8 +30,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:live": "vitest run test/live.test.ts",
-    "format": "prettier --write \"src/core/**/*.ts\" \"scripts/**/*.ts\" \"test/**/*.ts\"",
-    "format:check": "prettier --check \"src/core/**/*.ts\" \"scripts/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"src/core/**/*.ts\" \"scripts/**/*.ts\" \"test/**/*.ts\" \"examples/**/*.ts\"",
+    "format:check": "prettier --check \"src/core/**/*.ts\" \"scripts/**/*.ts\" \"test/**/*.ts\" \"examples/**/*.ts\"",
+    "get-token": "tsx examples/get-token.ts",
     "prepublishOnly": "npm run typecheck && npm test && npm run build"
   },
   "devDependencies": {

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+
+- Add `npm run get-token` (`examples/get-token.ts`), a CLI that performs the OAuth login and prints an access token for testing.
+
 ## 0.2.0
 
 Security hardening (fixes #3, #4, #5, #6, #7).

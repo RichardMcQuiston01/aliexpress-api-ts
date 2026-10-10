@@ -130,6 +130,15 @@ await client.affiliate.imageSearch({
 });
 ```
 
+## Getting an access token for testing
+
+`npm run get-token` walks you through the OAuth login from the command line. Set
+`ALIEXPRESS_APP_KEY`, `ALIEXPRESS_APP_SECRET` and `ALIEXPRESS_REDIRECT_URI` (it must exactly match
+the callback URL registered for your app). The script prints a login link, you approve the app,
+then paste the address the browser lands on (or just the `code`). It checks the `state`,
+exchanges the code, and prints `export ALIEXPRESS_ACCESS_TOKEN=...` for `npm run test:live`.
+See `examples/get-token.ts`.
+
 ## Testing
 
 ```bash
