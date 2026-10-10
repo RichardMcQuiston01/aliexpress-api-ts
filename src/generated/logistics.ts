@@ -981,7 +981,7 @@ export interface AliexpressLogisticsLocalGetlogisticsselleraddressAeopWlDeclareA
   /** addressId */
   addressId?: Long;
   /** isDefault */
-  isDefault?: FileInput;
+  isDefault?: unknown;
   /** province */
   province?: string;
   /** fromWarehouseCode */
@@ -1017,7 +1017,7 @@ export const AliexpressLogisticsLocalGetlogisticsselleraddressAeopWlDeclareAddre
     language: ['language', 's'],
     trademanageId: ['trademanage_id', 's'],
     addressId: ['address_id', 'l'],
-    isDefault: ['is_default', 'f'],
+    isDefault: ['is_default', 'x'],
     province: ['province', 's'],
     fromWarehouseCode: ['from_warehouse_code', 's'],
     phone: ['phone', 's'],

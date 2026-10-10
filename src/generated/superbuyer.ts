@@ -50,7 +50,7 @@ export interface SuperbuyerPluginImageSearchImageSearchReq {
   /** sort_order */
   sortOrder?: string;
   /** image_bytes */
-  imageBytes?: FileInput;
+  imageBytes?: unknown;
   /** page */
   page?: number;
   /** img_search_type */
@@ -82,7 +82,7 @@ export const SuperbuyerPluginImageSearchImageSearchReqSchema: Schema = {
   sortType: ['sort_type', 's'],
   accessKey: ['access_key', 's'],
   sortOrder: ['sort_order', 's'],
-  imageBytes: ['image_bytes', 'f'],
+  imageBytes: ['image_bytes', 'x'],
   page: ['page', 'i'],
   imgSearchType: ['img_search_type', 's'],
   itemUrl: ['item_url', 's'],
@@ -281,7 +281,7 @@ export interface SuperbuyerPluginImageSearchV2ImageSearchReq {
   /** 1 */
   sortOrder?: string;
   /** 1 */
-  imageBytes?: FileInput;
+  imageBytes?: unknown;
   /** 1 */
   page?: number;
   /** 1 */
@@ -325,7 +325,7 @@ export const SuperbuyerPluginImageSearchV2ImageSearchReqSchema: Schema = {
   sortType: ['sort_type', 's'],
   accessKey: ['access_key', 's'],
   sortOrder: ['sort_order', 's'],
-  imageBytes: ['image_bytes', 'f'],
+  imageBytes: ['image_bytes', 'x'],
   page: ['page', 'i'],
   imgSearchType: ['img_search_type', 's'],
   itemUrl: ['item_url', 's'],
