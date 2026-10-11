@@ -2,7 +2,13 @@
 
 [Back to README](./README.md)
 
-| [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
+| [Unreleased](#unreleased) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
+
+## Unreleased
+
+- Fill in `ROADMAP.md`. No code changes.
+
+[Back to Top](#changelog)
 
 ## 0.2.1
 
