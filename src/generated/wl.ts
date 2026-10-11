@@ -170,17 +170,17 @@ export const wlGrayFirst: ApiDefinition<
 
 /** Parameters for `/wl/local/12`. */
 export interface WlLocal12Params {
-  /** 中文入参描述1回退前6 */
+  /** Chinese input parameter description 1 fallback before 6 */
   name?: string;
-  /** age中文入参描述1回退前6 */
+  /** age Chinese input parameter description 1 fallback before 6 */
   age?: string;
 }
 
 /** Response of `/wl/local/12`. */
 export interface WlLocal12Response {
-  /** 中文出参描述1回退前6 */
+  /** Chinese output parameter description 1 fallback before 6 */
   result?: string;
-  /** result2中文出参描述1回退前6 */
+  /** result2 Chinese output parameter description 1 rollback first 6 */
   result2?: string;
 }
 
@@ -203,13 +203,13 @@ export const wlLocal12: ApiDefinition<WlLocal12Params, WlLocal12Response> = {
 
 /** Parameters for `/wl/local/test2`. */
 export interface WlLocalTest2Params {
-  /** [{"zh_CN":"中文描述"},{"en_US":"en desc"}] */
+  /** [{"zh_CN":"Chinese description"},{"en_US":"en desc"}] */
   name?: string;
 }
 
 /** Response of `/wl/local/test2`. */
 export interface WlLocalTest2Response {
-  /** [{"zh_CN":"中文描述"},{"en_US":"cn desc"}] */
+  /** [{"zh_CN":"Chinese description"},{"en_US":"cn desc"}] */
   result?: string;
 }
 

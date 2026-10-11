@@ -764,7 +764,7 @@ export interface AliexpressRuAffiliateProductdetailGetParams {
 
 /** Response of `aliexpress.ru.affiliate.productdetail.get`. */
 export interface AliexpressRuAffiliateProductdetailGetResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressRuAffiliateProductdetailGetResponseDTO;
 }
 

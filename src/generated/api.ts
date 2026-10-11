@@ -9,31 +9,31 @@ import type {
 } from '../core/index.js';
 
 export interface ApiClothesGenerate {
-  /** 模特图，和imgBase64二选一，建议不使用imgBase64 */
+  /** Model image. Choose either this or imgBase64; using imgBase64 is not recommended */
   imageFileUrl?: string;
   /** null */
   mask?: string;
-  /** 生成图片张数 */
+  /** Number of images generated */
   imageNum?: string;
-  /** 肤色 */
+  /** Skin color */
   personImgUrl?: string;
   /** null */
   race?: string;
-  /** 模特图，和imageFileUrl二选一 */
+  /** Model image, choose either this or imageFileUrl */
   imgBase64?: string;
-  /** 定制模特名称 */
+  /** Custom model name */
   modelStyle?: string;
-  /** 年龄段 */
+  /** Age range */
   demographic?: string;
-  /** 发色 */
+  /** Hair color */
   hairColorCode?: string;
-  /** 生成背景的code */
+  /** Code of the generated background */
   bgCode?: string;
-  /** 目标宽，宽高传一样的值，生成图片会保持原图比例不变，按最短边传 */
+  /** Target width. Pass the same value for width and height; the generated image keeps the original aspect ratio, based on the shorter side */
   width?: string;
-  /** 目标高，宽高传一样的值，生成图片会保持原图比例不变，按最短边传 */
+  /** Target height. Pass the same value for width and height; the generated image keeps the original aspect ratio, based on the shorter side */
   height?: string;
-  /** 操作人, 必填,特殊值用于离线环境的调用 */
+  /** Operator, required, special value used for calls from offline environments */
   operator?: string;
 }
 
@@ -54,17 +54,17 @@ export const ApiClothesGenerateSchema: Schema = {
 };
 
 export interface ApiClothesQueryTaskGatewayTaskQueryResponse {
-  /** 任务信息 */
+  /** Task information */
   taskMessage?: string;
   /** usage */
   usage?: number;
-  /** 任务结果 */
+  /** Task result */
   taskResult?: string;
-  /** 错误码 */
+  /** Error code */
   taskErrorCode?: string;
-  /** 任务id */
+  /** Task ID */
   taskId?: string;
-  /** 任务状态 */
+  /** Task status */
   taskStatus?: string;
   /** requestBizId */
   requestBizId?: string;
@@ -248,15 +248,15 @@ export interface ApiBgQueryAllIframeCategoryNameParams {}
 export interface ApiBgQueryAllIframeCategoryNameResponse {
   /** trace_id */
   traceId?: string;
-  /** 错误码 */
+  /** Error code */
   resCode?: string;
-  /** 结果json */
+  /** Result JSON */
   data?: string;
-  /** 接口响应等级 */
+  /** API response level */
   level?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   resMessage?: string;
 }
 
@@ -288,15 +288,15 @@ export interface ApiBgQueryAllIframeSceneNameParams {}
 export interface ApiBgQueryAllIframeSceneNameResponse {
   /** trace_id */
   traceId?: string;
-  /** 错误码 */
+  /** Error code */
   resCode?: string;
-  /** 结果json */
+  /** Result JSON */
   data?: string;
-  /** 响应结果等级 */
+  /** Response result level */
   level?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   resMessage?: string;
 }
 
@@ -362,23 +362,23 @@ export const apiClothesGenerate: ApiDefinition<
 
 /** Parameters for `/api/clothes/queryTask`. */
 export interface ApiClothesQueryTaskParams {
-  /** 场景 */
+  /** Scenario */
   scene?: string;
-  /** 任务id */
+  /** Task ID */
   taskId?: string;
 }
 
 /** Response of `/api/clothes/queryTask`. */
 export interface ApiClothesQueryTaskResponse {
-  /** 错误码 */
+  /** Error code */
   resCode?: number;
   /** data */
   data?: ApiClothesQueryTaskGatewayTaskQueryResponse;
-  /** 请求id */
+  /** Request ID */
   requestId?: string;
-  /** 成功状态 */
+  /** Success status */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   resMessage?: string;
 }
 
@@ -407,17 +407,17 @@ export const apiClothesQueryTask: ApiDefinition<
 
 /** Parameters for `/api/layout/layout`. */
 export interface ApiLayoutLayoutParams {
-  /** 布局图片 */
+  /** Layout image */
   imgUrl?: string;
-  /** 布局的宽 */
+  /** Layout width */
   width?: number;
-  /** 是否进行裁剪 */
+  /** Whether to crop */
   cropFlag?: boolean;
-  /** 类目名称 */
+  /** Category name */
   categoryName?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: LongInput;
-  /** 布局的高 */
+  /** Layout height */
   height?: number;
 }
 
@@ -425,15 +425,15 @@ export interface ApiLayoutLayoutParams {
 export interface ApiLayoutLayoutResponse {
   /** trace_id */
   traceId?: string;
-  /** 错误码 */
+  /** Error code */
   resCode?: string;
-  /** 响应结果json */
+  /** Response result json */
   data?: string;
-  /** 响应结果级别 */
+  /** Response result level */
   level?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   resMessage?: string;
 }
 
@@ -472,15 +472,15 @@ export interface ApiModelBgModelGroupsParams {}
 export interface ApiModelBgModelGroupsResponse {
   /** traceId */
   traceId?: string;
-  /** 错误码 */
+  /** Error code */
   resCode?: string;
-  /** 结果json */
+  /** Result JSON */
   data?: string;
-  /** 接口响应级别 */
+  /** API response level */
   level?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   resMessage?: string;
 }
 
@@ -514,13 +514,13 @@ export interface ApiModelClothesModelsResponse {
   traceId?: string;
   /** resCode */
   resCode?: string;
-  /** 结果json */
+  /** Result JSON */
   data?: string;
-  /** 响应级别 */
+  /** Response level */
   level?: string;
-  /** 成功状态 */
+  /** Success status */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   resMessage?: string;
 }
 
@@ -785,7 +785,7 @@ export interface ApiProductParams {
   productID?: string;
   /** accept */
   accept?: string;
-  /** 外部token */
+  /** External token */
   authorization?: string;
 }
 
@@ -828,7 +828,7 @@ export interface ApiProductCreateParams {
   nbmOrigin?: string;
   /** 0 */
   warrantyTime?: string;
-  /** status（ignore） */
+  /** status (ignore) */
   active?: boolean;
   /** attributes */
   attributes?: Array<ApiProductCreate>;
@@ -988,13 +988,13 @@ export const apiProductUpdate: ApiDefinition<
 
 /** Parameters for `/api/segment/modelSegment`. */
 export interface ApiSegmentModelSegmentParams {
-  /** 图片url */
+  /** Image URL */
   imgUrl?: string;
-  /** 调用来源 */
+  /** Call source */
   source?: string;
-  /** 任务id */
+  /** Task ID */
   taskId?: string;
-  /** 是否使用人体检测 */
+  /** Whether to use body detection */
   needPersonBodyCheck?: boolean;
 }
 
@@ -1002,15 +1002,15 @@ export interface ApiSegmentModelSegmentParams {
 export interface ApiSegmentModelSegmentResponse {
   /** traceId */
   traceId?: string;
-  /** 错误码 */
+  /** Error code */
   resCode?: string;
-  /** 结果json */
+  /** Result JSON */
   data?: string;
-  /** 响应级别 */
+  /** Response level */
   level?: string;
-  /** 成功状态 */
+  /** Success status */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   resMessage?: string;
 }
 
@@ -1042,9 +1042,9 @@ export const apiSegmentModelSegment: ApiDefinition<
 
 /** Parameters for `/api/Sku`. */
 export interface ApiSkuParams {
-  /** 分页值 */
+  /** Pagination value */
   page?: string;
-  /** 页大小 */
+  /** Page size */
   perPage?: string;
   /** token */
   accessToken?: string;

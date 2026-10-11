@@ -20,7 +20,7 @@ export interface AuthTokenCreateParams {
 export interface AuthTokenCreateResponse {
   /** The expiring time of the access token, in seconds */
   expiresIn?: Long;
-  /** Account ID，Allow null. if(account_platform=seller_center) account_id=null */
+  /** Account ID, Allow null. if(account_platform=seller_center) account_id=null */
   accountId?: string;
   /** seller id */
   sellerId?: string;
@@ -95,7 +95,7 @@ export interface AuthTokenCreateWithOpenIdParams {
 export interface AuthTokenCreateWithOpenIdResponse {
   /** The expiring time of the access token, in seconds */
   expiresIn?: Long;
-  /** Account ID，Allow null. if(account_platform=seller_center) account_id=null */
+  /** Account ID, Allow null. if(account_platform=seller_center) account_id=null */
   accountId?: string;
   /** user id */
   userId?: string;
@@ -105,9 +105,9 @@ export interface AuthTokenCreateWithOpenIdResponse {
   refreshToken?: string;
   /** The expiring time of th refresh token */
   refreshExpiresIn?: Long;
-  /** 过期时间 */
+  /** Expiration time */
   expireTime?: Long;
-  /** 刷新过期时间 */
+  /** Refresh expiration time */
   refreshTokenValidTime?: Long;
   /** sp */
   sp?: string;
@@ -227,7 +227,7 @@ export interface AuthTokenSecurityCreateParams {
 export interface AuthTokenSecurityCreateResponse {
   /** The expiring time of the access token, in seconds */
   expiresIn?: Long;
-  /** Account ID，Allow null. if(account_platform=seller_center) account_id=null */
+  /** Account ID, Allow null. if(account_platform=seller_center) account_id=null */
   accountId?: string;
   /** user id */
   userId?: string;
@@ -352,7 +352,7 @@ export const authTokenSecurityRefresh: ApiDefinition<
 
 /** Parameters for `/auth/token/security/translate`. */
 export interface AuthTokenSecurityTranslateParams {
-  /** 源语言 */
+  /** Source language */
   sourceLanguage?: string;
 }
 

@@ -83,9 +83,9 @@ export const AliexpressAsfDbsDeclareshipTradeOrderItemDTOSchema: Schema = {
 };
 
 export interface AliexpressAsfFulfillmentPackageQueryDadaDataSet {
-  /** 包裹列表 */
+  /** Package list */
   dataSource?: Array<AliexpressAsfFulfillmentPackageQueryFulfillmentPackageQueryOpenApiResponse>;
-  /** 分页详情 */
+  /** Pagination details */
   pageInfo?: AliexpressAsfFulfillmentPackageQueryPageInfo;
 }
 
@@ -104,29 +104,29 @@ export const AliexpressAsfFulfillmentPackageQueryDadaDataSetSchema: Schema = {
 };
 
 export interface AliexpressAsfFulfillmentPackageQueryFulfillmentPackageQueryOpenApiResponse {
-  /** 交易单id */
+  /** Transaction order ID */
   tradeOrderId?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
-  /** 包裹id */
+  /** Package ID */
   packageId?: string;
-  /** 包裹创建时间 */
+  /** Package creation time */
   createTime?: string;
-  /** 运单号分配失败原因 */
+  /** Reason for waybill number allocation failure */
   waybillAssignFailedReason?: string;
-  /** 线路名称 */
+  /** Route name */
   shippingProviderName?: string;
-  /** 线路编码 */
+  /** Route code */
   shippingProviderCode?: string;
-  /** 配送服务商 */
+  /** Delivery service provider */
   deliveryServiceProvider?: string;
-  /** 揽收服务商 */
+  /** Pickup service provider */
   pickupServiceProvider?: string;
-  /** 包裹状态 */
+  /** Package status */
   status?: string;
-  /** 二级状态 */
+  /** Secondary status */
   subStatus?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendFields?: string;
 }
 
@@ -151,9 +151,9 @@ export interface AliexpressAsfFulfillmentPackageQueryOpenapiResponseDTO {
   data?: AliexpressAsfFulfillmentPackageQueryDadaDataSet;
   /** success */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -170,11 +170,11 @@ export const AliexpressAsfFulfillmentPackageQueryOpenapiResponseDTOSchema: Schem
   };
 
 export interface AliexpressAsfFulfillmentPackageQueryPageInfo {
-  /** 页码 */
+  /** Page number */
   current?: string;
-  /** 每页条数 */
+  /** Records per page */
   pageSize?: string;
-  /** 总条数 */
+  /** Total count */
   total?: string;
 }
 
@@ -227,9 +227,9 @@ export const AliexpressAsfLocal2localSelfPickupDeclareshipLocalDeclareShipOpenAp
   };
 
 export interface AliexpressAsfLocal2localSplitQuantityRtsPackPlatformLogisticsPackedSupportItemResponse {
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
-  /** 包裹id */
+  /** Package ID */
   fulfillmentPackageId?: string;
 }
 
@@ -253,11 +253,11 @@ export const AliexpressAsfLocal2localSplitQuantityRtsPackTradeOrderItemSupportIt
   };
 
 export interface AliexpressAsfLocal2localSubDeclareshipDeclareShippingLineDTO {
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   tradeOrderLineId?: string;
-  /** 包裹信息 */
+  /** Package information */
   shipmentList?: Array<AliexpressAsfLocal2localSubDeclareshipShippingInfoDTO>;
-  /** all 代表全部发货；part 代表部分发货 */
+  /** all means full shipment; part means partial shipment */
   sendType?: string;
 }
 
@@ -321,11 +321,11 @@ export const AliexpressAsfLocal2localSubDeclareshipLocalDeclareShipOpenApiRespon
   };
 
 export interface AliexpressAsfLocal2localSubDeclareshipShippingInfoDTO {
-  /** 物流服务编码 */
+  /** Logistics service code */
   serviceName?: string;
-  /** 运单号 */
+  /** Waybill number */
   logisticsNo?: string;
-  /** 承运商编码 */
+  /** Carrier code */
   carrierCode?: string;
 }
 
@@ -337,9 +337,9 @@ export const AliexpressAsfLocal2localSubDeclareshipShippingInfoDTOSchema: Schema
   };
 
 export interface AliexpressAsfLocal2localTransferToOfflineDeclareShippingLineDTO {
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   tradeOrderLineId?: string;
-  /** 包裹信息 */
+  /** Package information */
   shipmentList?: Array<AliexpressAsfLocal2localTransferToOfflineShippingInfoDTO>;
 }
 
@@ -402,13 +402,13 @@ export const AliexpressAsfLocal2localTransferToOfflineLocalDeclareShipOpenApiRes
   };
 
 export interface AliexpressAsfLocal2localTransferToOfflineShippingInfoDTO {
-  /** 物流服务编码 */
+  /** Logistics service code */
   serviceName?: string;
-  /** 运单号 */
+  /** Waybill number */
   logisticsNo?: string;
-  /** 承运商编码 */
+  /** Carrier code */
   carrierCode?: string;
-  /** 子单发货数量 */
+  /** Sub-order shipped quantity */
   quantity?: string;
 }
 
@@ -491,13 +491,13 @@ export const AliexpressAsfLocalSupplyDeclareshipModifyModifyDeclareShipOpenApiRe
   };
 
 export interface AliexpressAsfLocalSupplyPlatformLogisticsDocumentQueryOpenapiResponseDTO {
-  /** 返回数据 */
+  /** Returned data */
   data?: AliexpressAsfLocalSupplyPlatformLogisticsDocumentQueryPlatformLogisticsQueryDocumentResponse;
   /** success */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -515,9 +515,9 @@ export const AliexpressAsfLocalSupplyPlatformLogisticsDocumentQueryOpenapiRespon
   };
 
 export interface AliexpressAsfLocalSupplyPlatformLogisticsDocumentQueryPlatformLogisticsQueryDocumentResponse {
-  /** Base64 编码的字符串 */
+  /** Base64-encoded string */
   bytes?: string;
-  /** 文件下载链接（不推荐使用，会校验卖家登录态） */
+  /** File download link (not recommended, the seller login state will be verified) */
   fileUrl?: string;
 }
 
@@ -528,11 +528,11 @@ export const AliexpressAsfLocalSupplyPlatformLogisticsDocumentQueryPlatformLogis
   };
 
 export interface AliexpressAsfLocalSupplyPlatformLogisticsDocumentQueryQueryDocumentRequest {
-  /** 交易单 */
+  /** Transaction order */
   tradeOrderId?: Long;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
-  /** 包裹Id */
+  /** Package ID */
   packageId?: string;
 }
 
@@ -544,13 +544,13 @@ export const AliexpressAsfLocalSupplyPlatformLogisticsDocumentQueryQueryDocument
   };
 
 export interface AliexpressAsfLocalSupplyPlatformLogisticsRepackOpenapiResponseDTO {
-  /** 返回数据 */
+  /** Returned data */
   data?: AliexpressAsfLocalSupplyPlatformLogisticsRepackPackResponse;
-  /** 返回结果 */
+  /** Returned result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -567,9 +567,9 @@ export const AliexpressAsfLocalSupplyPlatformLogisticsRepackOpenapiResponseDTOSc
   };
 
 export interface AliexpressAsfLocalSupplyPlatformLogisticsRepackPackResponse {
-  /** 订单号 */
+  /** Order number */
   tradeOrderId?: Long;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
 }
 
@@ -580,13 +580,13 @@ export const AliexpressAsfLocalSupplyPlatformLogisticsRepackPackResponseSchema: 
   };
 
 export interface AliexpressAsfLocalSupplyPlatformLogisticsRtsOpenapiResponseDTO {
-  /** 返回data */
+  /** Returned data */
   data?: AliexpressAsfLocalSupplyPlatformLogisticsRtsPackResponse;
-  /** 成功结果 */
+  /** Success result */
   success?: boolean;
-  /** 错误描述 */
+  /** Error description */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -603,9 +603,9 @@ export const AliexpressAsfLocalSupplyPlatformLogisticsRtsOpenapiResponseDTOSchem
   };
 
 export interface AliexpressAsfLocalSupplyPlatformLogisticsRtsPackResponse {
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: Long;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
 }
 
@@ -661,37 +661,37 @@ export const AliexpressAsfLocalSupplySellerAddressGetPlatformLogisticsSellerAddr
   };
 
 export interface AliexpressAsfLocalSupplySellerAddressGetSellerAddressDTO {
-  /** 地址id，用于打包传参 */
+  /** Address id, used for packaging parameters */
   addressId?: Long;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 是否默认地址 */
+  /** Whether it is the default address */
   defaultAddress?: boolean;
-  /** 地址类型 */
+  /** Address type */
   memberType?: string;
-  /** 联系人姓名 */
+  /** Contact name */
   name?: string;
-  /** 电话 */
+  /** Phone */
   phone?: string;
-  /** 邮编 */
+  /** Postal code */
   postCode?: string;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 详细地址 */
+  /** Detailed address */
   streetAddress?: string;
-  /** 街道 */
+  /** Street */
   street?: string;
-  /** 街道号 */
+  /** Street number */
   localityIdentifier?: string;
-  /** 区 */
+  /** District */
   area?: string;
-  /** 仓地址类型 */
+  /** Warehouse address type */
   serviceProviderType?: string;
-  /** 仓code */
+  /** Warehouse code */
   warehouseCode?: string;
 }
 
@@ -716,9 +716,9 @@ export const AliexpressAsfLocalSupplySellerAddressGetSellerAddressDTOSchema: Sch
   };
 
 export interface AliexpressAsfLocalSupplyShippingServiceGetAvailableShippingServiceResponse {
-  /** 可用线路集合 */
+  /** Set of available routes */
   shipmentProviderDTOList?: Array<AliexpressAsfLocalSupplyShippingServiceGetString>;
-  /** 不可用线路集合 */
+  /** Set of unavailable routes */
   unusableShipmentProviderList?: Array<AliexpressAsfLocalSupplyShippingServiceGetString>;
 }
 
@@ -737,25 +737,25 @@ export const AliexpressAsfLocalSupplyShippingServiceGetAvailableShippingServiceR
   };
 
 export interface AliexpressAsfLocalSupplyShippingServiceGetString {
-  /** 线路名称 */
+  /** Route name */
   shipmentProviderName?: string;
-  /** 线路编码 */
+  /** Route code */
   shipmentProviderCode?: string;
-  /** 线路类型 */
+  /** Route type */
   deliveryMode?: string;
-  /** 承运商列表 */
+  /** Carrier list */
   carrierInfoDTOList?: Array<AliexpressAsfLocalSupplyShippingServiceGetString>;
-  /** 发货方式 */
+  /** Shipping method */
   shippingTypes?: Array<AliexpressAsfLocalSupplyShippingServiceGetString>;
-  /** 承运商名称 */
+  /** Carrier name */
   carrierName?: string;
-  /** 承运商编码 */
+  /** Carrier code */
   carrierCode?: string;
-  /** 发货方式编码 */
+  /** Shipping method code */
   code?: string;
-  /** 发货方式名称 */
+  /** Shipping method name */
   name?: string;
-  /** 不可用原因 */
+  /** Unavailability reason */
   unusableReason?: string;
 }
 
@@ -781,9 +781,9 @@ export const AliexpressAsfLocalSupplyShippingServiceGetStringSchema: Schema = {
 };
 
 export interface AliexpressAsfLocalSupplySplitQuantityRtsPackPlatformLogisticsPackedSupportItemResponse {
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
-  /** 包裹id */
+  /** Package ID */
   fulfillmentPackageId?: string;
 }
 
@@ -807,11 +807,11 @@ export const AliexpressAsfLocalSupplySplitQuantityRtsPackTradeOrderItemSupportIt
   };
 
 export interface AliexpressAsfLocalSupplySubDeclareshipDeclareShippingLineDTO {
-  /** 子单ID */
+  /** Sub-order ID */
   tradeOrderLineId?: string;
-  /** 发货类型 */
+  /** Shipping type */
   sendType?: string;
-  /** 发货列表 */
+  /** Shipment list */
   shipmentList?: Array<AliexpressAsfLocalSupplySubDeclareshipShippingInfoDTO>;
 }
 
@@ -827,15 +827,15 @@ export const AliexpressAsfLocalSupplySubDeclareshipDeclareShippingLineDTOSchema:
   };
 
 export interface AliexpressAsfLocalSupplySubDeclareshipDeclareShippingLineResultDTO {
-  /** 子单ID */
+  /** Sub-order ID */
   tradeOrderLineId?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 发货类型 */
+  /** Shipping type */
   sendType?: string;
-  /** 发货列表 */
+  /** Shipment list */
   shipmentList?: Array<AliexpressAsfLocalSupplySubDeclareshipShippingInfoResultDTO>;
 }
 
@@ -853,13 +853,13 @@ export const AliexpressAsfLocalSupplySubDeclareshipDeclareShippingLineResultDTOS
   };
 
 export interface AliexpressAsfLocalSupplySubDeclareshipLocalSupplyDeclareShipOpenApiResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 交易单ID */
+  /** Transaction order ID */
   tradeOrderId?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
   /** subTradeOrderList */
   subTradeOrderList?: Array<AliexpressAsfLocalSupplySubDeclareshipDeclareShippingLineResultDTO>;
@@ -880,11 +880,11 @@ export const AliexpressAsfLocalSupplySubDeclareshipLocalSupplyDeclareShipOpenApi
   };
 
 export interface AliexpressAsfLocalSupplySubDeclareshipShippingInfoDTO {
-  /** 线路名称 */
+  /** Route name */
   serviceName?: string;
-  /** 运单号 */
+  /** Waybill number */
   logisticsNo?: string;
-  /** 承运商 */
+  /** Carrier */
   carrierCode?: string;
 }
 
@@ -896,15 +896,15 @@ export const AliexpressAsfLocalSupplySubDeclareshipShippingInfoDTOSchema: Schema
   };
 
 export interface AliexpressAsfLocalSupplySubDeclareshipShippingInfoResultDTO {
-  /** 是否成功 */
+  /** Whether successful */
   success?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 线路名称 */
+  /** Route name */
   serviceName?: string;
-  /** 运单号 */
+  /** Waybill number */
   logisticsNo?: string;
 }
 
@@ -920,9 +920,9 @@ export const AliexpressAsfLocalSupplySubDeclareshipShippingInfoResultDTOSchema: 
 export interface AliexpressAsfLocalUnreachablePreferenceQueryOpenapiResponseDTO {
   /** success */
   success?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
   /** data */
   data?: Array<AliexpressAsfLocalUnreachablePreferenceQueryUnreachablePreferenceQueryResponse>;
@@ -942,13 +942,13 @@ export const AliexpressAsfLocalUnreachablePreferenceQueryOpenapiResponseDTOSchem
   };
 
 export interface AliexpressAsfLocalUnreachablePreferenceQueryUnreachablePreferenceQueryResponse {
-  /** 处理方式(销毁/退回) */
+  /** Handling method (destroy/return) */
   dealType?: string;
-  /** 退回门槛金额 */
+  /** Return threshold amount */
   returnAmount?: string;
-  /** 退回门槛金额币种 */
+  /** Currency of the return threshold amount */
   returnAmountCurrency?: string;
-  /** 国家 */
+  /** Country */
   countryCode?: string;
 }
 
@@ -963,9 +963,9 @@ export const AliexpressAsfLocalUnreachablePreferenceQueryUnreachablePreferenceQu
 export interface AliexpressAsfLocalUnreachablePreferenceUpdateOpenapiResponseDTO {
   /** success */
   success?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
   /** data */
   data?: string;
@@ -1037,9 +1037,9 @@ export const AliexpressAsfOrderShippingServiceGetOrderShippingServiceQueryRespon
   };
 
 export interface AliexpressAsfPackageShippingServiceGetCarrierInfoDTO {
-  /** 承运商名称 */
+  /** Carrier name */
   carrierName?: string;
-  /** 承运商编码 */
+  /** Carrier code */
   carrierCode?: string;
 }
 
@@ -1076,7 +1076,7 @@ export const AliexpressAsfPackageShippingServiceGetOpenapiResponseDTOSchema: Sch
 export interface AliexpressAsfPackageShippingServiceGetPackageAvailableShippingServiceQueryResponse {
   /** shipmentProviderList */
   shipmentProviderList?: Array<AliexpressAsfPackageShippingServiceGetShipmentProviderDTO>;
-  /** 不可用线路集合 */
+  /** Set of unavailable routes */
   unusableShipmentProviderList?: Array<AliexpressAsfPackageShippingServiceGetString>;
 }
 
@@ -1095,15 +1095,15 @@ export const AliexpressAsfPackageShippingServiceGetPackageAvailableShippingServi
   };
 
 export interface AliexpressAsfPackageShippingServiceGetShipmentProviderDTO {
-  /** 线路名称 */
+  /** Route name */
   shipmentProviderName?: string;
-  /** 线路编码 */
+  /** Route code */
   shipmentProviderCode?: string;
-  /** 线路类型 */
+  /** Route type */
   deliveryMode?: string;
-  /** 承运商列表 */
+  /** Carrier list */
   carrierInfoDTOList?: Array<AliexpressAsfPackageShippingServiceGetCarrierInfoDTO>;
-  /** 发货方式 */
+  /** Shipping method */
   shippingTypes?: Array<AliexpressAsfPackageShippingServiceGetShippingTypesDTO>;
 }
 
@@ -1125,9 +1125,9 @@ export const AliexpressAsfPackageShippingServiceGetShipmentProviderDTOSchema: Sc
   };
 
 export interface AliexpressAsfPackageShippingServiceGetShippingTypesDTO {
-  /** 发货方式编码 */
+  /** Shipping method code */
   code?: string;
-  /** 发货方式名称 */
+  /** Shipping method name */
   name?: string;
 }
 
@@ -1138,11 +1138,11 @@ export const AliexpressAsfPackageShippingServiceGetShippingTypesDTOSchema: Schem
   };
 
 export interface AliexpressAsfPackageShippingServiceGetString {
-  /** 线路名称 */
+  /** Route name */
   shipmentProviderName?: string;
-  /** 线路编码 */
+  /** Route code */
   shipmentProviderCode?: string;
-  /** 不可用原因 */
+  /** Unavailability reason */
   unusableReason?: string;
 }
 
@@ -1177,9 +1177,9 @@ export const AliexpressAsfPlatformLogisticsDocumentQueryOpenapiResponseDTOSchema
   };
 
 export interface AliexpressAsfPlatformLogisticsDocumentQueryPlatformLogisticsQueryDocumentResponse {
-  /** Base64 编码的字符串 */
+  /** Base64-encoded string */
   bytes?: string;
-  /** 文件下载链接（不推荐使用，会校验卖家登录态） */
+  /** File download link (not recommended, the seller login state will be verified) */
   fileUrl?: string;
 }
 
@@ -1190,11 +1190,11 @@ export const AliexpressAsfPlatformLogisticsDocumentQueryPlatformLogisticsQueryDo
   };
 
 export interface AliexpressAsfPlatformLogisticsDocumentQueryQueryDocumentRequest {
-  /** 交易单 */
+  /** Transaction order */
   tradeOrderId?: Long;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
-  /** 包裹Id */
+  /** Package ID */
   packageId?: string;
 }
 
@@ -1245,9 +1245,9 @@ export interface AliexpressAsfPlatformLogisticsRtsOpenapiResponseDTO {
   data?: AliexpressAsfPlatformLogisticsRtsPackResponse;
   /** success */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -1264,9 +1264,9 @@ export const AliexpressAsfPlatformLogisticsRtsOpenapiResponseDTOSchema: Schema =
   };
 
 export interface AliexpressAsfPlatformLogisticsRtsPackResponse {
-  /** 交易单id */
+  /** Transaction order ID */
   tradeOrderId?: Long;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
 }
 
@@ -1278,11 +1278,11 @@ export const AliexpressAsfPlatformLogisticsRtsPackResponseSchema: Schema = {
 export interface AliexpressAsfSellerAddressGetOpenapiResponseDTO {
   /** data */
   data?: AliexpressAsfSellerAddressGetPlatformLogisticsSellerAddressQueryResponse;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -1299,9 +1299,9 @@ export const AliexpressAsfSellerAddressGetOpenapiResponseDTOSchema: Schema = {
 };
 
 export interface AliexpressAsfSellerAddressGetPlatformLogisticsSellerAddressQueryResponse {
-  /** 揽收地址列表 */
+  /** Pickup address list */
   pickupSellerAddressList?: Array<AliexpressAsfSellerAddressGetSellerAddressDTO>;
-  /** 退件地址列表 */
+  /** Return address list */
   refundSellerAddressList?: Array<AliexpressAsfSellerAddressGetSellerAddressDTO>;
 }
 
@@ -1320,37 +1320,37 @@ export const AliexpressAsfSellerAddressGetPlatformLogisticsSellerAddressQueryRes
   };
 
 export interface AliexpressAsfSellerAddressGetSellerAddressDTO {
-  /** 地址id，用于打包传参 */
+  /** Address id, used for packaging parameters */
   addressId?: Long;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 是否默认地址 */
+  /** Whether it is the default address */
   defaultAddress?: boolean;
-  /** 地址类型 */
+  /** Address type */
   memberType?: string;
-  /** 联系人姓名 */
+  /** Contact name */
   name?: string;
-  /** 电话 */
+  /** Phone */
   phone?: string;
-  /** 邮编 */
+  /** Postal code */
   postCode?: string;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 详细地址 */
+  /** Detailed address */
   streetAddress?: string;
-  /** 区 */
+  /** District */
   area?: string;
-  /** 街道 */
+  /** Street */
   street?: string;
-  /** 街道号 */
+  /** Street number */
   localityIdentifier?: string;
-  /** 仓地址类型 */
+  /** Warehouse address type */
   serviceProviderType?: string;
-  /** 仓code */
+  /** Warehouse code */
   warehouseCode?: string;
 }
 
@@ -1374,13 +1374,13 @@ export const AliexpressAsfSellerAddressGetSellerAddressDTOSchema: Schema = {
 };
 
 export interface AliexpressAsfSellerCbFulfillmentInfoGetBrazilNfeInvoiceReviewDetailDTO {
-  /** 未上传发票是否允许上传 */
+  /** Whether upload is allowed when no invoice has been uploaded */
   allowShipWhenReviewNotPassed?: boolean;
-  /** 审核失败原因 */
+  /** Review failure reason */
   reviewFailReason?: string;
-  /** 是否需要发票 */
+  /** Whether an invoice is required */
   invoiceRequired?: string;
-  /** 发票审核状态 枚举：{{REVIEW_SUCCESS:审核成功，REVIEW_FAIL：审核失败}} */
+  /** Invoice review status enum: {{REVIEW_SUCCESS: review succeeded, REVIEW_FAIL: review failed}} */
   reviewStatus?: string;
 }
 
@@ -1393,15 +1393,15 @@ export const AliexpressAsfSellerCbFulfillmentInfoGetBrazilNfeInvoiceReviewDetail
   };
 
 export interface AliexpressAsfSellerCbFulfillmentInfoGetComplianceInfoDTO {
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   tradeOrderLineId?: string;
-  /** 合规检查结果 INIT("INIT", "待合规检查"), /** 正在审核 * / IN_REVIEW("IN_REVIEW", "合规检查中"), /** 审核失败 * / FAILED("FAILED", "合规检查失败"), /** 审核通过 * / PASSED("PASSED", "合规检查通过"), /** 审核通过（子单维度）：所有含 dsaHit=1 的子单审核结果均为 PASSED 时写入子单，不更新履约主单 * / ALL_PASSED("ALL_PASSED", "合规检查通过"), ; */
+  /** Compliance check result. INIT("INIT", "pending compliance check"), IN_REVIEW("IN_REVIEW", "compliance check in progress") (under review), FAILED("FAILED", "compliance check failed") (review failed), PASSED("PASSED", "compliance check passed") (review passed), ALL_PASSED("ALL_PASSED", "compliance check passed") (review passed at sub-order level: written to the sub-order when the review results of all sub-orders containing dsaHit=1 are PASSED; the main fulfillment order is not updated), ; */
   complianceReviewResult?: string;
-  /** 是否需要合规检查 */
+  /** Whether a compliance check is needed */
   dsaHit?: boolean;
-  /** 包装是否必填 */
+  /** Whether packaging is required */
   packImgReq?: boolean;
-  /** 商品图是否必填 */
+  /** Whether product images are required */
   itemImgReq?: boolean;
 }
 
@@ -1415,13 +1415,13 @@ export const AliexpressAsfSellerCbFulfillmentInfoGetComplianceInfoDTOSchema: Sch
   };
 
 export interface AliexpressAsfSellerCbFulfillmentInfoGetOpenapiResponseDTO {
-  /** 数据 */
+  /** Data */
   data?: AliexpressAsfSellerCbFulfillmentInfoGetShippingInformationQueryResponse;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 失败信息 */
+  /** Failure information */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -1439,11 +1439,11 @@ export const AliexpressAsfSellerCbFulfillmentInfoGetOpenapiResponseDTOSchema: Sc
   };
 
 export interface AliexpressAsfSellerCbFulfillmentInfoGetShippingInformationQueryResponse {
-  /** 发票审核信息 */
+  /** Invoice review information */
   brazilNfeInvoiceReview?: AliexpressAsfSellerCbFulfillmentInfoGetBrazilNfeInvoiceReviewDetailDTO;
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: string;
-  /** cro审核信息 */
+  /** CRO review information */
   complianceInfoDtoList?: Array<AliexpressAsfSellerCbFulfillmentInfoGetComplianceInfoDTO>;
 }
 
@@ -1464,13 +1464,13 @@ export const AliexpressAsfSellerCbFulfillmentInfoGetShippingInformationQueryResp
   };
 
 export interface AliexpressAsfSellerFulfillmentInfoGetBrazilNfeInvoiceReviewDetailDTO {
-  /** 未上传发票是否允许上传 */
+  /** Whether upload is allowed when no invoice has been uploaded */
   allowShipWhenReviewNotPassed?: boolean;
-  /** 审核失败原因 */
+  /** Review failure reason */
   reviewFailReason?: string;
-  /** 是否需要发票 */
+  /** Whether an invoice is required */
   invoiceRequired?: string;
-  /** 发票审核状态 枚举：{{REVIEW_SUCCESS:审核成功，REVIEW_FAIL：审核失败}} */
+  /** Invoice review status enum: {{REVIEW_SUCCESS: review succeeded, REVIEW_FAIL: review failed}} */
   reviewStatus?: string;
 }
 
@@ -1483,15 +1483,15 @@ export const AliexpressAsfSellerFulfillmentInfoGetBrazilNfeInvoiceReviewDetailDT
   };
 
 export interface AliexpressAsfSellerFulfillmentInfoGetComplianceInfoDTO {
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   tradeOrderLineId?: string;
-  /** 合规检查结果 INIT("INIT", "待合规检查"), /** 正在审核 * / IN_REVIEW("IN_REVIEW", "合规检查中"), /** 审核失败 * / FAILED("FAILED", "合规检查失败"), /** 审核通过 * / PASSED("PASSED", "合规检查通过"), /** 审核通过（子单维度）：所有含 dsaHit=1 的子单审核结果均为 PASSED 时写入子单，不更新履约主单 * / ALL_PASSED("ALL_PASSED", "合规检查通过"), ; */
+  /** Compliance check result. INIT("INIT", "pending compliance check"), IN_REVIEW("IN_REVIEW", "compliance check in progress") (under review), FAILED("FAILED", "compliance check failed") (review failed), PASSED("PASSED", "compliance check passed") (review passed), ALL_PASSED("ALL_PASSED", "compliance check passed") (review passed at sub-order level: written to the sub-order when the review results of all sub-orders containing dsaHit=1 are PASSED; the main fulfillment order is not updated), ; */
   complianceReviewResult?: string;
-  /** 是否需要合规检查 */
+  /** Whether a compliance check is needed */
   dsaHit?: boolean;
-  /** 包装是否必填 */
+  /** Whether packaging is required */
   packImgReq?: boolean;
-  /** 商品图是否必填 */
+  /** Whether product images are required */
   itemImgReq?: boolean;
 }
 
@@ -1505,13 +1505,13 @@ export const AliexpressAsfSellerFulfillmentInfoGetComplianceInfoDTOSchema: Schem
   };
 
 export interface AliexpressAsfSellerFulfillmentInfoGetOpenapiResponseDTO {
-  /** 数据 */
+  /** Data */
   data?: AliexpressAsfSellerFulfillmentInfoGetShippingInformationQueryResponse;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 失败信息 */
+  /** Failure information */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -1529,11 +1529,11 @@ export const AliexpressAsfSellerFulfillmentInfoGetOpenapiResponseDTOSchema: Sche
   };
 
 export interface AliexpressAsfSellerFulfillmentInfoGetShippingInformationQueryResponse {
-  /** 发票审核信息 */
+  /** Invoice review information */
   brazilNfeInvoiceReview?: AliexpressAsfSellerFulfillmentInfoGetBrazilNfeInvoiceReviewDetailDTO;
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: string;
-  /** cro审核信息 */
+  /** CRO review information */
   complianceInfoDtoList?: Array<AliexpressAsfSellerFulfillmentInfoGetComplianceInfoDTO>;
 }
 
@@ -1753,21 +1753,21 @@ export const aliexpressAsfDbsDeclareship: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.fulfillment.package.query`. */
 export interface AliexpressAsfFulfillmentPackageQueryParams {
-  /** 交易单id */
+  /** Transaction order ID */
   tradeOrderId?: string;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** 包裹id */
+  /** Package ID */
   packageId?: string;
-  /** 时间戳（13位） */
+  /** Timestamp (13 digits) */
   createStartTime?: string;
-  /** 时间戳（13位） */
+  /** Timestamp (13 digits) */
   createEndTime?: string;
-  /** 页数 */
+  /** Number of pages */
   current?: string;
-  /** 分页大小（单次查询最大50条） */
+  /** Page size (maximum 50 per query) */
   pageSize?: string;
-  /** 渠道店铺id */
+  /** Channel store ID */
   channelSellerId?: string;
 }
 
@@ -1812,7 +1812,7 @@ export interface AliexpressAsfLocalSupplyBatchDeclareshipParams {
   declareShipOpenRequestList?: Array<AliexpressAsfLocalSupplyBatchDeclareshipString>;
   /** sellerId */
   sellerId?: LongInput;
-  /** 语言 */
+  /** Language */
   locale?: string;
 }
 
@@ -1924,21 +1924,21 @@ export const aliexpressAsfLocalSupplyDeclareshipModify: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.local.supply.platform.logistics.document.query`. */
 export interface AliexpressAsfLocalSupplyPlatformLogisticsDocumentQueryParams {
-  /** 打印运单：WAY_BILL， 打印拣货单：PICKING_ORDER， 打印交接单：HANDOVER， 打印运单和拣货单：PICKING_ORDER_AND_WAY_BILL */
+  /** Print waybill: WAY_BILL, print picking list: PICKING_ORDER, print handover note: HANDOVER, print waybill and picking list: PICKING_ORDER_AND_WAY_BILL */
   documentType?: string;
-  /** 此字段表示您需要打印的文件所返回的数据类型，目前仅支持 PDF 格式。因此，目前请不要在此字段中填写任何内容，因为这是一个保留字段。 */
+  /** This field indicates the data type returned for the file you need to print; currently only the PDF format is supported. Therefore, do not fill in anything in this field for now, as it is a reserved field. */
   fileType?: string;
   /** queryDocumentRequestList */
   queryDocumentRequestList?: Array<AliexpressAsfLocalSupplyPlatformLogisticsDocumentQueryQueryDocumentRequest>;
   /** locale */
   locale?: string;
-  /** 渠道店铺id */
+  /** Channel store ID */
   channelSellerId?: string;
 }
 
 /** Response of `aliexpress.asf.local.supply.platform.logistics.document.query`. */
 export interface AliexpressAsfLocalSupplyPlatformLogisticsDocumentQueryResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressAsfLocalSupplyPlatformLogisticsDocumentQueryOpenapiResponseDTO;
 }
 
@@ -1978,21 +1978,21 @@ export const aliexpressAsfLocalSupplyPlatformLogisticsDocumentQuery: ApiDefiniti
 
 /** Parameters for `aliexpress.asf.local.supply.platform.logistics.repack`. */
 export interface AliexpressAsfLocalSupplyPlatformLogisticsRepackParams {
-  /** 订单号 */
+  /** Order number */
   tradeOrderId?: LongInput;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
-  /** 包裹id */
+  /** Package ID */
   packageId?: string;
-  /** 渠道店铺id */
+  /** Channel store ID */
   channelSellerId?: string;
 }
 
 /** Response of `aliexpress.asf.local.supply.platform.logistics.repack`. */
 export interface AliexpressAsfLocalSupplyPlatformLogisticsRepackResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressAsfLocalSupplyPlatformLogisticsRepackOpenapiResponseDTO;
 }
 
@@ -2025,21 +2025,21 @@ export const aliexpressAsfLocalSupplyPlatformLogisticsRepack: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.local.supply.platform.logistics.rts`. */
 export interface AliexpressAsfLocalSupplyPlatformLogisticsRtsParams {
-  /** 订单id */
+  /** Order ID */
   tradeOrderId?: LongInput;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
-  /** 包裹id */
+  /** Package ID */
   packageId?: string;
-  /** 渠道店铺id */
+  /** Channel store ID */
   channelSellerId?: string;
 }
 
 /** Response of `aliexpress.asf.local.supply.platform.logistics.rts`. */
 export interface AliexpressAsfLocalSupplyPlatformLogisticsRtsResponse {
-  /** 返回 */
+  /** Return */
   result?: AliexpressAsfLocalSupplyPlatformLogisticsRtsOpenapiResponseDTO;
 }
 
@@ -2071,11 +2071,11 @@ export const aliexpressAsfLocalSupplyPlatformLogisticsRts: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.local.supply.seller.address.get`. */
 export interface AliexpressAsfLocalSupplySellerAddressGetParams {
-  /** 请将地址类型填写为“揽收”或“退件”，或者如果两者都适用的话用逗号将其分隔开。此接口返回的地址 ID 可用作平台物流包装接口中的地址 ID 参数。但请注意，目前“包装”接口仅要求传递“自取”类型的地址 ID，无需传递“退款”类型的地址 ID（即无需传递退货地址）。 */
+  /** Enter the address type as "pickup" or "return", or separate them with a comma if both apply. The address ID returned by this API can be used as the address ID parameter of the platform logistics packaging API. Note that currently the "packaging" API only requires an address ID of the "self-pickup" type, and does not require an address ID of the "refund" type (i.e. the return address does not need to be passed). */
   addressType?: string;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** 渠道店铺id */
+  /** Channel store ID */
   channelSellerId?: string;
 }
 
@@ -2117,9 +2117,9 @@ export interface AliexpressAsfLocalSupplyShippingServiceGetParams {
   tradeOrderItemIdList?: Array<LongInput>;
   /** sellerId */
   sellerId?: LongInput;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** 是否包含3pl线路 */
+  /** Whether to include 3pl routes */
   includeThirdPartyShippingService?: boolean;
 }
 
@@ -2185,11 +2185,11 @@ export interface AliexpressAsfLocalSupplySplitQuantityRtsPackParams {
 
 /** Response of `aliexpress.asf.local.supply.split.quantity.rts.pack`. */
 export interface AliexpressAsfLocalSupplySplitQuantityRtsPackResponse {
-  /** 结果 */
+  /** Result */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
   /** data */
   data?: AliexpressAsfLocalSupplySplitQuantityRtsPackPlatformLogisticsPackedSupportItemResponse;
@@ -2234,23 +2234,23 @@ export const aliexpressAsfLocalSupplySplitQuantityRtsPack: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.local.supply.sub.declareship`. */
 export interface AliexpressAsfLocalSupplySubDeclareshipParams {
-  /** 交易单ID */
+  /** Transaction order ID */
   tradeOrderId?: string;
-  /** 子单List */
+  /** Sub-order list */
   subTradeOrderList?: Array<AliexpressAsfLocalSupplySubDeclareshipDeclareShippingLineDTO>;
-  /** 商家ID */
+  /** Merchant ID */
   sellerId?: LongInput;
-  /** 语言 */
+  /** Language */
   locale?: string;
 }
 
 /** Response of `aliexpress.asf.local.supply.sub.declareship`. */
 export interface AliexpressAsfLocalSupplySubDeclareshipResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
   /** data */
   data?: AliexpressAsfLocalSupplySubDeclareshipLocalSupplyDeclareShipOpenApiResponse;
@@ -2291,11 +2291,11 @@ export const aliexpressAsfLocalSupplySubDeclareship: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.local.unreachable.preference.query`. */
 export interface AliexpressAsfLocalUnreachablePreferenceQueryParams {
-  /** 渠道店铺id */
+  /** Channel store ID */
   channelSellerId?: string;
-  /** 国家二字码 */
+  /** Two-letter country code */
   countryCode?: string;
-  /** 语言 */
+  /** Language */
   locale?: string;
 }
 
@@ -2331,17 +2331,17 @@ export const aliexpressAsfLocalUnreachablePreferenceQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.local.unreachable.preference.update`. */
 export interface AliexpressAsfLocalUnreachablePreferenceUpdateParams {
-  /** 国家二字码 */
+  /** Two-letter country code */
   countryCode?: string;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** 处理方式(销毁/退回) */
+  /** Handling method (destroy/return) */
   dealType?: string;
-  /** 退回门槛金额，处理方式=退回必填 */
+  /** Return threshold amount; required when the handling method is return */
   returnAmount?: string;
-  /** 退回门槛金额币种，处理方式=退回必填 */
+  /** Currency of the return threshold amount, required when handling method = return */
   returnAmountCurrency?: string;
-  /** 渠道店铺id */
+  /** Channel store ID */
   channelSellerId?: string;
 }
 
@@ -2448,11 +2448,11 @@ export interface AliexpressAsfLocal2localSplitQuantityRtsPackParams {
 
 /** Response of `aliexpress.asf.local2local.split.quantity.rts.pack`. */
 export interface AliexpressAsfLocal2localSplitQuantityRtsPackResponse {
-  /** 结果 */
+  /** Result */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
   /** data */
   data?: AliexpressAsfLocal2localSplitQuantityRtsPackPlatformLogisticsPackedSupportItemResponse;
@@ -2497,9 +2497,9 @@ export const aliexpressAsfLocal2localSplitQuantityRtsPack: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.local2local.sub.declareship`. */
 export interface AliexpressAsfLocal2localSubDeclareshipParams {
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: string;
-  /** 子单信息 */
+  /** Sub-order information */
   subTradeOrderList?: Array<AliexpressAsfLocal2localSubDeclareshipDeclareShippingLineDTO>;
   /** sellerId */
   sellerId?: LongInput;
@@ -2551,13 +2551,13 @@ export const aliexpressAsfLocal2localSubDeclareship: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.local2local.transfer.to.offline`. */
 export interface AliexpressAsfLocal2localTransferToOfflineParams {
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: string;
-  /** 子单信息 */
+  /** Sub-order information */
   subTradeOrderList?: Array<AliexpressAsfLocal2localTransferToOfflineDeclareShippingLineDTO>;
   /** sellerId */
   sellerId?: LongInput;
-  /** 包裹id */
+  /** Package ID */
   packageId?: string;
 }
 
@@ -2695,9 +2695,9 @@ export const aliexpressAsfPackageShippingServiceGet: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.platform.logistics.document.query`. */
 export interface AliexpressAsfPlatformLogisticsDocumentQueryParams {
-  /** 打印运单：WAY_BILL， 打印拣货单：PICKING_ORDER， 打印交接单：HANDOVER， 打印运单和拣货单：PICKING_ORDER_AND_WAY_BILL */
+  /** Print waybill: WAY_BILL, print picking list: PICKING_ORDER, print handover note: HANDOVER, print waybill and picking list: PICKING_ORDER_AND_WAY_BILL */
   documentType?: string;
-  /** 此字段表示您需要打印的文件所返回的数据类型，目前仅支持 PDF 格式。因此，目前请不要在此字段中填写任何内容，因为这是一个保留字段。 */
+  /** This field indicates the data type returned for the file you need to print; currently only the PDF format is supported. Therefore, do not fill in anything in this field for now, as it is a reserved field. */
   fileType?: string;
   /** queryDocumentRequestList */
   queryDocumentRequestList?: Array<AliexpressAsfPlatformLogisticsDocumentQueryQueryDocumentRequest>;
@@ -2786,13 +2786,13 @@ export const aliexpressAsfPlatformLogisticsRepack: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.platform.logistics.rts`. */
 export interface AliexpressAsfPlatformLogisticsRtsParams {
-  /** 交易单id */
+  /** Transaction order ID */
   tradeOrderId?: LongInput;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
-  /** 包裹id */
+  /** Package ID */
   packageId?: string;
 }
 
@@ -2829,9 +2829,9 @@ export const aliexpressAsfPlatformLogisticsRts: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.seller.address.get`. */
 export interface AliexpressAsfSellerAddressGetParams {
-  /** 请将地址类型填写为“揽收”或“退件”，或者如果两者都适用的话用逗号将其分隔开。此接口返回的地址 ID 可用作平台物流包装接口中的地址 ID 参数。但请注意，目前“包装”接口仅要求传递“自取”类型的地址 ID，无需传递“退款”类型的地址 ID（即无需传递退货地址）。 */
+  /** Enter the address type as "pickup" or "return", or separate them with a comma if both apply. The address ID returned by this API can be used as the address ID parameter of the platform logistics packaging API. Note that currently the "packaging" API only requires an address ID of the "self-pickup" type, and does not require an address ID of the "refund" type (i.e. the return address does not need to be passed). */
   addressType?: string;
-  /** 语言 */
+  /** Language */
   locale?: string;
 }
 
@@ -2866,13 +2866,13 @@ export const aliexpressAsfSellerAddressGet: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.seller.cb.fulfillment.info.get`. */
 export interface AliexpressAsfSellerCbFulfillmentInfoGetParams {
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: LongInput;
 }
 
 /** Response of `aliexpress.asf.seller.cb.fulfillment.info.get`. */
 export interface AliexpressAsfSellerCbFulfillmentInfoGetResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressAsfSellerCbFulfillmentInfoGetOpenapiResponseDTO;
 }
 
@@ -2900,13 +2900,13 @@ export const aliexpressAsfSellerCbFulfillmentInfoGet: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.seller.fulfillment.info.get`. */
 export interface AliexpressAsfSellerFulfillmentInfoGetParams {
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: LongInput;
 }
 
 /** Response of `aliexpress.asf.seller.fulfillment.info.get`. */
 export interface AliexpressAsfSellerFulfillmentInfoGetResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressAsfSellerFulfillmentInfoGetOpenapiResponseDTO;
 }
 
@@ -2942,9 +2942,9 @@ export interface AliexpressAsfShipmentPackParams {
   addressId?: string;
   /** sendOption */
   sendOption?: string;
-  /** 多语言 */
+  /** Multilingual */
   locale?: string;
-  /** 解决方案 （韩国本地必填） */
+  /** Solution (required for Korea local) */
   solutionCode?: string;
 }
 
@@ -2987,7 +2987,7 @@ export const aliexpressAsfShipmentPack: ApiDefinition<
 
 /** Parameters for `aliexpress.asf.shipment.tracking.get`. */
 export interface AliexpressAsfShipmentTrackingGetParams {
-  /** 运单号 */
+  /** Waybill number */
   mailNo?: string;
   /** tradeOrderId */
   tradeOrderId?: LongInput;

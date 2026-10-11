@@ -9,77 +9,77 @@ import type {
 } from '../core/index.js';
 
 export interface CainiaoCnapDeliveryorderConfirm {
-  /** 出库单号 */
+  /** Outbound order number */
   deliveryOrderCode?: string;
-  /** 仓储系统出库单号 */
+  /** Outbound order number in the warehouse system */
   deliveryOrderId?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 出库单类型(JYCK=一般交易出库;HHCK=换货出库;BFCK=补发出库) */
+  /** Outbound order type (JYCK = general transaction outbound; HHCK = exchange outbound; BFCK = reshipment outbound) */
   orderType?: string;
-  /** DELIVERED-发货完成 */
+  /** DELIVERED - shipment completed */
   status?: string;
-  /** 外部业务编码,条件必填(消息ID;用于去重;ISV对于同一请求;分配一个唯一性的编码。用来保证因为网络等原因导致重复传输) */
+  /** External business code, conditionally required (message ID; used for deduplication; the ISV assigns a unique code to the same request. Ensures that a request is not processed repeatedly when transmitted more than once due to network or other reasons) */
   outBizCode?: string;
-  /** 支持出库单多次发货(多次发货后确认时;0表示发货单最终状态确认;1表示发货单中间状态确认) */
+  /** Supports multiple shipments for an outbound order (when confirming after multiple shipments; 0 means confirmation of the final status of the shipment order; 1 means confirmation of an intermediate status of the shipment order) */
   confirmType?: string;
-  /** 订单完成时间(YYYY-MM-DD HH:MM:SS) */
+  /** Order completion time (YYYY-MM-DD HH:MM:SS) */
   orderConfirmTime?: string;
-  /** 物流公司编码 */
+  /** Logistics company code */
   logisticsCode?: string;
-  /** 物流公司名称 */
+  /** Logistics company name */
   logisticsName?: string;
-  /** 运单号 */
+  /** Waybill number */
   expressCode?: string;
-  /** 包裹编号 */
+  /** Package number */
   packageCode?: string;
-  /** 包裹长度(单位：厘米) */
+  /** Package length (unit: cm) */
   length?: string;
-  /** 包裹宽度(单位：厘米) */
+  /** Package width (unit: cm) */
   width?: string;
-  /** 包裹高度(单位：厘米) */
+  /** Package height (unit: cm) */
   height?: string;
-  /** 包裹重量(单位：千克) */
+  /** Package weight (unit: kg) */
   weight?: string;
-  /** 包裹体积(单位：升) */
+  /** Package volume (unit: liters) */
   volume?: string;
-  /** 包材列表 */
+  /** Packaging material list */
   packageMaterialList?: Array<CainiaoCnapDeliveryorderConfirm>;
-  /** 包裹商品列表 */
+  /** Package product list */
   items?: Array<CainiaoCnapDeliveryorderConfirm>;
-  /** 包材型号 */
+  /** Packaging material model */
   type?: string;
-  /** 包材的数量 */
+  /** Packaging material quantity */
   quantity?: string;
-  /** 商品编码 */
+  /** Product code */
   itemCode?: string;
-  /** 商品仓储系统编码 */
+  /** Product code in the warehouse system */
   itemId?: string;
-  /** 单据行号 */
+  /** Document line number */
   orderLineNo?: string;
-  /** 商品名称 */
+  /** Product name */
   itemName?: string;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 应发商品数量 */
+  /** Quantity of products to ship */
   planQty?: string;
-  /** 实发商品数量 */
+  /** Quantity of products actually shipped */
   actualQty?: string;
-  /** 批次信息 */
+  /** Batch information */
   batchs?: Array<CainiaoCnapDeliveryorderConfirm>;
-  /** 明细拓展信息，KV格式 */
+  /** Extended detail information, KV format */
   extendProps?: string;
-  /** 批次编号 */
+  /** Batch number */
   batchCode?: string;
-  /** 生产批号 */
+  /** Production batch number */
   produceCode?: string;
-  /** 生产日期(YYYY-MM-DD) */
+  /** Production date (YYYY-MM-DD) */
   productDate?: string;
-  /** 过期日期(YYYY-MM-DD) */
+  /** Expiration date (YYYY-MM-DD) */
   expireDate?: string;
-  /** 库存类型，1=正品;101=残次 */
+  /** Inventory type, 1=genuine; 101=defective */
   inventoryType?: string;
-  /** ISV自定义键，创建时下发，回传时默认带回 */
+  /** ISV custom key, issued at creation and returned by default when passed back */
   erpCustomKey?: string;
 }
 
@@ -127,7 +127,7 @@ export const CainiaoCnapDeliveryorderConfirmSchema: Schema = {
 };
 
 export interface CainiaoCnapDeliveryorderCreatedataObject {
-  /** 菜鸟发货单单号 */
+  /** Cainiao shipment order number */
   deliveryOrderId?: string;
 }
 
@@ -136,57 +136,57 @@ export const CainiaoCnapDeliveryorderCreatedataObjectSchema: Schema = {
 };
 
 export interface CainiaoCnapDeliveryorderCreateDeliveryOrderCreateRequestDTODeliveryOrderDTO {
-  /** 出库单类型,JYCK=一般交易出库单, HHCK=换货出库单, BFCK=补发出库单 */
+  /** Outbound order type: JYCK = general transaction outbound order, HHCK = exchange outbound order, BFCK = reshipment outbound order */
   orderType?: string;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 订单支付时间, YYYY-MM-DD HH:MM:SS */
+  /** Order payment time, YYYY-MM-DD HH:MM:SS */
   payTime?: string;
-  /** 快递费用 (元)，Double(18,2) */
+  /** Express fee (yuan), Double(18,2) */
   freight?: string;
-  /** 收件人信息 */
+  /** Recipient information */
   receiverInfo?: CainiaoCnapDeliveryorderCreateDeliveryOrderCreateRequestDTODeliveryOrderDTOReceiverInfo;
-  /** oaid对应的交易单号 */
+  /** Transaction order number corresponding to the oaid */
   oaidOrderSourceCode?: string;
-  /** 备注 */
+  /** Remarks */
   remark?: string;
-  /** 发货单号 */
+  /** Shipment order number */
   deliveryOrderCode?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 支付平台交易号,淘系订单传支付宝交易号 */
+  /** Payment platform transaction number; for Taobao orders, pass the Alipay transaction number */
   payNo?: string;
-  /** 店铺名称 */
+  /** Store name */
   shopNick?: string;
-  /** 原出库单号（WMS分配）, 条件必填,条件为换货出库 */
+  /** Original outbound order number (assigned by WMS), conditionally required, the condition being exchange outbound */
   preDeliveryOrderId?: string;
-  /** 商品总金额 (元)，Double(18,2) */
+  /** Total product amount (yuan), Double(18,2) */
   itemAmount?: string;
-  /** 运单号 */
+  /** Waybill number */
   expressCode?: string;
-  /** 卖家留言 */
+  /** Seller message */
   sellerMessage?: string;
-  /** 应收金额 (元) , 消费者还需要支付多少（货到付款时消费者还需要支付多少约定使用这个字段）,Double(18,2) */
+  /** Amount receivable (yuan), how much the consumer still needs to pay (by convention this field is used for how much the consumer still needs to pay on cash on delivery), Double(18,2) */
   arAmount?: string;
-  /** COD服务费，Double(18,2) */
+  /** COD service fee, Double(18,2) */
   serviceFee?: string;
-  /** 原出库单号（ERP分配）,条件必填,条件为换货出库 */
+  /** Original outbound order number (assigned by ERP), conditionally required, the condition being exchange outbound */
   preDeliveryOrderCode?: string;
-  /** 物流公司编码，写死OTHER */
+  /** Logistics company code, hard-coded as OTHER */
   logisticsCode?: string;
-  /** 订单总金额 (元) ,订单总金额=应收金额+已收金额=商品总金额-订单折扣金额+快递费用，Double(18,2) */
+  /** Total order amount (yuan). Total order amount = receivable amount + received amount = total product amount - order discount amount + courier fee, Double(18,2) */
   totalAmount?: string;
-  /** 是否紧急, Y/N, 默认为N */
+  /** Whether urgent, Y/N, default N */
   isUrgency?: string;
-  /** 买家留言 */
+  /** Buyer message */
   buyerMessage?: string;
-  /** 发件人信息 */
+  /** Sender information */
   senderInfo?: CainiaoCnapDeliveryorderCreateDeliveryOrderCreateRequestDTODeliveryOrderDTOSenderInfo;
-  /** 订单来源平台编码,AE=速卖通 */
+  /** Order source platform code, AE=AliExpress */
   sourcePlatformCode?: string;
-  /** 发货单创建时间 YYYY-MM-DD HH:MM:SS */
+  /** Shipment order creation time YYYY-MM-DD HH:MM:SS */
   createTime?: string;
-  /** 快递区域编码, 大头笔信息 */
+  /** Express region code, big-head-mark information */
   logisticsAreaCode?: string;
 }
 
@@ -231,33 +231,33 @@ export const CainiaoCnapDeliveryorderCreateDeliveryOrderCreateRequestDTODelivery
   };
 
 export interface CainiaoCnapDeliveryorderCreateDeliveryOrderCreateRequestDTODeliveryOrderDTOReceiverInfo {
-  /** 区域 */
+  /** Region */
   area?: string;
-  /** 邮编 */
+  /** Postal code */
   zipCode?: string;
-  /** 1-身份证 2-军官证 3-护照 4-其他 */
+  /** 1 - ID card 2 - military officer ID 3 - passport 4 - other */
   idType?: string;
-  /** 村镇 */
+  /** Village/town */
   town?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 移动电话 */
+  /** Mobile phone */
   mobile?: string;
-  /** 收件人证件号码 */
+  /** Recipient ID number */
   idNumber?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 国家二字码 */
+  /** Two-letter country code */
   countryCode?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 公司名称 */
+  /** Company name */
   company?: string;
-  /** 固话 */
+  /** Landline */
   tel?: string;
-  /** 电子邮箱 */
+  /** Email */
   email?: string;
   /** oaid */
   oaid?: string;
@@ -283,31 +283,31 @@ export const CainiaoCnapDeliveryorderCreateDeliveryOrderCreateRequestDTODelivery
   };
 
 export interface CainiaoCnapDeliveryorderCreateDeliveryOrderCreateRequestDTODeliveryOrderDTOSenderInfo {
-  /** 区域 */
+  /** Region */
   area?: string;
-  /** 邮编 */
+  /** Postal code */
   zipCode?: string;
-  /** 城镇 */
+  /** Town */
   town?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 移动电话 */
+  /** Mobile phone */
   mobile?: string;
-  /** 证件号 */
+  /** ID number */
   idNumber?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 国家二字码 */
+  /** Two-letter country code */
   countryCode?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 公司名称 */
+  /** Company name */
   company?: string;
-  /** 固话 */
+  /** Landline */
   tel?: string;
-  /** 电子邮箱 */
+  /** Email */
   email?: string;
   /** oaid */
   oaid?: string;
@@ -332,39 +332,39 @@ export const CainiaoCnapDeliveryorderCreateDeliveryOrderCreateRequestDTODelivery
   };
 
 export interface CainiaoCnapDeliveryorderCreateDeliveryOrderCreateRequestDTODeliveryOrderLineDTO {
-  /** 行号 */
+  /** Line number */
   orderLineNo?: string;
-  /** 库存类型,正品=1, 残品=101 */
+  /** Inventory type, genuine=1, defective=101 */
   inventoryType?: string;
-  /** 应发商品数量 */
+  /** Quantity of products to ship */
   planQty?: Long;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 实际成交价,Double(18,2) */
+  /** Actual transaction price, Double(18,2) */
   actualPrice?: string;
-  /** 商品编码 */
+  /** Product code */
   itemCode?: string;
-  /** 批次编码 */
+  /** Batch code */
   batchCode?: string;
-  /** 订单折扣金额 (元)，Double(18,2) */
+  /** Order discount amount (yuan), Double(18,2) */
   discountAmount?: string;
-  /** 交易平台子订单编码 */
+  /** Sub-order code on the trading platform */
   subSourceOrderCode?: string;
-  /** 生产日期 YYYY-MM-DD */
+  /** Production date YYYY-MM-DD */
   productDate?: string;
-  /** 仓储系统商品编码 */
+  /** Product code in the warehouse system */
   itemId?: Long;
-  /** 生产批号 */
+  /** Production batch number */
   produceCode?: string;
-  /** 商品名称 */
+  /** Product name */
   itemName?: string;
-  /** 交易平台订单 */
+  /** Trading platform order */
   sourceOrderCode?: string;
-  /** 明细拓展,KV结构 */
+  /** Detail extension, KV structure */
   extendProps?: Record<string, unknown>;
-  /** 过期日期 YYYY-MM-DD */
+  /** Expiration date YYYY-MM-DD */
   expireDate?: string;
-  /** 零售价,零售价=实际成交价+单件商品折扣金额,Double(18,2) */
+  /** Retail price. Retail price = actual transaction price + per-item product discount amount, Double(18,2) */
   retailPrice?: string;
 }
 
@@ -390,13 +390,13 @@ export const CainiaoCnapDeliveryorderCreateDeliveryOrderCreateRequestDTODelivery
   };
 
 export interface CainiaoCnapDeliveryorderCreateResultDTO {
-  /** 错误信息 */
+  /** Error message */
   errDesc?: string;
-  /** 数据 */
+  /** Data */
   data?: CainiaoCnapDeliveryorderCreatedataObject;
-  /** 请求状态 */
+  /** Request status */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
 }
 
@@ -408,51 +408,51 @@ export const CainiaoCnapDeliveryorderCreateResultDTOSchema: Schema = {
 };
 
 export interface CainiaoCnapEntryorderConfirm {
-  /** ERP自定义拓展信息 */
+  /** ERP custom extension information */
   erpCustomKey?: string;
-  /** 货品编码 */
+  /** Goods code */
   itemCode?: string;
-  /** 仓储商品ID */
+  /** Warehouse product ID */
   itemId?: string;
-  /** 行号 */
+  /** Line number */
   orderLineNo?: string;
-  /** 货品名称 */
+  /** Goods name */
   itemName?: string;
-  /** 实际入库数量 */
+  /** Actual inbound quantity */
   actualQty?: string;
-  /** ERP入库单编码 */
+  /** ERP inbound order code */
   entryOrderCode?: string;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 菜鸟入库单号 */
+  /** Cainiao inbound order number */
   entryOrderId?: string;
-  /** 入库单类型 ，SCRK=生产入库，LYRK=领用入库，CCRK=残次品入库，CGRK=采购入库, DBRK=调拨入库, QTRK=其他入库，B2BRK=B2B入库 */
+  /** Inbound order type, SCRK=production inbound, LYRK=requisition inbound, CCRK=defective product inbound, CGRK=purchase inbound, DBRK=transfer inbound, QTRK=other inbound, B2BRK=B2B inbound */
   entryOrderType?: string;
-  /** 外部业务编码, 消息ID, 用于去重, ISV对于同一请求，分配一个唯一性的编码。用来保证因为网络等原因导致重复传输，请求不会被重复处理, */
+  /** External business code, message ID, used for deduplication. The ISV assigns a unique code to the same request, ensuring that a request is not processed repeatedly when transmitted more than once due to network or other reasons, */
   outBizCode?: string;
-  /** 支持出入库单多次收货, 多次收货后确认时,0 表示入库单最终状态确认; 1 表示入库单中间状态确认；,每次入库传入的数量为增量，特殊情况，同一入库单，如果先收到0，后又收到1，允许修改收货的数量。 */
+  /** Supports multiple receipts for an inbound/outbound order. When confirming after multiple receipts: 0 means final status confirmation of the inbound order; 1 means intermediate status confirmation of the inbound order; the quantity passed in each inbound is incremental. In special cases, for the same inbound order, if 0 is received first and 1 later, the received quantity may be modified. */
   confirmType?: string;
-  /** PARTFULFILLED-部分收货完成, FULFILLED-收货完成 */
+  /** PARTFULFILLED - partially received, FULFILLED - fully received */
   status?: string;
-  /** 操作时间 */
+  /** Operation time */
   operateTime?: string;
-  /** 备注 */
+  /** Remarks */
   remark?: string;
-  /** 明细拓展信息，{"k":"v"} */
+  /** Extended detail information, {"k":"v"} */
   extendProps?: string;
-  /** 批次列表 */
+  /** Batch list */
   batchs?: Array<CainiaoCnapEntryorderConfirm>;
-  /** 库存类型, 1=正品, 101=残次，完整库存类型请联系菜鸟小二 */
+  /** Inventory type, 1=good, 101=defective. For the full list of inventory types, contact Cainiao staff */
   inventoryType?: string;
-  /** 批次编码 */
+  /** Batch code */
   batchCode?: string;
-  /** 生产批号 */
+  /** Production batch number */
   produceCode?: string;
-  /** 商品生产日期 YYYY-MM-DD */
+  /** Product production date YYYY-MM-DD */
   productDate?: string;
-  /** 商品过期日期 YYYY-MM-DD */
+  /** Product expiration date YYYY-MM-DD */
   expireDate?: string;
 }
 
@@ -483,7 +483,7 @@ export const CainiaoCnapEntryorderConfirmSchema: Schema = {
 };
 
 export interface CainiaoCnapEntryorderCreatedataObject {
-  /** 菜鸟入库单号 */
+  /** Cainiao inbound order number */
   entryOrderId?: string;
 }
 
@@ -492,37 +492,37 @@ export const CainiaoCnapEntryorderCreatedataObjectSchema: Schema = {
 };
 
 export interface CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderDTO {
-  /** 供应商名称 */
+  /** Supplier name */
   supplierName?: string;
-  /** 业务类型,(SCRK=生产入库，LYRK=领用入库，CCRK=残次品入库，CGRK=采购入库，DBRK=调拨入库, QTRK=其他入库，B2BRK=B2B入库,XNRK=虚拟入库, (只传英文编码) */
+  /** Business type, (SCRK=production inbound, LYRK=requisition inbound, CCRK=defective product inbound, CGRK=purchase inbound, DBRK=transfer inbound, QTRK=other inbound, B2BRK=B2B inbound, XNRK=virtual inbound, (pass only the English code) */
   orderType?: string;
-  /** 入库单号 */
+  /** Inbound order number */
   entryOrderCode?: string;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 最迟预期到货时间 YYYY-MM-DD HH:MM:SS */
+  /** Latest expected arrival time YYYY-MM-DD HH:MM:SS */
   expectEndTime?: string;
-  /** 订单创建时间 YYYY-MM-DD HH:MM:SS */
+  /** Order creation time YYYY-MM-DD HH:MM:SS */
   orderCreateTime?: string;
-  /** 预期到货时间 YYYY-MM-DD HH:MM:SS */
+  /** Expected arrival time YYYY-MM-DD HH:MM:SS */
   expectStartTime?: string;
-  /** 收件人信息 */
+  /** Recipient information */
   receiverInfo?: CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderDTOReceiverInfo;
-  /** 物流公司编码 */
+  /** Logistics company code */
   logisticsCode?: string;
-  /** 备注 */
+  /** Remarks */
   remark?: string;
-  /** 供应商编码 */
+  /** Supplier code */
   supplierCode?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 物流公司名称 */
+  /** Logistics company name */
   logisticsName?: string;
-  /** 采购订单号 */
+  /** Purchase order number */
   purchaseOrderCode?: string;
-  /** 发件人信息 */
+  /** Sender information */
   senderInfo?: CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderDTOSenderInfo;
-  /** 关联单据 */
+  /** Associated documents */
   relatedOrders?: Array<CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderDTORelatedOrderDTO>;
 }
 
@@ -562,29 +562,29 @@ export const CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderDTOS
   };
 
 export interface CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderDTOReceiverInfo {
-  /** 区域 */
+  /** Region */
   area?: string;
-  /** 邮编 */
+  /** Postal code */
   zipCode?: string;
-  /** 村镇 */
+  /** Village/town */
   town?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 移动电话 */
+  /** Mobile phone */
   mobile?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 国家二字码 */
+  /** Two-letter country code */
   countryCode?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 公司名称 */
+  /** Company name */
   company?: string;
-  /** 固定电话 */
+  /** Landline phone */
   tel?: string;
-  /** 电子邮箱 */
+  /** Email */
   email?: string;
 }
 
@@ -605,9 +605,9 @@ export const CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderDTOR
   };
 
 export interface CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderDTORelatedOrderDTO {
-  /** 关联的订单类型,CG=采购单，DB=调拨单, CK=出库单，RK=入库单 , (只传英文编码) */
+  /** Associated order type: CG = purchase order, DB = transfer order, CK = outbound order, RK = inbound order, (pass only the English code) */
   orderType?: string;
-  /** 关联的订单编号 */
+  /** Associated order number */
   orderCode?: string;
 }
 
@@ -618,29 +618,29 @@ export const CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderDTOR
   };
 
 export interface CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderDTOSenderInfo {
-  /** 区域 */
+  /** Region */
   area?: string;
-  /** 邮编 */
+  /** Postal code */
   zipCode?: string;
-  /** 村镇 */
+  /** Village/town */
   town?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 移动电话 */
+  /** Mobile phone */
   mobile?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 国家二字码 */
+  /** Two-letter country code */
   countryCode?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 公司名称 */
+  /** Company name */
   company?: string;
-  /** 固定电话 */
+  /** Landline phone */
   tel?: string;
-  /** 电子邮箱 */
+  /** Email */
   email?: string;
 }
 
@@ -661,31 +661,31 @@ export const CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderDTOS
   };
 
 export interface CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderLineDTO {
-  /** 入库单的行号 */
+  /** Inbound order line number */
   orderLineNo?: string;
-  /** 库存类型，正品=1, 残品=101 */
+  /** Inventory type, genuine=1, defective=101 */
   inventoryType?: string;
-  /** 应收商品数量 */
+  /** Quantity of products receivable */
   planQty?: Long;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 商品编码 */
+  /** Product code */
   itemCode?: string;
-  /** 批次编码 */
+  /** Batch code */
   batchCode?: string;
-  /** 商品生产日期 YYYY-MM-DD */
+  /** Product production date YYYY-MM-DD */
   productDate?: string;
-  /** 仓储系统商品ID，优先使用itemCode匹配 */
+  /** Warehouse system product ID, matched by itemCode first */
   itemId?: Long;
-  /** 生产批号 */
+  /** Production batch number */
   produceCode?: string;
-  /** 商品名称 */
+  /** Product name */
   itemName?: string;
-  /** 明细拓展属性,K/V */
+  /** Detail extension attributes, K/V */
   extendProps?: Record<string, unknown>;
-  /** 商品过期日期 YYYY-MM-DD */
+  /** Product expiration date YYYY-MM-DD */
   expireDate?: string;
-  /** 采购价 */
+  /** Purchase price */
   retailPrice?: string;
 }
 
@@ -707,13 +707,13 @@ export const CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderLine
   };
 
 export interface CainiaoCnapEntryorderCreateResultDTO {
-  /** 错误信息 */
+  /** Error message */
   errDesc?: string;
-  /** 数据 */
+  /** Data */
   data?: CainiaoCnapEntryorderCreatedataObject;
-  /** 请求状态 */
+  /** Request status */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
 }
 
@@ -725,23 +725,23 @@ export const CainiaoCnapEntryorderCreateResultDTOSchema: Schema = {
 };
 
 export interface CainiaoCnapInventoryReport {
-  /** 商品编码 */
+  /** Product code */
   itemCode?: string;
-  /** 仓储商品ID */
+  /** Warehouse product ID */
   itemId?: string;
-  /** 库存类型(1=正品;101=残次 */
+  /** Inventory type (1=genuine; 101=defective */
   inventoryType?: string;
-  /** 盘盈盘亏商品变化量(盘盈为正数;盘亏为负数) */
+  /** Change in product quantity from stocktaking surplus or shortage (surplus is positive; shortage is negative) */
   quantity?: string;
-  /** 批次号 */
+  /** Batch number */
   batchCode?: string;
-  /** 生产批号 */
+  /** Production batch number */
   produceCode?: string;
-  /** 商品生产日期(YYYY-MM-DD) */
+  /** Product production date (YYYY-MM-DD) */
   productDate?: string;
-  /** 商品过期日期(YYYY-MM-DD) */
+  /** Product expiration date (YYYY-MM-DD) */
   expireDate?: string;
-  /** 明细拓展信息 */
+  /** Detail extension information */
   extendProps?: string;
 }
 
@@ -758,11 +758,11 @@ export const CainiaoCnapInventoryReportSchema: Schema = {
 };
 
 export interface CainiaoCnapOrderCancelResultDTO {
-  /** 错误信息 */
+  /** Error message */
   errDesc?: string;
-  /** 请求状态 */
+  /** Request status */
   success?: boolean;
-  /** 错误编码 */
+  /** Error code */
   errCode?: string;
 }
 
@@ -773,67 +773,67 @@ export const CainiaoCnapOrderCancelResultDTOSchema: Schema = {
 };
 
 export interface CainiaoCnapReturnorderConfirm {
-  /** ERP的退货入库单编码 */
+  /** ERP return inbound order code */
   returnOrderCode?: string;
-  /** 仓库系统订单编码 */
+  /** Order code in the warehouse system */
   returnOrderId?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 外部业务编码(消息ID;用于去重;ISV对于同一请求;分配一个唯一性的编码。用来保证因为网络等原因导致重复传输;请求不会 被重复处理) */
+  /** External business code (message ID; used for deduplication; the ISV assigns a unique code to the same request. Ensures that a request is not processed repeatedly when transmitted more than once due to network or other reasons) */
   outBizCode?: string;
-  /** 单据类型(THRK=退货入库;HHRK=换货入库;只传英文编码) */
+  /** Document type (THRK=return inbound; HHRK=exchange inbound; pass only the English code) */
   orderType?: string;
-  /** 确认入库时间(YYYY-MM-DD HH:MM:SS) */
+  /** Inbound confirmation time (YYYY-MM-DD HH:MM:SS) */
   orderConfirmTime?: string;
-  /** 退货原因 */
+  /** Return reason */
   returnReason?: string;
-  /** 备注 */
+  /** Remarks */
   remark?: string;
-  /** 发货人信息 */
+  /** Shipper information */
   senderInfo?: CainiaoCnapReturnorderConfirm;
-  /** 公司名称 */
+  /** Company name */
   company?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 邮编 */
+  /** Postal code */
   zipCode?: string;
   /** tel */
   tel?: string;
-  /** 移动电话 */
+  /** Mobile phone */
   mobile?: string;
-  /** 电子邮箱 */
+  /** Email */
   email?: string;
-  /** 国家二字码 */
+  /** Two-letter country code */
   countryCode?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 区域 */
+  /** Region */
   area?: string;
-  /** 村镇 */
+  /** Village/town */
   town?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 单据行号 */
+  /** Document line number */
   orderLineNo?: string;
-  /** 货品编码 */
+  /** Goods code */
   itemCode?: string;
-  /** 仓储系统商品编码 */
+  /** Product code in the warehouse system */
   itemId?: string;
-  /** 库存类型(1=正品;101=残次） */
+  /** Inventory type (1=genuine; 101=defective) */
   inventoryType?: string;
-  /** 实收商品数量 */
+  /** Quantity of products actually received */
   actualQty?: string;
-  /** 批次号 */
+  /** Batch number */
   batchCode?: string;
-  /** 生产批号 */
+  /** Production batch number */
   produceCode?: string;
-  /** 生产日期(YYYY-MM-DD) */
+  /** Production date (YYYY-MM-DD) */
   productDate?: string;
-  /** 过期日期(YYYY-MM-DD) */
+  /** Expiration date (YYYY-MM-DD) */
   expireDate?: string;
-  /** ERP自定义值 */
+  /** ERP custom value */
   erpCustomKey?: string;
 }
 
@@ -872,7 +872,7 @@ export const CainiaoCnapReturnorderConfirmSchema: Schema = {
 };
 
 export interface CainiaoCnapReturnorderCreatedataObject {
-  /** 菜鸟退货单号 */
+  /** Cainiao return order number */
   returnOrderId?: string;
 }
 
@@ -881,13 +881,13 @@ export const CainiaoCnapReturnorderCreatedataObjectSchema: Schema = {
 };
 
 export interface CainiaoCnapReturnorderCreateResultDTO {
-  /** 错误信息 */
+  /** Error message */
   errDesc?: string;
-  /** 数据 */
+  /** Data */
   data?: CainiaoCnapReturnorderCreatedataObject;
-  /** 请求状态 */
+  /** Request status */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
 }
 
@@ -899,29 +899,29 @@ export const CainiaoCnapReturnorderCreateResultDTOSchema: Schema = {
 };
 
 export interface CainiaoCnapReturnorderCreateReturnorderCreateRequestDTOReturnOrderDTO {
-  /** 单据类型(THRK=退货入库;HHRK=换货入库;只传英文编码) String(50) */
+  /** Document type (THRK = return inbound; HHRK = exchange inbound; pass only the English code) String(50) */
   orderType?: string;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 原出库单号(ERP分配) */
+  /** Original outbound order number (assigned by ERP) */
   preDeliveryOrderCode?: string;
-  /** 物流公司编码(SF=顺丰、EMS=标准快递、EYB=经济快件、ZJS=宅急送、YTO=圆通、ZTO=中通(ZTO)、HTKY=百世汇通、 UC=优速、STO=申通、TTKDEX=天天快递、QFKD=全峰、FAST=快捷、POSTB=邮政小包、GTO=国通、YUNDA=韵达、JD=京东配送、DD=当当宅配、 AMAZON=亚马逊物流、OTHER=其他;只传英文编码) */
+  /** Logistics company code (SF=SF Express, EMS=standard express, EYB=economy express, ZJS=Zhaijisong, YTO=YTO Express, ZTO=ZTO Express (ZTO), HTKY=Best Express (HTKY), UC=Youshu, STO=STO Express, TTKDEX=Tiantian Express, QFKD=Quanfeng, FAST=Fast Express, POSTB=postal small packet, GTO=Guotong, YUNDA=Yunda, JD=JD Delivery, DD=Dangdang home delivery, AMAZON=Amazon Logistics, OTHER=other; pass only the English code) */
   logisticsCode?: string;
-  /** 备注 */
+  /** Remarks */
   remark?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 物流公司名称 */
+  /** Logistics company name */
   logisticsName?: string;
-  /** 原出库单号（菜鸟分配） */
+  /** Original outbound order number (assigned by Cainiao) */
   preDeliveryOrderId?: string;
-  /** 发件人信息 */
+  /** Sender information */
   senderInfo?: CainiaoCnapReturnorderCreateReturnorderCreateRequestDTOReturnOrderDTOSenderInfo;
-  /** ERP的退货入库单编码 */
+  /** ERP return inbound order code */
   returnOrderCode?: string;
-  /** 退货原因 */
+  /** Return reason */
   returnReason?: string;
-  /** 用字符串格式来表示订单标记列表(比如VISIT^ SELLER_AFFORD^SYNC_RETURN_BILL等;中间用“^”来隔开订单标记list (所 有字母全部大写) VISIT=上门；SELLER_AFFORD=是否卖家承担运费(默认是)SYNC_RETURN_BILL=同时退回发票) */
+  /** Order flag list expressed as a string (e.g. VISIT^ SELLER_AFFORD^SYNC_RETURN_BILL, etc.; flags in the list are separated by "^" (all letters uppercase)); VISIT=on-site visit; SELLER_AFFORD=whether the seller bears the shipping fee (default yes); SYNC_RETURN_BILL=also return the invoice) */
   orderFlag?: string;
   /** expressCode */
   expressCode?: string;
@@ -950,29 +950,29 @@ export const CainiaoCnapReturnorderCreateReturnorderCreateRequestDTOReturnOrderD
   };
 
 export interface CainiaoCnapReturnorderCreateReturnorderCreateRequestDTOReturnOrderDTOSenderInfo {
-  /** 区域 */
+  /** Region */
   area?: string;
-  /** 邮编 */
+  /** Postal code */
   zipCode?: string;
-  /** 村镇 */
+  /** Village/town */
   town?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 移动电话 */
+  /** Mobile phone */
   mobile?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 国家二字码 */
+  /** Two-letter country code */
   countryCode?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 公司名称 */
+  /** Company name */
   company?: string;
-  /** 固话 */
+  /** Landline */
   tel?: string;
-  /** 邮编 */
+  /** Postal code */
   email?: string;
 }
 
@@ -993,33 +993,33 @@ export const CainiaoCnapReturnorderCreateReturnorderCreateRequestDTOReturnOrderD
   };
 
 export interface CainiaoCnapReturnorderCreateReturnorderCreateRequestDTOReturnOrderLineDTO {
-  /** 行号 */
+  /** Line number */
   orderLineNo?: string;
-  /** 库存类型(1=正品;101=残品) */
+  /** Inventory type (1=genuine; 101=defective) */
   inventoryType?: string;
-  /** 应收商品数量 */
+  /** Quantity of products receivable */
   planQty?: Long;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 商品编码 */
+  /** Product code */
   itemCode?: string;
-  /** 批次编码，非生产批号 */
+  /** Batch code, not the production batch number */
   batchCode?: string;
-  /** 交易平台子订单编码 */
+  /** Sub-order code on the trading platform */
   subSourceOrderCode?: string;
-  /** 生成日期 */
+  /** Production date */
   productDate?: string;
-  /** 仓储系统商品编码 */
+  /** Product code in the warehouse system */
   itemId?: Long;
-  /** 生产批号 */
+  /** Production batch number */
   produceCode?: string;
-  /** 商品名称 */
+  /** Product name */
   itemName?: string;
-  /** 交易平台订单 */
+  /** Trading platform order */
   sourceOrderCode?: string;
-  /** 明细拓展信息 */
+  /** Detail extension information */
   extendProps?: Record<string, unknown>;
-  /** 过期时间 */
+  /** Expiration time */
   expireDate?: string;
 }
 
@@ -1042,7 +1042,7 @@ export const CainiaoCnapReturnorderCreateReturnorderCreateRequestDTOReturnOrderL
   };
 
 export interface CainiaoCnapSingleitemSynchronizedataObject {
-  /** 菜鸟货品ID */
+  /** Cainiao goods ID */
   itemId?: string;
 }
 
@@ -1051,13 +1051,13 @@ export const CainiaoCnapSingleitemSynchronizedataObjectSchema: Schema = {
 };
 
 export interface CainiaoCnapSingleitemSynchronizeResultDTO {
-  /** 错误信息 */
+  /** Error message */
   errDesc?: string;
-  /** 返回值 */
+  /** Return value */
   data?: CainiaoCnapSingleitemSynchronizedataObject;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
 }
 
@@ -1069,79 +1069,79 @@ export const CainiaoCnapSingleitemSynchronizeResultDTOSchema: Schema = {
 };
 
 export interface CainiaoCnapSingleitemSynchronizeSingleitemSynchronizeRequestDTOSynchronizeItemDTO {
-  /** 商品的原产地 */
+  /** Product country of origin */
   originAddress?: string;
-  /** 货品编码 */
+  /** Goods code */
   itemCode?: string;
-  /** 商品名称 */
+  /** Product name */
   itemName?: string;
-  /** 品牌代码 */
+  /** Brand code */
   brandCode?: string;
-  /** 高 (厘米)，Double(18, 2) */
+  /** Height (cm), Double(18, 2) */
   height?: string;
-  /** 品牌名称 */
+  /** Brand name */
   brandName?: string;
-  /** 安全库存 */
+  /** Safety stock */
   safetyStock?: Long;
-  /** 条形码,可多个,用分号（;）隔开 */
+  /** Barcodes, multiple allowed, separated by semicolons (;) */
   barCode?: string;
-  /** 商品计量单位 */
+  /** Product unit of measure */
   stockUnit?: string;
-  /** 体积 (升)，Double(18, 2) */
+  /** Volume (liters), Double(18, 2) */
   volume?: string;
-  /** 仓储系统商品编码 */
+  /** Product code in the warehouse system */
   itemId?: string;
-  /** 净重 (千克)，Double(18, 2) */
+  /** Net weight (kg), Double(18, 2) */
   netWeight?: string;
-  /** 尺寸 */
+  /** Size */
   size?: string;
-  /** 保质期禁收天数 */
+  /** Shelf-life no-receiving days */
   rejectLifecycle?: Long;
-  /** 是否需要串号管理, Y/N (默认为N) */
+  /** Whether serial number management is needed, Y/N (default N) */
   isSnmgmt?: string;
-  /** 保质期禁售天数 */
+  /** Shelf-life no-sale days */
   lockupLifecycle?: Long;
-  /** 商品类型 (ZC=正常商品, FX=分销商品, ZH=组合商品, ZP=赠品, BC=包材, HC=耗材, FL=辅料, XN=虚拟品, FS=附属品, CC=残次品, OTHER=其它) ,(只传英文编码) 注:暂只支持ZC,ZP,XN,HC,BC */
+  /** Product type (ZC=normal product, FX=distribution product, ZH=combination product, ZP=gift, BC=packaging material, HC=consumable, FL=auxiliary material, XN=virtual product, FS=accessory, CC=defective product, OTHER=other), (pass only the English code). Note: currently only ZC, ZP, XN, HC, BC are supported */
   itemType?: string;
-  /** 颜色 */
+  /** Color */
   color?: string;
-  /** 保质期临期预警天 */
+  /** Shelf life near-expiry warning days */
   adventLifecycle?: Long;
-  /** 供应商编码 */
+  /** Supplier code */
   supplierCode?: string;
-  /** 商品类别名称 */
+  /** Product category name */
   categoryName?: string;
-  /** 商品属性 (如红色, XXL) */
+  /** Product attributes (e.g. red, XXL) */
   skuProperty?: string;
-  /** 是否需要保质期管理, Y/N (默认为N) */
+  /** Whether shelf life management is needed, Y/N (default N) */
   isShelfLifeMgmt?: string;
-  /** 商品包装材料类型 (整箱、异形、拆零) 默认拆零 */
+  /** Product packaging material type (whole box, irregular shape, loose pieces), default loose pieces */
   packageMaterial?: string;
-  /** 扩展属性,格式{"k1":"v1"} */
+  /** Extended attributes, format {"k1":"v1"} */
   extendProps?: Record<string, unknown>;
-  /** 是否易碎品, Y/N (默认为N) */
+  /** Whether the item is fragile, Y/N (default N) */
   isFragile?: string;
-  /** 保质期 (小时) */
+  /** Shelf life (hours) */
   shelfLife?: Long;
-  /** 供应商名称 */
+  /** Supplier name */
   supplierName?: string;
-  /** 是否危险品, Y/N (默认为N) */
+  /** Whether the item is hazardous, Y/N (default N) */
   isHazardous?: string;
-  /** 箱规,传int类型的值 */
+  /** Carton specification, pass an int value */
   pcs?: string;
-  /** 长 (厘米)，Double(18, 2) */
+  /** Length (cm), Double(18, 2) */
   length?: string;
-  /** 吊牌价，Double(18, 2) */
+  /** Tag price, Double(18, 2) */
   tagPrice?: string;
-  /** 批准文号 */
+  /** Approval number */
   approvalNumber?: string;
-  /** 毛重 (千克)，Double(18, 2) */
+  /** Gross weight (kg), Double(18, 2) */
   grossWeight?: string;
-  /** 宽 (厘米)，Double(18, 2) */
+  /** Width (cm), Double(18, 2) */
   width?: string;
-  /** 零售价，Double(18, 2) */
+  /** Retail price, Double(18, 2) */
   retailPrice?: string;
-  /** 商品类别ID */
+  /** Product category ID */
   categoryId?: string;
 }
 
@@ -1187,61 +1187,61 @@ export const CainiaoCnapSingleitemSynchronizeSingleitemSynchronizeRequestDTOSync
   };
 
 export interface CainiaoCnapStockoutConfirm {
-  /** 出库单号 */
+  /** Outbound order number */
   deliveryOrderCode?: string;
-  /** 仓储系统出库单号 */
+  /** Outbound order number in the warehouse system */
   deliveryOrderId?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 出库单类型,PTCK=普通出库单，DBCK=调拨出库 ，B2BCK=B2B出库，QTCK=其他出库，，CGTH=采购退货出库单 */
+  /** Outbound order type, PTCK=regular outbound order, DBCK=transfer outbound, B2BCK=B2B outbound, QTCK=other outbound, CGTH=purchase return outbound order */
   orderType?: string;
-  /** PARTDELIVERED-部分发货完成,DELIVERED-发货完成 */
+  /** PARTDELIVERED - partially shipped, DELIVERED - fully shipped */
   status?: string;
-  /** 外部业务编码, 条件必填, 同一请求的唯一性标示编码。ISV对于同一请求，分配一个唯一性的编码。用来保证因为网络等原因导致重复传输，请求不会被重复处理 */
+  /** External business code, conditionally required, a unique identifier for the same request. The ISV assigns a unique code to the same request, ensuring that a request is not processed repeatedly when transmitted more than once due to network or other reasons */
   outBizCode?: string;
-  /** 支持出库单多次发货 0 表示入库单最终状态确认; 1 表示入库单中间状态确认； */
+  /** Supports multiple shipments for an outbound order. 0 means confirmation of the final status of the inbound order; 1 means confirmation of an intermediate status of the inbound order; */
   confirmType?: string;
-  /** 订单完成时间 YYYY-MM-DD HH:MM:SS */
+  /** Order completion time YYYY-MM-DD HH:MM:SS */
   orderConfirmTime?: string;
-  /** 运单号 */
+  /** Waybill number */
   expressCode?: string;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 单据行号 */
+  /** Document line number */
   orderLineNo?: string;
-  /** 商品编码 */
+  /** Product code */
   itemCode?: string;
-  /** 仓储系统商品ID */
+  /** Product ID in the warehouse system */
   itemId?: string;
-  /** 库存类型, 1=正品, 101=残次 */
+  /** Inventory type, 1=good, 101=defective */
   inventoryType?: string;
-  /** 实发商品数量 */
+  /** Quantity of products actually shipped */
   actualQty?: Long;
-  /** 同一行号下多批次列表 */
+  /** List of multiple batches under the same line number */
   batchs?: Array<CainiaoCnapStockoutConfirm>;
-  /** 批次编号 */
+  /** Batch number */
   batchCode?: string;
-  /** 生产批号 */
+  /** Production batch number */
   produceCode?: string;
-  /** 生产日期 YYYY-MM-DD */
+  /** Production date YYYY-MM-DD */
   productDate?: string;
-  /** 过期日期 YYYY-MM-DD */
+  /** Expiration date YYYY-MM-DD */
   expireDate?: string;
-  /** ERP自定义 */
+  /** ERP custom */
   erpCustomKey?: string;
-  /** 物流公司编码 */
+  /** Logistics company code */
   logisticsCode?: string;
-  /** 物流公司名称 */
+  /** Logistics company name */
   logisticsName?: string;
-  /** 包裹编号 */
+  /** Package number */
   packageCode?: string;
-  /** 包裹重量 (千克)，Double(18, 3) */
+  /** Package weight (kg), Double(18, 3) */
   weight?: string;
-  /** 包裹体积 (升, L)，Double(18, 3) */
+  /** Package volume (liters, L), Double(18, 3) */
   volume?: string;
-  /** 包裹明细 */
+  /** Package details */
   items?: Array<CainiaoCnapStockoutConfirm>;
-  /** 包裹内该商品的数量 */
+  /** Quantity of this product in the package */
   quantity?: string;
 }
 
@@ -1277,7 +1277,7 @@ export const CainiaoCnapStockoutConfirmSchema: Schema = {
 };
 
 export interface CainiaoCnapStockoutCreatedataObject {
-  /** 菜鸟出库单号 */
+  /** Cainiao outbound order number */
   deliveryOrderId?: string;
 }
 
@@ -1286,13 +1286,13 @@ export const CainiaoCnapStockoutCreatedataObjectSchema: Schema = {
 };
 
 export interface CainiaoCnapStockoutCreateResultDTO {
-  /** 错误描述 */
+  /** Error description */
   errDesc?: string;
-  /** 返回结果 */
+  /** Returned result */
   data?: CainiaoCnapStockoutCreatedataObject;
-  /** 请求状态 */
+  /** Request status */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
 }
 
@@ -1304,39 +1304,39 @@ export const CainiaoCnapStockoutCreateResultDTOSchema: Schema = {
 };
 
 export interface CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTO {
-  /** 出库单类型, PTCK=普通出库单，DBCK=调拨出库 ，B2BCK=B2B出库，SCCK=生产出库，QTCK=其他出库，CGTH=采购退货出库单,XNCK=虚拟出库单,注: 暂不支持SCCK */
+  /** Outbound order type, PTCK=regular outbound order, DBCK=transfer outbound, B2BCK=B2B outbound, SCCK=production outbound, QTCK=other outbound, CGTH=purchase return outbound order, XNCK=virtual outbound order. Note: SCCK is not supported for now */
   orderType?: string;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 收件人信息 */
+  /** Recipient information */
   receiverInfo?: CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTOReceiverInfo;
-  /** 备注 */
+  /** Remarks */
   remark?: string;
-  /** 出库单号（ERP分配） */
+  /** Outbound order number (assigned by ERP) */
   deliveryOrderCode?: string;
-  /** 供应商编码 */
+  /** Supplier code */
   supplierCode?: string;
-  /** 出库仓库编码 */
+  /** Outbound warehouse code */
   warehouseCode?: string;
-  /** 提货人信息 */
+  /** Pickup person information */
   pickerInfo?: CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTOPickerInfo;
-  /** 关联的入库单号（ERP分配） */
+  /** Associated inbound order number (assigned by ERP) */
   targetEntryOrderCode?: string;
-  /** 供应商姓名 */
+  /** Supplier name */
   supplierName?: string;
-  /** 入库仓库编码 */
+  /** Inbound warehouse code */
   targetWarehouseCode?: string;
-  /** 物流公司编码, SF=顺丰、EMS=标准快递、EYB=经济快件、ZJS=宅急送、YTO=圆通 、ZTO=中通 (ZTO) 、HTKY=百世汇通、BSKY=百世快运、UC=优速、STO=申通、TTKDEX=天天快递 、QFKD=全峰、FAST=快捷、POSTB=邮政小包 、GTO=国通、YUNDA=韵达、JD=京东配送、DD=当当宅配、AMAZON=亚马逊物流、DBWL=德邦物流、DBKD=德邦快递、DBKY=德邦快运、RRS=日日顺、OTHER=其他 ，(只传英文编码) */
+  /** Logistics company code, SF=SF Express, EMS=standard express, EYB=economy express, ZJS=Zhaijisong, YTO=YTO Express, ZTO=ZTO Express (ZTO), HTKY=Best Express (HTKY), BSKY=Best Freight, UC=Youshu, STO=STO Express, TTKDEX=Tiantian Express, QFKD=Quanfeng, FAST=Fast Express, POSTB=postal small packet, GTO=Guotong, YUNDA=Yunda, JD=JD Delivery, DD=Dangdang home delivery, AMAZON=Amazon Logistics, DBWL=Deppon Logistics, DBKD=Deppon Express, DBKY=Deppon Freight, RRS=Rrs, OTHER=other, (pass only the English code) */
   logisticsCode?: string;
-  /** 发件人信息 */
+  /** Sender information */
   senderInfo?: CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTOSenderInfo;
-  /** 出库单创建时间, YYYY-MM-DD HH:MM:SS */
+  /** Outbound order creation time, YYYY-MM-DD HH:MM:SS */
   createTime?: string;
-  /** 送货方式,快递到付：expressDeliveryNormal 快递寄付：expressDeliveryPay 自提：selfpick */
+  /** Delivery method, express freight collect: expressDeliveryNormal, express prepaid: expressDeliveryPay, self pickup: selfpick */
   transportMode?: string;
-  /** 关联单据 */
+  /** Associated documents */
   relatedOrders?: Array<CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTORelatedOrderDTO>;
-  /** 入库仓库名称 */
+  /** Inbound warehouse name */
   targetWarehouseName?: string;
 }
 
@@ -1382,17 +1382,17 @@ export const CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTOSc
   };
 
 export interface CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTOPickerInfo {
-  /** 车牌号 */
+  /** License plate number */
   carNo?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 移动电话 */
+  /** Mobile phone */
   mobile?: string;
-  /** 公司名称 */
+  /** Company name */
   company?: string;
-  /** 固定电话 */
+  /** Landline phone */
   tel?: string;
-  /** 证件号 */
+  /** ID number */
   id?: string;
 }
 
@@ -1407,29 +1407,29 @@ export const CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTOPi
   };
 
 export interface CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTOReceiverInfo {
-  /** 区域 */
+  /** Region */
   area?: string;
   /** zipCode */
   zipCode?: string;
-  /** 村镇 */
+  /** Village/town */
   town?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 移动电话 */
+  /** Mobile phone */
   mobile?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 国家二字码 */
+  /** Two-letter country code */
   countryCode?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 公司名称 */
+  /** Company name */
   company?: string;
-  /** 固定电话 */
+  /** Landline phone */
   tel?: string;
-  /** 电子邮箱 */
+  /** Email */
   email?: string;
 }
 
@@ -1450,9 +1450,9 @@ export const CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTORe
   };
 
 export interface CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTORelatedOrderDTO {
-  /** 关联的订单类型，CG=采购单，DB=调拨单, CK=出库单，RK=入库单，VIPDG = 唯品会JIT业务送仓单，(只传英文编码) */
+  /** Associated order type, CG=purchase order, DB=transfer order, CK=outbound order, RK=inbound order, VIPDG = Vipshop JIT warehouse delivery order, (pass only the English code) */
   orderType?: string;
-  /** 关联的订单编号 */
+  /** Associated order number */
   orderCode?: string;
 }
 
@@ -1463,29 +1463,29 @@ export const CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTORe
   };
 
 export interface CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTOSenderInfo {
-  /** 区域 */
+  /** Region */
   area?: string;
-  /** 邮编 */
+  /** Postal code */
   zipCode?: string;
-  /** 村镇 */
+  /** Village/town */
   town?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 移动电话 */
+  /** Mobile phone */
   mobile?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 国家二字码 */
+  /** Two-letter country code */
   countryCode?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 公司名称 */
+  /** Company name */
   company?: string;
-  /** 固定电话 */
+  /** Landline phone */
   tel?: string;
-  /** 电子邮箱 */
+  /** Email */
   email?: string;
 }
 
@@ -1506,29 +1506,29 @@ export const CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTOSe
   };
 
 export interface CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderLineDTO {
-  /** 单据行号 */
+  /** Document line number */
   orderLineNo?: string;
-  /** 库存类型, 正品=1, 残品=101 */
+  /** Inventory type, good=1, defective=101 */
   inventoryType?: string;
-  /** 应发商品数量 */
+  /** Quantity of products to ship */
   planQty?: Long;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 商品编码 */
+  /** Product code */
   itemCode?: string;
-  /** 批次编码，仓配的批次编码，和生产批号不同 */
+  /** Batch code, the warehouse fulfillment batch code, different from the production batch number */
   batchCode?: string;
-  /** 商品生产日期 YYYY-MM-DD */
+  /** Product production date YYYY-MM-DD */
   productDate?: string;
-  /** 仓储系统商品编码 */
+  /** Product code in the warehouse system */
   itemId?: Long;
-  /** 生产批号 */
+  /** Production batch number */
   produceCode?: string;
-  /** 商品名称 */
+  /** Product name */
   itemName?: string;
-  /** 外部业务编码, 消息ID, 用于去重，当单据需要分批次发送时使用 */
+  /** External business code, message ID, used for deduplication; used when a document needs to be sent in batches */
   outBizCode?: string;
-  /** 明细拓展信息，{"k":"v"}格式 */
+  /** Detail extension information, in {"k":"v"} format */
   extendProps?: Record<string, unknown>;
 }
 
@@ -1549,13 +1549,13 @@ export const CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderLineD
   };
 
 export interface CainiaoCnapStockQueryResultDTO {
-  /** 错误信息 */
+  /** Error message */
   errDesc?: string;
-  /** 数据 */
+  /** Data */
   data?: CainiaoCnapStockQueryStockQueryResponseDTO;
-  /** 请求状态 */
+  /** Request status */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
 }
 
@@ -1567,9 +1567,9 @@ export const CainiaoCnapStockQueryResultDTOSchema: Schema = {
 };
 
 export interface CainiaoCnapStockQueryStockQueryResponseDTO {
-  /** 总数 */
+  /** Total */
   totalCount?: Long;
-  /** 库存明细列表 */
+  /** Inventory detail list */
   items?: Array<CainiaoCnapStockQueryString>;
 }
 
@@ -1579,25 +1579,25 @@ export const CainiaoCnapStockQueryStockQueryResponseDTOSchema: Schema = {
 };
 
 export interface CainiaoCnapStockQueryString {
-  /** 仓库 */
+  /** Warehouse */
   warehouseWode?: string;
-  /** 货品编码 */
+  /** Goods code */
   itemCode?: string;
-  /** 菜鸟仓储货品ID */
+  /** Cainiao warehouse product ID */
   itemId?: Long;
-  /** 库存类型，1-正品，101-残品 */
+  /** Inventory type, 1-genuine, 101-defective */
   inventoryType?: Long;
-  /** 库存数量 */
+  /** Inventory quantity */
   quantity?: Long;
-  /** 冻结/占用库存数量 */
+  /** Frozen/occupied inventory quantity */
   lockQuantity?: Long;
-  /** 批次编码，仓内库存批次 */
+  /** Batch code, inventory batch in the warehouse */
   batchCode?: string;
-  /** 生产批号 */
+  /** Production batch number */
   produceCode?: string;
-  /** 货品名称 */
+  /** Goods name */
   itemName?: string;
-  /** 拓展字段 */
+  /** Extension field */
   extendProps?: string;
 }
 
@@ -1615,11 +1615,11 @@ export const CainiaoCnapStockQueryStringSchema: Schema = {
 };
 
 export interface CainiaoGlobalCommithandovercontentUpdateHandoverContentUpdateErrorParcelDTO {
-  /** 小包LP号 */
+  /** Small package LP number */
   lpCode?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误文案 */
+  /** Error text */
   errorMsg?: string;
 }
 
@@ -1631,11 +1631,11 @@ export const CainiaoGlobalCommithandovercontentUpdateHandoverContentUpdateErrorP
   };
 
 export interface CainiaoGlobalCommithandovercontentUpdateHandoverContentUpdateParcelDTO {
-  /** 小包对应的店铺id;填入相关信息性能更好 */
+  /** Store ID corresponding to the small parcel; filling in the relevant information improves performance */
   sellerId?: string;
-  /** 小包对应的店铺账号;比如cnxxxx;填入补充相关信息性能更好 */
+  /** Store account corresponding to the small parcel, e.g. cnxxxx; filling in this supplementary information improves performance */
   loginId?: string;
-  /** 小包的LP号,必填; */
+  /** LP number of the small package; required; */
   lpCode?: string;
 }
 
@@ -1647,13 +1647,13 @@ export const CainiaoGlobalCommithandovercontentUpdateHandoverContentUpdateParcel
   };
 
 export interface CainiaoGlobalCommithandovercontentUpdateHsfResult {
-  /** 是否成功同result字段 */
+  /** Whether successful, same as the result field */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   internalErrorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 返回对象 */
+  /** Returned object */
   data?: CainiaoGlobalCommithandovercontentUpdateOpenHandoverContentUpdateResponse;
 }
 
@@ -1670,21 +1670,21 @@ export const CainiaoGlobalCommithandovercontentUpdateHsfResultSchema: Schema = {
 };
 
 export interface CainiaoGlobalCommithandovercontentUpdateOpenHandoverContentUpdateCommitRequest {
-  /** 用户信息 */
+  /** User information */
   userInfo?: CainiaoGlobalCommithandovercontentUpdateUserInfoDTO;
-  /** 大包号;LP开头的单号(必填) */
+  /** Large package number; order number starting with LP (required) */
   handoverContentCode?: string;
-  /** 新增和修改大包小包号;新增和修改的时候必填 */
+  /** Add and modify big bag and small parcel numbers; required when adding and modifying */
   parcelOrderList?: Array<CainiaoGlobalCommithandovercontentUpdateHandoverContentUpdateParcelDTO>;
-  /** 业务类型(选填) */
+  /** Business type (optional) */
   bizSource?: string;
-  /** 完成更新(必填)例如传入true则代表大包已经完成修改,不能再做修改的操作 */
+  /** Update completed (required). For example, passing true means the large package has finished being modified and can no longer be modified */
   completeUpdate?: boolean;
-  /** 客户端标示(选填) */
+  /** Client identifier (optional) */
   client?: string;
-  /** 语言(选填) */
+  /** Language (optional) */
   locale?: string;
-  /** 更新类型:add、remove、commit;add新增parcel_order_list中小包,remove删除parcel_order_list中小包;commit,忽略parcel_order_list小包,将大包设置为完成组包状态,将大包信息下发给司机上门揽收 */
+  /** Update type: add, remove, commit; add adds the parcels in parcel_order_list, remove deletes the parcels in parcel_order_list; commit ignores the parcels in parcel_order_list, sets the large parcel to the bagging-completed status, and sends the large parcel information to the driver for on-site pickup */
   updateType?: string;
 }
 
@@ -1710,9 +1710,9 @@ export const CainiaoGlobalCommithandovercontentUpdateOpenHandoverContentUpdateCo
   };
 
 export interface CainiaoGlobalCommithandovercontentUpdateOpenHandoverContentUpdateResponse {
-  /** 是否成功 */
+  /** Whether successful */
   result?: boolean;
-  /** 报错小包列表 */
+  /** Error package list */
   updateErrorParcelOrderList?: Array<CainiaoGlobalCommithandovercontentUpdateHandoverContentUpdateErrorParcelDTO>;
 }
 
@@ -1728,19 +1728,19 @@ export const CainiaoGlobalCommithandovercontentUpdateOpenHandoverContentUpdateRe
   };
 
 export interface CainiaoGlobalCommithandovercontentUpdateUserInfoDTO {
-  /** 国家编码(选填) */
+  /** Country code (optional) */
   country?: string;
-  /** 登陆账号(必填) */
+  /** Login account (required) */
   loginId?: string;
-  /** 商家id(选填) */
+  /** Merchant id (optional) */
   sellerId?: string;
-  /** 对应创建物流单的时候传入的top_user_key;跨店铺场景需要传入 */
+  /** The top_user_key passed when the logistics order was created; required for cross-store scenarios */
   topUserKey?: string;
-  /** 业务类型(选填) */
+  /** Business type (optional) */
   bizSource?: string;
-  /** 用户Key(选填) */
+  /** User Key (optional) */
   appUserKey?: string;
-  /** 用户id(选填) */
+  /** User id (optional) */
   userId?: string;
 }
 
@@ -1756,13 +1756,13 @@ export const CainiaoGlobalCommithandovercontentUpdateUserInfoDTOSchema: Schema =
   };
 
 export interface CainiaoGlobalHandoverCancelHsfResult {
-  /** 响应数据 */
+  /** Response data */
   data?: CainiaoGlobalHandoverCancelOpenHandoverCancelResponse;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 异常码 */
+  /** Exception code */
   errorCode?: string;
-  /** 请求处理是否成功 */
+  /** Whether the request was processed successfully */
   success?: boolean;
 }
 
@@ -1778,7 +1778,7 @@ export const CainiaoGlobalHandoverCancelHsfResultSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverCancelOpenHandoverCancelResponse {
-  /** 取消结果 */
+  /** Cancellation result */
   result?: boolean;
 }
 
@@ -1788,7 +1788,7 @@ export const CainiaoGlobalHandoverCancelOpenHandoverCancelResponseSchema: Schema
   };
 
 export interface CainiaoGlobalHandoverCancelUserInfoDTO {
-  /** 每个商家在ISV系统的唯一标识，一般为商家ISV账号的id */
+  /** Unique identifier of each merchant in the ISV system, generally the ID of the merchant's ISV account */
   topUserKey?: string;
 }
 
@@ -1797,9 +1797,9 @@ export const CainiaoGlobalHandoverCancelUserInfoDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverCloudprintGetCloudPrintDataGetResponse {
-  /** 面单云打印数据 */
+  /** Cloud-print data for waybill */
   printData?: string;
-  /** 面单云打印数据MD5加密串 */
+  /** MD5 encrypted string of the waybill cloud printing data */
   printDataMd5?: string;
 }
 
@@ -1810,13 +1810,13 @@ export const CainiaoGlobalHandoverCloudprintGetCloudPrintDataGetResponseSchema: 
   };
 
 export interface CainiaoGlobalHandoverCloudprintGetHsfResult {
-  /** 请求处理是否成功 */
+  /** Whether the request was processed successfully */
   success?: boolean;
-  /** 异常码 */
+  /** Exception code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 响应数据 */
+  /** Response data */
   data?: CainiaoGlobalHandoverCloudprintGetCloudPrintDataGetResponse;
 }
 
@@ -1832,7 +1832,7 @@ export const CainiaoGlobalHandoverCloudprintGetHsfResultSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverCloudprintGetUserInfoDTO {
-  /** 每个商家在ISV系统的唯一标识，一般为商家ISV账号的id */
+  /** Unique identifier of each merchant in the ISV system, generally the ID of the merchant's ISV account */
   topUserKey?: string;
 }
 
@@ -1841,19 +1841,19 @@ export const CainiaoGlobalHandoverCloudprintGetUserInfoDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverCommitAddressDTO {
-  /** 邮编 */
+  /** Postal code */
   zipCode?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 街道 */
+  /** Street */
   street?: string;
-  /** 区 */
+  /** District */
   district?: string;
-  /** 市 */
+  /** City */
   city?: string;
-  /** 省 */
+  /** Province */
   province?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
 }
 
@@ -1868,15 +1868,15 @@ export const CainiaoGlobalHandoverCommitAddressDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverCommitHsfResult {
-  /** 扩展错误信息 */
+  /** Extended error information */
   extErrorMap?: Record<string, unknown>;
-  /** 响应数据 */
+  /** Response data */
   data?: CainiaoGlobalHandoverCommitOpenHandoverCommitResponse;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 异常码 */
+  /** Exception code */
   errorCode?: string;
-  /** 请求处理是否成功 */
+  /** Whether the request was processed successfully */
   success?: boolean;
 }
 
@@ -1893,13 +1893,13 @@ export const CainiaoGlobalHandoverCommitHsfResultSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverCommitOpenHandoverCommitResponse {
-  /** 未组包成功的小包信息 */
+  /** Information of small packages that failed to be grouped */
   notCommitParcelDetail?: string;
-  /** 交接物id，即大包id */
+  /** Handover item id, i.e. large package id */
   handoverContentId?: Long;
-  /** 交接批次号，即交接单id */
+  /** Handover batch number, i.e. handover order id */
   handoverOrderId?: Long;
-  /** 交接物编码，即大包LP号 */
+  /** Handover item code, i.e. large package LP number */
   handoverContentCode?: string;
 }
 
@@ -1912,17 +1912,17 @@ export const CainiaoGlobalHandoverCommitOpenHandoverCommitResponseSchema: Schema
   };
 
 export interface CainiaoGlobalHandoverCommitPickupDTO {
-  /** 揽收地址 */
+  /** Pickup address */
   address?: CainiaoGlobalHandoverCommitAddressDTO;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 移动电话, 校验格式：^1(3|4|5|6|7|8|9)\d{9}$ */
+  /** Mobile phone number, validation format: ^1(3|4|5|6|7|8|9)\d{9}$ */
   mobile?: string;
-  /** 固定电话，可空，校验格式：(^0[\d]{2,3}-[\d]{7,8}$)|(^400[\d]{3,4}[\d]{3,4}$)|(400-[\d]{3,4}-[\d]{3,4}$) */
+  /** Landline phone number, may be empty, validation format: (^0[\d]{2,3}-[\d]{7,8}$)|(^400[\d]{3,4}[\d]{3,4}$)|(400-[\d]{3,4}-[\d]{3,4}$) */
   phone?: string;
-  /** 揽收联系人名称，必须包含中文字符 */
+  /** Pickup contact name, must contain Chinese characters */
   name?: string;
-  /** AE后台维护的发件地址ID */
+  /** Sender address ID maintained in the AE backend */
   addressId?: Long;
 }
 
@@ -1936,17 +1936,17 @@ export const CainiaoGlobalHandoverCommitPickupDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverCommitReturnerDTO {
-  /** 退件地址 */
+  /** Return address */
   address?: CainiaoGlobalHandoverCommitAddressDTO;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 移动电话, 校验格式：^1(3|4|5|6|7|8|9)\d{9}$ */
+  /** Mobile phone number, validation format: ^1(3|4|5|6|7|8|9)\d{9}$ */
   mobile?: string;
-  /** 固定电话，可空，校验格式：(^0[\d]{2,3}-[\d]{7,8}$)|(^400[\d]{3,4}[\d]{3,4}$)|(400-[\d]{3,4}-[\d]{3,4}$) */
+  /** Landline phone number, may be empty, validation format: (^0[\d]{2,3}-[\d]{7,8}$)|(^400[\d]{3,4}[\d]{3,4}$)|(400-[\d]{3,4}-[\d]{3,4}$) */
   phone?: string;
-  /** 退件联系人名称，必须包含中文字符 */
+  /** Return contact name, must contain Chinese characters */
   name?: string;
-  /** AE后台维护的退件地址ID */
+  /** Return-to-sender address ID maintained in the AE backend */
   addressId?: Long;
 }
 
@@ -1962,9 +1962,9 @@ export const CainiaoGlobalHandoverCommitReturnerDTOSchema: Schema = {
 export interface CainiaoGlobalHandoverCommitSellerParcelOrderDTO {
   /** seller id */
   sellerId?: Long;
-  /** 小包LP号列表 */
+  /** Small package LP number list */
   orderCodeList?: Array<string>;
-  /** 店铺id */
+  /** Store ID */
   userNick?: string;
 }
 
@@ -1975,7 +1975,7 @@ export const CainiaoGlobalHandoverCommitSellerParcelOrderDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverCommitUserInfoDTO {
-  /** 每个商家在ISV系统的唯一标识，一般为商家ISV账号的id */
+  /** Unique identifier of each merchant in the ISV system, generally the ID of the merchant's ISV account */
   topUserKey?: string;
 }
 
@@ -1984,13 +1984,13 @@ export const CainiaoGlobalHandoverCommitUserInfoDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverContentQueryHsfResult {
-  /** 请求结果 */
+  /** Request result */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
-  /** 大包详情 */
+  /** Large package details */
   data?: CainiaoGlobalHandoverContentQueryOpenHandoverContentDetailResponse;
 }
 
@@ -2007,45 +2007,45 @@ export const CainiaoGlobalHandoverContentQueryHsfResultSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverContentQueryOpenHandoverContentDetailResponse {
-  /** bigbag：大包约揽 batch：批次约揽 */
+  /** bigbag: big-bag pickup appointment batch: batch pickup appointment */
   appointmentType?: string;
-  /** bigbag：大包约揽 batch：批次约揽 */
+  /** bigbag: big-bag pickup appointment batch: batch pickup appointment */
   appointmentTypeName?: string;
-  /** DOOR_PICKUP:上门揽收 SELF_POST:自寄 SELF_SEND：自送 */
+  /** DOOR_PICKUP: door pickup; SELF_POST: self-post; SELF_SEND: self-delivery */
   pickupType?: string;
-  /** DOOR_PICKUP:上门揽收 SELF_POST:自寄 SELF_SEND：自送 */
+  /** DOOR_PICKUP: door pickup; SELF_POST: self-post; SELF_SEND: self-delivery */
   pickupTypeName?: string;
-  /** master：主大包，slave：子大包(批次揽收才有) */
+  /** master: master big bag, slave: sub big bag (only in batch pickup) */
   bigbagType?: string;
-  /** 批次约揽下的子大包列表 */
+  /** List of sub-large-packages under the batch appointment */
   slaveBigbagList?: Array<CainiaoGlobalHandoverContentQueryOpenSlaveBagDTO>;
-  /** 交接物物流订单编号 */
+  /** Logistics order number of the handover item */
   orderCode?: string;
-  /** 交接物运单号 */
+  /** Handover item waybill number */
   trackingNumber?: string;
-  /** 交接物状态 */
+  /** Handover item status */
   status?: string;
-  /** 大包关联的小包列表 */
+  /** List of small packages associated with the large package */
   parcelOrderList?: Array<CainiaoGlobalHandoverContentQueryOpenParcelOrderDTO>;
-  /** 预估重量 */
+  /** Estimated weight */
   estimateWeight?: string;
-  /** 实际重量 */
+  /** Actual weight */
   actualWeight?: string;
-  /** 重量单位 */
+  /** Weight unit */
   weightUnit?: string;
-  /** 预估费用 */
+  /** Estimated cost */
   estimateFee?: string;
-  /** 实际费用 */
+  /** Actual fee */
   actualFee?: string;
-  /** 费用币种 */
+  /** Fee currency */
   feeCurrency?: string;
-  /** 费用单位 */
+  /** Fee unit */
   feeUnit?: string;
-  /** 交接物状态 */
+  /** Handover item status */
   statusName?: string;
-  /** 交接物关联的交接单状态code */
+  /** Status code of the handover order associated with the handover item */
   handoverOrderStatus?: string;
-  /** 交接物关联的交接单状态名称 */
+  /** Name of the status of the handover order associated with the handover item */
   handoverOrderStatusName?: string;
 }
 
@@ -2082,13 +2082,13 @@ export const CainiaoGlobalHandoverContentQueryOpenHandoverContentDetailResponseS
   };
 
 export interface CainiaoGlobalHandoverContentQueryOpenParcelOrderDTO {
-  /** 小包物流订单编码 */
+  /** Logistics order code of the small package */
   orderCode?: string;
-  /** 小包状态code */
+  /** Small package status code */
   status?: string;
-  /** 小包异常码 */
+  /** Small package exception code */
   exceptionCode?: string;
-  /** 小包状态名称 */
+  /** Small package status name */
   statusName?: string;
 }
 
@@ -2101,19 +2101,19 @@ export const CainiaoGlobalHandoverContentQueryOpenParcelOrderDTOSchema: Schema =
   };
 
 export interface CainiaoGlobalHandoverContentQueryOpenSlaveBagDTO {
-  /** 交接物物流订单编号 */
+  /** Logistics order number of the handover item */
   orderCode?: string;
-  /** 交接物运单号 */
+  /** Handover item waybill number */
   trackingNumber?: string;
-  /** 状态 */
+  /** Status */
   status?: string;
-  /** 状态名 */
+  /** Status name */
   statusName?: string;
-  /** 揽收失败时的实操回传备注 */
+  /** Operational feedback remarks when pickup fails */
   opRemark?: string;
-  /** 交接id */
+  /** Handover ID */
   orderContentId?: Long;
-  /** 创建时间戳 */
+  /** Creation timestamp */
   gmtCreate?: string;
 }
 
@@ -2128,7 +2128,7 @@ export const CainiaoGlobalHandoverContentQueryOpenSlaveBagDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverContentQueryUserInfoDTO {
-  /** 每个商家在ISV系统的唯一标识，一般为商家ISV账号的id */
+  /** Unique identifier of each merchant in the ISV system, generally the ID of the merchant's ISV account */
   topUserKey?: string;
 }
 
@@ -2137,11 +2137,11 @@ export const CainiaoGlobalHandoverContentQueryUserInfoDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverContentSubbagAddHandoverContentAddSubContentResponse {
-  /** 入参的批次号 */
+  /** Batch number of the input */
   orderCode?: string;
-  /** 追加成功的子包号列表。存在3种情况。全部追加成功，部分追加成功，全部失败。需根据返回的子包号列表长度和入参add_subbag_quantity判断。如果两者长度相等则说明全部成功，否则说明存在失败情况，可重试请求失败的数量 */
+  /** List of sub-parcel numbers successfully appended. There are 3 cases: all appended successfully, partially appended successfully, all failed. Determine this from the length of the returned sub-parcel number list and the input add_subbag_quantity. If the two lengths are equal, all succeeded; otherwise some failed, and the failed quantity can be retried */
   subbagCodeList?: Array<string>;
-  /** 子包列表详情 */
+  /** Sub-package list details */
   subbagDetailList?: Array<CainiaoGlobalHandoverContentSubbagAddHandoverContentDTO>;
 }
 
@@ -2157,11 +2157,11 @@ export const CainiaoGlobalHandoverContentSubbagAddHandoverContentAddSubContentRe
   };
 
 export interface CainiaoGlobalHandoverContentSubbagAddHandoverContentDTO {
-  /** 子包id */
+  /** Sub-package ID */
   subbagId?: Long;
-  /** 子包创建时间时间戳 */
+  /** Sub-package creation time, timestamp */
   gmtCreate?: string;
-  /** 子包号 */
+  /** Sub-package number */
   subbagCode?: string;
 }
 
@@ -2173,13 +2173,13 @@ export const CainiaoGlobalHandoverContentSubbagAddHandoverContentDTOSchema: Sche
   };
 
 export interface CainiaoGlobalHandoverContentSubbagAddHsfResult {
-  /** 结果 */
+  /** Result */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 数据 */
+  /** Data */
   data?: CainiaoGlobalHandoverContentSubbagAddHandoverContentAddSubContentResponse;
 }
 
@@ -2196,13 +2196,13 @@ export const CainiaoGlobalHandoverContentSubbagAddHsfResultSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverParcelQueryHsfResult {
-  /** 请求处理是否成功 */
+  /** Whether the request was processed successfully */
   success?: boolean;
-  /** 异常码 */
+  /** Exception code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 响应数据 */
+  /** Response data */
   data?: CainiaoGlobalHandoverParcelQueryOpenParcelOrderQueryResponse;
 }
 
@@ -2218,23 +2218,23 @@ export const CainiaoGlobalHandoverParcelQueryHsfResultSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverParcelQueryOpenParcelOrderQueryResponse {
-  /** 小包发货方式，DOOR_PICKUP/SELF_SEND/SELF_POST */
+  /** Parcel shipping method, DOOR_PICKUP/SELF_SEND/SELF_POST */
   pickupType?: string;
-  /** 扩展字段 */
+  /** Extension field */
   features?: Record<string, unknown>;
-  /** 交接仓编码，快递揽收场景,大包交接目的地国际分拨 */
+  /** Handover warehouse code, express pickup scenario, international sorting destination for big bag handover */
   handoverWarehouseCode?: string;
-  /** 交接仓名称，快递揽收场景,大包交接目的地国际分拨 */
+  /** Handover warehouse name, express pickup scenario, international sorting destination for big bag handover */
   handoverWarehouseName?: string;
-  /** 该小包是否已经组包 */
+  /** Whether this small package has been grouped */
   hasBeenHandover?: boolean;
-  /** 关联的交接单ID */
+  /** Associated handover order ID */
   handoverOrderId?: Long;
-  /** 关联的大包的编码 */
+  /** Code of the associated large package */
   handoverContentCode?: string;
-  /** 关联的大包ID */
+  /** Associated large package ID */
   handoverContentId?: Long;
-  /** 是否能组包 */
+  /** Whether it can be bundled into a package */
   canCreateHandover?: boolean;
 }
 
@@ -2252,7 +2252,7 @@ export const CainiaoGlobalHandoverParcelQueryOpenParcelOrderQueryResponseSchema:
   };
 
 export interface CainiaoGlobalHandoverParcelQueryUserInfoDTO {
-  /** 每个商家在ISV系统的唯一标识，一般为商家ISV账号的id */
+  /** Unique identifier of each merchant in the ISV system, generally the ID of the merchant's ISV account */
   topUserKey?: string;
 }
 
@@ -2261,13 +2261,13 @@ export const CainiaoGlobalHandoverParcelQueryUserInfoDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverPdfGetHsfResult {
-  /** 请求处理是否成功 */
+  /** Whether the request was processed successfully */
   success?: boolean;
-  /** 异常码 */
+  /** Exception code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 通过国际订单号获取的body内容用base64转码后生成运单标签的pdf字节流。 */
+  /** PDF byte stream of the waybill label, generated by base64-encoding the body content obtained via the international order number. */
   data?: string;
 }
 
@@ -2279,7 +2279,7 @@ export const CainiaoGlobalHandoverPdfGetHsfResultSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverPdfGetUserInfoDTO {
-  /** 每个商家在ISV系统的唯一标识，一般为商家ISV账号的id */
+  /** Unique identifier of each merchant in the ISV system, generally the ID of the merchant's ISV account */
   topUserKey?: string;
 }
 
@@ -2288,19 +2288,19 @@ export const CainiaoGlobalHandoverPdfGetUserInfoDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverSavedraftAddressDTO {
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 省 */
+  /** Province */
   province?: string;
-  /** 市 */
+  /** City */
   city?: string;
-  /** 区 */
+  /** District */
   district?: string;
-  /** 街道 */
+  /** Street */
   street?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 邮编 */
+  /** Postal code */
   zipCode?: string;
 }
 
@@ -2315,13 +2315,13 @@ export const CainiaoGlobalHandoverSavedraftAddressDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverSavedraftHsfResult {
-  /** 响应数据 */
+  /** Response data */
   data?: CainiaoGlobalHandoverSavedraftOpenHandoverDraftSaveResponse;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 异常码 */
+  /** Exception code */
   errorCode?: string;
-  /** 请求处理是否成功 */
+  /** Whether the request was processed successfully */
   success?: boolean;
 }
 
@@ -2337,9 +2337,9 @@ export const CainiaoGlobalHandoverSavedraftHsfResultSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverSavedraftOpenHandoverDraftSaveResponse {
-  /** 交接批次号，即交接单id */
+  /** Handover batch number, i.e. handover order id */
   handoverOrderId?: Long;
-  /** 交接物id，即大包id */
+  /** Handover item id, i.e. large package id */
   handoverContentId?: Long;
 }
 
@@ -2350,17 +2350,17 @@ export const CainiaoGlobalHandoverSavedraftOpenHandoverDraftSaveResponseSchema: 
   };
 
 export interface CainiaoGlobalHandoverSavedraftPickupDTO {
-  /** 揽收联系人名称，必须包含中文字符 */
+  /** Pickup contact name, must contain Chinese characters */
   name?: string;
-  /** 固定电话，可空，校验格式：(^0[\d]{2,3}-[\d]{7,8}$)|(^400[\d]{3,4}[\d]{3,4}$)|(400-[\d]{3,4}-[\d]{3,4}$) */
+  /** Landline phone number, may be empty, validation format: (^0[\d]{2,3}-[\d]{7,8}$)|(^400[\d]{3,4}[\d]{3,4}$)|(400-[\d]{3,4}-[\d]{3,4}$) */
   phone?: string;
-  /** 移动电话, 校验格式：^1(3|4|5|6|7|8|9)\d{9}$ */
+  /** Mobile phone number, validation format: ^1(3|4|5|6|7|8|9)\d{9}$ */
   mobile?: string;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 揽收地址 */
+  /** Pickup address */
   address?: CainiaoGlobalHandoverSavedraftAddressDTO;
-  /** AE后台维护的发件地址ID */
+  /** Sender address ID maintained in the AE backend */
   addressId?: Long;
 }
 
@@ -2378,17 +2378,17 @@ export const CainiaoGlobalHandoverSavedraftPickupDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverSavedraftReturnerDTO {
-  /** 退件地址 */
+  /** Return address */
   address?: CainiaoGlobalHandoverSavedraftAddressDTO;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 移动电话, 校验格式：^1(3|4|5|6|7|8|9)\d{9}$ */
+  /** Mobile phone number, validation format: ^1(3|4|5|6|7|8|9)\d{9}$ */
   mobile?: string;
-  /** 固定电话，可空，校验格式：(^0[\d]{2,3}-[\d]{7,8}$)|(^400[\d]{3,4}[\d]{3,4}$)|(400-[\d]{3,4}-[\d]{3,4}$) */
+  /** Landline phone number, may be empty, validation format: (^0[\d]{2,3}-[\d]{7,8}$)|(^400[\d]{3,4}[\d]{3,4}$)|(400-[\d]{3,4}-[\d]{3,4}$) */
   phone?: string;
-  /** 退件联系人名称，必须包含中文字符 */
+  /** Return contact name, must contain Chinese characters */
   name?: string;
-  /** AE后台维护的退货地址ID */
+  /** Return address ID maintained in the AE backend */
   addressId?: Long;
 }
 
@@ -2406,7 +2406,7 @@ export const CainiaoGlobalHandoverSavedraftReturnerDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverSavedraftUserInfoDTO {
-  /** 每个商家在ISV系统的唯一标识，一般为商家ISV账号的id */
+  /** Unique identifier of each merchant in the ISV system, generally the ID of the merchant's ISV account */
   topUserKey?: string;
 }
 
@@ -2415,19 +2415,19 @@ export const CainiaoGlobalHandoverSavedraftUserInfoDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverUpdateAddressDTO {
-  /** 邮编 */
+  /** Postal code */
   zipCode?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 街道 */
+  /** Street */
   street?: string;
-  /** 区 */
+  /** District */
   district?: string;
-  /** 市 */
+  /** City */
   city?: string;
-  /** 省 */
+  /** Province */
   province?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
 }
 
@@ -2442,13 +2442,13 @@ export const CainiaoGlobalHandoverUpdateAddressDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverUpdateHsfResult {
-  /** 响应数据 */
+  /** Response data */
   data?: CainiaoGlobalHandoverUpdateOpenHandoverUpdateResponse;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 异常码 */
+  /** Exception code */
   errorCode?: string;
-  /** 请求处理是否成功 */
+  /** Whether the request was processed successfully */
   success?: boolean;
 }
 
@@ -2464,7 +2464,7 @@ export const CainiaoGlobalHandoverUpdateHsfResultSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverUpdateOpenHandoverUpdateResponse {
-  /** 更新结果 */
+  /** Update result */
   result?: boolean;
 }
 
@@ -2474,17 +2474,17 @@ export const CainiaoGlobalHandoverUpdateOpenHandoverUpdateResponseSchema: Schema
   };
 
 export interface CainiaoGlobalHandoverUpdatePickupDTO {
-  /** 揽收地址 */
+  /** Pickup address */
   address?: CainiaoGlobalHandoverUpdateAddressDTO;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 移动电话, 校验格式：^1(3|4|5|6|7|8|9)\d{9}$ */
+  /** Mobile phone number, validation format: ^1(3|4|5|6|7|8|9)\d{9}$ */
   mobile?: string;
-  /** 固定电话，可空，校验格式：(^0[\d]{2,3}-[\d]{7,8}$)|(^400[\d]{3,4}[\d]{3,4}$)|(400-[\d]{3,4}-[\d]{3,4}$) */
+  /** Landline phone number, may be empty, validation format: (^0[\d]{2,3}-[\d]{7,8}$)|(^400[\d]{3,4}[\d]{3,4}$)|(400-[\d]{3,4}-[\d]{3,4}$) */
   phone?: string;
-  /** 揽收联系人名称，必须包含中文字符 */
+  /** Pickup contact name, must contain Chinese characters */
   name?: string;
-  /** AE后台维护的发件地址ID */
+  /** Sender address ID maintained in the AE backend */
   addressId?: Long;
 }
 
@@ -2498,17 +2498,17 @@ export const CainiaoGlobalHandoverUpdatePickupDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverUpdateReturnerDTO {
-  /** 退件地址 */
+  /** Return address */
   address?: CainiaoGlobalHandoverUpdateAddressDTO;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 移动电话, 校验格式：^1(3|4|5|6|7|8|9)\d{9}$ */
+  /** Mobile phone number, validation format: ^1(3|4|5|6|7|8|9)\d{9}$ */
   mobile?: string;
-  /** 固定电话，可空，校验格式：(^0[\d]{2,3}-[\d]{7,8}$)|(^400[\d]{3,4}[\d]{3,4}$)|(400-[\d]{3,4}-[\d]{3,4}$) */
+  /** Landline phone number, may be empty, validation format: (^0[\d]{2,3}-[\d]{7,8}$)|(^400[\d]{3,4}[\d]{3,4}$)|(400-[\d]{3,4}-[\d]{3,4}$) */
   phone?: string;
-  /** 退件联系人名称，必须包含中文字符 */
+  /** Return contact name, must contain Chinese characters */
   name?: string;
-  /** AE后台维护的退件地址ID */
+  /** Return-to-sender address ID maintained in the AE backend */
   addressId?: Long;
 }
 
@@ -2522,7 +2522,7 @@ export const CainiaoGlobalHandoverUpdateReturnerDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalHandoverUpdateUserInfoDTO {
-  /** 每个商家在ISV系统的唯一标识，一般为商家ISV账号的id */
+  /** Unique identifier of each merchant in the ISV system, generally the ID of the merchant's ISV account */
   topUserKey?: string;
 }
 
@@ -2531,9 +2531,9 @@ export const CainiaoGlobalHandoverUpdateUserInfoDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticOrderCreateErrorInfo {
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
 }
 
@@ -2543,23 +2543,23 @@ export const CainiaoGlobalLogisticOrderCreateErrorInfoSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenAddressParam {
-  /** 最小区划地址库ID */
+  /** Smallest division address library ID */
   divisionId?: Long;
-  /** 邮编 */
+  /** Postal code */
   zipCode?: string;
-  /** 国家名称 */
+  /** Country name */
   countryName?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 区 */
+  /** District */
   district?: string;
-  /** 街道 */
+  /** Street */
   street?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 国家二字码，CN：中国、RU：俄罗斯 */
+  /** Two-letter country code, CN: China, RU: Russia */
   countryCode?: string;
 }
 
@@ -2576,33 +2576,33 @@ export const CainiaoGlobalLogisticOrderCreateOpenAddressParamSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenItemParam {
-  /** 商品ID */
+  /** Product ID */
   itemId?: Long;
-  /** 商品数量 */
+  /** Product quantity */
   quantity?: number;
-  /** 商品英文名称 */
+  /** Product English name */
   englishName?: string;
-  /** 商品本地名称 */
+  /** Product local name */
   localName?: string;
-  /** 商品单价，单位结算币种最小单位，如人民币分 */
+  /** Product unit price, in the smallest unit of the settlement currency, e.g. fen for Chinese yuan */
   unitPrice?: Long;
   /** sku */
   sku?: string;
-  /** 后台商品ID */
+  /** Backend product ID */
   scItemId?: Long;
-  /** 商品重量，单位g */
+  /** Product weight, unit: g */
   weight?: Long;
-  /** 商品属性，cf_normal：普货、cf_has_battery：含电。 */
+  /** Product attribute, cf_normal: general cargo, cf_has_battery: contains battery. */
   itemFeatures?: Array<string>;
-  /** 商品价格币种 */
+  /** Product price currency */
   currency?: string;
-  /** 商品总价 */
+  /** Total product price */
   totalPrice?: Long;
-  /** 商品长度 */
+  /** Product length */
   length?: Long;
-  /** 商品宽度 */
+  /** Product width */
   width?: Long;
-  /** 商品高度 */
+  /** Product height */
   height?: Long;
 }
 
@@ -2624,21 +2624,21 @@ export const CainiaoGlobalLogisticOrderCreateOpenItemParamSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenOrderParam {
-  /** 交易单参数 */
+  /** Transaction order parameters */
   tradeOrderParam?: CainiaoGlobalLogisticOrderCreateOpenTradeOrderParam;
-  /** 解决方案参数 */
+  /** Solution parameters */
   solutionParam?: CainiaoGlobalLogisticOrderCreateOpenSolutionParam;
-  /** 包裹参数 */
+  /** Package parameters */
   packageParams?: Array<CainiaoGlobalLogisticOrderCreateOpenPackageParam>;
-  /** 商家信息参数 */
+  /** Merchant information parameters */
   sellerInfoParam?: CainiaoGlobalLogisticOrderCreateOpenSellerInfoParam;
-  /** 发件人信息 */
+  /** Sender information */
   senderParam?: CainiaoGlobalLogisticOrderCreateOpenSenderParam;
-  /** 退货联系人信息 */
+  /** Return contact information */
   returnerParam?: CainiaoGlobalLogisticOrderCreateOpenReturnerParam;
-  /** 收件人信息 */
+  /** Recipient information */
   receiverParam?: CainiaoGlobalLogisticOrderCreateOpenReceiverParam;
-  /** 揽收信息参数 */
+  /** Pickup information parameters */
   pickupInfoParam?: CainiaoGlobalLogisticOrderCreateOpenPickupInfoParam;
 }
 
@@ -2686,19 +2686,19 @@ export const CainiaoGlobalLogisticOrderCreateOpenOrderParamSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenPackageParam {
-  /** 包裹长度 */
+  /** Package length */
   length?: Long;
-  /** 包裹宽度 */
+  /** Package width */
   width?: Long;
-  /** 包裹高度 */
+  /** Package height */
   height?: Long;
-  /** 包裹重量 */
+  /** Package weight */
   weight?: Long;
-  /** 包裹价格 */
+  /** Package price */
   price?: Long;
-  /** 商品参数 */
+  /** Product parameters */
   itemParams?: Array<CainiaoGlobalLogisticOrderCreateOpenItemParam>;
-  /** 包裹价格币种，CNY：人民币、USD：美元、RUB：卢布。 */
+  /** Package price currency, CNY: Chinese yuan, USD: US dollar, RUB: ruble. */
   currency?: string;
 }
 
@@ -2717,7 +2717,7 @@ export const CainiaoGlobalLogisticOrderCreateOpenPackageParamSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenPickupInfoParam {
-  /** 卖家后台地址id,用来获取卖家详细地址信息，传入值为Long型； */
+  /** Seller backend address ID, used to get the seller's detailed address information; the value passed is of type Long; */
   sellerAddressId?: Long;
 }
 
@@ -2727,17 +2727,17 @@ export const CainiaoGlobalLogisticOrderCreateOpenPickupInfoParamSchema: Schema =
   };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenReceiverParam {
-  /** 收件人名称 */
+  /** Recipient name */
   name?: string;
-  /** 收件人座机号 */
+  /** Recipient landline number */
   telephone?: string;
-  /** 收件人手机号 */
+  /** Recipient mobile number */
   mobilePhone?: string;
-  /** 收件人地址信息 */
+  /** Recipient address information */
   addressParam?: CainiaoGlobalLogisticOrderCreateOpenAddressParam;
-  /** 用户昵称 */
+  /** User nickname */
   userNick?: string;
-  /** 邮箱 */
+  /** Email */
   email?: string;
 }
 
@@ -2755,7 +2755,7 @@ export const CainiaoGlobalLogisticOrderCreateOpenReceiverParamSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenReturnerParam {
-  /** 卖家后台地址id,用来获取卖家详细地址信息，传入值为Long型； */
+  /** Seller backend address ID, used to get the seller's detailed address information; the value passed is of type Long; */
   sellerAddressId?: Long;
 }
 
@@ -2764,7 +2764,7 @@ export const CainiaoGlobalLogisticOrderCreateOpenReturnerParamSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenSellerInfoParam {
-  /** 跨店铺组包时的店铺分组ID */
+  /** Store group ID when packaging across stores */
   topUserKey?: string;
 }
 
@@ -2774,7 +2774,7 @@ export const CainiaoGlobalLogisticOrderCreateOpenSellerInfoParamSchema: Schema =
   };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenSenderParam {
-  /** 卖家后台地址id,用来获取卖家详细地址信息，传入值为Long型； */
+  /** Seller backend address ID, used to get the seller's detailed address information; the value passed is of type Long; */
   sellerAddressId?: Long;
 }
 
@@ -2783,9 +2783,9 @@ export const CainiaoGlobalLogisticOrderCreateOpenSenderParamSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenServiceParam {
-  /** DOOR_PICKUP:上门揽收；SELF_POST:自寄；SELF_SEND:自送；UNREACHABLE_RETURN:不可达退回； */
+  /** DOOR_PICKUP: door-to-door pickup; SELF_POST: self-mailing; SELF_SEND: self-delivery; UNREACHABLE_RETURN: return of undeliverable items; */
   code?: string;
-  /** 不同物流服务的扩展信息 */
+  /** Extended information for different logistics services */
   features?: Record<string, unknown>;
 }
 
@@ -2795,9 +2795,9 @@ export const CainiaoGlobalLogisticOrderCreateOpenServiceParamSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenSolutionParam {
-  /** 解决方案code */
+  /** Solution code */
   solutionCode?: string;
-  /** 物流服务列表 */
+  /** Logistics service list */
   serviceParams?: Array<CainiaoGlobalLogisticOrderCreateOpenServiceParam>;
 }
 
@@ -2811,7 +2811,7 @@ export const CainiaoGlobalLogisticOrderCreateOpenSolutionParamSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenTakingOrderResponse {
-  /** 物流订单ID */
+  /** Logistics order ID */
   logisticsOrderId?: Long;
 }
 
@@ -2821,7 +2821,7 @@ export const CainiaoGlobalLogisticOrderCreateOpenTakingOrderResponseSchema: Sche
   };
 
 export interface CainiaoGlobalLogisticOrderCreateOpenTradeOrderParam {
-  /** 主交易单ID */
+  /** Main transaction order ID */
   tradeOrderId?: Long;
 }
 
@@ -2831,7 +2831,7 @@ export const CainiaoGlobalLogisticOrderCreateOpenTradeOrderParamSchema: Schema =
   };
 
 export interface CainiaoGlobalLogisticsCarrierQuerylistAeopActualCarrierResponse {
-  /** 实际承运商 */
+  /** Actual carrier */
   courierList?: Array<CainiaoGlobalLogisticsCarrierQuerylistString>;
 }
 
@@ -2845,13 +2845,13 @@ export const CainiaoGlobalLogisticsCarrierQuerylistAeopActualCarrierResponseSche
   };
 
 export interface CainiaoGlobalLogisticsCarrierQuerylistDubboResult {
-  /** 返回数据是否成功 */
+  /** Whether the returned data is successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 返回数据 */
+  /** Returned data */
   data?: CainiaoGlobalLogisticsCarrierQuerylistAeopActualCarrierResponse;
 }
 
@@ -2867,9 +2867,9 @@ export const CainiaoGlobalLogisticsCarrierQuerylistDubboResultSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticsCarrierQuerylistString {
-  /** 承运商名字 */
+  /** Carrier name */
   courierName?: string;
-  /** 承运商code */
+  /** Carrier code */
   courierCode?: string;
 }
 
@@ -2879,13 +2879,13 @@ export const CainiaoGlobalLogisticsCarrierQuerylistStringSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticsListitemtagAeopItemContrabandRestrictTagResponse {
-  /** 商品标列表 */
+  /** Product label list */
   itemTags?: Array<CainiaoGlobalLogisticsListitemtagItemTag>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码（接口报错时有值） */
+  /** Error code (has a value when the API reports an error) */
   errorCode?: string;
-  /** 错误信息（接口报错时有值） */
+  /** Error message (has a value when the API reports an error) */
   errorMsg?: string;
 }
 
@@ -2902,9 +2902,9 @@ export const CainiaoGlobalLogisticsListitemtagAeopItemContrabandRestrictTagRespo
   };
 
 export interface CainiaoGlobalLogisticsListitemtagItemTag {
-  /** 商品ID */
+  /** Product ID */
   itemId?: string;
-  /** 商品标详情列表 */
+  /** Product label detail list */
   tagDetailList?: Array<CainiaoGlobalLogisticsListitemtagItemTagDetail>;
 }
 
@@ -2918,11 +2918,11 @@ export const CainiaoGlobalLogisticsListitemtagItemTagSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticsListitemtagItemTagDetail {
-  /** 禁限运属性描述 */
+  /** Restricted shipping attribute description */
   prohibitionMsg?: string;
-  /** Y（是禁限运商品）、N（不是禁限运商品）、NO_DATA（无结果） */
+  /** Y (prohibited/restricted product), N (not a prohibited/restricted product), NO_DATA (no result) */
   prohibitionResult?: string;
-  /** IPR（IPR）、禁运（CONTRABAND）、纯电（BATTERIES）、特货（SPECIAL）、带电带磁（ELECTRICAL）、普货（GENERAL）、无记录（N/A） */
+  /** IPR (IPR), contraband (CONTRABAND), pure battery (BATTERIES), special cargo (SPECIAL), battery/magnetic (ELECTRICAL), general cargo (GENERAL), no record (N/A) */
   prohibitionFeature?: string;
 }
 
@@ -2933,13 +2933,13 @@ export const CainiaoGlobalLogisticsListitemtagItemTagDetailSchema: Schema = {
 };
 
 export interface CainiaoGlobalLogisticsQueryorderpaystatusAeopSellerHasNotPayOrderResponse {
-  /** 当前请求是否成功 */
+  /** Whether the current request succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 商家是否存在未支付订单 */
+  /** Whether the merchant has unpaid orders */
   hasNotPayOrder?: boolean;
 }
 
@@ -2952,15 +2952,15 @@ export const CainiaoGlobalLogisticsQueryorderpaystatusAeopSellerHasNotPayOrderRe
   };
 
 export interface CainiaoGlobalLogisticsServiceQueryAeopLogisticsUsableServiceDTO {
-  /** 物流方案code */
+  /** Logistics solution code */
   solutionCode?: string;
-  /** 物流方案name */
+  /** Logistics solution name */
   solutionName?: string;
-  /** 预计时效 */
+  /** Estimated delivery time */
   estimateTime?: string;
-  /** 预计新费用(CNY) */
+  /** Estimated new fee (CNY) */
   newEstimateFee?: string;
-  /** 预计原费用(CNY) */
+  /** Estimated original fee (CNY) */
   originalEstimateFee?: string;
 }
 
@@ -2974,13 +2974,13 @@ export const CainiaoGlobalLogisticsServiceQueryAeopLogisticsUsableServiceDTOSche
   };
 
 export interface CainiaoGlobalLogisticsServiceQueryAeopLogisticsUsableServiceResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 可用物流方案列表 */
+  /** List of available logistics solutions */
   result?: Array<CainiaoGlobalLogisticsServiceQueryAeopLogisticsUsableServiceDTO>;
 }
 
@@ -2998,17 +2998,17 @@ export const CainiaoGlobalLogisticsServiceQueryAeopLogisticsUsableServiceRespons
   };
 
 export interface CainiaoGlobalPickupResourceRecommendAddressDTO {
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 省 */
+  /** Province */
   province?: string;
-  /** 市 */
+  /** City */
   city?: string;
-  /** 区 */
+  /** District */
   district?: string;
-  /** 街道 */
+  /** Street */
   street?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
 }
 
@@ -3022,11 +3022,11 @@ export const CainiaoGlobalPickupResourceRecommendAddressDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalPickupResourceRecommendAePickupWarehouseRecommendResponse {
-  /** 仓资源名称 */
+  /** Warehouse resource name */
   resName?: string;
-  /** 发货物流服务编码 */
+  /** Shipping logistics service code */
   schemaCode?: string;
-  /** 仓资源编码 */
+  /** Warehouse resource code */
   resCode?: string;
 }
 
@@ -3038,9 +3038,9 @@ export const CainiaoGlobalPickupResourceRecommendAePickupWarehouseRecommendRespo
   };
 
 export interface CainiaoGlobalPickupResourceRecommendHsfResult {
-  /** 响应数据 */
+  /** Response data */
   data?: Array<CainiaoGlobalPickupResourceRecommendAePickupWarehouseRecommendResponse>;
-  /** 请求处理是否成功 */
+  /** Whether the request was processed successfully */
   success?: boolean;
 }
 
@@ -3055,9 +3055,9 @@ export const CainiaoGlobalPickupResourceRecommendHsfResultSchema: Schema = {
 };
 
 export interface CainiaoGlobalPickupResourceRecommendPickupDTO {
-  /** 揽收地址 */
+  /** Pickup address */
   address?: CainiaoGlobalPickupResourceRecommendAddressDTO;
-  /** 地址id */
+  /** Address ID */
   addressId?: string;
 }
 
@@ -3071,7 +3071,7 @@ export const CainiaoGlobalPickupResourceRecommendPickupDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalPickupResourceRecommendUserInfoDTO {
-  /** 每个商家在ISV系统的唯一标识，一般为商家ISV账号的id */
+  /** Unique identifier of each merchant in the ISV system, generally the ID of the merchant's ISV account */
   topUserKey?: string;
 }
 
@@ -3080,19 +3080,19 @@ export const CainiaoGlobalPickupResourceRecommendUserInfoDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalRedeliveryCommitAeopReRouteCommitResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 交易订单ID */
+  /** Transaction order ID */
   tradeOrderId?: Long;
-  /** 国际运单号 */
+  /** International waybill number */
   intlTrackingNo?: string;
-  /** 物流单号（LP） */
+  /** Logistics order number (LP) */
   outOrderCode?: string;
-  /** 提示信息 */
+  /** Prompt message */
   tips?: string;
 }
 
@@ -3108,9 +3108,9 @@ export const CainiaoGlobalRedeliveryCommitAeopReRouteCommitResponseSchema: Schem
   };
 
 export interface CainiaoGlobalSolutionInquiryErrorInfo {
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -3120,15 +3120,15 @@ export const CainiaoGlobalSolutionInquiryErrorInfoSchema: Schema = {
 };
 
 export interface CainiaoGlobalSolutionInquiryOpenFeeDetailDTO {
-  /** 已支付费用 */
+  /** Fee paid */
   paidFee?: Long;
-  /** 已支付费用币种 */
+  /** Currency of fee paid */
   paidFeeCurrency?: string;
-  /** 应支付费用 */
+  /** Fee payable */
   fee?: Long;
-  /** 应支付费用币种 */
+  /** Currency of fee payable */
   feeCurrency?: string;
-  /** 详细费用类型，normal_delivery_fee：配送费，sms_service_fee */
+  /** Detailed fee type, normal_delivery_fee: delivery fee, sms_service_fee */
   feeDetailType?: string;
 }
 
@@ -3141,13 +3141,13 @@ export const CainiaoGlobalSolutionInquiryOpenFeeDetailDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalSolutionInquiryOpenFeeDTO {
-  /** 费用详细列表 */
+  /** Fee detail list */
   feeDetailList?: Array<CainiaoGlobalSolutionInquiryOpenFeeDetailDTO>;
-  /** 总费用 */
+  /** Total fee */
   totalFee?: Long;
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 费用类型，POST_ESTIMATED_COST：预估费用 */
+  /** Fee type, POST_ESTIMATED_COST: estimated cost */
   feeType?: string;
 }
 
@@ -3163,13 +3163,13 @@ export const CainiaoGlobalSolutionInquiryOpenFeeDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalSolutionInquiryOpenPackageParam {
-  /** 包裹长度，单位毫米 */
+  /** Package length, unit: millimeters */
   length?: Long;
-  /** 包裹宽度，单位毫米 */
+  /** Package width, unit: millimeters */
   width?: Long;
-  /** 包裹高度，单位毫米 */
+  /** Package height, unit: millimeters */
   height?: Long;
-  /** 包裹重量，单位克 */
+  /** Package weight, in grams */
   weight?: Long;
 }
 
@@ -3181,15 +3181,15 @@ export const CainiaoGlobalSolutionInquiryOpenPackageParamSchema: Schema = {
 };
 
 export interface CainiaoGlobalSolutionInquiryOpenSolutionDTO {
-  /** 解决方案code */
+  /** Solution code */
   code?: string;
-  /** 解决方案名称 */
+  /** Solution name */
   name?: string;
-  /** 时效信息 */
+  /** Delivery time information */
   timingList?: Array<CainiaoGlobalSolutionInquiryOpenTimingDTO>;
-  /** 费用列表 */
+  /** Fee list */
   feeList?: Array<CainiaoGlobalSolutionInquiryOpenFeeDTO>;
-  /** 推荐指数 */
+  /** Recommendation index */
   recommendIndex?: number;
 }
 
@@ -3210,7 +3210,7 @@ export const CainiaoGlobalSolutionInquiryOpenSolutionDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalSolutionInquiryOpenSolutionInquiryResponse {
-  /** 可用的解决方案列表 */
+  /** List of available solutions */
   usableSolutionList?: Array<CainiaoGlobalSolutionInquiryOpenSolutionDTO>;
 }
 
@@ -3224,13 +3224,13 @@ export const CainiaoGlobalSolutionInquiryOpenSolutionInquiryResponseSchema: Sche
   };
 
 export interface CainiaoGlobalSolutionInquiryOpenTimingDTO {
-  /** 展示文案 */
+  /** Display text */
   displayText?: string;
-  /** 最慢时效 */
+  /** Slowest delivery time */
   slowestTiming?: Long;
-  /** 最快时效 */
+  /** Fastest delivery time */
   fastTiming?: Long;
-  /** 时效类型，ESTIMATE：预估时效，PROMISE：承诺时效 */
+  /** Delivery time type, ESTIMATE: estimated time, PROMISE: promised time */
   timingType?: string;
 }
 
@@ -3242,7 +3242,7 @@ export const CainiaoGlobalSolutionInquiryOpenTimingDTOSchema: Schema = {
 };
 
 export interface CainiaoGlobalSolutionInquiryOpenTradeOrderParam {
-  /** 交易单ID */
+  /** Transaction order ID */
   tradeOrderId?: Long;
 }
 
@@ -3251,9 +3251,9 @@ export const CainiaoGlobalSolutionInquiryOpenTradeOrderParamSchema: Schema = {
 };
 
 export interface CainiaoGlobalSolutionServiceResourceQueryErrorInfo {
-  /** 异常码 */
+  /** Exception code */
   errorCode?: string;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
 }
 
@@ -3264,11 +3264,11 @@ export const CainiaoGlobalSolutionServiceResourceQueryErrorInfoSchema: Schema =
   };
 
 export interface CainiaoGlobalSolutionServiceResourceQueryGlspResponse {
-  /** 查询是否成功 */
+  /** Whether the query succeeded */
   isSuccess?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorInfo?: CainiaoGlobalSolutionServiceResourceQueryErrorInfo;
-  /** 请求结果 */
+  /** Request result */
   result?: CainiaoGlobalSolutionServiceResourceQueryOpenSolutionServiceResQueryResponse;
 }
 
@@ -3289,7 +3289,7 @@ export const CainiaoGlobalSolutionServiceResourceQueryGlspResponseSchema: Schema
   };
 
 export interface CainiaoGlobalSolutionServiceResourceQueryOpenSenderParam {
-  /** 商家后台维护的揽收地址ID */
+  /** Pickup address ID maintained in the merchant backend */
   sellerAddressId?: Long;
 }
 
@@ -3299,25 +3299,25 @@ export const CainiaoGlobalSolutionServiceResourceQueryOpenSenderParamSchema: Sch
   };
 
 export interface CainiaoGlobalSolutionServiceResourceQueryOpenSolutionDTO {
-  /** 扩展字段 */
+  /** Extension field */
   features?: Record<string, unknown>;
-  /** 优先级 */
+  /** Priority */
   priority?: string;
-  /** 联系人名称 */
+  /** Contact name */
   contactName?: string;
-  /** 联系人电话 */
+  /** Contact phone number */
   contactTelephone?: string;
-  /** 工作时间 */
+  /** Working hours */
   workTimeTips?: string;
-  /** 地址对应的divisionId */
+  /** divisionId corresponding to the address */
   division?: string;
-  /** 地址 */
+  /** Address */
   address?: string;
-  /** 资源名称 */
+  /** Resource name */
   name?: string;
-  /** 资源编码 */
+  /** Resource code */
   code?: string;
-  /** 解决方案编码 */
+  /** Solution code */
   solutionCode?: string;
 }
 
@@ -3336,7 +3336,7 @@ export const CainiaoGlobalSolutionServiceResourceQueryOpenSolutionDTOSchema: Sch
   };
 
 export interface CainiaoGlobalSolutionServiceResourceQueryOpenSolutionServiceResQueryResponse {
-  /** 物流服务资源列表 */
+  /** Logistics service resource list */
   solutionServiceResList?: Array<CainiaoGlobalSolutionServiceResourceQueryOpenSolutionDTO>;
 }
 
@@ -3350,9 +3350,9 @@ export const CainiaoGlobalSolutionServiceResourceQueryOpenSolutionServiceResQuer
   };
 
 export interface CainiaoGlobalSolutionServiceResourceQueryQuerySolutionServiceResParam {
-  /** 解决方案code */
+  /** Solution code */
   solutionCode?: string;
-  /** 服务参数 */
+  /** Service parameters */
   serviceParam?: CainiaoGlobalSolutionServiceResourceQueryServiceParam;
 }
 
@@ -3367,7 +3367,7 @@ export const CainiaoGlobalSolutionServiceResourceQueryQuerySolutionServiceResPar
   };
 
 export interface CainiaoGlobalSolutionServiceResourceQueryServiceParam {
-  /** DOOR_PICKUP：揽收仓资源、SELF_SEND：自送dropOff */
+  /** DOOR_PICKUP: pickup warehouse resource; SELF_SEND: self-delivery dropOff */
   code?: string;
 }
 
@@ -3378,19 +3378,19 @@ export const CainiaoGlobalSolutionServiceResourceQueryServiceParamSchema: Schema
 
 /** Parameters for `/cainiao/cnap/deliveryorder/confirm`. */
 export interface CainiaoCnapDeliveryorderConfirmParams {
-  /** 发货单信息 */
+  /** Shipment order information */
   deliveryOrder?: CainiaoCnapDeliveryorderConfirm;
-  /** 包裹列表 */
+  /** Package list */
   packages?: Array<CainiaoCnapDeliveryorderConfirm>;
-  /** 明细列表 */
+  /** Detail list */
   orderLines?: Array<CainiaoCnapDeliveryorderConfirm>;
-  /** 拓展信息，KV格式 */
+  /** Extended information, KV format */
   extendProps?: CainiaoCnapDeliveryorderConfirm;
 }
 
 /** Response of `/cainiao/cnap/deliveryorder/confirm`. */
 export interface CainiaoCnapDeliveryorderConfirmResponse {
-  /** 结果 */
+  /** Result */
   result?: CainiaoCnapDeliveryorderConfirm;
 }
 
@@ -3429,19 +3429,19 @@ export const cainiaoCnapDeliveryorderConfirm: ApiDefinition<
 
 /** Parameters for `/cainiao/cnap/entryorder/confirm`. */
 export interface CainiaoCnapEntryorderConfirmParams {
-  /** 拓展信息，{"k":"v"} */
+  /** Extended information, {"k":"v"} */
   extendProps?: CainiaoCnapEntryorderConfirm;
-  /** 分批次入库的最后一次回传，用于表示仓实际收货入库的数量 */
+  /** The last callback of a batched inbound, used to indicate the quantity actually received and stored by the warehouse */
   totalOrders?: Array<CainiaoCnapEntryorderConfirm>;
-  /** 入库单 */
+  /** Inbound order */
   entryOrder?: CainiaoCnapEntryorderConfirm;
-  /** 明细列表 */
+  /** Detail list */
   orderLines?: Array<CainiaoCnapEntryorderConfirm>;
 }
 
 /** Response of `/cainiao/cnap/entryorder/confirm`. */
 export interface CainiaoCnapEntryorderConfirmResponse {
-  /** 结果 */
+  /** Result */
   result?: CainiaoCnapEntryorderConfirm;
 }
 
@@ -3472,31 +3472,31 @@ export const cainiaoCnapEntryorderConfirm: ApiDefinition<
 
 /** Parameters for `/cainiao/cnap/inventory/report`. */
 export interface CainiaoCnapInventoryReportParams {
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 盘点单编码 */
+  /** Stocktaking order code */
   checkOrderCode?: string;
-  /** 仓储系统的盘点单编码 */
+  /** Stocktaking order code of the warehouse system */
   checkOrderId?: string;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 盘点时间(YYYY-MM-DD HH:MM:SS) */
+  /** Stocktaking time (YYYY-MM-DD HH:MM:SS) */
   checkTime?: string;
-  /** 库存变化原因：CHECK=盘点 ADJUST=调整 */
+  /** Reason for inventory change: CHECK=stocktaking ADJUST=adjustment */
   adjustType?: string;
-  /** 外部业务编码(消息ID;用于去重;ISV对于同一请求;分配一个唯一性的编码。用来保证因为网络等原因导致重复传输;请求不 会被重复处理) */
+  /** External business code (message ID; used for deduplication; the ISV assigns a unique code to the same request. Ensures that a request is not processed repeatedly when transmitted more than once due to network or other reasons) */
   outBizCode?: string;
-  /** 备注 */
+  /** Remarks */
   remark?: string;
-  /** 商品信息列表 */
+  /** Product information list */
   items?: Array<CainiaoCnapInventoryReport>;
-  /** 拓展信息 */
+  /** Extension information */
   extendProps?: string;
 }
 
 /** Response of `/cainiao/cnap/inventory/report`. */
 export interface CainiaoCnapInventoryReportResponse {
-  /** 结果 */
+  /** Result */
   result?: CainiaoCnapInventoryReport;
 }
 
@@ -3529,17 +3529,17 @@ export const cainiaoCnapInventoryReport: ApiDefinition<
 
 /** Parameters for `/cainiao/cnap/returnorder/confirm`. */
 export interface CainiaoCnapReturnorderConfirmParams {
-  /** 退货单信息 */
+  /** Return order information */
   returnOrder?: CainiaoCnapReturnorderConfirm;
-  /** 明细列表 */
+  /** Detail list */
   orderLines?: Array<CainiaoCnapReturnorderConfirm>;
-  /** 拓展信息 */
+  /** Extension information */
   extendProps?: CainiaoCnapReturnorderConfirm;
 }
 
 /** Response of `/cainiao/cnap/returnorder/confirm`. */
 export interface CainiaoCnapReturnorderConfirmResponse {
-  /** 结果 */
+  /** Result */
   result?: CainiaoCnapReturnorderConfirm;
 }
 
@@ -3573,19 +3573,19 @@ export const cainiaoCnapReturnorderConfirm: ApiDefinition<
 
 /** Parameters for `/cainiao/cnap/stockout/confirm`. */
 export interface CainiaoCnapStockoutConfirmParams {
-  /** 单据信息 */
+  /** Document information */
   deliveryOrder?: CainiaoCnapStockoutConfirm;
-  /** 明细列表 */
+  /** Detail list */
   orderLines?: Array<CainiaoCnapStockoutConfirm>;
-  /** 拓展信息 */
+  /** Extension information */
   extendProps?: CainiaoCnapStockoutConfirm;
-  /** 包裹列表 */
+  /** Package list */
   packages?: Array<CainiaoCnapStockoutConfirm>;
 }
 
 /** Response of `/cainiao/cnap/stockout/confirm`. */
 export interface CainiaoCnapStockoutConfirmResponse {
-  /** 结果 */
+  /** Result */
   result?: CainiaoCnapStockoutConfirm;
 }
 
@@ -3616,17 +3616,17 @@ export const cainiaoCnapStockoutConfirm: ApiDefinition<
 
 /** Parameters for `cainiao.cnap.deliveryorder.create`. */
 export interface CainiaoCnapDeliveryorderCreateParams {
-  /** 明细列表 */
+  /** Detail list */
   orderLines?: Array<CainiaoCnapDeliveryorderCreateDeliveryOrderCreateRequestDTODeliveryOrderLineDTO>;
-  /** 拓展,KV结构 */
+  /** Extension, KV structure */
   extendProps?: Record<string, unknown>;
-  /** 发货单信息 */
+  /** Shipment order information */
   deliveryOrder?: CainiaoCnapDeliveryorderCreateDeliveryOrderCreateRequestDTODeliveryOrderDTO;
 }
 
 /** Response of `cainiao.cnap.deliveryorder.create`. */
 export interface CainiaoCnapDeliveryorderCreateResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: CainiaoCnapDeliveryorderCreateResultDTO;
 }
 
@@ -3662,17 +3662,17 @@ export const cainiaoCnapDeliveryorderCreate: ApiDefinition<
 
 /** Parameters for `cainiao.cnap.entryorder.create`. */
 export interface CainiaoCnapEntryorderCreateParams {
-  /** 明细行列表 */
+  /** Detail line list */
   orderLines?: Array<CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderLineDTO>;
-  /** 入库单 */
+  /** Inbound order */
   entryOrder?: CainiaoCnapEntryorderCreateEntryorderCreateRequestDTOEntryOrderDTO;
-  /** 扩展属性,K/V形式 */
+  /** Extended attributes, K/V form */
   extendProps?: Record<string, unknown>;
 }
 
 /** Response of `cainiao.cnap.entryorder.create`. */
 export interface CainiaoCnapEntryorderCreateResponse {
-  /** 结果 */
+  /** Result */
   result?: CainiaoCnapEntryorderCreateResultDTO;
 }
 
@@ -3708,27 +3708,27 @@ export const cainiaoCnapEntryorderCreate: ApiDefinition<
 
 /** Parameters for `cainiao.cnap.order.cancel`. */
 export interface CainiaoCnapOrderCancelParams {
-  /** 单据类型(JYCK=一般交易出库单;HHCK= 换货出库;BFCK=补发出库;PTCK=普通出库单;DBCK=调拨出库;B2BRK=B2B入库;B2BCK=B2B出库;QTCK=其他出库;SCRK=生产入库;LYRK=领用入库;CCRK=残次品入库;CGRK=采购入库;DBRK= 调拨入库;QTRK=其他入库;XTRK= 销退入库;THRK=退货入库;HHRK= 换货入库;CNJG= 仓内加工单;CGTH=采购退货出库单) */
+  /** Document type (JYCK=general trade outbound order; HHCK= exchange outbound; BFCK=reissue outbound; PTCK=regular outbound order; DBCK=transfer outbound; B2BRK=B2B inbound; B2BCK=B2B outbound; QTCK=other outbound; SCRK=production inbound; LYRK=requisition inbound; CCRK=defective product inbound; CGRK=purchase inbound; DBRK= transfer inbound; QTRK=other inbound; XTRK= sales return inbound; THRK=return inbound; HHRK= exchange inbound; CNJG= in-warehouse processing order; CGTH=purchase return outbound order) */
   orderType?: string;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 菜鸟仓储单号 */
+  /** Cainiao warehousing order number */
   orderId?: string;
-  /** 拓展信息，KV格式 */
+  /** Extended information, KV format */
   extendProps?: Record<string, unknown>;
-  /** ERP单号 */
+  /** ERP order number */
   orderCode?: string;
-  /** 备注 */
+  /** Remarks */
   remark?: string;
-  /** 取消原因 */
+  /** Cancellation reason */
   cancelReason?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
 }
 
 /** Response of `cainiao.cnap.order.cancel`. */
 export interface CainiaoCnapOrderCancelResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: CainiaoCnapOrderCancelResultDTO;
 }
 
@@ -3759,17 +3759,17 @@ export const cainiaoCnapOrderCancel: ApiDefinition<
 
 /** Parameters for `cainiao.cnap.returnorder.create`. */
 export interface CainiaoCnapReturnorderCreateParams {
-  /** 明细列表 */
+  /** Detail list */
   orderLines?: Array<CainiaoCnapReturnorderCreateReturnorderCreateRequestDTOReturnOrderLineDTO>;
-  /** 销退单信息 */
+  /** Sales return order information */
   returnOrder?: CainiaoCnapReturnorderCreateReturnorderCreateRequestDTOReturnOrderDTO;
-  /** 拓展信息，KV格式 */
+  /** Extended information, KV format */
   extendProps?: Record<string, unknown>;
 }
 
 /** Response of `cainiao.cnap.returnorder.create`. */
 export interface CainiaoCnapReturnorderCreateResponse {
-  /** 响应信息 */
+  /** Response information */
   result?: CainiaoCnapReturnorderCreateResultDTO;
 }
 
@@ -3805,25 +3805,25 @@ export const cainiaoCnapReturnorderCreate: ApiDefinition<
 
 /** Parameters for `cainiao.cnap.singleitem.synchronize`. */
 export interface CainiaoCnapSingleitemSynchronizeParams {
-  /** 供应商名称 */
+  /** Supplier name */
   supplierName?: string;
   /** add|update */
   actionType?: string;
-  /** 货品信息 */
+  /** Goods information */
   item?: CainiaoCnapSingleitemSynchronizeSingleitemSynchronizeRequestDTOSynchronizeItemDTO;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 扩展属性,格式{"k1":"v1"} */
+  /** Extended attributes, format {"k1":"v1"} */
   extendProps?: Record<string, unknown>;
-  /** 供应商编码 */
+  /** Supplier code */
   supplierCode?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
 }
 
 /** Response of `cainiao.cnap.singleitem.synchronize`. */
 export interface CainiaoCnapSingleitemSynchronizeResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: CainiaoCnapSingleitemSynchronizeResultDTO;
 }
 
@@ -3862,33 +3862,33 @@ export const cainiaoCnapSingleitemSynchronize: ApiDefinition<
 
 /** Parameters for `cainiao.cnap.stock.query`. */
 export interface CainiaoCnapStockQueryParams {
-  /** 仓储系统商品ID */
+  /** Product ID in the warehouse system */
   itemId?: string;
-  /** 库存类型，1-正品，101-残品 */
+  /** Inventory type, 1-genuine, 101-defective */
   inventoryType?: number;
-  /** 货主编码 */
+  /** Cargo owner code */
   ownerCode?: string;
-  /** 货品编码 */
+  /** Goods code */
   itemCode?: string;
-  /** 批次编码，非生产批号 */
+  /** Batch code, not the production batch number */
   batchCode?: string;
-  /** 每页数量 */
+  /** Quantity per page */
   pageSize?: number;
-  /** 拓展信息，KV格式 */
+  /** Extended information, KV format */
   extendProps?: Record<string, unknown>;
-  /** 商品过期日期YYYY-MM-DD */
+  /** Product expiration date YYYY-MM-DD */
   expireDate?: string;
-  /** 页码 */
+  /** Page number */
   page?: number;
-  /** 商品生产日期YYYY-MM-DD */
+  /** Product production date YYYY-MM-DD */
   productDate?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
 }
 
 /** Response of `cainiao.cnap.stock.query`. */
 export interface CainiaoCnapStockQueryResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: CainiaoCnapStockQueryResultDTO;
 }
 
@@ -3922,17 +3922,17 @@ export const cainiaoCnapStockQuery: ApiDefinition<
 
 /** Parameters for `cainiao.cnap.stockout.create`. */
 export interface CainiaoCnapStockoutCreateParams {
-  /** 明细列表 */
+  /** Detail list */
   orderLines?: Array<CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderLineDTO>;
-  /** 请求拓展信息，{"k":"v"}格式 */
+  /** Request extension information, in {"k":"v"} format */
   extendProps?: Record<string, unknown>;
-  /** 出库单信息 */
+  /** Outbound order information */
   deliveryOrder?: CainiaoCnapStockoutCreateStockoutCreateRequestDTOStockoutOrderDTO;
 }
 
 /** Response of `cainiao.cnap.stockout.create`. */
 export interface CainiaoCnapStockoutCreateResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: CainiaoCnapStockoutCreateResultDTO;
 }
 
@@ -3968,13 +3968,13 @@ export const cainiaoCnapStockoutCreate: ApiDefinition<
 
 /** Parameters for `cainiao.global.commithandovercontent.update`. */
 export interface CainiaoGlobalCommithandovercontentUpdateParams {
-  /** 修改参数对象 */
+  /** Update parameter object */
   openHandoverContentUpdateCommitRequest?: CainiaoGlobalCommithandovercontentUpdateOpenHandoverContentUpdateCommitRequest;
 }
 
 /** Response of `cainiao.global.commithandovercontent.update`. */
 export interface CainiaoGlobalCommithandovercontentUpdateResponse {
-  /** 返回对象 */
+  /** Returned object */
   result?: CainiaoGlobalCommithandovercontentUpdateHsfResult;
 }
 
@@ -4007,23 +4007,23 @@ export const cainiaoGlobalCommithandovercontentUpdate: ApiDefinition<
 
 /** Parameters for `cainiao.global.handover.cancel`. */
 export interface CainiaoGlobalHandoverCancelParams {
-  /** 要取消的交接物运单号，即大包运单号 */
+  /** Tracking number of the handover item to cancel, i.e. the big bag tracking number */
   trackingNumber?: string;
-  /** 要取消的交接单id */
+  /** Handover order id to cancel */
   handoverOrderId?: LongInput;
-  /** 用户信息 */
+  /** User information */
   userInfo?: CainiaoGlobalHandoverCancelUserInfoDTO;
-  /** 要取消的交接物id，即大包id */
+  /** Handover item id to cancel, i.e. the large package id */
   handoverContentId?: LongInput;
-  /** ISV名称，ISV：ISV-ISV英文或拼音名称、商家ERP：SELLER-商家英文或拼音名称 */
+  /** ISV name. ISV: ISV-English or pinyin name of the ISV; seller ERP: SELLER-English or pinyin name of the seller */
   client?: string;
-  /** 多语言 */
+  /** Multilingual */
   locale?: string;
 }
 
 /** Response of `cainiao.global.handover.cancel`. */
 export interface CainiaoGlobalHandoverCancelResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: CainiaoGlobalHandoverCancelHsfResult;
 }
 
@@ -4056,21 +4056,21 @@ export const cainiaoGlobalHandoverCancel: ApiDefinition<
 
 /** Parameters for `cainiao.global.handover.cloudprint.get`. */
 export interface CainiaoGlobalHandoverCloudprintGetParams {
-  /** 大包运单号 */
+  /** Large package waybill number */
   trackingNumber?: string;
-  /** 大包物流单LP号 */
+  /** LP number of the large package logistics order */
   orderCode?: string;
-  /** 用户信息 */
+  /** User information */
   userInfo?: CainiaoGlobalHandoverCloudprintGetUserInfoDTO;
-  /** ISV名称，ISV：ISV-ISV英文或拼音名称、商家ERP：SELLER-商家英文或拼音名称 */
+  /** ISV name. ISV: ISV-English or pinyin name of the ISV; seller ERP: SELLER-English or pinyin name of the seller */
   client?: string;
-  /** 多语言 */
+  /** Multilingual */
   locale?: string;
 }
 
 /** Response of `cainiao.global.handover.cloudprint.get`. */
 export interface CainiaoGlobalHandoverCloudprintGetResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: CainiaoGlobalHandoverCloudprintGetHsfResult;
 }
 
@@ -4106,47 +4106,47 @@ export const cainiaoGlobalHandoverCloudprintGet: ApiDefinition<
 
 /** Parameters for `cainiao.global.handover.commit`. */
 export interface CainiaoGlobalHandoverCommitParams {
-  /** 店铺LP单号列表，seller_id/user_nick（店铺标记） 只传输一种即可； 店铺标记与order_code_list（小包LP****号集合）为一一对应关系，不可使用A店铺seller_id/user_nick 对应 B店铺order_code_list（小包LP****号集合），这样会导致组包漏组或者小包找不到 */
+  /** List of store LP order numbers. Pass only one of seller_id/user_nick (store identifier). The store identifier corresponds one-to-one with order_code_list (collection of parcel LP**** numbers); do not use the seller_id/user_nick of store A with the order_code_list (collection of parcel LP**** numbers) of store B, as this will cause parcels to be missed in bagging or not found */
   sellerParcelOrderList?: Array<CainiaoGlobalHandoverCommitSellerParcelOrderDTO>;
-  /** 是否跳过不允许组包的小包（包括：状态不允许组包，已经组过包，揽收仓不一致，发货方式不一致） */
+  /** Whether to skip parcels that are not allowed to be bundled (including: status does not allow bundling, already bundled, pickup warehouse inconsistent, shipping method inconsistent) */
   skipInvalidParcel?: boolean;
-  /** 大包备注 */
+  /** Large package remarks */
   remark?: string;
-  /** 退件信息 */
+  /** Return information */
   returnInfo?: CainiaoGlobalHandoverCommitReturnerDTO;
-  /** 揽收信息 */
+  /** Pickup information */
   pickupInfo?: CainiaoGlobalHandoverCommitPickupDTO;
-  /** 要创建交接单的小包编码集合，数量上限1000(即将下线，请使用seller_parcel_order_list) */
+  /** Set of parcel codes for which to create the handover order, up to 1000 (to be taken offline soon, please use seller_parcel_order_list) */
   orderCodeList?: Array<string>;
-  /** 大包重量 */
+  /** Large package weight */
   weight?: LongInput;
-  /** 交接单id */
+  /** Handover order ID */
   handoverOrderId?: LongInput;
-  /** 用户信息 */
+  /** User information */
   userInfo?: CainiaoGlobalHandoverCommitUserInfoDTO;
-  /** 重量单位，克:g, 千克:kg，默认g */
+  /** Weight unit, gram: g, kilogram: kg, default g */
   weightUnit?: string;
-  /** 交接单类型：cainiao_pickup(菜鸟揽收)、self_post(自寄)、self_send(自送) */
+  /** Handover order type: cainiao_pickup (Cainiao pickup), self_post (self-post), self_send (self-delivery) */
   type?: string;
-  /** ISV名称，ISV：ISV-ISV英文或拼音名称、商家ERP：SELLER-商家英文或拼音名称 */
+  /** ISV name. ISV: ISV-English or pinyin name of the ISV; seller ERP: SELLER-English or pinyin name of the seller */
   client?: string;
-  /** 多语言 */
+  /** Multilingual */
   locale?: string;
-  /** 扩展字段 */
+  /** Extension field */
   features?: Record<string, unknown>;
-  /** 预约交货方式（bigbag：大包预约，batch：批次预约）） */
+  /** Appointment delivery method (bigbag: big-bag appointment, batch: batch appointment)) */
   appointmentType?: string;
-  /** 国内运单号（交接单类型type为self_post(自寄)时必填） */
+  /** Domestic waybill number (required when the handover order type is self_post (self-post)) */
   domesticTrackingNo?: string;
-  /** 国内物流公司id（交接单类型type为self_post(自寄)时必填） */
+  /** Domestic logistics company id (required when the handover order type is self_post (self-post)) */
   domesticLogisticsCompanyId?: number;
-  /** 国内物流公司编码（交接单类型type为self_post(自寄)时必填） */
+  /** Domestic logistics company code (required when the handover order type is self_post (self-post)) */
   domesticLogisticsCompany?: string;
 }
 
 /** Response of `cainiao.global.handover.commit`. */
 export interface CainiaoGlobalHandoverCommitResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: CainiaoGlobalHandoverCommitHsfResult;
 }
 
@@ -4203,21 +4203,21 @@ export const cainiaoGlobalHandoverCommit: ApiDefinition<
 
 /** Parameters for `cainiao.global.handover.content.query`. */
 export interface CainiaoGlobalHandoverContentQueryParams {
-  /** 用户信息 */
+  /** User information */
   userInfo?: CainiaoGlobalHandoverContentQueryUserInfoDTO;
-  /** 交接物物流订单编码,和交接物运单号参数可以任选其一即可 */
+  /** Logistics order code of the handover item; either this or the handover item tracking number parameter is sufficient */
   orderCode?: string;
-  /** 交接物运单号，和交接物物流订单编码参数任选其一即可 */
+  /** Tracking number of the handover item; either this or the handover item logistics order code parameter is sufficient */
   trackingNumber?: string;
-  /** 客户端名称，ISV：ISV-ISV英文或拼音名称、商家ERP：SELLER-商家英文或拼音名称 */
+  /** Client name. ISV: ISV-English or pinyin name of the ISV; seller ERP: SELLER-English or pinyin name of the seller */
   client?: string;
-  /** 多语言 */
+  /** Multilingual */
   locale?: string;
 }
 
 /** Response of `cainiao.global.handover.content.query`. */
 export interface CainiaoGlobalHandoverContentQueryResponse {
-  /** 请求响应 */
+  /** Request response */
   result?: CainiaoGlobalHandoverContentQueryHsfResult;
 }
 
@@ -4253,19 +4253,19 @@ export const cainiaoGlobalHandoverContentQuery: ApiDefinition<
 
 /** Parameters for `cainiao.global.handover.content.subbag.add`. */
 export interface CainiaoGlobalHandoverContentSubbagAddParams {
-  /** 用户信息 */
+  /** User information */
   userInfo?: string;
-  /** 批次约揽订单号 */
+  /** Batch pickup order number */
   orderCode?: string;
-  /** 批次追加大包数，单次不超过30个，总的不超过50个 */
+  /** Number of big bags added to the batch, no more than 30 at a time and no more than 50 in total */
   addSubbagQuantity?: number;
-  /** 多语言 */
+  /** Multilingual */
   locale?: string;
 }
 
 /** Response of `cainiao.global.handover.content.subbag.add`. */
 export interface CainiaoGlobalHandoverContentSubbagAddResponse {
-  /** 响应 */
+  /** Response */
   result?: CainiaoGlobalHandoverContentSubbagAddHsfResult;
 }
 
@@ -4296,21 +4296,21 @@ export const cainiaoGlobalHandoverContentSubbagAdd: ApiDefinition<
 
 /** Parameters for `cainiao.global.handover.parcel.query`. */
 export interface CainiaoGlobalHandoverParcelQueryParams {
-  /** 多语言 */
+  /** Multilingual */
   locale?: string;
-  /** 小包的物流订单号,和小包的国际运单号参数任选其一即可 */
+  /** Logistics order number of the small parcel; either this or the small parcel international tracking number parameter is sufficient */
   orderCode?: string;
-  /** 小包的国际运单号，和小包的物流订单号参数任选其一即可 */
+  /** International tracking number of the small parcel; either this or the small parcel logistics order number parameter is sufficient */
   trackingNumber?: string;
-  /** 用户信息 */
+  /** User information */
   userInfo?: CainiaoGlobalHandoverParcelQueryUserInfoDTO;
-  /** 客户端名称，ISV：ISV-ISV英文或拼音名称、商家ERP：SELLER-商家英文或拼音名称 */
+  /** Client name. ISV: ISV-English or pinyin name of the ISV; seller ERP: SELLER-English or pinyin name of the seller */
   client?: string;
 }
 
 /** Response of `cainiao.global.handover.parcel.query`. */
 export interface CainiaoGlobalHandoverParcelQueryResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: CainiaoGlobalHandoverParcelQueryHsfResult;
 }
 
@@ -4346,21 +4346,21 @@ export const cainiaoGlobalHandoverParcelQuery: ApiDefinition<
 
 /** Parameters for `cainiao.global.handover.pdf.get`. */
 export interface CainiaoGlobalHandoverPdfGetParams {
-  /** 用户信息 */
+  /** User information */
   userInfo?: CainiaoGlobalHandoverPdfGetUserInfoDTO;
-  /** 客户端名称，ISV：ISV-ISV英文或拼音名称、商家ERP：SELLER-商家英文或拼音名称 */
+  /** Client name. ISV: ISV-English or pinyin name of the ISV; seller ERP: SELLER-English or pinyin name of the seller */
   client?: string;
-  /** 多语言 */
+  /** Multilingual */
   locale?: string;
-  /** 大包编号id */
+  /** Large package number ID */
   handoverContentId?: LongInput;
-  /** 打印数据类型，1：面单、4：发货标签、512：交接清单 */
+  /** Print data type, 1: waybill, 4: shipping label, 512: handover list */
   type?: number;
 }
 
 /** Response of `cainiao.global.handover.pdf.get`. */
 export interface CainiaoGlobalHandoverPdfGetResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: CainiaoGlobalHandoverPdfGetHsfResult;
 }
 
@@ -4392,29 +4392,29 @@ export const cainiaoGlobalHandoverPdfGet: ApiDefinition<
 
 /** Parameters for `cainiao.global.handover.savedraft`. */
 export interface CainiaoGlobalHandoverSavedraftParams {
-  /** 用户信息 */
+  /** User information */
   userInfo?: CainiaoGlobalHandoverSavedraftUserInfoDTO;
-  /** 大包重量 */
+  /** Large package weight */
   weight?: LongInput;
-  /** 重量单位，克:g, 千克:kg，默认g */
+  /** Weight unit, gram: g, kilogram: kg, default g */
   weightUnit?: string;
-  /** 需要组装大包的小包编码集合，最多限制200个小包 */
+  /** Set of small parcel codes to be assembled into big bags, limited to 200 small parcels at most */
   orderCodeList?: Array<string>;
-  /** 揽收信息 */
+  /** Pickup information */
   pickupInfo?: CainiaoGlobalHandoverSavedraftPickupDTO;
-  /** 退件信息 */
+  /** Return information */
   returnInfo?: CainiaoGlobalHandoverSavedraftReturnerDTO;
-  /** 备注 */
+  /** Remarks */
   remark?: string;
-  /** 客户端名称，ISV：ISV-ISV英文或拼音名称、商家ERP：SELLER-商家英文或拼音名称 */
+  /** Client name. ISV: ISV-English or pinyin name of the ISV; seller ERP: SELLER-English or pinyin name of the seller */
   client?: string;
-  /** 多语言 */
+  /** Multilingual */
   locale?: string;
 }
 
 /** Response of `cainiao.global.handover.savedraft`. */
 export interface CainiaoGlobalHandoverSavedraftResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: CainiaoGlobalHandoverSavedraftHsfResult;
 }
 
@@ -4458,33 +4458,33 @@ export const cainiaoGlobalHandoverSavedraft: ApiDefinition<
 
 /** Parameters for `cainiao.global.handover.update`. */
 export interface CainiaoGlobalHandoverUpdateParams {
-  /** 重量单位，克:g, 千克:kg，默认g */
+  /** Weight unit, gram: g, kilogram: kg, default g */
   weightUnit?: string;
-  /** 大包重量 */
+  /** Large package weight */
   weight?: LongInput;
-  /** 交接单id */
+  /** Handover order ID */
   handoverOrderId?: LongInput;
-  /** 用户信息 */
+  /** User information */
   userInfo?: CainiaoGlobalHandoverUpdateUserInfoDTO;
-  /** 大包备注 */
+  /** Large package remarks */
   remark?: string;
-  /** 退件信息 */
+  /** Return information */
   returnInfo?: CainiaoGlobalHandoverUpdateReturnerDTO;
-  /** 揽收信息 */
+  /** Pickup information */
   pickupInfo?: CainiaoGlobalHandoverUpdatePickupDTO;
-  /** 要创建交接单的小包编码集合，数量上限200 */
+  /** Set of small parcel codes for which to create a handover order, upper limit 200 */
   orderCodeList?: Array<string>;
-  /** 交接单类型，菜鸟揽收(cainiao_pickup)或自寄(self_post)，默认菜鸟揽收 */
+  /** Handover order type: Cainiao pickup (cainiao_pickup) or self-post (self_post), default Cainiao pickup */
   type?: string;
-  /** ISV名称，ISV：ISV-ISV英文或拼音名称、商家ERP：SELLER-商家英文或拼音名称 */
+  /** ISV name. ISV: ISV-English or pinyin name of the ISV; seller ERP: SELLER-English or pinyin name of the seller */
   client?: string;
-  /** 多语言 */
+  /** Multilingual */
   locale?: string;
 }
 
 /** Response of `cainiao.global.handover.update`. */
 export interface CainiaoGlobalHandoverUpdateResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: CainiaoGlobalHandoverUpdateHsfResult;
 }
 
@@ -4530,21 +4530,21 @@ export const cainiaoGlobalHandoverUpdate: ApiDefinition<
 
 /** Parameters for `cainiao.global.logistic.order.create`. */
 export interface CainiaoGlobalLogisticOrderCreateParams {
-  /** 订单参数 */
+  /** Order parameters */
   orderParam?: CainiaoGlobalLogisticOrderCreateOpenOrderParam;
-  /** 多语言 */
+  /** Multilingual */
   locale?: string;
 }
 
 /** Response of `cainiao.global.logistic.order.create`. */
 export interface CainiaoGlobalLogisticOrderCreateResponse {
-  /** 创建是否成功 */
+  /** Whether creation succeeded */
   isSuccess?: string;
-  /** 是否需要重试 */
+  /** Whether a retry is needed */
   needRetry?: boolean;
-  /** 请求结果 */
+  /** Request result */
   result?: CainiaoGlobalLogisticOrderCreateOpenTakingOrderResponse;
-  /** 错误信息 */
+  /** Error message */
   errorInfo?: CainiaoGlobalLogisticOrderCreateErrorInfo;
 }
 
@@ -4584,7 +4584,7 @@ export const cainiaoGlobalLogisticOrderCreate: ApiDefinition<
 
 /** Parameters for `cainiao.global.logistics.carrier.querylist`. */
 export interface CainiaoGlobalLogisticsCarrierQuerylistParams {
-  /** 多语言(暂不支持，保留入参) */
+  /** Multilingual (not yet supported, input parameter reserved) */
   locale?: string;
 }
 
@@ -4618,15 +4618,15 @@ export const cainiaoGlobalLogisticsCarrierQuerylist: ApiDefinition<
 
 /** Parameters for `cainiao.global.logistics.listitemtag`. */
 export interface CainiaoGlobalLogisticsListitemtagParams {
-  /** 交易订单ID */
+  /** Transaction order ID */
   tradeOrderId?: LongInput;
-  /** 商品ID列表 */
+  /** Product ID list */
   itemIdList?: Array<string>;
 }
 
 /** Response of `cainiao.global.logistics.listitemtag`. */
 export interface CainiaoGlobalLogisticsListitemtagResponse {
-  /** 返回值 */
+  /** Return value */
   response?: CainiaoGlobalLogisticsListitemtagAeopItemContrabandRestrictTagResponse;
 }
 
@@ -4659,7 +4659,7 @@ export interface CainiaoGlobalLogisticsQueryorderpaystatusParams {}
 
 /** Response of `cainiao.global.logistics.queryorderpaystatus`. */
 export interface CainiaoGlobalLogisticsQueryorderpaystatusResponse {
-  /** 查询商家是否存在未支付订单返回值 */
+  /** Return value of the query on whether the merchant has unpaid orders */
   response?: CainiaoGlobalLogisticsQueryorderpaystatusAeopSellerHasNotPayOrderResponse;
 }
 
@@ -4686,19 +4686,19 @@ export const cainiaoGlobalLogisticsQueryorderpaystatus: ApiDefinition<
 
 /** Parameters for `cainiao.global.logistics.service.query`. */
 export interface CainiaoGlobalLogisticsServiceQueryParams {
-  /** 交易订单ID */
+  /** Transaction order ID */
   tradeOrderId?: LongInput;
-  /** 国际运单号 */
+  /** International waybill number */
   intlTrackingNo?: string;
-  /** 物流单号（LP） */
+  /** Logistics order number (LP) */
   outOrderCode?: string;
-  /** 原因 */
+  /** Reason */
   reason?: string;
 }
 
 /** Response of `cainiao.global.logistics.service.query`. */
 export interface CainiaoGlobalLogisticsServiceQueryResponse {
-  /** 返回值 */
+  /** Return value */
   response?: CainiaoGlobalLogisticsServiceQueryAeopLogisticsUsableServiceResponse;
 }
 
@@ -4730,19 +4730,19 @@ export const cainiaoGlobalLogisticsServiceQuery: ApiDefinition<
 
 /** Parameters for `cainiao.global.pickup.resource.recommend`. */
 export interface CainiaoGlobalPickupResourceRecommendParams {
-  /** 解决方案编码 */
+  /** Solution code */
   solutionCode?: string;
-  /** 发货方式：上门揽收DOOR_PICKUP, 自寄SELF_POST, 自送SELF_SEND */
+  /** Shipping method: door pickup DOOR_PICKUP, self-post SELF_POST, self-delivery SELF_SEND */
   pickupType?: string;
-  /** 揽收地址 */
+  /** Pickup address */
   pickupInfo?: CainiaoGlobalPickupResourceRecommendPickupDTO;
-  /** 登陆信息 */
+  /** Login information */
   userInfo?: CainiaoGlobalPickupResourceRecommendUserInfoDTO;
 }
 
 /** Response of `cainiao.global.pickup.resource.recommend`. */
 export interface CainiaoGlobalPickupResourceRecommendResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: CainiaoGlobalPickupResourceRecommendHsfResult;
 }
 
@@ -4781,19 +4781,19 @@ export const cainiaoGlobalPickupResourceRecommend: ApiDefinition<
 
 /** Parameters for `cainiao.global.redelivery.commit`. */
 export interface CainiaoGlobalRedeliveryCommitParams {
-  /** 交易订单ID */
+  /** Transaction order ID */
   tradeOrderId?: string;
-  /** 国际运单号 */
+  /** International waybill number */
   intlTrackingNo?: string;
-  /** 物流单号（LP） */
+  /** Logistics order number (LP) */
   outOrderCode?: string;
-  /** 解决方案 */
+  /** Solution */
   solutionCode?: string;
 }
 
 /** Response of `cainiao.global.redelivery.commit`. */
 export interface CainiaoGlobalRedeliveryCommitResponse {
-  /** 返回值 */
+  /** Return value */
   response?: CainiaoGlobalRedeliveryCommitAeopReRouteCommitResponse;
 }
 
@@ -4824,23 +4824,23 @@ export const cainiaoGlobalRedeliveryCommit: ApiDefinition<
 
 /** Parameters for `cainiao.global.solution.inquiry`. */
 export interface CainiaoGlobalSolutionInquiryParams {
-  /** 多语言，zh_CN中文、en_US:英文、ru_RU俄语 */
+  /** Language, zh_CN Chinese, en_US: English, ru_RU Russian */
   locale?: string;
-  /** 交易单参数 */
+  /** Transaction order parameters */
   tradeOrderParam?: CainiaoGlobalSolutionInquiryOpenTradeOrderParam;
-  /** 商家信息 */
+  /** Merchant information */
   sellerInfoParam?: string;
-  /** 包裹参数 */
+  /** Package parameters */
   packageParams?: Array<CainiaoGlobalSolutionInquiryOpenPackageParam>;
 }
 
 /** Response of `cainiao.global.solution.inquiry`. */
 export interface CainiaoGlobalSolutionInquiryResponse {
-  /** 是否成功 */
+  /** Whether successful */
   isSuccess?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorInfo?: CainiaoGlobalSolutionInquiryErrorInfo;
-  /** 请求结果 */
+  /** Request result */
   result?: CainiaoGlobalSolutionInquiryOpenSolutionInquiryResponse;
 }
 
@@ -4885,19 +4885,19 @@ export const cainiaoGlobalSolutionInquiry: ApiDefinition<
 
 /** Parameters for `cainiao.global.solution.service.resource.query`. */
 export interface CainiaoGlobalSolutionServiceResourceQueryParams {
-  /** 发件信息 */
+  /** Sender information */
   senderParam?: CainiaoGlobalSolutionServiceResourceQueryOpenSenderParam;
-  /** 多语言信息 */
+  /** Multilingual information */
   locale?: string;
-  /** 商家信息 */
+  /** Merchant information */
   sellerParam?: string;
-  /** 查询参数 */
+  /** Query parameters */
   solutionServiceResParam?: CainiaoGlobalSolutionServiceResourceQueryQuerySolutionServiceResParam;
 }
 
 /** Response of `cainiao.global.solution.service.resource.query`. */
 export interface CainiaoGlobalSolutionServiceResourceQueryResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: CainiaoGlobalSolutionServiceResourceQueryGlspResponse;
 }
 

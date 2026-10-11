@@ -9,11 +9,11 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressSellerHostingPublishLimitQueryByCountryCountryQuotaDTO {
-  /** 对应发品上限区域单元 */
+  /** Region unit corresponding to the publishing limit */
   quotaUnit?: string;
-  /** 区域发品上限数量 */
+  /** Regional publishing limit quantity */
   limitNum?: number;
-  /** 区域对应国家二子码 */
+  /** Two-letter country code corresponding to the region */
   countries?: Array<string>;
 }
 
@@ -25,9 +25,9 @@ export const AliexpressSellerHostingPublishLimitQueryByCountryCountryQuotaDTOSch
   };
 
 export interface AliexpressSellerHostingPublishLimitQueryByCountryHostingPublishLimitDTO {
-  /** 发品上限 */
+  /** Listing limit */
   totalLimit?: number;
-  /** 区域发品上限列表 */
+  /** Regional publishing limit list */
   countryQuotaList?: Array<AliexpressSellerHostingPublishLimitQueryByCountryCountryQuotaDTO>;
 }
 
@@ -43,13 +43,13 @@ export const AliexpressSellerHostingPublishLimitQueryByCountryHostingPublishLimi
   };
 
 export interface AliexpressSellerHostingPublishLimitQueryByCountryIsvProductInfoResponse {
-  /** 发品上限数据 */
+  /** Listing limit data */
   data?: AliexpressSellerHostingPublishLimitQueryByCountryHostingPublishLimitDTO;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -67,9 +67,9 @@ export const AliexpressSellerHostingPublishLimitQueryByCountryIsvProductInfoResp
   };
 
 export interface AliexpressSellerHostingPublishLimitQueryHostingPublishLimitDTO {
-  /** 发品上限 */
+  /** Listing limit */
   totalLimit?: number;
-  /** 区域发品上限列表 */
+  /** Regional publishing limit list */
   countryQuotaList?: Array<AliexpressSellerHostingPublishLimitQueryList>;
 }
 
@@ -84,13 +84,13 @@ export const AliexpressSellerHostingPublishLimitQueryHostingPublishLimitDTOSchem
   };
 
 export interface AliexpressSellerHostingPublishLimitQueryIsvProductInfoResponse {
-  /** 发品上限数据 */
+  /** Listing limit data */
   data?: AliexpressSellerHostingPublishLimitQueryHostingPublishLimitDTO;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -108,11 +108,11 @@ export const AliexpressSellerHostingPublishLimitQueryIsvProductInfoResponseSchem
   };
 
 export interface AliexpressSellerHostingPublishLimitQueryList {
-  /** 对应发品上限区域单元 */
+  /** Region unit corresponding to the publishing limit */
   quotaUnit?: string;
-  /** 区域发品上限数量 */
+  /** Regional publishing limit quantity */
   limitNum?: number;
-  /** 区域对应国家二子码 */
+  /** Two-letter country code corresponding to the region */
   countries?: Array<string>;
 }
 
@@ -123,21 +123,21 @@ export const AliexpressSellerHostingPublishLimitQueryListSchema: Schema = {
 };
 
 export interface AliexpressSellerOperationPlanPagePlanRegistrationsBasePageResult {
-  /** 总数 */
+  /** Total */
   pageTotal?: number;
-  /** 数据 */
+  /** Data */
   data?: Array<AliexpressSellerOperationPlanPagePlanRegistrationsIsvPlanRegistrationDTO>;
-  /** 页码 */
+  /** Page number */
   pageIndex?: number;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 单页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 总数 */
+  /** Total */
   totalCount?: number;
-  /** 错误信息 */
+  /** Error message */
   errMessage?: string;
 }
 
@@ -159,27 +159,27 @@ export const AliexpressSellerOperationPlanPagePlanRegistrationsBasePageResultSch
   };
 
 export interface AliexpressSellerOperationPlanPagePlanRegistrationsIsvPlanRegistrationDTO {
-  /** 权益 */
+  /** Benefit */
   benefits?: Array<string>;
-  /** 拒绝原因 */
+  /** Rejection reason */
   rejectReason?: string;
-  /** 类目 */
+  /** Category */
   categoryPath?: string;
-  /** 匹配状态 */
+  /** Match status */
   planMatchStatus?: number;
-  /** 商机来源 */
+  /** Business opportunity source */
   registrationSourceDesc?: string;
-  /** 商机id */
+  /** Business opportunity ID */
   planId?: number;
-  /** 商品信息 */
+  /** Product information */
   itemInfo?: AliexpressSellerOperationPlanPagePlanRegistrationsIsvPlanRegistrationItemInfoDTO;
   /** id */
   id?: string;
-  /** 商机信息 */
+  /** Business opportunity information */
   planInfo?: AliexpressSellerOperationPlanPagePlanRegistrationsIsvPlanRegistrationPlanInfoDTO;
-  /** 是否choice商品 */
+  /** Whether it is a choice product */
   isChoiceItem?: boolean;
-  /** 状态 */
+  /** Status */
   status?: number;
 }
 
@@ -209,13 +209,13 @@ export const AliexpressSellerOperationPlanPagePlanRegistrationsIsvPlanRegistrati
   };
 
 export interface AliexpressSellerOperationPlanPagePlanRegistrationsIsvPlanRegistrationItemInfoDTO {
-  /** 商品id */
+  /** Product ID */
   itemId?: Long;
-  /** 图片 */
+  /** Image */
   imageUrl?: string;
-  /** 审核图 */
+  /** Review image */
   rectifyImageUrl?: string;
-  /** 标题 */
+  /** Title */
   title?: string;
 }
 
@@ -228,13 +228,13 @@ export const AliexpressSellerOperationPlanPagePlanRegistrationsIsvPlanRegistrati
   };
 
 export interface AliexpressSellerOperationPlanPagePlanRegistrationsIsvPlanRegistrationPlanInfoDTO {
-  /** 商机类型 */
+  /** Business opportunity type */
   planType?: number;
-  /** 图片 */
+  /** Image */
   imageUrl?: string;
-  /** 商机id */
+  /** Business opportunity ID */
   planId?: number;
-  /** 标题 */
+  /** Title */
   title?: string;
 }
 
@@ -247,13 +247,13 @@ export const AliexpressSellerOperationPlanPagePlanRegistrationsIsvPlanRegistrati
   };
 
 export interface AliexpressSellerOperationPlanQueryPlanDetailBaseSingleResult {
-  /** 数据 */
+  /** Data */
   data?: AliexpressSellerOperationPlanQueryPlanDetailIsvPlanDetailDTO;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errMessage?: string;
 }
 
@@ -270,47 +270,47 @@ export const AliexpressSellerOperationPlanQueryPlanDetailBaseSingleResultSchema:
   };
 
 export interface AliexpressSellerOperationPlanQueryPlanDetailIsvPlanDetailDTO {
-  /** 其他特点 */
+  /** Other features */
   otherFeaturesDesc?: string;
-  /** 商机类型 */
+  /** Business opportunity type */
   planType?: number;
-  /** 权益 */
+  /** Benefit */
   planBenefits?: Array<string>;
-  /** 最低价 */
+  /** Lowest price */
   lowerPrice?: string;
-  /** 类目路径 */
+  /** Category path */
   categoryPath?: string;
-  /** 结束时间 */
+  /** End time */
   effectiveEndTime?: Long;
-  /** 主题id */
+  /** Theme ID */
   themeId?: string;
-  /** 商机标题 */
+  /** Business opportunity title */
   planName?: string;
-  /** 备注 */
+  /** Remarks */
   memo?: string;
-  /** 属性 */
+  /** Attribute */
   propertiesDesc?: string;
-  /** 相关度 */
+  /** Relevance */
   simScore?: string;
-  /** 开始时间 */
+  /** Start time */
   effectiveStartTime?: Long;
-  /** 图片 */
+  /** Image */
   imageUrlList?: Array<string>;
-  /** 属性 */
+  /** Attribute */
   productPropertiesDesc?: string;
-  /** 最高价 */
+  /** Highest price */
   upperPrice?: string;
-  /** 商机id */
+  /** Business opportunity ID */
   planId?: number;
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 国家 */
+  /** Country */
   countryName?: string;
-  /** 卖点 */
+  /** Selling point */
   sellingPoints?: string;
-  /** 状态 */
+  /** Status */
   applyStatus?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Array<Long>;
 }
 
@@ -340,13 +340,13 @@ export const AliexpressSellerOperationPlanQueryPlanDetailIsvPlanDetailDTOSchema:
   };
 
 export interface AliexpressSellerOperationPlanQueryThemeDetailBaseSingleResult {
-  /** 数据 */
+  /** Data */
   data?: AliexpressSellerOperationPlanQueryThemeDetailIsvThemeDetailDTO;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errMessage?: string;
 }
 
@@ -364,39 +364,39 @@ export const AliexpressSellerOperationPlanQueryThemeDetailBaseSingleResultSchema
   };
 
 export interface AliexpressSellerOperationPlanQueryThemeDetailIsvThemeDetailDTO {
-  /** 原因 */
+  /** Reason */
   reason?: Array<string>;
-  /** 权益 */
+  /** Benefit */
   planBenefits?: Array<string>;
-  /** 最低价 */
+  /** Lowest price */
   lowerPrice?: string;
-  /** 结束时间 */
+  /** End time */
   effectiveEndTime?: Long;
-  /** 主题id */
+  /** Theme ID */
   themeId?: string;
-  /** 备注 */
+  /** Remarks */
   memo?: string;
-  /** 标题 */
+  /** Title */
   title?: string;
-  /** 核心卖点 */
+  /** Core selling points */
   displayFeatures?: Array<string>;
-  /** 开始时间 */
+  /** Start time */
   effectiveStartTime?: Long;
-  /** 类目路径 */
+  /** Category path */
   themeCategoryPath?: string;
-  /** 图片列表 */
+  /** Image list */
   imageUrlList?: Array<string>;
-  /** 属性 */
+  /** Attribute */
   productPropertiesDesc?: string;
-  /** 最高价 */
+  /** Highest price */
   upperPrice?: string;
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 国家 */
+  /** Country */
   countryName?: string;
   /** id */
   id?: number;
-  /** 热卖分 */
+  /** Hot-selling score */
   hotSellScore?: number;
 }
 
@@ -422,21 +422,21 @@ export const AliexpressSellerOperationPlanQueryThemeDetailIsvThemeDetailDTOSchem
   };
 
 export interface AliexpressSellerOperationPlanSearchPlansForSellerBasePageResult {
-  /** 总数 */
+  /** Total */
   pageTotal?: number;
-  /** 数据 */
+  /** Data */
   data?: Array<AliexpressSellerOperationPlanSearchPlansForSellerIsvSellerPlanDTO>;
-  /** 页码 */
+  /** Page number */
   pageIndex?: number;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 单页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 总数 */
+  /** Total */
   totalCount?: number;
-  /** 错误信息 */
+  /** Error message */
   errMessage?: string;
 }
 
@@ -458,33 +458,33 @@ export const AliexpressSellerOperationPlanSearchPlansForSellerBasePageResultSche
   };
 
 export interface AliexpressSellerOperationPlanSearchPlansForSellerIsvSellerPlanDTO {
-  /** 类目id */
+  /** Category ID */
   categoryId?: Array<Long>;
-  /** 商机类型 */
+  /** Business opportunity type */
   planType?: number;
-  /** 权益 */
+  /** Benefit */
   planBenefits?: Array<string>;
-  /** 类目路径 */
+  /** Category path */
   categoryPath?: string;
-  /** 标题 */
+  /** Title */
   title?: string;
-  /** 相关度 */
+  /** Relevance */
   simScore?: string;
-  /** 打爆概率 */
+  /** Hit-product probability */
   burstProbability?: number;
-  /** 图片 */
+  /** Image */
   imageUrlList?: Array<string>;
-  /** 属性描述 */
+  /** Attribute description */
   productPropertiesDesc?: string;
-  /** 状态 */
+  /** Status */
   statusText?: string;
-  /** 优选商机：1-优选，0-非优选 */
+  /** Preferred business opportunity: 1-preferred, 0-not preferred */
   preferredOpportunity?: number;
-  /** 商机id */
+  /** Business opportunity ID */
   planId?: number;
-  /** 国家 */
+  /** Country */
   countryName?: string;
-  /** 是否收藏 */
+  /** Whether favorited */
   isFavorite?: boolean;
 }
 
@@ -507,21 +507,21 @@ export const AliexpressSellerOperationPlanSearchPlansForSellerIsvSellerPlanDTOSc
   };
 
 export interface AliexpressSellerOperationPlanSearchThemePlansBasePageResult {
-  /** 总数 */
+  /** Total */
   pageTotal?: number;
-  /** 数据 */
+  /** Data */
   data?: Array<AliexpressSellerOperationPlanSearchThemePlansIsvThemePlanDTO>;
-  /** 页码 */
+  /** Page number */
   pageIndex?: number;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 单页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 总数 */
+  /** Total */
   totalCount?: number;
-  /** 错误信息 */
+  /** Error message */
   errMessage?: string;
 }
 
@@ -542,31 +542,31 @@ export const AliexpressSellerOperationPlanSearchThemePlansBasePageResultSchema: 
   };
 
 export interface AliexpressSellerOperationPlanSearchThemePlansIsvThemePlanDTO {
-  /** 图片列表 */
+  /** Image list */
   imageUrlList?: Array<string>;
-  /** 商机类型 */
+  /** Business opportunity type */
   planType?: number;
-  /** 权益 */
+  /** Benefit */
   planBenefits?: Array<string>;
-  /** 类目 */
+  /** Category */
   categoryPath?: string;
-  /** 状态 */
+  /** Status */
   statusText?: string;
-  /** 优选商机（1-是 0-否） */
+  /** Preferred business opportunity (1-yes 0-no) */
   preferredOpportunity?: number;
-  /** 商机id */
+  /** Business opportunity ID */
   planId?: number;
-  /** 国家 */
+  /** Country */
   countryName?: string;
-  /** 标题 */
+  /** Title */
   title?: string;
-  /** 相关度 */
+  /** Relevance */
   simScore?: string;
-  /** 打爆概率 */
+  /** Hit-product probability */
   burstProbability?: string;
-  /** 是否收藏 */
+  /** Whether favorited */
   isFavorite?: boolean;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Array<Long>;
 }
 
@@ -588,17 +588,17 @@ export const AliexpressSellerOperationPlanSearchThemePlansIsvThemePlanDTOSchema:
   };
 
 export interface AliexpressSellerOperationPlanSearchThemesBasePageResult {
-  /** 总数 */
+  /** Total */
   pageTotal?: number;
-  /** 数据 */
+  /** Data */
   data?: Array<AliexpressSellerOperationPlanSearchThemesIsvThemePlanListDTO>;
-  /** 分页 */
+  /** Pagination */
   pageIndex?: number;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 单页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 总数 */
+  /** Total */
   totalCount?: number;
 }
 
@@ -617,29 +617,29 @@ export const AliexpressSellerOperationPlanSearchThemesBasePageResultSchema: Sche
   };
 
 export interface AliexpressSellerOperationPlanSearchThemesIsvThemePlanListDTO {
-  /** 推荐理由 */
+  /** Recommendation reason */
   reason?: Array<string>;
-  /** 商机类型 */
+  /** Business opportunity type */
   planType?: number;
-  /** 权益 */
+  /** Benefit */
   planBenefits?: Array<string>;
-  /** 主题id */
+  /** Theme ID */
   themeId?: string;
-  /** 主题标题 */
+  /** Theme title */
   title?: string;
-  /** 核心卖点 */
+  /** Core selling points */
   displayFeatures?: Array<string>;
-  /** 图片 */
+  /** Image */
   imageUrlList?: Array<string>;
-  /** 属性 */
+  /** Attribute */
   productPropertiesDesc?: string;
-  /** 国家 */
+  /** Country */
   countryName?: string;
   /** id */
   id?: number;
-  /** 热卖分 */
+  /** Hot-selling score */
   hotSellScore?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Array<Long>;
 }
 
@@ -661,13 +661,13 @@ export const AliexpressSellerOperationPlanSearchThemesIsvThemePlanListDTOSchema:
 
 /** Parameters for `aliexpress.seller.hosting.publish.limit.query`. */
 export interface AliexpressSellerHostingPublishLimitQueryParams {
-  /** 渠道 seller id，可以从global.seller.relation.query 查询 */
+  /** Channel seller id, can be queried from global.seller.relation.query */
   channelSellerId?: LongInput;
 }
 
 /** Response of `aliexpress.seller.hosting.publish.limit.query`. */
 export interface AliexpressSellerHostingPublishLimitQueryResponse {
-  /** 发品上限响应 */
+  /** Listing limit response */
   result?: AliexpressSellerHostingPublishLimitQueryIsvProductInfoResponse;
 }
 
@@ -695,15 +695,15 @@ export const aliexpressSellerHostingPublishLimitQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.seller.hosting.publish.limit.query.by.country`. */
 export interface AliexpressSellerHostingPublishLimitQueryByCountryParams {
-  /** 渠道 seller id，可以从global.seller.relation.query 查询 */
+  /** Channel seller id, can be queried from global.seller.relation.query */
   channelSellerId?: string;
-  /** 发货国 */
+  /** Shipping country */
   shipFromCountry?: string;
 }
 
 /** Response of `aliexpress.seller.hosting.publish.limit.query.by.country`. */
 export interface AliexpressSellerHostingPublishLimitQueryByCountryResponse {
-  /** 发品上限响应 */
+  /** Listing limit response */
   result?: AliexpressSellerHostingPublishLimitQueryByCountryIsvProductInfoResponse;
 }
 
@@ -734,31 +734,31 @@ export const aliexpressSellerHostingPublishLimitQueryByCountry: ApiDefinition<
 
 /** Parameters for `aliexpress.seller.operation.plan.pagePlanRegistrations`. */
 export interface AliexpressSellerOperationPlanPagePlanRegistrationsParams {
-  /** 单页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 商机名称 */
+  /** Business opportunity name */
   planName?: string;
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 渠道商家id */
+  /** Channel merchant ID */
   channelSellerId?: LongInput;
-  /** 商机id */
+  /** Business opportunity ID */
   planIdList?: Array<LongInput>;
-  /** 页码 */
+  /** Page number */
   pageIndex?: number;
-  /** 商机类型（28:季节主题;29:趋势主题;21:国家精选;26,27:市场爆款） */
+  /** Business opportunity type (28: seasonal theme; 29: trend theme; 21: country selection; 26,27: market bestsellers) */
   planTypeList?: Array<number>;
-  /** 招标状态（AUDITING:审核中;MATCH:已中标;NOT_MATCH:未中标） */
+  /** Bidding status (AUDITING: under review; MATCH: bid won; NOT_MATCH: bid not won) */
   planMatchStatus?: string;
-  /** 商品来源（0：商家主动发品；1：系统自动关联） */
+  /** Product source (0: listed proactively by the merchant; 1: automatically associated by the system) */
   registrationSource?: number;
-  /** 类目id */
+  /** Category ID */
   categoryId?: LongInput;
 }
 
 /** Response of `aliexpress.seller.operation.plan.pagePlanRegistrations`. */
 export interface AliexpressSellerOperationPlanPagePlanRegistrationsResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressSellerOperationPlanPagePlanRegistrationsBasePageResult;
 }
 
@@ -797,17 +797,17 @@ export const aliexpressSellerOperationPlanPagePlanRegistrations: ApiDefinition<
 
 /** Parameters for `aliexpress.seller.operation.plan.queryPlanDetail`. */
 export interface AliexpressSellerOperationPlanQueryPlanDetailParams {
-  /** 渠道商家id */
+  /** Channel merchant ID */
   channelSellerId?: LongInput;
-  /** 商机id */
+  /** Business opportunity ID */
   planId?: LongInput;
-  /** 语言 */
+  /** Language */
   language?: string;
 }
 
 /** Response of `aliexpress.seller.operation.plan.queryPlanDetail`. */
 export interface AliexpressSellerOperationPlanQueryPlanDetailResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressSellerOperationPlanQueryPlanDetailBaseSingleResult;
 }
 
@@ -837,17 +837,17 @@ export const aliexpressSellerOperationPlanQueryPlanDetail: ApiDefinition<
 
 /** Parameters for `aliexpress.seller.operation.plan.queryThemeDetail`. */
 export interface AliexpressSellerOperationPlanQueryThemeDetailParams {
-  /** 渠道商家id */
+  /** Channel merchant ID */
   channelSellerId?: LongInput;
-  /** 主题id */
+  /** Theme ID */
   themeId?: string;
-  /** 语言 */
+  /** Language */
   language?: string;
 }
 
 /** Response of `aliexpress.seller.operation.plan.queryThemeDetail`. */
 export interface AliexpressSellerOperationPlanQueryThemeDetailResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressSellerOperationPlanQueryThemeDetailBaseSingleResult;
 }
 
@@ -877,31 +877,31 @@ export const aliexpressSellerOperationPlanQueryThemeDetail: ApiDefinition<
 
 /** Parameters for `aliexpress.seller.operation.plan.searchPlansForSeller`. */
 export interface AliexpressSellerOperationPlanSearchPlansForSellerParams {
-  /** 国家 */
+  /** Country */
   countryCodeList?: Array<string>;
-  /** 结束时间 */
+  /** End time */
   effectiveEndTime?: LongInput;
-  /** 单页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 商机标题 */
+  /** Business opportunity title */
   planName?: string;
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 开始时间 */
+  /** Start time */
   effectiveStartTime?: LongInput;
-  /** 渠道商家id */
+  /** Channel merchant ID */
   channelSellerId?: LongInput;
-  /** 商机id列表 */
+  /** Business opportunity ID list */
   planIdList?: Array<LongInput>;
-  /** 页码 */
+  /** Page number */
   pageIndex?: number;
-  /** 类目id */
+  /** Category ID */
   categoryId?: LongInput;
 }
 
 /** Response of `aliexpress.seller.operation.plan.searchPlansForSeller`. */
 export interface AliexpressSellerOperationPlanSearchPlansForSellerResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressSellerOperationPlanSearchPlansForSellerBasePageResult;
 }
 
@@ -940,37 +940,37 @@ export const aliexpressSellerOperationPlanSearchPlansForSeller: ApiDefinition<
 
 /** Parameters for `aliexpress.seller.operation.plan.searchThemePlans`. */
 export interface AliexpressSellerOperationPlanSearchThemePlansParams {
-  /** 主销国 */
+  /** Main sales country */
   countryCodeList?: Array<string>;
-  /** 卖点 */
+  /** Selling point */
   themeSellingFeaturesSearch?: string;
-  /** 结束时间 */
+  /** End time */
   effectiveEndTime?: LongInput;
-  /** 主题id */
+  /** Theme ID */
   themeId?: string;
-  /** 页码 */
+  /** Page number */
   pageSize?: number;
-  /** 商机名称 */
+  /** Business opportunity name */
   planName?: string;
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 开始时间 */
+  /** Start time */
   effectiveStartTime?: LongInput;
-  /** 渠道商家id */
+  /** Channel merchant ID */
   channelSellerId?: LongInput;
-  /** 主题标题 */
+  /** Theme title */
   themeTitle?: string;
-  /** 商品id */
+  /** Product ID */
   planIdList?: Array<LongInput>;
-  /** 页码 */
+  /** Page number */
   pageIndex?: number;
-  /** 类目id */
+  /** Category ID */
   categoryId?: LongInput;
 }
 
 /** Response of `aliexpress.seller.operation.plan.searchThemePlans`. */
 export interface AliexpressSellerOperationPlanSearchThemePlansResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressSellerOperationPlanSearchThemePlansBasePageResult;
 }
 
@@ -1010,37 +1010,37 @@ export const aliexpressSellerOperationPlanSearchThemePlans: ApiDefinition<
 
 /** Parameters for `aliexpress.seller.operation.plan.searchThemes`. */
 export interface AliexpressSellerOperationPlanSearchThemesParams {
-  /** 国家二字码列表 */
+  /** List of two-letter country codes */
   countryCodeList?: Array<string>;
-  /** 相关卖点 */
+  /** Related selling points */
   themeSellingFeaturesSearch?: string;
-  /** 结束时间 */
+  /** End time */
   effectiveEndTime?: LongInput;
-  /** 主题id */
+  /** Theme ID */
   themeId?: string;
-  /** 单页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 商品名称 */
+  /** Product name */
   planName?: string;
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 开始时间 */
+  /** Start time */
   effectiveStartTime?: LongInput;
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: LongInput;
-  /** 主题名称 */
+  /** Theme name */
   themeTitle?: string;
-  /** 商机id列表 */
+  /** Business opportunity ID list */
   planIdList?: Array<LongInput>;
-  /** 分页 */
+  /** Pagination */
   pageIndex?: number;
-  /** 类目id */
+  /** Category ID */
   categoryId?: LongInput;
 }
 
 /** Response of `aliexpress.seller.operation.plan.searchThemes`. */
 export interface AliexpressSellerOperationPlanSearchThemesResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressSellerOperationPlanSearchThemesBasePageResult;
 }
 

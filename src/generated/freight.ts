@@ -36,11 +36,11 @@ export const AliexpressFreightRedefiningCalculatefreightAeopFreightCalculateResu
   };
 
 export interface AliexpressFreightRedefiningCalculatefreightMoney {
-  /** 分 */
+  /** Cent */
   cent?: Long;
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
-  /** 元 */
+  /** Yuan */
   amount?: string;
 }
 
@@ -51,21 +51,21 @@ export const AliexpressFreightRedefiningCalculatefreightMoneySchema: Schema = {
 };
 
 export interface AliexpressFreightRedefiningGetfreightsettingbytemplatequeryAeopFreightSelfdefine {
-  /** 起始采购量 */
+  /** Starting purchase quantity */
   startOrderNum?: Long;
-  /** 自定义按重内容 */
+  /** Custom weight-based content */
   selfDefineWeightList?: Array<AliexpressFreightRedefiningGetfreightsettingbytemplatequeryAeopFreightSelfdefineWeight>;
-  /** 自定义运送国家 */
+  /** Custom shipping country */
   shippingCountry?: string;
-  /** 最低报价 */
+  /** Lowest quote */
   minFreight?: Long;
-  /** 截至采购量 */
+  /** Ending purchase quantity */
   endOrderNum?: Long;
-  /** 续增运费 */
+  /** Additional shipping fee */
   addFreight?: Long;
-  /** 每增加定额产品采购量 */
+  /** Purchase quantity for each additional fixed-quota product */
   perAddNum?: Long;
-  /** 自定义的方式（按件/按重） */
+  /** Custom method (per piece / per weight) */
   customFreightType?: string;
 }
 
@@ -87,9 +87,9 @@ export const AliexpressFreightRedefiningGetfreightsettingbytemplatequeryAeopFrei
   };
 
 export interface AliexpressFreightRedefiningGetfreightsettingbytemplatequeryAeopFreightSelfdefineStandard {
-  /** 自定义标准折扣 */
+  /** Custom standard discount */
   selfStandardDiscount?: Long;
-  /** 自定义运费国家 */
+  /** Custom shipping fee country */
   selfStandardCountry?: string;
 }
 
@@ -100,13 +100,13 @@ export const AliexpressFreightRedefiningGetfreightsettingbytemplatequeryAeopFrei
   };
 
 export interface AliexpressFreightRedefiningGetfreightsettingbytemplatequeryAeopFreightSelfdefineWeight {
-  /** 区间内,单位重量 */
+  /** Unit weight within the range */
   intervalUnitWeight?: Long;
-  /** 重量区间结束 */
+  /** Weight range end */
   endWeight?: Long;
-  /** 重量区间起始 */
+  /** Weight range start */
   startWeight?: Long;
-  /** 区间内,单元重量运费 */
+  /** Shipping fee per unit weight within the range */
   intervalUnitFreight?: Long;
 }
 
@@ -119,25 +119,25 @@ export const AliexpressFreightRedefiningGetfreightsettingbytemplatequeryAeopFrei
   };
 
 export interface AliexpressFreightRedefiningGetfreightsettingbytemplatequeryAeopFreightSetting {
-  /** 运费模板基础信息内容 */
+  /** Basic information content of the shipping fee template */
   template?: AliexpressFreightRedefiningGetfreightsettingbytemplatequeryAeopFreightSetting;
   /** selfstandard */
   selfstandardList?: Array<AliexpressFreightRedefiningGetfreightsettingbytemplatequeryAeopFreightSelfdefineStandard>;
-  /** 运费模板自定义按件或按重内容 */
+  /** Custom per-piece or per-weight content of the shipping fee template */
   selfdefineList?: Array<AliexpressFreightRedefiningGetfreightsettingbytemplatequeryAeopFreightSelfdefine>;
-  /** 标准运费折扣 */
+  /** Standard shipping discount */
   standardShippingDiscount?: Long;
-  /** 完全标准运费折扣 */
+  /** Full standard shipping fee discount */
   allStandardDiscount?: Long;
-  /** 免运费国家 */
+  /** Free shipping countries */
   freeShippingCountry?: string;
-  /** 标准运费国家 */
+  /** Standard shipping country */
   standardShippingCountry?: string;
-  /** 物流公司 */
+  /** Logistics company */
   logisticsCompany?: string;
-  /** 完全标准运费折扣 */
+  /** Full standard shipping fee discount */
   allStandardShipping?: string;
-  /** 是否全免费 */
+  /** Whether entirely free */
   allFreeShipping?: string;
 }
 
@@ -192,23 +192,23 @@ export interface AliexpressFreightRedefiningCalculatefreightParams {
   height?: LongInput;
   /** package weight */
   weight?: string;
-  /** 打包计重超过部分续重,当isCustomPackWeight=Y时必选 */
+  /** Additional weight for the portion beyond the packed weight threshold. Required when isCustomPackWeight=Y */
   packAddWeight?: string;
   /** count */
   count?: LongInput;
-  /** 运费模板ID */
+  /** Shipping template ID */
   freightTemplateId?: LongInput;
-  /** 打包计重超过部分每增加件数,当isCustomPackWeight=Y时必选 */
+  /** Number of pieces added each time beyond the packed weight threshold. Required when isCustomPackWeight=Y */
   packAddUnit?: LongInput;
-  /** 是否为自定义打包计重,Y/N */
+  /** Whether custom packaging weight calculation, Y/N */
   isCustomPackWeight?: boolean;
   /** package width */
   width?: LongInput;
   /** package length */
   length?: LongInput;
-  /** 产品价格 */
+  /** Product price */
   productPrice?: AliexpressFreightRedefiningCalculatefreightMoney;
-  /** 打包计重几件以内按单个产品计重,当isCustomPackWeight=Y时必选 */
+  /** Number of pieces within which packed weight is calculated as a single product. Required when isCustomPackWeight=Y */
   packBaseUnit?: LongInput;
   /** country */
   country?: string;
@@ -281,15 +281,15 @@ export interface AliexpressFreightRedefiningCreateFreightTemplateParams {
 
 /** Response of `aliexpress.freight.redefining.createFreightTemplate`. */
 export interface AliexpressFreightRedefiningCreateFreightTemplateResponse {
-  /** 生成的AI运费模板id */
+  /** Generated AI shipping fee template id */
   data?: string;
-  /** 接口是否成功 */
+  /** Whether the API call succeeded */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误描述 */
+  /** Error description */
   error?: string;
-  /** 请求类型 */
+  /** Request type */
   type?: string;
 }
 
@@ -337,7 +337,7 @@ export interface AliexpressFreightRedefiningGetfreightsettingbytemplatequeryPara
 export interface AliexpressFreightRedefiningGetfreightsettingbytemplatequeryResponse {
   /** templateName */
   templateName?: string;
-  /** 运费模板Id */
+  /** Shipping template ID */
   templateId?: number;
   /** errorDesc */
   errorDesc?: string;
@@ -382,7 +382,7 @@ export const aliexpressFreightRedefiningGetfreightsettingbytemplatequery: ApiDef
 
 /** Parameters for `aliexpress.freight.redefining.listfreighttemplate`. */
 export interface AliexpressFreightRedefiningListfreighttemplateParams {
-  /** 渠道 */
+  /** Channel */
   channelSellerId?: string;
 }
 
@@ -426,15 +426,15 @@ export interface AliexpressFreightRedefiningQueryInIsvGrayParams {}
 
 /** Response of `aliexpress.freight.redefining.queryInIsvGray`. */
 export interface AliexpressFreightRedefiningQueryInIsvGrayResponse {
-  /** 是否灰度，true表示在灰度范围内 */
+  /** Whether in gray release, true means within the gray release scope */
   data?: boolean;
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误内容 */
+  /** Error content */
   error?: string;
-  /** 请求类型 */
+  /** Request type */
   type?: string;
 }
 
@@ -463,15 +463,15 @@ export interface AliexpressFreightRedefiningQuerySellerIntentionParams {}
 
 /** Response of `aliexpress.freight.redefining.querySellerIntention`. */
 export interface AliexpressFreightRedefiningQuerySellerIntentionResponse {
-  /** 商家偏好内容 */
+  /** Merchant preference content */
   data?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误code */
+  /** Error code */
   error?: string;
-  /** 请求类型 */
+  /** Request type */
   type?: string;
 }
 
@@ -497,23 +497,23 @@ export const aliexpressFreightRedefiningQuerySellerIntention: ApiDefinition<
 
 /** Parameters for `aliexpress.freight.redefining.recommendFreightTemplate`. */
 export interface AliexpressFreightRedefiningRecommendFreightTemplateParams {
-  /** 压缩标记，写死传true */
+  /** Compression flag, hard-coded to true */
   compressFlag?: string;
-  /** 压缩后的数据 */
+  /** Compressed data */
   compressedData?: string;
 }
 
 /** Response of `aliexpress.freight.redefining.recommendFreightTemplate`. */
 export interface AliexpressFreightRedefiningRecommendFreightTemplateResponse {
-  /** AI模板推荐结果 */
+  /** AI template recommendation result */
   data?: string;
-  /** 接口是否成功 */
+  /** Whether the API call succeeded */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误描述 */
+  /** Error description */
   error?: string;
-  /** 请求类型 */
+  /** Request type */
   type?: string;
 }
 

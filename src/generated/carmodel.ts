@@ -9,21 +9,21 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressCarmodelFindByTecIdCarInfoDTO {
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 车辆类型 */
+  /** Vehicle type */
   carType?: Long;
-  /** 配置 */
+  /** Configuration */
   trim?: string;
-  /** 年份 */
+  /** Year */
   year?: string;
-  /** 引擎 */
+  /** Engine */
   engine?: string;
-  /** 车型 */
+  /** Vehicle model */
   model?: string;
-  /** 制造商 */
+  /** Manufacturer */
   make?: string;
-  /** 车型id */
+  /** Vehicle model ID */
   afid?: string;
 }
 
@@ -39,13 +39,13 @@ export const AliexpressCarmodelFindByTecIdCarInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelFindByTecIdResultDTO {
-  /** 数据 */
+  /** Data */
   data?: Array<AliexpressCarmodelFindByTecIdCarInfoDTO>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -57,23 +57,23 @@ export const AliexpressCarmodelFindByTecIdResultDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelFindByTecIdsCarInfoDTO {
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 车型 */
+  /** Vehicle model */
   carType?: number;
-  /** 配置 */
+  /** Configuration */
   trim?: string;
-  /** 年份 */
+  /** Year */
   year?: string;
-  /** 引擎 */
+  /** Engine */
   engine?: string;
-  /** 型号 */
+  /** Model */
   model?: string;
-  /** 车型id */
+  /** Vehicle model ID */
   afid?: string;
-  /** 制造商 */
+  /** Manufacturer */
   make?: string;
-  /** 是否热卖 */
+  /** Whether hot-selling */
   hotSale?: string;
 }
 
@@ -90,21 +90,21 @@ export const AliexpressCarmodelFindByTecIdsCarInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelFindByTecIdsCarModelInfoQueryRequest {
-  /** 关联车型id集合 */
+  /** Set of linked vehicle model ids */
   linkTargetIdList?: Array<string>;
-  /** 国家id */
+  /** Country ID */
   countryId?: string;
-  /** 品牌id */
+  /** Brand ID */
   brandId?: string;
-  /** 型号id */
+  /** Model ID */
   modelId?: string;
-  /** 年份id */
+  /** Year ID */
   yearId?: string;
-  /** 页大小 */
+  /** Page size */
   pageSize?: string;
-  /** 当前页 */
+  /** Current page */
   current?: string;
-  /** OE号等车辆配件编号 */
+  /** Vehicle part numbers such as OE number */
   oeNumber?: string;
 }
 
@@ -121,9 +121,9 @@ export const AliexpressCarmodelFindByTecIdsCarModelInfoQueryRequestSchema: Schem
   };
 
 export interface AliexpressCarmodelFindByTecIdserrorListMap {
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -133,21 +133,21 @@ export const AliexpressCarmodelFindByTecIdserrorListMapSchema: Schema = {
 };
 
 export interface AliexpressCarmodelFindByTecIdsMultPageResult {
-  /** 国家下拉选项 */
+  /** Country dropdown options */
   countryOptions?: Record<string, unknown>;
-  /** 年份下拉选项 */
+  /** Year dropdown options */
   yearOptions?: Record<string, unknown>;
-  /** 错误信息 */
+  /** Error message */
   errorList?: Array<AliexpressCarmodelFindByTecIdserrorListMap>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 分页信息 */
+  /** Pagination information */
   pageInfo?: AliexpressCarmodelFindByTecIdsPageInfoDTO;
-  /** 品牌下拉选项 */
+  /** Brand dropdown options */
   brandOptions?: Record<string, unknown>;
-  /** 数据 */
+  /** Data */
   dataSourceList?: Array<AliexpressCarmodelFindByTecIdsCarInfoDTO>;
-  /** 型号下拉选项 */
+  /** Model dropdown options */
   modelOptions?: Record<string, unknown>;
 }
 
@@ -175,11 +175,11 @@ export const AliexpressCarmodelFindByTecIdsMultPageResultSchema: Schema = {
 };
 
 export interface AliexpressCarmodelFindByTecIdsPageInfoDTO {
-  /** 当前页 */
+  /** Current page */
   current?: number;
-  /** 总数 */
+  /** Total */
   total?: number;
-  /** 页大小 */
+  /** Page size */
   pageSize?: number;
 }
 
@@ -190,21 +190,21 @@ export const AliexpressCarmodelFindByTecIdsPageInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelFindListByProductIdCarInfoDTO {
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 车辆类型 */
+  /** Vehicle type */
   carType?: string;
-  /** 配置 */
+  /** Configuration */
   trim?: string;
-  /** 年份 */
+  /** Year */
   year?: string;
-  /** 引擎 */
+  /** Engine */
   engine?: string;
-  /** 型号 */
+  /** Model */
   model?: string;
-  /** 制造商 */
+  /** Manufacturer */
   make?: string;
-  /** 车型id */
+  /** Vehicle model ID */
   afid?: string;
 }
 
@@ -220,11 +220,11 @@ export const AliexpressCarmodelFindListByProductIdCarInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelFindListByProductIdCarInfoQueryDTO {
-  /** 商品id */
+  /** Product ID */
   productId?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 不传默认查询对应的AE的普通账号数据，渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** If not passed, queries the data of the corresponding regular AE account by default. Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelSellerId?: string;
 }
 
@@ -236,13 +236,13 @@ export const AliexpressCarmodelFindListByProductIdCarInfoQueryDTOSchema: Schema 
   };
 
 export interface AliexpressCarmodelFindListByProductIdResultDTO {
-  /** 数据 */
+  /** Data */
   data?: Array<AliexpressCarmodelFindListByProductIdCarInfoDTO>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -258,29 +258,29 @@ export const AliexpressCarmodelFindListByProductIdResultDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelGetArticleArticleDTO {
-  /** 产品组id */
+  /** Product group ID */
   genericArticleId?: number;
-  /** 零件状态id */
+  /** Part condition ID */
   articleStatusId?: number;
-  /** 零件状态描述 */
+  /** Part condition description */
   articleStatusDescription?: string;
-  /** GTIN/EAN 编号 */
+  /** GTIN/EAN number */
   gtin?: string;
-  /** 关联车型的零件id */
+  /** Part id of the linked vehicle model */
   legacyArticleId?: number;
-  /** 制造商名称 */
+  /** Manufacturer name */
   mfrName?: string;
-  /** 制造商id */
+  /** Manufacturer ID */
   mfrId?: number;
-  /** 零件编号 */
+  /** Part number */
   articleNumber?: string;
-  /** 产品组名称 */
+  /** Product group name */
   genericArticleDescription?: string;
-  /** 标准信息 */
+  /** Standard information */
   articleCriteria?: Array<AliexpressCarmodelGetArticleCriteriaDTO>;
-  /** OE号，逗号隔开 */
+  /** OE numbers, separated by commas */
   oemNumber?: string;
-  /** 图片链接 */
+  /** Image link */
   imageUrl?: string;
 }
 
@@ -304,15 +304,15 @@ export const AliexpressCarmodelGetArticleArticleDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelGetArticleArticlesQueryRequest {
-  /** 查询条件 */
+  /** Query conditions */
   searchQuery?: string;
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 查询条件类型 */
+  /** Query condition type */
   searchType?: number;
-  /** 页大小 */
+  /** Page size */
   pageSize?: string;
-  /** 页数 */
+  /** Number of pages */
   current?: string;
 }
 
@@ -325,29 +325,29 @@ export const AliexpressCarmodelGetArticleArticlesQueryRequestSchema: Schema = {
 };
 
 export interface AliexpressCarmodelGetArticleCriteriaDTO {
-  /** 标准缩写描述 */
+  /** Standard abbreviation description */
   criteriaAbbrDescription?: string;
-  /** 标准id */
+  /** Standard ID */
   criteriaId?: number;
-  /** 原始值 */
+  /** Original value */
   rawValue?: string;
-  /** 标准单位描述 */
+  /** Standard unit description */
   criteriaUnitDescription?: string;
-  /** 格式化值 */
+  /** Formatted value */
   formattedValue?: string;
-  /** 是否间隔 */
+  /** Whether interval */
   interval?: boolean;
-  /** 是否间匹配搜索查询 */
+  /** Whether it is a fuzzy match search query */
   matchesSearchQuery?: string;
-  /** 标准类型 */
+  /** Standard type */
   criteriaType?: string;
-  /** 是否立即显示 */
+  /** Whether to display immediately */
   immediateDisplay?: boolean;
-  /** 是否强制性 */
+  /** Whether mandatory */
   mandatory?: boolean;
-  /** 标准描述 */
+  /** Standard description */
   criteriaDescription?: string;
-  /** 后继标准 ID */
+  /** Successor standard ID */
   successorCriteriaId?: string;
 }
 
@@ -367,9 +367,9 @@ export const AliexpressCarmodelGetArticleCriteriaDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelGetArticleErrorMessage {
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -379,11 +379,11 @@ export const AliexpressCarmodelGetArticleErrorMessageSchema: Schema = {
 };
 
 export interface AliexpressCarmodelGetArticlePageInfoDTO {
-  /** 当前页 */
+  /** Current page */
   current?: number;
-  /** 总数 */
+  /** Total */
   total?: number;
-  /** 页大小 */
+  /** Page size */
   pageSize?: number;
 }
 
@@ -394,13 +394,13 @@ export const AliexpressCarmodelGetArticlePageInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelGetArticlePageResult {
-  /** 错误信息 */
+  /** Error message */
   errorList?: Array<AliexpressCarmodelGetArticleErrorMessage>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 分页信息 */
+  /** Pagination information */
   pageInfo?: AliexpressCarmodelGetArticlePageInfoDTO;
-  /** 数据信息 */
+  /** Data information */
   dataSourceList?: Array<AliexpressCarmodelGetArticleArticleDTO>;
 }
 
@@ -424,7 +424,7 @@ export const AliexpressCarmodelGetArticlePageResultSchema: Schema = {
 };
 
 export interface AliexpressCarmodelGetBrandBrandsQueryRequest {
-  /** 语言 */
+  /** Language */
   lang?: string;
 }
 
@@ -433,11 +433,11 @@ export const AliexpressCarmodelGetBrandBrandsQueryRequestSchema: Schema = {
 };
 
 export interface AliexpressCarmodelGetBranddataObject {
-  /** 品牌商标id */
+  /** Brand trademark ID */
   brandLogoID?: string;
-  /** 品牌名称 */
+  /** Brand name */
   brandName?: string;
-  /** 品牌id */
+  /** Brand ID */
   brandId?: number;
 }
 
@@ -450,11 +450,11 @@ export const AliexpressCarmodelGetBranddataObjectSchema: Schema = {
 export interface AliexpressCarmodelGetBrandResultDTO {
   /** {} */
   data?: Array<AliexpressCarmodelGetBranddataObject>;
-  /** 成功标记 */
+  /** Success flag */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMsg?: string;
 }
 
@@ -466,7 +466,7 @@ export const AliexpressCarmodelGetBrandResultDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelGetCountryCountriesRequest {
-  /** 语言，默认zh */
+  /** Language, default zh */
   lang?: string;
 }
 
@@ -475,11 +475,11 @@ export const AliexpressCarmodelGetCountryCountriesRequestSchema: Schema = {
 };
 
 export interface AliexpressCarmodelGetCountrydataObject {
-  /** 国家代码 */
+  /** Country code */
   countryCode?: string;
-  /** 固定7 */
+  /** Fixed 7 */
   usage?: number;
-  /** 国家名称 */
+  /** Country name */
   countryName?: string;
 }
 
@@ -492,11 +492,11 @@ export const AliexpressCarmodelGetCountrydataObjectSchema: Schema = {
 export interface AliexpressCarmodelGetCountryResultDTO {
   /** data */
   data?: Array<AliexpressCarmodelGetCountrydataObject>;
-  /** 成功标记 */
+  /** Success flag */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMsg?: string;
 }
 
@@ -508,11 +508,11 @@ export const AliexpressCarmodelGetCountryResultDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelGetLinktargetLinkingTargetQueryRequest {
-  /** 零件id集合 */
+  /** Part ID collection */
   articleIdList?: Array<string>;
-  /** 语言 */
+  /** Language */
   lang?: string;
-  /** 关联车型类型 */
+  /** Associated vehicle model type */
   linkingTargetType?: string;
 }
 
@@ -526,11 +526,11 @@ export const AliexpressCarmodelGetLinktargetLinkingTargetQueryRequestSchema: Sch
 export interface AliexpressCarmodelGetLinktargetResultDTO {
   /** {} */
   data?: Array<string>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -542,15 +542,15 @@ export const AliexpressCarmodelGetLinktargetResultDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelSixlevelBindCarInfoSixLevelBindRequest {
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: Long;
-  /** 绑定afId列表 */
+  /** List of bound afIds */
   afIds?: Array<string>;
-  /** 解绑afId列表 */
+  /** List of unbound afIds */
   unbindAfIds?: Array<string>;
-  /** 绑定商品id列表 */
+  /** List of bound product ids */
   productIds?: Array<string>;
-  /** 车型 car=汽车 moto=摩托车 */
+  /** Vehicle model car=automobile moto=motorcycle */
   vehicleType?: string;
 }
 
@@ -564,7 +564,7 @@ export const AliexpressCarmodelSixlevelBindCarInfoSixLevelBindRequestSchema: Sch
   };
 
 export interface AliexpressCarmodelSixlevelBindResultDTO {
-  /** 绑定是否成功 */
+  /** Whether binding succeeded */
   success?: string;
 }
 
@@ -573,7 +573,7 @@ export const AliexpressCarmodelSixlevelBindResultDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelSixlevelOeQueryCarInfoSixLevelDTO {
-  /** 车型id */
+  /** Vehicle model ID */
   afId?: string;
   /** make */
   make?: string;
@@ -610,13 +610,13 @@ export const AliexpressCarmodelSixlevelOeQueryCarInfoSixLevelDTOSchema: Schema =
   };
 
 export interface AliexpressCarmodelSixlevelOeQueryERPOEQueryRequest {
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: Long;
-  /** 版本 */
+  /** Version */
   version?: string;
-  /** 车辆类型 */
+  /** Vehicle type */
   vehicleType?: string;
-  /** OE号列表 */
+  /** OE number list */
   oeIds?: Array<string>;
 }
 
@@ -629,7 +629,7 @@ export const AliexpressCarmodelSixlevelOeQueryERPOEQueryRequestSchema: Schema =
   };
 
 export interface AliexpressCarmodelSixlevelOeQueryERPOEQueryResponse {
-  /** 备选车型列表 */
+  /** Alternative vehicle model list */
   carList?: Array<AliexpressCarmodelSixlevelOeQueryCarInfoSixLevelDTO>;
 }
 
@@ -643,7 +643,7 @@ export const AliexpressCarmodelSixlevelOeQueryERPOEQueryResponseSchema: Schema =
   };
 
 export interface AliexpressCarmodelSixlevelOeQueryResult {
-  /** OE号查询响应 */
+  /** OE number query response */
   model?: AliexpressCarmodelSixlevelOeQueryERPOEQueryResponse;
 }
 
@@ -656,7 +656,7 @@ export const AliexpressCarmodelSixlevelOeQueryResultSchema: Schema = {
 };
 
 export interface AliexpressCarmodelSixlevelQueryBindCarInfoSixLevelDTO {
-  /** 车型id */
+  /** Vehicle model ID */
   afId?: string;
   /** make */
   make?: string;
@@ -693,17 +693,17 @@ export const AliexpressCarmodelSixlevelQueryBindCarInfoSixLevelDTOSchema: Schema
   };
 
 export interface AliexpressCarmodelSixlevelQueryBindERPBindListQueryRequest {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 当前页码 */
+  /** Current page number */
   current?: number;
-  /** 每页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 车辆类型 car=汽车 moto=摩托车 */
+  /** Vehicle type car=automobile moto=motorcycle */
   vehicleType?: string;
-  /** 版本 EU=欧洲 NA=北美 */
+  /** Version EU=Europe NA=North America */
   version?: string;
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: Long;
 }
 
@@ -718,13 +718,13 @@ export const AliexpressCarmodelSixlevelQueryBindERPBindListQueryRequestSchema: S
   };
 
 export interface AliexpressCarmodelSixlevelQueryBindERPBindListQueryResponse {
-  /** 已绑定车型列表数据 */
+  /** Data list of bound vehicle models */
   bindCarList?: Array<AliexpressCarmodelSixlevelQueryBindCarInfoSixLevelDTO>;
-  /** 总绑定量 */
+  /** Total bound quantity */
   totoal?: number;
-  /** 当前页码 */
+  /** Current page number */
   current?: number;
-  /** 每页大小 */
+  /** Page size */
   pageSize?: number;
 }
 
@@ -741,7 +741,7 @@ export const AliexpressCarmodelSixlevelQueryBindERPBindListQueryResponseSchema: 
   };
 
 export interface AliexpressCarmodelSixlevelQueryBindResult {
-  /** 分页数据响应体 */
+  /** Pagination data response body */
   model?: AliexpressCarmodelSixlevelQueryBindERPBindListQueryResponse;
 }
 
@@ -754,7 +754,7 @@ export const AliexpressCarmodelSixlevelQueryBindResultSchema: Schema = {
 };
 
 export interface AliexpressCarmodelSixlevelQueryCarInfoSixLevelDTO {
-  /** 车型id */
+  /** Vehicle model ID */
   afId?: string;
   /** make */
   make?: string;
@@ -790,13 +790,13 @@ export const AliexpressCarmodelSixlevelQueryCarInfoSixLevelDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelSixlevelQueryERPCascadeQueryRequest {
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: Long;
-  /** 查询的车辆类型 car汽车 moto摩托车 */
+  /** Vehicle type to query: car automobile moto motorcycle */
   vehicleType?: string;
-  /** 车型版本 EU欧洲 NA北美 */
+  /** Vehicle model version EU Europe NA North America */
   version?: string;
-  /** 级连选项路径 */
+  /** Cascading option path */
   multiVidList?: Array<string>;
 }
 
@@ -809,9 +809,9 @@ export const AliexpressCarmodelSixlevelQueryERPCascadeQueryRequestSchema: Schema
   };
 
 export interface AliexpressCarmodelSixlevelQueryERPCascadeQueryResponse {
-  /** 可选车型 */
+  /** Optional vehicle models */
   alternativeCarList?: Array<AliexpressCarmodelSixlevelQueryCarInfoSixLevelDTO>;
-  /** 备选级连选项 */
+  /** Alternative cascading options */
   alternativeVidList?: Array<AliexpressCarmodelSixlevelQueryERPCascadeVidDTO>;
 }
 
@@ -830,11 +830,11 @@ export const AliexpressCarmodelSixlevelQueryERPCascadeQueryResponseSchema: Schem
   };
 
 export interface AliexpressCarmodelSixlevelQueryERPCascadeVidDTO {
-  /** 上一级选项vid */
+  /** Previous-level option vid */
   parentVid?: string;
-  /** 选项文本 */
+  /** Option text */
   text?: string;
-  /** 选项vid */
+  /** Option vid */
   vid?: string;
 }
 
@@ -845,7 +845,7 @@ export const AliexpressCarmodelSixlevelQueryERPCascadeVidDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelSixlevelQueryResult {
-  /** 分页结果响应体 */
+  /** Pagination result response body */
   model?: AliexpressCarmodelSixlevelQueryERPCascadeQueryResponse;
 }
 
@@ -858,9 +858,9 @@ export const AliexpressCarmodelSixlevelQueryResultSchema: Schema = {
 };
 
 export interface AliexpressCarmodelSixlevelUnbindAPICarInfoSixLevelUnbindRequest {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 车型id列表 */
+  /** Vehicle model ID list */
   afIds?: Array<string>;
 }
 
@@ -871,7 +871,7 @@ export const AliexpressCarmodelSixlevelUnbindAPICarInfoSixLevelUnbindRequestSche
   };
 
 export interface AliexpressCarmodelSixlevelUnbindResultDTO {
-  /** 是否解绑成功 */
+  /** Whether unbinding succeeded */
   success?: string;
 }
 
@@ -880,15 +880,15 @@ export const AliexpressCarmodelSixlevelUnbindResultDTOSchema: Schema = {
 };
 
 export interface AliexpressCarmodelUpdateProductCarInfoCarInfoQueryDTO {
-  /** 不传默认查询对应的AE的普通账号数据，渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** If not passed, queries the data of the corresponding regular AE account by default. Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelSellerId?: Long;
-  /** 商品id */
+  /** Product ID */
   productId?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 新增绑定车型afid */
+  /** Newly bound vehicle model afid */
   addAfIds?: Array<string>;
-  /** 删除绑定车型afid */
+  /** Deleted bound vehicle model afid */
   deleteAfIds?: Array<string>;
 }
 
@@ -902,13 +902,13 @@ export const AliexpressCarmodelUpdateProductCarInfoCarInfoQueryDTOSchema: Schema
   };
 
 export interface AliexpressCarmodelUpdateProductCarInfoResultDTO {
-  /** 数据 */
+  /** Data */
   data?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -923,13 +923,13 @@ export const AliexpressCarmodelUpdateProductCarInfoResultDTOSchema: Schema = {
 export interface AliexpressCarmodelFindByTecIdParams {
   /** tec id */
   tecId?: LongInput;
-  /** OE号等零件编号 */
+  /** Part numbers such as OE number */
   oeNumber?: string;
 }
 
 /** Response of `aliexpress.carmodel.findByTecId`. */
 export interface AliexpressCarmodelFindByTecIdResponse {
-  /** 响应 */
+  /** Response */
   result?: AliexpressCarmodelFindByTecIdResultDTO;
 }
 
@@ -954,13 +954,13 @@ export const aliexpressCarmodelFindByTecId: ApiDefinition<
 
 /** Parameters for `aliexpress.carmodel.findByTecIds`. */
 export interface AliexpressCarmodelFindByTecIdsParams {
-  /** 参数 */
+  /** Parameter */
   param?: AliexpressCarmodelFindByTecIdsCarModelInfoQueryRequest;
 }
 
 /** Response of `aliexpress.carmodel.findByTecIds`. */
 export interface AliexpressCarmodelFindByTecIdsResponse {
-  /** 响应 */
+  /** Response */
   result?: AliexpressCarmodelFindByTecIdsMultPageResult;
 }
 
@@ -992,13 +992,13 @@ export const aliexpressCarmodelFindByTecIds: ApiDefinition<
 
 /** Parameters for `aliexpress.carmodel.findListByProductId`. */
 export interface AliexpressCarmodelFindListByProductIdParams {
-  /** 参数 */
+  /** Parameter */
   param0?: AliexpressCarmodelFindListByProductIdCarInfoQueryDTO;
 }
 
 /** Response of `aliexpress.carmodel.findListByProductId`. */
 export interface AliexpressCarmodelFindListByProductIdResponse {
-  /** 响应 */
+  /** Response */
   result?: AliexpressCarmodelFindListByProductIdResultDTO;
 }
 
@@ -1098,7 +1098,7 @@ export const aliexpressCarmodelGetBrand: ApiDefinition<
 
 /** Parameters for `aliexpress.carmodel.get.country`. */
 export interface AliexpressCarmodelGetCountryParams {
-  /** 参数map */
+  /** Parameter map */
   param0?: AliexpressCarmodelGetCountryCountriesRequest;
 }
 
@@ -1166,13 +1166,13 @@ export const aliexpressCarmodelGetLinktarget: ApiDefinition<
 
 /** Parameters for `aliexpress.carmodel.sixlevel.bind`. */
 export interface AliexpressCarmodelSixlevelBindParams {
-  /** 请求体 */
+  /** Request body */
   param?: AliexpressCarmodelSixlevelBindCarInfoSixLevelBindRequest;
 }
 
 /** Response of `aliexpress.carmodel.sixlevel.bind`. */
 export interface AliexpressCarmodelSixlevelBindResponse {
-  /** 响应体 */
+  /** Response body */
   response?: AliexpressCarmodelSixlevelBindResultDTO;
 }
 
@@ -1204,13 +1204,13 @@ export const aliexpressCarmodelSixlevelBind: ApiDefinition<
 
 /** Parameters for `aliexpress.carmodel.sixlevel.oe.query`. */
 export interface AliexpressCarmodelSixlevelOeQueryParams {
-  /** 请求体 */
+  /** Request body */
   param?: AliexpressCarmodelSixlevelOeQueryERPOEQueryRequest;
 }
 
 /** Response of `aliexpress.carmodel.sixlevel.oe.query`. */
 export interface AliexpressCarmodelSixlevelOeQueryResponse {
-  /** 响应体 */
+  /** Response body */
   result?: AliexpressCarmodelSixlevelOeQueryResult;
 }
 
@@ -1238,13 +1238,13 @@ export const aliexpressCarmodelSixlevelOeQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.carmodel.sixlevel.query`. */
 export interface AliexpressCarmodelSixlevelQueryParams {
-  /** 请求对象 */
+  /** Request object */
   param?: AliexpressCarmodelSixlevelQueryERPCascadeQueryRequest;
 }
 
 /** Response of `aliexpress.carmodel.sixlevel.query`. */
 export interface AliexpressCarmodelSixlevelQueryResponse {
-  /** 响应体 */
+  /** Response body */
   result?: AliexpressCarmodelSixlevelQueryResult;
 }
 
@@ -1272,13 +1272,13 @@ export const aliexpressCarmodelSixlevelQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.carmodel.sixlevel.query.bind`. */
 export interface AliexpressCarmodelSixlevelQueryBindParams {
-  /** 请求体 */
+  /** Request body */
   param?: AliexpressCarmodelSixlevelQueryBindERPBindListQueryRequest;
 }
 
 /** Response of `aliexpress.carmodel.sixlevel.query.bind`. */
 export interface AliexpressCarmodelSixlevelQueryBindResponse {
-  /** 响应体 */
+  /** Response body */
   response?: AliexpressCarmodelSixlevelQueryBindResult;
 }
 
@@ -1310,13 +1310,13 @@ export const aliexpressCarmodelSixlevelQueryBind: ApiDefinition<
 
 /** Parameters for `aliexpress.carmodel.sixlevel.unbind`. */
 export interface AliexpressCarmodelSixlevelUnbindParams {
-  /** 请求体 */
+  /** Request body */
   param?: AliexpressCarmodelSixlevelUnbindAPICarInfoSixLevelUnbindRequest;
 }
 
 /** Response of `aliexpress.carmodel.sixlevel.unbind`. */
 export interface AliexpressCarmodelSixlevelUnbindResponse {
-  /** 响应体 */
+  /** Response body */
   response?: AliexpressCarmodelSixlevelUnbindResultDTO;
 }
 
@@ -1349,13 +1349,13 @@ export const aliexpressCarmodelSixlevelUnbind: ApiDefinition<
 
 /** Parameters for `aliexpress.carmodel.update.product.carInfo`. */
 export interface AliexpressCarmodelUpdateProductCarInfoParams {
-  /** 参数 */
+  /** Parameter */
   param0?: AliexpressCarmodelUpdateProductCarInfoCarInfoQueryDTO;
 }
 
 /** Response of `aliexpress.carmodel.update.product.carInfo`. */
 export interface AliexpressCarmodelUpdateProductCarInfoResponse {
-  /** 响应 */
+  /** Response */
   result?: AliexpressCarmodelUpdateProductCarInfoResultDTO;
 }
 

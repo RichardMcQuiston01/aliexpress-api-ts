@@ -22,11 +22,11 @@ export const AliexpressSalePropSequenceListAeopProductSalePropSortRequestDTOSche
   };
 
 export interface AliexpressSalePropSequenceListAeopProductSalePropSortResponseDTO {
-  /** 属性pid */
+  /** Attribute pid */
   propertyId?: Long;
-  /** 属性name */
+  /** Attribute name */
   propertyName?: string;
-  /** 属性值vid list */
+  /** Attribute value vid list */
   values?: Array<AliexpressSalePropSequenceListAeopProductSalePropValueDTO>;
 }
 
@@ -42,9 +42,9 @@ export const AliexpressSalePropSequenceListAeopProductSalePropSortResponseDTOSch
   };
 
 export interface AliexpressSalePropSequenceListAeopProductSalePropValueDTO {
-  /** 属性值vid */
+  /** Attribute value vid */
   value?: Long;
-  /** 属性值文案 */
+  /** Attribute value text */
   text?: string;
 }
 
@@ -55,7 +55,7 @@ export const AliexpressSalePropSequenceListAeopProductSalePropValueDTOSchema: Sc
   };
 
 export interface AliexpressSalePropSequenceListResultDTO {
-  /** 属性值顺序list */
+  /** Attribute value order list */
   defaultObj?: Array<AliexpressSalePropSequenceListAeopProductSalePropSortResponseDTO>;
 }
 
@@ -86,11 +86,11 @@ export const AliexpressSalePropSequenceUpdateAeopProductSalePropSortRequestDTOSc
   };
 
 export interface AliexpressSalePropSequenceUpdateAeopProductSalePropSortResponseDTO {
-  /** 销售属性id */
+  /** Sales attribute ID */
   propertyId?: Long;
-  /** 属性name */
+  /** Attribute name */
   propertyName?: string;
-  /** 属性值vid list */
+  /** Attribute value vid list */
   values?: Array<AliexpressSalePropSequenceUpdateAeopProductSalePropValueDTO>;
 }
 
@@ -106,9 +106,9 @@ export const AliexpressSalePropSequenceUpdateAeopProductSalePropSortResponseDTOS
   };
 
 export interface AliexpressSalePropSequenceUpdateAeopProductSalePropValueDTO {
-  /** 属性值vid */
+  /** Attribute value vid */
   value?: Long;
-  /** 属性值文案 */
+  /** Attribute value text */
   text?: string;
 }
 
@@ -119,7 +119,7 @@ export const AliexpressSalePropSequenceUpdateAeopProductSalePropValueDTOSchema: 
   };
 
 export interface AliexpressSalePropSequenceUpdateResultDTO {
-  /** 销售属性顺序 */
+  /** Sales attribute order */
   defaultObj?: AliexpressSalePropSequenceUpdateAeopProductSalePropSortResponseDTO;
 }
 
@@ -139,7 +139,7 @@ export interface AliexpressSalePropSequenceListParams {
 
 /** Response of `aliexpress.sale.prop.sequence.list`. */
 export interface AliexpressSalePropSequenceListResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressSalePropSequenceListResultDTO;
 }
 
@@ -173,7 +173,7 @@ export interface AliexpressSalePropSequenceUpdateParams {
 
 /** Response of `aliexpress.sale.prop.sequence.update`. */
 export interface AliexpressSalePropSequenceUpdateResponse {
-  /** 结果集 */
+  /** Result set */
   result?: AliexpressSalePropSequenceUpdateResultDTO;
 }
 

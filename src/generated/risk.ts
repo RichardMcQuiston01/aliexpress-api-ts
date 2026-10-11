@@ -10,25 +10,25 @@ import type {
 
 /** Parameters for `/risk/disposalNotify`. */
 export interface RiskDisposalNotifyParams {
-  /** 通知类型 */
+  /** Notification type */
   disposalNotifyType?: string;
-  /** 电商商家ID */
+  /** E-commerce merchant ID */
   referenceCustomerId?: LongInput;
-  /** 处置ID */
+  /** Disposal ID */
   disposalId?: string;
-  /** 处置原因 */
+  /** Disposal reason */
   actionReason?: string;
-  /** 修改时间 */
+  /** Update time */
   modificationTime?: string;
-  /** 动作列表 */
+  /** Action list */
   actionName?: Array<string>;
-  /** 是否允许人工申诉 */
+  /** Whether manual appeal is allowed */
   allowManualAppeal?: boolean;
-  /** 策略名称 */
+  /** Policy name */
   strategyName?: string;
-  /** 策略分组 */
+  /** Policy group */
   strategyGroup?: string;
-  /** 扩展信息 */
+  /** Extended information */
   extInfo?: string;
   /** iPay 2188ID */
   sellerId?: string;
@@ -36,13 +36,13 @@ export interface RiskDisposalNotifyParams {
 
 /** Response of `/risk/disposalNotify`. */
 export interface RiskDisposalNotifyResponse {
-  /** 只为true或null */
+  /** Only true or null */
   data?: boolean;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
   /** traceId */
   traceId?: string;
@@ -82,25 +82,25 @@ export const riskDisposalNotify: ApiDefinition<
 
 /** Parameters for `/risk/orderResult`. */
 export interface RiskOrderResultParams {
-  /** 商家登陆ID */
+  /** Merchant login ID */
   sellerId?: string;
-  /** 订单id */
+  /** Order ID */
   referenceCode?: string;
-  /** 订单审核是否通过 */
+  /** Whether the order review passed */
   preLoan?: boolean;
-  /** 拒绝原因 */
+  /** Rejection reason */
   deniedReason?: string;
-  /** 审核阶段 */
+  /** Review stage */
   stage?: string;
 }
 
 /** Response of `/risk/orderResult`. */
 export interface RiskOrderResultResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -130,37 +130,37 @@ export const riskOrderResult: ApiDefinition<
 
 /** Parameters for `/risk/syncAdmittance`. */
 export interface RiskSyncAdmittanceParams {
-  /** 商家登陆id */
+  /** Merchant login ID */
   sellerLoginId?: string;
-  /** AE卖家数字ID */
+  /** AE seller numeric ID */
   adminMemberSeq?: LongInput;
-  /** 支付宝ID */
+  /** Alipay ID */
   alipayId?: string;
-  /** 是否准入 */
+  /** Whether admitted */
   admitted?: boolean;
-  /** 不准入原因 */
+  /** Admission denial reason */
   deniedReason?: string;
-  /** 授信额度 */
+  /** Credit limit */
   creditLimitAmount?: LongInput;
-  /** 币种 */
+  /** Currency */
   creditLimitCurrency?: string;
-  /** 卖家证据类型 */
+  /** Seller evidence type */
   certType?: string;
-  /** 卖家证据类型 */
+  /** Seller evidence type */
   certName?: string;
-  /** 证件编码 */
+  /** Certificate code */
   certNo?: string;
-  /** 芝麻分 */
+  /** Sesame Credit score */
   zhimaCreditRate?: string;
 }
 
 /** Response of `/risk/syncAdmittance`. */
 export interface RiskSyncAdmittanceResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -196,23 +196,23 @@ export const riskSyncAdmittance: ApiDefinition<
 
 /** Parameters for `/risk/syncDeposit`. */
 export interface RiskSyncDepositParams {
-  /** 商家登陆ID */
+  /** Merchant login ID */
   sellerLoginId?: string;
-  /** 商家数字ID */
+  /** Merchant numeric ID */
   sellerAliId?: LongInput;
-  /** 保证金额 */
+  /** Deposit amount */
   fixedDepositAmt?: LongInput;
-  /** 保证金币种 */
+  /** Deposit currency */
   fixedDepositCcy?: string;
 }
 
 /** Response of `/risk/syncDeposit`. */
 export interface RiskSyncDepositResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 

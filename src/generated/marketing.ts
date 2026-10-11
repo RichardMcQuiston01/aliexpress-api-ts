@@ -9,13 +9,13 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressMarketingLimitdiscountpromotionCreateAeopLimitedDiscInputDTO {
-  /** 是否大促活动 */
+  /** Whether it is a major promotion campaign */
   hasPromo?: boolean;
-  /** 活动结束时间 */
+  /** Campaign end time */
   promotionEndTime?: string;
-  /** 活动名称 */
+  /** Activity name */
   promotionName?: string;
-  /** 活动开始时间 */
+  /** Campaign start time */
   promotionStartTime?: string;
 }
 
@@ -28,13 +28,13 @@ export const AliexpressMarketingLimitdiscountpromotionCreateAeopLimitedDiscInput
   };
 
 export interface AliexpressMarketingLimitdiscountpromotionEditAeopLimitedDiscInputDTO {
-  /** 活动结束时间 */
+  /** Campaign end time */
   promotionEndTime?: string;
-  /** 活动id */
+  /** Activity ID */
   promotionId?: Long;
-  /** 活动名称 */
+  /** Activity name */
   promotionName?: string;
-  /** 活动开始时间 */
+  /** Campaign start time */
   promotionStartTime?: string;
 }
 
@@ -47,7 +47,7 @@ export const AliexpressMarketingLimitdiscountpromotionEditAeopLimitedDiscInputDT
   };
 
 export interface AliexpressMarketingLimitdiscountpromotionEditAeopLimitedProductResultDTO {
-  /** 冲突的商品集合 */
+  /** Conflicting product set */
   conflictProducts?: string;
 }
 
@@ -57,9 +57,9 @@ export const AliexpressMarketingLimitdiscountpromotionEditAeopLimitedProductResu
   };
 
 export interface AliexpressMarketingLimitdiscountpromotionproductDelAeopLimitedDiscProductIdDTO {
-  /** 要删除的商品id集合 */
+  /** Set of product ids to delete */
   productIdList?: Array<Long>;
-  /** 活动id */
+  /** Activity ID */
   promotionId?: Long;
 }
 
@@ -86,13 +86,13 @@ export const AliexpressMarketingLimitdiscountpromotionproductDelAeopResultDTOSch
   };
 
 export interface AliexpressMarketingLimitdiscountpromotionproductEditAeopLimitedDiscProductInputDTO {
-  /** 当前粉丝折扣 */
+  /** Current fan discount */
   existStoreFansDiscount?: string;
-  /** 活动商品对象列表 */
+  /** List of campaign product objects */
   productObjects?: Array<AliexpressMarketingLimitdiscountpromotionproductEditAeopStorePromProduct>;
-  /** 活动id */
+  /** Activity ID */
   promotionId?: Long;
-  /** 粉丝折扣(与exist_store_fans_discount不一致的时候才更新) */
+  /** Fan discount (updated only when it is inconsistent with exist_store_fans_discount) */
   storeClubDiscountRate?: string;
 }
 
@@ -110,7 +110,7 @@ export const AliexpressMarketingLimitdiscountpromotionproductEditAeopLimitedDisc
   };
 
 export interface AliexpressMarketingLimitdiscountpromotionproductEditAeopLimitedProductResultDTO {
-  /** 有冲突的商品信息 */
+  /** Conflicting product information */
   conflictProducts?: string;
 }
 
@@ -120,9 +120,9 @@ export const AliexpressMarketingLimitdiscountpromotionproductEditAeopLimitedProd
   };
 
 export interface AliexpressMarketingLimitdiscountpromotionproductEditAeopProductDiscountInfo {
-  /** 折扣 */
+  /** Discount */
   discount?: number;
-  /** 终端 MOBILE or ALL */
+  /** Terminal MOBILE or ALL */
   terminal?: string;
 }
 
@@ -133,9 +133,9 @@ export const AliexpressMarketingLimitdiscountpromotionproductEditAeopProductDisc
   };
 
 export interface AliexpressMarketingLimitdiscountpromotionproductEditAeopSkuInventoryInfo {
-  /** 参加活动的商品数量，0:不参加活动, 大于0:参加活动 */
+  /** Number of products participating in the activity, 0: not participating, greater than 0: participating */
   quantity?: number;
-  /** sku属性 */
+  /** SKU attributes */
   skuAttr?: string;
 }
 
@@ -146,15 +146,15 @@ export const AliexpressMarketingLimitdiscountpromotionproductEditAeopSkuInventor
   };
 
 export interface AliexpressMarketingLimitdiscountpromotionproductEditAeopStorePromProduct {
-  /** 每人限购数量(每人最多购买数量) */
+  /** Purchase limit per person (maximum quantity per person) */
   buyMaxNum?: number;
-  /** 店铺活动商品优惠信息 */
+  /** Store campaign product discount information */
   productDiscountList?: Array<AliexpressMarketingLimitdiscountpromotionproductEditAeopProductDiscountInfo>;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 商品sku信息 */
+  /** Product SKU information */
   skuInventoryList?: Array<AliexpressMarketingLimitdiscountpromotionproductEditAeopSkuInventoryInfo>;
-  /** 是否使用共享库存(已废弃，单品折扣指定为共享库存) */
+  /** Whether to use shared inventory (deprecated, single-product discounts are specified as shared inventory) */
   usedWarehouse?: boolean;
 }
 
@@ -178,13 +178,13 @@ export const AliexpressMarketingLimitdiscountpromotionproductEditAeopStorePromPr
   };
 
 export interface AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopLimitedDiscProductInputDTO {
-  /** 已存在的粉丝折扣 默认为0 */
+  /** Existing fan discount, default 0 */
   existStoreFansDiscount?: string;
-  /** 活动商品对象列表 */
+  /** List of campaign product objects */
   productObjects?: Array<AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopStorePromProduct>;
-  /** 活动id */
+  /** Activity ID */
   promotionId?: Long;
-  /** 粉丝折扣,与exist_store_fans_discount不同值时，才会更新粉丝折扣 */
+  /** Fan discount. The fan discount is updated only when it differs from exist_store_fans_discount */
   storeClubDiscountRate?: string;
 }
 
@@ -202,7 +202,7 @@ export const AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopL
   };
 
 export interface AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopLimitedProductResultDTO {
-  /** 有冲突的商品信息 */
+  /** Conflicting product information */
   conflictProducts?: string;
 }
 
@@ -212,9 +212,9 @@ export const AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopL
   };
 
 export interface AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopProductDiscountInfo {
-  /** 折扣 */
+  /** Discount */
   discount?: number;
-  /** 终端 MOBILE or ALL */
+  /** Terminal MOBILE or ALL */
   terminal?: string;
 }
 
@@ -225,9 +225,9 @@ export const AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopP
   };
 
 export interface AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopSkuInventoryInfo {
-  /** 限时限量更改为共享库存，当前该字段仅当部分sku不参加活动时设置为0 */
+  /** Change limited-time limited-quantity to shared inventory. Currently this field is set to 0 only when some SKUs do not participate in the campaign */
   quantity?: number;
-  /** sku属性 */
+  /** SKU attributes */
   skuAttr?: string;
 }
 
@@ -238,15 +238,15 @@ export const AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopS
   };
 
 export interface AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopStorePromProduct {
-  /** 每人限购数量(每人最多购买数量) */
+  /** Purchase limit per person (maximum quantity per person) */
   buyMaxNum?: number;
-  /** 活动商品优惠信息 */
+  /** Campaign product discount information */
   productDiscountList?: Array<AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopProductDiscountInfo>;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 商品sku信息 */
+  /** Product SKU information */
   skuInventoryList?: Array<AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopSkuInventoryInfo>;
-  /** 废弃：全局都是共享库存，废弃该字段，即使设置也不生效 */
+  /** Deprecated: inventory is shared globally, this field is deprecated and has no effect even if set */
   usedWarehouse?: boolean;
 }
 
@@ -270,43 +270,43 @@ export const AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopS
   };
 
 export interface AliexpressMarketingRedefiningFindsellercouponactivitySellerCouponActivity {
-  /** 定向类型 */
+  /** Targeting type */
   rangeType?: number;
-  /** 活动状态。可选值(括号内为中文解释)：not_started(未开始) / releasing(活动中) / release_end(已结束) / closed(已关闭) */
+  /** Activity status. Optional values (Chinese explanation in parentheses): not_started (not started) / releasing (in progress) / release_end (ended) / closed (closed) */
   status?: string;
-  /** 总共发行数量 */
+  /** Total issued quantity */
   totalReleaseNum?: Long;
-  /** coupon有效期，单位:秒 */
+  /** Coupon validity period, unit: seconds */
   consumeValidTime?: Long;
-  /** 卖家的adminID */
+  /** Seller's adminID */
   sellerAdminId?: Long;
-  /** 扩展属性 */
+  /** Extended attributes */
   extAttrs?: string;
-  /** 订单使用最小金额，单位:美分 */
+  /** Minimum order amount for use, unit: cents */
   minOrderAmount?: Long;
-  /** 活动类型 */
+  /** Activity type */
   type?: Long;
-  /** 是否有使用条件 */
+  /** Whether usage conditions apply */
   hasUseCondtion?: boolean;
-  /** coupon活动ID */
+  /** coupon campaign ID */
   id?: Long;
-  /** 消费开始时间 */
+  /** Redemption start time */
   consumeStartDate?: string;
-  /** coupon活动开始时间 */
+  /** Coupon campaign start time */
   acquireStartDate?: string;
-  /** 已发行数量 */
+  /** Issued quantity */
   releasedNum?: Long;
-  /** 活动名称 */
+  /** Activity name */
   activityName?: string;
-  /** coupon面额，单位:美分 */
+  /** Coupon face value, unit: cents */
   denomination?: Long;
-  /** coupon使用限制描述(denomination：coupon面额(单位：美分); hasUseCondtion：是否有使用条件(y/n); minOrderAmount：coupon使用最小订单金额(单位：美分)) */
+  /** Description of coupon usage restriction (denomination: coupon face value (unit: cents); hasUseCondtion: whether there is a usage condition (y/n); minOrderAmount: minimum order amount for using the coupon (unit: cents)) */
   activityDesc?: string;
-  /** coupon活动结束时间 */
+  /** Coupon campaign end time */
   acquireEndDate?: string;
-  /** 每买家限领张数 */
+  /** Maximum coupons claimable per buyer */
   numPerBuyer?: Long;
-  /** 消费结束时间 */
+  /** Redemption end time */
   consumeEndDate?: string;
 }
 
@@ -334,43 +334,43 @@ export const AliexpressMarketingRedefiningFindsellercouponactivitySellerCouponAc
   };
 
 export interface AliexpressMarketingRedefiningGetactlistSellerCouponActivity {
-  /** coupon活动结束时间 */
+  /** Coupon campaign end time */
   acquireEndDate?: string;
-  /** coupon活动开始时间 */
+  /** Coupon campaign start time */
   acquireStartDate?: string;
-  /** coupon使用限制描述，json表示满多少减多少金额。(denomination：coupon面额(单位：美分); hasUseCondtion：是否有使用条件(y/n); minOrderAmount：coupon使用最小订单金额(单位：美分)) */
+  /** Description of coupon usage restriction, JSON representing spend X get Y off. (denomination: coupon face value (unit: cents); hasUseCondtion: whether there is a usage condition (y/n); minOrderAmount: minimum order amount for using the coupon (unit: cents)) */
   activityDesc?: string;
-  /** 活动名称 */
+  /** Activity name */
   activityName?: string;
-  /** coupon有效期，单位:秒 */
+  /** Coupon validity period, unit: seconds */
   consumeValidTime?: Long;
-  /** coupon面额，单位:美分 */
+  /** Coupon face value, unit: cents */
   denomination?: Long;
-  /** 扩展属性 */
+  /** Extended attributes */
   extAttrs?: string;
-  /** 是否有使用条件 */
+  /** Whether usage conditions apply */
   hasUseCondtion?: boolean;
-  /** coupon活动ID */
+  /** coupon campaign ID */
   id?: Long;
-  /** 订单使用最小金额，单位:美分 */
+  /** Minimum order amount for use, unit: cents */
   minOrderAmount?: Long;
-  /** 每买家限领张数 */
+  /** Maximum coupons claimable per buyer */
   numPerBuyer?: Long;
-  /** 已发行数量 */
+  /** Issued quantity */
   releasedNum?: Long;
-  /** 卖家主帐号seq */
+  /** Seller main account seq */
   sellerAdminId?: Long;
-  /** 活动状态 */
+  /** Activity status */
   status?: string;
-  /** 总共发行数量 */
+  /** Total issued quantity */
   totalReleaseNum?: Long;
-  /** 定向类型 */
+  /** Targeting type */
   rangeType?: number;
-  /** 活动类型 */
+  /** Activity type */
   type?: Long;
-  /** 消费结束时间 */
+  /** Redemption end time */
   consumeEndDate?: string;
-  /** 消费开始时间 */
+  /** Redemption start time */
   consumeStartDate?: string;
 }
 
@@ -398,13 +398,13 @@ export const AliexpressMarketingRedefiningGetactlistSellerCouponActivitySchema: 
   };
 
 export interface AliexpressMarketingRedefiningGetactlistSellerCouponActivityApiQuery {
-  /** 活动名称，支持模糊搜索 */
+  /** Campaign name, supports fuzzy search */
   activityName?: string;
-  /** 活动开始时间区间--最大值，允许格式："mm/dd/yyyy HH:mm:ss" */
+  /** Maximum of the campaign start time range, allowed format: "mm/dd/yyyy HH:mm:ss" */
   maxActivityStartDate?: string;
-  /** 活动开始时间区间--最小值，允许格式"mm/dd/yyyy HH:mm:ss" */
+  /** Minimum of the campaign start time range, allowed format "mm/dd/yyyy HH:mm:ss" */
   minActivityStartDate?: string;
-  /** 活动状态，可取值：["not_started", "releasing", "release_end", "closed"] */
+  /** Activity status, possible values: ["not_started", "releasing", "release_end", "closed"] */
   status?: string;
 }
 
@@ -417,15 +417,15 @@ export const AliexpressMarketingRedefiningGetactlistSellerCouponActivityApiQuery
   };
 
 export interface AliexpressMarketingRedefiningGetactlistSellerCouponActivityList {
-  /** 每页展示记录数 */
+  /** Number of records displayed per page */
   pageSize?: Long;
-  /** 活动总数 */
+  /** Total number of activities */
   totalItem?: Long;
-  /** 总页面 */
+  /** Total pages */
   totalPage?: Long;
-  /** 活动列表 */
+  /** Activity list */
   activityList?: Array<AliexpressMarketingRedefiningGetactlistSellerCouponActivity>;
-  /** 当前页面 */
+  /** Current page */
   currentPage?: Long;
 }
 
@@ -443,11 +443,11 @@ export const AliexpressMarketingRedefiningGetactlistSellerCouponActivityListSche
   };
 
 export interface AliexpressMarketingStorepromotionProductsQueryPromotionProductQueryDTO {
-  /** 页码,从1开始 */
+  /** Page number, starting from 1 */
   pageNo?: number;
-  /** 页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 活动ID */
+  /** Activity ID */
   promotionId?: Long;
 }
 
@@ -459,17 +459,17 @@ export const AliexpressMarketingStorepromotionProductsQueryPromotionProductQuery
   };
 
 export interface AliexpressMarketingStorepromotionsListPromotionQueryDTO {
-  /** 活动名称 */
+  /** Activity name */
   promotionName?: string;
-  /** 活动类型：单品折扣:ProductDiscount;搭配套餐:BundleDeals;拼团:GroupBuy;满件折:OrderQuantityDiscount;满立减:OrderPriceDiscount;满包邮:FreeShipping; */
+  /** Promotion type: single product discount: ProductDiscount; bundle deals: BundleDeals; group buy: GroupBuy; discount for item quantity: OrderQuantityDiscount; spend-and-save: OrderPriceDiscount; free shipping over threshold: FreeShipping; */
   promotionType?: string;
-  /** 页码 */
+  /** Page number */
   currentPage?: number;
-  /** 页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 活动ID */
+  /** Activity ID */
   promotionId?: Long;
-  /** 活动状态：未开始:NotStarted;进行中:Ongoing;已暂停:Invalid;已结束:Finished; */
+  /** Campaign status: not started: NotStarted; ongoing: Ongoing; paused: Invalid; ended: Finished; */
   status?: string;
 }
 
@@ -484,15 +484,15 @@ export const AliexpressMarketingStorepromotionsListPromotionQueryDTOSchema: Sche
   };
 
 export interface AliexpressMarketingStorepromotionsListPromotionSimpleInfoDTO {
-  /** 活动状态：未开始:NotStarted;进行中:Ongoing;已暂停:Invalid;已结束:Finished; */
+  /** Campaign status: not started: NotStarted; ongoing: Ongoing; paused: Invalid; ended: Finished; */
   status?: string;
-  /** 活动ID */
+  /** Activity ID */
   promotionId?: Long;
-  /** 活动名称 */
+  /** Activity name */
   promotionName?: string;
-  /** 活动开始时间 */
+  /** Campaign start time */
   startTime?: string;
-  /** 活动结束时间 */
+  /** Campaign end time */
   endTime?: string;
 }
 
@@ -506,15 +506,15 @@ export const AliexpressMarketingStorepromotionsListPromotionSimpleInfoDTOSchema:
   };
 
 export interface AliexpressMarketingStorepromotionsQuerybyproductPromotionSimpleInfoDTO {
-  /** 活动ID */
+  /** Activity ID */
   promotionId?: Long;
-  /** 活动名称 */
+  /** Activity name */
   promotionName?: string;
-  /** 活动开始时间 */
+  /** Campaign start time */
   startTime?: string;
-  /** 活动结束时间 */
+  /** Campaign end time */
   endTime?: string;
-  /** 活动状态 */
+  /** Activity status */
   status?: string;
 }
 
@@ -529,13 +529,13 @@ export const AliexpressMarketingStorepromotionsQuerybyproductPromotionSimpleInfo
 
 /** Parameters for `aliexpress.marketing.limitdiscountpromotion.create`. */
 export interface AliexpressMarketingLimitdiscountpromotionCreateParams {
-  /** 详细参考如下 */
+  /** See details below */
   paramLimitedDiscInputDto?: AliexpressMarketingLimitdiscountpromotionCreateAeopLimitedDiscInputDTO;
 }
 
 /** Response of `aliexpress.marketing.limitdiscountpromotion.create`. */
 export interface AliexpressMarketingLimitdiscountpromotionCreateResponse {
-  /** 活动id */
+  /** Activity ID */
   target?: Long;
   /** timeStamp */
   timeStamp?: string;
@@ -567,7 +567,7 @@ export const aliexpressMarketingLimitdiscountpromotionCreate: ApiDefinition<
 
 /** Parameters for `aliexpress.marketing.limitdiscountpromotion.edit`. */
 export interface AliexpressMarketingLimitdiscountpromotionEditParams {
-  /** 输入参数 */
+  /** Input parameters */
   paramLimitedDiscInputDto?: AliexpressMarketingLimitdiscountpromotionEditAeopLimitedDiscInputDTO;
 }
 
@@ -610,7 +610,7 @@ export const aliexpressMarketingLimitdiscountpromotionEdit: ApiDefinition<
 
 /** Parameters for `aliexpress.marketing.limitdiscountpromotionproduct.del`. */
 export interface AliexpressMarketingLimitdiscountpromotionproductDelParams {
-  /** 系统自动生成 */
+  /** Automatically generated by the system */
   paramAeopLimitedDiscProductIdDTO?: AliexpressMarketingLimitdiscountpromotionproductDelAeopLimitedDiscProductIdDTO;
 }
 
@@ -651,7 +651,7 @@ export const aliexpressMarketingLimitdiscountpromotionproductDel: ApiDefinition<
 
 /** Parameters for `aliexpress.marketing.limitdiscountpromotionproduct.edit`. */
 export interface AliexpressMarketingLimitdiscountpromotionproductEditParams {
-  /** 详细参考如下 */
+  /** See details below */
   paramLimitedDiscProductInputDto?: AliexpressMarketingLimitdiscountpromotionproductEditAeopLimitedDiscProductInputDTO;
 }
 
@@ -698,7 +698,7 @@ export const aliexpressMarketingLimitdiscountpromotionproductEdit: ApiDefinition
 
 /** Parameters for `aliexpress.marketing.limiteddiscountpromotion.addpromotionproduct`. */
 export interface AliexpressMarketingLimiteddiscountpromotionAddpromotionproductParams {
-  /** 详细参考如下 */
+  /** See details below */
   limitedDiscProductInputDto?: AliexpressMarketingLimiteddiscountpromotionAddpromotionproductAeopLimitedDiscProductInputDTO;
 }
 
@@ -746,13 +746,13 @@ export const aliexpressMarketingLimiteddiscountpromotionAddpromotionproduct: Api
 
 /** Parameters for `aliexpress.marketing.redefining.findsellercouponactivity`. */
 export interface AliexpressMarketingRedefiningFindsellercouponactivityParams {
-  /** Coupon活动ID */
+  /** Coupon campaign ID */
   activityId?: LongInput;
 }
 
 /** Response of `aliexpress.marketing.redefining.findsellercouponactivity`. */
 export interface AliexpressMarketingRedefiningFindsellercouponactivityResponse {
-  /** 卖家coupon活动 */
+  /** Seller coupon campaign */
   sellerCouponActivity?: AliexpressMarketingRedefiningFindsellercouponactivitySellerCouponActivity;
 }
 
@@ -782,13 +782,13 @@ export const aliexpressMarketingRedefiningFindsellercouponactivity: ApiDefinitio
 
 /** Parameters for `aliexpress.marketing.redefining.getactlist`. */
 export interface AliexpressMarketingRedefiningGetactlistParams {
-  /** 服务入参 */
+  /** Service input parameters */
   paramSellerCouponActivityApiQuery?: AliexpressMarketingRedefiningGetactlistSellerCouponActivityApiQuery;
 }
 
 /** Response of `aliexpress.marketing.redefining.getactlist`. */
 export interface AliexpressMarketingRedefiningGetactlistResponse {
-  /** 卖家Coupon活动列表 */
+  /** List of seller Coupon campaigns */
   result?: AliexpressMarketingRedefiningGetactlistSellerCouponActivityList;
 }
 
@@ -821,19 +821,19 @@ export const aliexpressMarketingRedefiningGetactlist: ApiDefinition<
 
 /** Parameters for `aliexpress.marketing.storepromotion.products.query`. */
 export interface AliexpressMarketingStorepromotionProductsQueryParams {
-  /** 入参 */
+  /** Input parameters */
   promotionProductQueryDto?: AliexpressMarketingStorepromotionProductsQueryPromotionProductQueryDTO;
 }
 
 /** Response of `aliexpress.marketing.storepromotion.products.query`. */
 export interface AliexpressMarketingStorepromotionProductsQueryResponse {
-  /** 页码 */
+  /** Page number */
   pageNo?: number;
-  /** 页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 总数 */
+  /** Total */
   totalCount?: number;
-  /** 商品列表 */
+  /** Product list */
   productList?: Array<Long>;
 }
 
@@ -865,19 +865,19 @@ export const aliexpressMarketingStorepromotionProductsQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.marketing.storepromotions.list`. */
 export interface AliexpressMarketingStorepromotionsListParams {
-  /** 查询参数 */
+  /** Query parameters */
   promotionQueryDto?: AliexpressMarketingStorepromotionsListPromotionQueryDTO;
 }
 
 /** Response of `aliexpress.marketing.storepromotions.list`. */
 export interface AliexpressMarketingStorepromotionsListResponse {
-  /** 当前页码 */
+  /** Current page number */
   currentPage?: number;
-  /** 页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 总记录数 */
+  /** Total number of records */
   totalCount?: number;
-  /** 出参集合 */
+  /** Output collection */
   dataList?: Array<AliexpressMarketingStorepromotionsListPromotionSimpleInfoDTO>;
 }
 
@@ -912,13 +912,13 @@ export const aliexpressMarketingStorepromotionsList: ApiDefinition<
 
 /** Parameters for `aliexpress.marketing.storepromotions.querybyproduct`. */
 export interface AliexpressMarketingStorepromotionsQuerybyproductParams {
-  /** 商品ID */
+  /** Product ID */
   productId?: LongInput;
 }
 
 /** Response of `aliexpress.marketing.storepromotions.querybyproduct`. */
 export interface AliexpressMarketingStorepromotionsQuerybyproductResponse {
-  /** 活动list */
+  /** Activity list */
   promotionList?: Array<AliexpressMarketingStorepromotionsQuerybyproductPromotionSimpleInfoDTO>;
 }
 

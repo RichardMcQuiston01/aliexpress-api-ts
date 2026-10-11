@@ -93,7 +93,7 @@ export interface DifuAidc2Response {
   errMsg?: string;
   /** 1 */
   paramT?: string;
-  /** 哈哈 */
+  /** Haha */
   username?: string;
 }
 

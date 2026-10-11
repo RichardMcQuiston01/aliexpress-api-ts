@@ -27,7 +27,7 @@ export const AliexpressSellercenterKcProxyFinanceInfoGetterFinanceInfoForTOPSche
 export interface AliexpressSellercenterKcProxyFinanceInfoGetterresultResponse {
   /** Message */
   msg?: string;
-  /** 默认描述 */
+  /** Default description */
   code?: string;
   /** Success */
   success?: boolean;
@@ -202,7 +202,7 @@ export const AliexpressSellercenterProxyBrandListPaginationDTOSchema: Schema = {
 export interface AliexpressSellercenterProxyBrandListresultResponse {
   /** error message */
   msg?: string;
-  /** 默认描述 */
+  /** Default description */
   code?: string;
   /** data */
   value?: AliexpressSellercenterProxyBrandListPaginationDTO;
@@ -337,7 +337,7 @@ export const AliexpressSellercenterProxyChatMessageReadCreateReadMessageProxyReq
   };
 
 export interface AliexpressSellercenterProxyChatMessageReadresultResponse {
-  /** 默认描述 */
+  /** Default description */
   code?: string;
   /** msg */
   msg?: string;
@@ -408,7 +408,7 @@ export interface AliexpressSellercenterKcProxyFinanceInfoGetterParams {
 
 /** Response of `aliexpress.sellercenter.kc.proxy.finance.info.getter`. */
 export interface AliexpressSellercenterKcProxyFinanceInfoGetterResponse {
-  /** 默认描述 */
+  /** Default description */
   result?: AliexpressSellercenterKcProxyFinanceInfoGetterresultResponse;
 }
 
@@ -452,7 +452,7 @@ export interface AliexpressSellercenterProxyBrandAddParams {
 
 /** Response of `aliexpress.sellercenter.proxy.brand.add`. */
 export interface AliexpressSellercenterProxyBrandAddResponse {
-  /** 默认描述 */
+  /** Default description */
   result?: AliexpressSellercenterProxyBrandAddresultResponse;
 }
 
@@ -493,7 +493,7 @@ export interface AliexpressSellercenterProxyBrandApplicationListParams {
 
 /** Response of `aliexpress.sellercenter.proxy.brand.application.list`. */
 export interface AliexpressSellercenterProxyBrandApplicationListResponse {
-  /** 默认描述 */
+  /** Default description */
   result?: AliexpressSellercenterProxyBrandApplicationListresultResponse;
 }
 
@@ -532,7 +532,7 @@ export interface AliexpressSellercenterProxyBrandApplyParams {
 
 /** Response of `aliexpress.sellercenter.proxy.brand.apply`. */
 export interface AliexpressSellercenterProxyBrandApplyResponse {
-  /** 默认描述 */
+  /** Default description */
   result?: AliexpressSellercenterProxyBrandApplyresultResponse;
 }
 
@@ -570,7 +570,7 @@ export interface AliexpressSellercenterProxyBrandListParams {
 
 /** Response of `aliexpress.sellercenter.proxy.brand.list`. */
 export interface AliexpressSellercenterProxyBrandListResponse {
-  /** 默认描述 */
+  /** Default description */
   result?: AliexpressSellercenterProxyBrandListresultResponse;
 }
 
@@ -609,7 +609,7 @@ export interface AliexpressSellercenterProxyBrandRevokeParams {
 
 /** Response of `aliexpress.sellercenter.proxy.brand.revoke`. */
 export interface AliexpressSellercenterProxyBrandRevokeResponse {
-  /** 默认描述 */
+  /** Default description */
   result?: AliexpressSellercenterProxyBrandRevokeresultResponse;
 }
 
@@ -647,7 +647,7 @@ export interface AliexpressSellercenterProxyBrandSearchParams {
 
 /** Response of `aliexpress.sellercenter.proxy.brand.search`. */
 export interface AliexpressSellercenterProxyBrandSearchResponse {
-  /** 默认描述 */
+  /** Default description */
   result?: AliexpressSellercenterProxyBrandSearchresultResponse;
 }
 
@@ -682,7 +682,7 @@ export interface AliexpressSellercenterProxyChatMessageCreateParams {
 
 /** Response of `aliexpress.sellercenter.proxy.chat.message.create`. */
 export interface AliexpressSellercenterProxyChatMessageCreateResponse {
-  /** 默认描述 */
+  /** Default description */
   result?: AliexpressSellercenterProxyChatMessageCreateresultResponse;
 }
 
@@ -721,7 +721,7 @@ export interface AliexpressSellercenterProxyChatMessageReadParams {
 
 /** Response of `aliexpress.sellercenter.proxy.chat.message.read`. */
 export interface AliexpressSellercenterProxyChatMessageReadResponse {
-  /** 默认描述 */
+  /** Default description */
   result?: AliexpressSellercenterProxyChatMessageReadresultResponse;
 }
 
@@ -762,7 +762,7 @@ export interface AliexpressSellercenterProxyVkshopsSellerStatusUpdateParams {
 
 /** Response of `aliexpress.sellercenter.proxy.vkshops.seller.status.update`. */
 export interface AliexpressSellercenterProxyVkshopsSellerStatusUpdateResponse {
-  /** 默认描述 */
+  /** Default description */
   result?: AliexpressSellercenterProxyVkshopsSellerStatusUpdateresultResponse;
 }
 
@@ -799,7 +799,7 @@ export interface AliexpressSellercenterVkontakteTrackcodeAddParams {
 
 /** Response of `aliexpress.sellercenter.vkontakte.trackcode.add`. */
 export interface AliexpressSellercenterVkontakteTrackcodeAddResponse {
-  /** 默认描述 */
+  /** Default description */
   result?: AliexpressSellercenterVkontakteTrackcodeAddresultResponse;
 }
 

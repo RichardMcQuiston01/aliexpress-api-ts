@@ -9,19 +9,19 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressProductCustomizeDataQueryCustomizeItem {
-  /** 可定制区域 仅图文类型的定制项有值 */
+  /** Customizable area; has a value only for image-and-text customization items */
   limitRectF?: AliexpressProductCustomizeDataQueryRegionInfo;
-  /** 定制项扩展属性 JSON字符串，定制项类型相关 文本类型（type=text）： { "fontColorList": [ "#FFD700" ], "fontFamilyList": [ { "key": "Impact", "url": "https://xxx.cdn.com/xxx/Alibaba-PuHuiTi-Heavy.ttf" } ] } 图片类型（type=image）：{} 枚举类型（type=enum）： { "optionMap": { "option-2": "Trench Coat", "option-3": "Overcoat", "option-0": "Single-breasted Coat", "option-1": "Double-breasted Coat", "option-4": "Raincoat", "option-5": "Topcoat" } } */
+  /** Extended attributes of the customization item, as a JSON string; depends on the customization item type. Text type (type=text): { "fontColorList": [ "#FFD700" ], "fontFamilyList": [ { "key": "Impact", "url": "https://xxx.cdn.com/xxx/Alibaba-PuHuiTi-Heavy.ttf" } ] } Image type (type=image): {} Enum type (type=enum): { "optionMap": { "option-2": "Trench Coat", "option-3": "Overcoat", "option-0": "Single-breasted Coat", "option-1": "Double-breasted Coat", "option-4": "Raincoat", "option-5": "Topcoat" } } */
   attributes?: Record<string, unknown>;
-  /** 定制项标题 */
+  /** Customization item title */
   title?: string;
-  /** 定制项类型 text、image、enum（材质、规格均为枚举类型） */
+  /** Customization item type text, image, enum (material and specs are both enum types) */
   type?: string;
-  /** 定制区域效果图url，即contentRectF和limitRectF的交集区域图像 仅图文类型的定制项有值 */
+  /** URL of the customization area preview image, i.e. the image of the intersection of contentRectF and limitRectF. Only has a value for text-and-image customization items */
   contentSnipingUrl?: string;
-  /** 定制项数据，Map，定制项类型相关 文本类型（type=text）：{ "fontFamily": "Impact", "color": "#FFD700", "text": "happy new year" }， 图片类型（type=image）：{ "originUrl": "https://ae01.alicdn.com/kf/xxxx.jpg", "width": "321", "height": "642" } 枚举类型（type=enum）：{ "selected": "option-5" } */
+  /** Customization data, a Map; depends on the customization item type. Text type (type=text): { "fontFamily": "Impact", "color": "#FFD700", "text": "happy new year" }, Image type (type=image): { "originUrl": "https://ae01.alicdn.com/kf/xxxx.jpg", "width": "321", "height": "642" } Enum type (type=enum): { "selected": "option-5" } */
   content?: Record<string, unknown>;
-  /** 用户在可定制区域内调整结果 仅图文类型的定制项有值 */
+  /** Result of the user's adjustment within the customizable area; has a value only for image-text type customization items */
   contentRectF?: AliexpressProductCustomizeDataQueryRegionInfo;
 }
 
@@ -44,37 +44,37 @@ export const AliexpressProductCustomizeDataQueryCustomizeItemSchema: Schema = {
 };
 
 export interface AliexpressProductCustomizeDataQueryItemCustomizeInfoDTO {
-  /** 背景图宽度 */
+  /** Background image width */
   picWidth?: number;
-  /** 背景图高度 */
+  /** Background image height */
   picHeight?: number;
-  /** 定制项信息 */
+  /** Customization item information */
   customizeItems?: Array<AliexpressProductCustomizeDataQueryCustomizeItem>;
-  /** 蒙版图高度 */
+  /** Mask image height */
   maskPicHeight?: Long;
-  /** 定制信息ID */
+  /** Customization information ID */
   customizeInfoId?: Long;
-  /** 背景图URL */
+  /** Background image URL */
   picUrl?: string;
-  /** 商品Id */
+  /** Product ID */
   itemId?: Long;
-  /** 蒙版图宽度 */
+  /** Mask image width */
   maskPicWidth?: Long;
-  /** 定制效果图 */
+  /** Customization preview image */
   customizePicUrl?: string;
-  /** 商品sku id */
+  /** Product sku id */
   skuId?: Long;
-  /** 蒙版图URL */
+  /** Mask image URL */
   maskPicUrl?: string;
-  /** 新版定制数据 */
+  /** New customization data */
   customizeItemsJson?: string;
-  /** 定制模板快照，参考查询定制模板接口的响应 */
+  /** Customization template snapshot, refer to the response of the query customization template API */
   components?: string;
-  /** 设计模板快照，参考查询定制模板接口的响应 */
+  /** Design template snapshot, refer to the response of the query customization template API */
   designTemplates?: string;
-  /** 定制字体列表 */
+  /** Custom font list */
   customizeFontList?: string;
-  /** 模板类型 */
+  /** Template type */
   customizeTemplateTag?: string;
 }
 
@@ -103,13 +103,13 @@ export const AliexpressProductCustomizeDataQueryItemCustomizeInfoDTOSchema: Sche
   };
 
 export interface AliexpressProductCustomizeDataQueryRegionInfo {
-  /** 定制区域左上角 */
+  /** Top-left corner of the customization area */
   top?: number;
-  /** 定制区域左上角 */
+  /** Top-left corner of the customization area */
   left?: number;
-  /** 定制区域宽度 */
+  /** Customization area width */
   width?: number;
-  /** 定制区域高度 */
+  /** Customization area height */
   height?: number;
 }
 
@@ -132,13 +132,13 @@ export const AliexpressProductCustomizeImageGenerateImageRequestApiSchema: Schem
   };
 
 export interface AliexpressProductCustomizeImageGenerateMtopResult {
-  /** 合图是否成功 */
+  /** Whether image composition succeeded */
   success?: boolean;
-  /** 合图url */
+  /** Composite image URL */
   model?: string;
-  /** 错误信息 */
+  /** Error message */
   msgInfo?: string;
-  /** 错误码 */
+  /** Error code */
   msgCode?: string;
 }
 
@@ -150,33 +150,33 @@ export const AliexpressProductCustomizeImageGenerateMtopResultSchema: Schema = {
 };
 
 export interface AliexpressProductCustomizeTemplateSaveCustomizeComponentDTO {
-  /** 外部业务ID */
+  /** External business ID */
   outBizId?: string;
-  /** 预览图 */
+  /** Preview image */
   src?: string;
-  /** 定制项备注 */
+  /** Customization item remarks */
   remark?: string;
-  /** 定制项类型，preview： 预览组件，text：文本组件，image-upload：图片上传组件，select-text： 单选组件-文本，select-font： 单选组件-字体，select-color： 单选组件-颜色，select-image： 单选组件-图片 */
+  /** Customization item type, preview: preview component, text: text component, image-upload: image upload component, select-text: single-select component - text, select-font: single-select component - font, select-color: single-select component - color, select-image: single-select component - image */
   type?: string;
-  /** 关联的设计模板ID */
+  /** ID of the associated design template */
   templateId?: string;
-  /** 关联的设计模板图层ID */
+  /** Layer ID of the associated design template */
   layerId?: string;
-  /** 关联的设计模板名称 */
+  /** Name of the associated design template */
   templateName?: string;
-  /** 定制项子项，image-upload类型会有 */
+  /** Customization sub-item, present for the image-upload type */
   children?: Array<AliexpressProductCustomizeTemplateSaveCustomizeComponentDTOComponent>;
-  /** 定制项名称 */
+  /** Customization item name */
   name?: string;
-  /** 定制项选项,枚举值列表（仅select-xxx组件需要） */
+  /** Customization option, list of enum values (only needed by select-xxx components) */
   options?: Array<AliexpressProductCustomizeTemplateSaveCustomizeComponentDTOOption>;
-  /** 定制项扩展属性 */
+  /** Customization extended attributes */
   attributes?: Record<string, unknown>;
-  /** 定制项ID */
+  /** Customization item ID */
   id?: string;
-  /** 关联的设计模板图层名称 */
+  /** Layer name of the associated design template */
   layerName?: string;
-  /** 定制项值 */
+  /** Customization item value */
   value?: string;
 }
 
@@ -209,21 +209,21 @@ export const AliexpressProductCustomizeTemplateSaveCustomizeComponentDTOSchema: 
   };
 
 export interface AliexpressProductCustomizeTemplateSaveCustomizeComponentDTOComponent {
-  /** 关联的设计模板业务ID */
+  /** Business ID of the associated design template */
   outBizId?: string;
-  /** 关联的设计模板图层ID */
+  /** Layer ID of the associated design template */
   layerId?: string;
-  /** 关联的设计模板名称 */
+  /** Name of the associated design template */
   templateName?: string;
-  /** 预览图 */
+  /** Preview image */
   src?: string;
-  /** 子项ID */
+  /** Sub-item ID */
   id?: string;
-  /** 关联的设计模板图层名称 */
+  /** Layer name of the associated design template */
   layerName?: string;
-  /** 关联的设计模板ID */
+  /** ID of the associated design template */
   templateId?: string;
-  /** 定制项值 */
+  /** Customization item value */
   value?: string;
 }
 
@@ -240,9 +240,9 @@ export const AliexpressProductCustomizeTemplateSaveCustomizeComponentDTOComponen
   };
 
 export interface AliexpressProductCustomizeTemplateSaveCustomizeComponentDTOOption {
-  /** 定制项选项id */
+  /** Customization option ID */
   id?: string;
-  /** 定制项选项值 */
+  /** Customization option value */
   value?: string;
 }
 
@@ -253,9 +253,9 @@ export const AliexpressProductCustomizeTemplateSaveCustomizeComponentDTOOptionSc
   };
 
 export interface AliexpressProductDiagnosisPageQueryProblemProductProblemDTO {
-  /** 商品问题描述 */
+  /** Product issue description */
   problemDescription?: string;
-  /** 商品问题类型 */
+  /** Product issue type */
   problemType?: string;
 }
 
@@ -266,19 +266,19 @@ export const AliexpressProductDiagnosisPageQueryProblemProductProblemDTOSchema: 
   };
 
 export interface AliexpressProductDiagnosisPageQueryProblemToBeOptimizedProductDTO {
-  /** 问题商品名称 */
+  /** Problem product name */
   productTitle?: string;
-  /** 商品问题 */
+  /** Product issues */
   productProblem?: AliexpressProductDiagnosisPageQueryProblemProductProblemDTO;
-  /** 商品的操作状态： -1（已优化） 0（待优化） 1（已操作、检测中） 2（已下架） 3（已忽略） 4（已删除） */
+  /** Product operation status: -1 (optimized), 0 (pending optimization), 1 (operated, being checked), 2 (delisted), 3 (ignored), 4 (deleted) */
   operateStatus?: number;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 商品影响类型 */
+  /** Product impact type */
   productImpact?: string;
-  /** 商品主图url */
+  /** Product main image URL */
   mainPicture?: string;
-  /** 商品优化建议 */
+  /** Product optimization suggestion */
   optimizationSuggestion?: string;
 }
 
@@ -298,9 +298,9 @@ export const AliexpressProductDiagnosisPageQueryProblemToBeOptimizedProductDTOSc
   };
 
 export interface AliexpressProductDiagnosisQueryProblemProductProblemDTO {
-  /** 商品问题描述 */
+  /** Product issue description */
   problemDescription?: string;
-  /** 商品问题类型 */
+  /** Product issue type */
   problemType?: string;
 }
 
@@ -311,15 +311,15 @@ export const AliexpressProductDiagnosisQueryProblemProductProblemDTOSchema: Sche
   };
 
 export interface AliexpressProductDiagnosisResultListOptimizedProductDTO {
-  /** 商品标题 */
+  /** Product title */
   productTitle?: string;
-  /** 最后优化时间 */
+  /** Last optimization time */
   productLastOptimizationTime?: string;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 商品主图 */
+  /** Product main image */
   mainPicture?: string;
-  /** 该商品优化来源-对应isv app name */
+  /** Source of this product optimization - corresponding ISV app name */
   optimizedSource?: string;
 }
 
@@ -333,15 +333,15 @@ export const AliexpressProductDiagnosisResultListOptimizedProductDTOSchema: Sche
   };
 
 export interface AliexpressProductDiagnosisResultListOptimizedProductResultDTO {
-  /** 已优化商品列表 */
+  /** Optimized product list */
   optimizedProductList?: Array<AliexpressProductDiagnosisResultListOptimizedProductDTO>;
-  /** 本次查询是否成功 */
+  /** Whether this query succeeded */
   success?: boolean;
-  /** 页面大小 */
+  /** Page size */
   pageSize?: number;
-  /** 已优化商品总数 */
+  /** Total optimized products */
   totalCount?: number;
-  /** 当前页数 */
+  /** Current page number */
   currentPage?: number;
 }
 
@@ -359,39 +359,39 @@ export const AliexpressProductDiagnosisResultListOptimizedProductResultDTOSchema
   };
 
 export interface AliexpressProductEancodeInfoQueryEanCodeQueryResponseDTO {
-  /** 白底图 */
+  /** White background image */
   whiteImage?: string;
-  /** 类目 ID */
+  /** Category ID */
   leafCateId?: number;
-  /** 商品属性 */
+  /** Product attributes */
   productProperties?: Array<AliexpressProductEancodeInfoQueryEanCodeQueryResponseDTOPropertyDTO>;
-  /** 场景图 */
+  /** Scene image */
   sceneImage?: string;
-  /** 详描列表 */
+  /** Detailed description list */
   descriptionList?: Array<AliexpressProductEancodeInfoQueryEanCodeQueryResponseDTOMultiLangTextDTO>;
-  /** 销售属性 */
+  /** Sales attributes */
   saleProperties?: Array<AliexpressProductEancodeInfoQueryEanCodeQueryResponseDTOPropertyDTO>;
-  /** 长 */
+  /** Length */
   length?: number;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
-  /** 重 */
+  /** Weight */
   weight?: number;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 车型库 af_id */
+  /** Vehicle model library af_id */
   afId?: Array<string>;
-  /** 主图 */
+  /** Main image */
   mainImages?: Array<string>;
-  /** ean码 */
+  /** EAN code */
   eanCode?: string;
-  /** 调用结果 */
+  /** Call result */
   success?: boolean;
-  /** 宽 */
+  /** Width */
   width?: number;
-  /** 标题 */
+  /** Title */
   titleList?: Array<AliexpressProductEancodeInfoQueryEanCodeQueryResponseDTOMultiLangTextDTO>;
-  /** 搞 */
+  /** Gao */
   height?: number;
 }
 
@@ -437,9 +437,9 @@ export const AliexpressProductEancodeInfoQueryEanCodeQueryResponseDTOSchema: Sch
   };
 
 export interface AliexpressProductEancodeInfoQueryEanCodeQueryResponseDTOMultiLangTextDTO {
-  /** 语种 */
+  /** Language */
   language?: string;
-  /** 文本 */
+  /** Text */
   text?: string;
 }
 
@@ -450,13 +450,13 @@ export const AliexpressProductEancodeInfoQueryEanCodeQueryResponseDTOMultiLangTe
   };
 
 export interface AliexpressProductEancodeInfoQueryEanCodeQueryResponseDTOPropertyDTO {
-  /** 属性值名称 */
+  /** Attribute value name */
   valueName?: string;
-  /** 属性名称 */
+  /** Attribute name */
   propertyName?: string;
-  /** 属性值ID */
+  /** Attribute value ID */
   propertyValueId?: number;
-  /** 属性 ID */
+  /** Attribute ID */
   propertyId?: number;
 }
 
@@ -469,43 +469,43 @@ export const AliexpressProductEancodeInfoQueryEanCodeQueryResponseDTOPropertyDTO
   };
 
 export interface AliexpressProductFreightPriceDetailProductPriceDiagnosisModelLogisticsLine {
-  /** 建议外露运费 */
+  /** Suggested exposed shipping fee */
   suggestShippingFee?: string;
-  /** 线路名称 */
+  /** Route name */
   deliveryOptionName?: string;
-  /** 运费成本 */
+  /** Shipping cost */
   shippingCost?: string;
-  /** 是否禁编 */
+  /** Whether editing is prohibited */
   forbiddenEdit?: boolean;
-  /** 线路 Code */
+  /** Route code */
   deliveryOptionCode?: string;
-  /** 推荐的总价 */
+  /** Recommended total price */
   suggestTotalPrice?: string;
-  /** 建议销售价与当前销售价的变动区间（百分比） */
+  /** Range of change (percentage) between the suggested sale price and the current sale price */
   priceChangeRange?: string;
-  /** 是否基准 */
+  /** Whether baseline */
   benchmarkFlag?: boolean;
-  /** 输入框初始化价格 */
+  /** Initial price of the input box */
   initPrice?: string;
-  /** 外露运费最小值 空表示不限制 */
+  /** Minimum exposed shipping fee; empty means no limit */
   minLimit?: string;
-  /** 是否可达 */
+  /** Whether reachable */
   reachable?: boolean;
-  /** 是否首推 */
+  /** Whether top recommended */
   firstRecommend?: boolean;
-  /** 当前区域价&外露运费之和 */
+  /** Sum of the current regional price and exposed shipping fee */
   currentTotalPrice?: string;
-  /** 计费规则 */
+  /** Billing rules */
   customType?: string;
-  /** 推荐区域价 */
+  /** Recommended regional price */
   suggestRegionPrice?: string;
-  /** 外露运费 */
+  /** Exposed shipping fee */
   shippingFee?: string;
-  /** 是否展示 AI 标 true展示 */
+  /** Whether to display the AI label; true to display */
   showAiTag?: boolean;
-  /** 外露运费最大值 空表示不限制 */
+  /** Maximum exposed shipping fee; empty means no limit */
   maxLimit?: string;
-  /** 当前区域价 */
+  /** Current regional price */
   currentRegionPrice?: string;
 }
 
@@ -533,15 +533,15 @@ export const AliexpressProductFreightPriceDetailProductPriceDiagnosisModelLogist
   };
 
 export interface AliexpressProductFreightPriceDetailProductPriceDiagnosisModelProperty {
-  /** 属性值 ID */
+  /** Attribute value ID */
   vid?: Long;
-  /** 属性值文本 */
+  /** Attribute value text */
   vText?: string;
-  /** 别名 */
+  /** Alias */
   alias?: string;
-  /** 属性 ID */
+  /** Attribute ID */
   pid?: Long;
-  /** 属性 文本 */
+  /** Attribute text */
   pText?: string;
 }
 
@@ -555,27 +555,27 @@ export const AliexpressProductFreightPriceDetailProductPriceDiagnosisModelProper
   };
 
 export interface AliexpressProductFreightPriceDetailProductPriceDiagnosisModelSku {
-  /** SKU维度模板 ID */
+  /** SKU-level template ID */
   postageId?: string;
-  /** global价格 */
+  /** global price */
   globalPrice?: string;
-  /** 长 传入什么原样返回 */
+  /** Length; returned as passed in */
   length?: string;
-  /** 重 */
+  /** Weight */
   weight?: string;
-  /** 货值 */
+  /** Goods value */
   cargoPrice?: string;
-  /** 区域价 */
+  /** Regional price */
   suggestCountryList?: Array<AliexpressProductFreightPriceDetailProductPriceDiagnosisModelSuggestCountry>;
-  /** 物流属性，纯电、弱磁等，普货可不传 */
+  /** Logistics attributes, such as pure battery or weak magnetic; may be omitted for general cargo */
   specialType?: string;
-  /** 销售属性对 */
+  /** Sales attribute pair */
   salePropertyList?: Array<AliexpressProductFreightPriceDetailProductPriceDiagnosisModelProperty>;
-  /** 宽 */
+  /** Width */
   width?: string;
-  /** 高 */
+  /** Height */
   height?: string;
-  /** SKU ID 新发不用传 */
+  /** SKU ID; not needed for new publishing */
   skuId?: string;
 }
 
@@ -605,9 +605,9 @@ export const AliexpressProductFreightPriceDetailProductPriceDiagnosisModelSkuSch
   };
 
 export interface AliexpressProductFreightPriceDetailProductPriceDiagnosisModelSuggestCountry {
-  /** 国家码 */
+  /** Country code */
   countryCode?: string;
-  /** 更改的区域价 */
+  /** Updated regional price */
   modifyLinePrice?: string;
 }
 
@@ -618,33 +618,33 @@ export const AliexpressProductFreightPriceDetailProductPriceDiagnosisModelSugges
   };
 
 export interface AliexpressProductFreightPriceDetailTaskResponse {
-  /** 商品运费模板 ID */
+  /** Product shipping fee template ID */
   postageId?: string;
-  /** sku 列表 */
+  /** SKU list */
   skuList?: Array<AliexpressProductFreightPriceDetailProductPriceDiagnosisModelSku>;
-  /** 任务影响 */
+  /** Task impact */
   impact?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 建议列表 */
+  /** Suggestion list */
   suggestionList?: Array<string>;
-  /** 是否有诊断任务否表示没有 */
+  /** Whether there is a diagnosis task; false means none */
   hasJudgment?: boolean;
-  /** 是否新版运费模板，新老模板样式完全不一样 */
+  /** Whether it is the new freight template; the new and old templates have completely different styles */
   newLogisticsTemplate?: boolean;
-  /** 诊断提升百分比 */
+  /** Diagnosis improvement percentage */
   percent?: string;
-  /** 商品 ID */
+  /** Product ID */
   itemId?: string;
-  /** 价格诊断详情 */
+  /** Price diagnosis details */
   priceDiagnosisProblemDesc?: Array<string>;
-  /** 返回结果 */
+  /** Returned result */
   success?: boolean;
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 任务 ID */
+  /** Task ID */
   taskId?: string;
 }
 
@@ -671,11 +671,11 @@ export const AliexpressProductFreightPriceDetailTaskResponseSchema: Schema = {
 };
 
 export interface AliexpressProductFreightPriceSaveProductPriceDiagnosisModelLogisticsLine {
-  /** 物流成本 */
+  /** Logistics cost */
   shippingCost?: string;
-  /** 物流线路 */
+  /** Logistics route */
   deliveryOptionCode?: string;
-  /** 外露运费 */
+  /** Exposed shipping fee */
   shippingFee?: string;
 }
 
@@ -687,11 +687,11 @@ export const AliexpressProductFreightPriceSaveProductPriceDiagnosisModelLogistic
   };
 
 export interface AliexpressProductFreightPriceSaveProductPriceDiagnosisModelSku {
-  /** SKU 运费模板 ID */
+  /** SKU shipping fee template ID */
   postageId?: string;
-  /** 区域列表 */
+  /** Region list */
   suggestCountryList?: Array<AliexpressProductFreightPriceSaveProductPriceDiagnosisModelSuggestCountry>;
-  /** SKU唯一 KEY */
+  /** Unique SKU KEY */
   skuUniqueKey?: string;
 }
 
@@ -708,9 +708,9 @@ export const AliexpressProductFreightPriceSaveProductPriceDiagnosisModelSkuSchem
   };
 
 export interface AliexpressProductFreightPriceSaveProductPriceDiagnosisModelSuggestCountry {
-  /** 线路列表 */
+  /** Route list */
   suggestLogisticsLines?: Array<AliexpressProductFreightPriceSaveProductPriceDiagnosisModelLogisticsLine>;
-  /** 国家码 */
+  /** Country code */
   countryCode?: string;
 }
 
@@ -726,13 +726,13 @@ export const AliexpressProductFreightPriceSaveProductPriceDiagnosisModelSuggestC
   };
 
 export interface AliexpressProductFreightPriceSaveUpdateFreightResultDTO {
-  /** SKU映射结果 */
+  /** SKU mapping result */
   skuFreightMappingList?: Array<AliexpressProductFreightPriceSaveUpdateFreightResultDTOSkuFreightMapping>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -750,9 +750,9 @@ export const AliexpressProductFreightPriceSaveUpdateFreightResultDTOSchema: Sche
   };
 
 export interface AliexpressProductFreightPriceSaveUpdateFreightResultDTOSkuFreightMapping {
-  /** sku唯一 Key和入参对齐 */
+  /** Unique SKU key, aligned with the input parameter */
   skuUniqueKey?: string;
-  /** 新的 SKU 运费模板 ID */
+  /** New SKU shipping fee template ID */
   freightId?: Long;
 }
 
@@ -763,11 +763,11 @@ export const AliexpressProductFreightPriceSaveUpdateFreightResultDTOSkuFreightMa
   };
 
 export interface AliexpressProductFreightTaskFinishBaseApiResponseDTO {
-  /** 结果 */
+  /** Result */
   success?: boolean;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -779,11 +779,11 @@ export const AliexpressProductFreightTaskFinishBaseApiResponseDTOSchema: Schema 
   };
 
 export interface AliexpressProductFreightTaskFinishProductPriceDiagnosisModelLogisticsLine {
-  /** 运费成本 */
+  /** Shipping cost */
   shippingCost?: string;
-  /** 线路 CODE */
+  /** Route CODE */
   deliveryOptionCode?: string;
-  /** 更改的外露运费 */
+  /** Updated exposed shipping fee */
   modifyShippingFee?: string;
 }
 
@@ -795,15 +795,15 @@ export const AliexpressProductFreightTaskFinishProductPriceDiagnosisModelLogisti
   };
 
 export interface AliexpressProductFreightTaskFinishProductPriceDiagnosisModelSku {
-  /** SKU运费模板 ID new_logistics_template为true 时必传 */
+  /** SKU shipping fee template ID. Required when new_logistics_template is true */
   postageId?: string;
-  /** global 价格 */
+  /** global price */
   globalPrice?: string;
-  /** 区域价格信息 */
+  /** Regional price information */
   suggestCountryList?: Array<AliexpressProductFreightTaskFinishProductPriceDiagnosisModelSuggestCountry>;
   /** SKU ID */
   skuId?: string;
-  /** 货值 */
+  /** Goods value */
   cargoPrice?: string;
 }
 
@@ -822,11 +822,11 @@ export const AliexpressProductFreightTaskFinishProductPriceDiagnosisModelSkuSche
   };
 
 export interface AliexpressProductFreightTaskFinishProductPriceDiagnosisModelSuggestCountry {
-  /** 运费线路信息 */
+  /** Shipping route information */
   suggestLogisticsLines?: Array<AliexpressProductFreightTaskFinishProductPriceDiagnosisModelLogisticsLine>;
-  /** 当前国家的 CODE */
+  /** CODE of the current country */
   countryCode?: string;
-  /** 当前国家的区域价 */
+  /** Regional price of the current country */
   modifyLinePrice?: string;
 }
 
@@ -843,13 +843,13 @@ export const AliexpressProductFreightTaskFinishProductPriceDiagnosisModelSuggest
   };
 
 export interface AliexpressProductLadderPriceCalculateAEBItemRequest {
-  /** 批发品商品ID */
+  /** Wholesale product ID */
   productId?: Long;
-  /** 批发价折扣JSON 字符串 */
+  /** Wholesale price discount JSON string */
   bulkDiscountArray?: string;
-  /** 国家代码 GLOBAL 指基础折扣 */
+  /** Country code; GLOBAL refers to the base discount */
   countryCode?: string;
-  /** 语言 */
+  /** Language */
   lang?: string;
 }
 
@@ -862,13 +862,13 @@ export const AliexpressProductLadderPriceCalculateAEBItemRequestSchema: Schema =
   };
 
 export interface AliexpressProductLadderPriceCalculateResult {
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   ret?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** SKU分阶价格表 */
+  /** SKU tiered price table */
   data?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -880,9 +880,9 @@ export const AliexpressProductLadderPriceCalculateResultSchema: Schema = {
 };
 
 export interface AliexpressProductLadderPriceUpdateAEBItemRequest {
-  /** 批发品商品ID */
+  /** Wholesale product ID */
   productId?: Long;
-  /** 阶梯价JSON字符串 */
+  /** Tiered price JSON string */
   bulkDiscountArray?: string;
 }
 
@@ -892,13 +892,13 @@ export const AliexpressProductLadderPriceUpdateAEBItemRequestSchema: Schema = {
 };
 
 export interface AliexpressProductLadderPriceUpdateResult {
-  /** 是否成功 */
+  /** Whether successful */
   ret?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 返回值_ */
+  /** Return value_ */
   data?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -910,15 +910,15 @@ export const AliexpressProductLadderPriceUpdateResultSchema: Schema = {
 };
 
 export interface AliexpressProductPriceLineCalculateProductPriceDiagnosisModelLogisticsLine {
-  /** 推荐的运费 */
+  /** Recommended shipping fee */
   suggestShippingFee?: string;
-  /** 运费成本 */
+  /** Shipping cost */
   shippingCost?: string;
-  /** 线路 code */
+  /** Route code */
   deliveryOptionCode?: string;
-  /** 运费成本 */
+  /** Shipping cost */
   shippingFee?: string;
-  /** 商家更改的外露运费 */
+  /** Exposed shipping fee changed by the merchant */
   modifyShippingFee?: string;
 }
 
@@ -932,13 +932,13 @@ export const AliexpressProductPriceLineCalculateProductPriceDiagnosisModelLogist
   };
 
 export interface AliexpressProductPriceLineCalculateProductPriceDiagnosisModelProperty {
-  /** 属性 值ID */
+  /** Attribute value ID */
   vid?: Long;
-  /** 属性值文本 */
+  /** Attribute value text */
   vText?: string;
-  /** 属性ID */
+  /** Attribute ID */
   pid?: Long;
-  /** 属性名 */
+  /** Attribute name */
   pText?: string;
 }
 
@@ -951,13 +951,13 @@ export const AliexpressProductPriceLineCalculateProductPriceDiagnosisModelProper
   };
 
 export interface AliexpressProductPriceLineCalculateProductPriceDiagnosisModelSku {
-  /** global 价格 2位小数如果是整数请补0比如2.00 */
+  /** global price, 2 decimal places; pad with 0 for integers, e.g. 2.00 */
   globalPrice?: string;
-  /** 国家列表 */
+  /** Country list */
   suggestCountryList?: Array<AliexpressProductPriceLineCalculateProductPriceDiagnosisModelSuggestCountry>;
   /** {} */
   salePropertyList?: Array<AliexpressProductPriceLineCalculateProductPriceDiagnosisModelProperty>;
-  /** SKUid有则传新增 sku不需要传 传sale_property_list即可 */
+  /** If SKUid is provided, it is an update; for a new SKU it does not need to be passed, just pass sale_property_list */
   skuId?: string;
 }
 
@@ -980,15 +980,15 @@ export const AliexpressProductPriceLineCalculateProductPriceDiagnosisModelSkuSch
   };
 
 export interface AliexpressProductPriceLineCalculateProductPriceDiagnosisModelSuggestCountry {
-  /** 当前区域价 */
+  /** Current regional price */
   currentLinePrice?: string;
-  /** 线路列表 */
+  /** Route list */
   suggestLogisticsLines?: Array<AliexpressProductPriceLineCalculateProductPriceDiagnosisModelLogisticsLine>;
-  /** 国家码 */
+  /** Country code */
   countryCode?: string;
-  /** 当前推荐的区域价 */
+  /** Currently recommended regional price */
   suggestLinePrice?: string;
-  /** 商家更改的区域价 */
+  /** Regional price changed by the merchant */
   modifyLinePrice?: string;
 }
 
@@ -1007,17 +1007,17 @@ export const AliexpressProductPriceLineCalculateProductPriceDiagnosisModelSugges
   };
 
 export interface AliexpressProductPriceLineCalculateTaskResponse {
-  /** SKU列表 */
+  /** SKU list */
   skuList?: Array<AliexpressProductPriceLineCalculateProductPriceDiagnosisModelSku>;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 商品 ID */
+  /** Product ID */
   itemId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 币种 */
+  /** Currency */
   currency?: string;
 }
 
@@ -1036,43 +1036,43 @@ export const AliexpressProductPriceLineCalculateTaskResponseSchema: Schema = {
 };
 
 export interface AliexpressProductPriceTaskDetailProductPriceDiagnosisModelLogisticsLine {
-  /** 建议外露运费 */
+  /** Suggested exposed shipping fee */
   suggestShippingFee?: string;
-  /** 线路名称 */
+  /** Route name */
   deliveryOptionName?: string;
-  /** 运费成本 */
+  /** Shipping cost */
   shippingCost?: string;
-  /** 是否禁编 */
+  /** Whether editing is prohibited */
   forbiddenEdit?: boolean;
-  /** 线路 Code */
+  /** Route code */
   deliveryOptionCode?: string;
-  /** 推荐的总价 */
+  /** Recommended total price */
   suggestTotalPrice?: string;
-  /** 建议销售价与当前销售价的变动区间（百分比） */
+  /** Range of change (percentage) between the suggested sale price and the current sale price */
   priceChangeRange?: string;
-  /** 是否基准 */
+  /** Whether baseline */
   benchmarkFlag?: boolean;
-  /** 输入框初始化价格 */
+  /** Initial price of the input box */
   initPrice?: string;
-  /** 外露运费最小值 空表示不限制 */
+  /** Minimum exposed shipping fee; empty means no limit */
   minLimit?: string;
-  /** 是否可达 */
+  /** Whether reachable */
   reachable?: boolean;
-  /** 是否首推 */
+  /** Whether top recommended */
   firstRecommend?: boolean;
-  /** 当前区域价&外露运费之和 */
+  /** Sum of the current regional price and exposed shipping fee */
   currentTotalPrice?: string;
-  /** 计费规则 */
+  /** Billing rules */
   customType?: string;
-  /** 推荐区域价 */
+  /** Recommended regional price */
   suggestRegionPrice?: string;
-  /** 外露运费 */
+  /** Exposed shipping fee */
   shippingFee?: string;
-  /** 是否展示 AI 标 true展示 */
+  /** Whether to display the AI label; true to display */
   showAiTag?: boolean;
-  /** 外露运费最大值 空表示不限制 */
+  /** Maximum exposed shipping fee; empty means no limit */
   maxLimit?: string;
-  /** 当前区域价 */
+  /** Current regional price */
   currentRegionPrice?: string;
 }
 
@@ -1104,7 +1104,7 @@ export interface AliexpressProductPriceTaskDetailProductPriceDiagnosisModelPrope
   vid?: Long;
   /** vText */
   vText?: string;
-  /** 别名 */
+  /** Alias */
   alias?: string;
   /** pid */
   pid?: Long;
@@ -1122,29 +1122,29 @@ export const AliexpressProductPriceTaskDetailProductPriceDiagnosisModelPropertyS
   };
 
 export interface AliexpressProductPriceTaskDetailProductPriceDiagnosisModelSku {
-  /** SKU 运费模板 ID */
+  /** SKU shipping fee template ID */
   postageId?: string;
-  /** SKU 进挨个诊断描述 */
+  /** SKU diagnosis description */
   skuPriceDiagnosisProblemDesc?: Array<string>;
-  /** GLOBAL价格 */
+  /** GLOBAL price */
   globalPrice?: string;
-  /** 长 */
+  /** Length */
   length?: string;
-  /** 重 */
+  /** Weight */
   weight?: string;
-  /** 货值 */
+  /** Goods value */
   cargoPrice?: string;
-  /** 建议区域信息 */
+  /** Suggested region information */
   suggestCountryList?: Array<AliexpressProductPriceTaskDetailProductPriceDiagnosisModelSuggestCountry>;
-  /** 普货 */
+  /** General cargo */
   specialType?: string;
-  /** 销售属性 */
+  /** Sales attributes */
   salePropertyList?: Array<AliexpressProductPriceTaskDetailProductPriceDiagnosisModelProperty>;
-  /** 宽 */
+  /** Width */
   width?: string;
   /** SKUid */
   skuId?: string;
-  /** 高 */
+  /** Height */
   height?: string;
 }
 
@@ -1175,27 +1175,27 @@ export const AliexpressProductPriceTaskDetailProductPriceDiagnosisModelSkuSchema
   };
 
 export interface AliexpressProductPriceTaskDetailProductPriceDiagnosisModelSuggestCountry {
-  /** 当前国家诊断出的问题 */
+  /** Issues diagnosed for the current country */
   countryPriceDiagnosisProblemDesc?: Array<string>;
-  /** 商品当前的区域价 */
+  /** Current regional price of the product */
   currentLinePrice?: string;
-  /** 推荐出来的物流线路运费 */
+  /** Shipping fee of the recommended logistics route */
   suggestLogisticsLines?: Array<AliexpressProductPriceTaskDetailProductPriceDiagnosisModelLogisticsLine>;
-  /** 区域价初始值 */
+  /** Initial regional price */
   initPrice?: string;
-  /** 建议销售价与当前销售价的变动区间（百分比） */
+  /** Range of change (percentage) between the suggested sale price and the current sale price */
   priceChangeRate?: string;
-  /** 区域零售价最低下限值(格式为 1.00)，空表示不限制 */
+  /** Regional retail price lower limit (format 1.00); empty means no limit */
   priceMinLimit?: string;
-  /** 是否展示 AI 标 */
+  /** Whether to display the AI label */
   showAiTag?: boolean;
-  /** 国家码 */
+  /** Country code */
   countryCode?: string;
-  /** 建议划线价(零售价) */
+  /** Suggested strikethrough price (retail price) */
   suggestLinePrice?: string;
-  /** 国家名称 */
+  /** Country name */
   countryName?: string;
-  /** 区域零售价最高上限值 空表示不限制 */
+  /** Maximum regional retail price cap; empty means no limit */
   priceMaxLimit?: string;
 }
 
@@ -1223,37 +1223,37 @@ export const AliexpressProductPriceTaskDetailProductPriceDiagnosisModelSuggestCo
   };
 
 export interface AliexpressProductPriceTaskDetailTaskResponse {
-  /** 商品运费模板 ID */
+  /** Product shipping fee template ID */
   postageId?: string;
-  /** sku 列表 */
+  /** SKU list */
   skuList?: Array<AliexpressProductPriceTaskDetailProductPriceDiagnosisModelSku>;
-  /** 任务影响 */
+  /** Task impact */
   impact?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 建议列表 */
+  /** Suggestion list */
   suggestionList?: Array<string>;
-  /** 是否有诊断任务否表示没有 */
+  /** Whether there is a diagnosis task; false means none */
   hasJudgment?: boolean;
-  /** hash 值需要原样提交 */
+  /** hash value must be submitted as is */
   md5hash?: string;
-  /** 是否新版运费模板，新老模板样式完全不一样 */
+  /** Whether it is the new freight template; the new and old templates have completely different styles */
   newLogisticsTemplate?: boolean;
-  /** 诊断提升百分比 */
+  /** Diagnosis improvement percentage */
   percent?: string;
-  /** 商品 ID */
+  /** Product ID */
   itemId?: string;
-  /** 价格诊断详情 */
+  /** Price diagnosis details */
   priceDiagnosisProblemDesc?: Array<string>;
-  /** 返回结果 */
+  /** Returned result */
   success?: boolean;
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 任务 ID */
+  /** Task ID */
   taskId?: string;
-  /** 价格诊断任务 ID */
+  /** Price diagnosis task ID */
   priceTaskId?: string;
 }
 
@@ -1281,11 +1281,11 @@ export const AliexpressProductPriceTaskDetailTaskResponseSchema: Schema = {
 };
 
 export interface AliexpressProductPriceTaskFinishBaseApiResponseDTO {
-  /** 结果 */
+  /** Result */
   success?: boolean;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -1297,11 +1297,11 @@ export const AliexpressProductPriceTaskFinishBaseApiResponseDTOSchema: Schema =
   };
 
 export interface AliexpressProductPriceTaskFinishProductPriceDiagnosisModelLogisticsLine {
-  /** 运费成本 */
+  /** Shipping cost */
   shippingCost?: string;
-  /** 线路 CODE */
+  /** Route CODE */
   deliveryOptionCode?: string;
-  /** 更改的外露运费 */
+  /** Updated exposed shipping fee */
   modifyShippingFee?: string;
 }
 
@@ -1313,9 +1313,9 @@ export const AliexpressProductPriceTaskFinishProductPriceDiagnosisModelLogistics
   };
 
 export interface AliexpressProductPriceTaskFinishProductPriceDiagnosisModelSku {
-  /** SKU运费模板 ID new_logistics_template为true 时必传 */
+  /** SKU shipping fee template ID. Required when new_logistics_template is true */
   postageId?: string;
-  /** 区域价格信息 */
+  /** Regional price information */
   suggestCountryList?: Array<AliexpressProductPriceTaskFinishProductPriceDiagnosisModelSuggestCountry>;
   /** SKU ID */
   skuId?: string;
@@ -1334,11 +1334,11 @@ export const AliexpressProductPriceTaskFinishProductPriceDiagnosisModelSkuSchema
   };
 
 export interface AliexpressProductPriceTaskFinishProductPriceDiagnosisModelSuggestCountry {
-  /** 运费线路信息 */
+  /** Shipping route information */
   suggestLogisticsLines?: Array<AliexpressProductPriceTaskFinishProductPriceDiagnosisModelLogisticsLine>;
-  /** 当前国家的 CODE */
+  /** CODE of the current country */
   countryCode?: string;
-  /** 当前国家的区域价 */
+  /** Regional price of the current country */
   modifyLinePrice?: string;
 }
 
@@ -1355,9 +1355,9 @@ export const AliexpressProductPriceTaskFinishProductPriceDiagnosisModelSuggestCo
   };
 
 export interface AliexpressProductProductgroupsGetAeopAEProductChildGroup {
-  /** 子分组名称 */
+  /** Subgroup name */
   groupName?: string;
-  /** 产品子分组id */
+  /** Product subgroup ID */
   groupId?: Long;
 }
 
@@ -1368,11 +1368,11 @@ export const AliexpressProductProductgroupsGetAeopAEProductChildGroupSchema: Sch
   };
 
 export interface AliexpressProductProductgroupsGetAeopAEProductTreeGroup {
-  /** 子分组列表 */
+  /** Subgroup list */
   childGroupList?: Array<AliexpressProductProductgroupsGetAeopAEProductChildGroup>;
-  /** 分组名称 */
+  /** Group name */
   groupName?: string;
-  /** 产品分组id */
+  /** Product group ID */
   groupId?: Long;
 }
 
@@ -1388,7 +1388,7 @@ export const AliexpressProductProductgroupsGetAeopAEProductTreeGroupSchema: Sche
   };
 
 export interface AliexpressProductProductgroupsGetAeopResultDTO {
-  /** 产品分组信息 */
+  /** Product group information */
   targetList?: Array<AliexpressProductProductgroupsGetAeopAEProductTreeGroup>;
 }
 
@@ -1401,19 +1401,19 @@ export const AliexpressProductProductgroupsGetAeopResultDTOSchema: Schema = {
 };
 
 export interface AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobalPropertyDTO {
-  /** hscode 商品发布编辑需要传入的值 */
+  /** hscode, a value that must be passed when publishing or editing a product */
   hscode?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 是否完成填写 */
+  /** Whether filling is complete */
   completed?: boolean;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 是否不需要填写 如果为 true 直接回填global_property值即可 */
+  /** Whether filling in is not required. If true, simply fill back the global_property value */
   noData?: string;
-  /** 推荐出的属性 */
+  /** Recommended attributes */
   possiblePvList?: Array<AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobalPropertyDTOGlobalProprty>;
 }
 
@@ -1434,9 +1434,9 @@ export const AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobal
   };
 
 export interface AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobalPropertyDTOCategoryDTO {
-  /** 类目 ID */
+  /** Category ID */
   catId?: Long;
-  /** 类目名称 */
+  /** Category name */
   catName?: string;
 }
 
@@ -1447,11 +1447,11 @@ export const AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobal
   };
 
 export interface AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobalPropertyDTOGlobalProprty {
-  /** 输入框的值 类型为输入框传 */
+  /** Input box value; passed when the type is input box */
   number?: Long;
-  /** 属性名称 */
+  /** Attribute name */
   propertyName?: string;
-  /** 选中的值 类型为单选或者多选才传 */
+  /** Selected values; passed only for single-select or multi-select types */
   valueList?: Array<AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobalPropertyDTOGlonalProprtyValue>;
 }
 
@@ -1468,7 +1468,7 @@ export const AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobal
   };
 
 export interface AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobalPropertyDTOGlonalProprtyValue {
-  /** 属性值名称 */
+  /** Attribute value name */
   valueName?: string;
 }
 
@@ -1478,15 +1478,15 @@ export const AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobal
   };
 
 export interface AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobalPropertyDTOPv {
-  /** 值 ID */
+  /** Value ID */
   valueId?: Long;
-  /** 属性名称 */
+  /** Attribute name */
   propertyName?: string;
-  /** 属性值名称 */
+  /** Attribute value name */
   valueName?: string;
-  /** 属性 ID */
+  /** Attribute ID */
   propertyId?: Long;
-  /** 材质属性的百分比信息 */
+  /** Percentage information of material attributes */
   percent?: string;
 }
 
@@ -1500,15 +1500,15 @@ export const AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobal
   };
 
 export interface AliexpressProductTaskProductListAeopProductTaskResultDTO {
-  /** 商品列表 */
+  /** Product list */
   productTask?: Array<AliexpressProductTaskProductListAeopProductTaskResultDTOAeopSimpleProductTaskInfoDTO>;
-  /** 总数 */
+  /** Total */
   total?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorMessage?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorCode?: string;
 }
 
@@ -1527,13 +1527,13 @@ export const AliexpressProductTaskProductListAeopProductTaskResultDTOSchema: Sch
   };
 
 export interface AliexpressProductTaskProductListAeopProductTaskResultDTOAeopSimpleProductTaskInfoDTO {
-  /** 商品 ID */
+  /** Product ID */
   productId?: Long;
-  /** 商品任务列表 */
+  /** Product task list */
   taskDetailList?: Array<AliexpressProductTaskProductListAeopProductTaskResultDTOAeopTaskDetailInfoDTO>;
-  /** 商品图片 */
+  /** Product images */
   imageUrl?: string;
-  /** 商品标题 */
+  /** Product title */
   title?: string;
 }
 
@@ -1551,25 +1551,25 @@ export const AliexpressProductTaskProductListAeopProductTaskResultDTOAeopSimpleP
   };
 
 export interface AliexpressProductTaskProductListAeopProductTaskResultDTOAeopTaskDetailInfoDTO {
-  /** 任务描述 */
+  /** Task description */
   taskDesc?: string;
-  /** 任务详情,可空，每个任务不一样,按需消费 */
+  /** Task details, may be empty, differs for each task, consume as needed */
   taskDetail?: string;
-  /** 任务类型 */
+  /** Task type */
   taskType?: string;
-  /** 过期时间,空代表长期任务 不会过期 */
+  /** Expiration time; empty means a long-term task that never expires */
   expireTime?: string;
-  /** 任务创建日期 */
+  /** Task creation date */
   createTime?: string;
-  /** 优化类型，通过什么样的操作完成任务 */
+  /** Optimization type, i.e. the kind of operation used to complete the task */
   optimizeType?: string;
-  /** 任务影响 */
+  /** Task impact */
   taskImpact?: string;
-  /** 任务标题 */
+  /** Task title */
   taskTitle?: string;
-  /** 任务 ID */
+  /** Task ID */
   taskId?: Long;
-  /** 任务状态 */
+  /** Task status */
   taskStatus?: number;
 }
 
@@ -1588,13 +1588,13 @@ export const AliexpressProductTaskProductListAeopProductTaskResultDTOAeopTaskDet
   };
 
 export interface AliexpressProductTaskTypeQueryAeopProductTaskTypeResultDTO {
-  /** 结果 */
+  /** Result */
   success?: boolean;
-  /** 任务类型列表 */
+  /** Task type list */
   taskTypeList?: Array<AliexpressProductTaskTypeQueryAeopProductTaskTypeResultDTOAeopProductTaskTypeDetail>;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -1612,11 +1612,11 @@ export const AliexpressProductTaskTypeQueryAeopProductTaskTypeResultDTOSchema: S
   };
 
 export interface AliexpressProductTaskTypeQueryAeopProductTaskTypeResultDTOAeopProductTaskTypeDetail {
-  /** 任务类型 */
+  /** Task type */
   taskType?: string;
-  /** 任务分组 */
+  /** Task group */
   groupName?: string;
-  /** 任务名称 */
+  /** Task name */
   taskName?: string;
 }
 
@@ -1628,9 +1628,9 @@ export const AliexpressProductTaskTypeQueryAeopProductTaskTypeResultDTOAeopProdu
   };
 
 export interface AliexpressProductWholesaleCreateAEBItemRequest {
-  /** 原商品ID */
+  /** Original product ID */
   productId?: Long;
-  /** 阶梯价折扣 */
+  /** Tiered price discount */
   bulkDiscountArray?: string;
 }
 
@@ -1640,13 +1640,13 @@ export const AliexpressProductWholesaleCreateAEBItemRequestSchema: Schema = {
 };
 
 export interface AliexpressProductWholesaleCreateResult {
-  /** 是否成功 */
+  /** Whether successful */
   ret?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 批发品ID */
+  /** Wholesale product ID */
   data?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -1658,13 +1658,13 @@ export const AliexpressProductWholesaleCreateResultSchema: Schema = {
 };
 
 export interface AliexpressProductWholesaleQueryAEBItemRequest {
-  /** 每页数量 */
+  /** Quantity per page */
   pageSize?: number;
-  /** 第几页 */
+  /** Page number */
   pageIndex?: number;
-  /** 语言 */
+  /** Language */
   lang?: string;
-  /** 批发品ID */
+  /** Wholesale product ID */
   productId?: string;
 }
 
@@ -1676,19 +1676,19 @@ export const AliexpressProductWholesaleQueryAEBItemRequestSchema: Schema = {
 };
 
 export interface AliexpressProductWholesaleQueryPagingResult {
-  /** 是否成功 */
+  /** Whether successful */
   ret?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 商品列表 */
+  /** Product list */
   data?: string;
-  /** 页码 */
+  /** Page number */
   pageNo?: Long;
-  /** 每页数量 */
+  /** Quantity per page */
   pageSize?: Long;
-  /** 总数量 */
+  /** Total quantity */
   totalCount?: Long;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -1703,13 +1703,13 @@ export const AliexpressProductWholesaleQueryPagingResultSchema: Schema = {
 };
 
 export interface AliexpressProductWholesaleSupplySignedResult {
-  /** 调用成功 */
+  /** Call succeeded */
   ret?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 是否已经签约 */
+  /** Whether a contract has been signed */
   data?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -1722,23 +1722,23 @@ export const AliexpressProductWholesaleSupplySignedResultSchema: Schema = {
 
 /** Parameters for `aliexpress.product.bind.brandmanufacturer`. */
 export interface AliexpressProductBindBrandmanufacturerParams {
-  /** 渠道seller id,不填则默认使用当前登录卖家id （可以在这个API中查询：global.seller.relation.query) */
+  /** Channel seller id; if not filled in, the currently logged-in seller id is used by default (can be queried in this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 商品id */
+  /** Product ID */
   productId?: LongInput;
-  /** 品牌制造商id */
+  /** Brand manufacturer ID */
   brandManufacturerId?: LongInput;
-  /** 渠道,填了渠道seller id就需要填渠道信息，跨境为AE_GLOBAL, 本地为AE_LOCAL（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel. If a channel seller id is filled in, channel info is required: AE_GLOBAL for cross-border, AE_LOCAL for local (can be queried in this API: global.seller.relation.query) */
   channel?: string;
-  /** 欧盟责任人id */
+  /** EU responsible person ID */
   msrEuId?: LongInput;
-  /** 土耳其责任人id */
+  /** Turkey responsible person id */
   turkeyRepId?: LongInput;
 }
 
 /** Response of `aliexpress.product.bind.brandmanufacturer`. */
 export interface AliexpressProductBindBrandmanufacturerResponse {
-  /** 请求结果：成功，失败 */
+  /** Request result: success, failure */
   success?: boolean;
 }
 
@@ -1767,23 +1767,23 @@ export const aliexpressProductBindBrandmanufacturer: ApiDefinition<
 
 /** Parameters for `aliexpress.product.customize.data.query`. */
 export interface AliexpressProductCustomizeDataQueryParams {
-  /** 定制信息ID */
+  /** Customization information ID */
   customizeInfoId?: LongInput;
-  /** 语言_国家 */
+  /** Language_country */
   locale?: string;
 }
 
 /** Response of `aliexpress.product.customize.data.query`. */
 export interface AliexpressProductCustomizeDataQueryResponse {
-  /** 是否失败 */
+  /** Whether failed */
   fail?: boolean;
-  /** 数据 */
+  /** Data */
   data?: AliexpressProductCustomizeDataQueryItemCustomizeInfoDTO;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -1816,15 +1816,15 @@ export const aliexpressProductCustomizeDataQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.product.customize.design.template.detail`. */
 export interface AliexpressProductCustomizeDesignTemplateDetailParams {
-  /** 是否需要设计模板内容 */
+  /** Whether design template content is needed */
   needContent?: boolean;
-  /** 设计模板ID */
+  /** Design template ID */
   templateId?: LongInput;
 }
 
 /** Response of `aliexpress.product.customize.design.template.detail`. */
 export interface AliexpressProductCustomizeDesignTemplateDetailResponse {
-  /** 结果 */
+  /** Result */
   result?: Record<string, unknown>;
 }
 
@@ -1849,19 +1849,19 @@ export const aliexpressProductCustomizeDesignTemplateDetail: ApiDefinition<
 
 /** Parameters for `aliexpress.product.customize.design.template.list`. */
 export interface AliexpressProductCustomizeDesignTemplateListParams {
-  /** 外部业务ID */
+  /** External business ID */
   outBizId?: string;
-  /** 每页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 模板名搜索关键字 */
+  /** Template name search keyword */
   searchKey?: string;
-  /** 当前页 */
+  /** Current page */
   page?: number;
 }
 
 /** Response of `aliexpress.product.customize.design.template.list`. */
 export interface AliexpressProductCustomizeDesignTemplateListResponse {
-  /** 结果 */
+  /** Result */
   result?: Record<string, unknown>;
 }
 
@@ -1888,9 +1888,9 @@ export const aliexpressProductCustomizeDesignTemplateList: ApiDefinition<
 
 /** Parameters for `aliexpress.product.customize.font.query`. */
 export interface AliexpressProductCustomizeFontQueryParams {
-  /** 查询类型 */
+  /** Query type */
   queryType?: string;
-  /** 语种 */
+  /** Language */
   language?: string;
 }
 
@@ -1926,7 +1926,7 @@ export interface AliexpressProductCustomizeImageGenerateParams {
 
 /** Response of `aliexpress.product.customize.image.generate`. */
 export interface AliexpressProductCustomizeImageGenerateResponse {
-  /** 合图结果返回 */
+  /** Composite image result returned */
   result?: AliexpressProductCustomizeImageGenerateMtopResult;
 }
 
@@ -1958,7 +1958,7 @@ export const aliexpressProductCustomizeImageGenerate: ApiDefinition<
 
 /** Parameters for `aliexpress.product.customize.template.config`. */
 export interface AliexpressProductCustomizeTemplateConfigParams {
-  /** 业务KEY */
+  /** Business KEY */
   bizKey?: string;
 }
 
@@ -1987,13 +1987,13 @@ export const aliexpressProductCustomizeTemplateConfig: ApiDefinition<
 
 /** Parameters for `aliexpress.product.customize.template.delete`. */
 export interface AliexpressProductCustomizeTemplateDeleteParams {
-  /** 定制模板ID */
+  /** Custom template ID */
   id?: LongInput;
 }
 
 /** Response of `aliexpress.product.customize.template.delete`. */
 export interface AliexpressProductCustomizeTemplateDeleteResponse {
-  /** 结果 */
+  /** Result */
   result?: Record<string, unknown>;
 }
 
@@ -2017,13 +2017,13 @@ export const aliexpressProductCustomizeTemplateDelete: ApiDefinition<
 
 /** Parameters for `aliexpress.product.customize.template.detail`. */
 export interface AliexpressProductCustomizeTemplateDetailParams {
-  /** 定制模板主ID */
+  /** Custom template main ID */
   mainTemplateId?: LongInput;
 }
 
 /** Response of `aliexpress.product.customize.template.detail`. */
 export interface AliexpressProductCustomizeTemplateDetailResponse {
-  /** 结果 */
+  /** Result */
   result?: Record<string, unknown>;
 }
 
@@ -2047,17 +2047,17 @@ export const aliexpressProductCustomizeTemplateDetail: ApiDefinition<
 
 /** Parameters for `aliexpress.product.customize.template.list`. */
 export interface AliexpressProductCustomizeTemplateListParams {
-  /** 页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 搜索关键字 */
+  /** Search keyword */
   searchKey?: string;
-  /** 页码 */
+  /** Page number */
   page?: number;
 }
 
 /** Response of `aliexpress.product.customize.template.list`. */
 export interface AliexpressProductCustomizeTemplateListResponse {
-  /** 结果 */
+  /** Result */
   result?: Record<string, unknown>;
 }
 
@@ -2083,23 +2083,23 @@ export const aliexpressProductCustomizeTemplateList: ApiDefinition<
 
 /** Parameters for `aliexpress.product.customize.template.save`. */
 export interface AliexpressProductCustomizeTemplateSaveParams {
-  /** 定制组件，不用填，这里做结构示意，把components转JSONString填到content中 */
+  /** Customization component, no need to fill in; this is a structural illustration. Convert components to a JSONString and fill it into content */
   components?: Array<AliexpressProductCustomizeTemplateSaveCustomizeComponentDTO>;
-  /** 定制模板预览图 */
+  /** Custom template preview image */
   previewUrl?: string;
-  /** 定制模板名称 */
+  /** Custom template name */
   name?: string;
-  /** 定制模板主ID */
+  /** Custom template main ID */
   mainId?: LongInput;
-  /** 语言_国家 */
+  /** Language_country */
   locale?: string;
-  /** 定制模板内容 */
+  /** Custom template content */
   content?: string;
 }
 
 /** Response of `aliexpress.product.customize.template.save`. */
 export interface AliexpressProductCustomizeTemplateSaveResponse {
-  /** 结果 */
+  /** Result */
   result?: Record<string, unknown>;
 }
 
@@ -2132,31 +2132,31 @@ export const aliexpressProductCustomizeTemplateSave: ApiDefinition<
 
 /** Parameters for `aliexpress.product.diagnosis.pageQueryProblem`. */
 export interface AliexpressProductDiagnosisPageQueryProblemParams {
-  /** 商品的操作状态： 0（待优化） */
+  /** Operation status of the product: 0 (pending optimization) */
   operateStatus?: number;
-  /** 商品问题类型列表，参考查询商家下待优化的商品问题类型列表查询出的问题类型字段。如果为空则默认全部问题类型 */
+  /** List of product issue types. Refer to the issue type fields returned by the query for the list of product issue types pending optimization under the seller. If empty, all issue types are used by default */
   problemTypeList?: Array<string>;
-  /** 每页查询商品数量，默认为10 */
+  /** Number of products queried per page, default 10 */
   pageSize?: number;
-  /** 当前页数，默认第一页 */
+  /** Current page number, default is page 1 */
   currentPage?: number;
 }
 
 /** Response of `aliexpress.product.diagnosis.pageQueryProblem`. */
 export interface AliexpressProductDiagnosisPageQueryProblemResponse {
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 问题商品列表 */
+  /** Problem product list */
   problematicProductList?: Array<AliexpressProductDiagnosisPageQueryProblemToBeOptimizedProductDTO>;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 每页查询商品数量 */
+  /** Number of products queried per page */
   pageSize?: number;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 待优化商品总数 */
+  /** Total number of products to optimize */
   totalCount?: number;
-  /** 当前页数 */
+  /** Current page number */
   currentPage?: number;
 }
 
@@ -2197,13 +2197,13 @@ export interface AliexpressProductDiagnosisQueryProblemParams {}
 
 /** Response of `aliexpress.product.diagnosis.queryProblem`. */
 export interface AliexpressProductDiagnosisQueryProblemResponse {
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 商品问题类型列表 */
+  /** List of product problem types */
   productProblemTypeList?: Array<AliexpressProductDiagnosisQueryProblemProductProblemDTO>;
 }
 
@@ -2232,15 +2232,15 @@ export const aliexpressProductDiagnosisQueryProblem: ApiDefinition<
 
 /** Parameters for `aliexpress.product.diagnosis.result.list`. */
 export interface AliexpressProductDiagnosisResultListParams {
-  /** 当前页数 */
+  /** Current page number */
   current?: LongInput;
-  /** 每页已优化商品数量，默认是10 */
+  /** Number of optimized products per page, default 10 */
   pageSize?: LongInput;
 }
 
 /** Response of `aliexpress.product.diagnosis.result.list`. */
 export interface AliexpressProductDiagnosisResultListResponse {
-  /** 已优化商品查询结果 */
+  /** Optimized product query result */
   result?: AliexpressProductDiagnosisResultListOptimizedProductResultDTO;
 }
 
@@ -2269,13 +2269,13 @@ export const aliexpressProductDiagnosisResultList: ApiDefinition<
 
 /** Parameters for `aliexpress.product.eancode.info.query`. */
 export interface AliexpressProductEancodeInfoQueryParams {
-  /** ean码 */
+  /** EAN code */
   eanCode?: string;
 }
 
 /** Response of `aliexpress.product.eancode.info.query`. */
 export interface AliexpressProductEancodeInfoQueryResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressProductEancodeInfoQueryEanCodeQueryResponseDTO;
 }
 
@@ -2303,25 +2303,25 @@ export const aliexpressProductEancodeInfoQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.product.freight.price.detail`. */
 export interface AliexpressProductFreightPriceDetailParams {
-  /** 商品维度运费模板 ID */
+  /** Product-level shipping fee template ID */
   postageId?: string;
-  /** sku列表 */
+  /** SKU list */
   skuList?: Array<AliexpressProductFreightPriceDetailProductPriceDiagnosisModelSku>;
-  /** 商品 ID 新发可不传 */
+  /** Product ID; may be omitted for new publishing */
   itemId?: string;
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 是否编辑,任务来的传 true */
+  /** Whether to edit; pass true for tasks */
   isEdit?: boolean;
-  /** 任务 ID */
+  /** Task ID */
   taskId?: string;
-  /** 类目树ID 列表 按顺序传入 */
+  /** Category tree ID list, passed in order */
   catIdList?: Array<string>;
 }
 
 /** Response of `aliexpress.product.freight.price.detail`. */
 export interface AliexpressProductFreightPriceDetailResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressProductFreightPriceDetailTaskResponse;
 }
 
@@ -2360,19 +2360,19 @@ export const aliexpressProductFreightPriceDetail: ApiDefinition<
 
 /** Parameters for `aliexpress.product.freight.price.save`. */
 export interface AliexpressProductFreightPriceSaveParams {
-  /** 商品运费模板 ID */
+  /** Product shipping fee template ID */
   postageId?: string;
-  /** SKU 列表 */
+  /** SKU list */
   skuList?: Array<AliexpressProductFreightPriceSaveProductPriceDiagnosisModelSku>;
-  /** 商品 ID */
+  /** Product ID */
   itemId?: string;
-  /** 币种 */
+  /** Currency */
   currency?: string;
 }
 
 /** Response of `aliexpress.product.freight.price.save`. */
 export interface AliexpressProductFreightPriceSaveResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressProductFreightPriceSaveUpdateFreightResultDTO;
 }
 
@@ -2408,21 +2408,21 @@ export const aliexpressProductFreightPriceSave: ApiDefinition<
 
 /** Parameters for `aliexpress.product.freight.task.finish`. */
 export interface AliexpressProductFreightTaskFinishParams {
-  /** 商品运费模板 ID */
+  /** Product shipping fee template ID */
   postageId?: string;
-  /** sku列表 */
+  /** SKU list */
   skuList?: Array<AliexpressProductFreightTaskFinishProductPriceDiagnosisModelSku>;
-  /** 商品 ID */
+  /** Product ID */
   itemId?: string;
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 任务 ID */
+  /** Task ID */
   taskId?: string;
 }
 
 /** Response of `aliexpress.product.freight.task.finish`. */
 export interface AliexpressProductFreightTaskFinishResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressProductFreightTaskFinishBaseApiResponseDTO;
 }
 
@@ -2459,13 +2459,13 @@ export const aliexpressProductFreightTaskFinish: ApiDefinition<
 
 /** Parameters for `aliexpress.product.ladder.price.calculate`. */
 export interface AliexpressProductLadderPriceCalculateParams {
-  /** 参数 */
+  /** Parameter */
   param0?: AliexpressProductLadderPriceCalculateAEBItemRequest;
 }
 
 /** Response of `aliexpress.product.ladder.price.calculate`. */
 export interface AliexpressProductLadderPriceCalculateResponse {
-  /** 计算结果 */
+  /** Calculation result */
   result?: AliexpressProductLadderPriceCalculateResult;
 }
 
@@ -2497,13 +2497,13 @@ export const aliexpressProductLadderPriceCalculate: ApiDefinition<
 
 /** Parameters for `aliexpress.product.ladder.price.update`. */
 export interface AliexpressProductLadderPriceUpdateParams {
-  /** 阶梯价请求 */
+  /** Tiered price request */
   param0?: AliexpressProductLadderPriceUpdateAEBItemRequest;
 }
 
 /** Response of `aliexpress.product.ladder.price.update`. */
 export interface AliexpressProductLadderPriceUpdateResponse {
-  /** 返回值 */
+  /** Return value */
   result?: AliexpressProductLadderPriceUpdateResult;
 }
 
@@ -2531,17 +2531,17 @@ export const aliexpressProductLadderPriceUpdate: ApiDefinition<
 
 /** Parameters for `aliexpress.product.price.line.calculate`. */
 export interface AliexpressProductPriceLineCalculateParams {
-  /** sku 列表 */
+  /** SKU list */
   skuList?: Array<AliexpressProductPriceLineCalculateProductPriceDiagnosisModelSku>;
-  /** 商品 ID */
+  /** Product ID */
   itemId?: string;
-  /** 币种 */
+  /** Currency */
   currency?: string;
 }
 
 /** Response of `aliexpress.product.price.line.calculate`. */
 export interface AliexpressProductPriceLineCalculateResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressProductPriceLineCalculateTaskResponse;
 }
 
@@ -2576,15 +2576,15 @@ export const aliexpressProductPriceLineCalculate: ApiDefinition<
 
 /** Parameters for `aliexpress.product.price.task.detail`. */
 export interface AliexpressProductPriceTaskDetailParams {
-  /** 商品 ID */
+  /** Product ID */
   itemId?: string;
-  /** aliexpress.product.task.product.list接口task_id字段 */
+  /** task_id field of the aliexpress.product.task.product.list API */
   taskId?: string;
 }
 
 /** Response of `aliexpress.product.price.task.detail`. */
 export interface AliexpressProductPriceTaskDetailResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressProductPriceTaskDetailTaskResponse;
 }
 
@@ -2613,25 +2613,25 @@ export const aliexpressProductPriceTaskDetail: ApiDefinition<
 
 /** Parameters for `aliexpress.product.price.task.finish`. */
 export interface AliexpressProductPriceTaskFinishParams {
-  /** 商品运费模板 ID */
+  /** Product shipping fee template ID */
   postageId?: string;
-  /** sku列表 */
+  /** SKU list */
   skuList?: Array<AliexpressProductPriceTaskFinishProductPriceDiagnosisModelSku>;
-  /** MD5 HASH，由详情接口返回 原封不动传入 */
+  /** MD5 HASH, returned by the detail API, pass it back unchanged */
   md5hash?: string;
-  /** 商品 ID */
+  /** Product ID */
   itemId?: string;
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 任务 ID */
+  /** Task ID */
   taskId?: string;
-  /** 价格任务 ID */
+  /** Price task ID */
   productPriceDiagnosisTaskId?: string;
 }
 
 /** Response of `aliexpress.product.price.task.finish`. */
 export interface AliexpressProductPriceTaskFinishResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressProductPriceTaskFinishBaseApiResponseDTO;
 }
 
@@ -2698,31 +2698,31 @@ export const aliexpressProductProductgroupsGet: ApiDefinition<
 
 /** Parameters for `aliexpress.product.property.selectRegulatoryAttributesOptions`. */
 export interface AliexpressProductPropertySelectRegulatoryAttributesOptionsParams {
-  /** 商品 ID 新发如果没商品 ID 随便传 保证唯一即可 */
+  /** Product ID. For a new listing without a product ID, pass any value as long as it is unique */
   productId?: LongInput;
-  /** 商品属性 */
+  /** Product attributes */
   pvList?: Array<AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobalPropertyDTOPv>;
-  /** 类目信息 */
+  /** Category information */
   categoryPath?: Array<AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobalPropertyDTOCategoryDTO>;
-  /** 详描 */
+  /** Detailed description */
   description?: string;
-  /** 当前选中的监管属性 */
+  /** Currently selected regulatory attribute */
   selectedPvList?: Array<AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobalPropertyDTOGlobalProprty>;
-  /** 商品标题 */
+  /** Product title */
   title?: string;
-  /** ● "new_product", "新发商品" ● "edit_4_fields", "编辑商品编辑标题/类目/图片/属性等4个字段" ● "only_edit_classify_pv"，"仅编辑监管属性" */
+  /** ● "new_product", "newly listed product" ● "edit_4_fields", "edit product: edit 4 fields such as title/category/images/attributes" ● "only_edit_classify_pv", "edit regulatory attributes only" */
   scene?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id,只有全托管需要传，POP/半托传空 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE; only required for fully-managed, leave empty for POP/semi-managed */
   channelSellerId?: LongInput;
-  /** 商品图片 URL */
+  /** Product image URL */
   imageUrl?: Array<string>;
-  /** 语种 */
+  /** Language */
   lang?: string;
 }
 
 /** Response of `aliexpress.product.property.selectRegulatoryAttributesOptions`. */
 export interface AliexpressProductPropertySelectRegulatoryAttributesOptionsResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressProductPropertySelectRegulatoryAttributesOptionsAPIGlobalPropertyDTO;
 }
 
@@ -2777,25 +2777,25 @@ export const aliexpressProductPropertySelectRegulatoryAttributesOptions: ApiDefi
 
 /** Parameters for `aliexpress.product.task.product.list`. */
 export interface AliexpressProductTaskProductListParams {
-  /** 商品 ID */
+  /** Product ID */
   productId?: string;
-  /** 每页数量 */
+  /** Quantity per page */
   pageSize?: number;
-  /** 任务类型 */
+  /** Task type */
   taskType?: string;
-  /** 第几页 */
+  /** Page number */
   pageNo?: number;
-  /** 语种 */
+  /** Language */
   lang?: string;
-  /** 叶子类目 ID */
+  /** Leaf category ID */
   categoryId?: LongInput;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id，只有全托管需要传，POP/半托传空 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE; only required for fully-managed, leave empty for POP/semi-managed */
   channelSellerId?: string;
 }
 
 /** Response of `aliexpress.product.task.product.list`. */
 export interface AliexpressProductTaskProductListResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressProductTaskProductListAeopProductTaskResultDTO;
 }
 
@@ -2829,15 +2829,15 @@ export const aliexpressProductTaskProductList: ApiDefinition<
 
 /** Parameters for `aliexpress.product.task.type.query`. */
 export interface AliexpressProductTaskTypeQueryParams {
-  /** 语种 */
+  /** Language */
   lang?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id,只有全托管需要传，POP/半托传空 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE; only required for fully-managed, leave empty for POP/semi-managed */
   channelSellerId?: string;
 }
 
 /** Response of `aliexpress.product.task.type.query`. */
 export interface AliexpressProductTaskTypeQueryResponse {
-  /** 查询结果 */
+  /** Query result */
   result?: AliexpressProductTaskTypeQueryAeopProductTaskTypeResultDTO;
 }
 
@@ -2866,13 +2866,13 @@ export const aliexpressProductTaskTypeQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.product.wholesale.create`. */
 export interface AliexpressProductWholesaleCreateParams {
-  /** 参数 */
+  /** Parameter */
   param0?: AliexpressProductWholesaleCreateAEBItemRequest;
 }
 
 /** Response of `aliexpress.product.wholesale.create`. */
 export interface AliexpressProductWholesaleCreateResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressProductWholesaleCreateResult;
 }
 
@@ -2900,13 +2900,13 @@ export const aliexpressProductWholesaleCreate: ApiDefinition<
 
 /** Parameters for `aliexpress.product.wholesale.query`. */
 export interface AliexpressProductWholesaleQueryParams {
-  /** 参数 */
+  /** Parameter */
   param0?: AliexpressProductWholesaleQueryAEBItemRequest;
 }
 
 /** Response of `aliexpress.product.wholesale.query`. */
 export interface AliexpressProductWholesaleQueryResponse {
-  /** 返回值 */
+  /** Return value */
   result?: AliexpressProductWholesaleQueryPagingResult;
 }
 
@@ -2938,13 +2938,13 @@ export const aliexpressProductWholesaleQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.product.wholesale.supplySigned`. */
 export interface AliexpressProductWholesaleSupplySignedParams {
-  /** 参数 */
+  /** Parameter */
   param0?: string;
 }
 
 /** Response of `aliexpress.product.wholesale.supplySigned`. */
 export interface AliexpressProductWholesaleSupplySignedResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressProductWholesaleSupplySignedResult;
 }
 

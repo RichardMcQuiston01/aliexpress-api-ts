@@ -9,17 +9,17 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressAppraiseRedefiningQuerysellerevaluationorderlistRemoteQueryOpenResult {
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 订单列表 */
+  /** Order list */
   resultList?: Array<string>;
-  /** 符合条件的总订单数 */
+  /** Total number of orders meeting the conditions */
   totalItem?: number;
-  /** 错误码 */
+  /** Error code */
   errorCode?: number;
-  /** 查询是否成功 */
+  /** Whether the query succeeded */
   isSuccess?: boolean;
-  /** 未使用 */
+  /** Unused */
   objectResult?: string;
 }
 
@@ -34,19 +34,19 @@ export const AliexpressAppraiseRedefiningQuerysellerevaluationorderlistRemoteQue
   };
 
 export interface AliexpressAppraiseRedefiningQuerysellerevaluationorderlistSellerEvaluationOpenQueryDTO {
-  /** 每页获取记录数 */
+  /** Number of records per page */
   pageSize?: number;
-  /** 无效参数，订单结束时间，查询起始值，格式:MM/dd/yyyy */
+  /** Invalid parameter. Order end time, query start value, format: MM/dd/yyyy */
   orderFinishTimeEnd?: string;
-  /** 无效参数，订单结束时间，查询截止值，格式:MM/dd/yyyy */
+  /** Invalid parameter. Order end time, query end value, format: MM/dd/yyyy */
   orderFinishTimeStart?: string;
-  /** 无效参数，卖家留评状态：yes：已留评；no：未留评；all：所有状态；默认未留评 */
+  /** Invalid parameter. Seller review status: yes: reviewed; no: not reviewed; all: all statuses; default is not reviewed */
   sellerFeedbackStatus?: string;
-  /** 当前页 */
+  /** Current page */
   currentPage?: number;
-  /** 父订单号，多个用英文逗号分隔 */
+  /** Parent order numbers, multiple separated by English commas */
   orderIds?: string;
-  /** 无效参数，子订单号，多个用英文逗号分隔 */
+  /** Invalid parameter. Sub-order numbers, separate multiple with English commas */
   childOrderIds?: string;
 }
 
@@ -62,19 +62,19 @@ export const AliexpressAppraiseRedefiningQuerysellerevaluationorderlistSellerEva
   };
 
 export interface AliexpressAppraiseRedefiningSavesellerfeedbackEvaluationFeedbackDTO {
-  /** 无效参数，匿名留评(默认为false) */
+  /** Invalid parameter. Anonymous review (default false) */
   anonymous?: boolean;
-  /** 评价内容 */
+  /** Review content */
   feedbackContent?: string;
-  /** 无效参数，图片地址 */
+  /** Invalid parameter, image address */
   imageUrls?: string;
-  /** 评价星级，1-5 */
+  /** Review star rating, 1-5 */
   score?: number;
-  /** 卖家登录会员ID */
+  /** Seller login member ID */
   sellerAliId?: Long;
-  /** 买家登录会员ID，可不填，系统会根据订单获取买家id */
+  /** Buyer login member ID, optional; the system gets the buyer ID from the order */
   buyerAliId?: Long;
-  /** 主订单ID */
+  /** Main order ID */
   orderId?: Long;
 }
 
@@ -91,13 +91,13 @@ export const AliexpressAppraiseRedefiningSavesellerfeedbackEvaluationFeedbackDTO
 
 /** Parameters for `aliexpress.appraise.redefining.querysellerevaluationorderlist`. */
 export interface AliexpressAppraiseRedefiningQuerysellerevaluationorderlistParams {
-  /** 查询参数 */
+  /** Query parameters */
   queryDTO?: AliexpressAppraiseRedefiningQuerysellerevaluationorderlistSellerEvaluationOpenQueryDTO;
 }
 
 /** Response of `aliexpress.appraise.redefining.querysellerevaluationorderlist`. */
 export interface AliexpressAppraiseRedefiningQuerysellerevaluationorderlistResponse {
-  /** 返回对象 */
+  /** Returned object */
   result?: AliexpressAppraiseRedefiningQuerysellerevaluationorderlistRemoteQueryOpenResult;
 }
 
@@ -133,17 +133,17 @@ export const aliexpressAppraiseRedefiningQuerysellerevaluationorderlist: ApiDefi
 
 /** Parameters for `aliexpress.appraise.redefining.savesellerfeedback`. */
 export interface AliexpressAppraiseRedefiningSavesellerfeedbackParams {
-  /** 留评内容对象 */
+  /** Review comment object */
   param1?: AliexpressAppraiseRedefiningSavesellerfeedbackEvaluationFeedbackDTO;
 }
 
 /** Response of `aliexpress.appraise.redefining.savesellerfeedback`. */
 export interface AliexpressAppraiseRedefiningSavesellerfeedbackResponse {
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   subErrorCode?: number;
-  /** 操作是否成功 */
+  /** Whether the operation succeeded */
   isSuccess?: boolean;
 }
 

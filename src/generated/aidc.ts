@@ -9,13 +9,13 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressAidcPickQueryCrossWarehouseCodesContactInfoDTO {
-  /** 省份编码 */
+  /** Province code */
   provinceCode?: string;
-  /** 城市编码 */
+  /** City code */
   cityCode?: string;
-  /** 区/县编码 */
+  /** District/county code */
   areaCode?: string;
-  /** 街道编码 */
+  /** Street code */
   divisionCode?: string;
 }
 
@@ -28,9 +28,9 @@ export const AliexpressAidcPickQueryCrossWarehouseCodesContactInfoDTOSchema: Sch
   };
 
 export interface AliexpressAidcPickQueryCrossWarehouseCodesPickUpCrossWarehouseMixPackDTO {
-  /** 接口调用会返回可跨仓组包发货的仓列表；如果为空，则表示没有可跨仓组包发货的仓 */
+  /** The API call returns the list of warehouses that support cross-warehouse bundled shipping; if empty, there are no warehouses that support cross-warehouse bundled shipping */
   storeCodes?: string;
-  /** 是否支持跨仓组包 */
+  /** Whether cross-warehouse grouping is supported */
   couldBatchCosignFromMultiStores?: string;
 }
 
@@ -44,13 +44,13 @@ export const AliexpressAidcPickQueryCrossWarehouseCodesPickUpCrossWarehouseMixPa
   };
 
 export interface AliexpressAidcPickQueryCrossWarehouseCodesPickUpCrossWarehouseMixPackQueryDTO {
-  /** 行业 */
+  /** Industry */
   bizType?: string;
-  /** 发货方式 */
+  /** Shipping method */
   consignType?: string;
-  /** 发货地址信息 */
+  /** Shipping address information */
   senderInfo?: AliexpressAidcPickQueryCrossWarehouseCodesContactInfoDTO;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: string;
 }
 
@@ -69,13 +69,13 @@ export const AliexpressAidcPickQueryCrossWarehouseCodesPickUpCrossWarehouseMixPa
 export interface AliexpressAidcPickQueryCrossWarehouseCodesResult {
   /** - */
   data?: AliexpressAidcPickQueryCrossWarehouseCodesPickUpCrossWarehouseMixPackDTO;
-  /** 接口调用成功/失败 */
+  /** API call success/failure */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMsg?: string;
-  /** 请求ID */
+  /** Request ID */
   requestNo?: string;
 }
 
@@ -93,9 +93,9 @@ export const AliexpressAidcPickQueryCrossWarehouseCodesResultSchema: Schema = {
 };
 
 export interface AliexpressAidcPickupCostEstimateFeeInfoVO {
-  /** 费用 */
+  /** Fee */
   amount?: string;
-  /** 币种 */
+  /** Currency */
   currency?: string;
 }
 
@@ -105,23 +105,23 @@ export const AliexpressAidcPickupCostEstimateFeeInfoVOSchema: Schema = {
 };
 
 export interface AliexpressAidcPickupCostEstimatePickUpCalculateDTO {
-  /** 入库单列表，上限200 */
+  /** Inbound order list, upper limit 200 */
   relatedOrderNumberList?: Array<string>;
-  /** 揽收城市CODE */
+  /** Pickup city CODE */
   cityCode?: string;
-  /** 预估揽收时间 */
+  /** Estimated pickup time */
   estimatedPickupTime?: string;
-  /** 预估重量 kg，两位小数 */
+  /** Estimated weight in kg, two decimal places */
   estimatedWeight?: string;
-  /** 预估体积 m³，两位小数 */
+  /** Estimated volume in m³, two decimal places */
   estimatedVolume?: string;
-  /** 预估箱数 箱 */
+  /** Estimated number of boxes */
   estimatedBoxNumber?: number;
-  /** 单据类型 1:入库单 */
+  /** Document type 1: inbound order */
   orderType?: number;
-  /** 业务租户Id，全托管 场景请填写 5110000, choice2.0(AEG)场景填: 288000 */
+  /** Business tenant Id. For fully managed scenarios enter 5110000; for choice2.0 (AEG) scenarios enter: 288000 */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
 }
 
@@ -139,13 +139,13 @@ export const AliexpressAidcPickupCostEstimatePickUpCalculateDTOSchema: Schema =
   };
 
 export interface AliexpressAidcPickupCostEstimateResult {
-  /** 费用 */
+  /** Fee */
   data?: AliexpressAidcPickupCostEstimateFeeInfoVO;
-  /** 请求状态：true-成功，false-失败 */
+  /** Request status: true - success, false - failure */
   success?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMsg?: string;
 }
 
@@ -157,17 +157,17 @@ export const AliexpressAidcPickupCostEstimateResultSchema: Schema = {
 };
 
 export interface AliexpressAidcWarehouseInventoryTransferCreateErpWarehouseInventoryTransferCreateDTO {
-  /** 渠道id AETK必填 */
+  /** Channel id; required for AETK */
   channel?: string;
-  /** 租户 */
+  /** Tenant */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelUserId?: Long;
-  /** 发货单列表 */
+  /** Shipment order list */
   consignOrderNoList?: Array<string>;
-  /** POP 退供单号 */
+  /** POP return-to-supplier order number */
   returnOrderNo?: string;
-  /** POP 增值服务单号 */
+  /** POP value-added service order number */
   vasOrderNo?: string;
 }
 
@@ -182,11 +182,11 @@ export const AliexpressAidcWarehouseInventoryTransferCreateErpWarehouseInventory
   };
 
 export interface AliexpressAidcWarehouseInventoryTransferCreateResultDTO {
-  /** 请求结果成功、失败 */
+  /** Request result success, failure */
   success?: boolean;
-  /** 异常编码 */
+  /** Exception code */
   errorCode?: string;
-  /** 异常详情 */
+  /** Exception details */
   errorMsg?: string;
 }
 
@@ -199,31 +199,31 @@ export const AliexpressAidcWarehouseInventoryTransferCreateResultDTOSchema: Sche
 
 /** Parameters for `aidc.share.odps.partition.table`. */
 export interface AidcShareOdpsPartitionTableParams {
-  /** odps项目空间名称 */
+  /** odps project space name */
   project?: string;
-  /** odps表名 */
+  /** ODPS table name */
   tableName?: string;
-  /** 分区 */
+  /** Partition */
   partition?: string;
-  /** 数据分段数 */
+  /** Number of data segments */
   segmentNum?: string;
-  /** 页码数 */
+  /** Page number */
   curPage?: string;
 }
 
 /** Response of `aidc.share.odps.partition.table`. */
 export interface AidcShareOdpsPartitionTableResponse {
-  /** 当前数据段 */
+  /** Current data segment */
   curSegmentNum?: number;
-  /** 总页数 */
+  /** Total pages */
   totalPage?: number;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 总数据条数 */
+  /** Total number of data records */
   totalCount?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 返回数据 */
+  /** Returned data */
   data?: string;
 }
 
@@ -256,13 +256,13 @@ export const aidcShareOdpsPartitionTable: ApiDefinition<
 
 /** Parameters for `aliexpress.aidc.pick.queryCrossWarehouseCodes`. */
 export interface AliexpressAidcPickQueryCrossWarehouseCodesParams {
-  /** 查询可跨仓发货仓列表 */
+  /** Query the list of warehouses that can ship across warehouses */
   param0?: AliexpressAidcPickQueryCrossWarehouseCodesPickUpCrossWarehouseMixPackQueryDTO;
 }
 
 /** Response of `aliexpress.aidc.pick.queryCrossWarehouseCodes`. */
 export interface AliexpressAidcPickQueryCrossWarehouseCodesResponse {
-  /** 接口出参 */
+  /** API output parameters */
   result?: AliexpressAidcPickQueryCrossWarehouseCodesResult;
 }
 
@@ -295,13 +295,13 @@ export const aliexpressAidcPickQueryCrossWarehouseCodes: ApiDefinition<
 
 /** Parameters for `aliexpress.aidc.pickup.costEstimate`. */
 export interface AliexpressAidcPickupCostEstimateParams {
-  /** 揽收单预估费用 */
+  /** Estimated pickup order fee */
   param0?: AliexpressAidcPickupCostEstimatePickUpCalculateDTO;
 }
 
 /** Response of `aliexpress.aidc.pickup.costEstimate`. */
 export interface AliexpressAidcPickupCostEstimateResponse {
-  /** 预估费用 */
+  /** Estimated cost */
   result?: AliexpressAidcPickupCostEstimateResult;
 }
 
@@ -329,13 +329,13 @@ export const aliexpressAidcPickupCostEstimate: ApiDefinition<
 
 /** Parameters for `aliexpress.aidc.warehouseInventoryTransfer.create`. */
 export interface AliexpressAidcWarehouseInventoryTransferCreateParams {
-  /** 根节点 */
+  /** Root node */
   param0?: AliexpressAidcWarehouseInventoryTransferCreateErpWarehouseInventoryTransferCreateDTO;
 }
 
 /** Response of `aliexpress.aidc.warehouseInventoryTransfer.create`. */
 export interface AliexpressAidcWarehouseInventoryTransferCreateResponse {
-  /** root节点 */
+  /** Root node */
   result?: AliexpressAidcWarehouseInventoryTransferCreateResultDTO;
 }
 

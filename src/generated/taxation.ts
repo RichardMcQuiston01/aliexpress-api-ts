@@ -9,7 +9,7 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressTaxationCalculateOpenQueryCurrency {
-  /** 交易币种编码 */
+  /** Transaction currency code */
   currencyCode?: string;
 }
 
@@ -18,25 +18,25 @@ export const AliexpressTaxationCalculateOpenQueryCurrencySchema: Schema = {
 };
 
 export interface AliexpressTaxationCalculateOpenQueryHjLineTaxCalculateResultDTO {
-  /** 运费不含税金额 */
+  /** Shipping fee excluding tax */
   deliveryTaxExcludedAmount?: string;
   /** demo */
   taxItems?: Array<AliexpressTaxationCalculateOpenQueryHjTaxItemResultDTO>;
-  /** 商品数量 */
+  /** Product quantity */
   quantity?: string;
-  /** 商品未含税总价 */
+  /** Total product price excluding tax */
   orderTaxExcludedAmount?: string;
-  /** 运费税金总价 */
+  /** Total shipping fee tax */
   deliveryAmount?: string;
-  /** 商品税金总价 */
+  /** Total product tax */
   orderTaxAmount?: string;
-  /** 运费税金总价 */
+  /** Total shipping fee tax */
   deliveryTaxAmount?: string;
-  /** 商品税率 */
+  /** Product tax rate */
   taxRates?: Array<string>;
-  /** 运费税率 */
+  /** Shipping fee tax rate */
   deliveryTaxRates?: Array<string>;
-  /** 子订单号id */
+  /** Sub-order ID */
   subOrderId?: string;
 }
 
@@ -59,11 +59,11 @@ export const AliexpressTaxationCalculateOpenQueryHjLineTaxCalculateResultDTOSche
   };
 
 export interface AliexpressTaxationCalculateOpenQueryHjTaxCalculateResultDTO {
-  /** 交易币种 */
+  /** Transaction currency */
   currency?: AliexpressTaxationCalculateOpenQueryCurrency;
-  /** 币种转欧元汇率 */
+  /** Currency to EUR exchange rate */
   exchangeRate?: string;
-  /** 交易行计税结果 */
+  /** Transaction line tax calculation result */
   lines?: Array<AliexpressTaxationCalculateOpenQueryHjLineTaxCalculateResultDTO>;
 }
 
@@ -84,13 +84,13 @@ export const AliexpressTaxationCalculateOpenQueryHjTaxCalculateResultDTOSchema: 
   };
 
 export interface AliexpressTaxationCalculateOpenQueryHjTaxItemResultDTO {
-  /** 税率 */
+  /** Tax rate */
   taxRate?: Long;
-  /** 计税税种 */
+  /** Tax type for tax calculation */
   tax?: string;
-  /** 交易币种 */
+  /** Transaction currency */
   currency?: AliexpressTaxationCalculateOpenQueryCurrency;
-  /** 税额 */
+  /** Tax amount */
   taxAmount?: string;
 }
 
@@ -107,13 +107,13 @@ export const AliexpressTaxationCalculateOpenQueryHjTaxItemResultDTOSchema: Schem
   };
 
 export interface AliexpressTaxationCalculateOpenQueryResponseDTO {
-  /** 数据 */
+  /** Data */
   data?: AliexpressTaxationCalculateOpenQueryHjTaxCalculateResultDTO;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
-  /** 成功标记 */
+  /** Success flag */
   succeeded?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -129,23 +129,23 @@ export const AliexpressTaxationCalculateOpenQueryResponseDTOSchema: Schema = {
 };
 
 export interface AliexpressTaxationPlatformOpenGetPlatformParameterDTO {
-  /** 发货人/平台公司名称 */
+  /** Shipper/platform company name */
   companyName?: string;
-  /** 发货人/平台联系人姓名 */
+  /** Shipper/platform contact name */
   contactorName?: string;
-  /** 发货人/平台国家 */
+  /** Shipper/platform country */
   country?: string;
-  /** 发货人/平台详细地址 */
+  /** Shipper/platform detailed address */
   address?: string;
-  /** 发货人/平台城市 */
+  /** Shipper/platform city */
   city?: string;
-  /** ISO国家编码 */
+  /** ISO country code */
   countryCode?: string;
-  /** 发货人/平台电话 */
+  /** Shipper/platform phone */
   contactNumber?: string;
-  /** 发货人/平台邮箱 */
+  /** Shipper/platform email */
   emailAddress?: string;
-  /** IOSS 平台税号 */
+  /** IOSS platform tax number */
   iossNumber?: string;
 }
 
@@ -163,13 +163,13 @@ export const AliexpressTaxationPlatformOpenGetPlatformParameterDTOSchema: Schema
   };
 
 export interface AliexpressTaxationPlatformOpenGetResponseDTO {
-  /** 数据 */
+  /** Data */
   data?: AliexpressTaxationPlatformOpenGetPlatformParameterDTO;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
-  /** 是否成功 */
+  /** Whether successful */
   succeeded?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -186,13 +186,13 @@ export const AliexpressTaxationPlatformOpenGetResponseDTOSchema: Schema = {
 
 /** Parameters for `aliexpress.taxation.calculate.open.query`. */
 export interface AliexpressTaxationCalculateOpenQueryParams {
-  /** 订单号 */
+  /** Order number */
   orderId?: string;
 }
 
 /** Response of `aliexpress.taxation.calculate.open.query`. */
 export interface AliexpressTaxationCalculateOpenQueryResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressTaxationCalculateOpenQueryResponseDTO;
 }
 
@@ -223,7 +223,7 @@ export interface AliexpressTaxationPlatformOpenGetParams {}
 
 /** Response of `aliexpress.taxation.platform.open.get`. */
 export interface AliexpressTaxationPlatformOpenGetResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressTaxationPlatformOpenGetResponseDTO;
 }
 

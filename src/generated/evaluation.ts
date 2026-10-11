@@ -9,39 +9,39 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressEvaluationListorderevaluationGetTradeEvaluationOpenDTO {
-  /** 买家评价星级 */
+  /** Buyer review star rating */
   buyerEvaluation?: string;
-  /** 买家已评时间 */
+  /** Buyer review time */
   buyerFbDate?: string;
-  /** 买家评价内容 */
+  /** Buyer review content */
   buyerFeedback?: string;
-  /** 买家登录帐号 */
+  /** Buyer login account */
   buyerLoginId?: string;
-  /** 买家回复内容 */
+  /** Buyer reply content */
   buyerReply?: string;
-  /** 创建时间 */
+  /** Creation time */
   gmtCreate?: string;
-  /** 最后修改时间 */
+  /** Last update time */
   gmtModified?: string;
-  /** 订单完成时间 */
+  /** Order completion time */
   gmtOrderComplete?: string;
-  /** 子订单id */
+  /** Sub-order ID */
   orderId?: Long;
-  /** 父订单id */
+  /** Parent order ID */
   parentOrderId?: Long;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 卖家评价星级 */
+  /** Seller review star rating */
   sellerEvaluation?: string;
-  /** 卖家已评时间 */
+  /** Seller review time */
   sellerFbDate?: string;
-  /** 卖家评价内容 */
+  /** Seller review content */
   sellerFeedback?: string;
-  /** 卖家登录帐号 */
+  /** Seller login account */
   sellerLoginId?: string;
-  /** 卖家回复内容 */
+  /** Seller reply content */
   sellerReply?: string;
-  /** 评价生效日期 */
+  /** Review effective date */
   validDate?: string;
 }
 
@@ -67,19 +67,19 @@ export const AliexpressEvaluationListorderevaluationGetTradeEvaluationOpenDTOSch
   };
 
 export interface AliexpressEvaluationListorderevaluationGetTradeEvaluationRequest {
-  /** 买家评价星级（1-5星） */
+  /** Buyer review star rating (1-5 stars) */
   buyerProductRatings?: Array<number>;
-  /** 订单完成结束时间 */
+  /** Order completion end time */
   endOrderCompleteDate?: string;
-  /** 评价生效结束时间 */
+  /** Review effective end time */
   endValidDate?: string;
-  /** 父订单ID集合，最多50 */
+  /** Set of parent order IDs, at most 50 */
   parentOrderIds?: Array<Long>;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 订单完成开始时间 */
+  /** Order completion start time */
   startOrderCompleteDate?: string;
-  /** 评价生效开始时间 */
+  /** Review effective start time */
   startValidDate?: string;
 }
 
@@ -96,17 +96,17 @@ export const AliexpressEvaluationListorderevaluationGetTradeEvaluationRequestSch
 
 /** Parameters for `aliexpress.evaluation.evaluation.reply`. */
 export interface AliexpressEvaluationEvaluationReplyParams {
-  /** 要回复的子订单id */
+  /** Sub-order id to reply to */
   childOrderId?: LongInput;
-  /** 父订单id */
+  /** Parent order ID */
   parentOrderId?: LongInput;
-  /** 回复内容 */
+  /** Reply content */
   text?: string;
 }
 
 /** Response of `aliexpress.evaluation.evaluation.reply`. */
 export interface AliexpressEvaluationEvaluationReplyResponse {
-  /** 操作是否成功 */
+  /** Whether the operation succeeded */
   target?: boolean;
   /** timeStamp */
   timeStamp?: string;
@@ -135,13 +135,13 @@ export const aliexpressEvaluationEvaluationReply: ApiDefinition<
 
 /** Parameters for `aliexpress.evaluation.listorderevaluation.get`. */
 export interface AliexpressEvaluationListorderevaluationGetParams {
-  /** 详细参考如下 */
+  /** See details below */
   tradeEvaluationRequest?: AliexpressEvaluationListorderevaluationGetTradeEvaluationRequest;
 }
 
 /** Response of `aliexpress.evaluation.listorderevaluation.get`. */
 export interface AliexpressEvaluationListorderevaluationGetResponse {
-  /** 详细说明如下 */
+  /** Detailed description as follows */
   targetList?: Array<AliexpressEvaluationListorderevaluationGetTradeEvaluationOpenDTO>;
   /** timeStamp */
   timeStamp?: string;

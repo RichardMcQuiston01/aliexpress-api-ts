@@ -205,21 +205,21 @@ export const yushenTest: ApiDefinition<YushenTestParams, YushenTestResponse> = {
 
 /** Parameters for `/yushen/test/charge2`. */
 export interface YushenTestCharge2Params {
-  /** 发货国 */
+  /** Shipping country */
   country?: string;
-  /** 登陆ID */
+  /** Login ID */
   loginId?: string;
 }
 
 /** Response of `/yushen/test/charge2`. */
 export interface YushenTestCharge2Response {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
-  /** 是否重试 */
+  /** Whether to retry */
   needRetry?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -255,13 +255,13 @@ export interface YushenTestCharge3Params {
 
 /** Response of `/yushen/test/charge3`. */
 export interface YushenTestCharge3Response {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errMsg?: string;
-  /** 结果 */
+  /** Result */
   data?: string;
 }
 

@@ -623,7 +623,7 @@ export interface AliexpressSpiImPluginsListParams {
 
 /** Response of `/aliexpress/spi/im/plugins/list`. */
 export interface AliexpressSpiImPluginsListResponse {
-  /** 返回值 */
+  /** Return value */
   resp?: AliexpressSpiImPluginsList;
 }
 

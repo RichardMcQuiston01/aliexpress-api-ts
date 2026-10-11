@@ -9,9 +9,9 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressXingheMerchantLicenseGetQueryBizLicenseRequest {
-  /** 商家id */
+  /** Merchant ID */
   sellerAdminSeq?: string;
-  /** 渠道 */
+  /** Channel */
   channel?: string;
 }
 
@@ -22,15 +22,15 @@ export const AliexpressXingheMerchantLicenseGetQueryBizLicenseRequestSchema: Sch
   };
 
 export interface AliexpressXingheMerchantLicenseGetresultResponse {
-  /** 是否可重试 */
+  /** Whether retryable */
   retryAble?: boolean;
   /** dto */
   data?: AliexpressXingheMerchantLicenseGetSellerLicenseFileDTO;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 异常码 */
+  /** Exception code */
   resultCode?: string;
-  /** 异常信息 */
+  /** Exception information */
   resultMessage?: string;
 }
 
@@ -47,7 +47,7 @@ export const AliexpressXingheMerchantLicenseGetresultResponseSchema: Schema = {
 };
 
 export interface AliexpressXingheMerchantLicenseGetSellerLicenseFileDTO {
-  /** 文件名 */
+  /** File name */
   fileName?: string;
   /** base64 */
   content?: string;
@@ -61,13 +61,13 @@ export const AliexpressXingheMerchantLicenseGetSellerLicenseFileDTOSchema: Schem
 
 /** Parameters for `/aliexpress/xinghe/merchant/license/get`. */
 export interface AliexpressXingheMerchantLicenseGetParams {
-  /** 请求参数 */
+  /** Request parameters */
   param0?: AliexpressXingheMerchantLicenseGetQueryBizLicenseRequest;
 }
 
 /** Response of `/aliexpress/xinghe/merchant/license/get`. */
 export interface AliexpressXingheMerchantLicenseGetResponse {
-  /** 返回值 */
+  /** Return value */
   result?: AliexpressXingheMerchantLicenseGetresultResponse;
 }
 

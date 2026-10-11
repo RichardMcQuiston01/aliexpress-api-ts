@@ -9,27 +9,27 @@ import type {
 } from '../core/index.js';
 
 export interface SupplyItemCreateSkuDTO {
-  /** sku库存 */
+  /** SKU inventory */
   quantity?: number;
-  /** sku长度 */
+  /** SKU length */
   length?: number;
-  /** sku图片地址 */
+  /** SKU image URL */
   picUrl?: string;
-  /** 拓展字段 */
+  /** Extension field */
   features?: Record<string, unknown>;
-  /** sku净重 */
+  /** SKU net weight */
   netWeight?: string;
-  /** sku毛重 */
+  /** SKU gross weight */
   grossWeight?: string;
-  /** sku价格 */
+  /** SKU price */
   price?: string;
-  /** sku宽度 */
+  /** SKU width */
   width?: number;
-  /** sku编码 */
+  /** SKU code */
   skuId?: Long;
-  /** sku属性 */
+  /** SKU attributes */
   properties?: Array<SupplyItemCreateSupplyPvDTO>;
-  /** sku高度 */
+  /** SKU height */
   height?: number;
 }
 
@@ -48,13 +48,13 @@ export const SupplyItemCreateSkuDTOSchema: Schema = {
 };
 
 export interface SupplyItemCreateSupplyPvDTO {
-  /** sku属性值ID */
+  /** SKU attribute value ID */
   valueId?: Long;
-  /** sku属性值名称 */
+  /** SKU attribute value name */
   valueName?: string;
-  /** sku属性ID */
+  /** SKU attribute ID */
   propId?: Long;
-  /** sku属性名称 */
+  /** SKU attribute name */
   propName?: string;
 }
 
@@ -66,17 +66,17 @@ export const SupplyItemCreateSupplyPvDTOSchema: Schema = {
 };
 
 export interface SupplyItemUpdateSkuUpdateDTO {
-  /** sku拓展字段 */
+  /** SKU extension field */
   picUrl?: string;
-  /** sku拓展字段 */
+  /** SKU extension field */
   features?: Record<string, unknown>;
-  /** sku库存 */
+  /** SKU inventory */
   quantity?: number;
-  /** sku价格 */
+  /** SKU price */
   price?: string;
-  /** sku编码 */
+  /** SKU code */
   skuId?: Long;
-  /** sku状态 */
+  /** SKU status */
   status?: number;
 }
 
@@ -91,75 +91,75 @@ export const SupplyItemUpdateSkuUpdateDTOSchema: Schema = {
 
 /** Parameters for `/supply/item/create`. */
 export interface SupplyItemCreateParams {
-  /** 发货国 */
+  /** Shipping country */
   country?: string;
-  /** 登陆ID */
+  /** Login ID */
   loginId?: string;
-  /** 商品sku列表 */
+  /** Product SKU list */
   skuList?: Array<SupplyItemCreateSkuDTO>;
-  /** 备货时间 */
+  /** Stocking time */
   deliveryTime?: number;
-  /** 发货城市 */
+  /** Shipping city */
   city?: string;
-  /** 商品单元 */
+  /** Product unit */
   itemUnit?: LongInput;
-  /** 商品描述 */
+  /** Product description */
   description?: string;
-  /** 标题 */
+  /** Title */
   title?: string;
-  /** 商品主图列表 */
+  /** Product main image list */
   picUrls?: Array<string>;
-  /** 语系 */
+  /** Language family */
   locale?: string;
-  /** 拓展字段 */
+  /** Extension field */
   features?: Record<string, unknown>;
-  /** 商品价格 */
+  /** Product price */
   price?: string;
-  /** 身份识别 */
+  /** Identity verification */
   identity?: string;
-  /** 供应商类型 */
+  /** Supplier type */
   supplyType?: string;
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 品牌 */
+  /** Brand */
   brand?: string;
-  /** 商品高度 */
+  /** Product height */
   height?: number;
-  /** 商品库存 */
+  /** Product inventory */
   quantity?: number;
-  /** 目标市场 */
+  /** Target market */
   destMarket?: string;
-  /** 商品长度 */
+  /** Product length */
   length?: number;
-  /** 商品ID */
+  /** Product ID */
   itemId?: LongInput;
-  /** 运费模版ID */
+  /** Shipping template ID */
   postageTemplateId?: LongInput;
-  /** 商品净重 */
+  /** Product net weight */
   netWeight?: string;
-  /** 商品毛重 */
+  /** Product gross weight */
   grossWeight?: string;
-  /** 商品宽度 */
+  /** Product width */
   width?: number;
-  /** 商品短描 */
+  /** Product short description */
   shortDesc?: string;
-  /** 中台叶子类目ID */
+  /** Mid-platform leaf category ID */
   categoryId?: LongInput;
-  /** 商品属性 */
+  /** Product attributes */
   properties?: Array<SupplyItemCreateSupplyPvDTO>;
 }
 
 /** Response of `/supply/item/create`. */
 export interface SupplyItemCreateResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
-  /** 是否重试 */
+  /** Whether to retry */
   needRetry?: boolean;
-  /** 返回数据 */
+  /** Returned data */
   model?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -214,29 +214,29 @@ export const supplyItemCreate: ApiDefinition<
 
 /** Parameters for `/supply/item/query`. */
 export interface SupplyItemQueryParams {
-  /** 商品ID */
+  /** Product ID */
   itemId?: LongInput;
-  /** 拓展字段 */
+  /** Extension field */
   features?: Record<string, unknown>;
-  /** 身份识别 */
+  /** Identity verification */
   identity?: string;
-  /** 供应商类型 */
+  /** Supplier type */
   supplyType?: string;
 }
 
 /** Response of `/supply/item/query`. */
 export interface SupplyItemQueryResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
-  /** 是否需要重试 */
+  /** Whether a retry is needed */
   needRetry?: boolean;
-  /** 数据 */
+  /** Data */
   model?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: number;
-  /** 测试 */
+  /** Test */
   test?: string;
 }
 
@@ -268,31 +268,31 @@ export const supplyItemQuery: ApiDefinition<
 
 /** Parameters for `/supply/item/query3`. */
 export interface SupplyItemQuery3Params {
-  /** 商品ID */
+  /** Product ID */
   itemId?: LongInput;
-  /** 拓展字段 */
+  /** Extension field */
   features?: Record<string, unknown>;
-  /** 登陆ID */
+  /** Login ID */
   loginId?: string;
-  /** 身份识别 */
+  /** Identity verification */
   identity?: string;
-  /** 供应商类型 */
+  /** Supplier type */
   supplyType?: string;
 }
 
 /** Response of `/supply/item/query3`. */
 export interface SupplyItemQuery3Response {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
-  /** 是否需要重试 */
+  /** Whether a retry is needed */
   needRetry?: boolean;
-  /** 数据 */
+  /** Data */
   model?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: number;
-  /** 测试 */
+  /** Test */
   test?: string;
 }
 
@@ -325,31 +325,31 @@ export const supplyItemQuery3: ApiDefinition<
 
 /** Parameters for `/supply/item/query4`. */
 export interface SupplyItemQuery4Params {
-  /** 商品ID */
+  /** Product ID */
   itemId?: LongInput;
-  /** 拓展字段 */
+  /** Extension field */
   features?: Record<string, unknown>;
-  /** 登陆ID */
+  /** Login ID */
   loginId?: string;
-  /** 身份识别 */
+  /** Identity verification */
   identity?: string;
-  /** 供应商类型 */
+  /** Supplier type */
   supplyType?: string;
 }
 
 /** Response of `/supply/item/query4`. */
 export interface SupplyItemQuery4Response {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
-  /** 是否需要重试 */
+  /** Whether a retry is needed */
   needRetry?: boolean;
-  /** 数据 */
+  /** Data */
   model?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: number;
-  /** 测试 */
+  /** Test */
   test?: string;
 }
 
@@ -382,45 +382,45 @@ export const supplyItemQuery4: ApiDefinition<
 
 /** Parameters for `/supply/item/update`. */
 export interface SupplyItemUpdateParams {
-  /** 登陆ID */
+  /** Login ID */
   loginId?: string;
-  /** 商品库存 */
+  /** Product inventory */
   quantity?: number;
-  /** sku列表 */
+  /** SKU list */
   skuList?: Array<SupplyItemUpdateSkuUpdateDTO>;
-  /** 目标市场 */
+  /** Target market */
   destMarket?: string;
-  /** 商品长描 */
+  /** Product long description */
   description?: string;
-  /** 商品标题 */
+  /** Product title */
   title?: string;
-  /** 商品主图列表 */
+  /** Product main image list */
   picUrls?: Array<string>;
-  /** 商品编码 */
+  /** Product code */
   itemId?: LongInput;
-  /** 拓展字段 */
+  /** Extension field */
   features?: Record<string, unknown>;
-  /** 商品价格 */
+  /** Product price */
   price?: string;
-  /** 身份识别 */
+  /** Identity verification */
   identity?: string;
-  /** 供应商类型 */
+  /** Supplier type */
   supplyType?: string;
-  /** 商品状态 */
+  /** Product status */
   status?: number;
 }
 
 /** Response of `/supply/item/update`. */
 export interface SupplyItemUpdateResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
-  /** 是否需要重试 */
+  /** Whether a retry is needed */
   needRetry?: boolean;
-  /** 返回结果 */
+  /** Returned result */
   model?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 

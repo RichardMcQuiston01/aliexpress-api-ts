@@ -10,15 +10,15 @@ import type {
 
 /** Parameters for `/content/sg/request`. */
 export interface ContentSgRequestParams {
-  /** mtee事件code */
+  /** mtee event code */
   code?: string;
-  /** Mtee3事件入参 */
+  /** Mtee3 event input parameters */
   ctx?: Record<string, unknown>;
 }
 
 /** Response of `/content/sg/request`. */
 export interface ContentSgRequestResponse {
-  /** 实时识别结果 */
+  /** Real-time recognition result */
   result?: string;
 }
 

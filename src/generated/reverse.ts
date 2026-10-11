@@ -9,17 +9,17 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressReverseApplyCancelAeMiniAppCancelOrderReq {
-  /** 业务场景 */
+  /** Business scenario */
   bizCode?: string;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** AE侧订单号 */
+  /** AE-side order number */
   tradeOrderId?: Long;
-  /** 退款方式 */
+  /** Refund method */
   refundPaymentMethodType?: string;
-  /** 关单原因 */
+  /** Order closing reason */
   cancelReason?: string;
-  /** 关单动作，QD调用可以填写特定值QDCancel */
+  /** Order closing action; QD calls can fill in the specific value QDCancel */
   cancelEvent?: string;
 }
 
@@ -34,13 +34,13 @@ export const AliexpressReverseApplyCancelAeMiniAppCancelOrderReqSchema: Schema =
   };
 
 export interface AliexpressReverseApplyCancelIssueCancelOrderOperatorResult {
-  /** AE侧订单号 */
+  /** AE-side order number */
   orderId?: Long;
-  /** 成功失败 */
+  /** Success or failure */
   operatorResult?: boolean;
-  /** 结果code */
+  /** Result code */
   resultCode?: string;
-  /** 结果msg */
+  /** Result msg */
   resultMessage?: string;
 }
 
@@ -53,11 +53,11 @@ export const AliexpressReverseApplyCancelIssueCancelOrderOperatorResultSchema: S
   };
 
 export interface AliexpressReverseApplyCancelPlainResult {
-  /** 成功失败 */
+  /** Success or failure */
   success?: boolean;
-  /** 错误code */
+  /** Error code */
   errorCode?: string;
-  /** 错误msg */
+  /** Error msg */
   msg?: string;
   /** Object */
   data?: AliexpressReverseApplyCancelIssueCancelOrderOperatorResult;
@@ -75,15 +75,15 @@ export const AliexpressReverseApplyCancelPlainResultSchema: Schema = {
 };
 
 export interface AliexpressReverseApplyRefundAeMiniAppSelfRefundReq {
-  /** 业务场景 */
+  /** Business scenario */
   bizCode?: string;
-  /** 订单号 */
+  /** Order number */
   tradeOrderId?: string;
-  /** 金额，单位分 */
+  /** Amount, in cents */
   refundAmount?: string;
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 语言 */
+  /** Language */
   lang?: string;
 }
 
@@ -97,13 +97,13 @@ export const AliexpressReverseApplyRefundAeMiniAppSelfRefundReqSchema: Schema =
   };
 
 export interface AliexpressReverseApplyRefundDadaResponse {
-  /** 成功/失败 */
+  /** Success/failure */
   success?: string;
-  /** 错误code */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   error?: string;
-  /** 成功信息 */
+  /** Success message */
   data?: string;
 }
 
@@ -115,9 +115,9 @@ export const AliexpressReverseApplyRefundDadaResponseSchema: Schema = {
 };
 
 export interface AliexpressReverseImPluginOpenStateGet {
-  /** 卖家id */
+  /** Seller ID */
   userId?: string;
-  /** 插件模块。 plugin_key 的枚举值： 基础接待: s_basic_reception 智能接待: s_smart_reception 自动任务: s_auto_task 客服面板工具: s_service_pannel */
+  /** Plugin module. Enum values of plugin_key: basic reception: s_basic_reception, smart reception: s_smart_reception, automated tasks: s_auto_task, customer service panel tools: s_service_pannel */
   pluginKey?: string;
 }
 
@@ -137,13 +137,13 @@ export const ReverseTestApiSchema: Schema = {
 
 /** Parameters for `/aliexpress/reverse/im/plugin/openState/get`. */
 export interface AliexpressReverseImPluginOpenStateGetParams {
-  /** 入参 */
+  /** Input parameters */
   param?: AliexpressReverseImPluginOpenStateGet;
 }
 
 /** Response of `/aliexpress/reverse/im/plugin/openState/get`. */
 export interface AliexpressReverseImPluginOpenStateGetResponse {
-  /** 返回结果 */
+  /** Returned result */
   resp?: AliexpressReverseImPluginOpenStateGet;
 }
 
@@ -203,23 +203,23 @@ export const reverseTestApi: ApiDefinition<
 
 /** Parameters for `/reverse/test/api/test`. */
 export interface ReverseTestApiTestParams {
-  /** 图灵鉴权key */
+  /** Turing authentication key */
   tulingApiKey?: string;
-  /** 图灵鉴权secret */
+  /** Turing authentication secret */
   tulingApiSecret?: string;
-  /** 鉴定点位 */
+  /** Authentication point */
   pointId?: LongInput;
-  /** 图片链接 */
+  /** Image link */
   imageUrl?: string;
 }
 
 /** Response of `/reverse/test/api/test`. */
 export interface ReverseTestApiTestResponse {
-  /** 图灵单鉴id */
+  /** Turing single authentication ID */
   said?: string;
-  /** 错误信息 */
+  /** Error message */
   errMsg?: string;
-  /** 错误码 */
+  /** Error code */
   errCode?: Long;
 }
 
@@ -254,7 +254,7 @@ export interface AliexpressReverseApplyCancelParams {
 
 /** Response of `aliexpress.reverse.apply.cancel`. */
 export interface AliexpressReverseApplyCancelResponse {
-  /** 出参 */
+  /** Output */
   result?: AliexpressReverseApplyCancelPlainResult;
 }
 
@@ -282,13 +282,13 @@ export const aliexpressReverseApplyCancel: ApiDefinition<
 
 /** Parameters for `aliexpress.reverse.apply.refund`. */
 export interface AliexpressReverseApplyRefundParams {
-  /** 入参 */
+  /** Input parameters */
   aeSelfRefundReqForMiniApp?: AliexpressReverseApplyRefundAeMiniAppSelfRefundReq;
 }
 
 /** Response of `aliexpress.reverse.apply.refund`. */
 export interface AliexpressReverseApplyRefundResponse {
-  /** 出参 */
+  /** Output */
   result?: AliexpressReverseApplyRefundDadaResponse;
 }
 

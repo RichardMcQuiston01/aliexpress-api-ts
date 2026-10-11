@@ -9,17 +9,17 @@ import type {
 } from '../core/index.js';
 
 export interface GspOrderQueryforsupplierAddressDTO {
-  /** 收件人 */
+  /** Recipient */
   receiver?: GspOrderQueryforsupplierReceiverDTO;
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 邮编 */
+  /** Postal code */
   postCode?: string;
 }
 
@@ -33,9 +33,9 @@ export const GspOrderQueryforsupplierAddressDTOSchema: Schema = {
 };
 
 export interface GspOrderQueryforsupplierDistributorDTO {
-  /** 分销商sellerId */
+  /** Distributor sellerId */
   id?: string;
-  /** 代采商sellerId */
+  /** Purchasing agent sellerId */
   proxyId?: string;
 }
 
@@ -45,13 +45,13 @@ export const GspOrderQueryforsupplierDistributorDTOSchema: Schema = {
 };
 
 export interface GspOrderQueryforsupplierOrderDTO {
-  /** 销售订单 */
+  /** Sales order */
   salesOrder?: GspOrderQueryforsupplierSalesOrderDTO;
-  /** 分销商 */
+  /** Distributor */
   distributor?: GspOrderQueryforsupplierDistributorDTO;
-  /** 供应商 */
+  /** Supplier */
   supplier?: GspOrderQueryforsupplierSupplierDTO;
-  /** 采购订单 */
+  /** Purchase order */
   purchaseOrders?: Array<GspOrderQueryforsupplierPurchaseOrdrerDTO>;
 }
 
@@ -75,23 +75,23 @@ export const GspOrderQueryforsupplierOrderDTOSchema: Schema = {
 };
 
 export interface GspOrderQueryforsupplierPurchaseOrdrerDTO {
-  /** 支付状态 UnPayed Payed Paying PayFailed PayCanceled */
+  /** Payment status: UnPayed Payed Paying PayFailed PayCanceled */
   paymentStatus?: string;
-  /** 总金额，单位：分 */
+  /** Total amount, in cents */
   totalPrice?: string;
-  /** 币种 USD RMB */
+  /** Currency USD RMB */
   currency?: string;
-  /** AE_OVERSEA_WAREHOUSE等 */
+  /** AE_OVERSEA_WAREHOUSE, etc. */
   supplyType?: string;
-  /** 采购子单 */
+  /** Purchase sub-order */
   orderLines?: Array<GspOrderQueryforsupplierPurchaseOrdrerLineDTO>;
-  /** 采购单ID */
+  /** Purchase order ID */
   id?: string;
-  /** 格式: yyyy-MM-dd hh:mm:ss, 当saleMarket为AE时，该时间为美国太平洋时间； */
+  /** Format: yyyy-MM-dd hh:mm:ss. When saleMarket is AE, this time is US Pacific Time; */
   createdTime?: string;
-  /** 格式: yyyy-MM-dd hh:mm:ss, 当saleMarket为AE时，该时间为美国太平洋时间 */
+  /** Format: yyyy-MM-dd hh:mm:ss. When saleMarket is AE, this time is US Pacific Time */
   payTime?: string;
-  /** 履约状态 Created Payed Shipped InBound OutBound Canceled */
+  /** Fulfillment status: Created Payed Shipped InBound OutBound Canceled */
   status?: string;
 }
 
@@ -112,23 +112,23 @@ export const GspOrderQueryforsupplierPurchaseOrdrerDTOSchema: Schema = {
 };
 
 export interface GspOrderQueryforsupplierPurchaseOrdrerLineDTO {
-  /** 单价，单位：分 */
+  /** Unit price, in cents */
   unitPrice?: string;
-  /** 币种 USD RMB */
+  /** Currency USD RMB */
   currency?: string;
-  /** 物流公司 */
+  /** Logistics company */
   logisticCompany?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNum?: string;
-  /** 采购子单ID */
+  /** Purchase sub-order ID */
   id?: string;
-  /** 履约状态 Created Payed Shipped InBound OutBound Canceled */
+  /** Fulfillment status: Created Payed Shipped InBound OutBound Canceled */
   status?: string;
-  /** 供应商itemId */
+  /** Supplier itemId */
   itemId?: string;
-  /** 供应商skuId */
+  /** Supplier skuId */
   skuId?: string;
-  /** 件数 */
+  /** Number of pieces */
   quantity?: string;
 }
 
@@ -145,9 +145,9 @@ export const GspOrderQueryforsupplierPurchaseOrdrerLineDTOSchema: Schema = {
 };
 
 export interface GspOrderQueryforsupplierQueryOrderResponse {
-  /** 订单（销售单）总数 */
+  /** Total number of orders (sales orders) */
   totalCount?: string;
-  /** 订单数据 */
+  /** Order data */
   orders?: Array<GspOrderQueryforsupplierOrderDTO>;
 }
 
@@ -157,11 +157,11 @@ export const GspOrderQueryforsupplierQueryOrderResponseSchema: Schema = {
 };
 
 export interface GspOrderQueryforsupplierReceiverDTO {
-  /** 收件人姓名 */
+  /** Recipient name */
   fullName?: string;
-  /** 手机号 */
+  /** Mobile number */
   mobile?: string;
-  /** 固定电话 */
+  /** Landline phone */
   phone?: string;
 }
 
@@ -172,17 +172,17 @@ export const GspOrderQueryforsupplierReceiverDTOSchema: Schema = {
 };
 
 export interface GspOrderQueryforsupplierSalesOrderDTO {
-  /** 订单ID */
+  /** Order ID */
   id?: string;
-  /** 格式: yyyy-MM-dd hh:mm:ss, 当saleMarket为AE时，该时间为美国太平洋时间； */
+  /** Format: yyyy-MM-dd hh:mm:ss. When saleMarket is AE, this time is US Pacific Time; */
   createdTime?: string;
-  /** 格式: yyyy-MM-dd hh:mm:ss, 当saleMarket为AE时，该时间为美国太平洋时间 */
+  /** Format: yyyy-MM-dd hh:mm:ss. When saleMarket is AE, this time is US Pacific Time */
   payTime?: string;
   /** Created Payed Shipped Canceled */
   status?: string;
-  /** 销售子单明细列表 */
+  /** Sales sub-order detail list */
   orderLines?: Array<GspOrderQueryforsupplierSalesOrderLineDTO>;
-  /** 地址 */
+  /** Address */
   address?: GspOrderQueryforsupplierAddressDTO;
 }
 
@@ -200,19 +200,19 @@ export const GspOrderQueryforsupplierSalesOrderDTOSchema: Schema = {
 };
 
 export interface GspOrderQueryforsupplierSalesOrderLineDTO {
-  /** 子单ID */
+  /** Sub-order ID */
   id?: string;
   /** Created Payed Shipped Canceled */
   status?: string;
-  /** 销售市场itemId */
+  /** Sales market itemId */
   itemId?: string;
-  /** 销售市场skuId */
+  /** Sales market skuId */
   skuId?: string;
-  /** 销售市场商品title */
+  /** Product title in the sales market */
   title?: string;
-  /** 主图链接 */
+  /** Main image link */
   image?: string;
-  /** 件数 */
+  /** Number of pieces */
   quantity?: string;
 }
 
@@ -227,7 +227,7 @@ export const GspOrderQueryforsupplierSalesOrderLineDTOSchema: Schema = {
 };
 
 export interface GspOrderQueryforsupplierSupplierDTO {
-  /** 供应商sellerId */
+  /** Supplier sellerId */
   id?: string;
 }
 
@@ -237,39 +237,39 @@ export const GspOrderQueryforsupplierSupplierDTOSchema: Schema = {
 
 /** Parameters for `/gsp/order/queryforsupplier`. */
 export interface GspOrderQueryforsupplierParams {
-  /** 格式: yyyy-MM-dd hh:mm:ss, 当saleMarket为AE时，该时间为美国太平洋时间； */
+  /** Format: yyyy-MM-dd hh:mm:ss. When saleMarket is AE, this time is US Pacific Time; */
   modifiedEnd?: string;
-  /** 销售订单ID */
+  /** Sales order ID */
   saleOrderId?: string;
-  /** 每页记录数, pageSize <= 500, 默认：20 */
+  /** Records per page, pageSize <= 500, default: 20 */
   pageSize?: number;
-  /** 选项：Created Paid Shipped InBound OutBound Cancelled */
+  /** Options: Created Paid Shipped InBound OutBound Cancelled */
   status?: string;
-  /** 入驻的时候会发放给供应商的loginid */
+  /** loginid issued to the supplier upon onboarding */
   sellerLoginId?: string;
-  /** 当前页码， pageNum <= 10000，默认：1 */
+  /** Current page number, pageNum <= 10000, default: 1 */
   pageNum?: number;
-  /** 格式: yyyy-MM-dd hh:mm:ss, 当saleMarket为AE时，该时间为美国太平洋时间； */
+  /** Format: yyyy-MM-dd hh:mm:ss. When saleMarket is AE, this time is US Pacific Time; */
   createdEnd?: string;
-  /** 格式: yyyy-MM-dd hh:mm:ss, 当saleMarket为AE时，该时间为美国太平洋时间； */
+  /** Format: yyyy-MM-dd hh:mm:ss. When saleMarket is AE, this time is US Pacific Time; */
   modifiedBegin?: string;
-  /** 销售市场，必填 */
+  /** Sales market, required */
   saleMarket?: string;
-  /** 采购订单ID */
+  /** Purchase order ID */
   purchaseOrderId?: string;
-  /** 格式: yyyy-MM-dd hh:mm:ss, 当saleMarket为AE时，该时间为美国太平洋时间； */
+  /** Format: yyyy-MM-dd hh:mm:ss. When saleMarket is AE, this time is US Pacific Time; */
   createdBegin?: string;
 }
 
 /** Response of `/gsp/order/queryforsupplier`. */
 export interface GspOrderQueryforsupplierResponse {
-  /** 错误编码 B-14-10-001 非法请求 B-14-00-001 系统内部错误 */
+  /** Error code B-14-10-001 illegal request B-14-00-001 internal system error */
   errorMessage?: string;
-  /** 错误编码 B-14-10-001 非法请求 B-14-00-001 系统内部错误 */
+  /** Error code B-14-10-001 illegal request B-14-00-001 internal system error */
   errorCode?: string;
-  /** 是否成功标识 */
+  /** Success flag */
   success?: boolean;
-  /** 查询响应数据 */
+  /** Query response data */
   data?: GspOrderQueryforsupplierQueryOrderResponse;
 }
 
@@ -306,23 +306,23 @@ export const gspOrderQueryforsupplier: ApiDefinition<
 
 /** Parameters for `/gsp/order/shipment`. */
 export interface GspOrderShipmentParams {
-  /** 子采购单 */
+  /** Purchase sub-order */
   orderLineIds?: Array<string>;
-  /** 采购订单ID */
+  /** Purchase order ID */
   trackingNum?: string;
-  /** 物流公司,不超过60字符 */
+  /** Logistics company, no more than 60 characters */
   logisticCompany?: string;
-  /** 运单号，[A-Z0-9]{1,36} */
+  /** Tracking number, [A-Z0-9]{1,36} */
   purchaseOrderId?: string;
 }
 
 /** Response of `/gsp/order/shipment`. */
 export interface GspOrderShipmentResponse {
-  /** 是否成功标识 */
+  /** Success flag */
   success?: boolean;
-  /** 错误详情 */
+  /** Error details */
   errorMessage?: string;
-  /** 错误编码 B-12-10-031 销售单已取消 B-12-01-031 销售单发货失败 B-12-01-032 请求非法 B-12-01-033 未知原因发货失败 */
+  /** Error codes: B-12-10-031 sales order canceled; B-12-01-031 sales order shipment failed; B-12-01-032 illegal request; B-12-01-033 shipment failed for unknown reason */
   errorCode?: string;
 }
 
@@ -351,11 +351,11 @@ export const gspOrderShipment: ApiDefinition<
 
 /** Parameters for `/gsp/order/shipmentcancel`. */
 export interface GspOrderShipmentcancelParams {
-  /** 子单ID */
+  /** Sub-order ID */
   orderLineIds?: Array<string>;
-  /** 取消原因 */
+  /** Cancellation reason */
   reason?: string;
-  /** 采购单ID */
+  /** Purchase order ID */
   purchaseOrderId?: string;
 }
 
@@ -363,9 +363,9 @@ export interface GspOrderShipmentcancelParams {
 export interface GspOrderShipmentcancelResponse {
   /** true */
   success?: boolean;
-  /** 错误编码 B-12-01-032 请求非法 B-12-01-033 未知原因取消失败 */
+  /** Error code B-12-01-032 invalid request B-12-01-033 cancellation failed for unknown reason */
   errorMessage?: string;
-  /** 错误编码 B-12-01-032 请求非法 B-12-01-033 未知原因取消失败 */
+  /** Error code B-12-01-032 invalid request B-12-01-033 cancellation failed for unknown reason */
   errorCode?: string;
 }
 

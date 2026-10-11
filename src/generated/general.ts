@@ -360,7 +360,7 @@ export const testArrayElementName2: ApiDefinition<
 
 /** Parameters for `/yushen`. */
 export interface YushenParams {
-  /** 测试 */
+  /** Test */
   api?: string;
 }
 

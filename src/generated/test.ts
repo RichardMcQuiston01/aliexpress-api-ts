@@ -9,7 +9,7 @@ import type {
 } from '../core/index.js';
 
 export interface TestApiWlResultDTO {
-  /** 返回对象 */
+  /** Returned object */
   data?: TestApiWlTestApiRespDTO;
 }
 
@@ -46,7 +46,7 @@ export interface TestApiWlParams {}
 
 /** Response of `/test/api/wl`. */
 export interface TestApiWlResponse {
-  /** 返回对象 */
+  /** Returned object */
   result?: TestApiWlResultDTO;
 }
 
@@ -65,13 +65,13 @@ export const testApiWl: ApiDefinition<TestApiWlParams, TestApiWlResponse> = {
 
 /** Parameters for `/test/ip/api`. */
 export interface TestIpApiParams {
-  /** 测试描述 */
+  /** Test description */
   name?: string;
 }
 
 /** Response of `/test/ip/api`. */
 export interface TestIpApiResponse {
-  /** 测试年龄 */
+  /** Test age */
   age?: Long;
 }
 
@@ -92,25 +92,25 @@ export const testIpApi: ApiDefinition<TestIpApiParams, TestIpApiResponse> = {
 
 /** Parameters for `/test/tuling/packagecheck`. */
 export interface TestTulingPackagecheckParams {
-  /** 图灵单鉴id列表 */
+  /** Turing individual appraisal id list */
   points?: Array<string>;
-  /** 质检单id */
+  /** Quality inspection order ID */
   sheetId?: string;
-  /** 图灵侧代码 */
+  /** Turing-side code */
   code?: string;
-  /** 图灵serectKey */
+  /** Turing serectKey */
   tulingApiKey?: string;
-  /** 图灵serecctValue */
+  /** Turing serecctValue */
   tulingApiSecret?: string;
 }
 
 /** Response of `/test/tuling/packagecheck`. */
 export interface TestTulingPackagecheckResponse {
-  /** 错误码 */
+  /** Error code */
   errCode?: Long;
-  /** 错误信息 */
+  /** Error message */
   errMsg?: string;
-  /** 图灵整鉴id */
+  /** Turing full authentication ID */
   oaid?: string;
 }
 

@@ -9,7 +9,7 @@ import type {
 } from '../core/index.js';
 
 export interface CaocaiTestLocalApi0815tes {
-  /** 测试aa */
+  /** Test aa */
   vv?: string;
 }
 
@@ -18,9 +18,9 @@ export const CaocaiTestLocalApi0815tesSchema: Schema = {
 };
 
 export interface CaocaiTestLocalApi0815we {
-  /** 测试a */
+  /** Test a */
   vv?: string;
-  /** 测试b */
+  /** Test b */
   bb?: string;
 }
 
@@ -31,13 +31,13 @@ export const CaocaiTestLocalApi0815weSchema: Schema = {
 
 /** Parameters for `caocai.test.local.api.0815`. */
 export interface CaocaiTestLocalApi0815Params {
-  /** 测试1 */
+  /** Test 1 */
   ab?: CaocaiTestLocalApi0815we;
 }
 
 /** Response of `caocai.test.local.api.0815`. */
 export interface CaocaiTestLocalApi0815Response {
-  /** 测试 */
+  /** Test */
   result?: CaocaiTestLocalApi0815tes;
 }
 
@@ -61,13 +61,13 @@ export const caocaiTestLocalApi0815: ApiDefinition<
 
 /** Parameters for `caocai.test.local.api.0815.2`. */
 export interface CaocaiTestLocalApi08152Params {
-  /** 1测试1 */
+  /** Test 1 */
   test?: string;
 }
 
 /** Response of `caocai.test.local.api.0815.2`. */
 export interface CaocaiTestLocalApi08152Response {
-  /** 测试2 */
+  /** Test 2 */
   result?: string;
 }
 

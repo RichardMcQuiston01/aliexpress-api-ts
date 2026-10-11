@@ -6,6 +6,8 @@
 
 ## Unreleased
 
+- Translate the Chinese field comments in the generated code to English (5,581 unique comments, 12,717 lines). Only comment text changed; no types or code changed.
+- The generator now reads `scripts/translations/zh-en.json` and has a `--strict` flag that fails on untranslated comments.
 - Fill in `ROADMAP.md`. No code changes.
 
 [Back to Top](#changelog)

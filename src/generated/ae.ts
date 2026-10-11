@@ -322,15 +322,15 @@ export const AeMagaluFreightCalculatorPackageItemSchema: Schema = {
 };
 
 export interface AeMerchantAssortmentSellerApplyAllDadaResponse {
-  /** 结果 */
+  /** Result */
   data?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误类型 */
+  /** Error type */
   type?: string;
-  /** 错误 */
+  /** Error */
   error?: string;
 }
 
@@ -343,15 +343,15 @@ export const AeMerchantAssortmentSellerApplyAllDadaResponseSchema: Schema = {
 };
 
 export interface AeMerchantAssortmentSellerPlanChanceDownloadAllDadaResponse {
-  /** 下载地址 */
+  /** Download URL */
   data?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误类型 */
+  /** Error type */
   type?: string;
-  /** 错误 */
+  /** Error */
   error?: string;
 }
 
@@ -365,15 +365,15 @@ export const AeMerchantAssortmentSellerPlanChanceDownloadAllDadaResponseSchema: 
   };
 
 export interface AeMerchantAssortmentSellerPlanChanceDownloadDadaResponse {
-  /** 下载链接 */
+  /** Download link */
   data?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误类型 */
+  /** Error type */
   type?: string;
-  /** 错误 */
+  /** Error */
   error?: string;
 }
 
@@ -387,9 +387,9 @@ export const AeMerchantAssortmentSellerPlanChanceDownloadDadaResponseSchema: Sch
   };
 
 export interface AeMerchantAssortmentSellerPlanChanceListAdminWebResponseVO {
-  /** 页面信息 */
+  /** Page information */
   pageInfo?: AeMerchantAssortmentSellerPlanChanceListPageInfo;
-  /** 数据 */
+  /** Data */
   dataSource?: Array<AeMerchantAssortmentSellerPlanChanceListMotorcyclePlanChanceVO>;
 }
 
@@ -409,15 +409,15 @@ export const AeMerchantAssortmentSellerPlanChanceListAdminWebResponseVOSchema: S
   };
 
 export interface AeMerchantAssortmentSellerPlanChanceListDadaResponse {
-  /** 数据 */
+  /** Data */
   data?: AeMerchantAssortmentSellerPlanChanceListAdminWebResponseVO;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误类型 */
+  /** Error type */
   type?: string;
-  /** 错误 */
+  /** Error */
   error?: string;
 }
 
@@ -469,11 +469,11 @@ export const AeMerchantAssortmentSellerPlanChanceListMotorcyclePlanChanceVOSchem
   };
 
 export interface AeMerchantAssortmentSellerPlanChanceListPageInfo {
-  /** 现在第几页 */
+  /** Current page number */
   current?: number;
-  /** 一共多少页 */
+  /** Total number of pages */
   total?: number;
-  /** 每页多少 */
+  /** Records per page */
   pageSize?: number;
 }
 
@@ -486,13 +486,13 @@ export const AeMerchantAssortmentSellerPlanChanceListPageInfoSchema: Schema = {
 export interface AeMerchantAssortmentSellerPlanDashboardQueryDadaResponse {
   /** data */
   data?: Record<string, unknown>;
-  /** 接口调用是否成功 */
+  /** Whether the API call succeeded */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误类型 */
+  /** Error type */
   type?: string;
-  /** 错误 */
+  /** Error */
   error?: string;
 }
 
@@ -710,7 +710,7 @@ export const aeResCoverDefaultApi: ApiDefinition<
 
 /** Parameters for `ae.br.freight.calculator`. */
 export interface AeBrFreightCalculatorParams {
-  /** 请求体 */
+  /** Request body */
   freightRequest?: AeBrFreightCalculatorFreightFeeRequest;
 }
 
@@ -744,7 +744,7 @@ export const aeBrFreightCalculator: ApiDefinition<
 
 /** Parameters for `ae.magalu.freight.calculator`. */
 export interface AeMagaluFreightCalculatorParams {
-  /** 请求体 */
+  /** Request body */
   freightRequest?: AeMagaluFreightCalculatorFreightFeeRequest;
 }
 
@@ -782,13 +782,13 @@ export const aeMagaluFreightCalculator: ApiDefinition<
 
 /** Parameters for `ae.merchant.assortment.seller.apply.all`. */
 export interface AeMerchantAssortmentSellerApplyAllParams {
-  /** 类型 */
+  /** Type */
   planType?: number;
 }
 
 /** Response of `ae.merchant.assortment.seller.apply.all`. */
 export interface AeMerchantAssortmentSellerApplyAllResponse {
-  /** 结果 */
+  /** Result */
   result?: AeMerchantAssortmentSellerApplyAllDadaResponse;
 }
 
@@ -816,31 +816,31 @@ export const aeMerchantAssortmentSellerApplyAll: ApiDefinition<
 
 /** Parameters for `ae.merchant.assortment.seller.arrangement.plan.list`. */
 export interface AeMerchantAssortmentSellerArrangementPlanListParams {
-  /** 机会类型 */
+  /** Opportunity type */
   planType?: number;
-  /** 计划ID */
+  /** Plan ID */
   planId?: LongInput;
-  /** 分页查询 - 开始页码 */
+  /** Paginated query - start page number */
   pageNo?: number;
-  /** 分页查询 - 每页记录数 */
+  /** Paginated query - records per page */
   pageSize?: number;
-  /** 排序字段，"sort": {"startTime": "asc"} */
+  /** Sort field, "sort": {"startTime": "asc"} */
   sort?: string;
-  /** 类目ID列表 */
+  /** Category ID list */
   categoryPath?: Array<string>;
-  /** 目标市场，国家/地区 */
+  /** Target market, country/region */
   region?: string;
-  /** 价格带 */
+  /** Price range */
   priceRange?: string;
-  /** 价格带币种 */
+  /** Price tier currency */
   priceRangeCurrency?: string;
-  /** 机会来源，如：SheIn */
+  /** Opportunity source, e.g.: SheIn */
   opportunitySource?: string;
-  /** 我参与的，1：只看已参与；0：所有分配给我的计划 */
+  /** Participated by me, 1: only show participated; 0: all plans assigned to me */
   joinStatus?: number;
-  /** 补品计划状态，1：招募中；2：已结束；3：未开始 */
+  /** Restocking plan status, 1: recruiting; 2: ended; 3: not started */
   planStatus?: number;
-  /** 只看收藏，true：只看收藏；false：所有分配给我的计划 */
+  /** Favorites only, true: show favorites only; false: all plans assigned to me */
   hasCollected?: boolean;
 }
 
@@ -894,13 +894,13 @@ export const aeMerchantAssortmentSellerArrangementPlanList: ApiDefinition<
 
 /** Parameters for `ae.merchant.assortment.seller.plan.chance.download`. */
 export interface AeMerchantAssortmentSellerPlanChanceDownloadParams {
-  /** 补品计划id */
+  /** Replenishment plan ID */
   planId?: LongInput;
 }
 
 /** Response of `ae.merchant.assortment.seller.plan.chance.download`. */
 export interface AeMerchantAssortmentSellerPlanChanceDownloadResponse {
-  /** 结果 */
+  /** Result */
   result?: AeMerchantAssortmentSellerPlanChanceDownloadDadaResponse;
 }
 
@@ -931,7 +931,7 @@ export interface AeMerchantAssortmentSellerPlanChanceDownloadAllParams {}
 
 /** Response of `ae.merchant.assortment.seller.plan.chance.download.all`. */
 export interface AeMerchantAssortmentSellerPlanChanceDownloadAllResponse {
-  /** 结果 */
+  /** Result */
   result?: AeMerchantAssortmentSellerPlanChanceDownloadAllDadaResponse;
 }
 
@@ -957,17 +957,17 @@ export const aeMerchantAssortmentSellerPlanChanceDownloadAll: ApiDefinition<
 
 /** Parameters for `ae.merchant.assortment.seller.plan.chance.list`. */
 export interface AeMerchantAssortmentSellerPlanChanceListParams {
-  /** 补品计划id */
+  /** Replenishment plan ID */
   planId?: LongInput;
-  /** 页码，从1开始 */
+  /** Page number, starting from 1 */
   current?: number;
-  /** 每页数量 */
+  /** Quantity per page */
   pageSize?: number;
 }
 
 /** Response of `ae.merchant.assortment.seller.plan.chance.list`. */
 export interface AeMerchantAssortmentSellerPlanChanceListResponse {
-  /** 结果 */
+  /** Result */
   result?: AeMerchantAssortmentSellerPlanChanceListDadaResponse;
 }
 
@@ -997,7 +997,7 @@ export const aeMerchantAssortmentSellerPlanChanceList: ApiDefinition<
 
 /** Parameters for `ae.merchant.assortment.seller.plan.dashboard.query`. */
 export interface AeMerchantAssortmentSellerPlanDashboardQueryParams {
-  /** 计划类型 */
+  /** Plan type */
   planType?: number;
 }
 
@@ -1031,37 +1031,37 @@ export const aeMerchantAssortmentSellerPlanDashboardQuery: ApiDefinition<
 
 /** Parameters for `ae.merchant.assortment.seller.plan.products.query`. */
 export interface AeMerchantAssortmentSellerPlanProductsQueryParams {
-  /** 计划ID */
+  /** Plan ID */
   planId?: LongInput;
-  /** 一级类目ID */
+  /** First-level category ID */
   topCategoryId?: LongInput;
-  /** 叶子类目ID */
+  /** Leaf category ID */
   leafCategoryId?: LongInput;
-  /** 类目数组 */
+  /** Category array */
   categoryPath?: Array<string>;
-  /** 商品分组 */
+  /** Product group */
   countGroupEnum?: string;
-  /** 商品查询状态 */
+  /** Product query status */
   productStatus?: number;
-  /** 商品ID列表 */
+  /** Product ID list */
   productIds?: Array<LongInput>;
-  /** 商品名称 */
+  /** Product name */
   productName?: string;
-  /** 商品ID */
+  /** Product ID */
   productId?: string;
-  /** 商品发布时间 时间戳 毫秒 */
+  /** Product publish time, timestamp in milliseconds */
   productPublishTimeStart?: LongInput;
-  /** 商品结束时间 时间戳 毫秒 */
+  /** Product end time, timestamp in milliseconds */
   productPublishTimeEnd?: LongInput;
-  /** 机会类型 */
+  /** Opportunity type */
   planType?: number;
-  /** 商品报名状态 0-全部，1-未报名，2-已报名 */
+  /** Product registration status 0 - all, 1 - not registered, 2 - registered */
   productApplyStatus?: number;
-  /** 分页查询 - 开始页码 */
+  /** Paginated query - start page number */
   pageNo?: number;
-  /** 分页查询 - 每页记录数 */
+  /** Paginated query - records per page */
   pageSize?: number;
-  /** 排序字段，"sort": {"startTime": "asc"} */
+  /** Sort field, "sort": {"startTime": "asc"} */
   sort?: string;
 }
 

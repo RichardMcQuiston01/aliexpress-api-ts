@@ -2,7 +2,7 @@
 
 [Back to README](./README.md)
 
-| [Set Up](#set-up) | [Scripts](#scripts) | [Project Layout](#project-layout) | [Rebuild the API Code](#rebuild-the-api-code) | [Publish a Release](#publish-a-release) | [Report a Problem](#report-a-problem) |
+| [Set Up](#set-up) | [Scripts](#scripts) | [Project Layout](#project-layout) | [Rebuild the API Code](#rebuild-the-api-code) | [Comment Translations](#comment-translations) | [Publish a Release](#publish-a-release) | [Report a Problem](#report-a-problem) |
 
 ## Set Up
 
@@ -59,6 +59,20 @@ npm run generate -- --src path/to/src/main/java/com/aliexpress/open
 ```
 
 The output is the same every time for the same SDK version. Run the tests after you rebuild. Commit the changed files in `src/generated`.
+
+[Back to Top](#contributing)
+
+## Comment Translations
+
+The Java SDK writes its field comments in Chinese. The generator swaps each one for English text from `scripts/translations/zh-en.json`. The file is a JavaScript Object Notation (JSON) map. Each key is the original Chinese comment, and each value is the English text.
+
+The English text was machine translated. A script checked that every comment has a translation, that no Chinese is left, and that URLs, enum names, field names, and numbers were kept. A native speaker has not proofread it. To fix a translation, edit its value in the file and run the generator again.
+
+When a new SDK version adds Chinese comments, the generator keeps them as they are and lists them in `scripts/translations/missing.json`. That file is not committed. Add translations for those comments to `zh-en.json`, then run the generator with `--strict` to confirm none are left:
+
+```bash
+npm run generate -- --src path/to/src/main/java/com/aliexpress/open --strict
+```
 
 [Back to Top](#contributing)
 

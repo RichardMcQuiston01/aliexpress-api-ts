@@ -9,25 +9,25 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressInfluencerContentArticlePublishArticlePublishRequest {
-  /** 扩展信息 */
+  /** Extended information */
   attributes?: Record<string, unknown>;
-  /** 达人账号邮箱 */
+  /** Creator account email */
   email?: string;
-  /** 图片资源标识符，最多9个 */
+  /** Image resource identifiers, at most 9 */
   imageResourceIds?: Array<string>;
-  /** 封面资源标识符 */
+  /** Cover resource identifier */
   coverImgResourceId?: string;
-  /** 语言_国家，例如 en_US */
+  /** Language_country, e.g. en_US */
   locale?: string;
-  /** 货币，例如 USD */
+  /** Currency, e.g. USD */
   currency?: string;
-  /** 帖子内容 */
+  /** Post content */
   content?: string;
   /** hashtag */
   hashtags?: Array<AliexpressInfluencerContentArticlePublishContentHashtagDTO>;
-  /** 关联AE站内商品，最多5个 */
+  /** Linked AE on-site products, up to 5 */
   items?: Array<AliexpressInfluencerContentArticlePublishContentItemDTO>;
-  /** 关联的外部商品，最多15个 */
+  /** Linked external products, up to 15 */
   externalItems?: Array<AliexpressInfluencerContentArticlePublishExternalItemDTO>;
 }
 
@@ -58,13 +58,13 @@ export const AliexpressInfluencerContentArticlePublishArticlePublishRequestSchem
   };
 
 export interface AliexpressInfluencerContentArticlePublishContentHashtagDTO {
-  /** 开始坐标 */
+  /** Start coordinates */
   start?: number;
-  /** 结束坐标 */
+  /** End coordinates */
   end?: number;
-  /** 内容 */
+  /** Content */
   content?: string;
-  /** 类型，0=hashtag */
+  /** Type, 0=hashtag */
   objectType?: number;
   /** hashtag+Id */
   objectId?: Long;
@@ -80,7 +80,7 @@ export const AliexpressInfluencerContentArticlePublishContentHashtagDTOSchema: S
   };
 
 export interface AliexpressInfluencerContentArticlePublishContentItemDTO {
-  /** AE站内商品id */
+  /** AE on-site product id */
   itemId?: Long;
 }
 
@@ -90,17 +90,17 @@ export const AliexpressInfluencerContentArticlePublishContentItemDTOSchema: Sche
   };
 
 export interface AliexpressInfluencerContentArticlePublishExternalItemDTO {
-  /** 来源 */
+  /** Source */
   source?: string;
-  /** 名称 */
+  /** Name */
   title?: string;
-  /** 链接 */
+  /** Link */
   itemUrl?: string;
-  /** 主图 */
+  /** Main image */
   itemMainPic?: string;
-  /** 图片列表 */
+  /** Image list */
   itemPics?: Array<string>;
-  /** 价格 */
+  /** Price */
   itemPrice?: string;
 }
 
@@ -115,21 +115,21 @@ export const AliexpressInfluencerContentArticlePublishExternalItemDTOSchema: Sch
   };
 
 export interface AliexpressInfluencerContentItemSearchItemDTO {
-  /** 商品唯一标识 */
+  /** Product unique identifier */
   itemId?: number;
-  /** 商品图片 */
+  /** Product images */
   picUrl?: string;
-  /** 佣金率 */
+  /** Commission rate */
   commissionRate?: string;
-  /** 价格 */
+  /** Price */
   price?: string;
-  /** 商品短标题 */
+  /** Product short title */
   briefTitle?: string;
-  /** 店铺标题 */
+  /** Store title */
   shopTitle?: string;
-  /** 商品标题 */
+  /** Product title */
   title?: string;
-  /** 商品链接 */
+  /** Product link */
   itemUrl?: string;
 }
 
@@ -145,17 +145,17 @@ export const AliexpressInfluencerContentItemSearchItemDTOSchema: Schema = {
 };
 
 export interface AliexpressInfluencerContentItemSearchItemSearchRequest {
-  /** 达人账号邮箱 */
+  /** Creator account email */
   email?: string;
-  /** 分页参数 */
+  /** Pagination parameters */
   nextStartRowKey?: string;
-  /** 分页参数 */
+  /** Pagination parameters */
   pageSize?: Long;
-  /** 语言_国家 */
+  /** Language_country */
   locale?: string;
-  /** 货币 */
+  /** Currency */
   currency?: string;
-  /** 搜索关键词 */
+  /** Search keyword */
   searchKey?: string;
 }
 
@@ -170,13 +170,13 @@ export const AliexpressInfluencerContentItemSearchItemSearchRequestSchema: Schem
   };
 
 export interface AliexpressInfluencerContentItemSearchPaginationList {
-  /** 分页参数，滚动加载使用 */
+  /** Pagination parameter, used for scroll loading */
   nextStartRowKey?: string;
-  /** 总数 */
+  /** Total */
   totalSize?: number;
-  /** 是否还有数据 */
+  /** Whether there is more data */
   hasNext?: boolean;
-  /** 商品数据 */
+  /** Product data */
   list?: Array<AliexpressInfluencerContentItemSearchItemDTO>;
 }
 
@@ -193,15 +193,15 @@ export const AliexpressInfluencerContentItemSearchPaginationListSchema: Schema =
   };
 
 export interface AliexpressInfluencerContentItemSearchUgcApiResponse {
-  /** 成功标识 */
+  /** Success flag */
   fail?: boolean;
-  /** 数据 */
+  /** Data */
   data?: AliexpressInfluencerContentItemSearchPaginationList;
-  /** 成功标识 */
+  /** Success flag */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -219,9 +219,9 @@ export const AliexpressInfluencerContentItemSearchUgcApiResponseSchema: Schema =
   };
 
 export interface AliexpressInfluencerContentResourceCheckResourceCheckRequest {
-  /** 资源唯一标识符，由上传接口返回 */
+  /** Unique resource identifier, returned by the upload API */
   resourceIds?: Array<Long>;
-  /** 达人账号邮箱 */
+  /** Creator account email */
   email?: string;
 }
 
@@ -232,7 +232,7 @@ export const AliexpressInfluencerContentResourceCheckResourceCheckRequestSchema:
   };
 
 export interface AliexpressInfluencerContentResourceCheckResourceResponseDTO {
-  /** 资源状态 */
+  /** Resource status */
   resourceStatuses?: Array<AliexpressInfluencerContentResourceCheckResourceStatusDTO>;
 }
 
@@ -246,11 +246,11 @@ export const AliexpressInfluencerContentResourceCheckResourceResponseDTOSchema: 
   };
 
 export interface AliexpressInfluencerContentResourceCheckResourceStatusDTO {
-  /** 资源唯一标识符 */
+  /** Unique resource identifier */
   resourceId?: Long;
-  /** 资源URL */
+  /** Resource URL */
   url?: string;
-  /** 资源状态 0=可用，1=未上传 2=上传中 3=链接访问失败 4=资源校验失败 */
+  /** Resource status 0 = available, 1 = not uploaded, 2 = uploading, 3 = link access failed, 4 = resource validation failed */
   status?: number;
 }
 
@@ -262,11 +262,11 @@ export const AliexpressInfluencerContentResourceCheckResourceStatusDTOSchema: Sc
   };
 
 export interface AliexpressInfluencerContentResourceCheckUgcApiResponse {
-  /** 请求状态 */
+  /** Request status */
   success?: boolean;
-  /** 请求状态 */
+  /** Request status */
   fail?: boolean;
-  /** 返回数据 */
+  /** Returned data */
   data?: AliexpressInfluencerContentResourceCheckResourceResponseDTO;
 }
 
@@ -282,7 +282,7 @@ export const AliexpressInfluencerContentResourceCheckUgcApiResponseSchema: Schem
   };
 
 export interface AliexpressInfluencerContentResourceUploadResourceResponseDTO {
-  /** 资源状态列表 */
+  /** Resource status list */
   resourceStatuses?: Array<AliexpressInfluencerContentResourceUploadResourceStatusDTO>;
 }
 
@@ -296,11 +296,11 @@ export const AliexpressInfluencerContentResourceUploadResourceResponseDTOSchema:
   };
 
 export interface AliexpressInfluencerContentResourceUploadResourceStatusDTO {
-  /** 资源标识符 */
+  /** Resource identifier */
   resourceId?: Long;
-  /** 资源URL */
+  /** Resource URL */
   url?: string;
-  /** 资源状态 0=可用，1=未上传 2=上传中 3=链接访问失败 4=资源校验失败 */
+  /** Resource status 0 = available, 1 = not uploaded, 2 = uploading, 3 = link access failed, 4 = resource validation failed */
   status?: number;
 }
 
@@ -312,9 +312,9 @@ export const AliexpressInfluencerContentResourceUploadResourceStatusDTOSchema: S
   };
 
 export interface AliexpressInfluencerContentResourceUploadResourceUploadRequest {
-  /** 待上传资源URL列表，需公网可访问 */
+  /** List of resource URLs to upload, must be publicly accessible */
   resourceUrls?: Array<string>;
-  /** 达人账号邮箱 */
+  /** Creator account email */
   email?: string;
 }
 
@@ -325,15 +325,15 @@ export const AliexpressInfluencerContentResourceUploadResourceUploadRequestSchem
   };
 
 export interface AliexpressInfluencerContentResourceUploadUgcApiResponse {
-  /** 业务数据 */
+  /** Business data */
   data?: AliexpressInfluencerContentResourceUploadResourceResponseDTO;
-  /** 成功标识 */
+  /** Success flag */
   success?: string;
-  /** 错误提示 */
+  /** Error prompt */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 扩展信息 */
+  /** Extended information */
   attributes?: string;
 }
 
@@ -351,13 +351,13 @@ export const AliexpressInfluencerContentResourceUploadUgcApiResponseSchema: Sche
   };
 
 export interface AliexpressInfluencerContentVideoPublishContentHashtagDTO {
-  /** 开始坐标 */
+  /** Start coordinates */
   start?: number;
-  /** 结束坐标 */
+  /** End coordinates */
   end?: number;
-  /** 内容 */
+  /** Content */
   content?: string;
-  /** 类型，0=hashtag */
+  /** Type, 0=hashtag */
   objectType?: number;
   /** hashtag+Id */
   objectId?: Long;
@@ -373,7 +373,7 @@ export const AliexpressInfluencerContentVideoPublishContentHashtagDTOSchema: Sch
   };
 
 export interface AliexpressInfluencerContentVideoPublishContentItemDTO {
-  /** AE商品id */
+  /** AE product ID */
   itemId?: Long;
 }
 
@@ -383,17 +383,17 @@ export const AliexpressInfluencerContentVideoPublishContentItemDTOSchema: Schema
   };
 
 export interface AliexpressInfluencerContentVideoPublishExternalItemDTO {
-  /** 来源 */
+  /** Source */
   source?: string;
-  /** 名称 */
+  /** Name */
   title?: string;
-  /** 链接 */
+  /** Link */
   itemUrl?: string;
-  /** 主图 */
+  /** Main image */
   itemMainPic?: string;
-  /** 图片列表 */
+  /** Image list */
   itemPics?: Array<string>;
-  /** 价格 */
+  /** Price */
   itemPrice?: string;
 }
 
@@ -408,25 +408,25 @@ export const AliexpressInfluencerContentVideoPublishExternalItemDTOSchema: Schem
   };
 
 export interface AliexpressInfluencerContentVideoPublishVideoPublishRequest {
-  /** 视频资源标识符 */
+  /** Video resource identifier */
   videoResourceId?: string;
-  /** 封面资源标识符 */
+  /** Cover resource identifier */
   coverImgResourceId?: string;
-  /** 语言_国家，例如 en_US */
+  /** Language_country, e.g. en_US */
   locale?: string;
-  /** 货币，例如 USD */
+  /** Currency, e.g. USD */
   currency?: string;
-  /** 帖子内容 */
+  /** Post content */
   content?: string;
   /** hashtag */
   hashtags?: Array<AliexpressInfluencerContentVideoPublishContentHashtagDTO>;
-  /** 关联AE站内商品，最多5个 */
+  /** Linked AE on-site products, up to 5 */
   items?: Array<AliexpressInfluencerContentVideoPublishContentItemDTO>;
-  /** 关联的外部商品，最多15个 */
+  /** Linked external products, up to 15 */
   externalItems?: Array<AliexpressInfluencerContentVideoPublishExternalItemDTO>;
-  /** 扩展信息 */
+  /** Extended information */
   attributes?: Record<string, unknown>;
-  /** 达人账号邮箱 */
+  /** Creator account email */
   email?: string;
 }
 
@@ -458,13 +458,13 @@ export const AliexpressInfluencerContentVideoPublishVideoPublishRequestSchema: S
 
 /** Parameters for `aliexpress.influencer.content.article.publish`. */
 export interface AliexpressInfluencerContentArticlePublishParams {
-  /** 请求参数 */
+  /** Request parameters */
   requestParam?: AliexpressInfluencerContentArticlePublishArticlePublishRequest;
 }
 
 /** Response of `aliexpress.influencer.content.article.publish`. */
 export interface AliexpressInfluencerContentArticlePublishResponse {
-  /** 响应数据 */
+  /** Response data */
   result?: Record<string, unknown>;
 }
 
@@ -493,13 +493,13 @@ export const aliexpressInfluencerContentArticlePublish: ApiDefinition<
 
 /** Parameters for `aliexpress.influencer.content.item.search`. */
 export interface AliexpressInfluencerContentItemSearchParams {
-  /** 请求参数 */
+  /** Request parameters */
   requestParam?: AliexpressInfluencerContentItemSearchItemSearchRequest;
 }
 
 /** Response of `aliexpress.influencer.content.item.search`. */
 export interface AliexpressInfluencerContentItemSearchResponse {
-  /** 响应数据 */
+  /** Response data */
   result?: AliexpressInfluencerContentItemSearchUgcApiResponse;
 }
 
@@ -531,13 +531,13 @@ export const aliexpressInfluencerContentItemSearch: ApiDefinition<
 
 /** Parameters for `aliexpress.influencer.content.resource.check`. */
 export interface AliexpressInfluencerContentResourceCheckParams {
-  /** 请求参数 */
+  /** Request parameters */
   requestParam?: AliexpressInfluencerContentResourceCheckResourceCheckRequest;
 }
 
 /** Response of `aliexpress.influencer.content.resource.check`. */
 export interface AliexpressInfluencerContentResourceCheckResponse {
-  /** 响应数据 */
+  /** Response data */
   result?: AliexpressInfluencerContentResourceCheckUgcApiResponse;
 }
 
@@ -569,13 +569,13 @@ export const aliexpressInfluencerContentResourceCheck: ApiDefinition<
 
 /** Parameters for `aliexpress.influencer.content.resource.upload`. */
 export interface AliexpressInfluencerContentResourceUploadParams {
-  /** 请求参数 */
+  /** Request parameters */
   requestParam?: AliexpressInfluencerContentResourceUploadResourceUploadRequest;
 }
 
 /** Response of `aliexpress.influencer.content.resource.upload`. */
 export interface AliexpressInfluencerContentResourceUploadResponse {
-  /** 响应结构体 */
+  /** Response structure */
   result?: AliexpressInfluencerContentResourceUploadUgcApiResponse;
 }
 
@@ -608,13 +608,13 @@ export const aliexpressInfluencerContentResourceUpload: ApiDefinition<
 
 /** Parameters for `aliexpress.influencer.content.video.publish`. */
 export interface AliexpressInfluencerContentVideoPublishParams {
-  /** 请求参数 */
+  /** Request parameters */
   requestParam?: AliexpressInfluencerContentVideoPublishVideoPublishRequest;
 }
 
 /** Response of `aliexpress.influencer.content.video.publish`. */
 export interface AliexpressInfluencerContentVideoPublishResponse {
-  /** 响应数据 */
+  /** Response data */
   result?: Record<string, unknown>;
 }
 

@@ -9,7 +9,7 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressAscpAppointQueryAppointDateErpAppointAvailableDateDTO {
-  /** 可以预约返回日期 */
+  /** Dates available for appointment return */
   dateList?: Array<string>;
 }
 
@@ -19,17 +19,17 @@ export const AliexpressAscpAppointQueryAppointDateErpAppointAvailableDateDTOSche
   };
 
 export interface AliexpressAscpAppointQueryAppointDateErpAppointDateQueryDTO {
-  /** 业务租户Id，全托管 场景请填写 5110000 海外托管固定 10040000 */
+  /** Business tenant Id. For fully managed scenarios enter 5110000; overseas managed is fixed at 10040000 */
   bizType?: number;
-  /** 自寄请求类型： 1-预约 2-改约 */
+  /** Self-shipping request type: 1 - appointment 2 - reschedule */
   requestType?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 业务单据类型 po 采购单 co 发货单 */
+  /** Business document type: po purchase order, co shipment order */
   bizOrderType?: string;
-  /** 发货单号 */
+  /** Shipment order number */
   businessOrderNoList?: Array<string>;
-  /** 渠道id AETK必填 */
+  /** Channel id; required for AETK */
   channel?: string;
 }
 
@@ -44,11 +44,11 @@ export const AliexpressAscpAppointQueryAppointDateErpAppointDateQueryDTOSchema: 
   };
 
 export interface AliexpressAscpAppointQueryAppointDateResult {
-  /** 请求状态：true-成功，false-失败 */
+  /** Request status: true - success, false - failure */
   success?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMsg?: string;
   /** - */
   data?: AliexpressAscpAppointQueryAppointDateErpAppointAvailableDateDTO;
@@ -66,13 +66,13 @@ export const AliexpressAscpAppointQueryAppointDateResultSchema: Schema = {
 };
 
 export interface AliexpressAscpAppointUpdateAppointDateErpAppointDateUpdateDTO {
-  /** 要重新预约时间的发货单号，目前只支持一个 */
+  /** Shipment order number to reschedule the appointment time for, currently only one is supported */
   consignOrderNoList?: Array<string>;
-  /** 业务租户Id，全托管 场景请填写 5110000 */
+  /** Business tenant ID. For the fully managed scenario, enter 5110000 */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 期望预约到仓时间 */
+  /** Expected appointment arrival time at warehouse */
   estimatedArriveTime?: string;
 }
 
@@ -85,13 +85,13 @@ export const AliexpressAscpAppointUpdateAppointDateErpAppointDateUpdateDTOSchema
   };
 
 export interface AliexpressAscpAppointUpdateAppointDateResult {
-  /** 是否修改成功 */
+  /** Whether the update succeeded */
   data?: boolean;
-  /** 请求结果 */
+  /** Request result */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMsg?: string;
 }
 
@@ -105,11 +105,11 @@ export const AliexpressAscpAppointUpdateAppointDateResultSchema: Schema = {
 export interface AliexpressAscpCoErpCancelDataResult {
   /** demo */
   data?: AliexpressAscpCoErpCancelSimpleResult;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 描述 */
+  /** Description */
   errorMsg?: string;
 }
 
@@ -152,15 +152,15 @@ export const AliexpressAscpCoErpCreateDataResultSchema: Schema = {
 };
 
 export interface AliexpressAscpCoErpCreateErpConsignOrderCreateByPurchaseItemRequest {
-  /** 货品ID */
+  /** Goods ID */
   scItemId?: Long;
-  /** 发货数量 */
+  /** Shipped quantity */
   sentQty?: Long;
-  /** 是否发货完结{true/false}。 若选择了完结发货，您该品本次剩余未发货部分可不再发货，系统会自动完结该品的发货量。 */
+  /** Whether shipment is finalized {true/false}. If shipment finalization is selected, the remaining unshipped portion of this product does not need to be shipped, and the system will automatically finalize the shipment quantity of the product. */
   deliveryFinish?: boolean;
   /** demo */
   packageList?: Array<AliexpressAscpCoErpCreateErpConsignOrderDeliverPackageRequest>;
-  /** 单据内货品id。对应查询备货单货品接口返回值。 */
+  /** Item ID within the document. Corresponds to the return value of the stocking order item query API. */
   poLineId?: Long;
 }
 
@@ -178,9 +178,9 @@ export const AliexpressAscpCoErpCreateErpConsignOrderCreateByPurchaseItemRequest
   };
 
 export interface AliexpressAscpCoErpCreateErpConsignOrderCreateByPurchaseRequest {
-  /** 备货单号 */
+  /** Stocking order number */
   purchaseOrderNo?: string;
-  /** 本次发货此PO单的货品个数。最大100个。 */
+  /** Number of items of this PO shipped this time. Maximum 100. */
   purchaseOrderItemList?: Array<AliexpressAscpCoErpCreateErpConsignOrderCreateByPurchaseItemRequest>;
 }
 
@@ -196,11 +196,11 @@ export const AliexpressAscpCoErpCreateErpConsignOrderCreateByPurchaseRequestSche
   };
 
 export interface AliexpressAscpCoErpCreateErpConsignOrderCreateOneResult {
-  /** 备货单号 */
+  /** Stocking order number */
   purchaseOrderNo?: string;
-  /** 发货单号 */
+  /** Shipment order number */
   consignOrderNo?: string;
-  /** 单据创建结果:{true/false} */
+  /** Document creation result: {true/false} */
   success?: boolean;
   /** error_msg */
   errorMsg?: string;
@@ -215,7 +215,7 @@ export const AliexpressAscpCoErpCreateErpConsignOrderCreateOneResultSchema: Sche
   };
 
 export interface AliexpressAscpCoErpCreateErpConsignOrderCreateOpenResult {
-  /** 创建发货单结果集.1次发货操作每个PO单会生成1个发货单. */
+  /** Result set of created shipment orders. One shipping operation generates one shipment order for each PO. */
   resultList?: Array<AliexpressAscpCoErpCreateErpConsignOrderCreateOneResult>;
 }
 
@@ -229,9 +229,9 @@ export const AliexpressAscpCoErpCreateErpConsignOrderCreateOpenResultSchema: Sch
   };
 
 export interface AliexpressAscpCoErpCreateErpConsignOrderDeliverPackageRequest {
-  /** 箱号。范围 [1,99]，必须连续且从1开始。 */
+  /** Box number. Range [1,99], must be consecutive and start from 1. */
   boxSequence?: string;
-  /** 装箱货量，即每箱多少件 */
+  /** Units per carton, i.e. how many pieces per box */
   boxQty?: number;
 }
 
@@ -242,69 +242,69 @@ export const AliexpressAscpCoErpCreateErpConsignOrderDeliverPackageRequestSchema
   };
 
 export interface AliexpressAscpCoErpPageQueryErpConsignOrderOpenResult {
-  /** 总箱数 */
+  /** Total number of boxes */
   totalCartons?: number;
-  /** 头程单号 */
+  /** First-leg order number */
   firstLegOrderNo?: string;
-  /** 头程履行单号 */
+  /** First-leg fulfillment order number */
   fulfillFirstLegOrderNo?: string;
-  /** 发货单号 */
+  /** Shipment order number */
   consignOrderNo?: string;
-  /** 备货单号 */
+  /** Stocking order number */
   purchaseOrderNo?: string;
-  /** 物流单号, LBX单号 */
+  /** Logistics tracking number, LBX number */
   logisticsNo?: string;
-  /** 揽收单号 */
+  /** Pickup order number */
   pickupOrderNo?: string;
-  /** 单据业务状态。("0", "待装箱发货"), ("20", "待仓库收货"),("261", "已到仓交接"), ("27", "已到仓登记"), ("25", "部分收货"), ("30", "收货完成"), ("35", "上架完成"), ("-99", "已取消") */
+  /** Document business status. ("0", "awaiting packing and shipment"), ("20", "awaiting warehouse receipt"), ("261", "handed over at warehouse"), ("27", "registered at warehouse"), ("25", "partially received"), ("30", "receipt complete"), ("35", "listing complete"), ("-99", "cancelled") */
   bizStatus?: string;
-  /** 发货单创建时间 */
+  /** Shipment order creation time */
   gmtCreate?: Long;
-  /** 发货单修改时间 */
+  /** Shipment order update time */
   gmtModified?: Long;
-  /** 最晚到仓时间 */
+  /** Latest warehouse arrival time */
   gmtExpectedLatestArrival?: Long;
-  /** 发货时间 */
+  /** Shipping time */
   gmtDelivery?: Long;
-  /** 预计到仓时间/预约到仓 */
+  /** Estimated arrival time at warehouse / appointment arrival at warehouse */
   gmtAppoint?: Long;
-  /** 到仓交接时间 */
+  /** Warehouse handover time */
   gmtArrivalHandover?: Long;
-  /** 到仓登记时间 */
+  /** Warehouse arrival registration time */
   gmtInboundArrive?: Long;
-  /** 收货完成时间。(用于有'收货'动作的单据) */
+  /** Receiving completion time. (For documents with a 'receiving' action) */
   gmtReceiveFinish?: Long;
-  /** 供应商ID */
+  /** Supplier ID */
   supplierId?: Long;
-  /** 供应商名称 */
+  /** Supplier name */
   supplierName?: string;
-  /** 仓code */
+  /** Warehouse code */
   storeCode?: string;
-  /** 仓名称 */
+  /** Warehouse name */
   storeName?: string;
-  /** 发货方式 1=自行发货 2=揽收发货 -99=未选择发货方式。\n发货后取消揽收单场景时，存在biz_status=20, 但是"shipping_mode": "-99” (没有揽收/自寄信息场景)。\n所以可以这样判断当前CO单能否进行发货(创建揽收/自寄)： (1).当 biz_status= 0 或 10 。 (2).当 biz_status=20, 且 "shipping_mode": "-99" 。 */
+  /** Shipping method: 1=self-shipping, 2=pickup shipping, -99=no shipping method selected. In the scenario where the pickup order is cancelled after shipment, there can be biz_status=20 with "shipping_mode": "-99" (no pickup/self-delivery information). So whether the current CO order can be shipped (create pickup/self-delivery) can be determined as follows: (1). when biz_status= 0 or 10. (2). when biz_status=20 and "shipping_mode": "-99". */
   shippingMode?: string;
-  /** 总发货数量。(当前单据是发货单，表示发货数量) */
+  /** Total shipped quantity. (When the current document is a shipment order, it indicates the shipped quantity) */
   totalQuantity?: Long;
-  /** 总上架数量。(用于有'上架'动作的单据)) */
+  /** Total shelved quantity. (For documents with a 'shelving' action)) */
   totalUpShelfQty?: Long;
-  /** 扩展字段kv。[k:(v:desc)] [replenishScene: (0:DAILY"日常备货") (1:PROMOTION"大促备货"), (2:OVERSEAS"海外仓备货"), (3:NEW_PRODUCT"新品备货"), (4:SUPER_LINK"商品竞价"), (5:VENDOR_SELF"商家自主备货") ] [aeGdcFclInbound: (1:是否整箱直入)] [isEarlyLoan: (1:是否提前放款)] [aeTradePlatform: (aeVendor3pl:商家履约); (aeVendor:平台履约); (aeVendorLocal:海外履约)] [outBizNo:(创建CO单时填写的 orderSourceCode。(当指定PO单号或CO单号查询时会返回, 其他查询时会返回空))] */
+  /** Extended fields as key-value pairs. [k:(v:desc)] [replenishScene: (0:DAILY"daily replenishment") (1:PROMOTION"major promotion replenishment"), (2:OVERSEAS"overseas warehouse replenishment"), (3:NEW_PRODUCT"new product replenishment"), (4:SUPER_LINK"product bidding"), (5:VENDOR_SELF"merchant self-managed replenishment") ] [aeGdcFclInbound: (1:whether full-container direct inbound)] [isEarlyLoan: (1:whether early payout)] [aeTradePlatform: (aeVendor3pl:merchant fulfillment); (aeVendor:platform fulfillment); (aeVendorLocal:overseas fulfillment)] [outBizNo:(the orderSourceCode filled in when the CO order was created. (Returned when querying by a specified PO or CO order number; empty for other queries))] */
   extFields?: string;
-  /** 标签。[2:(URGENT,"紧急")] */
+  /** Label. [2:(URGENT,"urgent")] */
   tagsList?: Array<number>;
-  /** 单据主状态。(0, "待装箱发货"),(20, "待收货/已到仓交接/已到仓登记"), (25, "部分收货"), (30, "收货完成/上架完成"), (-99, "已取消") */
+  /** Main document status. (0, "awaiting packing and shipment"), (20, "awaiting receipt/arrived at warehouse handover/arrived at warehouse registration"), (25, "partially received"), (30, "receipt completed/shelving completed"), (-99, "canceled") */
   orderStatus?: number;
-  /** 总收货数量。(用于有'收货'动作的单据)) */
+  /** Total received quantity. (For documents with a 'receiving' action)) */
   totalReceivedQty?: Long;
-  /** 单据总SKU数量。 */
+  /** Total number of SKUs in the document. */
   skuCount?: number;
-  /** 上架完成时间。(和totalUpShelfQty，用于有'上架'动作的单据) */
+  /** Shelving completion time. (Used together with totalUpShelfQty, for documents that have a 'shelving' action) */
   gmtUpShelfFinish?: Long;
-  /** 单据类型：10:普通直入单;60:越库转运单; */
+  /** Document type: 10: regular direct inbound; 60: cross-dock transfer; */
   poType?: number;
-  /** 总体积 */
+  /** Total volume */
   totalVolume?: Long;
-  /** 总重量 */
+  /** Total weight */
   totalWeight?: Long;
 }
 
@@ -345,11 +345,11 @@ export const AliexpressAscpCoErpPageQueryErpConsignOrderOpenResultSchema: Schema
   };
 
 export interface AliexpressAscpCoErpPageQueryItemErpConsignOrderDeliverPackageRequest {
-  /** 头程箱号 */
+  /** First-leg box number */
   firstLegPackageCode?: string;
-  /** 箱号，即装几箱。 */
+  /** Carton number, i.e. how many cartons. */
   boxSequence?: string;
-  /** 装箱货量，即每箱多少件。 */
+  /** Units per carton, i.e. how many pieces per box. */
   boxQty?: number;
 }
 
@@ -361,43 +361,43 @@ export const AliexpressAscpCoErpPageQueryItemErpConsignOrderDeliverPackageReques
   };
 
 export interface AliexpressAscpCoErpPageQueryItemErpConsignOrderItemOpenResult {
-  /** 发货单号 */
+  /** Shipment order number */
   consignOrderNo?: string;
-  /** 备货单号 */
+  /** Stocking order number */
   purchaseOrderNo?: string;
-  /** 货品ID */
+  /** Goods ID */
   scItemId?: Long;
-  /** 货品条码 */
+  /** Goods barcode */
   barcode?: string;
-  /** 货品名称 */
+  /** Goods name */
   title?: string;
-  /** 发货数量。(当前单据是发货单，表示发货数量) */
+  /** Shipped quantity. (When the current document is a shipment order, it indicates the shipped quantity) */
   quantity?: Long;
-  /** 上架数量。(有'上架'动作单据使用) */
+  /** Shelved quantity. (Used by documents with a 'shelving' action) */
   upShelfNormalQty?: Long;
   /** demo */
   packageList?: Array<AliexpressAscpCoErpPageQueryItemErpConsignOrderDeliverPackageRequest>;
-  /** 扩展字段kv。扩展使用kv。{productIdList:商品id列表(逗号分隔,可能为空表示不存在. 需要用关联的PO单货品的productIdList)，pictureUrl:商品图片(可能为空表示不存在, 需要用关联的PO单货品的pictureUrl)} */
+  /** Extension field kv. Extension uses kv. {productIdList: product id list (comma-separated, may be empty meaning it does not exist; use the productIdList of the associated PO order item), pictureUrl: product image (may be empty meaning it does not exist; use the pictureUrl of the associated PO order item)} */
   extFields?: string;
-  /** 单据货品id.用于扩展使用 */
+  /** Document product id. Used for extension */
   coLineId?: Long;
-  /** 上架瑕疵品数量。(有'上架'动作单据使用) */
+  /** Shelved defective quantity. (Used by documents with a 'shelving' action) */
   upShelfDefectiveQty?: Long;
-  /** 收货正品数量。(有'发货'动作单据使用) */
+  /** Received good quantity. (Used by documents with a 'shipping' action) */
   normalQty?: Long;
-  /** 收货瑕疵品数量。(有'发货'动作单据使用) */
+  /** Received defective quantity. (Used by documents with a 'shipping' action) */
   defectiveQty?: Long;
-  /** 发货单货品关联的备货单单据内品id。（当业务支持一个PO单多个相同sc_item_id场景使用) */
+  /** ID of the item in the stocking order associated with the goods on the shipment order. (Used when the business supports multiple identical sc_item_id in one PO) */
   poLineId?: Long;
-  /** 长度 */
+  /** Length */
   length?: Long;
-  /** 宽度 */
+  /** Width */
   width?: Long;
-  /** 高度 */
+  /** Height */
   height?: Long;
-  /** 重量 */
+  /** Weight */
   weight?: Long;
-  /** 货品编码 */
+  /** Goods code */
   scItemCode?: string;
 }
 
@@ -432,17 +432,17 @@ export const AliexpressAscpCoErpPageQueryItemErpConsignOrderItemOpenResultSchema
 export interface AliexpressAscpCoErpPageQueryItemPaginationDataResult {
   /** demo */
   data?: Array<AliexpressAscpCoErpPageQueryItemErpConsignOrderItemOpenResult>;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 分页页码 */
+  /** Pagination page number */
   currentPage?: number;
-  /** 明细总数 */
+  /** Total number of details */
   totalCount?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 描述 */
+  /** Description */
   errorMsg?: string;
 }
 
@@ -462,19 +462,19 @@ export const AliexpressAscpCoErpPageQueryItemPaginationDataResultSchema: Schema 
   };
 
 export interface AliexpressAscpCoErpPageQueryPaginationDataResult {
-  /** 发货单区分poType(普通直入单，越库转运单)。/n 「普通直入单」：有「上架」动作，关联字段上架(正品，瑕疵品)数量，上架完成时间。(默认会设置「收货」关联字段收货数量，收货完成时间 等于 上架字段)。/n 「越库转运单」：有「收货」动作，关联字段收货(正品，瑕疵品)数量，收货完成时间。（不会设置「上架」关联字段）。/n /n (poType=10, 是「普通直入-发货单」。)/n (poType=60, 是「转运越库-发货单」。)/n */
+  /** Shipment order is distinguished by poType (regular direct inbound order, cross-dock transfer order). Regular direct inbound order: has a "put on shelf" action, with related fields for shelved (good, defective) quantity and shelving completion time. (The related "receiving" fields, received quantity and receiving completion time, are set equal to the shelving fields by default.) Cross-dock transfer order: has a "receiving" action, with related fields for received (good, defective) quantity and receiving completion time. (The "put on shelf" fields are not set.) (poType=10 is the "regular direct inbound shipment order".) (poType=60 is the "cross-dock transfer shipment order".) */
   data?: Array<AliexpressAscpCoErpPageQueryErpConsignOrderOpenResult>;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 分页页码 */
+  /** Pagination page number */
   currentPage?: number;
-  /** 明细总数 */
+  /** Total number of details */
   totalCount?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 描述 */
+  /** Description */
   errorMsg?: string;
 }
 
@@ -493,17 +493,17 @@ export const AliexpressAscpCoErpPageQueryPaginationDataResultSchema: Schema = {
 };
 
 export interface AliexpressAscpCoErpUpdateDeliverInfoDataResult {
-  /** 是否要重试 */
+  /** Whether to retry */
   retryable?: boolean;
-  /** 返回值 */
+  /** Return value */
   data?: string;
   /** demo */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误消息 */
+  /** Error message */
   message?: string;
-  /** 错误参数 */
+  /** Error parameters */
   errorParams?: string;
 }
 
@@ -517,9 +517,9 @@ export const AliexpressAscpCoErpUpdateDeliverInfoDataResultSchema: Schema = {
 };
 
 export interface AliexpressAscpCoErpUpdateDeliverInfoErpConsignOrderLocalTransferInfoRequest {
-  /** POP增值服务单号 */
+  /** POP value-added service order number */
   transferVasorderNo?: string;
-  /** POP退供单号 */
+  /** POP supplier return order number */
   transferReturnOrderNo?: string;
 }
 
@@ -530,13 +530,13 @@ export const AliexpressAscpCoErpUpdateDeliverInfoErpConsignOrderLocalTransferInf
   };
 
 export interface AliexpressAscpCpfrCreateSkuCodeInvDataResult {
-  /** SKU编码行业维度的结果返回 */
+  /** Result returned for the SKU code industry dimension */
   data?: Array<AliexpressAscpCpfrCreateSkuCodeInvSkuCodeInvCreateItemResult>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   message?: string;
 }
 
@@ -552,11 +552,11 @@ export const AliexpressAscpCpfrCreateSkuCodeInvDataResultSchema: Schema = {
 };
 
 export interface AliexpressAscpCpfrCreateSkuCodeInvSkuCodeInvCreateItem {
-  /** 商家库存类型：1-AE独享在仓可用库存；302-AE独享在途可用库存 */
+  /** Seller inventory type: 1 - AE-exclusive available in-warehouse stock; 302 - AE-exclusive available in-transit stock */
   inventoryType?: number;
-  /** 商家库存数量，要求整数，取值范围[0-999999] */
+  /** Merchant inventory quantity, must be an integer, value range [0-999999] */
   quantity?: Long;
-  /** 商家SKU编码，长度限制要求不超过64个字符，不支持中文或特殊字符 */
+  /** Seller SKU code. Length limit is no more than 64 characters; Chinese or special characters are not supported */
   skuCode?: string;
 }
 
@@ -568,15 +568,15 @@ export const AliexpressAscpCpfrCreateSkuCodeInvSkuCodeInvCreateItemSchema: Schem
   };
 
 export interface AliexpressAscpCpfrCreateSkuCodeInvSkuCodeInvCreateItemResult {
-  /** SKU编码维度是否成功 */
+  /** Whether successful at the SKU code dimension */
   success?: boolean;
-  /** 商家SKU编码 */
+  /** Merchant SKU code */
   skuCode?: string;
-  /** 商家库存类型 */
+  /** Merchant inventory type */
   inventoryType?: number;
-  /** SKU编码维度错误码 */
+  /** Error code at the SKU code dimension */
   errorCode?: string;
-  /** SKU编码维度错误信息 */
+  /** Error message at the SKU code dimension */
   message?: string;
 }
 
@@ -590,9 +590,9 @@ export const AliexpressAscpCpfrCreateSkuCodeInvSkuCodeInvCreateItemResultSchema:
   };
 
 export interface AliexpressAscpFfoItemQueryFulfillmentForwardOrderItemQueryDTO {
-  /** 账套编码 */
+  /** Account set code */
   bizType?: number;
-  /** 履约单号 */
+  /** Fulfillment order number */
   fulfillmentOrderNo?: string;
 }
 
@@ -605,11 +605,11 @@ export const AliexpressAscpFfoItemQueryFulfillmentForwardOrderItemQueryDTOSchema
 export interface AliexpressAscpFfoItemQueryResult {
   /** dto */
   dataList?: Array<AliexpressAscpFfoItemQueryString>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
 }
 
@@ -621,27 +621,27 @@ export const AliexpressAscpFfoItemQueryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpFfoItemQueryString {
-  /** 库存数量 */
+  /** Inventory quantity */
   aicInventory?: string;
-  /** 货品实际支付金额 */
+  /** Actual amount paid for the product */
   skuActualPaidAmount?: string;
-  /** 货品优惠金额 */
+  /** Goods discount amount */
   skuDiscountAmount?: string;
-  /** SKU单价 */
+  /** SKU unit price */
   unitPrice?: string;
-  /** 发货数量 */
+  /** Shipped quantity */
   orderLineQty?: string;
-  /** 货品条码 */
+  /** Goods barcode */
   barcode?: string;
-  /** 货品Id */
+  /** Goods ID */
   scItemId?: string;
   /** SKUid */
   skuId?: string;
-  /** 商品名称 */
+  /** Product name */
   itemTitle?: string;
-  /** 商品ID */
+  /** Product ID */
   itemId?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendFields?: string;
 }
 
@@ -660,37 +660,37 @@ export const AliexpressAscpFfoItemQueryStringSchema: Schema = {
 };
 
 export interface AliexpressAscpFfoQueryErpFulfillmentForwardDTO {
-  /** 订单产生时间戳 */
+  /** Order creation timestamp */
   tradeCreateTime?: Long;
-  /** 发货金额 */
+  /** Shipped amount */
   packagePaidFee?: string;
-  /** 收货地区 */
+  /** Delivery region */
   receiverCountry?: string;
-  /** 收货人电话 */
+  /** Consignee phone */
   receiverPhone?: string;
-  /** 收货人手机 */
+  /** Consignee mobile */
   receiverMobile?: string;
-  /** 收货人姓名 */
+  /** Consignee name */
   receiverName?: string;
-  /** 买家昵称 */
+  /** Buyer nickname */
   buyerName?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNo?: string;
-  /** 物流单号 */
+  /** Logistics tracking number */
   lbxNo?: string;
-  /** 履约单号 */
+  /** Fulfillment order number */
   fulfillmentOrderNo?: string;
-  /** 用户订单号 */
+  /** User order number */
   tradeOrderNo?: string;
-  /** 仓名称 */
+  /** Warehouse name */
   warehouseName?: string;
-  /** 出库时间戳 */
+  /** Outbound timestamp */
   outBoundTime?: Long;
-  /** 下发到仓时间戳 */
+  /** Timestamp of dispatch to warehouse */
   sendFulfillTime?: Long;
-  /** 订单状态 */
+  /** Order status */
   orderStatus?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendFields?: string;
 }
 
@@ -714,15 +714,15 @@ export const AliexpressAscpFfoQueryErpFulfillmentForwardDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpFfoQueryFulfillmentForwardOrderQueryDTO {
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: Long;
-  /** 账套编码 */
+  /** Account set code */
   bizType?: number;
-  /** 用户订单Id列表 */
+  /** List of user order Ids */
   customerOrderNumberList?: Array<string>;
-  /** 发货单号 */
+  /** Shipment order number */
   fulfillmentOrderNo?: string;
 }
 
@@ -738,17 +738,17 @@ export const AliexpressAscpFfoQueryFulfillmentForwardOrderQueryDTOSchema: Schema
 export interface AliexpressAscpFfoQueryPageQueryResult {
   /** dto list */
   dataList?: Array<AliexpressAscpFfoQueryErpFulfillmentForwardDTO>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 数量 */
+  /** Quantity */
   totalCount?: Long;
 }
 
@@ -767,9 +767,9 @@ export const AliexpressAscpFfoQueryPageQueryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpFroItemQueryFulfillmentReverseOrderItemQueryDTO {
-  /** 账套编码 */
+  /** Account set code */
   bizType?: number;
-  /** 履约单号 */
+  /** Fulfillment order number */
   fulfillmentOrderNo?: string;
 }
 
@@ -782,11 +782,11 @@ export const AliexpressAscpFroItemQueryFulfillmentReverseOrderItemQueryDTOSchema
 export interface AliexpressAscpFroItemQueryResult {
   /** dto */
   dataList?: Array<AliexpressAscpFroItemQueryString>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
 }
 
@@ -798,25 +798,25 @@ export const AliexpressAscpFroItemQueryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpFroItemQueryString {
-  /** 商品Id */
+  /** Product ID */
   itemId?: string;
-  /** 商品名称 */
+  /** Product name */
   itemTitle?: string;
-  /** 货品Id */
+  /** Goods ID */
   scItemId?: string;
-  /** 货品条码 */
+  /** Goods barcode */
   barcode?: string;
-  /** 申请退货数量 */
+  /** Requested return quantity */
   planQty?: string;
-  /** 价格 */
+  /** Price */
   orderLinePrice?: string;
-  /** 仓库实收正品 */
+  /** Genuine products actually received by warehouse */
   returnNormalQty?: string;
-  /** 仓库实收残品 */
+  /** Defective products actually received by warehouse */
   returnScrapQty?: string;
-  /** 仓名称 */
+  /** Warehouse name */
   warehouseName?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendFields?: string;
 }
 
@@ -834,15 +834,15 @@ export const AliexpressAscpFroItemQueryStringSchema: Schema = {
 };
 
 export interface AliexpressAscpFroQueryFulfillmentReverseOrderQueryDTO {
-  /** 账套编码 */
+  /** Account set code */
   bizType?: number;
-  /** 用户订单号列表 */
+  /** User order number list */
   customerOrderNumberList?: Array<string>;
-  /** 履约单号 */
+  /** Fulfillment order number */
   fulfillmentOrderNo?: string;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: Long;
 }
 
@@ -858,17 +858,17 @@ export const AliexpressAscpFroQueryFulfillmentReverseOrderQueryDTOSchema: Schema
 export interface AliexpressAscpFroQueryPageQueryResult {
   /** DTO */
   dataList?: Array<AliexpressAscpFroQueryString>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 查询结果总数 */
+  /** Total number of query results */
   totalCount?: Long;
 }
 
@@ -883,31 +883,31 @@ export const AliexpressAscpFroQueryPageQueryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpFroQueryString {
-  /** 用户订单号 */
+  /** User order number */
   tradeOrderNo?: string;
-  /** 履约单号 */
+  /** Fulfillment order number */
   fulfillmentOrderNo?: string;
-  /** 原物流单号 */
+  /** Original logistics tracking number */
   originalLbxNo?: string;
-  /** 物流单号 */
+  /** Logistics tracking number */
   lbxNo?: string;
-  /** 收货人姓名 */
+  /** Consignee name */
   receiverName?: string;
-  /** 收货人手机 */
+  /** Consignee mobile */
   receiverMobile?: string;
-  /** 物流公司 */
+  /** Logistics company */
   shippingProviderName?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
-  /** 退货下单时间戳 */
+  /** Return order placement timestamp */
   returnOrderCreateTime?: Long;
-  /** 退货入库时间戳 */
+  /** Return warehouse-entry timestamp */
   returnOrderInboundTime?: Long;
-  /** 订单状态 */
+  /** Order status */
   orderStatus?: string;
-  /** 退货类型 */
+  /** Return type */
   orderType?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendFields?: string;
 }
 
@@ -928,19 +928,19 @@ export const AliexpressAscpFroQueryStringSchema: Schema = {
 };
 
 export interface AliexpressAscpInventoryLogQueryPageQueryResult {
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 查询结果总数 */
+  /** Total number of query results */
   totalCount?: Long;
-  /** 库存流水，按生成时间降序排列 */
+  /** Inventory flow records, sorted by creation time in descending order */
   dataList?: Array<AliexpressAscpInventoryLogQueryWarehouseInventoryLogDTO>;
 }
 
@@ -959,43 +959,43 @@ export const AliexpressAscpInventoryLogQueryPageQueryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpInventoryLogQueryWarehouseInventoryLogDTO {
-  /** 业务主单号 */
+  /** Business main order number */
   operationOrderId?: string;
-  /** 变化后占用数量 */
+  /** Occupied quantity after change */
   resultLockQuantity?: string;
-  /** 占用变化数量 */
+  /** Occupied quantity change */
   changeLockQuantity?: string;
-  /** 变化后库存数量 */
+  /** Inventory quantity after change */
   resultQuantity?: string;
-  /** 库存变化数量 */
+  /** Inventory quantity change */
   changeQuantity?: string;
-  /** 扩展字段 */
+  /** Extension field */
   feature?: string;
-  /** 库存类型(1 良品，101 残品) */
+  /** Inventory type (1 good, 101 defective) */
   inventoryType?: number;
-  /** 仓名称 */
+  /** Warehouse name */
   storeName?: string;
-  /** 仓编码 */
+  /** Warehouse code */
   storeCode?: string;
-  /** 货品条形码 */
+  /** Goods barcode */
   whcBarCode?: string;
-  /** 货品编码 */
+  /** Goods code */
   scItemCode?: string;
-  /** 货品名称 */
+  /** Goods name */
   scItemName?: string;
-  /** 货品Id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 仓内单据号 */
+  /** In-warehouse document number */
   whOrderCode?: string;
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   bizSubTradeId?: string;
-  /** 交易主单号 */
+  /** Transaction main order number */
   bizTradeId?: string;
-  /** 出入库时间 */
+  /** Inbound/outbound time */
   operateTime?: Long;
-  /** 业务类型（PO0 普通采购,ADJ0 报废,ADJ1 盘点调整,ADJ2 状态调整,SO0 TOC销售,SO1 TOB销售,SO4 TOC补发,RTV0 普通采购退货,RSO0 TOC销售退货,SYS1 系统调账） */
+  /** Business type (PO0 regular purchase, ADJ0 scrapping, ADJ1 stocktaking adjustment, ADJ2 status adjustment, SO0 TOC sales, SO1 TOB sales, SO4 TOC reshipment, RTV0 regular purchase return, RSO0 TOC sales return, SYS1 system adjustment) */
   bizActivityType?: string;
-  /** 业务子单号 */
+  /** Business sub-order number */
   operationDetailOrderId?: string;
 }
 
@@ -1023,27 +1023,27 @@ export const AliexpressAscpInventoryLogQueryWarehouseInventoryLogDTOSchema: Sche
   };
 
 export interface AliexpressAscpInventoryLogQueryWarehouseInventoryLogQueryDTO {
-  /** 业务类型(PO0 普通采购,ADJ0 报废,ADJ1 盘点调整,ADJ2 状态调整,SO0 TOC销售,SO1 TOB销售,SO4 TOC补发,RTV0 普通采购退货,RSO0 TOC销售退货,SYS1 系统调账) */
+  /** Business type (PO0 regular purchase, ADJ0 scrapping, ADJ1 stocktaking adjustment, ADJ2 status adjustment, SO0 TOC sales, SO1 TOB sales, SO4 TOC reshipment, RTV0 regular purchase return, RSO0 TOC sales return, SYS1 system adjustment) */
   bizActivityType?: string;
-  /** 交易主单号 */
+  /** Transaction main order number */
   bizTradeId?: string;
-  /** 账套编码 */
+  /** Account set code */
   bizType?: number;
-  /** 出入库开始时间，ms级 */
+  /** Inbound/outbound start time, millisecond level */
   gmtCreateEnd?: Long;
-  /** 出入库截止时间，ms级 */
+  /** Inbound/outbound end time, millisecond level */
   gmtCreateStart?: Long;
-  /** 库存类型(1 良品，101 残品) */
+  /** Inventory type (1 good, 101 defective) */
   inventoryType?: number;
-  /** 业务主单号 */
+  /** Business main order number */
   operationOrderId?: string;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小，最大200 */
+  /** Page size, maximum 200 */
   pageSize?: Long;
-  /** 货品ID */
+  /** Goods ID */
   scItemId?: Long;
-  /** 仓编码 */
+  /** Warehouse code */
   storeCode?: string;
 }
 
@@ -1063,13 +1063,13 @@ export const AliexpressAscpInventoryLogQueryWarehouseInventoryLogQueryDTOSchema:
   };
 
 export interface AliexpressAscpItemBindScItemRelationOperateRequest {
-  /** 商品id */
+  /** Product ID */
   itemId?: Long;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelSellerId?: Long;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 货品id */
+  /** Goods ID */
   scItemId?: Long;
   /** skuId */
   skuId?: Long;
@@ -1085,13 +1085,13 @@ export const AliexpressAscpItemBindScItemRelationOperateRequestSchema: Schema =
   };
 
 export interface AliexpressAscpItemBindSingleResponse {
-  /** 业务处理 */
+  /** Business processing */
   data?: string;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
-  /** 网络层面的结果 */
+  /** Network-level result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errMessage?: string;
 }
 
@@ -1103,97 +1103,97 @@ export const AliexpressAscpItemBindSingleResponseSchema: Schema = {
 };
 
 export interface AliexpressAscpItemDetailErpScItemDetailDTO {
-  /** 临期预警天数 */
+  /** Near-expiry warning days */
   adventLifecycle?: number;
-  /** 禁调天数 */
+  /** No-transfer days */
   rejectTransferLifecycle?: number;
-  /** 是否能够编辑效期，当不需要查询的时候，这个值为空 */
+  /** Whether the validity period can be edited; empty when no query is needed */
   canEditShelflife?: boolean;
-  /** 是否JIT禁售 */
+  /** Whether JIT sales are prohibited */
   isJitWareForbid?: boolean;
-  /** 是否货品关联SKU不在售 */
+  /** Whether the SKU linked to the product is not on sale */
   isNotSalable?: boolean;
-  /** 是否未商货绑定 */
+  /** Whether not bound to merchant goods */
   isNotBindGoods?: boolean;
-  /** 是否选择国家仓意愿 */
+  /** Whether to choose the country warehouse preference */
   isCountryWilling?: boolean;
-  /** 愿意送的国家仓："EU":欧洲、"JK":日韩、"NA":北美、"ME":中东、"SA":南美 */
+  /** Country warehouses willing to deliver to: "EU": Europe, "JK": Japan and Korea, "NA": North America, "ME": Middle East, "SA": South America */
   countryWillingList?: Array<string>;
-  /** 是否维护标准箱规 */
+  /** Whether to maintain the standard carton specification */
   isStandardPcsMgt?: boolean;
-  /** 标准箱规数量，当维护标准箱规时才有效 */
+  /** Standard box specification quantity, valid only when a standard box specification is maintained */
   pcs?: Long;
-  /** 是否竞价货品 */
+  /** Whether it is bidding goods */
   isStarLinkActivity?: boolean;
-  /** 货品生命周期信息 */
+  /** Product lifecycle information */
   scItemLifecycleInfo?: AliexpressAscpItemDetailscItemLifecycleInfoObject;
-  /** 货品标签信息 */
+  /** Goods label information */
   scItemTagInfo?: AliexpressAscpItemDetailscItemTagInfoObject;
-  /** 商家sku编码 */
+  /** Merchant SKU code */
   supplierSkuCode?: string;
-  /** 商家填写物流属性（新） */
+  /** Logistics attributes filled in by the merchant (new) */
   sellerLogisticsAttributes?: string;
-  /** 货品区域维度信息，包括货品各区域下的生命周期、仓发区域以及标签信息等 */
+  /** Goods regional dimension information, including the goods' lifecycle, warehouse-shipment region and label information under each region */
   regionInfoList?: Array<AliexpressAscpItemDetailErpScItemRegionInfoDTO>;
-  /** {"0":"普货","1":"带电带磁","2":"纯电","3":"特货"} */
+  /** {"0":"general cargo","1":"electrified/magnetic","2":"pure battery","3":"special cargo"} */
   logisticsAttributes?: string;
-  /** 货品条码 */
+  /** Goods barcode */
   whcBarCode?: string;
-  /** 颜色 */
+  /** Color */
   color?: string;
   /** 1 */
   tWeight?: string;
-  /** 货品编码erp系统的货品id */
+  /** Product code, product id of the ERP system */
   itemCode?: string;
-  /** 物流包裹图片 */
+  /** Logistics package image */
   logisticsPackagePic?: string;
-  /** 标题 */
+  /** Title */
   title?: string;
-  /** 类目名 */
+  /** Category name */
   categoryName?: string;
-  /** 货品销售包装图片 */
+  /** Product sales packaging image */
   salesPackagePic?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendFields?: Record<string, unknown>;
-  /** 包装材料 */
+  /** Packaging material */
   packageMaterial?: string;
-  /** 高 */
+  /** Height */
   height?: string;
-  /** 品牌名 */
+  /** Brand name */
   brandName?: string;
   /** 1 */
   nWeight?: string;
   /** 1 */
   gWeight?: string;
-  /** 长 */
+  /** Length */
   length?: string;
-  /** 规格 */
+  /** Specification */
   specification?: string;
-  /** 重量 */
+  /** Weight */
   weight?: number;
-  /** 货品id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 是否易碎 */
+  /** Whether fragile */
   isHygroscopic?: string;
   /** 1 */
   customsUnitPrice?: string;
-  /** 品牌id */
+  /** Brand ID */
   brandId?: string;
-  /** 宽 */
+  /** Width */
   width?: string;
   /** 1 */
   innerGoodsPic?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: number;
-  /** 是否原箱 */
+  /** Whether original box */
   isOrigin?: string;
-  /** 商家是否已经了效期，true，false，null */
+  /** Whether the merchant has a validity period, true, false, null */
   sellerSetShelflife?: boolean;
-  /** 有效期天数，不设置或者设置为否的时候，这个值为空 */
+  /** Validity period in days; empty when not set or set to no */
   lifecycleDays?: number;
-  /** 禁收天数 */
+  /** No-receiving days */
   rejectLifecycle?: number;
-  /** 禁售天数 */
+  /** No-sale days */
   lockupLifecycle?: number;
 }
 
@@ -1259,7 +1259,7 @@ export const AliexpressAscpItemDetailErpScItemDetailDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpItemDetailErpScItemLifecycleInfoDTO {
-  /** 生命周期状态，值对应描述："0":初始、"10":可供、"20":"停供"、"30":"淘汰"、"40":"归档" */
+  /** Lifecycle status. Value descriptions: "0": initial, "10": available, "20": "supply stopped", "30": "phased out", "40": "archived" */
   stateCode?: string;
 }
 
@@ -1268,17 +1268,17 @@ export const AliexpressAscpItemDetailErpScItemLifecycleInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpItemDetailErpScItemQueryRequest {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelSellerId?: Long;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 货品id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 是否需要查询，可以修改效期 */
+  /** Whether query is needed; shelf life can be modified */
   needEditShelflifeInfo?: boolean;
-  /** 是否查询货品生命周期信息，默认false */
+  /** Whether to query item lifecycle information, default false */
   includeScItemLifecycle?: boolean;
-  /** 是否查询货品标签信息，默认false */
+  /** Whether to query item label information, default false */
   includeScItemTag?: boolean;
 }
 
@@ -1292,15 +1292,15 @@ export const AliexpressAscpItemDetailErpScItemQueryRequestSchema: Schema = {
 };
 
 export interface AliexpressAscpItemDetailErpScItemRegionInfoDTO {
-  /** 区域编码 */
+  /** Region code */
   regionCode?: string;
-  /** 是否仓发区域 */
+  /** Whether it is a warehouse-shipping region */
   warehouseArea?: boolean;
-  /** 货品仓发维度生命周期 */
+  /** Product lifecycle in the warehouse-shipping dimension */
   whLifecycleInfo?: AliexpressAscpItemDetailErpScItemLifecycleInfoDTO;
-  /** 货品非仓发维度生命周期 */
+  /** Product lifecycle in the non-warehouse-shipping dimension */
   nwhLifecycleInfo?: AliexpressAscpItemDetailnwhLifecycleInfoObject;
-  /** 货品当前区域下的标签信息 */
+  /** Tag information of the product under the current region */
   regionTagInfo?: AliexpressAscpItemDetailErpScItemRegionTagDTO;
 }
 
@@ -1325,9 +1325,9 @@ export const AliexpressAscpItemDetailErpScItemRegionInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpItemDetailErpScItemRegionTagDTO {
-  /** 区域编码 */
+  /** Region code */
   regionCode?: string;
-  /** 库存效率标签，值对应描述："isHighTurnover":高周转品 */
+  /** Inventory efficiency label. Value description: "isHighTurnover": high-turnover product */
   invEfficiencyTagList?: Array<string>;
 }
 
@@ -1337,7 +1337,7 @@ export const AliexpressAscpItemDetailErpScItemRegionTagDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpItemDetailnwhLifecycleInfoObject {
-  /** 生命周期状态，值对应描述："0":初始、"10":可供、"20":"停供"、"30":"淘汰"、"40":"归档" */
+  /** Lifecycle status. Value descriptions: "0": initial, "10": available, "20": "supply stopped", "30": "phased out", "40": "archived" */
   stateCode?: string;
 }
 
@@ -1346,7 +1346,7 @@ export const AliexpressAscpItemDetailnwhLifecycleInfoObjectSchema: Schema = {
 };
 
 export interface AliexpressAscpItemDetailscItemLifecycleInfoObject {
-  /** 生命周期状态，值对应描述："0":无需备货、"10":可供、"20":"停供"、"30":"淘汰"、"40":"归档" */
+  /** Lifecycle status, value descriptions: "0": no stocking needed, "10": available, "20": "supply stopped", "30": "phased out", "40": "archived" */
   stateCode?: string;
 }
 
@@ -1355,13 +1355,13 @@ export const AliexpressAscpItemDetailscItemLifecycleInfoObjectSchema: Schema = {
 };
 
 export interface AliexpressAscpItemDetailscItemTagInfoObject {
-  /** 库存效率标签，值对应描述："isHighTurnover":高周转品、"lowEffective_prom":低效品、"lowEffective_exit":低效品-退仓 */
+  /** Inventory efficiency tag, value descriptions: "isHighTurnover": high-turnover product, "lowEffective_prom": low-efficiency product, "lowEffective_exit": low-efficiency product - warehouse return */
   invEfficiencyTagList?: Array<string>;
-  /** 是否待入库仓发新品 */
+  /** Whether it is a new product pending warehouse inbound */
   isCfNewItemToIb?: boolean;
-  /** 是否爆品 */
+  /** Whether it is a hot-selling product */
   isTopGoods?: boolean;
-  /** 季节标签，值对应描述："Spring":春季、"Autumn":秋季、"Summer":夏季、"Winter":冬季、"Carnival":狂欢节、"SpringFestival":春节、"Christmas":圣诞节、"Easter":复活节、"Eid":开斋节、"Halloween":万圣节、"NewYear":新年元旦 */
+  /** Season tag; value descriptions: "Spring": spring, "Autumn": autumn, "Summer": summer, "Winter": winter, "Carnival": carnival, "SpringFestival": Spring Festival, "Christmas": Christmas, "Easter": Easter, "Eid": Eid, "Halloween": Halloween, "NewYear": New Year's Day */
   seasonTagList?: Array<string>;
 }
 
@@ -1373,11 +1373,11 @@ export const AliexpressAscpItemDetailscItemTagInfoObjectSchema: Schema = {
 };
 
 export interface AliexpressAscpItemDetailSingleResponse {
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
-  /** 网络是否成功 */
+  /** Whether the network call succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errMessage?: string;
   /** 1 */
   data?: AliexpressAscpItemDetailErpScItemDetailDTO;
@@ -1391,13 +1391,13 @@ export const AliexpressAscpItemDetailSingleResponseSchema: Schema = {
 };
 
 export interface AliexpressAscpItemLogsiticsAttributeQueryLogisticsAttributesDTO {
-  /** 物流属性ID */
+  /** Logistics attribute ID */
   id?: Long;
-  /** 属性名称（中文） */
+  /** Attribute name (Chinese) */
   logisticsAttributeName?: string;
-  /** 子属性 */
+  /** Sub-attribute */
   children?: string;
-  /** 是否禁止填写 */
+  /** Whether input is prohibited */
   forbid?: string;
 }
 
@@ -1410,9 +1410,9 @@ export const AliexpressAscpItemLogsiticsAttributeQueryLogisticsAttributesDTOSche
   };
 
 export interface AliexpressAscpItemLogsiticsAttributeQueryLogisticsAttributesQueryDTO {
-  /** 类目ID */
+  /** Category ID */
   categoryId?: Long;
-  /** 全托：5110000 半托：7668000 */
+  /** Fully managed: 5110000 semi-managed: 7668000 */
   bizType?: string;
 }
 
@@ -1423,7 +1423,7 @@ export const AliexpressAscpItemLogsiticsAttributeQueryLogisticsAttributesQueryDT
   };
 
 export interface AliexpressAscpItemLogsiticsAttributeQuerySingleResponse {
-  /** 数据 */
+  /** Data */
   data?: Array<AliexpressAscpItemLogsiticsAttributeQueryLogisticsAttributesDTO>;
 }
 
@@ -1440,17 +1440,17 @@ export const AliexpressAscpItemLogsiticsAttributeQuerySingleResponseSchema: Sche
 export interface AliexpressAscpItemQueryErpPageQueryResult {
   /** DTO */
   dataList?: Array<AliexpressAscpItemQueryString>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 查询结果总数 */
+  /** Total number of query results */
   totalCount?: Long;
 }
 
@@ -1465,9 +1465,9 @@ export const AliexpressAscpItemQueryErpPageQueryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpItemQueryErpScItemBindRelationDTO {
-  /** 商品id */
+  /** Product ID */
   itemId?: string;
-  /** 绑定状态 (1-未绑定 2-已绑定 3-解绑待审核 4-审核拒绝) */
+  /** Binding status (1 - unbound, 2 - bound, 3 - unbinding pending review, 4 - review rejected) */
   bindStatus?: string;
   /** skuId */
   skuId?: string;
@@ -1480,25 +1480,25 @@ export const AliexpressAscpItemQueryErpScItemBindRelationDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpItemQueryErpScItemQueryDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 创建时间筛选--开始时间 */
+  /** Creation time filter - start time */
   createStart?: string;
-  /** 创建时间筛选--结束时间 */
+  /** Creation time filter - end time */
   createEnd?: string;
-  /** 业务租户Id，AEG场景请填写288000，全托管填5110000，半托管填 7668000 */
+  /** Business tenant Id. For AEG scenarios enter 288000, fully managed 5110000, semi-managed 7668000 */
   bizType?: number;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: Long;
-  /** 货品编码 */
+  /** Goods code */
   scItemCode?: string;
-  /** 货品Id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 货品条码 */
+  /** Goods barcode */
   whcBarcode?: string;
 }
 
@@ -1518,61 +1518,61 @@ export const AliexpressAscpItemQueryErpScItemQueryDTOSchema: Schema = {
 export interface AliexpressAscpItemQueryString {
   /** relation */
   relationList?: Array<AliexpressAscpItemQueryErpScItemBindRelationDTO>;
-  /** 是否原箱 */
+  /** Whether original box */
   isOrigion?: string;
-  /** 是否易碎品 */
+  /** Whether it is fragile */
   isHygroscopic?: string;
-  /** 商家设置的效期值 */
+  /** Shelf life value set by the merchant */
   sellerSetShelfLife?: boolean;
-  /** 有效期天数 */
+  /** Validity days */
   lifecycleDays?: number;
-  /** 禁收天数 */
+  /** No-receiving days */
   rejectLifecycle?: number;
-  /** 禁售天数 */
+  /** No-sale days */
   lockupLifecycle?: number;
-  /** 临期预警天数 */
+  /** Near-expiry warning days */
   adventLifecycle?: number;
-  /** 禁调天数 */
+  /** No-transfer days */
   rejectTransferLifecycle?: number;
-  /** 商家SKU编码 */
+  /** Merchant SKU code */
   supplierSkuCode?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendFields?: string;
-  /** 货品声明价值（3PL必填，其他场景下无效） */
+  /** Declared value of goods (required for 3PL, invalid in other scenarios) */
   customsUnitPrice?: string;
-  /** 皮重 */
+  /** Tare weight */
   tWeight?: string;
-  /** 净重 */
+  /** Net weight */
   nWeight?: string;
-  /** 毛重 */
+  /** Gross weight */
   gWeight?: string;
-  /** 包装材料 */
+  /** Packaging material */
   packageMaterial?: string;
-  /** 颜色 */
+  /** Color */
   color?: string;
-  /** 重 */
+  /** Weight */
   weight?: number;
-  /** 高 */
+  /** Height */
   height?: number;
-  /** 宽 */
+  /** Width */
   width?: number;
-  /** 长度 */
+  /** Length */
   length?: number;
-  /** 货品条码 */
+  /** Goods barcode */
   whcBarCode?: string;
-  /** 货品编码 */
+  /** Goods code */
   itemCode?: string;
-  /** 类目名称 */
+  /** Category name */
   categoryName?: string;
-  /** 类目Id */
+  /** Category ID */
   categoryId?: Long;
-  /** 品牌名称 */
+  /** Brand name */
   brandName?: string;
-  /** 品牌Id */
+  /** Brand ID */
   brandId?: Long;
-  /** 货品名称 */
+  /** Goods name */
   title?: string;
-  /** 货品Id */
+  /** Goods ID */
   scItemId?: Long;
 }
 
@@ -1613,11 +1613,11 @@ export const AliexpressAscpItemQueryStringSchema: Schema = {
 };
 
 export interface AliexpressAscpItemTagPrintErpItemTagPrintRespDTO {
-  /** 商品id */
+  /** Product ID */
   itemId?: Long;
   /** skuid */
   skuId?: Long;
-  /** 打印单URL */
+  /** Print sheet URL */
   url?: string;
 }
 
@@ -1628,13 +1628,13 @@ export const AliexpressAscpItemTagPrintErpItemTagPrintRespDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpItemUnBindScItemRelationOperateRequest {
-  /** 商品id */
+  /** Product ID */
   itemId?: Long;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelSellerId?: Long;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 货品id */
+  /** Goods ID */
   scItemId?: Long;
   /** skuId */
   skuId?: Long;
@@ -1650,13 +1650,13 @@ export const AliexpressAscpItemUnBindScItemRelationOperateRequestSchema: Schema 
   };
 
 export interface AliexpressAscpItemUnBindSingleResponse {
-  /** 请求处理结果 */
+  /** Request processing result */
   data?: string;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
-  /** 网络层面是否成功 */
+  /** Whether successful at the network level */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errMessage?: string;
 }
 
@@ -1668,15 +1668,15 @@ export const AliexpressAscpItemUnBindSingleResponseSchema: Schema = {
 };
 
 export interface AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticPackageUpdateEntityResponse {
-  /** 是否改修成功 */
+  /** Whether the update succeeded */
   success?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMsg?: string;
-  /** 装箱清单号 */
+  /** Packing list number */
   logisticsPackageNo?: string;
-  /** 发货单号 */
+  /** Shipment order number */
   consignOrderNo?: string;
 }
 
@@ -1690,7 +1690,7 @@ export const AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticPack
   };
 
 export interface AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticPackageUpdateResponseDTO {
-  /** 修改装箱清单的具体结果 */
+  /** Specific result of modifying the packing list */
   updateDetailResponseList?: Array<AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticPackageUpdateEntityResponse>;
 }
 
@@ -1705,9 +1705,9 @@ export const AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticPack
   };
 
 export interface AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticsPackageDTO {
-  /** 发货单号 */
+  /** Shipment order number */
   consignOrderNo?: string;
-  /** 箱中具体清单 */
+  /** Detailed list in the box */
   packageItemList?: Array<AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticsPackageItemDTO>;
 }
 
@@ -1723,13 +1723,13 @@ export const AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticsPac
   };
 
 export interface AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticsPackageItemDTO {
-  /** 货品数量 */
+  /** Goods quantity */
   quantity?: Long;
-  /** 货品id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 箱序号 */
+  /** Box sequence number */
   boxSequence?: string;
-  /** 条形码 */
+  /** Barcode */
   barCode?: string;
 }
 
@@ -1742,13 +1742,13 @@ export const AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticsPac
   };
 
 export interface AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticsPackageUpdateDTO {
-  /** 装箱清单 */
+  /** Packing list */
   logisticsPackageDtoList?: Array<AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticsPackageDTO>;
-  /** 业务租户Id，全托管 场景请填写 5110000 */
+  /** Business tenant ID. For the fully managed scenario, enter 5110000 */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 渠道id AETK必填 */
+  /** Channel id; required for AETK */
   channel?: string;
 }
 
@@ -1768,11 +1768,11 @@ export const AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticsPac
 export interface AliexpressAscpLogisitcsPackageUpdateLogisticsPackageResult {
   /** - */
   data?: AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticPackageUpdateResponseDTO;
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMsg?: string;
 }
 
@@ -1790,27 +1790,27 @@ export const AliexpressAscpLogisitcsPackageUpdateLogisticsPackageResultSchema: S
   };
 
 export interface AliexpressAscpOnwayInventoryQueryOnWayInventoryDTO {
-  /** 出库仓名称 */
+  /** Outbound warehouse name */
   outboundStoreName?: string;
-  /** 出库仓编码 */
+  /** Outbound warehouse code */
   outboundStoreCode?: string;
-  /** 入库仓名称 */
+  /** Inbound warehouse name */
   inboundStoreName?: string;
-  /** 入库仓编码 */
+  /** Inbound warehouse code */
   inboundStoreCode?: string;
-  /** 在途数量 */
+  /** In-transit quantity */
   quantity?: string;
-  /** 扩展字段 */
+  /** Extension field */
   feature?: string;
-  /** 库存类型(1 采购在途，2 调拨在途，3 销售在途，4 销退在途) */
+  /** Inventory type (1 purchase in transit, 2 transfer in transit, 3 sales in transit, 4 sales return in transit) */
   inventoryType?: number;
-  /** 货品条形码 */
+  /** Goods barcode */
   whcBarCode?: string;
-  /** 货品编码 */
+  /** Goods code */
   scItemCode?: string;
-  /** 货品名称 */
+  /** Goods name */
   scItemName?: string;
-  /** 货品Id */
+  /** Goods ID */
   scItemId?: Long;
 }
 
@@ -1830,15 +1830,15 @@ export const AliexpressAscpOnwayInventoryQueryOnWayInventoryDTOSchema: Schema =
   };
 
 export interface AliexpressAscpOnwayInventoryQueryOnWayInventoryQueryDTO {
-  /** 账套编码 */
+  /** Account set code */
   bizType?: number;
-  /** 入库仓编码 */
+  /** Inbound warehouse code */
   inboundStoreCode?: string;
-  /** 库存类型(1 采购在途，2 调拨在途，3 销售在途，4 销退在途) */
+  /** Inventory type (1 purchase in transit, 2 transfer in transit, 3 sales in transit, 4 sales return in transit) */
   inventoryType?: number;
-  /** 出库仓编码 */
+  /** Outbound warehouse code */
   outboundStoreCode?: string;
-  /** 货品Id列表，最多30个 */
+  /** List of product Ids, up to 30 */
   scItemIdList?: Array<Long>;
 }
 
@@ -1852,13 +1852,13 @@ export const AliexpressAscpOnwayInventoryQueryOnWayInventoryQueryDTOSchema: Sche
   };
 
 export interface AliexpressAscpOnwayInventoryQueryResult {
-  /** 出参列表 */
+  /** Output list */
   dataList?: Array<AliexpressAscpOnwayInventoryQueryOnWayInventoryDTO>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
 }
 
@@ -1874,23 +1874,23 @@ export const AliexpressAscpOnwayInventoryQueryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPickupQueryFulfillWarehouseAddressDTO {
-  /** 详细地址（不拼接省市区街道） */
+  /** Detailed address (without province, city, district, street concatenated) */
   address?: string;
-  /** 省名称 */
+  /** Province name */
   province?: string;
-  /** 市名称 */
+  /** City name */
   city?: string;
-  /** 区名称 */
+  /** District name */
   county?: string;
-  /** 街道名称 */
+  /** Street name */
   street?: string;
-  /** 省ID */
+  /** Province ID */
   provinceId?: string;
-  /** 市ID */
+  /** City ID */
   cityId?: string;
-  /** 区ID */
+  /** District ID */
   countyId?: string;
-  /** 街道ID */
+  /** Street ID */
   streetId?: string;
 }
 
@@ -1908,19 +1908,19 @@ export const AliexpressAscpPickupQueryFulfillWarehouseAddressDTOSchema: Schema =
   };
 
 export interface AliexpressAscpPickupQueryFulfillWarehouseaddressDtoObject {
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 省 */
+  /** Province */
   province?: string;
-  /** 市 */
+  /** City */
   city?: string;
-  /** 区 */
+  /** District */
   county?: string;
-  /** 街道 */
+  /** Street */
   street?: string;
-  /** 详细地址 */
+  /** Detailed address */
   address?: string;
-  /** 邮编 */
+  /** Postal code */
   zipCode?: string;
 }
 
@@ -1936,11 +1936,11 @@ export const AliexpressAscpPickupQueryFulfillWarehouseaddressDtoObjectSchema: Sc
   };
 
 export interface AliexpressAscpPickupQueryFulfillWarehousedataObject {
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 仓库名称 */
+  /** Warehouse name */
   warehouseName?: string;
-  /** 仓库地址 */
+  /** Warehouse address */
   addressDto?: AliexpressAscpPickupQueryFulfillWarehouseaddressDtoObject;
 }
 
@@ -1956,13 +1956,13 @@ export const AliexpressAscpPickupQueryFulfillWarehousedataObjectSchema: Schema =
   };
 
 export interface AliexpressAscpPickupQueryFulfillWarehouseResult {
-  /** 仓信息 */
+  /** Warehouse information */
   data?: AliexpressAscpPickupQueryFulfillWarehousedataObject;
-  /** 接口调用是否成功 */
+  /** Whether the API call succeeded */
   success?: boolean;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
 }
 
@@ -1978,19 +1978,19 @@ export const AliexpressAscpPickupQueryFulfillWarehouseResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPickupQueryPickupAvailableDateContactInfoDTO {
-  /** 区域 */
+  /** Region */
   area?: string;
-  /** 地址 */
+  /** Address */
   address?: string;
-  /** 区Id */
+  /** District ID */
   areaId?: Long;
-  /** 手机号 */
+  /** Mobile number */
   phone?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 详细地址 {"provCode":"110000","areaCode":"110102","cityCode":"110100","streetCode": "110102012"，"prov":"北京","city":"北京市","area":"西城区","street":"什刹海街道","addressDetail":"详细的地址"} */
+  /** Detailed address {"provCode":"110000","areaCode":"110102","cityCode":"110100","streetCode": "110102012","prov":"Beijing","city":"Beijing City","area":"Xicheng District","street":"Shichahai Subdistrict","addressDetail":"detailed address"} */
   addressContext?: string;
-  /** 街道id 无则取上一级地址id */
+  /** Street id; use the previous-level address id if none */
   streetId?: Long;
 }
 
@@ -2006,9 +2006,9 @@ export const AliexpressAscpPickupQueryPickupAvailableDateContactInfoDTOSchema: S
   };
 
 export interface AliexpressAscpPickupQueryPickupAvailableDatedataObject {
-  /** 可揽收的日历集合 */
+  /** Set of calendar dates available for pickup */
   dateList?: Array<string>;
-  /** 可揽收的日历集合 */
+  /** Set of calendar dates available for pickup */
   dateTimeSlot?: Record<string, unknown>;
 }
 
@@ -2019,15 +2019,15 @@ export const AliexpressAscpPickupQueryPickupAvailableDatedataObjectSchema: Schem
   };
 
 export interface AliexpressAscpPickupQueryPickupAvailableDateErpPickupDateQueryDTO {
-  /** 发货单集合,JIT日历场景请传入入库单(批次约揽) */
+  /** Collection of shipment orders. For the JIT calendar scenario, pass the inbound order (batch pickup appointment) */
   relatedOrderNumberList?: Array<string>;
-  /** 全托管租户 */
+  /** Fully-managed tenant */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 发货地址 */
+  /** Shipping address */
   contactInfoDto?: AliexpressAscpPickupQueryPickupAvailableDateContactInfoDTO;
-  /** 仓发场景发货单-传入CO,JIT场景传PO */
+  /** Shipment order in the warehouse shipping scenario - pass CO; in the JIT scenario pass PO */
   bizOrderType?: string;
 }
 
@@ -2047,11 +2047,11 @@ export const AliexpressAscpPickupQueryPickupAvailableDateErpPickupDateQueryDTOSc
 export interface AliexpressAscpPickupQueryPickupAvailableDateResult {
   /** - */
   data?: AliexpressAscpPickupQueryPickupAvailableDatedataObject;
-  /** 请求结果 */
+  /** Request result */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMsg?: string;
 }
 
@@ -2068,9 +2068,9 @@ export const AliexpressAscpPickupQueryPickupAvailableDateResultSchema: Schema =
   };
 
 export interface AliexpressAscpPoAppendPickupOrderPackagePickupOrderAppendedDTO {
-  /** 揽收单号 */
+  /** Pickup order number */
   pickupOrderCode?: string;
-  /** 新增大包号列表 */
+  /** Newly added large package number list */
   packageOrderCodes?: Array<string>;
 }
 
@@ -2081,13 +2081,13 @@ export const AliexpressAscpPoAppendPickupOrderPackagePickupOrderAppendedDTOSchem
   };
 
 export interface AliexpressAscpPoAppendPickupOrderPackagePickupOrderAppendedRequest {
-  /** 揽收单号 */
+  /** Pickup order number */
   pickupOrderCode?: string;
-  /** 追加大包数量,单次<30,总量小于50. */
+  /** Number of big bags to add, less than 30 per time, total less than 50. */
   packageNum?: string;
-  /** 业务租户Id，全托管 场景请填写 5110000, choice2.0(AEG)场景填: 288000,具体可咨询业务 */
+  /** Business tenant Id. For fully managed scenarios fill in 5110000, for choice2.0 (AEG) scenarios fill in: 288000; consult the business for details */
   bizType?: number;
-  /** 渠道seller id(可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: string;
 }
 
@@ -2100,13 +2100,13 @@ export const AliexpressAscpPoAppendPickupOrderPackagePickupOrderAppendedRequestS
   };
 
 export interface AliexpressAscpPoAppendPickupOrderPackageWriteResult {
-  /** 返回结果数据 */
+  /** Returned result data */
   data?: AliexpressAscpPoAppendPickupOrderPackagePickupOrderAppendedDTO;
-  /** 异常错误码 */
+  /** Exception error code */
   errorCode?: string;
-  /** 异常错误信息 */
+  /** Exception error message */
   errorMsg?: string;
-  /** 请求request编码-用于排查问题 */
+  /** Request request code - used for troubleshooting */
   requestNo?: string;
 }
 
@@ -2124,15 +2124,15 @@ export const AliexpressAscpPoAppendPickupOrderPackageWriteResultSchema: Schema =
   };
 
 export interface AliexpressAscpPoCancelErpPurchaseOrderCancelRequest {
-  /** 入库单号 */
+  /** Inbound order number */
   purchaseOrderNo?: string;
-  /** 业务租户编码，AEG场景请填写AEGDCHAIN */
+  /** Business tenant code. For the AEG scenario, enter AEGDCHAIN */
   merchantCode?: string;
-  /** 业务租户Id，AEG场景请填写288000 */
+  /** Business tenant ID. For the AEG scenario, enter 288000 */
   bizType?: string;
-  /** 入库单取消原因 */
+  /** Inbound order cancellation reason */
   cancelReason?: string;
-  /** 渠道seller id（可以在这个API中查询：global.seller.relation.query），全托管此字段必填，请使用business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id, 当bizType=288000，即为半托管时，该字段选填 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Required for fully-managed; use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE. When bizType=288000, i.e. semi-managed, this field is optional */
   channelUserId?: Long;
 }
 
@@ -2146,15 +2146,15 @@ export const AliexpressAscpPoCancelErpPurchaseOrderCancelRequestSchema: Schema =
   };
 
 export interface AliexpressAscpPoCancelPickupOrderErpPickupOrderCancelRequestDTO {
-  /** 揽收单号 */
+  /** Pickup order number */
   pickupOrderNumber?: string;
-  /** 是否系统操作 */
+  /** Whether it is a system operation */
   systemOperate?: boolean;
-  /** 行业账套 AER 221000，AEG 288000 aechoice 5110000 */
+  /** Industry account set: AER 221000, AEG 288000, aechoice 5110000 */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 取消原因 */
+  /** Cancellation reason */
   cancelReason?: string;
 }
 
@@ -2168,11 +2168,11 @@ export const AliexpressAscpPoCancelPickupOrderErpPickupOrderCancelRequestDTOSche
   };
 
 export interface AliexpressAscpPoCancelPickupOrderResult {
-  /** 是否取消成功 */
+  /** Whether cancellation succeeded */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -2183,11 +2183,11 @@ export const AliexpressAscpPoCancelPickupOrderResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoCancelSelfDeliveryResult {
-  /** 是否取消成功 */
+  /** Whether cancellation succeeded */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -2198,13 +2198,13 @@ export const AliexpressAscpPoCancelSelfDeliveryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoCancelSelfDeliverySelfDeliveryCancelRequestDTO {
-  /** 取消原因 */
+  /** Cancellation reason */
   cancelReason?: string;
-  /** 自寄单号 */
+  /** Self-delivery order number */
   selfDeliveryNo?: string;
-  /** 行业账套 AER 221000，AEG 288000 aechoice 5110000 */
+  /** Industry account set: AER 221000, AEG 288000, aechoice 5110000 */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
 }
 
@@ -2217,11 +2217,11 @@ export const AliexpressAscpPoCancelSelfDeliverySelfDeliveryCancelRequestDTOSchem
   };
 
 export interface AliexpressAscpPoCancelWriteResult {
-  /** 入库单取消是否成功，true成功，false失败 */
+  /** Whether the inbound order cancellation succeeded, true success, false failure */
   success?: boolean;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
 }
 
@@ -2232,23 +2232,23 @@ export const AliexpressAscpPoCancelWriteResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoChangeWarehouseErpJITConsignOrderAddressRequest {
-  /** 省份ID */
+  /** Province ID */
   provinceId?: string;
-  /** 省份名称 */
+  /** Province name */
   province?: string;
-  /** 市ID（市、区、街道不能同时为空） */
+  /** City ID (city, district and street cannot all be empty) */
   cityId?: string;
-  /** 市名称（市、区、街道不能同时为空） */
+  /** City name (city, district and street cannot all be empty) */
   city?: string;
-  /** 区县ID */
+  /** District/county ID */
   countyId?: string;
-  /** 区名称 */
+  /** District name */
   county?: string;
-  /** 街道ID */
+  /** Street ID */
   streetId?: string;
-  /** 街道名 */
+  /** Street name */
   street?: string;
-  /** 具体地址 */
+  /** Specific address */
   address?: string;
 }
 
@@ -2266,9 +2266,9 @@ export const AliexpressAscpPoChangeWarehouseErpJITConsignOrderAddressRequestSche
   };
 
 export interface AliexpressAscpPoChangeWarehouseErpJITConsignOrderChangeWarehouseDetailRequest {
-  /** 业务租户编码，全托管：AECHOICE；半托管：AEFF */
+  /** Business tenant code. Fully managed: AECHOICE; semi-managed: AEFF */
   merchantCode?: string;
-  /** JIT采购入库单 */
+  /** JIT purchase inbound order */
   purchaseOrderNo?: string;
 }
 
@@ -2279,13 +2279,13 @@ export const AliexpressAscpPoChangeWarehouseErpJITConsignOrderChangeWarehouseDet
   };
 
 export interface AliexpressAscpPoChangeWarehouseErpJITConsignOrderChangeWarehouseDetailResult {
-  /** 业务租户编码，全托管：AECHOICE；半托管：AEFF */
+  /** Business tenant code. Fully managed: AECHOICE; semi-managed: AEFF */
   merchantCode?: string;
-  /** JIT采购入库单 */
+  /** JIT purchase inbound order */
   purchaseOrderNo?: string;
-  /** 改仓是否成功 */
+  /** Whether the warehouse change succeeded */
   success?: boolean;
-  /** 改仓失败原因 */
+  /** Warehouse change failure reason */
   message?: string;
 }
 
@@ -2298,17 +2298,17 @@ export const AliexpressAscpPoChangeWarehouseErpJITConsignOrderChangeWarehouseDet
   };
 
 export interface AliexpressAscpPoChangeWarehouseErpJITConsignOrderChangeWarehouseRequest {
-  /** JIT入库单上的仓编码 */
+  /** Warehouse code on the JIT inbound order */
   sourceWarehouseCode?: string;
-  /** JIT入库单上需要新定的仓编码 */
+  /** Warehouse code to be newly designated on the JIT inbound order */
   targetWarehouseCode?: string;
-  /** 发货地址 */
+  /** Shipping address */
   addressRequest?: AliexpressAscpPoChangeWarehouseErpJITConsignOrderAddressRequest;
-  /** JIT入库单列表（支持跨店铺10个） */
+  /** List of JIT inbound orders (cross-store supported, 10) */
   detailRequestList?: Array<AliexpressAscpPoChangeWarehouseErpJITConsignOrderChangeWarehouseDetailRequest>;
-  /** 渠道seller id（可以在这个API中查询：global.seller.relation.query），全托管此字段必填，请使用business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id, 当bizType=288000，即为半托管时，该字段选填 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Required for fully-managed; use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE. When bizType=288000, i.e. semi-managed, this field is optional */
   channelUserId?: Long;
-  /** 业务租户编码，全托管：5110000；半托管：7668000 */
+  /** Business tenant code. Fully managed: 5110000; semi-managed: 7668000 */
   bizType?: number;
 }
 
@@ -2333,11 +2333,11 @@ export const AliexpressAscpPoChangeWarehouseErpJITConsignOrderChangeWarehouseReq
   };
 
 export interface AliexpressAscpPoChangeWarehouseErpJITConsignOrderChangeWarehouseResult {
-  /** JIT入库单上的仓编码 */
+  /** Warehouse code on the JIT inbound order */
   sourceWarehouseCode?: string;
-  /** JIT入库单上需要新定的仓编码 */
+  /** Warehouse code to be newly designated on the JIT inbound order */
   targetWarehouseCode?: string;
-  /** JIT入库单结果明细 */
+  /** JIT inbound order result details */
   detailResultList?: Array<AliexpressAscpPoChangeWarehouseErpJITConsignOrderChangeWarehouseDetailResult>;
 }
 
@@ -2354,13 +2354,13 @@ export const AliexpressAscpPoChangeWarehouseErpJITConsignOrderChangeWarehouseRes
   };
 
 export interface AliexpressAscpPoChangeWarehouseWriteResult {
-  /** 是否成功 */
+  /** Whether successful */
   success?: string;
-  /** 接口失败code */
+  /** API failure code */
   errorCode?: string;
-  /** 接口失败原因 */
+  /** API failure reason */
   errorMsg?: string;
-  /** 返回数据 */
+  /** Returned data */
   data?: AliexpressAscpPoChangeWarehouseErpJITConsignOrderChangeWarehouseResult;
 }
 
@@ -2377,13 +2377,13 @@ export const AliexpressAscpPoChangeWarehouseWriteResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoConfirmPurchaseOrderPurchaseOrderConfirmRequest {
-  /** 采购单号 */
+  /** Purchase order number */
   purchaseOrderNo?: string;
-  /** 行业账套编码 */
+  /** Industry account set code */
   bizType?: number;
-  /** 是否全部确认 JIT传True */
+  /** Whether to confirm all; pass True for JIT */
   allQuantityConfirm?: boolean;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: string;
 }
 
@@ -2396,13 +2396,13 @@ export const AliexpressAscpPoConfirmPurchaseOrderPurchaseOrderConfirmRequestSche
   };
 
 export interface AliexpressAscpPoConfirmPurchaseOrderWriteResult {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 请求id */
+  /** Request ID */
   requestNo?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -2414,9 +2414,9 @@ export const AliexpressAscpPoConfirmPurchaseOrderWriteResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoCreateErpPurchaseOrderCreateItemRequest {
-  /** 计划入库数量 */
+  /** Planned inbound quantity */
   quantity?: Long;
-  /** 货品id */
+  /** Goods ID */
   scItemId?: Long;
 }
 
@@ -2427,23 +2427,23 @@ export const AliexpressAscpPoCreateErpPurchaseOrderCreateItemRequestSchema: Sche
   };
 
 export interface AliexpressAscpPoCreateErpPurchaseOrderCreateRequest {
-  /** 业务租户编码，AEG场景请填写AEGDCHAIN */
+  /** Business tenant code. For the AEG scenario, enter AEGDCHAIN */
   merchantCode?: string;
-  /** 期望上架日期时间戳,单位ms。精度到天即可，更高精度仍然以天为准 */
+  /** Expected listing date timestamp, in ms. Day-level precision is sufficient; higher precision is still treated as day-level */
   eta?: Long;
-  /** 业务租户Id，AEG场景请填写288000 */
+  /** Business tenant ID. For the AEG scenario, enter 288000 */
   bizType?: number;
-  /** 1：快递；2：卡车派送 */
+  /** 1: express; 2: truck delivery */
   deliveryType?: number;
-  /** 入库单备注 */
+  /** Inbound order remarks */
   remark?: string;
-  /** 1：上午；2：下午 */
+  /** 1: morning; 2: afternoon */
   inboundWave?: number;
-  /** 长度不得超过25位，建单请求外部单号，同一个主店铺下需全局唯一，重复时幂等返回之前创建成功的入库单号。建议使用 仓_时间戳 保证全局唯一 */
+  /** Must not exceed 25 characters. External order number of the creation request, must be globally unique under the same main store; if duplicated, the previously created inbound order number is returned idempotently. Recommended: warehouse_timestamp to ensure global uniqueness */
   requestNo?: string;
-  /** 入库单创建明细，品+计划入库数量 */
+  /** Inbound order creation details, product + planned inbound quantity */
   items?: Array<AliexpressAscpPoCreateErpPurchaseOrderCreateItemRequest>;
-  /** 仓编码 */
+  /** Warehouse code */
   storeCode?: string;
 }
 
@@ -2465,17 +2465,17 @@ export const AliexpressAscpPoCreateErpPurchaseOrderCreateRequestSchema: Schema =
   };
 
 export interface AliexpressAscpPoCreatePickupOrderBiWriteResult {
-  /** 接口调用成功时返回揽货单号，失败是为空 */
+  /** Returns the pickup order number when the API call succeeds, empty on failure */
   data?: string;
-  /** 接口调用是否成功 */
+  /** Whether the API call succeeded */
   success?: boolean;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
-  /** 入参中的请求外部单号，用于错误排查 */
+  /** External order number of the request in the input parameters, used for troubleshooting */
   requestNo?: string;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
-  /** 附加参数 */
+  /** Additional parameters */
   attach?: AliexpressAscpPoCreatePickupOrderPickupOrderCreatedDTO;
 }
 
@@ -2493,19 +2493,19 @@ export const AliexpressAscpPoCreatePickupOrderBiWriteResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoCreatePickupOrderContactInfoDTO {
-  /** 区域 */
+  /** Region */
   area?: string;
-  /** 地址 */
+  /** Address */
   address?: string;
-  /** 区域Id */
+  /** Region ID */
   areaId?: Long;
-  /** 电话 */
+  /** Phone */
   phone?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 详细地址 {"provCode":"110000","areaCode":"110102","cityCode":"110100","streetCode": "110102012"，"prov":"北京","city":"北京市","area":"西城区","street":"什刹海街道","addressDetail":"详细的地址"} */
+  /** Detailed address {"provCode":"110000","areaCode":"110102","cityCode":"110100","streetCode": "110102012","prov":"Beijing","city":"Beijing City","area":"Xicheng District","street":"Shichahai Subdistrict","addressDetail":"detailed address"} */
   addressContext?: string;
-  /** 街道地址id */
+  /** Street address ID */
   streetId?: string;
 }
 
@@ -2520,9 +2520,9 @@ export const AliexpressAscpPoCreatePickupOrderContactInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpPoCreatePickupOrderPickupOrderCreatedDTO {
-  /** 大包号 */
+  /** Large package number */
   pickupOrderPackageCodes?: Array<string>;
-  /** 是否批次约揽 */
+  /** Whether it is a batch pickup */
   useStdPackageProtocal?: string;
 }
 
@@ -2533,41 +2533,41 @@ export const AliexpressAscpPoCreatePickupOrderPickupOrderCreatedDTOSchema: Schem
   };
 
 export interface AliexpressAscpPoCreatePickupOrderPickupOrderCreateRequest {
-  /** 单据类型 1:入库单 */
+  /** Document type 1: inbound order */
   orderType?: number;
-  /** 预计揽收时间 yyyy-MM-dd */
+  /** Estimated pickup time yyyy-MM-dd */
   estimatedPickupDate?: string;
-  /** 车型 2: 额定载重2T，核载体积15方，长宽高4.2*1.9*1.9 3: 额定载重12T，核载体积45方，长宽高7.6*2.4*2.7 4: 额定载重15T，核载体积55方，长宽高9.6*2.4*2.7 7: 其它 */
+  /** Vehicle model 2: rated load 2T, load volume 15 cubic meters, length*width*height 4.2*1.9*1.9 3: rated load 12T, load volume 45 cubic meters, length*width*height 7.6*2.4*2.7 4: rated load 15T, load volume 55 cubic meters, length*width*height 9.6*2.4*2.7 7: other */
   carType?: number;
-  /** 业务租户Id，全托管 场景请填写 5110000, choice2.0(AEG)场景填: 288000 */
+  /** Business tenant Id. For fully managed scenarios enter 5110000; for choice2.0 (AEG) scenarios enter: 288000 */
   bizType?: number;
-  /** 预估重量 kg，JIT非必填，仓发必填 */
+  /** Estimated weight in kg, optional for JIT, required for warehouse shipping */
   estimatedWeight?: string;
-  /** 物流方式 1:零担 2:整车 3:其它 */
+  /** Logistics method 1: LTL 2: full truckload 3: other */
   shippingMethod?: number;
-  /** 预估箱数 */
+  /** Estimated number of boxes */
   estimatedBoxNumber?: number;
-  /** 联系人 */
+  /** Contact */
   contactInfoDto?: AliexpressAscpPoCreatePickupOrderContactInfoDTO;
-  /** 预估体积 m³，JIT非必填，仓发必填 */
+  /** Estimated volume in m³, optional for JIT, required for warehouse shipping */
   estimatedVolume?: string;
-  /** 采购单号,上限200 */
+  /** Purchase order number, upper limit 200 */
   orderNoList?: Array<string>;
-  /** 物品类型 1:衣服 2:母婴玩具(非食品) 3:运动健康 4:3C数码 5:汽车用品 6:其他 */
+  /** Item type 1: clothing 2: maternal, infant and toys (non-food) 3: sports and health 4: 3C digital 5: auto supplies 6: other */
   goodsType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 异常处理方式, 0代表退回 */
+  /** Exception handling method, 0 means return */
   returnType?: number;
-  /** 异常退货联系人 */
+  /** Abnormal return contact */
   returnContactInfoDto?: AliexpressAscpPoCreatePickupOrderContactInfoDTO;
-  /** 预估揽收费用 */
+  /** Estimated pickup fee */
   estimatedFee?: string;
-  /** 预计揽收时间窗口-开始（yyyy-MM-dd HH:mm:ss），若商家填写需校验约揽时间切片有效性，即校验BY时间切片可用窗口期填写，平台会提供揽收可约时间日历查询接口，若查询异常情况或者无时间切片返回时，ISV不传值即可 */
+  /** Estimated pickup time window start (yyyy-MM-dd HH:mm:ss). If the merchant fills it in, the validity of the pickup time slot must be verified, i.e. it must be filled within the available time slot window; the platform provides a pickup appointment calendar query API. If the query fails or no time slots are returned, the ISV does not need to pass a value */
   expectedPickTimeStart?: string;
-  /** 预计揽收时间窗口-结束（yyyy-MM-dd HH:mm:ss），若商家填写需校验约揽时间切片有效性，即校验BY时间切片可用窗口期填写，平台会提供揽收可约时间日历查询接口，若查询异常情况或者无时间切片返回时，ISV不传值即可 */
+  /** Estimated pickup time window end (yyyy-MM-dd HH:mm:ss). If the merchant fills it in, the validity of the pickup time slot must be verified, i.e. it must be filled within the available time slot window; the platform provides a pickup appointment calendar query API. If the query fails or no time slots are returned, the ISV does not need to pass a value */
   expectedPickTimeEnd?: string;
-  /** ISV接口版本 02 标识升级至jit批次揽，在全量升级前，该字段标记调用方是否主动升级到批次揽流程中。 ⚠️即使商家实组只有一个大包场景，也需传该值，平台内部识别该字段标记调用方是否主动升级到批次揽流程中，在平台要求的全量切换时间点后不再消费该字段，会自动默认走批次揽新流程 */
+  /** ISV API version. 02 indicates an upgrade to the jit batch pickup; before the full upgrade, this field marks whether the caller has proactively upgraded to the batch pickup flow. Note: even if the merchant's actual grouping has only one large-parcel scenario, this value must still be passed; the platform uses this field internally to identify whether the caller has proactively upgraded to the batch pickup flow. After the full switchover time required by the platform, this field is no longer consumed and the new batch pickup flow is used by default */
   version?: number;
 }
 
@@ -2602,13 +2602,13 @@ export const AliexpressAscpPoCreatePickupOrderPickupOrderCreateRequestSchema: Sc
   };
 
 export interface AliexpressAscpPoCreatePickupShippingMarkPdfPickupShippingPrintDTO {
-  /** 揽收单号 */
+  /** Pickup order number */
   pickupOrderNumber?: string;
-  /** 业务租户Id，全托管 场景请填写 5110000, choice2.0(AEG)场景填: 288000 */
+  /** Business tenant Id. For fully managed scenarios enter 5110000; for choice2.0 (AEG) scenarios enter: 288000 */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 全托管支持尺寸: 默认只是全部打印, 不用设置size参数。半托管: 必须设置size参数，1. A4，打印货品明细；2. 100 * 100尺寸, 不包含货品明细。 */
+  /** Fully managed supported sizes: by default everything is printed, no need to set the size parameter. Semi-managed: the size parameter must be set. 1. A4, prints goods details; 2. 100 * 100 size, does not include goods details. */
   size?: string;
 }
 
@@ -2621,13 +2621,13 @@ export const AliexpressAscpPoCreatePickupShippingMarkPdfPickupShippingPrintDTOSc
   };
 
 export interface AliexpressAscpPoCreatePickupShippingMarkPdfResult {
-  /** 接口调用成功时返回 pdf 地址，失败是为空 */
+  /** Returns the pdf address when the API call succeeds, empty on failure */
   data?: string;
-  /** 接口调用是否成功 */
+  /** Whether the API call succeeded */
   success?: boolean;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
 }
 
@@ -2639,9 +2639,9 @@ export const AliexpressAscpPoCreatePickupShippingMarkPdfResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoCreateScItemBarcodePdfGoodsInfo {
-  /** 货品id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 生产年月 */
+  /** Production year and month */
   productionDate?: string;
 }
 
@@ -2651,15 +2651,15 @@ export const AliexpressAscpPoCreateScItemBarcodePdfGoodsInfoSchema: Schema = {
 };
 
 export interface AliexpressAscpPoCreateScItemBarcodePdfResult {
-  /** 接口调用成功时返回pdf地址，失败是为空 */
+  /** Returns the pdf address when the API call succeeds, empty on failure */
   data?: string;
-  /** 接口调用是否成功 */
+  /** Whether the API call succeeded */
   success?: boolean;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
-  /** 店铺loginId */
+  /** Store loginId */
   cnId?: string;
 }
 
@@ -2672,21 +2672,21 @@ export const AliexpressAscpPoCreateScItemBarcodePdfResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoCreateScItemBarcodePdfScItemBarCodePrintRequest {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelUserId?: Long;
-  /** 全托管和半托管支持尺寸（必填）: 1. SIZE_60_30: 60mm*30mm；2. SIZE_60_60: 60mm*60mm；3. SIZE_60_90: 60mm*90mm；4. SIZE_60_120: 60mm*120mm；5. SIZE_100_100: 100mm*100mm；4. SIZE_100_150: 100mm*150mm； */
+  /** Supported sizes for fully-managed and semi-managed (required): 1. SIZE_60_30: 60mm*30mm; 2. SIZE_60_60: 60mm*60mm; 3. SIZE_60_90: 60mm*90mm; 4. SIZE_60_120: 60mm*120mm; 5. SIZE_100_100: 100mm*100mm; 4. SIZE_100_150: 100mm*150mm; */
   pdfSize?: string;
-  /** 1、如果tag_types为空或者为[GOODS, GOODS_CATEGORY]，会打印条形码标签和品类合规标签，如果该货品没有品类合规标签，那么只会打印条形码标签；2、如果tag_types为[GOODS]，只会打印条形码标签。3、如果tag_types为[GOODS_CATEGORY]，只会品类合规标签。 */
+  /** 1. If tag_types is empty or [GOODS, GOODS_CATEGORY], barcode labels and category compliance labels are printed; if the item has no category compliance label, only the barcode label is printed. 2. If tag_types is [GOODS], only the barcode label is printed. 3. If tag_types is [GOODS_CATEGORY], only the category compliance label is printed. */
   tagTypes?: Array<string>;
-  /** 默认为false，仓发场景可指定true，那么会安装货品维度打印分隔页；JIT场景请不要传。 */
+  /** Default is false. In warehouse-shipment scenarios it can be set to true, in which case separator pages are printed per goods item; do not pass for JIT scenarios. */
   showDividerPage?: string;
-  /** 货品信息list */
+  /** Product information list */
   goodsInfos?: Array<AliexpressAscpPoCreateScItemBarcodePdfGoodsInfo>;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）， 海外托管必填 */
+  /** Channel (can be queried via this API: global.seller.relation.query). Required for overseas managed */
   channel?: string;
-  /** 采购单号 */
+  /** Purchase order number */
   purchaseOrderNo?: string;
-  /** 全托管请填写5110000，半托管请填写7668000，choice2.0(AEG)请填写288000 海外托管请填写10040000 */
+  /** Fully managed: fill in 5110000; semi-managed: fill in 7668000; choice2.0 (AEG): fill in 288000; overseas managed: fill in 10040000 */
   bizType?: number;
 }
 
@@ -2707,15 +2707,15 @@ export const AliexpressAscpPoCreateScItemBarcodePdfScItemBarCodePrintRequestSche
   };
 
 export interface AliexpressAscpPoCreateWriteResult {
-  /** 接口调用成功时返回入库单号，失败是为空 */
+  /** Returns the inbound order number when the API call succeeds, empty on failure */
   data?: string;
-  /** 接口调用是否成功 */
+  /** Whether the API call succeeded */
   success?: boolean;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
-  /** 入参中的请求外部单号，用于错误排查 */
+  /** External order number of the request in the input parameters, used for troubleshooting */
   requestNo?: string;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
 }
 
@@ -2730,11 +2730,11 @@ export const AliexpressAscpPoCreateWriteResultSchema: Schema = {
 export interface AliexpressAscpPoErpConfirmDataResult {
   /** demo */
   data?: AliexpressAscpPoErpConfirmSimpleResult;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 描述 */
+  /** Description */
   errorMsg?: string;
 }
 
@@ -2746,9 +2746,9 @@ export const AliexpressAscpPoErpConfirmDataResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoErpConfirmErpPurchaseOrderConfirmItemRequest {
-  /** 货品id。 all_quantity_confirm == false时，必填。 */
+  /** Goods id. Required when all_quantity_confirm == false. */
   scItemId?: Long;
-  /** 对应货品供应商确认数量。 all_quantity_confirm == false时，必填。 */
+  /** Quantity confirmed by the corresponding goods supplier. Required when all_quantity_confirm == false. */
   confirmQuantity?: Long;
 }
 
@@ -2768,53 +2768,53 @@ export const AliexpressAscpPoErpConfirmSimpleResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoErpPageQueryErpPurchaseOrderOpenResult {
-  /** 备货单是否发货完结(是否可以继续发货)。 */
+  /** Whether the stocking order is fully shipped (whether shipping can continue). */
   deliveryFinish?: boolean;
-  /** 仓联系人 */
+  /** Warehouse contact */
   storeContactName?: string;
-  /** 仓联系电话 */
+  /** Warehouse contact phone */
   storeContactPhone?: string;
-  /** 仓地址 */
+  /** Warehouse address */
   storeAddressDetail?: string;
-  /** 备货单号 */
+  /** Stocking order number */
   purchaseOrderNo?: string;
-  /** 备货单创建时间 */
+  /** Stocking order creation time */
   gmtCreate?: Long;
-  /** 备货单修改时间 */
+  /** Stocking order update time */
   gmtModified?: Long;
-  /** 最晚到仓时间 */
+  /** Latest warehouse arrival time */
   gmtExpectedLatestArrival?: Long;
-  /** 单据类型： 10:普通直入;60:越库/转运; */
+  /** Document type: 10: regular direct inbound; 60: cross-dock/transfer; */
   poType?: number;
-  /** 单据业务状态。("10", "待接单"), ("15", "待发货"), ("20", "待收货/待上架"), ("30", "部分收货/部分上架"), ("40", "收货完成/上架完成/已完成"), ("50", "已终止/已关闭"), ("-99", "已取消/已关闭"); */
+  /** Document business status. ("10", "awaiting acceptance"), ("15", "awaiting shipment"), ("20", "awaiting receipt/awaiting listing"), ("30", "partially received/partially listed"), ("40", "receipt complete/listing complete/completed"), ("50", "terminated/closed"), ("-99", "cancelled/closed"); */
   bizStatus?: string;
-  /** 供应商ID */
+  /** Supplier ID */
   supplierId?: Long;
-  /** 供应商名称 */
+  /** Supplier name */
   supplierName?: string;
-  /** 仓编码 */
+  /** Warehouse code */
   storeCode?: string;
-  /** 仓名称 */
+  /** Warehouse name */
   storeName?: string;
-  /** 单据总SKU个数。 */
+  /** Total number of SKUs in the document. */
   totalSkuCount?: Long;
-  /** 单据总采购数量。 */
+  /** Total purchase quantity of the document. */
   totalQuantity?: Long;
-  /** 扩展字段kv。[k:(v:desc)] [replenishScene: (0:DAILY"日常备货") (1:PROMOTION"大促备货"), (2:OVERSEAS"海外仓备货"), (3:NEW_PRODUCT"新品备货"), (4:SUPER_LINK"商品竞价"), (5:VENDOR_SELF"商家自主备货") ] [aeGdcFclInbound: (1:是否整箱直入)] [isEarlyLoan: (1:是否提前放款)] [aeTradePlatform: (aeVendor3pl:商家履约); (aeVendor:平台履约); (aeVendorLocal:海外履约)] */
+  /** Extended fields as key-value pairs. [k:(v:desc)] [replenishScene: (0:DAILY"daily replenishment") (1:PROMOTION"major promotion replenishment"), (2:OVERSEAS"overseas warehouse replenishment"), (3:NEW_PRODUCT"new product replenishment"), (4:SUPER_LINK"product bidding"), (5:VENDOR_SELF"merchant self-managed replenishment") ] [aeGdcFclInbound: (1:whether full-container direct inbound)] [isEarlyLoan: (1:whether early payout)] [aeTradePlatform: (aeVendor3pl:merchant fulfillment); (aeVendor:platform fulfillment); (aeVendorLocal:overseas fulfillment)] */
   extFields?: string;
-  /** 供应商确认时间 */
+  /** Supplier confirmation time */
   gmtSupplierConfirmPo?: Long;
-  /** 供应商预计发货时间 */
+  /** Supplier's estimated shipping time */
   gmtSupplierPreDelivery?: Long;
-  /** 标签： [2:(URGENT,"紧急")] */
+  /** Label: [2:(URGENT,"urgent")] */
   tagsList?: Array<number>;
-  /** 收货完成时间 */
+  /** Receiving completion time */
   gmtReceiveFinish?: Long;
-  /** 取消时间 */
+  /** Cancellation time */
   gmtCancel?: Long;
-  /** 单据主状态。(10, "待接单"), (15, "待发货"), (20, "待收货/待上架"), (30, "部分收货/部分上架"), (40, "收货完成/上架完成/已完成"), (50, "已终止/已关闭"), (-99, "已取消/已关闭"); */
+  /** Main document status. (10, "awaiting acceptance"), (15, "awaiting shipment"), (20, "awaiting receipt/awaiting listing"), (30, "partially received/partially listed"), (40, "receipt complete/listing complete/completed"), (50, "terminated/closed"), (-99, "cancelled/closed"); */
   orderStatus?: number;
-  /** 终止时间 */
+  /** Termination time */
   gmtTerminate?: Long;
 }
 
@@ -2847,49 +2847,49 @@ export const AliexpressAscpPoErpPageQueryErpPurchaseOrderOpenResultSchema: Schem
   };
 
 export interface AliexpressAscpPoErpPageQueryItemErpPurchaseItemOpenResult {
-  /** 扩展使用（当业务支持一个PO单多个相同sc_item_id场景使用) */
+  /** Extension use (used when the business supports multiple identical sc_item_id in one PO) */
   poLineId?: Long;
-  /** 货品ID */
+  /** Goods ID */
   scItemId?: Long;
-  /** 货品编码 */
+  /** Goods code */
   scItemCode?: string;
-  /** 货品名称 */
+  /** Goods name */
   title?: string;
-  /** 备货数量 */
+  /** Stocking quantity */
   quantity?: Long;
-  /** 确认数量 */
+  /** Confirmed quantity */
   confirmQty?: Long;
-  /** 已创建发货单数 */
+  /** Number of shipment orders created */
   sentQty?: Long;
-  /** 收货正品数量。 */
+  /** Quantity of genuine products received. */
   receivedNormalQty?: Long;
-  /** 扩展使用kv。{productIdList:商品id列表(逗号分隔,可能为空表示不存在)，pictureUrl:商品图片(可能为空表示不存在)，scItemSales7:品维度近7天历史销量，scItemSales14: 品维度近14天历史销量，scItemSales30: 品维度近30天历史销量，scItemStoreGroupSales7: 品仓群近7天历史销量，scItemStoreGroupSales14: 品仓群近14天历史销量，scItemStoreGroupSales30: 品仓群近30天历史销量，scItemFcst7:品维度7天预测销量，scItemFcst14: 品维度14天预测销量，scItemFcst30: 品维度30天预测销量，scItemStoreGroupFcst7: 品仓群近7天预测销量，scItemStoreGroupFcst14: 品仓群近14天预测销量，scItemStoreGroupFcst30: 品仓群近30天预测销量 说明：销量数据精度：支持2位小数，历史销量可见性：全量开放透出，预测销量仅CPFR商家开启后可见 */
+  /** Extension key-value pairs. {productIdList: product ID list (comma-separated, may be empty meaning none exists), pictureUrl: product image (may be empty meaning none exists), scItemSales7: item-level historical sales for the last 7 days, scItemSales14: item-level historical sales for the last 14 days, scItemSales30: item-level historical sales for the last 30 days, scItemStoreGroupSales7: item-warehouse-group historical sales for the last 7 days, scItemStoreGroupSales14: item-warehouse-group historical sales for the last 14 days, scItemStoreGroupSales30: item-warehouse-group historical sales for the last 30 days, scItemFcst7: item-level forecast sales for 7 days, scItemFcst14: item-level forecast sales for 14 days, scItemFcst30: item-level forecast sales for 30 days, scItemStoreGroupFcst7: item-warehouse-group forecast sales for the next 7 days, scItemStoreGroupFcst14: item-warehouse-group forecast sales for the next 14 days, scItemStoreGroupFcst30: item-warehouse-group forecast sales for the next 30 days. Notes: sales data precision: up to 2 decimal places; historical sales visibility: fully open to all; forecast sales are visible only to CPFR merchants after it is enabled */
   extFields?: string;
   /** barcode */
   barcode?: string;
-  /** 收货瑕疵品数量 */
+  /** Quantity of defective products received */
   receivedDefectiveQty?: Long;
-  /** 剩余可发货数量。(等于0时，表示不能继续发货， 其他部分发货场景会自动计算， 默认等于供应商确认数量) */
+  /** Remaining shippable quantity. (When 0, no further shipment is possible; in other partial shipment scenarios it is calculated automatically, and defaults to the quantity confirmed by the supplier) */
   canConsignQty?: Long;
-  /** 最小确认数量 */
+  /** Minimum confirmed quantity */
   minConfirmQty?: Long;
-  /** 长度（mm） */
+  /** Length (mm) */
   length?: Long;
-  /** 宽度（mm） */
+  /** Width (mm) */
   width?: Long;
-  /** 高度（mm） */
+  /** Height (mm) */
   height?: Long;
-  /** 重量（g） */
+  /** Weight (g) */
   weight?: Long;
-  /** 箱规 */
+  /** Carton specification */
   productPcs?: Long;
-  /** 是否箱规管理 */
+  /** Whether carton specification management is enabled */
   isStandardPcsMgt?: boolean;
-  /** 是否CPFR商家, true-是，false-否，为建单时刻快照信息 */
+  /** Whether it is a CPFR seller, true - yes, false - no; snapshot information at the time of order creation */
   cpfrSupplier?: boolean;
-  /** 是否开放销量预测，仅CFPR商家开放且配置开放才可见 */
+  /** Whether sales forecast is open; visible only to CFPR merchants with the configuration enabled */
   cpfrOpenSalesFcst?: boolean;
-  /** 建议接单数量，仅CPFR商家且绑定SKU编码的会返回，当平台无法计算建议量时，可能为空 */
+  /** Suggested order acceptance quantity. Only returned for CPFR sellers with a bound SKU code; may be empty when the platform cannot calculate a suggested quantity */
   sugConfirmQty?: Long;
 }
 
@@ -2922,17 +2922,17 @@ export const AliexpressAscpPoErpPageQueryItemErpPurchaseItemOpenResultSchema: Sc
 export interface AliexpressAscpPoErpPageQueryItemPaginationDataResult {
   /** demo */
   data?: Array<AliexpressAscpPoErpPageQueryItemErpPurchaseItemOpenResult>;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 分页页码 */
+  /** Pagination page number */
   currentPage?: number;
-  /** 明细总数 */
+  /** Total number of details */
   totalCount?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 描述 */
+  /** Description */
   errorMsg?: string;
 }
 
@@ -2952,19 +2952,19 @@ export const AliexpressAscpPoErpPageQueryItemPaginationDataResultSchema: Schema 
   };
 
 export interface AliexpressAscpPoErpPageQueryPaginationDataResult {
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 分页页码 */
+  /** Pagination page number */
   currentPage?: number;
-  /** 明细总数 */
+  /** Total number of details */
   totalCount?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 描述 */
+  /** Description */
   errorMsg?: string;
-  /** 1.备货单(PO单)。 只有收货(正品，瑕疵品)数量，不区分'上架'和'收货'。 */
+  /** 1. Stocking order (PO order). Only the received (good items, defective items) quantity is counted; 'shelved' and 'received' are not distinguished. */
   data?: Array<AliexpressAscpPoErpPageQueryErpPurchaseOrderOpenResult>;
 }
 
@@ -2983,11 +2983,11 @@ export const AliexpressAscpPoErpPageQueryPaginationDataResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoErpUpdatePreDeliveryTimeDataResult {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 描述 */
+  /** Description */
   errorMsg?: string;
   /** demo */
   data?: AliexpressAscpPoErpUpdatePreDeliveryTimeSimpleResult;
@@ -3016,39 +3016,39 @@ export const AliexpressAscpPoErpUpdatePreDeliveryTimeSimpleResultSchema: Schema 
   };
 
 export interface AliexpressAscpPoItemQueryErpPurchaseOrderItemResult {
-  /** 条码 */
+  /** Barcode */
   barcode?: string;
-  /** 商品id */
+  /** Product ID */
   itemId?: string;
-  /** 商品skuId */
+  /** Product skuId */
   skuId?: string;
-  /** sku图片链接 */
+  /** SKU image link */
   skuImg?: string;
-  /** 货品编码Code */
+  /** Product code Code */
   scItemCode?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendFields?: string;
-  /** 未税采购金额，单位元 */
+  /** Purchase amount excluding tax, unit: yuan */
   noTaxPurchaseAmountDec?: string;
-  /** 含税采购金额，单位元 */
+  /** Purchase amount including tax, unit: yuan */
   purchaseAmountDec?: string;
-  /** 未税采购单价，单位元 */
+  /** Unit purchase price excluding tax, unit: yuan */
   noTaxPurchasePriceDec?: string;
-  /** 含税采购单价，单位元 */
+  /** Unit purchase price including tax, unit: yuan */
   purchasePriceDec?: string;
-  /** 税率 */
+  /** Tax rate */
   taxRate?: string;
-  /** 实收残品数量 */
+  /** Actual defective quantity received */
   receivedDefectiveQty?: Long;
-  /** 实收正品数量 */
+  /** Actual genuine quantity received */
   receivedNormalQty?: Long;
-  /** 采购数量 */
+  /** Purchase quantity */
   quantity?: Long;
-  /** 货品名称 */
+  /** Goods name */
   title?: string;
-  /** 货品Id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 采购单号 */
+  /** Purchase order number */
   purchaseOrderNo?: string;
 }
 
@@ -3074,19 +3074,19 @@ export const AliexpressAscpPoItemQueryErpPurchaseOrderItemResultSchema: Schema =
   };
 
 export interface AliexpressAscpPoItemQueryPageQueryResult {
-  /** 明细列表 */
+  /** Detail list */
   dataList?: Array<AliexpressAscpPoItemQueryErpPurchaseOrderItemResult>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 明细总数 */
+  /** Total number of details */
   totalCount?: Long;
 }
 
@@ -3105,15 +3105,15 @@ export const AliexpressAscpPoItemQueryPageQueryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoItemQueryPurchaseOrderItemQueryRequest {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 业务租户Id，全托管 场景请填写 5110000, choice2.0(AEG)场景填: 288000 */
+  /** Business tenant Id. For fully managed scenarios enter 5110000; for choice2.0 (AEG) scenarios enter: 288000 */
   bizType?: number;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: Long;
-  /** 采购单号 */
+  /** Purchase order number */
   purchaseOrderNo?: string;
 }
 
@@ -3127,67 +3127,67 @@ export const AliexpressAscpPoItemQueryPurchaseOrderItemQueryRequestSchema: Schem
   };
 
 export interface AliexpressAscpPoPageQueryErpPurchaseOrderResult {
-  /** 供应商名称 */
+  /** Supplier name */
   supplierName?: string;
-  /** 创建人 */
+  /** Creator */
   creator?: string;
-  /** 单据状态 */
+  /** Document status */
   statusDesc?: string;
-  /** 供应商id */
+  /** Supplier ID */
   supplierId?: Long;
-  /** 预计到仓时间 */
+  /** Estimated warehouse arrival time */
   preArriveTime?: Long;
-  /** 创建时间 */
+  /** Creation time */
   gmtCreate?: Long;
-  /** 采购单号 */
+  /** Purchase order number */
   purchaseOrderNo?: string;
-  /** 采购单总金额 */
+  /** Total purchase order amount */
   totalAmount?: string;
-  /** 采购数量 */
+  /** Purchase quantity */
   totalQuantity?: number;
-  /** sku数量 */
+  /** SKU quantity */
   totalSkuCount?: number;
-  /** 仓名 */
+  /** Warehouse name */
   storeName?: string;
-  /** 采购单失效时间 */
+  /** Purchase order expiration time */
   gmtExpiration?: Long;
-  /** 仓code */
+  /** Warehouse code */
   storeCode?: string;
-  /** 单据状态 */
+  /** Document status */
   status?: number;
-  /** 物流单号列表 */
+  /** Logistics tracking number list */
   whcOrderNoList?: Array<string>;
-  /** 已弃用，参考status 1:未发货，2:已发货 */
+  /** Deprecated, refer to status 1: not shipped, 2: shipped */
   pickupStatus?: number;
-  /** 收货人所在国家 */
+  /** Consignee country */
   receiverCountry?: string;
-  /** 揽收单号 */
+  /** Pickup order number */
   pickUpOrderNo?: string;
-  /** 自寄单号 */
+  /** Self-delivery order number */
   selfDeliveryNo?: string;
-  /** 交易主单号 */
+  /** Transaction main order number */
   tradeOrderId?: string;
-  /** 国际出库物流LP单 */
+  /** International outbound logistics LP order */
   lp?: string;
-  /** 仓回传重量, 单位g */
+  /** Weight returned by the warehouse, unit: g */
   packageWeight?: number;
-  /** 仓地址 */
+  /** Warehouse address */
   storeAddressDetail?: string;
-  /** 仓联系人姓名 */
+  /** Warehouse contact name */
   storeContactName?: string;
-  /** 仓联系人电话 */
+  /** Warehouse contact phone */
   storeContactPhone?: string;
-  /** 异常场景下货物处理方式, 0代表退回. */
+  /** Handling method for goods in abnormal scenarios, 0 means return. */
   returnType?: number;
-  /** 退回场景下, 商家填的联系人 */
+  /** Contact person filled in by the merchant in the return scenario */
   returnContactName?: string;
-  /** 退回场景下, 商家填的电话 */
+  /** Phone number filled in by the merchant in the return scenario */
   returnContactPhone?: string;
-  /** 交易订单归属的店铺 */
+  /** Store to which the trade order belongs */
   cnLoginId?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendFields?: string;
-  /** 发货模式 1：自寄，2：揽收，-99: 无发货/发货取消 在如下场景会触发字段的写入或更新： 1. 自寄发货、取消 2. 揽收发货、取消 */
+  /** Shipment mode 1: self-delivery, 2: pickup, -99: no shipment/shipment canceled. The field is written or updated in these scenarios: 1. self-delivery shipment, cancellation 2. pickup shipment, cancellation */
   shippingMode?: string;
 }
 
@@ -3226,7 +3226,7 @@ export const AliexpressAscpPoPageQueryErpPurchaseOrderResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoPageQueryPageQueryResult {
-  /** 是否失败 */
+  /** Whether failed */
   fail?: boolean;
   /** --- */
   data?: Array<AliexpressAscpPoPageQueryErpPurchaseOrderResult>;
@@ -3254,27 +3254,27 @@ export const AliexpressAscpPoPageQueryPageQueryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoPageQueryPurchaseOrderPageQueryRequest {
-  /** 采购单号 */
+  /** Purchase order number */
   purchaseOrderNo?: string;
-  /** 单据类型 10:普通仓发 50:JIT */
+  /** Document type 10: regular warehouse shipping 50: JIT */
   orderType?: number;
-  /** 行业账套 AER 221000，AEG(choice2.0) 288000 aechoice 5110000 */
+  /** Industry account set: AER 221000, AEG (choice2.0) 288000, aechoice 5110000 */
   bizType?: number;
-  /** 当前页 */
+  /** Current page */
   pageIndex?: number;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 单据状态 10:待确认 15:已确认 17:待发货 20:待收货 21:已到仓 30:部分收货 40:收货完成 -99:已取消,不传则返回所有状态的采购单 */
+  /** Document status 10: awaiting confirmation 15: confirmed 17: awaiting shipment 20: awaiting receipt 21: arrived at warehouse 30: partially received 40: receipt completed -99: canceled. If not passed, purchase orders of all statuses are returned */
   status?: number;
   /** "yyyy-MM-dd HH:mm:ss" */
   createTimeBegin?: string;
   /** "yyyy-MM-dd HH:mm:ss" */
   createTimeEnd?: string;
-  /** 渠道seller id（可以在这个API中查询：global.seller.relation.query），全托管此字段必填，请使用business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id, 当bizType=288000，即为半托管时，该字段选填 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Required for fully-managed; use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE. When bizType=288000, i.e. semi-managed, this field is optional */
   channelUserId?: Long;
-  /** 交易主单号 */
+  /** Transaction main order number */
   tradeOrderId?: string;
-  /** 该字段仅支持POP仓发，半托管、全托管不生效，勿传 */
+  /** This field is only supported for POP warehouse shipping; it has no effect for semi-managed and fully managed, do not pass it */
   dataRange?: number;
 }
 
@@ -3294,17 +3294,17 @@ export const AliexpressAscpPoPageQueryPurchaseOrderPageQueryRequestSchema: Schem
   };
 
 export interface AliexpressAscpPoPrintSelfDeliveryMarkPdfErpSelfDeliveryPrintDTO {
-  /** 自送面单号,通过此接口获取：aliexpress.ascp.po.selfdelivery */
+  /** Self-delivery waybill number, obtained via this API: aliexpress.ascp.po.selfdelivery */
   selfDeliveryNo?: string;
-  /** 打印箱数，[1-99]之间 */
+  /** Number of cartons to print, between [1-99] */
   totalBoxCnt?: number;
-  /** 行业账套 aechoice全托管:5110000，AEG:288000 */
+  /** Industry account set: aechoice fully managed: 5110000, AEG: 288000 */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 打印尺寸枚举值："A4","100_100" */
+  /** Print size enum values: "A4","100_100" */
   printSize?: string;
-  /** 打印模式枚举值（1-"只打印唛头", 2-"打印全部信息"），当前仅100_100支持选择打印模式，默认只打印唛头 */
+  /** Print mode enum (1-"print shipping mark only", 2-"print all information"). Currently only 100_100 supports selecting the print mode; by default only the shipping mark is printed. */
   printMode?: number;
 }
 
@@ -3319,13 +3319,13 @@ export const AliexpressAscpPoPrintSelfDeliveryMarkPdfErpSelfDeliveryPrintDTOSche
   };
 
 export interface AliexpressAscpPoPrintSelfDeliveryMarkPdfResult {
-  /** pdf地址 */
+  /** PDF URL */
   data?: string;
-  /** 略 */
+  /** Omitted */
   success?: boolean;
-  /** 略 */
+  /** Omitted */
   errorCode?: string;
-  /** 略 */
+  /** Omitted */
   errorMsg?: string;
 }
 
@@ -3337,13 +3337,13 @@ export const AliexpressAscpPoPrintSelfDeliveryMarkPdfResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoQueryCreateShippingMarkPdfResult {
-  /** 接口调用成功时返回 pdf地址，失败是为空 */
+  /** Returns the pdf address when the API call succeeds, empty on failure */
   data?: string;
-  /** 接口调用是否成功. */
+  /** Whether the API call succeeded. */
   success?: boolean;
-  /** 错误编码. */
+  /** Error code. */
   errorCode?: string;
-  /** 错误描述. */
+  /** Error description. */
   errorMsg?: string;
 }
 
@@ -3355,13 +3355,13 @@ export const AliexpressAscpPoQueryCreateShippingMarkPdfResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoQueryCreateShippingMarkPdfShippingPrintDTO {
-  /** 采购单号 */
+  /** Purchase order number */
   purchaseOrderNo?: string;
-  /** 业务租户Id，全托管 场景请填写 5110000 */
+  /** Business tenant ID. For the fully managed scenario, enter 5110000 */
   bizType?: number;
-  /** 送仓箱数 */
+  /** Number of boxes delivered to warehouse */
   boxNumber?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
 }
 
@@ -3374,25 +3374,25 @@ export const AliexpressAscpPoQueryCreateShippingMarkPdfShippingPrintDTOSchema: S
   };
 
 export interface AliexpressAscpPoQueryCreateShippingMarkPdfShippingPrintRequest {
-  /** 采购单号。[指定「采购单号」打印时，仅支持: JIT 模式](采购单号/发货单号，必填，且只能指定一个) */
+  /** Purchase order number. [When printing by purchase order number, only supported for: JIT mode](Purchase order number/shipment order number, required, and only one can be specified) */
   purchaseOrderNo?: string;
-  /** 全托管请填写5110000，半托管请填写7668000，choice2.0(AEG)请填写288000，海托10040000 */
+  /** Fully managed: fill in 5110000; semi-managed: fill in 7668000; choice2.0 (AEG): fill in 288000; overseas managed: 10040000 */
   bizType?: number;
-  /** 送仓箱数 */
+  /** Number of boxes delivered to warehouse */
   boxNumber?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelUserId?: Long;
-  /** 打印的箱唛尺寸。[JIT：仅支持SIZE_100_150(100mm*150mm)、SIZE_100_100(100mm*100mm)、SIZE_60_30(60mm*30mm)、SIZE_60_60(60mm*60mm)，如果不填，默认SIZE_100_150],[全托管-仓发：SIZE_100_100,SIZE_A4,SIZE_A4_MARK(只打印唛头), SIZE_A4_ITEM(只打印货品清单), 必填] */
+  /** Size of the printed carton label. [JIT: only SIZE_100_150 (100mm*150mm), SIZE_100_100 (100mm*100mm), SIZE_60_30 (60mm*30mm), SIZE_60_60 (60mm*60mm) are supported; if not provided, default is SIZE_100_150], [Fully managed - warehouse shipment: SIZE_100_100, SIZE_A4, SIZE_A4_MARK (print the mark only), SIZE_A4_ITEM (print the item list only), required] */
   pdfSize?: string;
-  /** 是否混打（混打是指箱唛、货品标签、品类标签一起打印，当前支持SIZE_100_150(100mm*150mm)、SIZE_100_100(100mm*100mm)、SIZE_60_30(60mm*30mm)、SIZE_60_60(60mm*60mm)四个尺寸） ：1、如果为true，且additional_tag_types为空或【"GOODS", "GOODS_CATEGORY"】，会同时打印箱唛、条形码标签和品类合规标签（前提是有品类合规标签） 2、如果为true，且additional_tag_types为【"GOODS"】，会打印箱唛，条形码标签 3、如果为true，且additional_tag_types为【"GOODS_CATEGORY"】，会打印箱唛，品类合规标签4、如果为false，只打印箱唛，不打印条形码标签和品类合规标签，此情况下则不看additional_tag_types的取值 */
+  /** Whether to print mixed labels (mixed printing means the carton mark, goods label, and category label are printed together; currently supports four sizes: SIZE_100_150 (100mm*150mm), SIZE_100_100 (100mm*100mm), SIZE_60_30 (60mm*30mm), SIZE_60_60 (60mm*60mm)): 1. If true and additional_tag_types is empty or ["GOODS", "GOODS_CATEGORY"], the carton mark, barcode label, and category compliance label are printed together (provided a category compliance label exists). 2. If true and additional_tag_types is ["GOODS"], the carton mark and barcode label are printed. 3. If true and additional_tag_types is ["GOODS_CATEGORY"], the carton mark and category compliance label are printed. 4. If false, only the carton mark is printed, without the barcode label and category compliance label; in this case the value of additional_tag_types is ignored. */
   printBarcode?: boolean;
-  /** 指定全、半托管的货品标签类型，数组，可选值有条形码标签GOODS、品类合规标签GOODS_CATEGORY，可用的组合有: 1. [GOODS, GOODS_CATEGORY]; 2. [GOODS];3[GOODS_CATEGORY] */
+  /** Specifies the label types of fully-managed/semi-managed items, an array; optional values are barcode label GOODS and category compliance label GOODS_CATEGORY; available combinations: 1. [GOODS, GOODS_CATEGORY]; 2. [GOODS]; 3. [GOODS_CATEGORY] */
   additionalTagTypes?: Array<string>;
-  /** 发货单号。[指定「发货单号」打印时，仅支持: 全托管-仓发模式使用](采购单号/发货单号，必填，且只能指定一个。) */
+  /** Shipment order number. [When printing by shipment order number, only supported for: fully managed warehouse-shipment mode](Purchase order number/shipment order number, required, and only one can be specified.) */
   consignOrderNo?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）， 海外托管必填 */
+  /** Channel (can be queried via this API: global.seller.relation.query). Required for overseas managed */
   channel?: string;
-  /** 是否异步，如果异步则返回任务id，需要接受异步结果回告，不传或者false则正常返回文件url */
+  /** Whether asynchronous. If asynchronous, a task id is returned and the asynchronous result must be received via callback; if omitted or false, the file url is returned normally */
   async?: boolean;
 }
 
@@ -3411,43 +3411,43 @@ export const AliexpressAscpPoQueryCreateShippingMarkPdfShippingPrintRequestSchem
   };
 
 export interface AliexpressAscpPoQueryErpPurchaseOrderResult {
-  /** 入库完结时间 */
+  /** Inbound completion time */
   actualInboundTime?: Long;
-  /** 预约单号 */
+  /** Appointment number */
   appointOrderNo?: string;
-  /** 创建人 */
+  /** Creator */
   creator?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendFields?: string;
-  /** 采购单创建时间 */
+  /** Purchase order creation time */
   gmtCreate?: Long;
-  /** 采购单失效时间 */
+  /** Purchase order expiration time */
   gmtExpiration?: Long;
-  /** 物流单号 */
+  /** Logistics tracking number */
   lbxNo?: string;
-  /** 预计到仓时间 */
+  /** Estimated warehouse arrival time */
   preArriveTime?: Long;
-  /** 采购单号 */
+  /** Purchase order number */
   purchaseOrderNo?: string;
-  /** 收货数量 */
+  /** Received quantity */
   receivedQuantity?: Long;
-  /** 单据状态 */
+  /** Document status */
   status?: number;
-  /** 状态描述 */
+  /** Status description */
   statusDesc?: string;
-  /** 仓编码 */
+  /** Warehouse code */
   storeCode?: string;
-  /** 仓名称 */
+  /** Warehouse name */
   storeName?: string;
-  /** 供应商Id */
+  /** Supplier ID */
   supplierId?: Long;
-  /** 供应商名称 */
+  /** Supplier name */
   supplierName?: string;
-  /** 采购单总金额 */
+  /** Total purchase order amount */
   totalAmount?: string;
-  /** 采购单总数量 */
+  /** Total purchase order quantity */
   totalQuantity?: Long;
-  /** 采购单SKU数量 */
+  /** SKU quantity of the purchase order */
   totalSkuCount?: Long;
 }
 
@@ -3474,9 +3474,9 @@ export const AliexpressAscpPoQueryErpPurchaseOrderResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoQueryPickupMergeInfodataObject {
-  /** 是否合单 */
+  /** Whether orders are merged */
   isMerge?: boolean;
-  /** 合并揽收单列表，当is_merge为true时才有值 */
+  /** List of merged pickup orders, has a value only when is_merge is true */
   pickupOrderCodes?: Array<string>;
 }
 
@@ -3486,11 +3486,11 @@ export const AliexpressAscpPoQueryPickupMergeInfodataObjectSchema: Schema = {
 };
 
 export interface AliexpressAscpPoQueryPickupMergeInfoErpPickUpMergeQueryDTO {
-  /** 揽收单号 */
+  /** Pickup order number */
   pickupOrderNumber?: string;
-  /** 业务租户Id，全托管场景：5110000；半托管场景：7668000 */
+  /** Business tenant Id. Fully managed scenario: 5110000; semi-managed scenario: 7668000 */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
 }
 
@@ -3502,13 +3502,13 @@ export const AliexpressAscpPoQueryPickupMergeInfoErpPickUpMergeQueryDTOSchema: S
   };
 
 export interface AliexpressAscpPoQueryPickupMergeInfoResult {
-  /** 揽收单信息 */
+  /** Pickup order information */
   data?: AliexpressAscpPoQueryPickupMergeInfodataObject;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -3524,85 +3524,85 @@ export const AliexpressAscpPoQueryPickupMergeInfoResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoQueryPickupOrderErpPickupOrderDTO {
-  /** 预计揽收送达日期 yyyy-MM-dd（不带时间） */
+  /** Estimated pickup and delivery date yyyy-MM-dd (without time) */
   preArriveTime?: string;
-  /** 揽收失败原因 */
+  /** Pickup failure reason */
   pickupFailedReason?: string;
-  /** 预估体积 m³（不返回小数，不推荐使用） */
+  /** Estimated volume in m³ (no decimals returned, not recommended) */
   estimatedVolume?: number;
-  /** 实际箱数 箱 */
+  /** Actual number of boxes */
   actualBoxNumber?: number;
-  /** 实际揽收日期 yyyy-MM-dd（不带时间） */
+  /** Actual pickup date yyyy-MM-dd (without time) */
   actualPickupTime?: string;
-  /** 实际送达日期 yyyy-MM-dd（不带时间） */
+  /** Actual delivery date yyyy-MM-dd (without time) */
   actualReceivedTime?: string;
-  /** 实际重量 kg（不返回小数，不推荐使用） */
+  /** Actual weight in kg (no decimals returned, not recommended) */
   actualWeight?: number;
-  /** 车型 2: 额定载重2T，核载体积15方，长宽高4.2*1.9*1.9 3: 额定载重12T，核载体积45方，长宽高7.6*2.4*2.7 4: 额定载重15T，核载体积55方，长宽高9.6*2.4*2.7 7: 其它 */
+  /** Vehicle model 2: rated load 2T, load volume 15 cubic meters, length*width*height 4.2*1.9*1.9 3: rated load 12T, load volume 45 cubic meters, length*width*height 7.6*2.4*2.7 4: rated load 15T, load volume 55 cubic meters, length*width*height 9.6*2.4*2.7 7: other */
   carType?: number;
-  /** 揽收车牌号 */
+  /** Pickup vehicle license plate */
   carNo?: string;
-  /** 实际体积 m³（不返回小数，不推荐使用） */
+  /** Actual volume in m³ (no decimals returned, not recommended) */
   actualVolume?: number;
-  /** 联系人地址 */
+  /** Contact address */
   contactAddress?: string;
-  /** 物流单号列表 */
+  /** Logistics tracking number list */
   whcOrderNoList?: Array<string>;
-  /** 取消原因 */
+  /** Cancellation reason */
   cancelReason?: string;
-  /** 实际费用CNY 元（不返回小数，不推荐使用） */
+  /** Actual cost in CNY yuan (no decimals returned, not recommended) */
   actualFee?: number;
-  /** 预估费用CNY 元（不返回小数，不推荐使用） */
+  /** Estimated cost in CNY yuan (no decimals returned, not recommended) */
   estimatedFee?: number;
-  /** 预估揽收时间yyyy-MM-dd */
+  /** Estimated pickup time yyyy-MM-dd */
   estimatedPickupTime?: string;
-  /** 揽收单状态 待揽收 待下发 已下发 已派车 已揽收 已送达 已取消 揽收失败 */
+  /** Pickup order status: pending pickup, pending dispatch, dispatched, vehicle assigned, picked up, delivered, canceled, pickup failed */
   statusDesc?: string;
-  /** 联系人姓名 */
+  /** Contact name */
   contactName?: string;
-  /** 物流方式 1:零担 2:整车 3:其它 */
+  /** Logistics method 1: LTL 2: full truckload 3: other */
   shippingMethod?: number;
-  /** 联系人区域(省市区) */
+  /** Contact area (province/city/district) */
   contactArea?: string;
-  /** 1:衣服 2:母婴玩具(非食品) 3:运动健康 4:3C数码 5:汽车用品 6:其他 */
+  /** 1: clothing 2: maternal, infant and toys (non-food) 3: sports and health 4: 3C digital 5: auto supplies 6: other */
   goodsType?: number;
-  /** 揽收单号 */
+  /** Pickup order number */
   pickupOrderNumber?: string;
-  /** 预估重量 kg（不返回小数，不推荐使用） */
+  /** Estimated weight in kg (no decimals returned, not recommended) */
   estimatedWeight?: number;
-  /** 揽收司机姓名 */
+  /** Pickup driver name */
   driverName?: string;
-  /** 揽收司机电话 */
+  /** Pickup driver phone */
   driverPhone?: string;
-  /** 预估箱数 */
+  /** Estimated number of boxes */
   estimatedBoxNumber?: number;
-  /** 联系人电话 */
+  /** Contact phone number */
   contactPhone?: string;
-  /** 入库单列表 */
+  /** Inbound order list */
   orderNoList?: Array<string>;
-  /** 仓编码 */
+  /** Warehouse code */
   storeCode?: string;
-  /** 预估体积 m³（返回小数，推荐使用） */
+  /** Estimated volume in m³ (decimals returned, recommended) */
   estimatedVolumeDec?: string;
-  /** 实际体积 m³（返回小数，推荐使用） */
+  /** Actual volume in m³ (decimals returned, recommended) */
   actualVolumeDec?: string;
-  /** 预估重量 kg（返回小数，推荐使用） */
+  /** Estimated weight in kg (decimals returned, recommended) */
   estimatedWeightDec?: string;
-  /** 实际重量 kg（返回小数，推荐使用） */
+  /** Actual weight in kg (decimals returned, recommended) */
   actualWeightDec?: string;
-  /** 预估费用CNY 元（返回小数，推荐使用） */
+  /** Estimated cost in CNY yuan (decimals returned, recommended) */
   estimatedFeeDec?: string;
-  /** 实际费用CNY 元（返回小数，推荐使用） */
+  /** Actual cost in CNY yuan (decimals returned, recommended) */
   actualFeeDec?: string;
-  /** 预计揽收送达时间 yyyy-MM-dd HH:mm:ss */
+  /** Estimated pickup and delivery time yyyy-MM-dd HH:mm:ss */
   preArriveTimeHms?: string;
-  /** 实际揽收时间 yyyy-MM-dd HH:mm:ss */
+  /** Actual pickup time yyyy-MM-dd HH:mm:ss */
   actualPickupTimeHms?: string;
-  /** 实际送达时间 yyyy-MM-dd HH:mm:ss */
+  /** Actual delivery time yyyy-MM-dd HH:mm:ss */
   actualReceivedTimeHms?: string;
-  /** 履行侧单号 */
+  /** Fulfillment-side order number */
   fulfillPickupOrderCode?: string;
-  /** 大包信息列表 */
+  /** Large package information list */
   pickupPackageInfo?: Array<AliexpressAscpPoQueryPickupOrderPickupPackageStatusInfoDTO>;
 }
 
@@ -3654,13 +3654,13 @@ export const AliexpressAscpPoQueryPickupOrderErpPickupOrderDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpPoQueryPickupOrderPickupOrderQueryDTO {
-  /** 揽收单号 注： 揽收单 ｜ 发货单 仅填写一个 */
+  /** Pickup order number. Note: fill in only one of pickup order | shipment order */
   pickupOrderNumber?: string;
-  /** 业务租户Id，全托管 场景请填写 5110000, choice2.0(AEG)场景填: 288000 */
+  /** Business tenant Id. For fully managed scenarios enter 5110000; for choice2.0 (AEG) scenarios enter: 288000 */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 发货单号 注： 揽收单 ｜ 发货单 仅填写一个 */
+  /** Shipment order number. Note: fill in only one of pickup order | shipment order */
   consignOrderNo?: string;
 }
 
@@ -3673,13 +3673,13 @@ export const AliexpressAscpPoQueryPickupOrderPickupOrderQueryDTOSchema: Schema =
   };
 
 export interface AliexpressAscpPoQueryPickupOrderPickupPackageStatusInfoDTO {
-  /** 揽收单大包号 */
+  /** Pickup order large package number */
   packageOrderCode?: string;
-  /** 大包当前状态编码 */
+  /** Current status code of the large package */
   status?: string;
-  /** 大包当前节点描述 */
+  /** Description of the current node of the large package */
   statusDesc?: string;
-  /** 操作时间 yyyy-MM-dd HH:mm:ss */
+  /** Operation time yyyy-MM-dd HH:mm:ss */
   operateTime?: string;
 }
 
@@ -3692,13 +3692,13 @@ export const AliexpressAscpPoQueryPickupOrderPickupPackageStatusInfoDTOSchema: S
   };
 
 export interface AliexpressAscpPoQueryPickupOrderResult {
-  /** 揽收单信息 */
+  /** Pickup order information */
   data?: AliexpressAscpPoQueryPickupOrderErpPickupOrderDTO;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -3714,11 +3714,11 @@ export const AliexpressAscpPoQueryPickupOrderResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoQueryPurchaseOrderQueryRequest {
-  /** 渠道seller id（可以在这个API中查询：global.seller.relation.query），全托管此字段必填，请使用business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id, 当bizType=288000，即为半托管时，该字段选填 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Required for fully-managed; use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE. When bizType=288000, i.e. semi-managed, this field is optional */
   channelUserId?: Long;
-  /** 业务租户Id，全托管 场景请填写 5110000, choice2.0(AEG)场景填: 288000 */
+  /** Business tenant Id. For fully managed scenarios enter 5110000; for choice2.0 (AEG) scenarios enter: 288000 */
   bizType?: number;
-  /** 采购单号 */
+  /** Purchase order number */
   purchaseOrderNo?: string;
 }
 
@@ -3729,13 +3729,13 @@ export const AliexpressAscpPoQueryPurchaseOrderQueryRequestSchema: Schema = {
 };
 
 export interface AliexpressAscpPoQueryResult {
-  /** 采购单DTO */
+  /** Purchase order DTO */
   data?: AliexpressAscpPoQueryErpPurchaseOrderResult;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
 }
 
@@ -3747,9 +3747,9 @@ export const AliexpressAscpPoQueryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoQuerysSelfdeliveryAddressBasicInfoDTO {
-  /** 启运港-国家-id */
+  /** Departure port - country - id */
   id?: string;
-  /** 启运港-国家-name */
+  /** Departure port - country - name */
   name?: string;
 }
 
@@ -3760,15 +3760,15 @@ export const AliexpressAscpPoQuerysSelfdeliveryAddressBasicInfoDTOSchema: Schema
   };
 
 export interface AliexpressAscpPoQuerysSelfdeliveryErpSelfDeliveryLogisticsQueryDTO {
-  /** 自寄单号 （自寄单号与发货单号只填写一个） */
+  /** Self-shipping order number (fill in only one of self-shipping order number and shipment order number) */
   selfDeliveryNo?: string;
-  /** 行业账套 aechoice全托管:5110000，AEG:288000 AETK：10040000 */
+  /** Industry account set: aechoice fully managed: 5110000, AEG: 288000, AETK: 10040000 */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 发货单号 注 ： 自寄单号与发货单号只填写一个 */
+  /** Shipment order number. Note: fill in only one of self-shipping order number and shipment order number */
   consignOrderNo?: string;
-  /** AETK租户必填 */
+  /** Required for AETK tenants */
   channel?: string;
 }
 
@@ -3782,23 +3782,23 @@ export const AliexpressAscpPoQuerysSelfdeliveryErpSelfDeliveryLogisticsQueryDTOS
   };
 
 export interface AliexpressAscpPoQuerysSelfdeliveryInternationalLogisticsInfoDTO {
-  /** 运输方式 */
+  /** Transport method */
   transportType?: string;
-  /** 运输方式备注 */
+  /** Transport mode remarks */
   transportTypeRemark?: string;
-  /** 国际头程物流服务商 */
+  /** International first-leg logistics service provider */
   firstLegProvider?: string;
-  /** firstLegProvider=其他时的备注 */
+  /** Remarks when firstLegProvider=other */
   firstLegProviderRemark?: string;
-  /** 国际头程物流单号 */
+  /** International first-leg logistics tracking number */
   firstLegOrderCode?: string;
-  /** 预计发货时间 */
+  /** Estimated shipping time */
   estimatedDeliveryTime?: string;
-  /** 启运港 */
+  /** Port of departure */
   departurePort?: AliexpressAscpPoQuerysSelfdeliveryPortInfoDTO;
-  /** 目的港 */
+  /** Port of destination */
   destinationPort?: AliexpressAscpPoQuerysSelfdeliveryPortInfoDTO;
-  /** 发货地信息 */
+  /** Shipping origin information */
   shippingOrigin?: AliexpressAscpPoQuerysSelfdeliveryShippingOriginDTO;
 }
 
@@ -3828,13 +3828,13 @@ export const AliexpressAscpPoQuerysSelfdeliveryInternationalLogisticsInfoDTOSche
   };
 
 export interface AliexpressAscpPoQuerysSelfdeliveryPortInfoDTO {
-  /** 启运港-国家 */
+  /** Port of departure - country */
   departurePortCountry?: AliexpressAscpPoQuerysSelfdeliveryAddressBasicInfoDTO;
-  /** 启运港-城市 */
+  /** Port of departure - city */
   departurePortCity?: AliexpressAscpPoQuerysSelfdeliveryAddressBasicInfoDTO;
-  /** 目的港-国家 */
+  /** Port of destination - country */
   destinationPortCountry?: AliexpressAscpPoQuerysSelfdeliveryAddressBasicInfoDTO;
-  /** 目的港-城市 */
+  /** Port of destination - city */
   destinationPortCity?: AliexpressAscpPoQuerysSelfdeliveryAddressBasicInfoDTO;
 }
 
@@ -3887,35 +3887,35 @@ export const AliexpressAscpPoQuerysSelfdeliveryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoQuerysSelfdeliverySelfDeliveryLogisticsInfo {
-  /** 自寄单号 */
+  /** Self-delivery order number */
   selfDeliveryNo?: string;
-  /** 修改时间 */
+  /** Update time */
   gmtModified?: Long;
-  /** 关联采购单号 */
+  /** Associated purchase order number */
   relatedPos?: Array<string>;
-  /** 自寄方式描述 */
+  /** Self-delivery method description */
   deliveryTypeDesc?: string;
-  /** 自寄方式 */
+  /** Self-delivery method */
   deliveryType?: number;
-  /** 物流服务商 */
+  /** Logistics service provider */
   logisticsServiceProvider?: string;
-  /** 卡车车牌号 */
+  /** Truck license plate number */
   appointmentLicensePlate?: string;
-  /** 自寄单创建时间 */
+  /** Self-delivery order creation time */
   gmtCreate?: Long;
-  /** 快递单号 */
+  /** Courier tracking number */
   appointmentExpressNoList?: Array<string>;
-  /** 关联的lbx */
+  /** Associated LBX */
   relatedLbxs?: Array<string>;
-  /** 司机手机号 */
+  /** Driver mobile number */
   appointmentPhoneNumber?: string;
-  /** 关联发货单号 */
+  /** Associated shipment order number */
   relatedCos?: Array<string>;
-  /** 状态描述 */
+  /** Status description */
   statusDesc?: string;
-  /** 预估箱数 */
+  /** Estimated number of boxes */
   estimateBoxNumber?: number;
-  /** 发货信息 */
+  /** Shipping information */
   internationalLogisticsInfo?: AliexpressAscpPoQuerysSelfdeliveryInternationalLogisticsInfoDTO;
 }
 
@@ -3944,7 +3944,7 @@ export const AliexpressAscpPoQuerysSelfdeliverySelfDeliveryLogisticsInfoSchema: 
   };
 
 export interface AliexpressAscpPoQuerysSelfdeliveryShippingOriginDTO {
-  /** 发货地信息-国家 */
+  /** Shipping origin information - country */
   addressInfoCountry?: AliexpressAscpPoQuerysSelfdeliveryAddressBasicInfoDTO;
 }
 
@@ -3970,17 +3970,17 @@ export const AliexpressAscpPoSelfdeliveryAddressBasicInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpPoSelfdeliveryContactInfoDTO {
-  /** 区域 */
+  /** Region */
   area?: string;
-  /** 地址 */
+  /** Address */
   address?: string;
-  /** 区域Id */
+  /** Region ID */
   areaId?: Long;
-  /** 电话 */
+  /** Phone */
   phone?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 详细地址 {"provCode":"110000","areaCode":"110102","cityCode":"110100","prov":"北京","city":"北京市","area":"西城区","addressDetail":"详细的地址"} */
+  /** Detailed address {"provCode":"110000","areaCode":"110102","cityCode":"110100","prov":"Beijing","city":"Beijing City","area":"Xicheng District","addressDetail":"detailed address"} */
   addressContext?: string;
 }
 
@@ -3994,41 +3994,41 @@ export const AliexpressAscpPoSelfdeliveryContactInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpPoSelfdeliveryErpLogisticsInfoProcessDTO {
-  /** 国际物流信息 AETK必传 */
+  /** International logistics information; required for AETK */
   internationalLogisticsInfo?: AliexpressAscpPoSelfdeliveryInternationalLogisticsInfoDTO;
-  /** 渠道id AETK必填 */
+  /** Channel id; required for AETK */
   channel?: string;
-  /** 行业账套 aechoice全托管:5110000，AEG:288000 AETK海外托管 10040000 */
+  /** Industry account set: aechoice fully managed: 5110000, AEG: 288000, AETK overseas managed: 10040000 */
   bizType?: number;
-  /** 1 : 快递, 2: 卡车派送 */
+  /** 1: express, 2: truck delivery */
   deliveryType?: number;
-  /** 快递方式必填, 物流服务商 */
+  /** Required for express method, logistics service provider */
   logisticsServiceProvider?: string;
-  /** 卡车派送必填，自送车牌号 */
+  /** Required for truck delivery, license plate of the self-delivery vehicle */
   appointmentLicensePlate?: string;
-  /** 快递方式必填，快递单号 */
+  /** Required for express method, express tracking number */
   appointmentExpressNoList?: Array<string>;
-  /** 物流备注 */
+  /** Logistics remarks */
   logisticsMark?: string;
-  /** 司机手机号 */
+  /** Driver mobile number */
   appointmentPhoneNumber?: string;
-  /** 本次自送的采购单号列表,数量限制[1-99] */
+  /** List of purchase order numbers for this self-delivery, count limit [1-99] */
   purchaseOrderNoList?: Array<string>;
-  /** 预估体积，单位：立方米 */
+  /** Estimated volume, unit: cubic meters */
   estimateGoodsVolume?: Long;
-  /** "JIT"：JIT自送 "STOCK" 仓发 */
+  /** "JIT": JIT self-delivery "STOCK" warehouse shipping */
   selfDeliverySceneCode?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** 异常处理方式, 0代表退回 */
+  /** Exception handling method, 0 means return */
   returnType?: number;
-  /** 异常退货联系人 ｜ 仓发 必须传入作为发货联系人 */
+  /** Abnormal return contact | Must be passed as the shipping contact for warehouse shipping */
   returnContactInfoDto?: AliexpressAscpPoSelfdeliveryContactInfoDTO;
-  /** 发货单列表 */
+  /** Shipment order list */
   consignOrderNoList?: Array<string>;
-  /** 仓发预约到仓时间 */
+  /** Warehouse-shipping appointment arrival time at warehouse */
   estimatedArriveTime?: string;
-  /** 仓发预估箱数 */
+  /** Estimated number of boxes for warehouse shipping */
   estimateBoxNumber?: number;
 }
 
@@ -4063,23 +4063,23 @@ export const AliexpressAscpPoSelfdeliveryErpLogisticsInfoProcessDTOSchema: Schem
   };
 
 export interface AliexpressAscpPoSelfdeliveryInternationalLogisticsInfoDTO {
-  /** 国内发货时必填运输方式：LAND/SEA/AIR/RAIL/OTHER */
+  /** Required for domestic shipping. Transport mode: LAND/SEA/AIR/RAIL/OTHER */
   transportType?: string;
-  /** 运输方式备注 transportType为OTHER时必填 */
+  /** Transport method remarks. Required when transportType is OTHER */
   transportTypeRemark?: string;
-  /** 国内发货时必填 头程服务商：CAINIAO / OTHER */
+  /** Required for domestic shipping. First-leg provider: CAINIAO / OTHER */
   firstLegProvider?: string;
-  /** 国内发货时必填 头程服务商：CAINIAO / OTHER */
+  /** Required for domestic shipping. First-leg provider: CAINIAO / OTHER */
   firstLegProviderRemark?: string;
-  /** 头程单号 国内发货时必填 */
+  /** First-leg order number; required for domestic shipping */
   firstLegOrderCode?: string;
-  /** 预计发货时间（yyyy-MM-dd）任何AETK自寄单场景必填 */
+  /** Estimated shipping time (yyyy-MM-dd). Required in any AETK self-shipping scenario */
   estimatedDeliveryTime?: string;
-  /** 启运港信息 国内发货时必填 */
+  /** Departure port information; required for domestic shipping */
   departurePort?: AliexpressAscpPoSelfdeliveryPortInfoDTO;
-  /** 目的港信息 */
+  /** Destination port information */
   destinationPort?: AliexpressAscpPoSelfdeliveryPortInfoDTO;
-  /** 发货地信息 */
+  /** Shipping origin information */
   shippingOrigin?: AliexpressAscpPoSelfdeliveryShippingOriginDTO;
 }
 
@@ -4109,13 +4109,13 @@ export const AliexpressAscpPoSelfdeliveryInternationalLogisticsInfoDTOSchema: Sc
   };
 
 export interface AliexpressAscpPoSelfdeliveryPortInfoDTO {
-  /** 启运港信息-国家 */
+  /** Departure port information - country */
   departurePortCountry?: AliexpressAscpPoSelfdeliveryAddressBasicInfoDTO;
-  /** 启运港信息-城市 */
+  /** Departure port information - city */
   departurePortCity?: AliexpressAscpPoSelfdeliveryAddressBasicInfoDTO;
-  /** 目的港信息-国家 */
+  /** Destination port information - country */
   destinationPortCountry?: AliexpressAscpPoSelfdeliveryAddressBasicInfoDTO;
-  /** 目的港信息-城市 */
+  /** Destination port information - city */
   destinationPortCity?: AliexpressAscpPoSelfdeliveryAddressBasicInfoDTO;
 }
 
@@ -4143,13 +4143,13 @@ export const AliexpressAscpPoSelfdeliveryPortInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpPoSelfdeliveryResult {
-  /** 自送面单号 */
+  /** Self-delivery waybill number */
   data?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 略 */
+  /** Omitted */
   errorCode?: string;
-  /** 略 */
+  /** Omitted */
   errorMsg?: string;
 }
 
@@ -4161,7 +4161,7 @@ export const AliexpressAscpPoSelfdeliveryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoSelfdeliveryShippingOriginDTO {
-  /** 发货地信息-国家 */
+  /** Shipping origin information - country */
   shippingOriginCountry?: AliexpressAscpPoSelfdeliveryAddressBasicInfoDTO;
 }
 
@@ -4174,9 +4174,9 @@ export const AliexpressAscpPoSelfdeliveryShippingOriginDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpPoUpdateImeiCodesErpJITConsignOrderImeiCodesRequest {
-  /** 采购单号 */
+  /** Purchase order number */
   consignOrderNo?: string;
-  /** 略 */
+  /** Omitted */
   items?: Array<AliexpressAscpPoUpdateImeiCodesErpJITConsignOrderItemImeiCodeRequest>;
 }
 
@@ -4192,9 +4192,9 @@ export const AliexpressAscpPoUpdateImeiCodesErpJITConsignOrderImeiCodesRequestSc
   };
 
 export interface AliexpressAscpPoUpdateImeiCodesErpJITConsignOrderItemImeiCodeRequest {
-  /** imei码，单据下该货品的数量有几个，imei码就有几个 */
+  /** IMEI code; there are as many IMEI codes as the quantity of this item on the document */
   imeiCodes?: Array<string>;
-  /** 货品id */
+  /** Goods ID */
   scItemId?: Long;
 }
 
@@ -4205,9 +4205,9 @@ export const AliexpressAscpPoUpdateImeiCodesErpJITConsignOrderItemImeiCodeReques
   };
 
 export interface AliexpressAscpPoUpdateImeiCodesErpJITItemImeiResult {
-  /** 货品id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 单据明细层错误信息 */
+  /** Error message at the document detail level */
   errorMessage?: string;
 }
 
@@ -4218,11 +4218,11 @@ export const AliexpressAscpPoUpdateImeiCodesErpJITItemImeiResultSchema: Schema =
   };
 
 export interface AliexpressAscpPoUpdateImeiCodesErpJITOrderImeiCodesResult {
-  /** jit单号 */
+  /** JIT order number */
   consignOrderNo?: string;
-  /** 单据层错误信息 */
+  /** Document-level error message */
   errorMessage?: string;
-  /** 单据明细层校验结果 */
+  /** Validation result at the document detail level */
   itemResults?: Array<AliexpressAscpPoUpdateImeiCodesErpJITItemImeiResult>;
 }
 
@@ -4238,9 +4238,9 @@ export const AliexpressAscpPoUpdateImeiCodesErpJITOrderImeiCodesResultSchema: Sc
   };
 
 export interface AliexpressAscpPoUpdateImeiCodesErpJITUpdateImeiCodesResult {
-  /** 是否全部成功 */
+  /** Whether all succeeded */
   allSuccess?: boolean;
-  /** 单据层校验结果 */
+  /** Document-level validation result */
   orderResults?: Array<AliexpressAscpPoUpdateImeiCodesErpJITOrderImeiCodesResult>;
 }
 
@@ -4255,13 +4255,13 @@ export const AliexpressAscpPoUpdateImeiCodesErpJITUpdateImeiCodesResultSchema: S
   };
 
 export interface AliexpressAscpPoUpdateImeiCodesWriteResult {
-  /** 略 */
+  /** Omitted */
   data?: AliexpressAscpPoUpdateImeiCodesErpJITUpdateImeiCodesResult;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -4277,9 +4277,9 @@ export const AliexpressAscpPoUpdateImeiCodesWriteResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoUpdateSelfdeliveryAddressBasicInfoDTO {
-  /** 启运港信息-国家-id */
+  /** Departure port information - country - id */
   id?: string;
-  /** 启运港信息-国家-name */
+  /** Departure port information - country - name */
   name?: string;
 }
 
@@ -4290,17 +4290,17 @@ export const AliexpressAscpPoUpdateSelfdeliveryAddressBasicInfoDTOSchema: Schema
   };
 
 export interface AliexpressAscpPoUpdateSelfdeliveryContactInfoDTO {
-  /** 区域 */
+  /** Region */
   area?: string;
-  /** 地址 */
+  /** Address */
   address?: string;
-  /** 区域Id */
+  /** Region ID */
   areaId?: Long;
-  /** 电话 */
+  /** Phone */
   phone?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 详细地址 {"provCode":"110000","areaCode":"110102","cityCode":"110100","prov":"北京","city":"北京市","area":"西城区","addressDetail":"详细的地址"} */
+  /** Detailed address {"provCode":"110000","areaCode":"110102","cityCode":"110100","prov":"Beijing","city":"Beijing City","area":"Xicheng District","addressDetail":"detailed address"} */
   addressContext?: string;
 }
 
@@ -4316,39 +4316,39 @@ export const AliexpressAscpPoUpdateSelfdeliveryContactInfoDTOSchema: Schema = {
 export interface AliexpressAscpPoUpdateSelfdeliveryErpLogisticsInfoProcessDTO {
   /** - */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: Long;
-  /** "JIT":jit业务 */
+  /** "JIT": jit business */
   selfDeliverySceneCode?: string;
-  /** 本次自寄的采购单列表 */
+  /** List of purchase orders for this self-delivery */
   purchaseOrderNoList?: Array<string>;
-  /** 自寄方式，1:快递，2:卡车 */
+  /** Self-delivery method, 1: express, 2: truck */
   deliveryType?: number;
-  /** 卡车车牌号，卡车方式必填 */
+  /** Truck license plate number, required for truck method */
   appointmentLicensePlate?: string;
-  /** 卡车司机手机号，卡车方式必填 */
+  /** Truck driver mobile number, required for truck method */
   appointmentPhoneNumber?: string;
-  /** 快递公司名称，快递方式必填 */
+  /** Express company name, required for express method */
   logisticsServiceProvider?: string;
-  /** 快递单号列表，快递方式必填 */
+  /** List of express tracking numbers, required for express method */
   appointmentExpressNoList?: Array<string>;
-  /** 物流备注 */
+  /** Logistics remarks */
   logisticsMark?: string;
-  /** 卡车派送的预估体积 */
+  /** Estimated volume for truck delivery */
   estimateGoodsVolume?: Long;
-  /** 自寄单号 */
+  /** Self-delivery order number */
   selfDeliveryNo?: string;
-  /** 异常处理方式, 0代表退回 */
+  /** Exception handling method, 0 means return */
   returnType?: number;
-  /** 异常退货联系人 */
+  /** Abnormal return contact */
   returnContactInfoDto?: AliexpressAscpPoUpdateSelfdeliveryContactInfoDTO;
-  /** 发货单列表，仅限传入一个单号 */
+  /** Shipment order list, only one order number allowed */
   consignOrderNoList?: Array<string>;
-  /** 仓发预估箱数 */
+  /** Estimated number of boxes for warehouse shipping */
   estimateBoxNumber?: number;
-  /** 渠道id AETK必填 */
+  /** Channel id; required for AETK */
   channel?: string;
-  /** 国际物流信息 AETK必传 */
+  /** International logistics information; required for AETK */
   internationalLogisticsInfo?: AliexpressAscpPoUpdateSelfdeliveryInternationalLogisticsInfoDTO;
 }
 
@@ -4384,23 +4384,23 @@ export const AliexpressAscpPoUpdateSelfdeliveryErpLogisticsInfoProcessDTOSchema:
   };
 
 export interface AliexpressAscpPoUpdateSelfdeliveryInternationalLogisticsInfoDTO {
-  /** 国内发货时必填运输方式：LAND/SEA/AIR/RAIL */
+  /** Required for domestic shipping. Transport method: LAND/SEA/AIR/RAIL */
   transportType?: string;
-  /** 运输方式备注 transportType为OTHER时必填 */
+  /** Transport method remarks. Required when transportType is OTHER */
   transportTypeRemark?: string;
-  /** 国内发货时必填 头程服务商：OTHER */
+  /** Required for domestic shipping. First-leg provider: OTHER */
   firstLegProvider?: string;
-  /** 头程服务商： OTHER 时必填 */
+  /** First-leg service provider: required when OTHER */
   firstLegProviderRemark?: string;
-  /** 头程单号 国内发货时必填 */
+  /** First-leg order number; required for domestic shipping */
   firstLegOrderCode?: string;
-  /** 预计发货时间（yyyy-MM-dd）任何AETK自寄单场景必填 */
+  /** Estimated shipping time (yyyy-MM-dd). Required in any AETK self-shipping scenario */
   estimatedDeliveryTime?: string;
-  /** 启运港信息 国内发货时必填 */
+  /** Departure port information; required for domestic shipping */
   departurePort?: AliexpressAscpPoUpdateSelfdeliveryPortInfoDTO;
-  /** 目的港信息 */
+  /** Destination port information */
   destinationPort?: AliexpressAscpPoUpdateSelfdeliveryPortInfoDTO;
-  /** 发货地信息 */
+  /** Shipping origin information */
   shippingOrigin?: AliexpressAscpPoUpdateSelfdeliveryShippingOriginDTO;
 }
 
@@ -4430,13 +4430,13 @@ export const AliexpressAscpPoUpdateSelfdeliveryInternationalLogisticsInfoDTOSche
   };
 
 export interface AliexpressAscpPoUpdateSelfdeliveryPortInfoDTO {
-  /** 启运港信息-国家 */
+  /** Departure port information - country */
   departurePortCountry?: AliexpressAscpPoUpdateSelfdeliveryAddressBasicInfoDTO;
-  /** 启运港信息-城市 */
+  /** Departure port information - city */
   departurePortCity?: AliexpressAscpPoUpdateSelfdeliveryAddressBasicInfoDTO;
-  /** 目的港信息-国家 */
+  /** Destination port information - country */
   destinationPortCountry?: AliexpressAscpPoUpdateSelfdeliveryAddressBasicInfoDTO;
-  /** 目的港信息-城市 */
+  /** Destination port information - city */
   destinationPortCity?: AliexpressAscpPoUpdateSelfdeliveryAddressBasicInfoDTO;
 }
 
@@ -4485,7 +4485,7 @@ export const AliexpressAscpPoUpdateSelfdeliveryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpPoUpdateSelfdeliveryShippingOriginDTO {
-  /** 发货地信息-国家 */
+  /** Shipping origin information - country */
   shippingOriginCountry?: AliexpressAscpPoUpdateSelfdeliveryAddressBasicInfoDTO;
 }
 
@@ -4499,43 +4499,43 @@ export const AliexpressAscpPoUpdateSelfdeliveryShippingOriginDTOSchema: Schema =
   };
 
 export interface AliexpressAscpRoErpPageQueryErpReturnOrderQueryOpenResult {
-  /** 供应商名称 */
+  /** Supplier name */
   supplierName?: string;
-  /** 库存类型 */
+  /** Inventory type */
   inventoryType?: number;
-  /** 供应商ID */
+  /** Supplier ID */
   supplierId?: Long;
-  /** 单据来源 */
+  /** Document source */
   sourceChannel?: number;
-  /** 出库总数量 */
+  /** Total outbound quantity */
   totalReturnQtyDec?: number;
-  /** 开始时间 */
+  /** Start time */
   gmtCreate?: Long;
-  /** 下单总数量 */
+  /** Total ordered quantity */
   totalQtyDec?: number;
-  /** 出库时间 */
+  /** Outbound time */
   gmtOutbound?: Long;
-  /** 退仓原因 */
+  /** Warehouse return reason */
   returnReason?: number;
-  /** LBX单号 */
+  /** LBX order number */
   logisticsNo?: string;
-  /** 租户编码 */
+  /** Tenant code */
   tenantId?: string;
-  /** 业务状态 */
+  /** Business status */
   bizStatus?: string;
-  /** 退仓单编号 */
+  /** Warehouse return order number */
   returnOrderNo?: string;
-  /** 退仓单类型 */
+  /** Warehouse return order type */
   returnType?: number;
-  /** 下单sku数量 */
+  /** Ordered SKU quantity */
   skuCount?: number;
-  /** 仓编码 */
+  /** Warehouse code */
   storeCode?: string;
-  /** 退仓方式 */
+  /** Warehouse return method */
   deliveryType?: number;
-  /** 快递公司名称 */
+  /** Courier company name */
   carriersName?: string;
-  /** 快递单号列表 */
+  /** Courier tracking number list */
   tmsOrderList?: string;
 }
 
@@ -4563,21 +4563,21 @@ export const AliexpressAscpRoErpPageQueryErpReturnOrderQueryOpenResultSchema: Sc
   };
 
 export interface AliexpressAscpRoErpPageQueryItemErpReturnOrderItemQueryOpenResult {
-  /** 库存类型 */
+  /** Inventory type */
   inventoryType?: number;
-  /** 货品名称 */
+  /** Goods name */
   scItemName?: string;
-  /** 出库数量 */
+  /** Outbound quantity */
   returnQtyDec?: number;
-  /** 货品ID */
+  /** Goods ID */
   scItemId?: Long;
-  /** 下单数量 */
+  /** Ordered quantity */
   quantityDec?: number;
-  /** 类目名称 */
+  /** Category name */
   sfCategoryName?: string;
-  /** 货品条码 */
+  /** Goods barcode */
   barcode?: string;
-  /** 退仓单编号 */
+  /** Warehouse return order number */
   returnOrderNo?: string;
 }
 
@@ -4596,17 +4596,17 @@ export const AliexpressAscpRoErpPageQueryItemErpReturnOrderItemQueryOpenResultSc
 export interface AliexpressAscpRoItemQueryPageQueryResult {
   /** dto */
   dataList?: Array<AliexpressAscpRoItemQueryString>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 明细总数 */
+  /** Total number of details */
   totalCount?: Long;
 }
 
@@ -4621,13 +4621,13 @@ export const AliexpressAscpRoItemQueryPageQueryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpRoItemQueryReturnOrderItemQueryDTO {
-  /** 账套编码 */
+  /** Account set code */
   bizType?: number;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: Long;
-  /** 退供单号 */
+  /** Supplier return order number */
   returnOrderNo?: string;
 }
 
@@ -4639,23 +4639,23 @@ export const AliexpressAscpRoItemQueryReturnOrderItemQueryDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpRoItemQueryString {
-  /** 退供单号 */
+  /** Supplier return order number */
   returnOrderNo?: string;
-  /** 货品Id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 货品名称 */
+  /** Goods name */
   title?: string;
-  /** 退供数量 */
+  /** Supplier return quantity */
   quantity?: Long;
-  /** 实际退供数量 */
+  /** Actual supplier return quantity */
   returnQuantity?: Long;
-  /** 库存类型 */
+  /** Inventory type */
   inventoryTypeDesc?: string;
-  /** 税率 */
+  /** Tax rate */
   taxRate?: string;
-  /** 含税退供价，单位分 */
+  /** Return-to-supplier price including tax, unit: cents */
   returnPrice?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendFields?: string;
 }
 
@@ -4672,45 +4672,45 @@ export const AliexpressAscpRoItemQueryStringSchema: Schema = {
 };
 
 export interface AliexpressAscpRoQueryErpReturnOrderDTO {
-  /** 单据创建人 */
+  /** Document creator */
   creator?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendFields?: string;
-  /** 单据创建时间戳 */
+  /** Document creation timestamp */
   gmtCreate?: Long;
-  /** 出库时间戳 */
+  /** Outbound timestamp */
   gmtOutbound?: Long;
-  /** 库存类型描述 */
+  /** Inventory type description */
   inventoryTypeDesc?: string;
-  /** 物流单号 */
+  /** Logistics tracking number */
   lbxNo?: string;
-  /** 退供单号 */
+  /** Supplier return order number */
   returnOrderNo?: string;
-  /** 退供原因 */
+  /** Supplier return reason */
   returnReasonDesc?: string;
-  /** 退供类型 */
+  /** Supplier return type */
   returnTypeDesc?: string;
-  /** 退供SKU数量 */
+  /** Supplier-return SKU quantity */
   skuCount?: Long;
-  /** 状态编码 */
+  /** Status code */
   status?: number;
-  /** 状态描述 */
+  /** Status description */
   statusDesc?: string;
-  /** 仓编码 */
+  /** Warehouse code */
   storeCode?: string;
-  /** 仓名称 */
+  /** Warehouse name */
   storeName?: string;
-  /** 供应商Id */
+  /** Supplier ID */
   supplierId?: Long;
-  /** 供应商名称 */
+  /** Supplier name */
   supplierName?: string;
-  /** 退供总金额,单位分 */
+  /** Total return-to-supplier amount, unit: cents */
   totalAmount?: string;
-  /** 退供总数量 */
+  /** Total supplier return quantity */
   totalQuantity?: Long;
-  /** 实际退供总金额，单位分 */
+  /** Actual total return-to-supplier amount, unit: cents */
   totalReturnAmount?: string;
-  /** 实际退供数量 */
+  /** Actual supplier return quantity */
   totalReturnQuantity?: Long;
 }
 
@@ -4740,11 +4740,11 @@ export const AliexpressAscpRoQueryErpReturnOrderDTOSchema: Schema = {
 export interface AliexpressAscpRoQueryResult {
   /** DTO */
   data?: AliexpressAscpRoQueryErpReturnOrderDTO;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
 }
 
@@ -4756,9 +4756,9 @@ export const AliexpressAscpRoQueryResultSchema: Schema = {
 };
 
 export interface AliexpressAscpRoQueryReturnOrderQueryDTO {
-  /** 账套编码 */
+  /** Account set code */
   bizType?: number;
-  /** 退供单号 */
+  /** Supplier return order number */
   returnOrderNo?: string;
 }
 
@@ -4768,21 +4768,21 @@ export const AliexpressAscpRoQueryReturnOrderQueryDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpRpPlanQueryIsvQueryPlanParamDTO {
-  /** 货品id列表 */
+  /** Goods ID list */
   scItemIds?: Array<Long>;
-  /** 一页查询条数，建议100或50或20，最大100 */
+  /** Number of records per page, 100 or 50 or 20 recommended, maximum 100 */
   pageSize?: number;
-  /** 计划单号列表 */
+  /** Plan number list */
   orderCodes?: Array<string>;
-  /** 经营组织 */
+  /** Operating organization */
   merchantCode?: string;
-  /** 渠道id，全托必填 */
+  /** Channel id, required for full consignment */
   channelSellerId?: string;
-  /** 仓列表 */
+  /** Warehouse list */
   storeCodes?: Array<string>;
-  /** 当前页码 */
+  /** Current page number */
   pageIndex?: number;
-  /** 商品id列表 */
+  /** Product ID list */
   itemIds?: Array<Long>;
 }
 
@@ -4800,17 +4800,17 @@ export const AliexpressAscpRpPlanQueryIsvQueryPlanParamDTOSchema: Schema = {
 export interface AliexpressAscpRpPlanQueryScmBaseResult {
   /** is_retry */
   isRetry?: boolean;
-  /** 错误code */
+  /** Error code */
   code?: Long;
-  /** 成功标识 */
+  /** Success flag */
   success?: boolean;
   /** err_code */
   errCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 返回值,最终结果 */
+  /** Return value, final result */
   model?: string;
   /** new_code */
   newCode?: string;
@@ -4831,13 +4831,13 @@ export const AliexpressAscpRpPlanQueryScmBaseResultSchema: Schema = {
 };
 
 export interface AliexpressAscpSalesplanGetResult {
-  /** 实际数据 */
+  /** Actual data */
   data?: AliexpressAscpSalesplanGetSalesPlanIndexResultDto;
-  /** 是否请求成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -4853,11 +4853,11 @@ export const AliexpressAscpSalesplanGetResultSchema: Schema = {
 };
 
 export interface AliexpressAscpSalesplanGetSalesPlanIndexRequest {
-  /** 全托管请填写AECHOICE，半托管请填写AEFF */
+  /** Enter AECHOICE for fully managed, AEFF for semi-managed */
   merchantCode?: string;
-  /** 货品ID */
+  /** Goods ID */
   scItemId?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelSellerId?: string;
 }
 
@@ -4868,11 +4868,11 @@ export const AliexpressAscpSalesplanGetSalesPlanIndexRequestSchema: Schema = {
 };
 
 export interface AliexpressAscpSalesplanGetSalesPlanIndexResultDto {
-  /** 未来7天销量预测 */
+  /** Sales forecast for the next 7 days */
   salesPlanBy7d?: Long;
-  /** 未来14天销量预测 */
+  /** Sales forecast for the next 14 days */
   salesPlanBy14d?: Long;
-  /** 未来30天销量预测 */
+  /** Sales forecast for the next 30 days */
   salesPlanBy30d?: Long;
 }
 
@@ -4883,29 +4883,29 @@ export const AliexpressAscpSalesplanGetSalesPlanIndexResultDtoSchema: Schema = {
 };
 
 export interface AliexpressAscpScitemCollaborateInboundInvitationConfirmBatchScItemCollaborateUpdateInfoOpenDTO {
-  /** 货品ID */
+  /** Goods ID */
   scItemId?: Long;
-  /** 入仓邀约单ID */
+  /** Warehouse-entry invitation order ID */
   bizOrderId?: string;
-  /** 长 */
+  /** Length */
   length?: number;
-  /** 宽 */
+  /** Width */
   width?: number;
-  /** 高 */
+  /** Height */
   height?: number;
-  /** 重量 */
+  /** Weight */
   weight?: number;
-  /** 货品条码 */
+  /** Goods barcode */
   barCode?: string;
-  /** 物流属性 */
+  /** Logistics attributes */
   logisticsAttributes?: Array<string>;
-  /** 是否管理标准箱规 */
+  /** Whether to manage the standard carton specification */
   isStandardPcsMgt?: boolean;
-  /** 标准箱规数量(是否管理标准箱规为true时，此值必填)范围2~200 */
+  /** Standard carton specification quantity (required when managing standard carton specification is true). Range 2~200 */
   pcs?: Long;
-  /** 是否效期品 */
+  /** Whether it is a shelf-life product */
   isShelfLife?: boolean;
-  /** 保质期天数(是否效期品=true时，此值必填) */
+  /** Shelf life in days (required when the product has a validity period = true) */
   shelfLifeDays?: number;
 }
 
@@ -4926,11 +4926,11 @@ export const AliexpressAscpScitemCollaborateInboundInvitationConfirmBatchScItemC
   };
 
 export interface AliexpressAscpScitemCollaborateInboundInvitationQueryLogisticsAttributesValueDTO {
-  /** 物流属性key */
+  /** Logistics attribute key */
   key?: string;
-  /** 描述 */
+  /** Description */
   value?: string;
-  /** 所有子物流属性 */
+  /** All child logistics attributes */
   subValues?: string;
 }
 
@@ -4942,43 +4942,43 @@ export const AliexpressAscpScitemCollaborateInboundInvitationQueryLogisticsAttri
   };
 
 export interface AliexpressAscpScitemCollaborateInboundInvitationQueryScItemCollaborateInboundInvitationOrderInfoDTO {
-  /** 货品id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 货品名称 */
+  /** Goods name */
   title?: string;
-  /** 照片地址 */
+  /** Photo URL */
   picUrl?: string;
-  /** 入仓邀约单ID */
+  /** Warehouse-entry invitation order ID */
   bizOrderId?: string;
-  /** 入仓邀约仓结束时间-时间戳 */
+  /** End time of the warehouse inbound invitation - timestamp */
   timeoutDate?: Long;
-  /** 入仓邀约仓创建时间-时间戳 */
+  /** Creation time of the warehouse inbound invitation - timestamp */
   startDate?: Long;
-  /** 长 */
+  /** Length */
   length?: number;
-  /** 宽 */
+  /** Width */
   width?: number;
-  /** 高 */
+  /** Height */
   height?: number;
-  /** 重量 */
+  /** Weight */
   weight?: number;
-  /** 条码 */
+  /** Barcode */
   barCode?: string;
-  /** 禁止编辑字段 */
+  /** Non-editable fields */
   forbidEditFields?: string;
-  /** 已选择物流属性 */
+  /** Selected logistics attributes */
   logisticsAttributes?: string;
-  /** 所有物流属性 */
+  /** All logistics attributes */
   alllogisticsAttributes?: Array<AliexpressAscpScitemCollaborateInboundInvitationQueryLogisticsAttributesValueDTO>;
-  /** 是否管理标准箱规 */
+  /** Whether to manage the standard carton specification */
   isStandardPcsMgt?: boolean;
-  /** 标准箱规数量 */
+  /** Standard carton quantity */
   pcs?: Long;
-  /** 是否展示效期模块 */
+  /** Whether to display the shelf life module */
   showShelfLife?: boolean;
-  /** 是否效期品 */
+  /** Whether it is a shelf-life product */
   isShelfLife?: boolean;
-  /** 保质期天数 */
+  /** Shelf life days */
   shelfLifeDays?: number;
 }
 
@@ -5011,9 +5011,9 @@ export const AliexpressAscpScitemCollaborateInboundInvitationQueryScItemCollabor
   };
 
 export interface AliexpressAscpScitemCollaborateInboundInvitationRefuseBatchScItemCollaborateUpdateInfoOpenDTO {
-  /** 货品ID */
+  /** Goods ID */
   scItemId?: Long;
-  /** 入仓邀约单ID */
+  /** Warehouse-entry invitation order ID */
   bizOrderId?: string;
 }
 
@@ -5024,41 +5024,41 @@ export const AliexpressAscpScitemCollaborateInboundInvitationRefuseBatchScItemCo
   };
 
 export interface AliexpressAscpScitemCreateErpScItemCreateDTO {
-  /** 货品条码 */
+  /** Goods barcode */
   whcBarCode?: string;
-  /** 业务租户Id，AEG场景请填写288000 */
+  /** Business tenant ID. For the AEG scenario, enter 288000 */
   bizType?: number;
-  /** 货品编码 */
+  /** Goods code */
   itemCode?: string;
-  /** 长 */
+  /** Length */
   length?: number;
-  /** 危险品类型。枚举如下：air_embargo：航空禁运；is_knife：刀具等管制物品；contain_battery：包含电池；pressure_spray：压力喷雾；other：其他 */
+  /** Dangerous goods type. Enum values: air_embargo: air embargo; is_knife: controlled items such as knives; contain_battery: contains battery; pressure_spray: pressure spray; other: other */
   dangerousType?: string;
-  /** 货品规格 */
+  /** Goods specifications */
   specification?: string;
-  /** 重 */
+  /** Weight */
   weight?: number;
-  /** 是否含电池。1:无电池, 2:内置电池, 3:外置电池 */
+  /** Whether it contains a battery. 1: no battery, 2: built-in battery, 3: external battery */
   includeBattery?: string;
-  /** 货品名称 */
+  /** Goods name */
   title?: string;
-  /** 是否易碎 */
+  /** Whether fragile */
   isHygroscopic?: boolean;
-  /** 毛重 */
+  /** Gross weight */
   gweight?: number;
-  /** 货品声明价值 */
+  /** Declared value of goods */
   customsUnitPrice?: string;
-  /** 是否危险品 */
+  /** Whether it is a hazardous product */
   isDanger?: boolean;
-  /** 宽 */
+  /** Width */
   width?: number;
-  /** 净重 */
+  /** Net weight */
   nweight?: number;
-  /** 高 */
+  /** Height */
   height?: number;
-  /** 是否原箱 */
+  /** Whether original box */
   originBoxPackage?: boolean;
-  /** 扩展字段 */
+  /** Extension field */
   feature?: string;
 }
 
@@ -5084,15 +5084,15 @@ export const AliexpressAscpScitemCreateErpScItemCreateDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpScitemCreateErpWriteResult {
-  /** 创建成功时返回货品Id，失败时为空 */
+  /** Returns the item ID on successful creation, empty on failure */
   data?: Long;
-  /** 接口调用是否成功 */
+  /** Whether the API call succeeded */
   success?: boolean;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
-  /** 货品创建请求序列号，用于问题排查 */
+  /** Serial number of the product creation request, used for troubleshooting */
   requestNo?: string;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
 }
 
@@ -5105,9 +5105,9 @@ export const AliexpressAscpScitemCreateErpWriteResultSchema: Schema = {
 };
 
 export interface AliexpressAscpScitemSeasonCfOpptyInfoQuerybizFeatureListObject {
-  /** 商机特征种类 */
+  /** Business opportunity feature types */
   key?: string;
-  /** 商机特征值 */
+  /** Business opportunity feature value */
   value?: string;
 }
 
@@ -5118,15 +5118,15 @@ export const AliexpressAscpScitemSeasonCfOpptyInfoQuerybizFeatureListObjectSchem
   };
 
 export interface AliexpressAscpScitemSeasonCfOpptyInfoQuerydataObject {
-  /** 叶子类目 */
+  /** Leaf category */
   catId?: Long;
-  /** 特征主题 */
+  /** Feature theme */
   bizTheme?: string;
-  /** 特征照片 */
+  /** Feature photo */
   picUrlList?: Array<string>;
-  /** 商机特征列表 */
+  /** Business opportunity feature list */
   bizFeatureList?: Array<AliexpressAscpScitemSeasonCfOpptyInfoQuerybizFeatureListObject>;
-  /** 商机id */
+  /** Business opportunity ID */
   id?: string;
 }
 
@@ -5145,11 +5145,11 @@ export const AliexpressAscpScitemSeasonCfOpptyInfoQuerydataObjectSchema: Schema 
   };
 
 export interface AliexpressAscpScitemSeasonCfOpptyItemQuerydataObject {
-  /** 商品id */
+  /** Product ID */
   itemId?: Long;
-  /** 是否仓发需求品商机 */
+  /** Whether it is a warehouse-shipping demand product opportunity */
   isWhOppty?: boolean;
-  /** 仓发需求品商机id */
+  /** Warehouse-shipping demand product opportunity id */
   idList?: Array<string>;
 }
 
@@ -5161,13 +5161,13 @@ export const AliexpressAscpScitemSeasonCfOpptyItemQuerydataObjectSchema: Schema 
   };
 
 export interface AliexpressAscpScitemSeasonCfOpptyTagQuerydataObject {
-  /** 标签code */
+  /** Label code */
   tagCode?: string;
-  /** 标签名称 */
+  /** Label name */
   tagName?: string;
-  /** 日历周期信息 */
+  /** Calendar period information */
   tagCalendar?: AliexpressAscpScitemSeasonCfOpptyTagQuerytagCalendarObject;
-  /** 是否存在仓发需求 */
+  /** Whether there is warehouse-shipping demand */
   tagCfOppty?: boolean;
 }
 
@@ -5184,13 +5184,13 @@ export const AliexpressAscpScitemSeasonCfOpptyTagQuerydataObjectSchema: Schema =
   };
 
 export interface AliexpressAscpScitemSeasonCfOpptyTagQuerytagCalendarObject {
-  /** 日历周期类型 */
+  /** Calendar period type */
   calendarCycle?: string;
-  /** 日历周期类型名称 */
+  /** Calendar period type name */
   calendarCycleName?: string;
-  /** 日历周期开始日期 */
+  /** Calendar period start date */
   calendarCycleStartDate?: string;
-  /** 日历周期结束日期 */
+  /** Calendar period end date */
   calendarCycleEndDate?: string;
 }
 
@@ -5203,9 +5203,9 @@ export const AliexpressAscpScitemSeasonCfOpptyTagQuerytagCalendarObjectSchema: S
   };
 
 export interface AliexpressAscpScitemTagPrintErpScItemTagPrintRespDTO {
-  /** 货品id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 打印单URL */
+  /** Print sheet URL */
   url?: string;
 }
 
@@ -5216,49 +5216,49 @@ export const AliexpressAscpScitemTagPrintErpScItemTagPrintRespDTOSchema: Schema 
   };
 
 export interface AliexpressAscpScitemUpdateErpScItemUpdateDTO {
-  /** 业务租户Id，AEG场景请填写288000，全托管填5110000，半托管填 7668000 */
+  /** Business tenant Id. For AEG scenarios enter 288000, fully managed 5110000, semi-managed 7668000 */
   bizType?: number;
-  /** 货品Id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 货品名称 */
+  /** Goods name */
   title?: string;
-  /** 货品规格 */
+  /** Goods specifications */
   specification?: string;
-  /** 是否易碎 */
+  /** Whether fragile */
   isHygroscopic?: boolean;
-  /** 是否危险品 */
+  /** Whether it is a hazardous product */
   isDanger?: boolean;
-  /** 长 */
+  /** Length */
   length?: number;
-  /** 宽 */
+  /** Width */
   width?: number;
-  /** 高 */
+  /** Height */
   height?: number;
-  /** 重 */
+  /** Weight */
   weight?: number;
-  /** 毛重 */
+  /** Gross weight */
   gWeight?: number;
-  /** 净重 */
+  /** Net weight */
   nWeight?: number;
-  /** 货品声明价值 */
+  /** Declared value of goods */
   customsUnitPrice?: string;
-  /** 是否含电池。1:无电池, 2:内置电池, 3:外置电池 */
+  /** Whether it contains a battery. 1: no battery, 2: built-in battery, 3: external battery */
   includeBattery?: string;
-  /** 危险品类型。枚举如下：air_embargo：航空禁运；is_knife：刀具等管制物品；contain_battery：包含电池；pressure_spray：压力喷雾；other：其他 */
+  /** Dangerous goods type. Enum values: air_embargo: air embargo; is_knife: controlled items such as knives; contain_battery: contains battery; pressure_spray: pressure spray; other: other */
   dangerousType?: string;
-  /** 是否原箱 */
+  /** Whether original box */
   originBoxPackage?: boolean;
-  /** 扩展字段, logisticsAttributes 必填。logisticsAttributes 可选值：{"0":"普货","1":"带电带磁","2":"纯电","3":"特货"} */
+  /** Extended field, logisticsAttributes is required. logisticsAttributes optional values: {"0":"general cargo","1":"battery/magnetic","2":"pure battery","3":"special cargo"} */
   feature?: string;
-  /** 渠道卖家id（全托管必填） */
+  /** Channel seller id (required for full consignment) */
   channelUserId?: Long;
-  /** 是否是效期品 */
+  /** Whether it is a shelf-life product */
   isShelfLife?: boolean;
-  /** 保质期天数，isShelfLife=true的时候，这个值必填 */
+  /** Shelf life in days. Required when isShelfLife=true */
   lifecycleDays?: number;
-  /** 商家sku编码 */
+  /** Merchant SKU code */
   supplierSkuCode?: string;
-  /** 是否删除商家sku编码(如果为true则supplier_sku_code字段无效) */
+  /** Whether to delete the seller SKU code (if true, the supplier_sku_code field is ignored) */
   deleteSupplierSkuCode?: boolean;
 }
 
@@ -5288,13 +5288,13 @@ export const AliexpressAscpScitemUpdateErpScItemUpdateDTOSchema: Schema = {
 };
 
 export interface AliexpressAscpScitemUpdateErpWriteResult {
-  /** 货品编辑是否成功 */
+  /** Whether the product edit succeeded */
   success?: boolean;
-  /** 货品创建请求序列号，用于问题排查 */
+  /** Serial number of the product creation request, used for troubleshooting */
   requestNo?: string;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
 }
 
@@ -5308,17 +5308,17 @@ export const AliexpressAscpScitemUpdateErpWriteResultSchema: Schema = {
 export interface AliexpressAscpStockPlanQueryScmBaseResult {
   /** is_retry */
   isRetry?: boolean;
-  /** 错误code */
+  /** Error code */
   code?: Long;
-  /** 成功标识 */
+  /** Success flag */
   success?: boolean;
   /** err_code */
   errCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 返回值,最终结果 */
+  /** Return value, final result */
   model?: string;
   /** new_code */
   newCode?: string;
@@ -5339,19 +5339,19 @@ export const AliexpressAscpStockPlanQueryScmBaseResultSchema: Schema = {
 };
 
 export interface AliexpressAscpWarehouseInventoryQueryPageQueryResult {
-  /** DTO列表 */
+  /** DTO list */
   dataList?: Array<AliexpressAscpWarehouseInventoryQueryWarehouseInventoryDTO>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 查询结果总数 */
+  /** Total number of query results */
   totalCount?: Long;
 }
 
@@ -5371,25 +5371,25 @@ export const AliexpressAscpWarehouseInventoryQueryPageQueryResultSchema: Schema 
   };
 
 export interface AliexpressAscpWarehouseInventoryQueryWarehouseInventoryDTO {
-  /** 仓名称 */
+  /** Warehouse name */
   storeName?: string;
-  /** 仓编码 */
+  /** Warehouse code */
   storeCode?: string;
-  /** 货品条形码 */
+  /** Goods barcode */
   whcBarCode?: string;
-  /** 货品编码 */
+  /** Goods code */
   scItemCode?: string;
-  /** 货品名称 */
+  /** Goods name */
   scItemName?: string;
-  /** 货品Id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 占用数量 */
+  /** Occupied quantity */
   lockQuantity?: string;
-  /** 仓内实际库存数量(包含占用) */
+  /** Actual inventory quantity in the warehouse (including occupied) */
   quantity?: string;
-  /** 扩展字段 */
+  /** Extension field */
   feature?: string;
-  /** 库存类型(1 良品，101 残品) */
+  /** Inventory type (1 good, 101 defective) */
   inventoryType?: number;
 }
 
@@ -5408,17 +5408,17 @@ export const AliexpressAscpWarehouseInventoryQueryWarehouseInventoryDTOSchema: S
   };
 
 export interface AliexpressAscpWarehouseInventoryQueryWarehouseInventoryQueryDTO {
-  /** 账套编码 */
+  /** Account set code */
   bizType?: number;
-  /** 库存类型（1 良品，101 残品） */
+  /** Inventory type (1 good, 101 defective) */
   inventoryType?: number;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: Long;
-  /** 分页大小，最大30 */
+  /** Page size, maximum 30 */
   pageSize?: Long;
-  /** 货品列表，最多30个 */
+  /** Product list, up to 30 */
   scItemIdList?: Array<Long>;
-  /** 仓编码 */
+  /** Warehouse code */
   storeCode?: string;
 }
 
@@ -5434,13 +5434,13 @@ export const AliexpressAscpWarehouseInventoryQueryWarehouseInventoryQueryDTOSche
 
 /** Parameters for `aliexpress.ascp.appoint.queryAppointDate`. */
 export interface AliexpressAscpAppointQueryAppointDateParams {
-  /** 入参 */
+  /** Input parameters */
   param0?: AliexpressAscpAppointQueryAppointDateErpAppointDateQueryDTO;
 }
 
 /** Response of `aliexpress.ascp.appoint.queryAppointDate`. */
 export interface AliexpressAscpAppointQueryAppointDateResponse {
-  /** 预约日期 */
+  /** Appointment date */
   result?: AliexpressAscpAppointQueryAppointDateResult;
 }
 
@@ -5477,7 +5477,7 @@ export interface AliexpressAscpAppointUpdateAppointDateParams {
 
 /** Response of `aliexpress.ascp.appoint.updateAppointDate`. */
 export interface AliexpressAscpAppointUpdateAppointDateResponse {
-  /** 修改结果 */
+  /** Update result */
   result?: AliexpressAscpAppointUpdateAppointDateResult;
 }
 
@@ -5509,15 +5509,15 @@ export const aliexpressAscpAppointUpdateAppointDate: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.co.erp.cancel`. */
 export interface AliexpressAscpCoErpCancelParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id，全托管必填，半托管非必填 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE; required for fully-managed, optional for semi-managed */
   channelUserId?: LongInput;
-  /** 经营组织 {全托管:AECHOICE；半托管：AEFF；海外托管：AETK} */
+  /** Operating organization {fully managed: AECHOICE; semi-managed: AEFF; overseas managed: AETK} */
   merchantCode?: string;
-  /** 发货单号 */
+  /** Shipment order number */
   consignOrderNo?: string;
-  /** 备注取消原因 */
+  /** Cancellation reason remarks */
   cancelReason?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）， 海外托管必填 */
+  /** Channel (can be queried via this API: global.seller.relation.query). Required for overseas managed */
   channel?: string;
 }
 
@@ -5551,15 +5551,15 @@ export const aliexpressAscpCoErpCancel: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.co.erp.create`. */
 export interface AliexpressAscpCoErpCreateParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id，全托管必填，半托管非必填 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE; required for fully-managed, optional for semi-managed */
   channelUserId?: LongInput;
-  /** 经营组织 {全托管:AECHOICE；半托管：AEFF；海外托管：AETK} */
+  /** Operating organization {fully managed: AECHOICE; semi-managed: AEFF; overseas managed: AETK} */
   merchantCode?: string;
-  /** 用于幂等。 商家操作发货一次，{order_source_code} 应该唯一。 例：ERP第一次调用接口，入参本批次发货50件。第二次再次调用接口，入参发货50件。根据该字段判断第二次调用是超时重复调用，还是商家又操作发货50件(总计2个发货单，总发货100件)。 */
+  /** Used for idempotency. Each time the merchant performs a shipment, {order_source_code} should be unique. Example: the first time the ERP calls the API, the input ships 50 items in this batch. The second time it calls the API, the input ships 50 items. This field is used to determine whether the second call is a timeout retry or the merchant shipped another 50 items (2 shipment orders in total, 100 items shipped in total). */
   orderSourceCode?: string;
-  /** 本次发货PO单。最大1单。(本接口为单个创建CO单接口，创建之后CO单据状态为「待发货」。本接口调用1次，会为指定PO单创建1个CO单。需要创建多个CO单请调用多次) */
+  /** PO for this shipment. Maximum 1. (This API creates a single CO; after creation the CO status is "awaiting shipment". Each call creates 1 CO for the specified PO. To create multiple COs, call it multiple times) */
   purchaseOrderList?: Array<AliexpressAscpCoErpCreateErpConsignOrderCreateByPurchaseRequest>;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）， 海外托管必填 */
+  /** Channel (can be queried via this API: global.seller.relation.query). Required for overseas managed */
   channel?: string;
 }
 
@@ -5598,31 +5598,31 @@ export const aliexpressAscpCoErpCreate: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.co.erp.pageQuery`. */
 export interface AliexpressAscpCoErpPageQueryParams {
-  /** 头程单号,最多20 */
+  /** First-leg order number, at most 20 */
   firstLegOrderNoList?: Array<string>;
-  /** 头程履行单号,最多20 */
+  /** First-leg fulfillment order number, at most 20 */
   fulfillFirstLegOrderNoList?: Array<string>;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id，全托管必填，半托管非必填 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE; required for fully-managed, optional for semi-managed */
   channelUserId?: LongInput;
-  /** 经营组织 {全托管:AECHOICE；半托管：AEFF；海外托管：AETK} */
+  /** Operating organization {fully managed: AECHOICE; semi-managed: AEFF; overseas managed: AETK} */
   merchantCode?: string;
-  /** 发货单号 {单号数量:20} 选一{发货单号, 备货单号,LBX单号，揽收单号} */
+  /** Shipment order number {number of order numbers: 20} choose one of {shipment order number, stocking order number, LBX number, pickup number} */
   consignOrderNoList?: Array<string>;
-  /** 备货单号 {单号数量:20} 选一 {发货单号, 备货单号,LBX单号，揽收单号} */
+  /** Stocking order number {number of order numbers: 20} choose one of {shipment order number, stocking order number, LBX number, pickup number} */
   purchaseOrderNo?: string;
-  /** LBX单号 {单号数量:20} 选一{发货单号, 备货单号,LBX单号，揽收单号} */
+  /** LBX number {number of order numbers: 20} choose one of {shipment order number, stocking order number, LBX number, pickup number} */
   logisticsNoList?: Array<string>;
-  /** 揽收单号 {单号数量:20} 选一{发货单号, 备货单号,LBX单号，揽收单号} */
+  /** Pickup number {number of order numbers: 20} choose one of {shipment order number, stocking order number, LBX number, pickup number} */
   pickupNoList?: Array<string>;
-  /** 使用logistics_no_list/pickup_no_list时必填。单据创建开始时间，建单时间范围(即end-begin)需要在180天内。{yyyy-MM-dd HH:mm:ss} */
+  /** Required when using logistics_no_list/pickup_no_list. Document creation start time; the creation time range (i.e. end-begin) must be within 180 days. {yyyy-MM-dd HH:mm:ss} */
   gmtCreateBegin?: string;
-  /** 使用logistics_no_list/pickup_no_list时必填。单据创建结束时间，建单时间范围(即end-begin)需要在180天内。{yyyy-MM-dd HH:mm:ss} */
+  /** Required when using logistics_no_list/pickup_no_list. Document creation end time; the creation time range (i.e. end-begin) must be within 180 days. {yyyy-MM-dd HH:mm:ss} */
   gmtCreateEnd?: string;
-  /** 使用logistics_no_list/pickup_no_list时，填写。当前页，默认1。 */
+  /** Fill in when using logistics_no_list/pickup_no_list. Current page, default 1. */
   pageIndex?: number;
-  /** 使用logistics_no_list/pickup_no_list时，填写。分页大小，最大50个，默认20。 */
+  /** Fill in when using logistics_no_list/pickup_no_list. Page size, maximum 50, default 20. */
   pageSize?: number;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）， 海外托管必填 */
+  /** Channel (can be queried via this API: global.seller.relation.query). Required for overseas managed */
   channel?: string;
 }
 
@@ -5668,17 +5668,17 @@ export const aliexpressAscpCoErpPageQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.co.erp.pageQueryItem`. */
 export interface AliexpressAscpCoErpPageQueryItemParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id，全托管必填，半托管非必填 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE; required for fully-managed, optional for semi-managed */
   channelUserId?: LongInput;
-  /** 经营组织 {全托管:AECHOICE；半托管：AEFF；海外托管：AETK} */
+  /** Operating organization {fully managed: AECHOICE; semi-managed: AEFF; overseas managed: AETK} */
   merchantCode?: string;
-  /** 当前页，默认1。 */
+  /** Current page, default 1. */
   pageIndex?: number;
-  /** 分页大小，最大100个，默认20。 */
+  /** Page size, maximum 100, default 20. */
   pageSize?: number;
-  /** 发货单号 */
+  /** Shipment order number */
   consignOrderNo?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）， 海外托管必填 */
+  /** Channel (can be queried via this API: global.seller.relation.query). Required for overseas managed */
   channel?: string;
 }
 
@@ -5717,17 +5717,17 @@ export const aliexpressAscpCoErpPageQueryItem: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.co.erp.update.deliver.info`. */
 export interface AliexpressAscpCoErpUpdateDeliverInfoParams {
-  /** 同仓货权转移参数 */
+  /** Parameters for same-warehouse ownership transfer */
   localTransferInfo?: AliexpressAscpCoErpUpdateDeliverInfoErpConsignOrderLocalTransferInfoRequest;
-  /** 经营组织 {海外托管：AETK} */
+  /** Business organization {overseas hosting: AETK} */
   merchantCode?: string;
-  /** 发货单号 */
+  /** Shipment order number */
   consignOrderNo?: LongInput;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id, choice2.0(当bizType=288000时)场景下可以不传该参数) */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE; this parameter may be omitted in the choice2.0 scenario (when bizType=288000) */
   channelUserId?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）， 海外托管必填 */
+  /** Channel (can be queried via this API: global.seller.relation.query). Required for overseas managed */
   channel?: string;
-  /** 仓内货权转移填6 */
+  /** Fill 6 for in-warehouse ownership transfer */
   logisticsDeliveryType?: number;
 }
 
@@ -5771,17 +5771,17 @@ export const aliexpressAscpCoErpUpdateDeliverInfo: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.cpfr.createSkuCodeInv`. */
 export interface AliexpressAscpCpfrCreateSkuCodeInvParams {
-  /** 全托管请填写AECHOICE，半托管请填写AEFF */
+  /** Enter AECHOICE for fully managed, AEFF for semi-managed */
   merchantCode?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: LongInput;
-  /** 商家SKU编码对应的库存数据列表,批量上限20个 */
+  /** List of inventory data corresponding to merchant SKU codes, batch limit 20 */
   skuCodeList?: Array<AliexpressAscpCpfrCreateSkuCodeInvSkuCodeInvCreateItem>;
 }
 
 /** Response of `aliexpress.ascp.cpfr.createSkuCodeInv`. */
 export interface AliexpressAscpCpfrCreateSkuCodeInvResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressAscpCpfrCreateSkuCodeInvDataResult;
 }
 
@@ -5821,7 +5821,7 @@ export interface AliexpressAscpFfoItemQueryParams {
 
 /** Response of `aliexpress.ascp.ffo.item.query`. */
 export interface AliexpressAscpFfoItemQueryResponse {
-  /** 接口返回model */
+  /** API return model */
   result?: AliexpressAscpFfoItemQueryResult;
 }
 
@@ -5889,7 +5889,7 @@ export interface AliexpressAscpFroItemQueryParams {
 
 /** Response of `aliexpress.ascp.fro.item.query`. */
 export interface AliexpressAscpFroItemQueryResponse {
-  /** 接口返回model */
+  /** API return model */
   result?: AliexpressAscpFroItemQueryResult;
 }
 
@@ -5951,13 +5951,13 @@ export const aliexpressAscpFroQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.inventory.log.query`. */
 export interface AliexpressAscpInventoryLogQueryParams {
-  /** 查询DTO */
+  /** Query DTO */
   warehouseInventoryLogQueryDto?: AliexpressAscpInventoryLogQueryWarehouseInventoryLogQueryDTO;
 }
 
 /** Response of `aliexpress.ascp.inventory.log.query`. */
 export interface AliexpressAscpInventoryLogQueryResponse {
-  /** 查询出参 */
+  /** Query output parameters */
   result?: AliexpressAscpInventoryLogQueryPageQueryResult;
 }
 
@@ -6057,13 +6057,13 @@ export const aliexpressAscpItemDetail: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.item.logsitics.attribute.query`. */
 export interface AliexpressAscpItemLogsiticsAttributeQueryParams {
-  /** 入参 */
+  /** Input parameters */
   logisticsAttributeQueryReq?: AliexpressAscpItemLogsiticsAttributeQueryLogisticsAttributesQueryDTO;
 }
 
 /** Response of `aliexpress.ascp.item.logsitics.attribute.query`. */
 export interface AliexpressAscpItemLogsiticsAttributeQueryResponse {
-  /** 返回值 */
+  /** Return value */
   result?: AliexpressAscpItemLogsiticsAttributeQuerySingleResponse;
 }
 
@@ -6134,30 +6134,30 @@ export const aliexpressAscpItemQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.item.tagPrint`. */
 export interface AliexpressAscpItemTagPrintParams {
-  /** 商品id */
+  /** Product ID */
   itemId?: LongInput;
   /** skuid */
   skuId?: LongInput;
-  /** 商家编码(租户id) AEGDCHAIN */
+  /** Merchant code (tenant ID) AEGDCHAIN */
   merchantCode?: string;
-  /** 打印模板尺寸 入参值：60_60 or 60_30。 60_60场景下默认打商品标签和品类标签 */
+  /** Print template size. Input values: 60_60 or 60_30. In the 60_60 case, product labels and category labels are printed by default */
   printTemplateSize?: string;
-  /** 重复次数 上限2000 */
+  /** Repeat count, upper limit 2000 */
   replicaCount?: string;
-  /** 打印场景：1、商品标签 2、品类标签 */
+  /** Print scenario: 1. product label 2. category label */
   sceneList?: Array<number>;
   featureMap?: Record<string, unknown>;
 }
 
 /** Response of `aliexpress.ascp.item.tagPrint`. */
 export interface AliexpressAscpItemTagPrintResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
-  /** 错误消息 */
+  /** Error message */
   errMessage?: string;
-  /** 数据集合 */
+  /** Data collection */
   data?: AliexpressAscpItemTagPrintErpItemTagPrintRespDTO;
 }
 
@@ -6228,13 +6228,13 @@ export const aliexpressAscpItemUnBind: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.logisitcsPackage.updateLogisticsPackage`. */
 export interface AliexpressAscpLogisitcsPackageUpdateLogisticsPackageParams {
-  /** 入参 */
+  /** Input parameters */
   param0?: AliexpressAscpLogisitcsPackageUpdateLogisticsPackageErpLogisticsPackageUpdateDTO;
 }
 
 /** Response of `aliexpress.ascp.logisitcsPackage.updateLogisticsPackage`. */
 export interface AliexpressAscpLogisitcsPackageUpdateLogisticsPackageResponse {
-  /** 修改装箱清单返回体 */
+  /** Response body for modifying the packing list */
   result?: AliexpressAscpLogisitcsPackageUpdateLogisticsPackageResult;
 }
 
@@ -6268,13 +6268,13 @@ export const aliexpressAscpLogisitcsPackageUpdateLogisticsPackage: ApiDefinition
 
 /** Parameters for `aliexpress.ascp.onway.inventory.query`. */
 export interface AliexpressAscpOnwayInventoryQueryParams {
-  /** 查询DTO */
+  /** Query DTO */
   onWayInventoryQueryDto?: AliexpressAscpOnwayInventoryQueryOnWayInventoryQueryDTO;
 }
 
 /** Response of `aliexpress.ascp.onway.inventory.query`. */
 export interface AliexpressAscpOnwayInventoryQueryResponse {
-  /** 接口返回model */
+  /** API return model */
   result?: AliexpressAscpOnwayInventoryQueryResult;
 }
 
@@ -6302,19 +6302,19 @@ export const aliexpressAscpOnwayInventoryQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.pickup.queryFulfillWarehouse`. */
 export interface AliexpressAscpPickupQueryFulfillWarehouseParams {
-  /** 业务租户Id，全托管：5110000，半托管：7668000 */
+  /** Business tenant ID. Fully managed: 5110000, semi-managed: 7668000 */
   bizType?: number;
-  /** 发货地址 */
+  /** Shipping address */
   addressDto?: AliexpressAscpPickupQueryFulfillWarehouseAddressDTO;
-  /** 场景码，固定值：JIT */
+  /** Scenario code, fixed value: JIT */
   sceneCode?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: LongInput;
 }
 
 /** Response of `aliexpress.ascp.pickup.queryFulfillWarehouse`. */
 export interface AliexpressAscpPickupQueryFulfillWarehouseResponse {
-  /** 接口出参 */
+  /** API output parameters */
   result?: AliexpressAscpPickupQueryFulfillWarehouseResult;
 }
 
@@ -6394,7 +6394,7 @@ export interface AliexpressAscpPoAppendPickupOrderPackageParams {
 
 /** Response of `aliexpress.ascp.po.appendPickupOrderPackage`. */
 export interface AliexpressAscpPoAppendPickupOrderPackageResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressAscpPoAppendPickupOrderPackageWriteResult;
 }
 
@@ -6427,13 +6427,13 @@ export const aliexpressAscpPoAppendPickupOrderPackage: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.cancel`. */
 export interface AliexpressAscpPoCancelParams {
-  /** 入库单取消DTO，存在主子店铺关系时请登录主店铺 */
+  /** Inbound order cancellation DTO. If a primary-sub store relationship exists, log in to the primary store */
   purchaseOrderCancelRequest?: AliexpressAscpPoCancelErpPurchaseOrderCancelRequest;
 }
 
 /** Response of `aliexpress.ascp.po.cancel`. */
 export interface AliexpressAscpPoCancelResponse {
-  /** 接口出参 */
+  /** API output parameters */
   result?: AliexpressAscpPoCancelWriteResult;
 }
 
@@ -6531,13 +6531,13 @@ export const aliexpressAscpPoCancelSelfDelivery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.change.warehouse`. */
 export interface AliexpressAscpPoChangeWarehouseParams {
-  /** 请求参数 */
+  /** Request parameters */
   purchaseOrderChangeWarehouseRequest?: AliexpressAscpPoChangeWarehouseErpJITConsignOrderChangeWarehouseRequest;
 }
 
 /** Response of `aliexpress.ascp.po.change.warehouse`. */
 export interface AliexpressAscpPoChangeWarehouseResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressAscpPoChangeWarehouseWriteResult;
 }
 
@@ -6570,13 +6570,13 @@ export const aliexpressAscpPoChangeWarehouse: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.confirmPurchaseOrder`. */
 export interface AliexpressAscpPoConfirmPurchaseOrderParams {
-  /** 非JIT不可使用。仅支持AE-JIT单-采购单确认。(比如: AE仓发备货单使用其他接口确认) */
+  /** Cannot be used for non-JIT. Only supports AE-JIT order - purchase order confirmation. (For example: AE warehouse-shipment stocking orders are confirmed using other APIs) */
   param0?: AliexpressAscpPoConfirmPurchaseOrderPurchaseOrderConfirmRequest;
 }
 
 /** Response of `aliexpress.ascp.po.confirmPurchaseOrder`. */
 export interface AliexpressAscpPoConfirmPurchaseOrderResponse {
-  /** 出参 */
+  /** Output */
   result?: AliexpressAscpPoConfirmPurchaseOrderWriteResult;
 }
 
@@ -6609,13 +6609,13 @@ export const aliexpressAscpPoConfirmPurchaseOrder: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.create`. */
 export interface AliexpressAscpPoCreateParams {
-  /** 入库单创建DTO，存在主子店铺关系时，请登录主店铺 */
+  /** Inbound order creation DTO. If a primary-sub store relationship exists, log in to the primary store */
   purchaseOrderCreateRequest?: AliexpressAscpPoCreateErpPurchaseOrderCreateRequest;
 }
 
 /** Response of `aliexpress.ascp.po.create`. */
 export interface AliexpressAscpPoCreateResponse {
-  /** 接口出参 */
+  /** API output parameters */
   result?: AliexpressAscpPoCreateWriteResult;
 }
 
@@ -6643,13 +6643,13 @@ export const aliexpressAscpPoCreate: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.createPickupOrder`. */
 export interface AliexpressAscpPoCreatePickupOrderParams {
-  /** 创建揽收单 */
+  /** Create pickup order */
   param0?: AliexpressAscpPoCreatePickupOrderPickupOrderCreateRequest;
 }
 
 /** Response of `aliexpress.ascp.po.createPickupOrder`. */
 export interface AliexpressAscpPoCreatePickupOrderResponse {
-  /** 接口出参 */
+  /** API output parameters */
   result?: AliexpressAscpPoCreatePickupOrderBiWriteResult;
 }
 
@@ -6687,7 +6687,7 @@ export interface AliexpressAscpPoCreatePickupShippingMarkPdfParams {
 
 /** Response of `aliexpress.ascp.po.createPickupShippingMarkPdf`. */
 export interface AliexpressAscpPoCreatePickupShippingMarkPdfResponse {
-  /** 接口出参 */
+  /** API output parameters */
   result?: AliexpressAscpPoCreatePickupShippingMarkPdfResult;
 }
 
@@ -6720,13 +6720,13 @@ export const aliexpressAscpPoCreatePickupShippingMarkPdf: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.createScItemBarcodePdf`. */
 export interface AliexpressAscpPoCreateScItemBarcodePdfParams {
-  /** 略 */
+  /** Omitted */
   param0?: AliexpressAscpPoCreateScItemBarcodePdfScItemBarCodePrintRequest;
 }
 
 /** Response of `aliexpress.ascp.po.createScItemBarcodePdf`. */
 export interface AliexpressAscpPoCreateScItemBarcodePdfResponse {
-  /** 接口出参 */
+  /** API output parameters */
   result?: AliexpressAscpPoCreateScItemBarcodePdfResult;
 }
 
@@ -6759,19 +6759,19 @@ export const aliexpressAscpPoCreateScItemBarcodePdf: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.erp.confirm`. */
 export interface AliexpressAscpPoErpConfirmParams {
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）， 海外托管必填 */
+  /** Channel (can be queried via this API: global.seller.relation.query). Required for overseas managed */
   channel?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: LongInput;
-  /** 经营组织 {全托管:AECHOICE；半托管：AEFF；海外托管：AETK} */
+  /** Operating organization {fully managed: AECHOICE; semi-managed: AEFF; overseas managed: AETK} */
   merchantCode?: string;
-  /** 备货单号 */
+  /** Stocking order number */
   purchaseOrderNo?: string;
-  /** 预计发货时间 {yyyy-MM-dd}。 时间可选范围：[当天，最晚到仓时间]，可以等于 */
+  /** Estimated shipping time {yyyy-MM-dd}. Selectable range: [today, latest warehouse arrival time], inclusive */
   gmtPreDelivery?: string;
-  /** 确认数量是否等于采购单采购数量{true/false}。 [true: 供应商确认数量=采购单数量] [false: 供应商确认数量!=采购数量，则字段{sc_item_id, confirm_quantity}必填。] */
+  /** Whether the confirmed quantity equals the purchase order quantity {true/false}. [true: supplier confirmed quantity = purchase order quantity] [false: supplier confirmed quantity != purchase quantity, then the fields {sc_item_id, confirm_quantity} are required.] */
   allQuantityConfirm?: boolean;
-  /** 供应商确认不能按照采购单采购数量备货原因。 当all_quantity_confirm == false && confirm_quantity != 采购单备货数量时，必填。 当填写的code不再下列枚举中时，系统无法识别:阻断异常。 {产能不足 未按箱规下单 备货量偏高 销量预测偏高 库存水位偏高 目的仓不可售 仓产能问题 其他} */
+  /** Reason the supplier confirms it cannot stock the purchase order quantity. Required when all_quantity_confirm == false && confirm_quantity != the purchase order stocking quantity. If the code entered is not in the following enum, the system cannot recognize it: blocking exception. {insufficient production capacity, not ordered by carton specification, stocking quantity too high, sales forecast too high, inventory level too high, destination warehouse not sellable, warehouse capacity issue, other} */
   reason?: string;
   /** demo */
   purchaseConfirmItemList?: Array<AliexpressAscpPoErpConfirmErpPurchaseOrderConfirmItemRequest>;
@@ -6814,23 +6814,23 @@ export const aliexpressAscpPoErpConfirm: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.erp.pageQuery`. */
 export interface AliexpressAscpPoErpPageQueryParams {
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）， 海外托管必填 */
+  /** Channel (can be queried via this API: global.seller.relation.query). Required for overseas managed */
   channel?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id, choice2.0(当bizType=288000时)场景下可以不传该参数) */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE; this parameter may be omitted in the choice2.0 scenario (when bizType=288000) */
   channelUserId?: LongInput;
-  /** 经营组织 {全托管:AECHOICE；半托管：AEFF；海外托管：AETK} */
+  /** Operating organization {fully managed: AECHOICE; semi-managed: AEFF; overseas managed: AETK} */
   merchantCode?: string;
-  /** 当前页，默认1。 */
+  /** Current page, default 1. */
   pageIndex?: number;
-  /** 分页大小，最大50个，默认20。 */
+  /** Page size, maximum 50, default 20. */
   pageSize?: number;
-  /** 单据创建开始时间。「不指定备货单号」查询时，必填。建单时间范围(即end-begin)需要在90天内。{yyyy-MM-dd HH:mm:ss} */
+  /** Document creation start time. Required when querying "without specifying a stocking order number". The creation time range (i.e. end-begin) must be within 90 days. {yyyy-MM-dd HH:mm:ss} */
   gmtCreateBegin?: string;
-  /** 单据创建结束时间。「不指定备货单号」查询时，必填。建单时间范围(即end-begin)需要在90天内。{yyyy-MM-dd HH:mm:ss} */
+  /** Document creation end time. Required when querying "without specifying a stocking order number". The creation time range (i.e. end-begin) must be within 90 days. {yyyy-MM-dd HH:mm:ss} */
   gmtCreateEnd?: string;
-  /** 备货单号。(当「指定备货单号」查询时，其他查询条件不生效，只会按照单号查询)最大20个。{["PON1001","PON1002"]} */
+  /** Stocking order numbers. (When querying "with specified stocking order numbers", other query conditions do not take effect and only the order numbers are used.) Maximum 20. {["PON1001","PON1002"]} */
   purchaseOrderNoList?: Array<string>;
-  /** 单据业务状态 */
+  /** Document business status */
   bizStatus?: string;
 }
 
@@ -6872,17 +6872,17 @@ export const aliexpressAscpPoErpPageQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.erp.pageQueryItem`. */
 export interface AliexpressAscpPoErpPageQueryItemParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: LongInput;
-  /** 经营组织 {全托管:AECHOICE；半托管：AEFF；海外托管：AETK} */
+  /** Operating organization {fully managed: AECHOICE; semi-managed: AEFF; overseas managed: AETK} */
   merchantCode?: string;
-  /** 当前页，默认1。 */
+  /** Current page, default 1. */
   pageIndex?: number;
-  /** 分页大小，最大200个，默认20。 */
+  /** Page size, maximum 200, default 20. */
   pageSize?: number;
-  /** 备货单号 */
+  /** Stocking order number */
   purchaseOrderNo?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）， 海外托管必填 */
+  /** Channel (can be queried via this API: global.seller.relation.query). Required for overseas managed */
   channel?: string;
 }
 
@@ -6921,15 +6921,15 @@ export const aliexpressAscpPoErpPageQueryItem: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.erp.updatePreDeliveryTime`. */
 export interface AliexpressAscpPoErpUpdatePreDeliveryTimeParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelUserId?: LongInput;
-  /** 经营组织 {全托管:AECHOICE} */
+  /** Operating organization {fully managed: AECHOICE} */
   merchantCode?: string;
-  /** 备货单号。 待接单、待发货状态PO可修改预计发货时间。 */
+  /** Stocking order number. The estimated shipping time of a PO can be modified in the pending acceptance and pending shipment statuses. */
   purchaseOrderNo?: string;
-  /** 当前PO单记录的预计发货时间 {yyyy-MM-dd}。 */
+  /** Estimated shipping time recorded on the current PO {yyyy-MM-dd}. */
   gmtPreDeliveryOld?: string;
-  /** 新的预计发货时间 {yyyy-MM-dd}。 时间可选范围：[当天，最晚到仓时间]，可以等于 */
+  /** New estimated shipping time {yyyy-MM-dd}. Selectable range: [today, latest warehouse arrival time], inclusive */
   gmtPreDeliveryNew?: string;
 }
 
@@ -7001,7 +7001,7 @@ export const aliexpressAscpPoItemQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.pageQuery`. */
 export interface AliexpressAscpPoPageQueryParams {
-  /** 略 */
+  /** Omitted */
   param0?: AliexpressAscpPoPageQueryPurchaseOrderPageQueryRequest;
 }
 
@@ -7035,13 +7035,13 @@ export const aliexpressAscpPoPageQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.printSelfDeliveryMarkPdf`. */
 export interface AliexpressAscpPoPrintSelfDeliveryMarkPdfParams {
-  /** 略 */
+  /** Omitted */
   param0?: AliexpressAscpPoPrintSelfDeliveryMarkPdfErpSelfDeliveryPrintDTO;
 }
 
 /** Response of `aliexpress.ascp.po.printSelfDeliveryMarkPdf`. */
 export interface AliexpressAscpPoPrintSelfDeliveryMarkPdfResponse {
-  /** 略 */
+  /** Omitted */
   result?: AliexpressAscpPoPrintSelfDeliveryMarkPdfResult;
 }
 
@@ -7074,13 +7074,13 @@ export const aliexpressAscpPoPrintSelfDeliveryMarkPdf: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.query`. */
 export interface AliexpressAscpPoQueryParams {
-  /** 系统自动生成 */
+  /** Automatically generated by the system */
   purchaseOrderQuery?: AliexpressAscpPoQueryPurchaseOrderQueryRequest;
 }
 
 /** Response of `aliexpress.ascp.po.query`. */
 export interface AliexpressAscpPoQueryResponse {
-  /** 服务出参 */
+  /** Service output parameters */
   result?: AliexpressAscpPoQueryResult;
 }
 
@@ -7108,13 +7108,13 @@ export const aliexpressAscpPoQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.query.createShippingMarkPdf`. */
 export interface AliexpressAscpPoQueryCreateShippingMarkPdfParams {
-  /** [全托管-仓发模式，必填参数: (merchant_code, channel_user_id, consign_order_no, pdf_size, box_number)][JIT模式，需要使用(purchase_order_no)] */
+  /** [Fully-managed warehouse-shipping mode, required parameters: (merchant_code, channel_user_id, consign_order_no, pdf_size, box_number)] [JIT mode, use (purchase_order_no)] */
   param0?: AliexpressAscpPoQueryCreateShippingMarkPdfShippingPrintRequest;
 }
 
 /** Response of `aliexpress.ascp.po.query.createShippingMarkPdf`. */
 export interface AliexpressAscpPoQueryCreateShippingMarkPdfResponse {
-  /** 接口出参 */
+  /** API output parameters */
   result?: AliexpressAscpPoQueryCreateShippingMarkPdfResult;
 }
 
@@ -7152,7 +7152,7 @@ export interface AliexpressAscpPoQueryPickupMergeInfoParams {
 
 /** Response of `aliexpress.ascp.po.queryPickupMergeInfo`. */
 export interface AliexpressAscpPoQueryPickupMergeInfoResponse {
-  /** 出参 */
+  /** Output */
   result?: AliexpressAscpPoQueryPickupMergeInfoResult;
 }
 
@@ -7184,13 +7184,13 @@ export const aliexpressAscpPoQueryPickupMergeInfo: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.queryPickupOrder`. */
 export interface AliexpressAscpPoQueryPickupOrderParams {
-  /** 入参 */
+  /** Input parameters */
   param0?: AliexpressAscpPoQueryPickupOrderPickupOrderQueryDTO;
 }
 
 /** Response of `aliexpress.ascp.po.queryPickupOrder`. */
 export interface AliexpressAscpPoQueryPickupOrderResponse {
-  /** 出参 */
+  /** Output */
   result?: AliexpressAscpPoQueryPickupOrderResult;
 }
 
@@ -7253,13 +7253,13 @@ export const aliexpressAscpPoQuerysSelfdelivery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.selfdelivery`. */
 export interface AliexpressAscpPoSelfdeliveryParams {
-  /** 根结点 */
+  /** Root node */
   param0?: AliexpressAscpPoSelfdeliveryErpLogisticsInfoProcessDTO;
 }
 
 /** Response of `aliexpress.ascp.po.selfdelivery`. */
 export interface AliexpressAscpPoSelfdeliveryResponse {
-  /** 根结点 */
+  /** Root node */
   result?: AliexpressAscpPoSelfdeliveryResult;
 }
 
@@ -7287,17 +7287,17 @@ export const aliexpressAscpPoSelfdelivery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.po.update.imei.codes`. */
 export interface AliexpressAscpPoUpdateImeiCodesParams {
-  /** 全托管5110000，半托管7668000 */
+  /** Fully managed 5110000, semi-managed 7668000 */
   bizType?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelUserId?: LongInput;
-  /** 略 */
+  /** Omitted */
   orders?: Array<AliexpressAscpPoUpdateImeiCodesErpJITConsignOrderImeiCodesRequest>;
 }
 
 /** Response of `aliexpress.ascp.po.update.imei.codes`. */
 export interface AliexpressAscpPoUpdateImeiCodesResponse {
-  /** 略 */
+  /** Omitted */
   result?: AliexpressAscpPoUpdateImeiCodesWriteResult;
 }
 
@@ -7366,51 +7366,51 @@ export const aliexpressAscpPoUpdateSelfdelivery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.ro.erp.pageQuery`. */
 export interface AliexpressAscpRoErpPageQueryParams {
-  /** 租户编码 */
+  /** Tenant code */
   merchantCode?: string;
-  /** 分页大小，最大值50，默认值20 */
+  /** Page size, maximum 50, default 20 */
   pageSize?: number;
-  /** 结束时间，格式：yyyy-MM-dd HH:mm:ss */
+  /** End time, format: yyyy-MM-dd HH:mm:ss */
   gmtCreateEnd?: string;
-  /** 分页索引，默认值1， 最大值100 */
+  /** Page index, default 1, maximum 100 */
   pageIndex?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id，全托管必填，半托管非必填 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE; required for fully-managed, optional for semi-managed */
   channelUserId?: LongInput;
-  /** 退供单号数组 */
+  /** Supplier return order number array */
   returnOrderNos?: Array<string>;
-  /** 物流单号数组 */
+  /** Logistics tracking number array */
   logisticsNos?: Array<string>;
-  /** 货品IDlist */
+  /** Product ID list */
   scItemIds?: Array<LongInput>;
-  /** 开始时间，格式：yyyy-MM-dd HH:mm:ss */
+  /** Start time, format: yyyy-MM-dd HH:mm:ss */
   gmtCreateBegin?: string;
-  /** 仓列表 */
+  /** Warehouse list */
   storeCodeList?: Array<string>;
 }
 
 /** Response of `aliexpress.ascp.ro.erp.pageQuery`. */
 export interface AliexpressAscpRoErpPageQueryResponse {
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   fail?: boolean;
-  /** RO信息list */
+  /** RO information list */
   data?: Array<AliexpressAscpRoErpPageQueryErpReturnOrderQueryOpenResult>;
-  /** 总页数 */
+  /** Total pages */
   totalPage?: number;
-  /** 调用是否成功字段 */
+  /** Field indicating whether the call succeeded */
   success?: boolean;
-  /** 成功且有返回值 */
+  /** Success with a return value */
   succAndNotNull?: boolean;
-  /** 每页数量 */
+  /** Quantity per page */
   pageSize?: number;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 当前页 */
+  /** Current page */
   currentPage?: number;
-  /** 总数量 */
+  /** Total quantity */
   totalCount?: number;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
-  /** 错误参数 */
+  /** Error parameters */
   errorParams?: string;
 }
 
@@ -7457,41 +7457,41 @@ export const aliexpressAscpRoErpPageQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.ro.erp.pageQueryItem`. */
 export interface AliexpressAscpRoErpPageQueryItemParams {
-  /** 租户编码 */
+  /** Tenant code */
   merchantCode?: string;
-  /** 分页索引，默认值1， 最大值10 */
+  /** Page index, default 1, maximum 10 */
   pageIndex?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id，全托管必填，半托管非必填 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE; required for fully-managed, optional for semi-managed */
   channelUserId?: LongInput;
-  /** 分页大小，最大值50，默认值20 */
+  /** Page size, maximum 50, default 20 */
   pageSize?: number;
-  /** 退仓单编号 */
+  /** Warehouse return order number */
   returnOrderNo?: string;
 }
 
 /** Response of `aliexpress.ascp.ro.erp.pageQueryItem`. */
 export interface AliexpressAscpRoErpPageQueryItemResponse {
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误参数 */
+  /** Error parameters */
   errorParams?: string;
-  /** 调用成功标识 */
+  /** Call success flag */
   fail?: boolean;
-  /** 数据结构体 */
+  /** Data structure */
   data?: Array<AliexpressAscpRoErpPageQueryItemErpReturnOrderItemQueryOpenResult>;
-  /** 总页数 */
+  /** Total pages */
   totalPage?: number;
-  /** 成功标识 */
+  /** Success flag */
   success?: boolean;
-  /** 成功标识 */
+  /** Success flag */
   succAndNotNull?: boolean;
-  /** 每页数量 */
+  /** Quantity per page */
   pageSize?: number;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 当前页 */
+  /** Current page */
   currentPage?: number;
-  /** 总数量 */
+  /** Total quantity */
   totalCount?: number;
 }
 
@@ -7574,7 +7574,7 @@ export interface AliexpressAscpRoQueryParams {
 
 /** Response of `aliexpress.ascp.ro.query`. */
 export interface AliexpressAscpRoQueryResponse {
-  /** 接口返回model */
+  /** API return model */
   result?: AliexpressAscpRoQueryResult;
 }
 
@@ -7602,13 +7602,13 @@ export const aliexpressAscpRoQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.rp.plan.query`. */
 export interface AliexpressAscpRpPlanQueryParams {
-  /** 接口入参 */
+  /** API input parameters */
   param0?: AliexpressAscpRpPlanQueryIsvQueryPlanParamDTO;
 }
 
 /** Response of `aliexpress.ascp.rp.plan.query`. */
 export interface AliexpressAscpRpPlanQueryResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressAscpRpPlanQueryScmBaseResult;
 }
 
@@ -7636,13 +7636,13 @@ export const aliexpressAscpRpPlanQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.salesplan.get`. */
 export interface AliexpressAscpSalesplanGetParams {
-  /** 对象 */
+  /** Object */
   param?: AliexpressAscpSalesplanGetSalesPlanIndexRequest;
 }
 
 /** Response of `aliexpress.ascp.salesplan.get`. */
 export interface AliexpressAscpSalesplanGetResponse {
-  /** 对象 */
+  /** Object */
   result?: AliexpressAscpSalesplanGetResult;
 }
 
@@ -7670,45 +7670,45 @@ export const aliexpressAscpSalesplanGet: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.scitem.collaborate.inbound.invitation.confirm`. */
 export interface AliexpressAscpScitemCollaborateInboundInvitationConfirmParams {
-  /** 商家编码 */
+  /** Merchant code */
   merchantCode?: string;
-  /** 开放平台注册的卖家id */
+  /** Seller id registered on the open platform */
   userId?: LongInput;
-  /** 需要获取数据对应卖家id */
+  /** Seller id corresponding to the data to retrieve */
   channelUserId?: LongInput;
-  /** 货品id */
+  /** Goods ID */
   scItemId?: LongInput;
-  /** 入仓邀约单ID */
+  /** Warehouse-entry invitation order ID */
   bizOrderId?: string;
-  /** 长 */
+  /** Length */
   length?: number;
-  /** 宽 */
+  /** Width */
   width?: number;
-  /** 高 */
+  /** Height */
   height?: number;
-  /** 重量 */
+  /** Weight */
   weight?: number;
-  /** 货品条码 */
+  /** Goods barcode */
   barCode?: string;
-  /** 物流属性 */
+  /** Logistics attributes */
   logisticsAttributes?: Array<string>;
-  /** 是否管理标准箱规 */
+  /** Whether to manage the standard carton specification */
   isStandardPcsMgt?: boolean;
-  /** 标准箱规数量(是否管理标准箱规为true时，此值必填) 范围2~200 */
+  /** Standard carton specification quantity (required when managing standard carton specification is true). Range 2~200 */
   pcs?: LongInput;
-  /** 是否效期品 */
+  /** Whether it is a shelf-life product */
   isShelfLife?: boolean;
-  /** 保质期天数(是否效期品=true时，此值必填) */
+  /** Shelf life in days (required when the product has a validity period = true) */
   shelfLifeDays?: number;
 }
 
 /** Response of `aliexpress.ascp.scitem.collaborate.inbound.invitation.confirm`. */
 export interface AliexpressAscpScitemCollaborateInboundInvitationConfirmResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -7750,25 +7750,25 @@ export const aliexpressAscpScitemCollaborateInboundInvitationConfirm: ApiDefinit
 
 /** Parameters for `aliexpress.ascp.scitem.collaborate.inbound.invitation.confirm.batch`. */
 export interface AliexpressAscpScitemCollaborateInboundInvitationConfirmBatchParams {
-  /** 区分全半托管(全托:AECHOICE;半托:AEFF) */
+  /** Distinguishes fully and semi-managed (fully managed: AECHOICE; semi-managed: AEFF) */
   merchantCode?: string;
-  /** 开放平台注册的卖家id */
+  /** Seller id registered on the open platform */
   userId?: LongInput;
-  /** 需要获取数据对应卖家id */
+  /** Seller id corresponding to the data to retrieve */
   channelUserId?: LongInput;
-  /** 更新信息列表 */
+  /** Update information list */
   updateInfoList?: Array<AliexpressAscpScitemCollaborateInboundInvitationConfirmBatchScItemCollaborateUpdateInfoOpenDTO>;
 }
 
 /** Response of `aliexpress.ascp.scitem.collaborate.inbound.invitation.confirm.batch`. */
 export interface AliexpressAscpScitemCollaborateInboundInvitationConfirmBatchResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 失败数据 */
+  /** Failed data */
   failData?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -7806,33 +7806,33 @@ export const aliexpressAscpScitemCollaborateInboundInvitationConfirmBatch: ApiDe
 
 /** Parameters for `aliexpress.ascp.scitem.collaborate.inbound.invitation.query`. */
 export interface AliexpressAscpScitemCollaborateInboundInvitationQueryParams {
-  /** 商家编码 */
+  /** Merchant code */
   merchantCode?: string;
-  /** 注册卖家id */
+  /** Registered seller ID */
   userId?: string;
-  /** 数据查询对应卖家id */
+  /** Seller id corresponding to the data query */
   channelUserId?: string;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: string;
-  /** 分页大小，最大30 */
+  /** Page size, maximum 30 */
   pageSize?: number;
 }
 
 /** Response of `aliexpress.ascp.scitem.collaborate.inbound.invitation.query`. */
 export interface AliexpressAscpScitemCollaborateInboundInvitationQueryResponse {
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: number;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 查询结果总数 */
+  /** Total number of query results */
   totalCount?: number;
-  /** DTO列表 */
+  /** DTO list */
   dataList?: Array<AliexpressAscpScitemCollaborateInboundInvitationQueryScItemCollaborateInboundInvitationOrderInfoDTO>;
 }
 
@@ -7872,25 +7872,25 @@ export const aliexpressAscpScitemCollaborateInboundInvitationQuery: ApiDefinitio
 
 /** Parameters for `aliexpress.ascp.scitem.collaborate.inbound.invitation.refuse`. */
 export interface AliexpressAscpScitemCollaborateInboundInvitationRefuseParams {
-  /** 商家编码 */
+  /** Merchant code */
   merchantCode?: string;
-  /** 开放平台注册的卖家id */
+  /** Seller id registered on the open platform */
   userId?: LongInput;
-  /** 需要获取数据对应卖家id */
+  /** Seller id corresponding to the data to retrieve */
   channelUserId?: LongInput;
-  /** 货品id */
+  /** Goods ID */
   scItemId?: LongInput;
-  /** 入仓邀约单ID */
+  /** Warehouse-entry invitation order ID */
   bizOrderId?: string;
 }
 
 /** Response of `aliexpress.ascp.scitem.collaborate.inbound.invitation.refuse`. */
 export interface AliexpressAscpScitemCollaborateInboundInvitationRefuseResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -7922,25 +7922,25 @@ export const aliexpressAscpScitemCollaborateInboundInvitationRefuse: ApiDefiniti
 
 /** Parameters for `aliexpress.ascp.scitem.collaborate.inbound.invitation.refuse.batch`. */
 export interface AliexpressAscpScitemCollaborateInboundInvitationRefuseBatchParams {
-  /** 区分全半托管(全托:AECHOICE;半托:AEFF) */
+  /** Distinguishes fully and semi-managed (fully managed: AECHOICE; semi-managed: AEFF) */
   merchantCode?: string;
-  /** 开放平台注册的卖家id */
+  /** Seller id registered on the open platform */
   userId?: LongInput;
-  /** 需要获取数据对应卖家id */
+  /** Seller id corresponding to the data to retrieve */
   channelUserId?: LongInput;
-  /** 更新信息列表 */
+  /** Update information list */
   updateInfoList?: Array<AliexpressAscpScitemCollaborateInboundInvitationRefuseBatchScItemCollaborateUpdateInfoOpenDTO>;
 }
 
 /** Response of `aliexpress.ascp.scitem.collaborate.inbound.invitation.refuse.batch`. */
 export interface AliexpressAscpScitemCollaborateInboundInvitationRefuseBatchResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 失败数据 */
+  /** Failed data */
   failData?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -7977,13 +7977,13 @@ export const aliexpressAscpScitemCollaborateInboundInvitationRefuseBatch: ApiDef
 
 /** Parameters for `aliexpress.ascp.scitem.create`. */
 export interface AliexpressAscpScitemCreateParams {
-  /** 货品创建DTO，存在主子店铺关系时，请登录主店铺 */
+  /** Item creation DTO. If a primary-sub store relationship exists, log in to the primary store */
   scitemCreateRequest?: AliexpressAscpScitemCreateErpScItemCreateDTO;
 }
 
 /** Response of `aliexpress.ascp.scitem.create`. */
 export interface AliexpressAscpScitemCreateResponse {
-  /** 创建结果DTO */
+  /** Create result DTO */
   result?: AliexpressAscpScitemCreateErpWriteResult;
 }
 
@@ -8011,31 +8011,31 @@ export const aliexpressAscpScitemCreate: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.scitem.season.cf.oppty.info.query`. */
 export interface AliexpressAscpScitemSeasonCfOpptyInfoQueryParams {
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: LongInput;
-  /** 季节品标签 */
+  /** Seasonal product label */
   tagCode?: string;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: LongInput;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: LongInput;
 }
 
 /** Response of `aliexpress.ascp.scitem.season.cf.oppty.info.query`. */
 export interface AliexpressAscpScitemSeasonCfOpptyInfoQueryResponse {
-  /** 查询结果总数 */
+  /** Total number of query results */
   total?: Long;
-  /** 错误码 */
+  /** Error code */
   code?: string;
-  /** DTO列表 */
+  /** DTO list */
   data?: Array<AliexpressAscpScitemSeasonCfOpptyInfoQuerydataObject>;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: number;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 错误信息 */
+  /** Error message */
   message?: string;
 }
 
@@ -8072,21 +8072,21 @@ export const aliexpressAscpScitemSeasonCfOpptyInfoQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.scitem.season.cf.oppty.item.query`. */
 export interface AliexpressAscpScitemSeasonCfOpptyItemQueryParams {
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: LongInput;
-  /** 商品id列表 */
+  /** Product ID list */
   itemIdList?: Array<LongInput>;
 }
 
 /** Response of `aliexpress.ascp.scitem.season.cf.oppty.item.query`. */
 export interface AliexpressAscpScitemSeasonCfOpptyItemQueryResponse {
-  /** 错误码 */
+  /** Error code */
   code?: string;
-  /** DTO列表 */
+  /** DTO list */
   data?: Array<AliexpressAscpScitemSeasonCfOpptyItemQuerydataObject>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   message?: string;
 }
 
@@ -8118,27 +8118,27 @@ export const aliexpressAscpScitemSeasonCfOpptyItemQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.scitem.season.cf.oppty.tag.query`. */
 export interface AliexpressAscpScitemSeasonCfOpptyTagQueryParams {
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: LongInput;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: string;
 }
 
 /** Response of `aliexpress.ascp.scitem.season.cf.oppty.tag.query`. */
 export interface AliexpressAscpScitemSeasonCfOpptyTagQueryResponse {
-  /** 查询结果总数 */
+  /** Total number of query results */
   total?: Long;
-  /** 错误码 */
+  /** Error code */
   code?: string;
-  /** DTO列表 */
+  /** DTO list */
   data?: Array<AliexpressAscpScitemSeasonCfOpptyTagQuerydataObject>;
-  /** 分页页码 */
+  /** Pagination page number */
   pageIndex?: number;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 错误信息 */
+  /** Error message */
   message?: string;
 }
 
@@ -8173,35 +8173,35 @@ export const aliexpressAscpScitemSeasonCfOpptyTagQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.scitem.tagPrint`. */
 export interface AliexpressAscpScitemTagPrintParams {
-  /** 货品id */
+  /** Goods ID */
   scItemId?: LongInput;
-  /** 是否包含品类标签信息 */
+  /** Whether to include category tag information */
   includeSignTagInfo?: boolean;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: LongInput;
-  /** 商家编码(租户id) AEFF或者AECHOICE */
+  /** Merchant code (tenant ID) AEFF or AECHOICE */
   merchantCode?: string;
-  /** 打印模板尺寸 入参值：60_60 or 60_30 */
+  /** Print template size, input values: 60_60 or 60_30 */
   printTemplateSize?: string;
-  /** 重复次数 */
+  /** Repeat count */
   replicaCount?: number;
-  /** 扩展字段。支持KEY：include_base_tag_info，是否包含基础信息，boolean类型。作用解释：当外层include_sign_tag_info=true并且include_base_tag_info=false时只打印品类标签信息 */
+  /** Extension field. Supported KEY: include_base_tag_info, whether to include basic information, boolean type. Explanation: when the outer include_sign_tag_info=true and include_base_tag_info=false, only category label information is printed */
   featureMap?: Record<string, unknown>;
-  /** 生产年月 */
+  /** Production year and month */
   productionDate?: string;
-  /** 打印的场景 1-货品基本数据，2-品类标签，3-bbc标签，如果三个标签都需要打印，填[1,2,3],这个数据有值，上面的include_sign_tag_info将失效 */
+  /** Print scenarios: 1 - basic goods data, 2 - category label, 3 - bbc label. If all three labels need to be printed, fill in [1,2,3]. If this field has a value, include_sign_tag_info above becomes invalid */
   sceneList?: Array<string>;
 }
 
 /** Response of `aliexpress.ascp.scitem.tagPrint`. */
 export interface AliexpressAscpScitemTagPrintResponse {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
-  /** 错误消息 */
+  /** Error message */
   errMessage?: string;
-  /** 数据集合 */
+  /** Data collection */
   data?: AliexpressAscpScitemTagPrintErpScItemTagPrintRespDTO;
 }
 
@@ -8240,13 +8240,13 @@ export const aliexpressAscpScitemTagPrint: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.scitem.update`. */
 export interface AliexpressAscpScitemUpdateParams {
-  /** 货品编辑DTO，存在主子店铺关系时，请登录主店铺 */
+  /** Item edit DTO. If a primary-sub store relationship exists, log in to the primary store */
   scitemUpdateRequest?: AliexpressAscpScitemUpdateErpScItemUpdateDTO;
 }
 
 /** Response of `aliexpress.ascp.scitem.update`. */
 export interface AliexpressAscpScitemUpdateResponse {
-  /** 货品编辑结果DTO */
+  /** Product edit result DTO */
   result?: AliexpressAscpScitemUpdateErpWriteResult;
 }
 
@@ -8285,7 +8285,7 @@ export interface AliexpressAscpStockPlanQueryParams {
 
 /** Response of `aliexpress.ascp.stock.plan.query`. */
 export interface AliexpressAscpStockPlanQueryResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressAscpStockPlanQueryScmBaseResult;
 }
 
@@ -8319,13 +8319,13 @@ export const aliexpressAscpStockPlanQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.ascp.warehouse.inventory.query`. */
 export interface AliexpressAscpWarehouseInventoryQueryParams {
-  /** 查询DTO */
+  /** Query DTO */
   warehouseInventoryQueryDto?: AliexpressAscpWarehouseInventoryQueryWarehouseInventoryQueryDTO;
 }
 
 /** Response of `aliexpress.ascp.warehouse.inventory.query`. */
 export interface AliexpressAscpWarehouseInventoryQueryResponse {
-  /** 分页查询结果 */
+  /** Paginated query results */
   result?: AliexpressAscpWarehouseInventoryQueryPageQueryResult;
 }
 

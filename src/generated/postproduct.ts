@@ -9,7 +9,7 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressPostproductRedefiningCategoryforecastAeopCategoryForecastResultDTO {
-  /** 类目预测结果。 字段含义 ： "score"：预测可能性分数，分数越高结果越准确。"category_name_path"：预测类目路径，locale语种。"cn_name"：中文的叶子类目名。"category_id"：叶子类目id。"category_id_path"：类目id路径。"name"：叶子类目名称，locale语种。"suitability_rank"：类目适合度排序，值越小越适合。"cn_category_name_path"：中文类目路径 */
+  /** Category prediction result. Field meanings: "score": prediction likelihood score; the higher the score, the more accurate the result. "category_name_path": predicted category path, in the locale language. "cn_name": leaf category name in Chinese. "category_id": leaf category ID. "category_id_path": category ID path. "name": leaf category name, in the locale language. "suitability_rank": category suitability ranking; the smaller the value, the more suitable. "cn_category_name_path": category path in Chinese */
   categorySuitabilityList?: Array<string>;
 }
 
@@ -19,15 +19,15 @@ export const AliexpressPostproductRedefiningCategoryforecastAeopCategoryForecast
   };
 
 export interface AliexpressPostproductRedefiningCreateproductgroupAeopResultDTO {
-  /** 创建失败时的错误信息 */
+  /** Error message when creation fails */
   errorMessage?: string;
-  /** 创建产品分组的时间 */
+  /** Time the product group was created */
   timeStamp?: string;
-  /** 新创建的产品组ID */
+  /** ID of the newly created product group */
   target?: string;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 接口调用结果。true/false分别表示成功和失败。 */
+  /** API call result. true/false indicate success and failure respectively. */
   success?: boolean;
 }
 
@@ -41,15 +41,15 @@ export const AliexpressPostproductRedefiningCreateproductgroupAeopResultDTOSchem
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductAeopAEModeSizeChartDTO {
-  /** 臀围 */
+  /** Hip circumference */
   hips?: string;
-  /** 腰围 */
+  /** Waist circumference */
   waist?: string;
-  /** 胸围 */
+  /** Bust circumference */
   bust?: string;
-  /** 身高 */
+  /** Height */
   height?: string;
-  /** 试穿尺码 */
+  /** Try-on size */
   modeSize?: string;
 }
 
@@ -63,7 +63,7 @@ export const AliexpressPostproductRedefiningEditaeproductAeopAEModeSizeChartDTOS
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductAeopAEMultimedia {
-  /** 多媒体信息。 */
+  /** Multimedia information. */
   aeopAEVideos?: Array<AliexpressPostproductRedefiningEditaeproductAeopAEVideo>;
 }
 
@@ -77,111 +77,111 @@ export const AliexpressPostproductRedefiningEditaeproductAeopAEMultimediaSchema:
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductAeopAEProduct {
-  /** 网红视频信息 */
+  /** Influencer video information */
   influencerVideoInfo?: AliexpressPostproductRedefiningEditaeproductInfluencerVideoInfo;
   /** hscode */
   hscode?: string;
-  /** 1：不含关税报价 2：含关税报价 */
+  /** 1: quote excluding duties 2: quote including duties */
   taxType?: string;
-  /** 商品说明书链接 */
+  /** Product manual link */
   productManual?: string;
-  /** 安装视频id */
+  /** Installation video ID */
   installVideoId?: Long;
-  /** 安装视频封面图 */
+  /** Installation video cover image */
   installVideoPosterUrl?: string;
-  /** 批发阶梯价 */
+  /** Wholesale tiered price */
   ladderPrice?: Array<AliexpressPostproductRedefiningEditaeproductLadderDTO>;
-  /** isPackSell为true时,此项必填。 每增加件数.取值范围1-1000。 */
+  /** Required when isPackSell is true. Number of pieces added each time. Value range 1-1000. */
   addUnit?: number;
-  /** isPackSell为true时,此项必填。 对应增加的重量.取值范围:0.001-500.000,保留三位小数,采用进位制,单位:公斤。 */
+  /** Required when isPackSell is true. The corresponding added weight. Value range: 0.001-500.000, three decimal places, rounded up, unit: kilogram. */
   addWeight?: string;
-  /** 商品多媒体信息，该属性主要包含商品的视频列表。商品再商家上传了视频的，通过接口编辑时必须按格式回传商品视频，不传默认删除该商品视频。 */
+  /** Product multimedia info. This attribute mainly contains the product's video list. If the merchant has uploaded a video for the product, the product video must be passed back in the required format when editing via the API; if not passed, the product video is deleted by default. */
   aeopAEMultimedia?: AliexpressPostproductRedefiningEditaeproductAeopAEMultimedia;
-  /** 产品属性，以json格式进行封装后提交。参看aeopAeProductPropertys数据结构。此字段是否必填，需从类目接口getAttributesResultByCateId获取（即获取到的required来判断属性是否必填），该项只输入普通类目属性数据，不可输入sku类目属性。对于类目属性包含子类目属性的情况，此处不确认父属性和子属性，即选择任何属性，都以该对象提交。对于一个属性多个选中值的情况，以多个该对象存放。其中"attrNameId","attrValueId"为整型(Integer), "attrName", "attrValue"为字符串类型(String)。 i). 当设置一些系统属性时，如果类目自定义了一些候选值，只需要提供"attrNameId"和"attrValueId"即可。例如：{"attrNameId":494, "attrValueId":284}。 ii). 当设置一些需要手工输入属性内容时，只需要提供"attrNameId"和"attrValue"即可。例如：{"attrNameId": 1000, "attrValue": "test"} iii）当设置自定义属性时，需要提供"attrName"和"attrValue"即可。例如: {"attrName": "Color", "attrValue": "red"} iv） 当设置一个Other属性时，需要提供"attrNameId", "attrValueId", "attrValue"三个参数。例如：{"attrNameId": 1000, "attrValueId": 4, "attrValue": "Other Value"}。 */
+  /** Product attributes, submitted encapsulated in JSON format. See the aeopAeProductPropertys data structure. Whether this field is required must be determined from the category API getAttributesResultByCateId (i.e. check the returned required flag); only enter ordinary category attribute data here, not SKU category attributes. When a category attribute contains child category attributes, parent and child attributes are not distinguished here; whichever attribute is selected is submitted with this object. When an attribute has multiple selected values, store them as multiple such objects. "attrNameId" and "attrValueId" are integers (Integer), and "attrName" and "attrValue" are strings (String). i). When setting system attributes, if the category defines candidate values, only "attrNameId" and "attrValueId" are needed. For example: {"attrNameId":494, "attrValueId":284}. ii). When setting attributes that require manually entered content, only "attrNameId" and "attrValue" are needed. For example: {"attrNameId": 1000, "attrValue": "test"} iii) When setting custom attributes, only "attrName" and "attrValue" are needed. For example: {"attrName": "Color", "attrValue": "red"} iv) When setting an Other attribute, three parameters are needed: "attrNameId", "attrValueId", "attrValue". For example: {"attrNameId": 1000, "attrValueId": 4, "attrValue": "Other Value"}. */
   aeopAeProductPropertys?: Array<AliexpressPostproductRedefiningEditaeproductAeopAeProductProperty>;
-  /** 列表类型，以json格式来表达。参看aeopAeProductSKUs数据结构。特别提示：新增SKU实际可售库存属性ipmSkuStock，该属性值的合理取值范围为0~999999，如该商品有SKU时，请确保至少有一个SKU是有货状态，也就是ipmSkuStock取值是1~999999，在整个商品纬度库存值的取值范围是1~999999。 */
+  /** List type expressed in JSON format. See the aeopAeProductSKUs data structure. Note: the new attribute ipmSkuStock is the actual sellable SKU inventory; its valid range is 0~999999. If the product has SKUs, make sure at least one SKU is in stock, i.e. ipmSkuStock is 1~999999; the inventory value at the whole-product level must be in the range 1~999999. */
   aeopAeProductSKUs?: Array<AliexpressPostproductRedefiningEditaeproductAeopAEProductSKU>;
-  /** 商品分国家定价规则数据，建议使用新格式，请参考：https://developers.aliexpress.com/doc.htm?docId=109575&docType=1。另外，商品本身设置了分国家报价的，编辑是也必须回传分国家报价数据，不传默认删除分国家报价。 */
+  /** Per-country product pricing rule data. It is recommended to use the new format, see: https://developers.aliexpress.com/doc.htm?docId=109575&docType=1. In addition, if the product itself has per-country prices set, the per-country price data must also be passed back when editing; if not passed, the per-country prices are deleted by default. */
   aeopNationalQuoteConfiguration?: AliexpressPostproductRedefiningEditaeproductAeopNationalQuoteConfiguration;
-  /** 自定义计重的基本产品件数，isPackSell为true时,此项必填。购买几件以内不增加运费。取值范围1-1000 */
+  /** Number of base product pieces for custom weight calculation. Required when isPackSell is true. Shipping fee does not increase for purchases up to this many pieces. Value range 1-1000 */
   baseUnit?: number;
-  /** 批发折扣。扩大100倍，存整数。取值范围:1-99。注意：这是折扣，不是打折率。 如,打68折,则存32。批发最小数量和批发折扣需同时有值或无值。 */
+  /** Wholesale discount. Multiplied by 100 and stored as an integer. Value range: 1-99. Note: this is a discount, not a discount rate. E.g. for 68% off, store 32. Wholesale minimum quantity and wholesale discount must both have values or both be empty. */
   bulkDiscount?: number;
-  /** 批发最小数量 。取值范围2-100000。批发最小数量和批发折扣需同时有值或无值。 */
+  /** Minimum wholesale quantity. Value range 2-100000. The minimum wholesale quantity and the wholesale discount must either both have values or both be empty. */
   bulkOrder?: number;
-  /** 商品所属类目ID。必须是叶子类目，通过类目接口获取。 */
+  /** ID of the category the product belongs to. Must be a leaf category, obtained through the category API. */
   categoryId?: number;
-  /** 卡券商品结束有效期 */
+  /** End of validity period of the voucher product */
   couponEndDate?: string;
-  /** 卡券商品开始有效期 */
+  /** Start of validity period of the voucher product */
   couponStartDate?: string;
-  /** 货币单位，USD、RUB、EUR，必填，可通过aliexpress.merchant.profile.get( 查询卖家资料 )查商家币种。https://developers.aliexpress.com/doc.htm?docId=43062&docType=2 */
+  /** Currency unit, USD, RUB, EUR, required. The merchant's currency can be found via aliexpress.merchant.profile.get (query seller profile). https://developers.aliexpress.com/doc.htm?docId=43062&docType=2 */
   currencyCode?: string;
-  /** 备货期。取值范围:1-60;单位:天。 */
+  /** Stocking period. Value range: 1-60; unit: days. */
   deliveryTime?: number;
-  /** Detail详情。以下内容会被过滤，但不影响产品提交:(1)含有script\textarea\style\iframe\frame\input\pre\button均被过滤.(2)a标签href属性只允许是aliexpress.com域名连接,否则被过滤.(3)img标签src只允许alibaba.com或者aliimg.com域名链接.(4)任意具有style属性的html标签，其style受检查，只允许一般简单的样式.不允许的内容将被过滤.(5)如果发现html内容标签缺失，会自动补全标签. */
+  /** Detail description. The following content will be filtered but does not affect product submission: (1) script\textarea\style\iframe\frame\input\pre\button are all filtered out. (2) The href attribute of an a tag may only link to the aliexpress.com domain, otherwise it is filtered. (3) The src of an img tag may only link to the alibaba.com or aliimg.com domain. (4) For any HTML tag with a style attribute, the style is checked and only generally simple styles are allowed. Disallowed content is filtered. (5) If missing HTML tags are found, they are completed automatically. */
   detail?: string;
-  /** 商品关联的运费模板ID */
+  /** Shipping fee template ID linked to the product */
   freightTemplateId?: Long;
-  /** 商品毛重,取值范围:0.001-500.000,保留三位小数,采用进位制,单位:公斤。 */
+  /** Product gross weight. Value range: 0.001-500.000, three decimal places, rounded up, unit: kilograms. */
   grossWeight?: string;
-  /** 产品分组ID */
+  /** Product group ID */
   groupId?: Long;
-  /** 图片URL.静态单图主图个数为1,动态多图主图个数为2-6.可从图片接口uploadTempImage上传，也可以从图片银行引入. 多个图片url用‘;’分隔符连接。 */
+  /** Image URLs. A static single-image main image count is 1, a dynamic multi-image main image count is 2-6. Can be uploaded via the image API uploadTempImage or imported from the image bank. Multiple image URLs are joined with the ';' separator. */
   imageURLs?: string;
-  /** 是否是动态图产品 */
+  /** Whether it is a dynamic image product */
   isImageDynamic?: boolean;
-  /** 是否自定义计重.true为自定义计重,false反之. */
+  /** Whether custom weight calculation is used. true means custom weight calculation, false otherwise. */
   isPackSell?: boolean;
-  /** 关键字 */
+  /** Keyword */
   keyword?: string;
-  /** 每包件数。 打包销售情况，lotNum>1,非打包销售情况,lotNum=1 */
+  /** Number of pieces per pack. For pack sales, lotNum>1; for non-pack sales, lotNum=1 */
   lotNum?: number;
-  /** mobile Detail详情。以下内容会被过滤，但不影响产品提交:(1)含有script\textarea\style\iframe\frame\input\pre\button均被过滤.(2)a标签href属性只允许是aliexpress.com域名连接,否则被过滤.(3)img标签src只允许alibaba.com或者aliimg.com域名链接.(4)任意具有style属性的html标签，其style受检查，只允许一般简单的样式.不允许的内容将被过滤.(5)如果发现html内容标签缺失，会自动补全标签. */
+  /** Mobile detail description. The following content will be filtered but does not affect product submission: (1) script\textarea\style\iframe\frame\input\pre\button are all filtered out. (2) The href attribute of an a tag may only link to the aliexpress.com domain, otherwise it is filtered. (3) The src of an img tag may only link to the alibaba.com or aliimg.com domain. (4) For any HTML tag with a style attribute, the style is checked and only generally simple styles are allowed. Disallowed content is filtered. (5) If missing HTML tags are found, they are completed automatically. */
   mobileDetail?: string;
-  /** 商品拥有者的login_id */
+  /** login_id of the product owner */
   ownerMemberId?: string;
-  /** 商品拥有者的ID */
+  /** ID of the product owner */
   ownerMemberSeq?: number;
-  /** 商品包装高度。取值范围:1-700,单位:厘米。 */
+  /** Product package height. Value range: 1-700, unit: cm. */
   packageHeight?: number;
-  /** 商品包装长度。取值范围:1-700,单位:厘米。产品包装尺寸的最大值+2×（第二大值+第三大值）不能超过2700厘米。 */
+  /** Product package length. Value range: 1-700, unit: centimeters. The largest dimension of the product package + 2 x (second largest + third largest) must not exceed 2700 centimeters. */
   packageLength?: number;
-  /** 打包销售: true 非打包销售:false */
+  /** Sold as a bundle: true; not sold as a bundle: false */
   packageType?: boolean;
-  /** 商品包装宽度。取值范围:1-700,单位:厘米。 */
+  /** Product package width. Value range: 1-700, unit: cm. */
   packageWidth?: number;
-  /** 编辑产品ID */
+  /** Edited product ID */
   productId?: Long;
   /** product_more_keywords1 */
   productMoreKeywords1?: string;
   /** product_more_keywords2 */
   productMoreKeywords2?: string;
-  /** 商品一口价。取值范围:0-100000,保留两位小数;单位:美元。如:200.07，表示:200美元7分。需要在正确的价格区间内。 */
+  /** Product fixed price. Value range: 0-100000, two decimal places; unit: USD. E.g. 200.07 means 200 dollars and 7 cents. Must be within the correct price range. */
   productPrice?: string;
-  /** 产品的状态，包括onSelling（正在销售），offline（已下架），auditing（审核中），editingRequired（审核不通过） */
+  /** Product status, including onSelling (on sale), offline (delisted), auditing (under review), editingRequired (review failed) */
   productStatusType?: string;
-  /** 商品单位 (存储单位编号) 100000000:袋 (bag/bags)100000001:桶 (barrel/barrels)100000002:蒲式耳 (bushel/bushels)100078580:箱 (carton)100078581:厘米 (centimeter)100000003:立方米 (cubic meter)100000004:打 (dozen)100078584:英尺 (feet)100000005:加仑 (gallon)100000006:克 (gram)100078587:英寸 (inch)100000007:千克 (kilogram)100078589:千升 (kiloliter)100000008:千米 (kilometer)100078559:升 (liter/liters)100000009:英吨 (long ton)100000010:米 (meter)100000011:公吨 (metric ton)100078560:毫克 (milligram)100078596:毫升 (milliliter)100078597:毫米 (millimeter)100000012:盎司 (ounce)100000014:包 (pack/packs)100000013:双 (pair)100000015:件/个 (piece/pieces)100000016:磅 (pound)100078603:夸脱 (quart)100000017:套 (set/sets)100000018:美吨 (short ton)100078606:平方英尺 (square feet)100078607:平方英寸 (square inch)100000019:平方米 (square meter)100078609:平方码 (square yard)100000020:吨 (ton)100078558:码 (yard/yards) */
+  /** Product unit (storage unit ID) 100000000: bag (bag/bags) 100000001: barrel (barrel/barrels) 100000002: bushel (bushel/bushels) 100078580: carton (carton) 100078581: centimeter (centimeter) 100000003: cubic meter (cubic meter) 100000004: dozen (dozen) 100078584: feet (feet) 100000005: gallon (gallon) 100000006: gram (gram) 100078587: inch (inch) 100000007: kilogram (kilogram) 100078589: kiloliter (kiloliter) 100000008: kilometer (kilometer) 100078559: liter (liter/liters) 100000009: long ton (long ton) 100000010: meter (meter) 100000011: metric ton (metric ton) 100078560: milligram (milligram) 100078596: milliliter (milliliter) 100078597: millimeter (millimeter) 100000012: ounce (ounce) 100000014: pack (pack/packs) 100000013: pair (pair) 100000015: piece (piece/pieces) 100000016: pound (pound) 100078603: quart (quart) 100000017: set (set/sets) 100000018: short ton (short ton) 100078606: square feet (square feet) 100078607: square inch (square inch) 100000019: square meter (square meter) 100078609: square yard (square yard) 100000020: ton (ton) 100078558: yard (yard/yards) */
   productUnit?: number;
-  /** 服务模板ID。如果不填，则为新手模板ID。 */
+  /** Service template ID. If not filled in, it is the novice template ID. */
   promiseTemplateId?: Long;
-  /** 库存扣减策略，两种策略：place_order_withhold（下单减库存）或payment_success_deduct（支付减库存） */
+  /** Inventory deduction strategy, two strategies: place_order_withhold (deduct inventory on order placement) or payment_success_deduct (deduct inventory on payment) */
   reduceStrategy?: string;
-  /** 产品所关联的尺码模版ID */
+  /** ID of the size template associated with the product */
   sizechartId?: Long;
-  /** 产品的来源 */
+  /** Product source */
   src?: string;
-  /** 商品标题 长度在1-128之间英文。 */
+  /** Product title, 1-128 characters in English. */
   subject?: string;
-  /** 商品概要 */
+  /** Product summary */
   summary?: string;
-  /** 产品的下架原因，包括user_offline：手动下架，expire_offline：到期下架，punish_offline：网规处罚下架，violate_offline：交易违规下架，degrade_offline：降级下架，industry_offline：未续约下架 */
+  /** Product delisting reason, including user_offline: manually delisted, expire_offline: delisted on expiry, punish_offline: delisted as a penalty under platform rules, violate_offline: delisted for transaction violation, degrade_offline: delisted due to downgrade, industry_offline: delisted for not renewing */
   wsDisplay?: string;
-  /** 产品的下架日期 */
+  /** Product delisting date */
   wsOfflineDate?: string;
-  /** 商品有效天数。取值范围:1-30,单位:天。 */
+  /** Product validity days. Value range: 1-30, unit: days. */
   wsValidNum?: number;
-  /** 模特尺码数据，最多5个，单位厘米 */
+  /** Model size data, up to 5, in cm */
   modeSizeChartList?: Array<AliexpressPostproductRedefiningEditaeproductAeopAEModeSizeChartDTO>;
 }
 
@@ -275,21 +275,21 @@ export const AliexpressPostproductRedefiningEditaeproductAeopAEProductSchema: Sc
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductAeopAeProductProperty {
-  /** 商家填写的百分比数据 */
+  /** Percentage data filled in by the merchant */
   percent?: number;
-  /** 自定义属性名属性名。 自定义属性名时,该项必填. */
+  /** Custom attribute name. Required when using a custom attribute name. */
   attrName?: string;
-  /** 属性名ID。从类目属性接口getAttributesResultByCateId获取普通类目属性，不可填入sku属性。 自定义属性名时,该项不填. */
+  /** Attribute name ID. Obtain ordinary category attributes from the category attribute API getAttributesResultByCateId; SKU attributes cannot be entered. Leave this item empty when using a custom attribute name. */
   attrNameId?: number;
-  /** 自定义属性值。自定义属性名时,该项必填。 当自定义属性值内容为区间情况时，建议格式2 - 5 kg。(注意，数字'-'单位三者间是要加空格的！) */
+  /** Custom attribute value. Required when using a custom attribute name. When the custom attribute value is a range, the recommended format is 2 - 5 kg. (Note: spaces are required between the number, '-' and the unit!) */
   attrValue?: string;
-  /** 自定义属性值的结束端 */
+  /** End of the custom attribute value */
   attrValueEnd?: string;
-  /** 属性值ID */
+  /** Attribute value ID */
   attrValueId?: Long;
-  /** 自定义属性值的开始端 */
+  /** Start of the custom attribute value */
   attrValueStart?: string;
-  /** 自定义属性值单位 */
+  /** Unit of the custom attribute value */
   attrValueUnit?: string;
 }
 
@@ -306,47 +306,47 @@ export const AliexpressPostproductRedefiningEditaeproductAeopAeProductPropertySc
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductAeopAEProductSKU {
-  /** 手机机型sku图，仅对选择了手机机型的sku生效 */
+  /** Mobile phone model SKU image, only effective for SKUs with a phone model selected */
   mobileModelSkuImage?: string;
-  /** 假发净重，单位g */
+  /** Wig net weight, in g */
   netWeight?: number;
-  /** 高 */
+  /** Height */
   packageHeight?: string;
-  /** 重 */
+  /** Weight */
   packageWeight?: string;
-  /** 宽 */
+  /** Width */
   packageWidth?: string;
-  /** 长 */
+  /** Length */
   packageLength?: string;
-  /** 是否原箱 */
+  /** Whether original box */
   originalBox?: string;
-  /** 特殊商品类型 */
+  /** Special product type */
   specialProductTypeList?: Array<string>;
-  /** 货值 */
+  /** Goods value */
   cargoPrice?: string;
-  /** sku 维度运费模板 ID AI 模板使用 */
+  /** SKU-dimension freight template ID, used for AI templates */
   skuFreightId?: Long;
-  /** 商品物流属性 */
+  /** Product logistics attributes */
   logisticAttrList?: Array<AliexpressPostproductRedefiningEditaeproductLogisticAttrDTO>;
-  /** SKU属性信息 */
+  /** SKU attribute information */
   aeopSKUProperty?: Array<AliexpressPostproductRedefiningEditaeproductAeopSKUProperty>;
-  /** 货币单位。如果不提供该值信息，则默认为"USD"；非俄罗斯卖家这个属性值可以不提供。对于俄罗斯海外卖家，该单位值必须提供，如: "RUB"。 */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; non-Russian sellers may omit this attribute. For Russian overseas sellers, this unit value must be provided, e.g. "RUB". */
   currencyCode?: string;
-  /** SKU id，格式：sku_property_id:sku_property_value_id,不需要变更类目不用传，自定义属性必传 */
+  /** SKU id, format: sku_property_id:sku_property_value_id. Not required if the category does not need to change; required for custom attributes */
   id?: string;
-  /** SKU实际可售库存属性ipmSkuStock，该属性值的合理取值范围为0~999999，如该商品有SKU时，请确保至少有一个SKU是有货状态，也就是ipmSkuStock取值是1~999999，在整个商品纬度库存值的取值范围是1~999999。 如果同时设置了skuStock属性，那么系统以ipmSkuStock属性为优先；如果没有设置ipmSkuStock属性，那么系统会根据skuStock属性进行设置库存，true表示999，false表示0。 */
+  /** SKU actual sellable stock attribute ipmSkuStock; the reasonable value range of this attribute is 0~999999. If the product has SKUs, make sure at least one SKU is in stock, that is, ipmSkuStock is 1~999999; at the whole-product level the stock value range is 1~999999. If the skuStock attribute is also set, the system gives priority to ipmSkuStock; if ipmSkuStock is not set, the system sets stock according to skuStock, where true means 999 and false means 0. */
   ipmSkuStock?: Long;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。如果用户只填写零售价（productprice）和商品编码，需要完整生成一条SKU记录提交，否则商品编码无法保存。系统会认为只提交了零售价，而没有SKU，导致商品编辑未保存。 */
+  /** Sku merchant code. Format: half-width alphanumeric characters, length 20, no spaces, greater-than or less-than signs. If the user only fills in the retail price (productprice) and the product code, a complete SKU record must still be generated and submitted, otherwise the product code cannot be saved. The system would consider that only the retail price was submitted without a SKU, so the product edit is not saved. */
   skuCode?: string;
-  /** Sku价格。取值范围:0.01-100000;单位:美元。 如:200.07，表示:200美元7分。需要在正确的价格区间内。 */
+  /** SKU price. Value range: 0.01-100000; unit: USD. E.g. 200.07 means 200 dollars and 7 cents. Must be within the correct price range. */
   skuPrice?: string;
-  /** Sku库存,数据格式有货true，无货false；至少有一条sku记录是有货的。 */
+  /** SKU stock. Data format: in stock true, out of stock false; at least one SKU record must be in stock. */
   skuStock?: boolean;
-  /** sku分国家的日常促销价 */
+  /** Daily promotion price of the SKU by country */
   aeopSKUNationalDiscountPrice?: Array<AliexpressPostproductRedefiningEditaeproductAeopSKUNationalDiscountPrice>;
-  /** sku日常促销价 */
+  /** SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** sku维度eanCode */
+  /** SKU-level eanCode */
   eanCode?: string;
 }
 
@@ -389,15 +389,15 @@ export const AliexpressPostproductRedefiningEditaeproductAeopAEProductSKUSchema:
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductAeopAEVideo {
-  /** 卖家主账户ID */
+  /** Seller main account ID */
   aliMemberId?: Long;
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频的状态 */
+  /** Video status */
   mediaStatus?: string;
-  /** 视频的类型 */
+  /** Video type */
   mediaType?: string;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
 }
 
@@ -411,17 +411,17 @@ export const AliexpressPostproductRedefiningEditaeproductAeopAEVideoSchema: Sche
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductAeopModifyProductResponse {
-  /** 错误详情 */
+  /** Error details */
   errorDetails?: Array<string>;
-  /** 编辑成功次数。对于编辑商品来说，这个参数为1。 */
+  /** Number of successful edits. For editing a product, this parameter is 1. */
   modifyCount?: number;
-  /** 接口调用结果。成功为true，失败为false。 */
+  /** API call result. true for success, false for failure. */
   isSuccess?: boolean;
-  /** 商品的ID。 */
+  /** Product ID. */
   productId?: Long;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
 }
 
@@ -436,9 +436,9 @@ export const AliexpressPostproductRedefiningEditaeproductAeopModifyProductRespon
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductAeopNationalQuoteConfiguration {
-  /** jsonArray格式的分国家定价规则数据。 1)基于基准价格按比例配置的数据格式：[{"shiptoCountry":"US","percentage":"5"},{"shiptoCountry":"RU","percentage":"-2"}] 其中shiptoCountry：ISO两位的国家编码（目前支持11个国家：RU,US,CA,ES,FR,UK,NL,IL,BR,CL,AU）， percentage：相对于基准价的调价比例（百分比整数，支持负数，当前限制>=-30 && <=100）；如果需要删除分国家报价则将该值设为空串"" */
+  /** Per-country pricing rule data in jsonArray format. 1) Data format configured as a percentage of the base price: [{"shiptoCountry":"US","percentage":"5"},{"shiptoCountry":"RU","percentage":"-2"}] where shiptoCountry: two-letter ISO country code (currently 11 countries are supported: RU,US,CA,ES,FR,UK,NL,IL,BR,CL,AU), percentage: price adjustment ratio relative to the base price (integer percentage, negatives supported, currently limited to >=-30 && <=100); to delete per-country pricing, set this value to an empty string "" */
   configurationData?: string;
-  /** 分国家定价规则类型[percentage：基于基准价格按比例配置] */
+  /** Per-country pricing rule type [percentage: configured as a percentage of the base price] */
   configurationType?: string;
 }
 
@@ -449,9 +449,9 @@ export const AliexpressPostproductRedefiningEditaeproductAeopNationalQuoteConfig
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductAeopSKUNationalDiscountPrice {
-  /** sku分国家的日常促销价价格 */
+  /** Price of the SKU's daily promotion price by country */
   discountPrice?: string;
-  /** sku分国家的日常促销价国家 */
+  /** Country of the SKU's daily promotion price by country */
   shiptoCountry?: string;
 }
 
@@ -462,23 +462,23 @@ export const AliexpressPostproductRedefiningEditaeproductAeopSKUNationalDiscount
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductAeopSKUProperty {
-  /** 级联属性父属性id */
+  /** Parent attribute id of the cascading attribute */
   parentPropertyId?: Long;
-  /** 级联属性父属性值id */
+  /** Parent attribute value id of the cascading attribute */
   parentValueId?: Long;
-  /** 插头属性SKU级联属性父属性id */
+  /** Parent attribute id of the plug attribute SKU cascading attribute */
   plugParentPropertyId?: Long;
-  /** 插头属性SKU级联属性父属性值id */
+  /** Parent attribute value ID of the plug attribute SKU cascading attribute */
   plugParentValueId?: Long;
-  /** 属性值自定义名称 */
+  /** Custom name of the attribute value */
   propertyValueDefinitionName?: string;
-  /** SKU属性值ID */
+  /** SKU attribute value ID */
   propertyValueId?: Long;
-  /** SKU图片地址 */
+  /** SKU image URL */
   skuImage?: string;
-  /** SKU属性ID */
+  /** SKU attribute ID */
   skuPropertyId?: number;
-  /** sku 套图 3:4 图片 */
+  /** SKU image set 3:4 image */
   imageUrlList?: Array<string>;
 }
 
@@ -496,11 +496,11 @@ export const AliexpressPostproductRedefiningEditaeproductAeopSKUPropertySchema: 
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductInfluencerVideo {
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
 }
 
@@ -512,9 +512,9 @@ export const AliexpressPostproductRedefiningEditaeproductInfluencerVideoSchema: 
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductInfluencerVideoInfo {
-  /** 默认网红视频 */
+  /** Default influencer video */
   influencerVideo?: AliexpressPostproductRedefiningEditaeproductInfluencerVideo;
-  /** 分国家网红视频 */
+  /** Influencer videos by country */
   nationalInfluencerVideos?: Array<AliexpressPostproductRedefiningEditaeproductInfluencerVideo>;
 }
 
@@ -533,9 +533,9 @@ export const AliexpressPostproductRedefiningEditaeproductInfluencerVideoInfoSche
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductLadderDTO {
-  /** 门槛数量 */
+  /** Threshold quantity */
   thresholdNum?: number;
-  /** 商品折扣 */
+  /** Product discount */
   discount?: number;
 }
 
@@ -546,9 +546,9 @@ export const AliexpressPostproductRedefiningEditaeproductLadderDTOSchema: Schema
   };
 
 export interface AliexpressPostproductRedefiningEditaeproductLogisticAttrDTO {
-  /** 物流属性 ID */
+  /** Logistics attribute ID */
   value?: Long;
-  /** 上级物流属性 ID，没有上级为空 */
+  /** Parent logistics attribute ID; empty if there is no parent */
   parentValueId?: Long;
 }
 
@@ -559,13 +559,13 @@ export const AliexpressPostproductRedefiningEditaeproductLogisticAttrDTOSchema: 
   };
 
 export interface AliexpressPostproductRedefiningEditmultilanguageproductAeopAEProductMultilanguageInfo {
-  /** 商品对应语种的详描 */
+  /** Detailed description of the product in the corresponding language */
   detail?: string;
-  /** 语种，合法的参数有: ru_RU(俄语);pt_BR(葡语);fr_FR(法语);es_ES(西班牙语);in_ID(印尼语);it_IT(意大利语);de_DE(德语);nl_NL(荷兰语);tr_TR(土耳其语);iw_IL(以色列语);ja_JP(日语);ar_MA(阿拉伯语);th_TH(泰语);vi_VN(越南语);ko_KR(韩语); */
+  /** Language; valid values: ru_RU (Russian); pt_BR (Portuguese); fr_FR (French); es_ES (Spanish); in_ID (Indonesian); it_IT (Italian); de_DE (German); nl_NL (Dutch); tr_TR (Turkish); iw_IL (Hebrew); ja_JP (Japanese); ar_MA (Arabic); th_TH (Thai); vi_VN (Vietnamese); ko_KR (Korean); */
   locale?: string;
-  /** 商品对应语种的无线端详描（json格式），如要清空无线详描请传""空串 */
+  /** Mobile detail description of the product in the corresponding language (json format). To clear the mobile detail description, pass an empty string "" */
   mobileDetail?: string;
-  /** 商品对应语种的标题, 长度控制在1～218个字符之间。 */
+  /** Product title in the corresponding language, length must be between 1 and 218 characters. */
   subject?: string;
 }
 
@@ -578,17 +578,17 @@ export const AliexpressPostproductRedefiningEditmultilanguageproductAeopAEProduc
   };
 
 export interface AliexpressPostproductRedefiningEditmultilanguageproductAeopModifyProductResponse {
-  /** 错误详情 */
+  /** Error details */
   errorDetails?: Array<AliexpressPostproductRedefiningEditmultilanguageproductErrorDetail>;
-  /** 成功修改的商品数目 */
+  /** Number of products successfully modified */
   modifyCount?: number;
-  /** 成功修改的商品id */
+  /** ID of products successfully modified */
   productId?: Long;
   /** success true or false */
   success?: boolean;
-  /** 错误子代码 */
+  /** Error sub-code */
   errorCode?: number;
-  /** 系统异常信息 */
+  /** System exception message */
   errorMessage?: string;
 }
 
@@ -608,7 +608,7 @@ export const AliexpressPostproductRedefiningEditmultilanguageproductAeopModifyPr
   };
 
 export interface AliexpressPostproductRedefiningEditmultilanguageproductErrorDetail {
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
   /** productIds */
   productIds?: Array<Long>;
@@ -621,17 +621,17 @@ export const AliexpressPostproductRedefiningEditmultilanguageproductErrorDetailS
   };
 
 export interface AliexpressPostproductRedefiningEditmutilpleskustocksAeopModifyProductResponse {
-  /** 错误详情 */
+  /** Error details */
   errorDetails?: Array<AliexpressPostproductRedefiningEditmutilpleskustocksErrorDetail>;
-  /** 成功修改的产品数 */
+  /** Number of products successfully modified */
   modifyCount?: number;
-  /** 产品ID */
+  /** Product ID */
   productId?: Long;
-  /** 接口调用结果。true/false分别表示接口调用成功和失败。 */
+  /** API call result. true/false indicate that the API call succeeded and failed respectively. */
   success?: boolean;
-  /** 错误子代码 */
+  /** Error sub-code */
   errorCode?: number;
-  /** 系统异常信息 */
+  /** System exception message */
   errorMessage?: string;
 }
 
@@ -651,7 +651,7 @@ export const AliexpressPostproductRedefiningEditmutilpleskustocksAeopModifyProdu
   };
 
 export interface AliexpressPostproductRedefiningEditmutilpleskustocksErrorDetail {
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
   /** productIds */
   productIds?: Array<Long>;
@@ -664,21 +664,21 @@ export const AliexpressPostproductRedefiningEditmutilpleskustocksErrorDetailSche
   };
 
 export interface AliexpressPostproductRedefiningEditproductcategoryattributesAeopAeProductProperty {
-  /** 属性的百分比数据 */
+  /** Percentage data of the attribute */
   percent?: number;
-  /** 自定义属性名属性名。 自定义属性名时,该项必填. */
+  /** Custom attribute name. Required when using a custom attribute name. */
   attrName?: string;
-  /** 属性名ID。从类目属性接口getAttributesResultByCateId获取普通类目属性，不可填入sku属性。 自定义属性名时,该项不填. */
+  /** Attribute name ID. Obtain ordinary category attributes from the category attribute API getAttributesResultByCateId; SKU attributes cannot be entered. Leave this item empty when using a custom attribute name. */
   attrNameId?: number;
-  /** 自定义属性值。自定义属性名时,该项必填。 当自定义属性值内容为区间情况时，建议格式2 - 5 kg。(注意，数字'-'单位三者间是要加空格的！) */
+  /** Custom attribute value. Required when using a custom attribute name. When the custom attribute value is a range, the recommended format is 2 - 5 kg. (Note: spaces are required between the number, '-' and the unit!) */
   attrValue?: string;
-  /** 自定义属性值的结束端 */
+  /** End of the custom attribute value */
   attrValueEnd?: string;
-  /** 属性值ID */
+  /** Attribute value ID */
   attrValueId?: Long;
-  /** 自定义属性值的开始端 */
+  /** Start of the custom attribute value */
   attrValueStart?: string;
-  /** 自定义属性值单位 */
+  /** Unit of the custom attribute value */
   attrValueUnit?: string;
 }
 
@@ -697,15 +697,15 @@ export const AliexpressPostproductRedefiningEditproductcategoryattributesAeopAeP
 export interface AliexpressPostproductRedefiningEditproductcategoryattributesAeopModifyProductResponse {
   /** errorDetails */
   errorDetails?: Array<AliexpressPostproductRedefiningEditproductcategoryattributesErrorDetail>;
-  /** 修改的产品数 */
+  /** Number of products updated */
   modifyCount?: number;
-  /** 该产品的ID */
+  /** ID of the product */
   productId?: Long;
-  /** 接口调用结果。true/false分别表示成功和失败。 */
+  /** API call result. true/false indicate success and failure respectively. */
   success?: boolean;
-  /** 错误子代码 */
+  /** Error sub-code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -725,7 +725,7 @@ export const AliexpressPostproductRedefiningEditproductcategoryattributesAeopMod
   };
 
 export interface AliexpressPostproductRedefiningEditproductcategoryattributesErrorDetail {
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
   /** productIds */
   productIds?: Array<Long>;
@@ -738,19 +738,19 @@ export const AliexpressPostproductRedefiningEditproductcategoryattributesErrorDe
   };
 
 export interface AliexpressPostproductRedefiningEditproductcidattidskuAeopAeProductProperty {
-  /** 自定义属性名属性名。 自定义属性名时,该项必填. */
+  /** Custom attribute name. Required when using a custom attribute name. */
   attrName?: string;
-  /** 属性名ID。从类目属性接口getAttributesResultByCateId获取普通类目属性，不可填入sku属性。 自定义属性名时,该项不填. */
+  /** Attribute name ID. Obtain ordinary category attributes from the category attribute API getAttributesResultByCateId; SKU attributes cannot be entered. Leave this item empty when using a custom attribute name. */
   attrNameId?: number;
-  /** 自定义属性值。自定义属性名时,该项必填。 当自定义属性值内容为区间情况时，建议格式2 - 5 kg。(注意，数字'-'单位三者间是要加空格的！) */
+  /** Custom attribute value. Required when using a custom attribute name. When the custom attribute value is a range, the recommended format is 2 - 5 kg. (Note: spaces are required between the number, '-' and the unit!) */
   attrValue?: string;
-  /** 自定义属性值的结束端 */
+  /** End of the custom attribute value */
   attrValueEnd?: string;
-  /** 属性值ID */
+  /** Attribute value ID */
   attrValueId?: Long;
-  /** 自定义属性值的开始端 */
+  /** Start of the custom attribute value */
   attrValueStart?: string;
-  /** 自定义属性值单位 */
+  /** Unit of the custom attribute value */
   attrValueUnit?: string;
 }
 
@@ -766,23 +766,23 @@ export const AliexpressPostproductRedefiningEditproductcidattidskuAeopAeProductP
   };
 
 export interface AliexpressPostproductRedefiningEditproductcidattidskuAeopAEProductSKU {
-  /** 货币单位。如果不提供该值信息，则默认为"USD"；非俄罗斯卖家这个属性值可以不提供。对于俄罗斯海外卖家，该单位值必须提供，如: "RUB"。 */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; non-Russian sellers may omit this attribute. For Russian overseas sellers, this unit value must be provided, e.g. "RUB". */
   currencyCode?: string;
   /** eanCode */
   eanCode?: string;
-  /** SKU属性 */
+  /** SKU attributes */
   aeopSKUProperty?: Array<AliexpressPostproductRedefiningEditproductcidattidskuAeopSKUProperty>;
-  /** SKU id，格式：sku_property_id:sku_property_value_id,不需要变更类目不用传，自定义属性必传 */
+  /** SKU id, format: sku_property_id:sku_property_value_id. Not required if the category does not need to change; required for custom attributes */
   id?: string;
-  /** SKU实际可售库存属性ipmSkuStock，该属性值的合理取值范围为0~999999 */
+  /** SKU actual sellable stock attribute ipmSkuStock. The reasonable value range for this attribute is 0~999999 */
   ipmSkuStock?: Long;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。如果用户只填写零售价（productprice）和商品编码，需要完整生成一条SKU记录提交，否则商品编码无法保存。系统会认为只提交了零售价，而没有SKU，导致商品编辑未保存。 */
+  /** Sku merchant code. Format: half-width alphanumeric characters, length 20, no spaces, greater-than or less-than signs. If the user only fills in the retail price (productprice) and the product code, a complete SKU record must still be generated and submitted, otherwise the product code cannot be saved. The system would consider that only the retail price was submitted without a SKU, so the product edit is not saved. */
   skuCode?: string;
-  /** Sku价格。取值范围:0.01-100000;单位:美元。 如:200.07，表示:200美元7分。需要在正确的价格区间内。 */
+  /** SKU price. Value range: 0.01-100000; unit: USD. E.g. 200.07 means 200 dollars and 7 cents. Must be within the correct price range. */
   skuPrice?: string;
-  /** sku日常促销价 */
+  /** SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** sku分国家的日常促销价 */
+  /** Daily promotion price of the SKU by country */
   aeopSKUNationalDiscountPrice?: Array<AliexpressPostproductRedefiningEditproductcidattidskuAeopSKUNationalDiscountPrice>;
 }
 
@@ -810,7 +810,7 @@ export const AliexpressPostproductRedefiningEditproductcidattidskuAeopAEProductS
   };
 
 export interface AliexpressPostproductRedefiningEditproductcidattidskuAeopModifyProductResponse {
-  /** 待修改产品的ID */
+  /** ID of the product to be modified */
   productId?: Long;
 }
 
@@ -820,9 +820,9 @@ export const AliexpressPostproductRedefiningEditproductcidattidskuAeopModifyProd
   };
 
 export interface AliexpressPostproductRedefiningEditproductcidattidskuAeopSKUNationalDiscountPrice {
-  /** sku分国家的日常促销价价格 */
+  /** Price of the SKU's daily promotion price by country */
   discountPrice?: string;
-  /** sku分国家的日常促销价国家 */
+  /** Country of the SKU's daily promotion price by country */
   shiptoCountry?: string;
 }
 
@@ -833,15 +833,15 @@ export const AliexpressPostproductRedefiningEditproductcidattidskuAeopSKUNationa
   };
 
 export interface AliexpressPostproductRedefiningEditproductcidattidskuAeopSKUProperty {
-  /** 女装类目sku套图,图片比例要求3:4,图片数量限制 : 3到6张图片。女装(200000345)下的叶子类目必传参数 */
+  /** Women's clothing category SKU image set, image ratio must be 3:4, image count limit: 3 to 6 images. Required parameter for leaf categories under women's clothing (200000345) */
   imageUrlList?: Array<string>;
-  /** 属性值自定义名称，商品SKU属性值没有自定义名称时，该字段不填 */
+  /** Custom name of the attribute value. If the product SKU attribute value has no custom name, leave this field empty */
   propertyValueDefinitionName?: string;
-  /** SKU属性值ID */
+  /** SKU attribute value ID */
   propertyValueId?: Long;
-  /** SKU图片地址 */
+  /** SKU image URL */
   skuImage?: string;
-  /** SKU属性ID */
+  /** SKU attribute ID */
   skuPropertyId?: number;
 }
 
@@ -855,17 +855,17 @@ export const AliexpressPostproductRedefiningEditproductcidattidskuAeopSKUPropert
   };
 
 export interface AliexpressPostproductRedefiningEditsimpleproductfiledAeopModifyProductResponse {
-  /** 错误详情 */
+  /** Error details */
   errorDetails?: Array<AliexpressPostproductRedefiningEditsimpleproductfiledErrorDetail>;
-  /** 成功修改的产品数 */
+  /** Number of products successfully modified */
   modifyCount?: number;
-  /** 产品ID */
+  /** Product ID */
   productId?: Long;
-  /** 接口的调用结果。true /false分别表示成功和失败。 */
+  /** API call result. true/false indicate success and failure respectively. */
   success?: boolean;
-  /** 错误子代码 */
+  /** Error sub-code */
   errorCode?: number;
-  /** 系统异常信息 */
+  /** System exception message */
   errorMessage?: string;
 }
 
@@ -885,7 +885,7 @@ export const AliexpressPostproductRedefiningEditsimpleproductfiledAeopModifyProd
   };
 
 export interface AliexpressPostproductRedefiningEditsimpleproductfiledErrorDetail {
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
   /** productIds */
   productIds?: Array<Long>;
@@ -900,15 +900,15 @@ export const AliexpressPostproductRedefiningEditsimpleproductfiledErrorDetailSch
 export interface AliexpressPostproductRedefiningEditsingleskupriceAeopModifyProductResponse {
   /** errorDetails */
   errorDetails?: Array<AliexpressPostproductRedefiningEditsingleskupriceErrorDetail>;
-  /** 修改的产品数。如果接口调用成功，则这个值为1，调用失败则为0。 */
+  /** Number of products updated. If the API call succeeds, this value is 1; if it fails, it is 0. */
   modifyCount?: number;
-  /** 产品ID */
+  /** Product ID */
   productId?: Long;
-  /** 接口调用结果. */
+  /** API call result. */
   success?: boolean;
-  /** 错误子代码 */
+  /** Error sub-code */
   errorCode?: number;
-  /** 系统异常信息 */
+  /** System exception message */
   errorMessage?: string;
 }
 
@@ -927,7 +927,7 @@ export const AliexpressPostproductRedefiningEditsingleskupriceAeopModifyProductR
   };
 
 export interface AliexpressPostproductRedefiningEditsingleskupriceErrorDetail {
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
   /** productIds */
   productIds?: Array<Long>;
@@ -940,17 +940,17 @@ export const AliexpressPostproductRedefiningEditsingleskupriceErrorDetailSchema:
   };
 
 export interface AliexpressPostproductRedefiningEditsingleskustockAeopModifyProductResponse {
-  /** 错误详情 */
+  /** Error details */
   errorDetails?: Array<AliexpressPostproductRedefiningEditsingleskustockErrorDetail>;
-  /** 修改的产品数 */
+  /** Number of products updated */
   modifyCount?: number;
-  /** 修改的产品ID */
+  /** ID of the updated product */
   productId?: Long;
-  /** 接口调用结果。true/false分别表示成功和失败。 */
+  /** API call result. true/false indicate success and failure respectively. */
   success?: boolean;
-  /** 错误子代码 */
+  /** Error sub-code */
   errorCode?: number;
-  /** 系统异常信息 */
+  /** System exception message */
   errorMessage?: string;
 }
 
@@ -969,7 +969,7 @@ export const AliexpressPostproductRedefiningEditsingleskustockAeopModifyProductR
   };
 
 export interface AliexpressPostproductRedefiningEditsingleskustockErrorDetail {
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
   /** productIds */
   productIds?: Array<Long>;
@@ -982,15 +982,15 @@ export const AliexpressPostproductRedefiningEditsingleskustockErrorDetailSchema:
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidAeopAEModeSizeChartDTO {
-  /** 臀围 */
+  /** Hip circumference */
   hips?: string;
-  /** 腰围 */
+  /** Waist circumference */
   waist?: string;
-  /** 胸围 */
+  /** Bust circumference */
   bust?: string;
-  /** 身高 */
+  /** Height */
   height?: string;
-  /** 试穿尺码 */
+  /** Try-on size */
   modeSize?: string;
 }
 
@@ -1004,7 +1004,7 @@ export const AliexpressPostproductRedefiningFindaeproductbyidAeopAEModeSizeChart
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidAeopAEMultimedia {
-  /** 多媒体信息。 */
+  /** Multimedia information. */
   aeopAEVideos?: Array<AliexpressPostproductRedefiningFindaeproductbyidAeopAEVideo>;
 }
 
@@ -1018,21 +1018,21 @@ export const AliexpressPostproductRedefiningFindaeproductbyidAeopAEMultimediaSch
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidAeopAeProductProperty {
-  /** 商家填写的百分比信息 */
+  /** Percentage information filled in by the merchant */
   percent?: number;
-  /** 自定义属性名属性名。 自定义属性名时,该项必填. */
+  /** Custom attribute name. Required when using a custom attribute name. */
   attrName?: string;
-  /** 属性名ID。从类目属性接口getAttributesResultByCateId获取普通类目属性，不可填入sku属性。 自定义属性名时,该项不填. */
+  /** Attribute name ID. Obtain ordinary category attributes from the category attribute API getAttributesResultByCateId; SKU attributes cannot be entered. Leave this item empty when using a custom attribute name. */
   attrNameId?: number;
-  /** 自定义属性值。自定义属性名时,该项必填。 当自定义属性值内容为区间情况时，建议格式2 - 5 kg。(注意，数字'-'单位三者间是要加空格的！) */
+  /** Custom attribute value. Required when using a custom attribute name. When the custom attribute value is a range, the recommended format is 2 - 5 kg. (Note: spaces are required between the number, '-' and the unit!) */
   attrValue?: string;
-  /** 自定义属性值的结束端 */
+  /** End of the custom attribute value */
   attrValueEnd?: string;
-  /** 属性值ID */
+  /** Attribute value ID */
   attrValueId?: Long;
-  /** 自定义属性值的开始端 */
+  /** Start of the custom attribute value */
   attrValueStart?: string;
-  /** 自定义属性值单位 */
+  /** Unit of the custom attribute value */
   attrValueUnit?: string;
 }
 
@@ -1049,49 +1049,49 @@ export const AliexpressPostproductRedefiningFindaeproductbyidAeopAeProductProper
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidAeopAEProductSKU {
-  /** 手机机型sku图，仅对选择了手机机型的sku生效 */
+  /** Mobile phone model SKU image, only effective for SKUs with a phone model selected */
   mobileModelSkuImage?: string;
-  /** 假发净重，单位g */
+  /** Wig net weight, in g */
   netWeight?: number;
-  /** 是否原箱0否1是 */
+  /** Whether original carton 0 no 1 yes */
   originalBox?: string;
-  /** 特殊商品类型 */
+  /** Special product type */
   specialProductTypeList?: Array<string>;
-  /** 货值 */
+  /** Goods value */
   cargoPrice?: string;
-  /** SKU运费模板ID */
+  /** SKU shipping fee template ID */
   skuFreightId?: string;
-  /** 商品物流属性 */
+  /** Product logistics attributes */
   logisticAttrList?: Array<AliexpressPostproductRedefiningFindaeproductbyidLogisticAttrDTO>;
-  /** Sku属性对象list，允许1-3个sku属性对象，按sku属性顺序排放。sku属性从类目属性接口getAttributesResultByCateId获取。该项值输入sku属性，不能输入普通类目属性。注意，sku属性是有顺序的，必须按照顺序存放。 */
+  /** Sku attribute object list; 1-3 sku attribute objects are allowed, arranged in sku attribute order. Sku attributes are obtained from the category attribute API getAttributesResultByCateId. This item takes sku attributes; ordinary category attributes cannot be entered. Note that sku attributes are ordered and must be stored in order. */
   aeopSKUPropertyList?: Array<AliexpressPostproductRedefiningFindaeproductbyidAeopSKUProperty>;
-  /** 产品的货币单位。美元: USD, 卢布: RUB */
+  /** Product currency. US dollar: USD, ruble: RUB */
   currencyCode?: string;
-  /** SKU ID，格式：“sku_property_id:property_value_id” */
+  /** SKU ID, format: "sku_property_id:property_value_id" */
   id?: string;
-  /** SKU实际可售库存属性ipmSkuStock，该属性值的合理取值范围为0~999999，如该商品有SKU时，请确保至少有一个SKU是有货状态，也就是ipmSkuStock取值是1~999999，在整个商品纬度库存值的取值范围是1~999999。 如果同时设置了skuStock属性，那么系统以ipmSkuStock属性为优先；如果没有设置ipmSkuStock属性，那么系统会根据skuStock属性进行设置库存，true表示999，false表示0。 */
+  /** SKU actual sellable stock attribute ipmSkuStock; the reasonable value range of this attribute is 0~999999. If the product has SKUs, make sure at least one SKU is in stock, that is, ipmSkuStock is 1~999999; at the whole-product level the stock value range is 1~999999. If the skuStock attribute is also set, the system gives priority to ipmSkuStock; if ipmSkuStock is not set, the system sets stock according to skuStock, where true means 999 and false means 0. */
   ipmSkuStock?: Long;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。如果用户只填写零售价（productprice）和商品编码，需要完整生成一条SKU记录提交，否则商品编码无法保存。系统会认为只提交了零售价，而没有SKU，导致商品编辑未保存。 */
+  /** Sku merchant code. Format: half-width alphanumeric characters, length 20, no spaces, greater-than or less-than signs. If the user only fills in the retail price (productprice) and the product code, a complete SKU record must still be generated and submitted, otherwise the product code cannot be saved. The system would consider that only the retail price was submitted without a SKU, so the product edit is not saved. */
   skuCode?: string;
-  /** Sku价格。取值范围:0.01-100000;单位:美元。 如:200.07，表示:200美元7分。需要在正确的价格区间内。 */
+  /** SKU price. Value range: 0.01-100000; unit: USD. E.g. 200.07 means 200 dollars and 7 cents. Must be within the correct price range. */
   skuPrice?: string;
-  /** Sku库存,数据格式有货true，无货false；至少有一条sku记录是有货的。 */
+  /** SKU stock. Data format: in stock true, out of stock false; at least one SKU record must be in stock. */
   skuStock?: boolean;
-  /** 条码，所有的仓发商品（尖货，自营，假发）会返回这个参数 */
+  /** Barcode. This parameter is returned for all warehouse-shipped products (hot items, self-operated, wigs) */
   barcode?: string;
-  /** sku分国家的日常促销价 */
+  /** Daily promotion price of the SKU by country */
   aeopSKUNationalDiscountPriceList?: Array<AliexpressPostproductRedefiningFindaeproductbyidAeopSKUNationalDiscountPrice>;
-  /** sku日常促销价 */
+  /** SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** sku重量，单位公斤 */
+  /** SKU weight, unit: kg */
   packageWeight?: string;
-  /** sku物流尺寸-高，单位cm */
+  /** SKU logistics dimension - height, in cm */
   packageHeight?: string;
-  /** sku物流尺寸-宽，单位cm */
+  /** SKU logistics dimension - width, in cm */
   packageWidth?: string;
-  /** sku物流尺寸-长，单位cm */
+  /** SKU logistics dimension - length, in cm */
   packageLength?: string;
-  /** sku维度eanCode */
+  /** SKU-level eanCode */
   eanCode?: string;
 }
 
@@ -1137,13 +1137,13 @@ export const AliexpressPostproductRedefiningFindaeproductbyidAeopAEProductSKUSch
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidAeopAEVideo {
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频的状态 */
+  /** Video status */
   mediaStatus?: string;
-  /** 视频的类型 */
+  /** Video type */
   mediaType?: string;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
 }
 
@@ -1156,135 +1156,135 @@ export const AliexpressPostproductRedefiningFindaeproductbyidAeopAEVideoSchema: 
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidAeopFindProductResultDTO {
-  /** 网红视频信息 */
+  /** Influencer video information */
   influencerVideoInfo?: AliexpressPostproductRedefiningFindaeproductbyidInfluencerVideoInfo;
-  /** 产品所关联的尺码模版ID列表 */
+  /** List of size template IDs associated with the product */
   sizechartIdList?: Array<Long>;
   /** hscode */
   hscode?: string;
-  /** 1：不含关税报价 2：含关税报价 */
+  /** 1: quote excluding duties 2: quote including duties */
   taxType?: string;
-  /** 商品说明书链接 */
+  /** Product manual link */
   productManual?: string;
-  /** 安装视频id */
+  /** Installation video ID */
   installVideoId?: Long;
-  /** 安装视频封面图 */
+  /** Installation video cover image */
   installVideoPosterUrl?: string;
-  /** 珠宝材料认证 */
+  /** Jewelry material certification */
   jewelryCertImageUrls?: string;
-  /** 商机 ID */
+  /** Business opportunity ID */
   planId?: Long;
-  /** 批发阶梯价 */
+  /** Wholesale tiered price */
   ladderPrice?: Array<AliexpressPostproductRedefiningFindaeproductbyidLadderDTO>;
-  /** 每增加件数.取值范围1-1000。 */
+  /** Additional quantity per increment. Value range 1-1000. */
   addUnit?: number;
-  /** 对应增加的重量.取值范围:0.001-500.000,保留三位小数,采用进位制,单位:公斤。 */
+  /** Corresponding added weight. Value range: 0.001-500.000, three decimal places, rounded up, unit: kilograms. */
   addWeight?: string;
-  /** 商品多媒体信息，该属性主要包含商品的视频列表 */
+  /** Product multimedia information; this property mainly contains the product's video list */
   aeopAEMultimedia?: AliexpressPostproductRedefiningFindaeproductbyidAeopAEMultimedia;
-  /** 商品的类目属性 */
+  /** Product category attributes */
   aeopAeProductPropertys?: Array<AliexpressPostproductRedefiningFindaeproductbyidAeopAeProductProperty>;
-  /** 商品的SKU信息 */
+  /** SKU information of the product */
   aeopAeProductSKUs?: Array<AliexpressPostproductRedefiningFindaeproductbyidAeopAEProductSKU>;
-  /** 商品分国家定价规则数据，建议使用新格式，请参考：https://developers.aliexpress.com/doc.htm?docId=109575&docType=1 */
+  /** Per-country pricing rule data for the product. The new format is recommended, see: https://developers.aliexpress.com/doc.htm?docId=109575&docType=1 */
   aeopNationalQuoteConfiguration?: AliexpressPostproductRedefiningFindaeproductbyidAeopNationalQuoteConfiguration;
-  /** 自定义计重的基本产品件数 */
+  /** Base number of product pieces for custom weight calculation */
   baseUnit?: number;
-  /** 产品的批发折扣 */
+  /** Product wholesale discount */
   bulkDiscount?: number;
-  /** 享受批发价的产品数 */
+  /** Number of products enjoying the wholesale price */
   bulkOrder?: number;
-  /** 产品所在类目的ID */
+  /** ID of the category the product belongs to */
   categoryId?: number;
-  /** 卡券商品结束有效期 */
+  /** End of validity period of the voucher product */
   couponEndDate?: string;
-  /** 卡券商品开始有效期 */
+  /** Start of validity period of the voucher product */
   couponStartDate?: string;
-  /** 产品的货币单位。美元: USD, 卢布: RUB */
+  /** Product currency. US dollar: USD, ruble: RUB */
   currencyCode?: string;
-  /** 商品的备货期 */
+  /** Product lead time */
   deliveryTime?: number;
-  /** 商品详描 */
+  /** Product detailed description */
   detail?: string;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 报错信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 产品的毛重 */
+  /** Product gross weight */
   grossWeight?: string;
-  /** 产品所关联的产品分组ID */
+  /** ID of the product group associated with the product */
   groupId?: Long;
-  /** 产品所在的产品分组列表 */
+  /** List of product groups the product belongs to */
   groupIds?: Array<Long>;
-  /** 产品的主图列表 */
+  /** Product main image list */
   imageURLs?: string;
-  /** 是否是动态图产品 */
+  /** Whether it is a dynamic image product */
   isImageDynamic?: boolean;
-  /** 是否支持是自定义计重 */
+  /** Whether custom weight calculation is supported */
   isPackSell?: boolean;
-  /** 关键字 */
+  /** Keyword */
   keyword?: string;
-  /** 每包的数量 */
+  /** Quantity per package */
   lotNum?: number;
-  /** 商品无线详描 */
+  /** Product wireless detailed description */
   mobileDetail?: string;
-  /** 商品拥有者的login_id */
+  /** login_id of the product owner */
   ownerMemberId?: string;
-  /** 商品拥有者的ID */
+  /** ID of the product owner */
   ownerMemberSeq?: number;
-  /** 产品的高度 */
+  /** Product height */
   packageHeight?: number;
-  /** 产品的长度 */
+  /** Product length */
   packageLength?: number;
-  /** 产品的宽度 */
+  /** Product width */
   packageWidth?: number;
-  /** 产品ID */
+  /** Product ID */
   productId?: Long;
   /** productMoreKeywords1 */
   productMoreKeywords1?: string;
   /** productMoreKeywords2 */
   productMoreKeywords2?: string;
-  /** 单品产品的价格。 */
+  /** Price of a single product. */
   productPrice?: string;
-  /** 产品的状态，包括onSelling（正在销售），offline（已下架），auditing（审核中），editingRequired（审核不通过） */
+  /** Product status, including onSelling (on sale), offline (delisted), auditing (under review), editingRequired (review failed) */
   productStatusType?: string;
-  /** 产品的单位 */
+  /** Product unit */
   productUnit?: number;
-  /** 产品所关联的服务模版 */
+  /** Service template associated with the product */
   promiseTemplateId?: Long;
-  /** 库存的扣减策略 */
+  /** Inventory deduction strategy */
   reduceStrategy?: string;
-  /** 产品所关联的尺码模版ID */
+  /** ID of the size template associated with the product */
   sizechartId?: Long;
-  /** 产品的来源 */
+  /** Product source */
   src?: string;
-  /** 产品的标题 */
+  /** Product title */
   subject?: string;
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 商品概要 */
+  /** Product summary */
   summary?: string;
-  /** 产品的下架原因，包括user_offline：手动下架，expire_offline：到期下架，punish_offline：网规处罚下架，violate_offline：交易违规下架，degrade_offline：降级下架，industry_offline：未续约下架 */
+  /** Product delisting reason, including user_offline: manually delisted, expire_offline: delisted on expiry, punish_offline: delisted as a penalty under platform rules, violate_offline: delisted for transaction violation, degrade_offline: delisted due to downgrade, industry_offline: delisted for not renewing */
   wsDisplay?: string;
-  /** 产品的下架日期 */
+  /** Product delisting date */
   wsOfflineDate?: string;
-  /** 产品的有效期 */
+  /** Product validity period */
   wsValidNum?: number;
-  /** 打包销售: true 非打包销售:false */
+  /** Sold as a bundle: true; not sold as a bundle: false */
   packageType?: boolean;
-  /** 修改日期 */
+  /** Update date */
   gmtModified?: string;
-  /** 创建日期 */
+  /** Creation date */
   gmtCreate?: string;
-  /** 产品关联的运费模版ID */
+  /** Shipping fee template ID associated with the product */
   freightTemplateId?: Long;
-  /** 产品的批发折扣 */
+  /** Product wholesale discount */
   dpBulkDiscount?: number;
-  /** 产品的批发折扣 */
+  /** Product wholesale discount */
   dpBulkOrder?: number;
-  /** 扩展参数 json格式 custom_image 分国家 vat_tags 含税标 */
+  /** Extended parameters in json format. custom_image: country-specific; vat_tags: tax-included tag */
   extParam?: string;
-  /** 模特尺码数据 */
+  /** Model size data */
   modeSizeChartList?: Array<AliexpressPostproductRedefiningFindaeproductbyidAeopAEModeSizeChartDTO>;
 }
 
@@ -1392,9 +1392,9 @@ export const AliexpressPostproductRedefiningFindaeproductbyidAeopFindProductResu
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidAeopNationalQuoteConfiguration {
-  /** jsonArray格式的分国家定价规则数据。 1)基于基准价格按比例配置的数据格式；2)基于基准价格按涨或者跌多少；3）为每个SKU直接设置价格绝对值。其中shiptoCountry：ISO两位的国家编码（目前支持国家：RU US CA ES FR UK NL IL BR CL AU UA BY JP TH SG KR ID MY PH VN IT DE SA AE PL TR）， percentage：相对于基准价的调价比例（百分比整数，支持负数，当前限制>=-30 && <=100）；configuration_type为absolute：14:193为sku属性ID：SKU属性值， 多个属性用，号拼接。 */
+  /** Per-country pricing rule data in jsonArray format. 1) Data format configured as a percentage of the base price; 2) based on the base price, raise or lower by a given amount; 3) set an absolute price directly for each SKU. shiptoCountry: two-letter ISO country code (currently supported countries: RU US CA ES FR UK NL IL BR CL AU UA BY JP TH SG KR ID MY PH VN IT DE SA AE PL TR), percentage: price adjustment ratio relative to the base price (integer percentage, negatives supported, currently limited to >=-30 && <=100); when configuration_type is absolute: 14:193 is the SKU attribute ID: SKU attribute value, and multiple attributes are joined with commas. */
   configurationData?: string;
-  /** 分国家定价规则类型[absolute: 为每个SKU直接设置价格绝对值；percentage：基于基准价格按比例配置; relative:相对原价涨或跌多少; */
+  /** Per-country pricing rule type [absolute: set an absolute price directly for each SKU; percentage: configured as a percentage of the base price; relative: how much higher or lower than the original price; */
   configurationType?: string;
 }
 
@@ -1405,9 +1405,9 @@ export const AliexpressPostproductRedefiningFindaeproductbyidAeopNationalQuoteCo
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidAeopSKUNationalDiscountPrice {
-  /** sku分国家的日常促销价价格 */
+  /** Price of the SKU's daily promotion price by country */
   discountPrice?: string;
-  /** sku分国家的日常促销价国家 */
+  /** Country of the SKU's daily promotion price by country */
   shiptoCountry?: string;
 }
 
@@ -1418,23 +1418,23 @@ export const AliexpressPostproductRedefiningFindaeproductbyidAeopSKUNationalDisc
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidAeopSKUProperty {
-  /** 级联属性父属性id */
+  /** Parent attribute id of the cascading attribute */
   parentPropertyId?: Long;
-  /** 级联属性父属性值id */
+  /** Parent attribute value id of the cascading attribute */
   parentValueId?: Long;
-  /** 插头属性SKU级联属性父属性id */
+  /** Parent attribute id of the plug attribute SKU cascading attribute */
   plugParentPropertyId?: Long;
-  /** 插头属性SKU级联属性父属性值id */
+  /** Parent attribute value ID of the plug attribute SKU cascading attribute */
   plugParentValueId?: Long;
-  /** 属性值自定义名称 */
+  /** Custom name of the attribute value */
   propertyValueDefinitionName?: string;
-  /** SKU属性值ID */
+  /** SKU attribute value ID */
   propertyValueId?: Long;
-  /** SKU图片地址 */
+  /** SKU image URL */
   skuImage?: string;
-  /** SKU属性ID */
+  /** SKU attribute ID */
   skuPropertyId?: number;
-  /** sku 套图 3:4 */
+  /** SKU image set 3:4 */
   imageUrlList?: Array<string>;
 }
 
@@ -1452,7 +1452,7 @@ export const AliexpressPostproductRedefiningFindaeproductbyidAeopSKUPropertySche
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopAEMultimedia {
-  /** 多媒体信息。 */
+  /** Multimedia information. */
   aeopAEVideos?: Array<AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopAEVideo>;
 }
 
@@ -1467,19 +1467,19 @@ export const AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopA
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopAeProductProperty {
-  /** 属性单位 */
+  /** Attribute unit */
   attrValueUnit?: string;
-  /** 区间属性开始值 */
+  /** Range attribute start value */
   attrValueStart?: string;
-  /** 属性值ID */
+  /** Attribute value ID */
   attrValueId?: Long;
-  /** 区间属性结束值 */
+  /** Range attribute end value */
   attrValueEnd?: string;
-  /** 属性值 */
+  /** Attribute value */
   attrValue?: string;
-  /** 属性Id */
+  /** Attribute ID */
   attrNameId?: number;
-  /** 属性名字 */
+  /** Attribute name */
   attrName?: string;
 }
 
@@ -1495,29 +1495,29 @@ export const AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopA
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopAEProductSKU {
-  /** Sku库存,数据格式有货true，无货false；至少有一条sku记录是有货的。 */
+  /** SKU stock. Data format: in stock true, out of stock false; at least one SKU record must be in stock. */
   skuStock?: boolean;
-  /** Sku价格。取值范围:0.01-100000;单位:美元。 如:200.07，表示:200美元7分。需要在正确的价格区间内。 */
+  /** SKU price. Value range: 0.01-100000; unit: USD. E.g. 200.07 means 200 dollars and 7 cents. Must be within the correct price range. */
   skuPrice?: string;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。如果用户只填写零售价（productprice）和商品编码，需要完整生成一条SKU记录提交，否则商品编码无法保存。系统会认为只提交了零售价，而没有SKU，导致商品编辑未保存。 */
+  /** Sku merchant code. Format: half-width alphanumeric characters, length 20, no spaces, greater-than or less-than signs. If the user only fills in the retail price (productprice) and the product code, a complete SKU record must still be generated and submitted, otherwise the product code cannot be saved. The system would consider that only the retail price was submitted without a SKU, so the product edit is not saved. */
   skuCode?: string;
-  /** SKU实际可售库存属性ipmSkuStock，该属性值的合理取值范围为0~999999，如该商品有SKU时，请确保至少有一个SKU是有货状态，也就是ipmSkuStock取值是1~999999，在整个商品纬度库存值的取值范围是1~999999。 如果同时设置了skuStock属性，那么系统以ipmSkuStock属性为优先；如果没有设置ipmSkuStock属性，那么系统会根据skuStock属性进行设置库存，true表示999，false表示0。 */
+  /** SKU actual sellable stock attribute ipmSkuStock; the reasonable value range of this attribute is 0~999999. If the product has SKUs, make sure at least one SKU is in stock, that is, ipmSkuStock is 1~999999; at the whole-product level the stock value range is 1~999999. If the skuStock attribute is also set, the system gives priority to ipmSkuStock; if ipmSkuStock is not set, the system sets stock according to skuStock, where true means 999 and false means 0. */
   ipmSkuStock?: Long;
   /** SKU ID */
   id?: string;
-  /** 产品的货币单位。美元: USD, 卢布: RUB */
+  /** Product currency. US dollar: USD, ruble: RUB */
   currencyCode?: string;
-  /** Sku属性对象list，允许1-3个sku属性对象，按sku属性顺序排放。sku属性从类目属性接口getAttributesResultByCateId获取。该项值输入sku属性，不能输入普通类目属性。注意，sku属性是有顺序的，必须按照顺序存放。 */
+  /** Sku attribute object list; 1-3 sku attribute objects are allowed, arranged in sku attribute order. Sku attributes are obtained from the category attribute API getAttributesResultByCateId. This item takes sku attributes; ordinary category attributes cannot be entered. Note that sku attributes are ordered and must be stored in order. */
   aeopSKUPropertys?: Array<AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopSKUProperty>;
-  /** 商品条形码 */
+  /** Product barcode */
   barcode?: string;
-  /** sku折扣价格 */
+  /** SKU discounted price */
   offerSalePrice?: string;
-  /** sku批量折扣价 */
+  /** SKU bulk discount price */
   offerBulkSalePrice?: string;
-  /** 最少起批的数量 */
+  /** Minimum wholesale quantity */
   skuBulkOrder?: number;
-  /** sku库存 */
+  /** SKU inventory */
   sKUAvailableStock?: Long;
 }
 
@@ -1543,15 +1543,15 @@ export const AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopA
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopAEVideo {
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 视频的类型 */
+  /** Video type */
   mediaType?: string;
-  /** 视频的状态 */
+  /** Video status */
   mediaStatus?: string;
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 卖家主账户ID */
+  /** Seller main account ID */
   aliMemberId?: Long;
 }
 
@@ -1565,77 +1565,77 @@ export const AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopA
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopFindProductResultDTO {
-  /** 评价数 */
+  /** Number of reviews */
   evaluationCount?: number;
-  /** 平均评价星级，1-5星 */
+  /** Average review star rating, 1-5 stars */
   avgEvaluationRating?: string;
-  /** 订单数 */
+  /** Number of orders */
   orderCount?: number;
-  /** 商品的SKU信息 */
+  /** SKU information of the product */
   aeopAeProductSKUs?: Array<AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopAEProductSKU>;
-  /** 商品详描 */
+  /** Product detailed description */
   detail?: string;
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   isSuccess?: boolean;
-  /** 产品的单位 */
+  /** Product unit */
   productUnit?: number;
-  /** 产品的下架日期 */
+  /** Product delisting date */
   wsOfflineDate?: string;
-  /** 产品的下架原因 */
+  /** Product delisting reason */
   wsDisplay?: string;
-  /** 产品所在类目的ID */
+  /** ID of the category the product belongs to */
   categoryId?: number;
-  /** 商品多媒体信息，该属性主要包含商品的视频列表 */
+  /** Product multimedia information; this property mainly contains the product's video list */
   aeopAEMultimedia?: AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopAEMultimedia;
-  /** 商品拥有者的login_id */
+  /** login_id of the product owner */
   ownerMemberId?: string;
-  /** 产品的状态 */
+  /** Product status */
   productStatusType?: string;
-  /** 商品的类目属性 */
+  /** Product category attributes */
   aeopAeProductPropertys?: Array<AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopAeProductProperty>;
-  /** 产品的毛重 */
+  /** Product gross weight */
   grossWeight?: string;
-  /** 商品的备货期 */
+  /** Product lead time */
   deliveryTime?: number;
-  /** 产品的有效期 */
+  /** Product validity period */
   wsValidNum?: number;
-  /** 修改时间 */
+  /** Update time */
   gmtModified?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 包装类型 */
+  /** Packaging type */
   packageType?: boolean;
-  /** 商品分国家报价的配置 */
+  /** Configuration of product quotes by country */
   aeopNationalQuoteConfiguration?: AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopNationalQuoteConfiguration;
-  /** 产品的标题 */
+  /** Product title */
   subject?: string;
-  /** 自定义计重的基本产品件数 */
+  /** Base number of product pieces for custom weight calculation */
   baseUnit?: number;
-  /** 产品的长度 */
+  /** Product length */
   packageLength?: number;
-  /** 无线详描 */
+  /** Wireless detailed description */
   mobileDetail?: string;
-  /** 产品的高度 */
+  /** Product height */
   packageHeight?: number;
-  /** 产品的宽度 */
+  /** Product width */
   packageWidth?: number;
-  /** 产品的货币单位。美元: USD, 卢布: RUB */
+  /** Product currency. US dollar: USD, ruble: RUB */
   currencyCode?: string;
-  /** 产品创建时间 */
+  /** Product creation time */
   gmtCreate?: string;
-  /** 产品的主图列表 */
+  /** Product main image list */
   imageURLs?: string;
-  /** 产品ID */
+  /** Product ID */
   productId?: Long;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 单品产品的价格。 */
+  /** Price of a single product. */
   productPrice?: string;
-  /** 网站折扣后价格 */
+  /** Price after site discount */
   itemOfferSiteSalePrice?: string;
-  /** 库存 */
+  /** Inventory */
   totalAvailableStock?: Long;
-  /** 店铺信息 */
+  /** Store information */
   storeInfo?: AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopStoreInfo;
 }
 
@@ -1705,9 +1705,9 @@ export const AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopF
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopNationalQuoteConfiguration {
-  /** 分国家定价规则类型[percentage：基于基准价格按比例配置] */
+  /** Per-country pricing rule type [percentage: configured as a percentage of the base price] */
   configurationType?: string;
-  /** jsonArray格式的分国家定价规则数据。 1)基于基准价格按比例配置的数据格式：[{"shiptoCountry":"US","percentage":"5"},{"shiptoCountry":"RU","percentage":"-2"}] 其中shiptoCountry：ISO两位的国家编码（目前支持11个国家：RU,US,CA,ES,FR,UK,NL,IL,BR,CL,AU）， percentage：相对于基准价的调价比例（百分比整数，支持负数，当前限制>=-30 && <=100） */
+  /** Per-country pricing rule data in jsonArray format. 1) Data format configured as a percentage of the base price: [{"shiptoCountry":"US","percentage":"5"},{"shiptoCountry":"RU","percentage":"-2"}] where shiptoCountry: two-letter ISO country code (currently 11 countries are supported: RU,US,CA,ES,FR,UK,NL,IL,BR,CL,AU), percentage: price adjustment ratio relative to the base price (integer percentage, negatives supported, currently limited to >=-30 && <=100) */
   configurationData?: string;
 }
 
@@ -1722,13 +1722,13 @@ export interface AliexpressPostproductRedefiningFindaeproductbyidfordropshipperA
   skuPropertyId?: number;
   /** skuImage */
   skuImage?: string;
-  /** 自定义id */
+  /** Custom ID */
   propertyValueIdLong?: Long;
-  /** 自定义名 */
+  /** Custom name */
   propertyValueDefinitionName?: string;
-  /** 属性值 */
+  /** Attribute value */
   skuPropertyValue?: string;
-  /** 属性名 */
+  /** Attribute name */
   skuPropertyName?: string;
 }
 
@@ -1743,15 +1743,15 @@ export const AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopS
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopStoreInfo {
-  /** 卖家服务，1-5星 */
+  /** Seller service, 1-5 stars */
   communicationRating?: string;
-  /** 商品描述，1-5星 */
+  /** Item as described, 1-5 stars */
   itemAsDescripedRating?: string;
-  /** 物流，1-5星 */
+  /** Logistics, 1-5 stars */
   shippingSpeedRating?: string;
-  /** 店铺ID */
+  /** Store ID */
   storeId?: number;
-  /** 店铺名 */
+  /** Store name */
   storeName?: string;
 }
 
@@ -1765,11 +1765,11 @@ export const AliexpressPostproductRedefiningFindaeproductbyidfordropshipperAeopS
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidInfluencerVideo {
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
 }
 
@@ -1781,9 +1781,9 @@ export const AliexpressPostproductRedefiningFindaeproductbyidInfluencerVideoSche
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidInfluencerVideoInfo {
-  /** 默认网红视频 */
+  /** Default influencer video */
   influencerVideo?: AliexpressPostproductRedefiningFindaeproductbyidInfluencerVideo;
-  /** 分国家网红视频 */
+  /** Influencer videos by country */
   nationalInfluencerVideos?: Array<AliexpressPostproductRedefiningFindaeproductbyidInfluencerVideo>;
 }
 
@@ -1804,9 +1804,9 @@ export const AliexpressPostproductRedefiningFindaeproductbyidInfluencerVideoInfo
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidLadderDTO {
-  /** 门槛数量 */
+  /** Threshold quantity */
   thresholdNum?: string;
-  /** 商品折扣 */
+  /** Product discount */
   discount?: string;
 }
 
@@ -1817,13 +1817,13 @@ export const AliexpressPostproductRedefiningFindaeproductbyidLadderDTOSchema: Sc
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductbyidLogisticAttrDTO {
-  /** 物流属性 ID */
+  /** Logistics attribute ID */
   value?: Long;
-  /** 上级物流属性 ID，没有上级为空 */
+  /** Parent logistics attribute ID; empty if there is no parent */
   parentValueId?: Long;
-  /** 上级文本 */
+  /** Parent text */
   parentText?: string;
-  /** 二级文本 */
+  /** Secondary text */
   text?: string;
 }
 
@@ -1836,17 +1836,17 @@ export const AliexpressPostproductRedefiningFindaeproductbyidLogisticAttrDTOSche
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductdetailmodulelistbyqureyAeopFindModuleListResultDTO {
-  /** 模块信息列表 */
+  /** Module information list */
   aeopDetailModuleList?: Array<AliexpressPostproductRedefiningFindaeproductdetailmodulelistbyqureyString>;
-  /** 当前页号 */
+  /** Current page number */
   currentPage?: Long;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 接口调用结果。true/false分别表示成功和失败。 */
+  /** API call result. true/false indicate success and failure respectively. */
   success?: boolean;
-  /** 总页数 */
+  /** Total pages */
   totalPage?: Long;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
   /** error_message */
   errorMessage?: string;
@@ -1869,19 +1869,19 @@ export const AliexpressPostproductRedefiningFindaeproductdetailmodulelistbyqurey
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductdetailmodulelistbyqureyString {
-  /** 卖家主账户的ID */
+  /** ID of the seller main account */
   aliMemberId?: Long;
-  /** 模块的内容（已废弃） */
+  /** Module content (deprecated) */
   displayContent?: string;
-  /** 模块ID */
+  /** Module ID */
   id?: Long;
-  /** 模块的内容 */
+  /** Module content */
   moduleContents?: string;
-  /** 模块名称 */
+  /** Module name */
   name?: string;
-  /** 模块的状态 */
+  /** Module status */
   status?: string;
-  /** 模块的类型 */
+  /** Module type */
   type?: string;
 }
 
@@ -1897,29 +1897,29 @@ export const AliexpressPostproductRedefiningFindaeproductdetailmodulelistbyqurey
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductmodulebyidAeopFindModuleResultDTO {
-  /** 这个模块所有者的主账户ID */
+  /** Main account ID of the owner of this module */
   aliMemberId?: Long;
   /** displayContent */
   displayContent?: string;
-  /** 模块的创建时间 */
+  /** Module creation time */
   gmtCreate?: string;
-  /** 模块的最近一次修改时间 */
+  /** Last modification time of the module */
   gmtModified?: string;
-  /** 模块的id */
+  /** Module ID */
   id?: Long;
-  /** 模块的内容 */
+  /** Module content */
   moduleContents?: string;
-  /** 模块的名称 */
+  /** Module name */
   name?: string;
-  /** 模块的状态 */
+  /** Module status */
   status?: string;
-  /** 接口的调用结果。true/false分别表示成功和失败。 */
+  /** API call result. true/false indicate success and failure respectively. */
   success?: boolean;
-  /** 模块的类型 */
+  /** Module type */
   type?: string;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -1940,17 +1940,17 @@ export const AliexpressPostproductRedefiningFindaeproductmodulebyidAeopFindModul
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductprohibitedwordsAeopProhibitedWordsResultDTO {
-  /** 商品详描中的违禁词列表, 如果商品详描中没有违禁词, 则返回一个"'[]"。否则将以示例值中的格式返回。其中每个违禁词都包含了2个属性: primaryWord和types。其中primaryWord表示违禁词，types表示违禁词的类型，总共有四种类型: FORBIDEN_TYPE(禁用), RESTRICT_TYPE(限定), BRAND_TYPE(品牌), TORT_TYPE(侵权)。 */
+  /** List of prohibited words in the product detail description. If there are no prohibited words in the detail description, "'[]" is returned. Otherwise it is returned in the format of the example value. Each prohibited word has 2 attributes: primaryWord and types. primaryWord is the prohibited word, and types is the type of the prohibited word; there are four types in total: FORBIDEN_TYPE (forbidden), RESTRICT_TYPE (restricted), BRAND_TYPE (brand), TORT_TYPE (infringement). */
   detailProhibitedWords?: Array<AliexpressPostproductRedefiningFindaeproductprohibitedwordsProhibitedWord>;
-  /** 关键字的违禁词列表, 如果关键字中没有违禁词, 则返回一个"'[]"。否则将以示例值中的格式返回。其中每个违禁词都包含了2个属性: primaryWord和types。其中primaryWord表示违禁词，types表示违禁词的类型，总共有四种类型: FORBIDEN_TYPE(禁用), RESTRICT_TYPE(限定), BRAND_TYPE(品牌), TORT_TYPE(侵权)。 */
+  /** List of prohibited words in the keywords. If there are no prohibited words in the keywords, "'[]" is returned. Otherwise it is returned in the format of the example value. Each prohibited word has 2 attributes: primaryWord and types. primaryWord is the prohibited word, and types is the type of the prohibited word; there are four types in total: FORBIDEN_TYPE (forbidden), RESTRICT_TYPE (restricted), BRAND_TYPE (brand), TORT_TYPE (infringement). */
   keywordsProhibitedWords?: Array<AliexpressPostproductRedefiningFindaeproductprohibitedwordsProhibitedWord>;
-  /** 类目属性的违禁词列表, 如果类目属性中没有违禁词, 则返回一个"'[]"。否则将以示例值中的格式返回。其中每个违禁词都包含了2个属性: primaryWord和types。其中primaryWord表示违禁词，types表示违禁词的类型，总共有四种类型: FORBIDEN_TYPE(禁用), RESTRICT_TYPE(限定), BRAND_TYPE(品牌), TORT_TYPE(侵权)。 */
+  /** List of prohibited words in the category attributes. If there are no prohibited words in the category attributes, "'[]" is returned. Otherwise it is returned in the format of the example value. Each prohibited word has 2 attributes: primaryWord and types. primaryWord is the prohibited word, and types is the type of the prohibited word; there are four types in total: FORBIDEN_TYPE (forbidden), RESTRICT_TYPE (restricted), BRAND_TYPE (brand), TORT_TYPE (infringement). */
   productPropertiesProhibitedWords?: Array<AliexpressPostproductRedefiningFindaeproductprohibitedwordsProhibitedWord>;
-  /** 标题中的违禁词列表, 如果标题字中没有违禁词, 则返回一个"'[]"。否则将以示例值中的格式返回。其中每个违禁词都包含了2个属性: primaryWord和types。其中primaryWord表示违禁词，types表示违禁词的类型，总共有四种类型: FORBIDEN_TYPE(禁用), RESTRICT_TYPE(限定), BRAND_TYPE(品牌), TORT_TYPE(侵权)。 */
+  /** List of prohibited words in the title. If there are no prohibited words in the title, "'[]" is returned. Otherwise it is returned in the format of the example value. Each prohibited word has 2 attributes: primaryWord and types. primaryWord is the prohibited word, and types is the type of the prohibited word; there are four types in total: FORBIDEN_TYPE (forbidden), RESTRICT_TYPE (restricted), BRAND_TYPE (brand), TORT_TYPE (infringement). */
   titleProhibitedWords?: Array<AliexpressPostproductRedefiningFindaeproductprohibitedwordsProhibitedWord>;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -1985,9 +1985,9 @@ export const AliexpressPostproductRedefiningFindaeproductprohibitedwordsAeopProh
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductprohibitedwordsProhibitedWord {
-  /** 违禁词名称 */
+  /** Prohibited word name */
   primaryWord?: string;
-  /** 违禁原因 */
+  /** Prohibition reason */
   types?: Array<string>;
 }
 
@@ -1998,13 +1998,13 @@ export const AliexpressPostproductRedefiningFindaeproductprohibitedwordsProhibit
   };
 
 export interface AliexpressPostproductRedefiningFindaeproductstatusbyidAeopFindProductStatusResultDTO {
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 商品状态。审核通过:approved;审核中:auditing;审核不通过:refuse */
+  /** Product status. Review passed: approved; under review: auditing; review failed: refuse */
   status?: string;
   /** timeStamp */
   timeStamp?: string;
@@ -2020,39 +2020,39 @@ export const AliexpressPostproductRedefiningFindaeproductstatusbyidAeopFindProdu
   };
 
 export interface AliexpressPostproductRedefiningFindproductinfolistqueryAeopAEProductDisplaySampleDTO {
-  /** 商品类型， POP： 普通商品， POP_CHOICE : 半托管商品 */
+  /** Product type, POP: regular product, POP_CHOICE: semi-managed product */
   productType?: string;
-  /** 审核不通过原因 */
+  /** Review rejection reason */
   auditFailureReason?: string;
-  /** 货币单位 */
+  /** Currency unit */
   currencyCode?: string;
-  /** 产品发布时间。 */
+  /** Product publish time. */
   gmtCreate?: string;
-  /** 商品最后更新时间 （系统更新时间也会记录）。 */
+  /** Last product update time (system update time is also recorded). */
   gmtModified?: string;
-  /** 商品分组id */
+  /** Product group ID */
   groupId?: Long;
-  /** 图片URL.静态单图主图个数为1,动态多图主图个数为2-6. 多个图片url用‘;’分隔符连接。 */
+  /** Image URLs. A static single-image main image count is 1; a dynamic multi-image main image count is 2-6. Multiple image URLs are joined with the ';' separator. */
   imageURLs?: string;
-  /** 商品所属人loginId */
+  /** loginId of the product owner */
   ownerMemberId?: string;
-  /** 商品所属人Seq */
+  /** Seq of the product owner */
   ownerMemberSeq?: Long;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 最大价格。 */
+  /** Maximum price. */
   productMaxPrice?: string;
-  /** 最小价格。 */
+  /** Minimum price. */
   productMinPrice?: string;
-  /** 产品来源。'tdx'为淘宝代销产品，isv为通过API发布的商品。其他字符或空为普通产品。 */
+  /** Product source. 'tdx' is a Taobao consignment product, isv is a product published via API. Other characters or empty means a regular product. */
   src?: string;
-  /** 商品标题 */
+  /** Product title */
   subject?: string;
-  /** 商品下架原因：expire_offline：过期下架，user_offline：用户下架,violate_offline：违规下架,punish_offline：交易违规下架，degrade_offline：降级下架 */
+  /** Product delisting reason: expire_offline: delisted due to expiry, user_offline: delisted by user, violate_offline: delisted for violation, punish_offline: delisted for transaction violation, degrade_offline: delisted due to downgrade */
   wsDisplay?: string;
-  /** 下架时间 */
+  /** Delisting time */
   wsOfflineDate?: string;
-  /** 商品关联的运费模板Id */
+  /** Shipping fee template Id linked to the product */
   freightTemplateId?: Long;
   /** couponEndDate */
   couponEndDate?: string;
@@ -2084,43 +2084,43 @@ export const AliexpressPostproductRedefiningFindproductinfolistqueryAeopAEProduc
   };
 
 export interface AliexpressPostproductRedefiningFindproductinfolistqueryAeopAEProductListQuery {
-  /** 土耳其责任人筛选，-2代表未关联 */
+  /** Turkey responsible person filter, -2 means not linked */
   turkeyRepId?: Long;
-  /** 欧盟责任人筛选，-2代表未关联 */
+  /** EU responsible person filter, -2 means not linked */
   msrEuId?: Long;
-  /** 制造商筛选，-2代表未关联 */
+  /** Manufacturer filter, -2 means not linked */
   manufacturerId?: Long;
-  /** 审核不通过原因：tbd_audit_fail(侵权/禁限售),cluster_audit_fail(已有同款且竞争力低),duplicate_audit_fail(重铺绝对同款),category_audit_fail(类目错放),fake_audit_fail(描述不符),business_opportunity_audit_fail(商机发品非同品) */
+  /** Reasons for audit failure: tbd_audit_fail (infringement/prohibited or restricted items), cluster_audit_fail (identical product already exists and competitiveness is low), duplicate_audit_fail (re-listing of an absolutely identical product), category_audit_fail (listed in the wrong category), fake_audit_fail (description does not match), business_opportunity_audit_fail (business-opportunity listing is not the same product) */
   auditFailureReason?: string;
-  /** 需要商品的当前页数。默认第一页。 */
+  /** Current page number of products required. Default is page 1. */
   currentPage?: number;
-  /** 被排除在外的商品id,查询结果不返回填入的产品，多个产品id以数组形式填入 */
+  /** IDs of products to exclude. The query results will not return the specified products; multiple product ids are passed as an array */
   exceptedProductIds?: Array<Long>;
-  /** 商品的剩余有效期。如果想查3天之内即将下架的商品，则offLineTime值为3。 */
+  /** Remaining validity period of the product. To query products that will be delisted within 3 days, set the offLineTime value to 3. */
   offLineTime?: number;
-  /** 商品所属人loginId */
+  /** loginId of the product owner */
   ownerMemberId?: string;
-  /** 每页查询商品数量。输入值小于100，默认20。 */
+  /** Number of products queried per page. Input value less than 100, default 20. */
   pageSize?: number;
-  /** 商品id搜索字段。 */
+  /** Product id search field. */
   productId?: Long;
-  /** 商品业务状态，目前提供6种，输入参数分别是：上架:onSelling ；下架:offline ；审核中:auditing ；审核不通过:editingRequired；客服删除:service_delete ; 所有删除商品：deleted； */
+  /** Product business status, currently 6 values are provided; the input parameters are: listed: onSelling; delisted: offline; under review: auditing; audit failed: editingRequired; deleted by customer service: service_delete; all deleted products: deleted; */
   productStatusType?: string;
-  /** 商品标题模糊搜索字段。只支持半角英数字，长度不超过128。 */
+  /** Fuzzy search field for product title. Only half-width letters and digits are supported, length no more than 128. */
   subject?: string;
-  /** 商品下架原因：expire_offline(过期下架)，user_offline(用户手工下架)、violate_offline(违规下架)、punish_offline(处罚下架)、degrade_offline(降级下架)、industry_offline(行业准入未续约下架) */
+  /** Product delisting reason: expire_offline (delisted due to expiry), user_offline (manually delisted by user), violate_offline (delisted for violation), punish_offline (delisted as a penalty), degrade_offline (delisted due to downgrade), industry_offline (delisted because industry access was not renewed) */
   wsDisplay?: string;
-  /** 是否有差异化报价: y有 n无 */
+  /** Whether there is differentiated pricing: y yes n no */
   haveNationalQuote?: string;
-  /** 商品分组搜索字段。输入商品分组id(groupId). */
+  /** Product group search field. Enter the product group ID (groupId). */
   groupId?: Long;
-  /** 创建时间开始于，yyyy-MM-dd hh:mm:ss */
+  /** Creation time starts at, yyyy-MM-dd hh:mm:ss */
   gmtCreateStart?: string;
-  /** 创建时间结束于，yyyy-MM-dd hh:mm:ss */
+  /** Creation time ends at, yyyy-MM-dd hh:mm:ss */
   gmtCreateEnd?: string;
-  /** 修改时间开始于，yyyy-MM-dd hh:mm:ss */
+  /** Update time starts at, yyyy-MM-dd hh:mm:ss */
   gmtModifiedStart?: string;
-  /** 修改时间结束于，yyyy-MM-dd hh:mm:ss */
+  /** Update time ends at, yyyy-MM-dd hh:mm:ss */
   gmtModifiedEnd?: string;
 }
 
@@ -2148,21 +2148,21 @@ export const AliexpressPostproductRedefiningFindproductinfolistqueryAeopAEProduc
   };
 
 export interface AliexpressPostproductRedefiningFindproductinfolistqueryAeopFindProductListResultDTO {
-  /** 当前页 */
+  /** Current page */
   currentPage?: Long;
   /** errorMsg */
   errorMsg?: string;
-  /** 总商品数 */
+  /** Total number of products */
   productCount?: Long;
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 总页数 */
+  /** Total pages */
   totalPage?: Long;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 商品基本信息列表 */
+  /** List of basic product information */
   aeopAEProductDisplayDTOList?: Array<AliexpressPostproductRedefiningFindproductinfolistqueryAeopAEProductDisplaySampleDTO>;
 }
 
@@ -2184,11 +2184,11 @@ export const AliexpressPostproductRedefiningFindproductinfolistqueryAeopFindProd
   };
 
 export interface AliexpressPostproductRedefiningGetproductgrouplistAeopAEProductTreeGroup {
-  /** 子分组列表 */
+  /** Subgroup list */
   childGroupList?: Array<AliexpressPostproductRedefiningGetproductgrouplistAeopAEProductTreeGroup>;
-  /** 分组名称 */
+  /** Group name */
   groupName?: string;
-  /** 分组id */
+  /** Group ID */
   groupId?: Long;
 }
 
@@ -2205,15 +2205,15 @@ export const AliexpressPostproductRedefiningGetproductgrouplistAeopAEProductTree
   };
 
 export interface AliexpressPostproductRedefiningGetproductgrouplistAeopResultDTO {
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 接口的调用结果。true/false分别表示成功和失败。 */
+  /** API call result. true/false indicate success and failure respectively. */
   success?: boolean;
-  /** 产品分组信息 */
+  /** Product group information */
   targetList?: Array<AliexpressPostproductRedefiningGetproductgrouplistAeopAEProductTreeGroup>;
-  /** 调用接口的时间戳 */
+  /** Timestamp of the API call */
   timeStamp?: string;
 }
 
@@ -2232,15 +2232,15 @@ export const AliexpressPostproductRedefiningGetproductgrouplistAeopResultDTOSche
   };
 
 export interface AliexpressPostproductRedefiningGetsizechartinfobycategoryidAeopAEProductSizeChartResultDTO {
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 尺码标模版列表 */
+  /** Size chart template list */
   sizechartDTOList?: Array<AliexpressPostproductRedefiningGetsizechartinfobycategoryidString>;
-  /** 调用方法成功标识，true/false分别代表成功和失败 */
+  /** Method call success flag, true/false represent success and failure respectively */
   success?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 系统异常信息 */
+  /** System exception message */
   errorMessage?: string;
 }
 
@@ -2259,19 +2259,19 @@ export const AliexpressPostproductRedefiningGetsizechartinfobycategoryidAeopAEPr
   };
 
 export interface AliexpressPostproductRedefiningGetsizechartinfobycategoryidString {
-  /** 是否是新版尺码模版 */
+  /** Whether it is a new version size template */
   isNew?: boolean;
-  /** 尺码模版子模版类型，WOMENS_BOTTOMS("女式下装"), WOMENS_SWIMWEAR("女式泳装"), WOMENS_OUTERWEAR("女士外套"), WOMENS_JUMPSUITS("女士连体裤"), WOMENS_BODAYSUITS("女士紧身衣"), WOMENS_SKIRTS("女士短裙"), WOMENS_TOPS("女上装"), DRESSES("连衣裙"), PLUS_SIZE_WOMENS_BOTTOMS("大码-女式下装"), PLUS_SIZE_WOMENS_SWIMWEAR("大码-女式泳装"), PLUS_SIZE_WOMENS_OUTERWAER("大码-女士外套"), PLUS_SIZE_WOMENS_JUMPSUITS("大码-女士连体裤"), PLUS_SIZE_WOMENS_BODAYSUITS("大码-女士紧身衣"), PLUS_SIZE_WOMENS_SKIRTS("大码-女士短裙"), PLUS_SIZE_WOMENS_TOPS("大码-女上装"), PLUS_SIZE_DRESSES("大码-连衣裙"),WOMENS_CEREMONIAL_DRESS("女式礼服"), WOMENS_EROTIC_CLOTHING("情趣服装"),MENS_SHOES("男鞋"),WOMENS_SHOES("女鞋"),MENS_BOOTS("男靴"),WOMENS_BOOTS("女靴"),MENS_SPORTS_SHOES("男运动鞋"),WOMANS_SPORTS_SHOES("女运动鞋"),MENS_TOPS("男上装"),MENS_BOTTOMS("男下装"),MENS_OUTERWEAR("男士外套"),MENS_SUIT("男西装"),WOMENS_UNDERWEAR("女式内裤"),WOMENS_BRA("文胸"),WOMENS_ROBE("女式睡袍"),WOMENS_SOCKS("女式袜子"),WOMENS_UNDERWEAR_BODYSUITS("女式紧身衣"),WOMENS_UNDERWEAR_JUMPSUITS("女式连体裤"),WOMENS_UNDERWEAR_TOP("女内衣上装"),WOMENS_UNDERWEAR_BUTTOM("女内衣下装"),MENS_UNDERWEAR("男式内裤"),MENS_ROBE("男式睡袍"),MENS_SOCKS("男式袜子"),MENS_UNDERWEAR_BODYSUITS("男式紧身衣"),MENS_UNDERWEAR_JUMPSUITS("男式连体裤"),MENS_UNDERWEAR_TOP("男内衣上装"),MENS_UNDERWEAR_BUTTOM("男内衣下装"),CHILDRENS_SHOES("童鞋"); */
+  /** Size template sub-template type, WOMENS_BOTTOMS("Women's bottoms"), WOMENS_SWIMWEAR("Women's swimwear"), WOMENS_OUTERWEAR("Women's outerwear"), WOMENS_JUMPSUITS("Women's jumpsuits"), WOMENS_BODAYSUITS("Women's bodysuits"), WOMENS_SKIRTS("Women's skirts"), WOMENS_TOPS("Women's tops"), DRESSES("Dresses"), PLUS_SIZE_WOMENS_BOTTOMS("Plus size - women's bottoms"), PLUS_SIZE_WOMENS_SWIMWEAR("Plus size - women's swimwear"), PLUS_SIZE_WOMENS_OUTERWAER("Plus size - women's outerwear"), PLUS_SIZE_WOMENS_JUMPSUITS("Plus size - women's jumpsuits"), PLUS_SIZE_WOMENS_BODAYSUITS("Plus size - women's bodysuits"), PLUS_SIZE_WOMENS_SKIRTS("Plus size - women's skirts"), PLUS_SIZE_WOMENS_TOPS("Plus size - women's tops"), PLUS_SIZE_DRESSES("Plus size - dresses"), WOMENS_CEREMONIAL_DRESS("Women's formal dresses"), WOMENS_EROTIC_CLOTHING("Lingerie costumes"), MENS_SHOES("Men's shoes"), WOMENS_SHOES("Women's shoes"), MENS_BOOTS("Men's boots"), WOMENS_BOOTS("Women's boots"), MENS_SPORTS_SHOES("Men's sports shoes"), WOMANS_SPORTS_SHOES("Women's sports shoes"), MENS_TOPS("Men's tops"), MENS_BOTTOMS("Men's bottoms"), MENS_OUTERWEAR("Men's outerwear"), MENS_SUIT("Men's suits"), WOMENS_UNDERWEAR("Women's underwear"), WOMENS_BRA("Bras"), WOMENS_ROBE("Women's robes"), WOMENS_SOCKS("Women's socks"), WOMENS_UNDERWEAR_BODYSUITS("Women's bodysuits"), WOMENS_UNDERWEAR_JUMPSUITS("Women's jumpsuits"), WOMENS_UNDERWEAR_TOP("Women's underwear tops"), WOMENS_UNDERWEAR_BUTTOM("Women's underwear bottoms"), MENS_UNDERWEAR("Men's underwear"), MENS_ROBE("Men's robes"), MENS_SOCKS("Men's socks"), MENS_UNDERWEAR_BODYSUITS("Men's bodysuits"), MENS_UNDERWEAR_JUMPSUITS("Men's jumpsuits"), MENS_UNDERWEAR_TOP("Men's underwear tops"), MENS_UNDERWEAR_BUTTOM("Men's underwear bottoms"), CHILDRENS_SHOES("Children's shoes"); */
   subType?: string;
-  /** 尺码分组 */
+  /** Size group */
   sizeGroup?: string;
-  /** 是否是系统自带的尺码模版，true表示是系统自带的，false表示用户自定义. */
+  /** Whether it is a system-provided size chart template. true means system-provided, false means user-defined. */
   isDefault?: boolean;
-  /** 尺码模版的适用类型 */
+  /** Applicable type of the size template */
   modelName?: string;
-  /** 尺码模版的名称 */
+  /** Size chart template name */
   name?: string;
-  /** 尺码模版ID. */
+  /** Size chart template ID. */
   sizechartId?: Long;
 }
 
@@ -2287,15 +2287,15 @@ export const AliexpressPostproductRedefiningGetsizechartinfobycategoryidStringSc
   };
 
 export interface AliexpressPostproductRedefiningGetsizechartinfobytypeAeopAEProductSizeChartResultDTO {
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 尺码标模版列表 */
+  /** Size chart template list */
   sizechartDTOList?: Array<AliexpressPostproductRedefiningGetsizechartinfobytypeString>;
-  /** 调用方法成功标识，true/false分别代表成功和失败 */
+  /** Method call success flag, true/false represent success and failure respectively */
   success?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 系统异常信息 */
+  /** System exception message */
   errorMessage?: string;
 }
 
@@ -2313,19 +2313,19 @@ export const AliexpressPostproductRedefiningGetsizechartinfobytypeAeopAEProductS
   };
 
 export interface AliexpressPostproductRedefiningGetsizechartinfobytypeString {
-  /** 尺码模版子模版类型，WOMENS_BOTTOMS("女式下装"), WOMENS_SWIMWEAR("女式泳装"), WOMENS_OUTERWEAR("女士外套"), WOMENS_JUMPSUITS("女士连体裤"), WOMENS_BODAYSUITS("女士紧身衣"), WOMENS_SKIRTS("女士短裙"), WOMENS_TOPS("女上装"), DRESSES("连衣裙"), PLUS_SIZE_WOMENS_BOTTOMS("大码-女式下装"), PLUS_SIZE_WOMENS_SWIMWEAR("大码-女式泳装"), PLUS_SIZE_WOMENS_OUTERWAER("大码-女士外套"), PLUS_SIZE_WOMENS_JUMPSUITS("大码-女士连体裤"), PLUS_SIZE_WOMENS_BODAYSUITS("大码-女士紧身衣"), PLUS_SIZE_WOMENS_SKIRTS("大码-女士短裙"), PLUS_SIZE_WOMENS_TOPS("大码-女上装"), PLUS_SIZE_DRESSES("大码-连衣裙"),WOMENS_CEREMONIAL_DRESS("女式礼服"), WOMENS_EROTIC_CLOTHING("情趣服装"),MENS_SHOES("男鞋"),WOMENS_SHOES("女鞋"),MENS_BOOTS("男靴"),WOMENS_BOOTS("女靴"),MENS_SPORTS_SHOES("男运动鞋"),WOMANS_SPORTS_SHOES("女运动鞋"),MENS_TOPS("男上装"),MENS_BOTTOMS("男下装"),MENS_OUTERWEAR("男士外套"),MENS_SUIT("男西装"),WOMENS_UNDERWEAR("女式内裤"),WOMENS_BRA("文胸"),WOMENS_ROBE("女式睡袍"),WOMENS_SOCKS("女式袜子"),WOMENS_UNDERWEAR_BODYSUITS("女式紧身衣"),WOMENS_UNDERWEAR_JUMPSUITS("女式连体裤"),WOMENS_UNDERWEAR_TOP("女内衣上装"),WOMENS_UNDERWEAR_BUTTOM("女内衣下装"),MENS_UNDERWEAR("男式内裤"),MENS_ROBE("男式睡袍"),MENS_SOCKS("男式袜子"),MENS_UNDERWEAR_BODYSUITS("男式紧身衣"),MENS_UNDERWEAR_JUMPSUITS("男式连体裤"),MENS_UNDERWEAR_TOP("男内衣上装"),MENS_UNDERWEAR_BUTTOM("男内衣下装"),CHILDRENS_SHOES("童鞋"); */
+  /** Size template sub-template type, WOMENS_BOTTOMS("Women's bottoms"), WOMENS_SWIMWEAR("Women's swimwear"), WOMENS_OUTERWEAR("Women's outerwear"), WOMENS_JUMPSUITS("Women's jumpsuits"), WOMENS_BODAYSUITS("Women's bodysuits"), WOMENS_SKIRTS("Women's skirts"), WOMENS_TOPS("Women's tops"), DRESSES("Dresses"), PLUS_SIZE_WOMENS_BOTTOMS("Plus size - women's bottoms"), PLUS_SIZE_WOMENS_SWIMWEAR("Plus size - women's swimwear"), PLUS_SIZE_WOMENS_OUTERWAER("Plus size - women's outerwear"), PLUS_SIZE_WOMENS_JUMPSUITS("Plus size - women's jumpsuits"), PLUS_SIZE_WOMENS_BODAYSUITS("Plus size - women's bodysuits"), PLUS_SIZE_WOMENS_SKIRTS("Plus size - women's skirts"), PLUS_SIZE_WOMENS_TOPS("Plus size - women's tops"), PLUS_SIZE_DRESSES("Plus size - dresses"), WOMENS_CEREMONIAL_DRESS("Women's formal dresses"), WOMENS_EROTIC_CLOTHING("Lingerie costumes"), MENS_SHOES("Men's shoes"), WOMENS_SHOES("Women's shoes"), MENS_BOOTS("Men's boots"), WOMENS_BOOTS("Women's boots"), MENS_SPORTS_SHOES("Men's sports shoes"), WOMANS_SPORTS_SHOES("Women's sports shoes"), MENS_TOPS("Men's tops"), MENS_BOTTOMS("Men's bottoms"), MENS_OUTERWEAR("Men's outerwear"), MENS_SUIT("Men's suits"), WOMENS_UNDERWEAR("Women's underwear"), WOMENS_BRA("Bras"), WOMENS_ROBE("Women's robes"), WOMENS_SOCKS("Women's socks"), WOMENS_UNDERWEAR_BODYSUITS("Women's bodysuits"), WOMENS_UNDERWEAR_JUMPSUITS("Women's jumpsuits"), WOMENS_UNDERWEAR_TOP("Women's underwear tops"), WOMENS_UNDERWEAR_BUTTOM("Women's underwear bottoms"), MENS_UNDERWEAR("Men's underwear"), MENS_ROBE("Men's robes"), MENS_SOCKS("Men's socks"), MENS_UNDERWEAR_BODYSUITS("Men's bodysuits"), MENS_UNDERWEAR_JUMPSUITS("Men's jumpsuits"), MENS_UNDERWEAR_TOP("Men's underwear tops"), MENS_UNDERWEAR_BUTTOM("Men's underwear bottoms"), CHILDRENS_SHOES("Children's shoes"); */
   subType?: string;
-  /** 是否是新版尺码模版 */
+  /** Whether it is a new version size template */
   isNew?: boolean;
-  /** 是否是系统自带的尺码模版，true表示是系统自带的，false表示用户自定义. */
+  /** Whether it is a system-provided size chart template. true means system-provided, false means user-defined. */
   isDefault?: boolean;
-  /** 尺码模版的适用类型 */
+  /** Applicable type of the size template */
   modelName?: string;
-  /** 尺码模版的名称 */
+  /** Size chart template name */
   name?: string;
-  /** 尺码模版ID */
+  /** Size chart template ID */
   sizechartId?: Long;
-  /** 尺码分组 */
+  /** Size group */
   sizeGroup?: string;
 }
 
@@ -2341,19 +2341,19 @@ export const AliexpressPostproductRedefiningGetsizechartinfobytypeStringSchema: 
   };
 
 export interface AliexpressPostproductRedefiningGetwindowproductsAeopWindowProductResultDTO {
-  /** 已推荐为橱窗商品的ID列表。与windowProducts中的产品ID一致。 */
+  /** List of IDs of products already recommended as showcase products. Consistent with the product IDs in windowProducts. */
   productList?: Array<string>;
-  /** 接口调用结果。true/false分别表示成功和失败。 */
+  /** API call result. true/false indicate success and failure respectively. */
   success?: boolean;
-  /** 已使用的橱窗个数，与windowProducts中记录的条数一致。 */
+  /** Number of showcase slots used, consistent with the number of records in windowProducts. */
   usedCount?: Long;
-  /** 当前用户的橱窗总数＝已使用的橱窗数＋未使用的橱窗数。 */
+  /** Total showcase slots of the current user = used slots + unused slots. */
   windowCount?: Long;
-  /** 已使用的橱窗信息。 */
+  /** Information on used showcases. */
   windowProducts?: Array<AliexpressPostproductRedefiningGetwindowproductsString>;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -2373,13 +2373,13 @@ export const AliexpressPostproductRedefiningGetwindowproductsAeopWindowProductRe
   };
 
 export interface AliexpressPostproductRedefiningGetwindowproductsString {
-  /** 橱窗的开始生效时间。 */
+  /** Start effective time of the showcase. */
   enabledDate?: string;
-  /** 橱窗的失效时间。 */
+  /** Expiration time of the showcase. */
   expiredDate?: string;
-  /** 被推荐的产品ID */
+  /** ID of the recommended product */
   productId?: Long;
-  /** 当前橱窗的剩余有效天数。 */
+  /** Remaining valid days of the current showcase. */
   remainingDays?: Long;
 }
 
@@ -2394,15 +2394,15 @@ export const AliexpressPostproductRedefiningGetwindowproductsStringSchema: Schem
 export interface AliexpressPostproductRedefiningOfflineaeproductAeopModifyProductResponse {
   /** errorDetails */
   errorDetails?: Array<AliexpressPostproductRedefiningOfflineaeproductErrorDetail>;
-  /** 成功下架的商品数。 */
+  /** Number of products successfully delisted. */
   modifyCount?: number;
-  /** 成功下架的商品id */
+  /** ID of products successfully delisted */
   productId?: Long;
-  /** 接口调用结果。成功为true, 失败为false。 */
+  /** API call result. true for success, false for failure. */
   success?: boolean;
-  /** 错误子代码 */
+  /** Error sub-code */
   errorCode?: number;
-  /** 系统异常信息 */
+  /** System exception message */
   errorMessage?: string;
 }
 
@@ -2421,9 +2421,9 @@ export const AliexpressPostproductRedefiningOfflineaeproductAeopModifyProductRes
   };
 
 export interface AliexpressPostproductRedefiningOfflineaeproductErrorDetail {
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
   /** productIds */
   productIds?: Array<Long>;
@@ -2437,17 +2437,17 @@ export const AliexpressPostproductRedefiningOfflineaeproductErrorDetailSchema: S
   };
 
 export interface AliexpressPostproductRedefiningOnlineaeproductAeopModifyProductResponse {
-  /** 商品上架错误详情 */
+  /** Product listing error details */
   errorDetails?: Array<AliexpressPostproductRedefiningOnlineaeproductErrorDetail>;
-  /** 操作成功返回成功产品个数。 */
+  /** Number of products successfully operated is returned. */
   modifyCount?: number;
-  /** 操作成功返回的产品id */
+  /** Product id returned on successful operation */
   productId?: Long;
-  /** 接口调用结果。成功为true, 失败为false。 */
+  /** API call result. true for success, false for failure. */
   success?: boolean;
-  /** 错误子代码 */
+  /** Error sub-code */
   errorCode?: number;
-  /** 系统异常信息 */
+  /** System exception message */
   errorMessage?: string;
 }
 
@@ -2466,11 +2466,11 @@ export const AliexpressPostproductRedefiningOnlineaeproductAeopModifyProductResp
   };
 
 export interface AliexpressPostproductRedefiningOnlineaeproductErrorDetail {
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 产品ID列表 */
+  /** Product ID list */
   productIds?: Array<Long>;
 }
 
@@ -2482,15 +2482,15 @@ export const AliexpressPostproductRedefiningOnlineaeproductErrorDetailSchema: Sc
   };
 
 export interface AliexpressPostproductRedefiningPostaeproductAeopAEModeSizeChartDTO {
-  /** 臀围 */
+  /** Hip circumference */
   hips?: string;
-  /** 腰围 */
+  /** Waist circumference */
   waist?: string;
-  /** 胸围 */
+  /** Bust circumference */
   bust?: string;
-  /** 身高 */
+  /** Height */
   height?: string;
-  /** 试穿尺码 */
+  /** Try-on size */
   modeSize?: string;
 }
 
@@ -2518,73 +2518,73 @@ export const AliexpressPostproductRedefiningPostaeproductAeopAEMultimediaSchema:
   };
 
 export interface AliexpressPostproductRedefiningPostaeproductAeopAEProduct {
-  /** 网红视频信息 */
+  /** Influencer video information */
   influencerVideoInfo?: AliexpressPostproductRedefiningPostaeproductInfluencerVideoInfo;
-  /** 批发阶梯价 */
+  /** Wholesale tiered price */
   ladderPrice?: Array<AliexpressPostproductRedefiningPostaeproductLadderDTO>;
   /** hscode */
   hscode?: string;
-  /** 1：报价不含税 2：报价含税 */
+  /** 1: quote excludes tax 2: quote includes tax */
   taxType?: string;
-  /** 商品说明书链接 */
+  /** Product manual link */
   productManual?: string;
-  /** 安装视频id */
+  /** Installation video ID */
   installVideoId?: Long;
-  /** 安装视频封面图 */
+  /** Installation video cover image */
   installVideoPosterUrl?: string;
-  /** 珠宝材质证书 */
+  /** Jewelry material certificate */
   jewelryCertImageUrls?: string;
-  /** 商机 ID */
+  /** Business opportunity ID */
   planId?: Long;
-  /** 商品分国家定价规则数据，建议使用新格式，请参考：https://developers.aliexpress.com/doc.htm?docId=109575&docType=1 */
+  /** Per-country pricing rule data for the product. The new format is recommended, see: https://developers.aliexpress.com/doc.htm?docId=109575&docType=1 */
   aeopNationalQuoteConfiguration?: AliexpressPostproductRedefiningPostaeproductAeopNationalQuoteConfiguration;
-  /** isPackSell为true时,此项必填。购买几件以内不增加运费。取值范围1-1000 */
+  /** Required when isPackSell is true. Shipping fee does not increase for purchases up to this many pieces. Value range 1-1000 */
   baseUnit?: number;
-  /** 批发折扣。扩大100倍，存整数。取值范围:1-99。注意：这是折扣，不是打折率。 如,打68折,则存32。批发最小数量和批发折扣需同时有值或无值。 */
+  /** Wholesale discount. Multiplied by 100 and stored as an integer. Value range: 1-99. Note: this is a discount, not a discount rate. E.g. for 68% off, store 32. Wholesale minimum quantity and wholesale discount must both have values or both be empty. */
   bulkDiscount?: number;
-  /** 批发最小数量 。取值范围2-100000。批发最小数量和批发折扣需同时有值或无值。 */
+  /** Minimum wholesale quantity. Value range 2-100000. The minimum wholesale quantity and the wholesale discount must either both have values or both be empty. */
   bulkOrder?: number;
-  /** 商品所属类目ID。必须是叶子类目，通过类目接口获取。 */
+  /** ID of the category the product belongs to. Must be a leaf category, obtained through the category API. */
   categoryId?: number;
-  /** 卡券商品结束有效期 */
+  /** End of validity period of the voucher product */
   couponEndDate?: string;
-  /** 卡券商品开始有效期 */
+  /** Start of validity period of the voucher product */
   couponStartDate?: string;
-  /** 货币单位。如果不提供该值信息，则默认为"USD"；非俄罗斯卖家这个属性值可以不提供。对于俄罗斯海外卖家，该单位值必须提供，如: "RUB"。 */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; non-Russian sellers may omit this attribute. For Russian overseas sellers, this unit value must be provided, e.g. "RUB". */
   currencyCode?: string;
-  /** 备货期。取值范围:1-7;单位:天。 */
+  /** Stocking period. Value range: 1-7; unit: days. */
   deliveryTime?: number;
-  /** Detail详情。以下内容会被过滤，但不影响产品提交:(1)含有script\textarea\style\iframe\frame\input\pre\button均被过滤.(2)a标签href属性只允许是aliexpress.com域名连接,否则被过滤.(3)img标签src只允许alibaba.com或者aliimg.com域名链接.(4)任意具有style属性的html标签，其style受检查，只允许一般简单的样式.不允许的内容将被过滤.(5)如果发现html内容标签缺失，会自动补全标签. */
+  /** Detail description. The following content will be filtered but does not affect product submission: (1) script\textarea\style\iframe\frame\input\pre\button are all filtered out. (2) The href attribute of an a tag may only link to the aliexpress.com domain, otherwise it is filtered. (3) The src of an img tag may only link to the alibaba.com or aliimg.com domain. (4) For any HTML tag with a style attribute, the style is checked and only generally simple styles are allowed. Disallowed content is filtered. (5) If missing HTML tags are found, they are completed automatically. */
   detail?: string;
-  /** 商品的运费模板ID */
+  /** Shipping fee template ID of the product */
   freightTemplateId?: Long;
-  /** 商品毛重,取值范围:0.001-500.000,保留三位小数,采用进位制,单位:公斤。 */
+  /** Product gross weight. Value range: 0.001-500.000, three decimal places, rounded up, unit: kilograms. */
   grossWeight?: string;
-  /** 这个产品需要关联的产品分组ID. 只能关联一个产品分组，如果想关联多个产品分组，请使用api.setGroups接口。 */
+  /** The product group ID this product needs to be linked to. Only one product group can be linked; to link multiple product groups, use the api.setGroups API. */
   groupId?: Long;
-  /** 产品的主图URL列表。如果这个产品有多张主图，那么这些URL之间使用英文分号(";")隔开。一个产品最多只能有6张主图。图片格式JPEG，文件大小5M以内；图片像素建议大于800*800；横向和纵向比例建议1:1到1:1.3之间；图片中产品主体占比建议大于70%；背景白色或纯色，风格统一；如果有LOGO，建议放置在左上角，不宜过大。不建议自行添加促销标签或文字。切勿盗用他人图片，以免受网规处罚。更多说明请至http://seller.aliexpress.com/so/tupianguifan.php进行了解。 */
+  /** List of main image URLs of the product. If the product has multiple main images, separate the URLs with an English semicolon (";"). A product can have at most 6 main images. Image format JPEG, file size within 5M; recommended resolution greater than 800*800; recommended aspect ratio between 1:1 and 1:1.3; the product should occupy more than 70% of the image; use a white or solid background with a consistent style; if there is a LOGO, it is recommended to place it in the upper left corner and not too large. Adding promotional labels or text yourself is not recommended. Do not use other people's images, to avoid penalties under platform rules. For more information see http://seller.aliexpress.com/so/tupianguifan.php. */
   imageURLs?: string;
   /** none */
   isImageDynamic?: boolean;
-  /** 是否自定义计重.true为自定义计重,false反之. */
+  /** Whether custom weight calculation is used. true means custom weight calculation, false otherwise. */
   isPackSell?: boolean;
   /** none */
   keyword?: string;
-  /** 每包件数。 打包销售情况，lotNum>1,非打包销售情况,lotNum=1 */
+  /** Number of pieces per pack. For pack sales, lotNum>1; for non-pack sales, lotNum=1 */
   lotNum?: number;
-  /** mobile Detail详情，格式请参考https://developers.aliexpress.com/doc.htm#?docType=1&docId=108598。 */
+  /** Mobile detail description. For the format, refer to https://developers.aliexpress.com/doc.htm#?docType=1&docId=108598. */
   mobileDetail?: string;
   /** none */
   ownerMemberId?: string;
   /** none */
   ownerMemberSeq?: number;
-  /** 商品包装高度。取值范围:1-700,单位:厘米。 */
+  /** Product package height. Value range: 1-700, unit: cm. */
   packageHeight?: number;
-  /** 商品包装长度。取值范围:1-700,单位:厘米。产品包装尺寸的最大值+2×（第二大值+第三大值）不能超过2700厘米。 */
+  /** Product package length. Value range: 1-700, unit: centimeters. The largest dimension of the product package + 2 x (second largest + third largest) must not exceed 2700 centimeters. */
   packageLength?: number;
-  /** 打包销售: true 非打包销售:false */
+  /** Sold as a bundle: true; not sold as a bundle: false */
   packageType?: boolean;
-  /** 商品包装宽度。取值范围:1-700,单位:厘米。 */
+  /** Product package width. Value range: 1-700, unit: cm. */
   packageWidth?: number;
   /** none */
   productId?: Long;
@@ -2592,21 +2592,21 @@ export interface AliexpressPostproductRedefiningPostaeproductAeopAEProduct {
   productMoreKeywords1?: string;
   /** none */
   productMoreKeywords2?: string;
-  /** 商品一口价。取值范围:0-100000,保留两位小数;单位:美元。如:200.07，表示:200美元7分。需要在正确的价格区间内。上传多属性产品的时候，有好几个SKU和价格，productprice无需填写。 */
+  /** Product fixed price. Value range: 0-100000, two decimal places; unit: USD. E.g. 200.07 means 200 dollars and 7 cents. Must be within the correct price range. When uploading a multi-attribute product with several SKUs and prices, productprice does not need to be filled in. */
   productPrice?: string;
   /** none */
   productStatusType?: string;
-  /** 商品单位 (存储单位编号) 100000000:袋 (bag/bags)100000001:桶 (barrel/barrels)100000002:蒲式耳 (bushel/bushels)100078580:箱 (carton)100078581:厘米 (centimeter)100000003:立方米 (cubic meter)100000004:打 (dozen)100078584:英尺 (feet)100000005:加仑 (gallon)100000006:克 (gram)100078587:英寸 (inch)100000007:千克 (kilogram)100078589:千升 (kiloliter)100000008:千米 (kilometer)100078559:升 (liter/liters)100000009:英吨 (long ton)100000010:米 (meter)100000011:公吨 (metric ton)100078560:毫克 (milligram)100078596:毫升 (milliliter)100078597:毫米 (millimeter)100000012:盎司 (ounce)100000014:包 (pack/packs)100000013:双 (pair)100000015:件/个 (piece/pieces)100000016:磅 (pound)100078603:夸脱 (quart)100000017:套 (set/sets)100000018:美吨 (short ton)100078606:平方英尺 (square feet)100078607:平方英寸 (square inch)100000019:平方米 (square meter)100078609:平方码 (square yard)100000020:吨 (ton)100078558:码 (yard/yards) */
+  /** Product unit (storage unit ID) 100000000: bag (bag/bags) 100000001: barrel (barrel/barrels) 100000002: bushel (bushel/bushels) 100078580: carton (carton) 100078581: centimeter (centimeter) 100000003: cubic meter (cubic meter) 100000004: dozen (dozen) 100078584: feet (feet) 100000005: gallon (gallon) 100000006: gram (gram) 100078587: inch (inch) 100000007: kilogram (kilogram) 100078589: kiloliter (kiloliter) 100000008: kilometer (kilometer) 100078559: liter (liter/liters) 100000009: long ton (long ton) 100000010: meter (meter) 100000011: metric ton (metric ton) 100078560: milligram (milligram) 100078596: milliliter (milliliter) 100078597: millimeter (millimeter) 100000012: ounce (ounce) 100000014: pack (pack/packs) 100000013: pair (pair) 100000015: piece (piece/pieces) 100000016: pound (pound) 100078603: quart (quart) 100000017: set (set/sets) 100000018: short ton (short ton) 100078606: square feet (square feet) 100078607: square inch (square inch) 100000019: square meter (square meter) 100078609: square yard (square yard) 100000020: ton (ton) 100078558: yard (yard/yards) */
   productUnit?: number;
-  /** 服务模板设置。（需和服务模板查询接口api.queryPromiseTemplateById进行关联使用） */
+  /** Service template settings. (Must be used together with the service template query API api.queryPromiseTemplateById) */
   promiseTemplateId?: Long;
-  /** 库存扣减策略，总共有2种：下单减库存(place_order_withhold)和支付减库存(payment_success_deduct)。 */
+  /** Inventory deduction strategy, there are 2 in total: deduct inventory on order placement (place_order_withhold) and deduct inventory on payment (payment_success_deduct). */
   reduceStrategy?: string;
-  /** 尺码表模版ID。必须选择当前类目下的尺码模版。 */
+  /** Size chart template ID. Must select a size chart template under the current category. */
   sizechartId?: Long;
   /** none */
   src?: string;
-  /** 商品标题 长度在1-128之间英文（ascii码从00到7F），不允许有<.*?>这几个字符。 */
+  /** Product title. Length between 1-128 English characters (ascii codes from 00 to 7F); the characters <.*?> are not allowed. */
   subject?: string;
   /** none */
   summary?: string;
@@ -2614,19 +2614,19 @@ export interface AliexpressPostproductRedefiningPostaeproductAeopAEProduct {
   wsDisplay?: string;
   /** none */
   wsOfflineDate?: string;
-  /** 商品有效天数。取值范围:1-30,单位:天。 */
+  /** Product validity days. Value range: 1-30, unit: days. */
   wsValidNum?: number;
-  /** isPackSell为true时,此项必填。 每增加件数.取值范围1-1000。 */
+  /** Required when isPackSell is true. Number of pieces added each time. Value range 1-1000. */
   addUnit?: number;
-  /** isPackSell为true时,此项必填。 对应增加的重量.取值范围:0.001-500.000,保留三位小数,采用进位制,单位:公斤。 */
+  /** Required when isPackSell is true. The corresponding added weight. Value range: 0.001-500.000, three decimal places, rounded up, unit: kilogram. */
   addWeight?: string;
   /** none */
   aeopAEMultimedia?: AliexpressPostproductRedefiningPostaeproductAeopAEMultimedia;
-  /** 产品属性，以json格式进行封装后提交。参看aeopAeProductPropertys数据结构。此字段是否必填，需从类目接口getChildAttributesResultByPostCateIdAndPath获取（即获取到的required来判断属性是否必填），该项只输入普通类目属性数据，不可输入sku类目属性。 对于类目属性包含子类目属性的情况，此处不确认父属性和子属性，即选择任何属性，都以该对象提交。 对于一个属性多个选中值的情况，以多个该对象存放。 其中"attrNameId","attrValueId"为整型(Integer), "attrName", "attrValue"为字符串类型(String)。 1. 当设置一些系统属性时，如果类目自定义了一些候选值，只需要提供"attrNameId"和"attrValueId"即可。例如：{"attrNameId":494, "attrValueId":284}。 2. 当设置一些需要手工输入属性内容时，只需要提供"attrNameId"和"attrValue"即可。例如：{"attrNameId": 1000, "attrValue": "test"} 3. 当设置自定义属性时，需要提供"attrName"和"attrValue"即可。例如: {"attrName": "Color", "attrValue": "red"} 4. 当设置一个Other属性时，需要提供"attrNameId", "attrValueId", "attrValue"三个参数。例如：{"attrNameId": 1000, "attrValueId": 4, "attrValue": "Other Value"}。 */
+  /** Product attributes, submitted encapsulated in JSON format. See the aeopAeProductPropertys data structure. Whether this field is required must be determined from the category API getChildAttributesResultByPostCateIdAndPath (i.e. check the returned required flag); only enter ordinary category attribute data here, not SKU category attributes. When a category attribute contains child category attributes, parent and child attributes are not distinguished here; whichever attribute is selected is submitted with this object. When an attribute has multiple selected values, store them as multiple such objects. "attrNameId" and "attrValueId" are integers (Integer), and "attrName" and "attrValue" are strings (String). 1. When setting system attributes, if the category defines candidate values, only "attrNameId" and "attrValueId" are needed. For example: {"attrNameId":494, "attrValueId":284}. 2. When setting attributes that require manually entered content, only "attrNameId" and "attrValue" are needed. For example: {"attrNameId": 1000, "attrValue": "test"} 3. When setting custom attributes, only "attrName" and "attrValue" are needed. For example: {"attrName": "Color", "attrValue": "red"} 4. When setting an Other attribute, three parameters are needed: "attrNameId", "attrValueId", "attrValue". For example: {"attrNameId": 1000, "attrValueId": 4, "attrValue": "Other Value"}. */
   aeopAeProductPropertys?: Array<AliexpressPostproductRedefiningPostaeproductAeopAeProductProperty>;
-  /** 列表类型，以json格式来表达。参看aeopAeProductSKUs数据结构。特别提示：新增SKU实际可售库存属性ipmSkuStock，该属性值的合理取值范围为0~999999，如该商品有SKU时，请确保至少有一个SKU是有货状态，也就是ipmSkuStock取值是1~999999，在整个商品纬度库存值的取值范围是1~999999。 */
+  /** List type expressed in JSON format. See the aeopAeProductSKUs data structure. Note: the new attribute ipmSkuStock is the actual sellable SKU inventory; its valid range is 0~999999. If the product has SKUs, make sure at least one SKU is in stock, i.e. ipmSkuStock is 1~999999; the inventory value at the whole-product level must be in the range 1~999999. */
   aeopAeProductSKUs?: Array<AliexpressPostproductRedefiningPostaeproductAeopAEProductSKU>;
-  /** 模特尺码数据，最多5个，单位厘米 */
+  /** Model size data, up to 5, in cm */
   modeSizeChartList?: Array<AliexpressPostproductRedefiningPostaeproductAeopAEModeSizeChartDTO>;
 }
 
@@ -2722,13 +2722,13 @@ export const AliexpressPostproductRedefiningPostaeproductAeopAEProductSchema: Sc
   };
 
 export interface AliexpressPostproductRedefiningPostaeproductAeopAeProductProperty {
-  /** 属性的百分比信息 */
+  /** Percentage information of the attribute */
   percent?: number;
   /** none */
   attrName?: string;
   /** none */
   attrNameId?: number;
-  /** 自定义属性值不能包含 # ；这两个特殊符号以及tab键的空格。 */
+  /** Custom attribute values must not contain the special characters # or ; or tab spaces. */
   attrValue?: string;
   /** none */
   attrValueEnd?: string;
@@ -2753,29 +2753,29 @@ export const AliexpressPostproductRedefiningPostaeproductAeopAeProductPropertySc
   };
 
 export interface AliexpressPostproductRedefiningPostaeproductAeopAEProductSKU {
-  /** 手机机型sku图，仅对选择了手机机型的sku生效 */
+  /** Mobile phone model SKU image, only effective for SKUs with a phone model selected */
   mobileModelSkuImage?: string;
-  /** 假发净重，单位g */
+  /** Wig net weight, in g */
   netWeight?: number;
-  /** 高 */
+  /** Height */
   packageHeight?: string;
-  /** 重 */
+  /** Weight */
   packageWeight?: string;
-  /** 宽 */
+  /** Width */
   packageWidth?: string;
-  /** 长 */
+  /** Length */
   packageLength?: string;
-  /** 是否原箱 */
+  /** Whether original box */
   originalBox?: string;
-  /** 特殊商品类型 */
+  /** Special product type */
   specialProductTypeList?: Array<string>;
-  /** 货值 */
+  /** Goods value */
   cargoPrice?: string;
-  /** sku 维度运费模板id ai 运费模板使用 */
+  /** SKU-dimension freight template ID, used for AI freight templates */
   skuFreightId?: Long;
-  /** 商品物流属性 */
+  /** Product logistics attributes */
   logisticAttrList?: Array<AliexpressPostproductRedefiningPostaeproductLogisticAttrDTO>;
-  /** 货币单位。如果不提供该值信息，则默认为"USD"；非俄罗斯卖家这个属性值可以不提供。对于俄罗斯海外卖家，该单位值必须提供，如: "RUB"。 */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; non-Russian sellers may omit this attribute. For Russian overseas sellers, this unit value must be provided, e.g. "RUB". */
   currencyCode?: string;
   /** none */
   id?: string;
@@ -2789,11 +2789,11 @@ export interface AliexpressPostproductRedefiningPostaeproductAeopAEProductSKU {
   skuStock?: boolean;
   /** none */
   aeopSKUProperty?: Array<AliexpressPostproductRedefiningPostaeproductAeopSKUProperty>;
-  /** sku日常促销价 */
+  /** SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** sku分国家的日常促销价 */
+  /** Daily promotion price of the SKU by country */
   aeopSKUNationalDiscountPrice?: Array<AliexpressPostproductRedefiningPostaeproductAeopSKUNationalDiscountPrice>;
-  /** sku维度eanCode */
+  /** SKU-level eanCode */
   eanCode?: string;
 }
 
@@ -2858,9 +2858,9 @@ export const AliexpressPostproductRedefiningPostaeproductAeopAEVideoSchema: Sche
   };
 
 export interface AliexpressPostproductRedefiningPostaeproductAeopNationalQuoteConfiguration {
-  /** jsonArray格式的分国家定价规则数据。 1)基于基准价格按比例配置的数据格式：[{"shiptoCountry":"US","percentage":"5"},{"shiptoCountry":"RU","percentage":"-2"}] 其中shiptoCountry：ISO两位的国家编码（目前支持国家：RU US CA ES FR UK NL IL BR CL AU UA BY JP TH SG KR ID MY PH VN IT DE SA AE PL TR），percentage：相对于基准价的调价比例（百分比整数，支持负数，当前限制>=-30 && <=100）2）基于基准价格按涨或者跌多少relative:[{"shiptoCountry":"RU","relative":0.1},{"shiptoCountry":"US","relative":-0.1}] configuration_type为absolute：14:193为sku属性ID：SKU属性值， 多个属性用，号拼接。3）为每个SKU直接设置价格 absolute:[{"absoluteQuoteMap":{"14:193":84.99,"14:771":84.99},"shiptoCountry":"FR"},{"absoluteQuoteMap":{"14:193":89.99,"14:771":89.99},"shiptoCountry":"ES"}] */
+  /** Per-country pricing rule data in jsonArray format. 1) Data format for configuration as a ratio of the base price: [{"shiptoCountry":"US","percentage":"5"},{"shiptoCountry":"RU","percentage":"-2"}] Where shiptoCountry: two-letter ISO country code (currently supported countries: RU US CA ES FR UK NL IL BR CL AU UA BY JP TH SG KR ID MY PH VN IT DE SA AE PL TR), percentage: adjustment ratio relative to the base price (integer percentage, negatives supported, currently limited to >=-30 && <=100). 2) Based on how much to raise or lower the base price, relative: [{"shiptoCountry":"RU","relative":0.1},{"shiptoCountry":"US","relative":-0.1}] When configuration_type is absolute: 14:193 is the SKU attribute ID: SKU attribute value, multiple attributes are joined with commas. 3) Set the price directly for each SKU, absolute: [{"absoluteQuoteMap":{"14:193":84.99,"14:771":84.99},"shiptoCountry":"FR"},{"absoluteQuoteMap":{"14:193":89.99,"14:771":89.99},"shiptoCountry":"ES"}] */
   configurationData?: string;
-  /** 分国家定价规则类型[percentage：基于基准价格按比例配置; relative:相对原价涨或跌多少 ] */
+  /** Country-specific pricing rule type [percentage: configured as a percentage of the base price; relative: how much to raise or lower relative to the original price] */
   configurationType?: string;
 }
 
@@ -2871,13 +2871,13 @@ export const AliexpressPostproductRedefiningPostaeproductAeopNationalQuoteConfig
   };
 
 export interface AliexpressPostproductRedefiningPostaeproductAeopPostProductResponse {
-  /** 新商品的ID */
+  /** New product ID */
   productId?: Long;
-  /** 接口调用结果。true表示发布成功，false表示发布失败。 */
+  /** API call result. true means published successfully, false means publishing failed. */
   isSuccess?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -2890,9 +2890,9 @@ export const AliexpressPostproductRedefiningPostaeproductAeopPostProductResponse
   };
 
 export interface AliexpressPostproductRedefiningPostaeproductAeopSKUNationalDiscountPrice {
-  /** sku分国家的日常促销价的国家：ISO两位的国家编码（目前支持国家：RU US CA ES FR UK NL IL BR CL AU UA BY JP TH SG KR ID MY PH VN IT DE SA AE PL TR） */
+  /** Countries for the sku per-country daily promotion price: ISO two-letter country codes (currently supported countries: RU US CA ES FR UK NL IL BR CL AU UA BY JP TH SG KR ID MY PH VN IT DE SA AE PL TR) */
   shiptoCountry?: string;
-  /** sku分国家的日常促销价价格 */
+  /** Price of the SKU's daily promotion price by country */
   discountPrice?: string;
 }
 
@@ -2903,13 +2903,13 @@ export const AliexpressPostproductRedefiningPostaeproductAeopSKUNationalDiscount
   };
 
 export interface AliexpressPostproductRedefiningPostaeproductAeopSKUProperty {
-  /** 级联属性父属性id */
+  /** Parent attribute id of the cascading attribute */
   parentPropertyId?: Long;
-  /** 级联属性父属性值id */
+  /** Parent attribute value id of the cascading attribute */
   parentValueId?: Long;
-  /** 插头属性SKU级联属性父属性id */
+  /** Parent attribute id of the plug attribute SKU cascading attribute */
   plugParentPropertyId?: Long;
-  /** 插头属性SKU级联属性父属性值id */
+  /** Parent attribute value ID of the plug attribute SKU cascading attribute */
   plugParentValueId?: Long;
   /** none */
   skuImage?: string;
@@ -2919,7 +2919,7 @@ export interface AliexpressPostproductRedefiningPostaeproductAeopSKUProperty {
   propertyValueDefinitionName?: string;
   /** none */
   propertyValueId?: Long;
-  /** sku套图 3：4 */
+  /** SKU image set 3:4 */
   imageUrlList?: Array<string>;
 }
 
@@ -2937,11 +2937,11 @@ export const AliexpressPostproductRedefiningPostaeproductAeopSKUPropertySchema: 
   };
 
 export interface AliexpressPostproductRedefiningPostaeproductInfluencerVideo {
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
 }
 
@@ -2953,9 +2953,9 @@ export const AliexpressPostproductRedefiningPostaeproductInfluencerVideoSchema: 
   };
 
 export interface AliexpressPostproductRedefiningPostaeproductInfluencerVideoInfo {
-  /** 默认网红视频 */
+  /** Default influencer video */
   influencerVideo?: AliexpressPostproductRedefiningPostaeproductInfluencerVideo;
-  /** 分国家网红视频 */
+  /** Influencer videos by country */
   nationalInfluencerVideos?: Array<AliexpressPostproductRedefiningPostaeproductInfluencerVideo>;
 }
 
@@ -2974,9 +2974,9 @@ export const AliexpressPostproductRedefiningPostaeproductInfluencerVideoInfoSche
   };
 
 export interface AliexpressPostproductRedefiningPostaeproductLadderDTO {
-  /** 门槛数量 */
+  /** Threshold quantity */
   thresholdNum?: number;
-  /** 商品折扣 */
+  /** Product discount */
   discount?: number;
 }
 
@@ -2987,9 +2987,9 @@ export const AliexpressPostproductRedefiningPostaeproductLadderDTOSchema: Schema
   };
 
 export interface AliexpressPostproductRedefiningPostaeproductLogisticAttrDTO {
-  /** 物流属性 ID */
+  /** Logistics attribute ID */
   value?: Long;
-  /** 上级物流属性 ID，没有上级为空 */
+  /** Parent logistics attribute ID; empty if there is no parent */
   parentValueId?: Long;
 }
 
@@ -3000,7 +3000,7 @@ export const AliexpressPostproductRedefiningPostaeproductLogisticAttrDTOSchema: 
   };
 
 export interface AliexpressPostproductRedefiningPostmultilanguageaeproductAeopAEMultimedia {
-  /** 多媒体信息。 */
+  /** Multimedia information. */
   aeopAEVideos?: Array<AliexpressPostproductRedefiningPostmultilanguageaeproductAeopAEVideo>;
 }
 
@@ -3015,19 +3015,19 @@ export const AliexpressPostproductRedefiningPostmultilanguageaeproductAeopAEMult
   };
 
 export interface AliexpressPostproductRedefiningPostmultilanguageaeproductAeopAeProductProperty {
-  /** 自定义属性名属性名。 自定义属性名时,该项必填. */
+  /** Custom attribute name. Required when using a custom attribute name. */
   attrName?: string;
-  /** 自定义属性值。自定义属性名时,该项必填。 当自定义属性值内容为区间情况时，建议格式2 - 5 kg。(注意，数字'-'单位三者间是要加空格的！) */
+  /** Custom attribute value. Required when using a custom attribute name. When the custom attribute value is a range, the recommended format is 2 - 5 kg. (Note: spaces are required between the number, '-' and the unit!) */
   attrValue?: string;
-  /** 自定义属性值的结束端 */
+  /** End of the custom attribute value */
   attrValueEnd?: string;
-  /** 自定义属性值ID */
+  /** Custom attribute value ID */
   attrValueId?: Long;
-  /** 自定义属性值的开始端 */
+  /** Start of the custom attribute value */
   attrValueStart?: string;
-  /** 自定义属性值单位 */
+  /** Unit of the custom attribute value */
   attrValueUnit?: string;
-  /** 属性名ID。从类目属性接口getAttributesResultByCateId获取普通类目属性，不可填入sku属性。 自定义属性名时,该项不填. */
+  /** Attribute name ID. Obtain ordinary category attributes from the category attribute API getAttributesResultByCateId; SKU attributes cannot be entered. Leave this item empty when using a custom attribute name. */
   attrNameId?: number;
 }
 
@@ -3043,25 +3043,25 @@ export const AliexpressPostproductRedefiningPostmultilanguageaeproductAeopAeProd
   };
 
 export interface AliexpressPostproductRedefiningPostmultilanguageaeproductAeopAEProductSKU {
-  /** 产品货币单位。如果不提供该值信息，则默认为"USD"；非俄罗斯卖家这个属性值可以不提供。对于俄罗斯海外卖家，该单位值必须提供，如: "RUB"。 */
+  /** Product currency unit. If this value is not provided, it defaults to "USD"; non-Russian sellers may omit this attribute. For Russian overseas sellers, this unit value must be provided, e.g. "RUB". */
   currencyCode?: string;
-  /** SKU ID，格式：“sku_property_id:property_value_id”， */
+  /** SKU ID, format: "sku_property_id:property_value_id", */
   id?: string;
-  /** SKU实际可售库存属性ipmSkuStock，该属性值的合理取值范围为0~999999，如该商品有SKU时，请确保至少有一个SKU是有货状态，也就是ipmSkuStock取值是1~999999，在整个商品纬度库存值的取值范围是1~999999。 如果同时设置了skuStock属性，那么系统以ipmSkuStock属性为优先；如果没有设置ipmSkuStock属性，那么系统会根据skuStock属性进行设置库存，true表示999，false表示0。 */
+  /** SKU actual sellable stock attribute ipmSkuStock; the reasonable value range of this attribute is 0~999999. If the product has SKUs, make sure at least one SKU is in stock, that is, ipmSkuStock is 1~999999; at the whole-product level the stock value range is 1~999999. If the skuStock attribute is also set, the system gives priority to ipmSkuStock; if ipmSkuStock is not set, the system sets stock according to skuStock, where true means 999 and false means 0. */
   ipmSkuStock?: Long;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。如果用户只填写零售价（productprice）和商品编码，需要完整生成一条SKU记录提交，否则商品编码无法保存。系统会认为只提交了零售价，而没有SKU，导致商品编辑未保存。 */
+  /** Sku merchant code. Format: half-width alphanumeric characters, length 20, no spaces, greater-than or less-than signs. If the user only fills in the retail price (productprice) and the product code, a complete SKU record must still be generated and submitted, otherwise the product code cannot be saved. The system would consider that only the retail price was submitted without a SKU, so the product edit is not saved. */
   skuCode?: string;
-  /** Sku价格。取值范围:0.01-100000;单位:美元。 如:200.07，表示:200美元7分。需要在正确的价格区间内。 */
+  /** SKU price. Value range: 0.01-100000; unit: USD. E.g. 200.07 means 200 dollars and 7 cents. Must be within the correct price range. */
   skuPrice?: string;
-  /** Sku库存,数据格式有货true，无货false；至少有一条sku记录是有货的。 */
+  /** SKU stock. Data format: in stock true, out of stock false; at least one SKU record must be in stock. */
   skuStock?: boolean;
-  /** SKU属性信息 */
+  /** SKU attribute information */
   aeopSKUProperty?: Array<AliexpressPostproductRedefiningPostmultilanguageaeproductAeopSKUProperty>;
-  /** sku日常促销价 */
+  /** SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** sku分国家的日常促销价 */
+  /** Daily promotion price of the SKU by country */
   aeopSKUNationalDiscountPrice?: Array<AliexpressPostproductRedefiningPostmultilanguageaeproductAeopSKUNationalDiscountPrice>;
-  /** 供应链条码，非供应链仓库发布不要填写 */
+  /** Supply chain barcode; do not fill in when publishing from a non-supply-chain warehouse */
   barcode?: string;
 }
 
@@ -3090,15 +3090,15 @@ export const AliexpressPostproductRedefiningPostmultilanguageaeproductAeopAEProd
   };
 
 export interface AliexpressPostproductRedefiningPostmultilanguageaeproductAeopAEVideo {
-  /** 卖家主账户ID */
+  /** Seller main account ID */
   aliMemberId?: Long;
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频的状态 */
+  /** Video status */
   mediaStatus?: string;
-  /** 视频的类型 */
+  /** Video type */
   mediaType?: string;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
 }
 
@@ -3112,9 +3112,9 @@ export const AliexpressPostproductRedefiningPostmultilanguageaeproductAeopAEVide
   };
 
 export interface AliexpressPostproductRedefiningPostmultilanguageaeproductAeopNationalQuoteConfiguration {
-  /** jsonArray格式的分国家定价规则数据。 1)基于基准价格按比例配置的数据格式：[{"shiptoCountry":"US","percentage":"5"},{"shiptoCountry":"RU","percentage":"-2"}] 其中shiptoCountry：ISO两位的国家编码（目前支持11个国家：RU,US,CA,ES,FR,UK,NL,IL,BR,CL,AU）， percentage：相对于基准价的调价比例（百分比整数，支持负数，当前限制>=-30 && <=100） */
+  /** Per-country pricing rule data in jsonArray format. 1) Data format configured as a percentage of the base price: [{"shiptoCountry":"US","percentage":"5"},{"shiptoCountry":"RU","percentage":"-2"}] where shiptoCountry: two-letter ISO country code (currently 11 countries are supported: RU,US,CA,ES,FR,UK,NL,IL,BR,CL,AU), percentage: price adjustment ratio relative to the base price (integer percentage, negatives supported, currently limited to >=-30 && <=100) */
   configurationData?: string;
-  /** 分国家定价规则类型[percentage：基于基准价格按比例配置] */
+  /** Per-country pricing rule type [percentage: configured as a percentage of the base price] */
   configurationType?: string;
 }
 
@@ -3125,13 +3125,13 @@ export const AliexpressPostproductRedefiningPostmultilanguageaeproductAeopNation
   };
 
 export interface AliexpressPostproductRedefiningPostmultilanguageaeproductAeopPostProductResponse {
-  /** 接口调用结果 true/false分别表示成功失败 */
+  /** API call result, true/false indicate success and failure respectively */
   isSuccess?: boolean;
-  /** 新商品的ID */
+  /** New product ID */
   productId?: Long;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
 }
 
@@ -3144,9 +3144,9 @@ export const AliexpressPostproductRedefiningPostmultilanguageaeproductAeopPostPr
   };
 
 export interface AliexpressPostproductRedefiningPostmultilanguageaeproductAeopSKUNationalDiscountPrice {
-  /** sku分国家的日常促销价价格 */
+  /** Price of the SKU's daily promotion price by country */
   discountPrice?: string;
-  /** sku分国家的日常促销价价格 */
+  /** Price of the SKU's daily promotion price by country */
   shiptoCountry?: string;
 }
 
@@ -3157,11 +3157,11 @@ export const AliexpressPostproductRedefiningPostmultilanguageaeproductAeopSKUNat
   };
 
 export interface AliexpressPostproductRedefiningPostmultilanguageaeproductAeopSKUProperty {
-  /** SKU图片地址 */
+  /** SKU image URL */
   skuImage?: string;
-  /** SKU属性ID */
+  /** SKU attribute ID */
   skuPropertyId?: number;
-  /** 属性值自定义名称 */
+  /** Custom name of the attribute value */
   propertyValueDefinitionName?: string;
   /** none */
   propertyValueId?: Long;
@@ -3176,103 +3176,103 @@ export const AliexpressPostproductRedefiningPostmultilanguageaeproductAeopSKUPro
   };
 
 export interface AliexpressPostproductRedefiningPostmultilanguageaeproductMultilanguageAeopAEProduct {
-  /** 商品分国家定价规则数据，建议使用新格式，请参考：https://developers.aliexpress.com/doc.htm?docId=109575&docType=1 */
+  /** Per-country pricing rule data for the product. The new format is recommended, see: https://developers.aliexpress.com/doc.htm?docId=109575&docType=1 */
   aeopNationalQuoteConfiguration?: AliexpressPostproductRedefiningPostmultilanguageaeproductAeopNationalQuoteConfiguration;
-  /** isPackSell为true时,此项必填。购买几件以内不增加运费。取值范围1-1000 */
+  /** Required when isPackSell is true. Shipping fee does not increase for purchases up to this many pieces. Value range 1-1000 */
   baseUnit?: number;
-  /** 批发折扣。扩大100倍，存整数。取值范围:1-99。注意：这是折扣，不是打折率。 如,打68折,则存32。批发最小数量和批发折扣需同时有值或无值。 */
+  /** Wholesale discount. Multiplied by 100 and stored as an integer. Value range: 1-99. Note: this is a discount, not a discount rate. E.g. for 68% off, store 32. Wholesale minimum quantity and wholesale discount must both have values or both be empty. */
   bulkDiscount?: number;
-  /** 批发最小数量 。取值范围2-100000。批发最小数量和批发折扣需同时有值或无值。 */
+  /** Minimum wholesale quantity. Value range 2-100000. The minimum wholesale quantity and the wholesale discount must either both have values or both be empty. */
   bulkOrder?: number;
-  /** 商品所属类目ID。必须是叶子类目，通过类目接口获取。 */
+  /** ID of the category the product belongs to. Must be a leaf category, obtained through the category API. */
   categoryId?: number;
-  /** 卡券商品结束有效期 */
+  /** End of validity period of the voucher product */
   couponEndDate?: string;
-  /** 卡券商品开始有效期 */
+  /** Start of validity period of the voucher product */
   couponStartDate?: string;
-  /** 货币单位。如果不提供该值信息，则默认为"USD"；非俄罗斯卖家这个属性值可以不提供。对于俄罗斯海外卖家，该单位值必须提供，如: "RUB"。 */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; non-Russian sellers may omit this attribute. For Russian overseas sellers, this unit value must be provided, e.g. "RUB". */
   currencyCode?: string;
-  /** 备货期。取值范围:1-60;单位:天。 */
+  /** Stocking period. Value range: 1-60; unit: days. */
   deliveryTime?: number;
-  /** Detail详情。以下内容会被过滤，但不影响产品提交:(1)含有script\textarea\style\iframe\frame\input\pre\button均被过滤.(2)a标签href属性只允许是aliexpress.com域名连接,否则被过滤.(3)img标签src只允许alibaba.com或者aliimg.com域名链接.(4)任意具有style属性的html标签，其style受检查，只允许一般简单的样式.不允许的内容将被过滤.(5)如果发现html内容标签缺失，会自动补全标签. */
+  /** Detail description. The following content will be filtered but does not affect product submission: (1) script\textarea\style\iframe\frame\input\pre\button are all filtered out. (2) The href attribute of an a tag may only link to the aliexpress.com domain, otherwise it is filtered. (3) The src of an img tag may only link to the alibaba.com or aliimg.com domain. (4) For any HTML tag with a style attribute, the style is checked and only generally simple styles are allowed. Disallowed content is filtered. (5) If missing HTML tags are found, they are completed automatically. */
   detail?: string;
-  /** 商品关联的运费模板ID */
+  /** Shipping fee template ID linked to the product */
   freightTemplateId?: Long;
-  /** 商品毛重,取值范围:0.001-500.000,保留三位小数,采用进位制,单位:公斤。 */
+  /** Product gross weight. Value range: 0.001-500.000, three decimal places, rounded up, unit: kilograms. */
   grossWeight?: string;
-  /** 这个产品需要关联的产品分组ID. 只能关联一个产品分组，如果想关联多个产品分组，请使用api.setGroups接口。 */
+  /** The product group ID this product needs to be linked to. Only one product group can be linked; to link multiple product groups, use the api.setGroups API. */
   groupId?: Long;
-  /** 产品的主图URL列表。如果这个产品有多张主图，那么这些URL之间使用英文分号(";")隔开。一个产品最多只能有6张主图。图片格式JPEG，文件大小5M以内；图片像素建议大于800*800；横向和纵向比例建议1:1到1:1.3之间；图片中产品主体占比建议大于70%；背景白色或纯色，风格统一；如果有LOGO，建议放置在左上角，不宜过大。不建议自行添加促销标签或文字。切勿盗用他人图片，以免受网规处罚。更多说明请至http://seller.aliexpress.com/so/tupianguifan.php进行了解。 */
+  /** List of main image URLs of the product. If the product has multiple main images, separate the URLs with an English semicolon (";"). A product can have at most 6 main images. Image format JPEG, file size within 5M; recommended resolution greater than 800*800; recommended aspect ratio between 1:1 and 1:1.3; the product should occupy more than 70% of the image; use a white or solid background with a consistent style; if there is a LOGO, it is recommended to place it in the upper left corner and not too large. Adding promotional labels or text yourself is not recommended. Do not use other people's images, to avoid penalties under platform rules. For more information see http://seller.aliexpress.com/so/tupianguifan.php. */
   imageURLs?: string;
-  /** 是否是动态图产品，是：true，否：false */
+  /** Whether it is an animated image product, yes: true, no: false */
   isImageDynamic?: boolean;
-  /** 是否自定义计重.true为自定义计重,false反之. */
+  /** Whether custom weight calculation is used. true means custom weight calculation, false otherwise. */
   isPackSell?: boolean;
-  /** 关键字 */
+  /** Keyword */
   keyword?: string;
-  /** 多语言语种。当前支持的语种有：ru_RU(俄语)、pt_BR(葡萄牙语)、fr_FR(法语)、es_ES(西班牙语)、in_ID(印度尼西亚语)、it_IT(意大利语)、de_DE(德语)、nl_NL(荷兰语)、tr_TR(土耳其语)、iw_IL(以色列语)、ja_JP(日语)、ar_MA(阿拉伯语)、th_TH(泰语)、vi_VN(越南语)、ko_KR(韩语)、pl_PL(波兰语) */
+  /** Multilingual language. Currently supported languages: ru_RU (Russian), pt_BR (Portuguese), fr_FR (French), es_ES (Spanish), in_ID (Indonesian), it_IT (Italian), de_DE (German), nl_NL (Dutch), tr_TR (Turkish), iw_IL (Hebrew), ja_JP (Japanese), ar_MA (Arabic), th_TH (Thai), vi_VN (Vietnamese), ko_KR (Korean), pl_PL (Polish) */
   localeName?: string;
-  /** 每包件数。 打包销售情况，lotNum>1,非打包销售情况,lotNum=1 */
+  /** Number of pieces per pack. For pack sales, lotNum>1; for non-pack sales, lotNum=1 */
   lotNum?: number;
-  /** mobile Detail详情，格式请参考https://developers.aliexpress.com/doc.htm#?docType=1&docId=108598。 */
+  /** Mobile detail description. For the format, refer to https://developers.aliexpress.com/doc.htm#?docType=1&docId=108598. */
   mobileDetail?: string;
-  /** 多语言详描，长度不能超过90000个字符。 */
+  /** Multilingual detailed description, length must not exceed 90000 characters. */
   multilanguageDetail?: string;
-  /** 多语言标题，长度不能超过218个字符。 */
+  /** Multilingual title, length must not exceed 218 characters. */
   multilanguageSubject?: string;
-  /** 商品拥有者的login_id */
+  /** login_id of the product owner */
   ownerMemberId?: string;
-  /** 商品拥有者的ID */
+  /** ID of the product owner */
   ownerMemberSeq?: number;
-  /** 商品包装高度。取值范围:1-700,单位:厘米。 */
+  /** Product package height. Value range: 1-700, unit: cm. */
   packageHeight?: number;
-  /** 商品包装长度。取值范围:1-700,单位:厘米。产品包装尺寸的最大值+2×（第二大值+第三大值）不能超过2700厘米。 */
+  /** Product package length. Value range: 1-700, unit: centimeters. The largest dimension of the product package + 2 x (second largest + third largest) must not exceed 2700 centimeters. */
   packageLength?: number;
-  /** 打包销售: true 非打包销售:false */
+  /** Sold as a bundle: true; not sold as a bundle: false */
   packageType?: boolean;
-  /** 商品包装宽度。取值范围:1-700,单位:厘米。 */
+  /** Product package width. Value range: 1-700, unit: cm. */
   packageWidth?: number;
-  /** 产品ID */
+  /** Product ID */
   productId?: Long;
   /** product_more_keywords1 */
   productMoreKeywords1?: string;
   /** product_more_keywords2 */
   productMoreKeywords2?: string;
-  /** 商品一口价。取值范围:0-100000,保留两位小数;单位:美元。如:200.07，表示:200美元7分。需要在正确的价格区间内。上传多属性产品的时候，有好几个SKU和价格，productprice无需填写。 */
+  /** Product fixed price. Value range: 0-100000, two decimal places; unit: USD. E.g. 200.07 means 200 dollars and 7 cents. Must be within the correct price range. When uploading a multi-attribute product with several SKUs and prices, productprice does not need to be filled in. */
   productPrice?: string;
-  /** 产品的状态，包括onSelling（正在销售），offline（已下架），auditing（审核中），editingRequired（审核不通过） */
+  /** Product status, including onSelling (on sale), offline (delisted), auditing (under review), editingRequired (review failed) */
   productStatusType?: string;
-  /** 商品单位 (存储单位编号) 100000000:袋 (bag/bags)100000001:桶 (barrel/barrels)100000002:蒲式耳 (bushel/bushels)100078580:箱 (carton)100078581:厘米 (centimeter)100000003:立方米 (cubic meter)100000004:打 (dozen)100078584:英尺 (feet)100000005:加仑 (gallon)100000006:克 (gram)100078587:英寸 (inch)100000007:千克 (kilogram)100078589:千升 (kiloliter)100000008:千米 (kilometer)100078559:升 (liter/liters)100000009:英吨 (long ton)100000010:米 (meter)100000011:公吨 (metric ton)100078560:毫克 (milligram)100078596:毫升 (milliliter)100078597:毫米 (millimeter)100000012:盎司 (ounce)100000014:包 (pack/packs)100000013:双 (pair)100000015:件/个 (piece/pieces)100000016:磅 (pound)100078603:夸脱 (quart)100000017:套 (set/sets)100000018:美吨 (short ton)100078606:平方英尺 (square feet)100078607:平方英寸 (square inch)100000019:平方米 (square meter)100078609:平方码 (square yard)100000020:吨 (ton)100078558:码 (yard/yards) */
+  /** Product unit (storage unit ID) 100000000: bag (bag/bags) 100000001: barrel (barrel/barrels) 100000002: bushel (bushel/bushels) 100078580: carton (carton) 100078581: centimeter (centimeter) 100000003: cubic meter (cubic meter) 100000004: dozen (dozen) 100078584: feet (feet) 100000005: gallon (gallon) 100000006: gram (gram) 100078587: inch (inch) 100000007: kilogram (kilogram) 100078589: kiloliter (kiloliter) 100000008: kilometer (kilometer) 100078559: liter (liter/liters) 100000009: long ton (long ton) 100000010: meter (meter) 100000011: metric ton (metric ton) 100078560: milligram (milligram) 100078596: milliliter (milliliter) 100078597: millimeter (millimeter) 100000012: ounce (ounce) 100000014: pack (pack/packs) 100000013: pair (pair) 100000015: piece (piece/pieces) 100000016: pound (pound) 100078603: quart (quart) 100000017: set (set/sets) 100000018: short ton (short ton) 100078606: square feet (square feet) 100078607: square inch (square inch) 100000019: square meter (square meter) 100078609: square yard (square yard) 100000020: ton (ton) 100078558: yard (yard/yards) */
   productUnit?: number;
-  /** 服务模板设置。（需和服务模板查询接口api.queryPromiseTemplateById进行关联使用） */
+  /** Service template settings. (Must be used together with the service template query API api.queryPromiseTemplateById) */
   promiseTemplateId?: Long;
-  /** 库存扣减策略，总共有2种：下单减库存(place_order_withhold)和支付减库存(payment_success_deduct)。 */
+  /** Inventory deduction strategy, there are 2 in total: deduct inventory on order placement (place_order_withhold) and deduct inventory on payment (payment_success_deduct). */
   reduceStrategy?: string;
-  /** 尺码表模版ID。必须选择当前类目下的尺码模版。可通过findaeproductbyid获取产品关联的尺码模板ID */
+  /** Size chart template ID. Must select a size chart template under the current category. The size chart template ID associated with the product can be obtained via findaeproductbyid */
   sizechartId?: Long;
-  /** 产品的来源 */
+  /** Product source */
   src?: string;
-  /** 商品标题 长度在1-128之间英文。 */
+  /** Product title, 1-128 characters in English. */
   subject?: string;
-  /** 商品概要 */
+  /** Product summary */
   summary?: string;
-  /** 是否使用自动翻译，如果带上这个参数，则localeName必须为ru_RU，并且会自动把多语言标题和描述通过机器翻译自动翻译成英文，覆盖传人的英文描述和标题里面 */
+  /** Whether to use automatic translation. If this parameter is passed, localeName must be ru_RU, and the multilingual titles and descriptions will be automatically machine-translated into English, overwriting the English description and title passed in */
   useAutoTrans?: boolean;
-  /** 产品的下架原因，包括user_offline：手动下架，expire_offline：到期下架，punish_offline：网规处罚下架，violate_offline：交易违规下架，degrade_offline：降级下架，industry_offline：未续约下架 */
+  /** Product delisting reason, including user_offline: manually delisted, expire_offline: delisted on expiry, punish_offline: delisted as a penalty under platform rules, violate_offline: delisted for transaction violation, degrade_offline: delisted due to downgrade, industry_offline: delisted for not renewing */
   wsDisplay?: string;
-  /** 产品的下架日期 */
+  /** Product delisting date */
   wsOfflineDate?: string;
-  /** 商品有效天数。取值范围:1-30,单位:天。 */
+  /** Product validity days. Value range: 1-30, unit: days. */
   wsValidNum?: number;
-  /** isPackSell为true时,此项必填。 每增加件数.取值范围1-1000。 */
+  /** Required when isPackSell is true. Number of pieces added each time. Value range 1-1000. */
   addUnit?: number;
-  /** isPackSell为true时,此项必填。 对应增加的重量.取值范围:0.001-500.000,保留三位小数,采用进位制,单位:公斤。 */
+  /** Required when isPackSell is true. The corresponding added weight. Value range: 0.001-500.000, three decimal places, rounded up, unit: kilogram. */
   addWeight?: string;
-  /** 商品多媒体信息，该属性主要包含商品的视频列表 */
+  /** Product multimedia information; this property mainly contains the product's video list */
   aeopAEMultimedia?: AliexpressPostproductRedefiningPostmultilanguageaeproductAeopAEMultimedia;
-  /** 产品属性，以json格式进行封装后提交。参看aeopAeProductPropertys数据结构。此字段是否必填，需从类目接口getChildAttributesResultByPostCateIdAndPath获取（即获取到的required来判断属性是否必填），该项只输入普通类目属性数据，不可输入sku类目属性。 对于类目属性包含子类目属性的情况，此处不确认父属性和子属性，即选择任何属性，都以该对象提交。 对于一个属性多个选中值的情况，以多个该对象存放。 其中"attrNameId","attrValueId"为整型(Integer), "attrName", "attrValue"为字符串类型(String)。 1. 当设置一些系统属性时，如果类目自定义了一些候选值，只需要提供"attrNameId"和"attrValueId"即可。例如：{"attrNameId":494, "attrValueId":284}。 2. 当设置一些需要手工输入属性内容时，只需要提供"attrNameId"和"attrValue"即可。例如：{"attrNameId": 1000, "attrValue": "test"} 3. 当设置自定义属性时，需要提供"attrName"和"attrValue"即可。例如: {"attrName": "Color", "attrValue": "red"} 4. 当设置一个Other属性时，需要提供"attrNameId", "attrValueId", "attrValue"三个参数。例如：{"attrNameId": 1000, "attrValueId": 4, "attrValue": "Other Value"}。 */
+  /** Product attributes, submitted encapsulated in JSON format. See the aeopAeProductPropertys data structure. Whether this field is required must be determined from the category API getChildAttributesResultByPostCateIdAndPath (i.e. check the returned required flag); only enter ordinary category attribute data here, not SKU category attributes. When a category attribute contains child category attributes, parent and child attributes are not distinguished here; whichever attribute is selected is submitted with this object. When an attribute has multiple selected values, store them as multiple such objects. "attrNameId" and "attrValueId" are integers (Integer), and "attrName" and "attrValue" are strings (String). 1. When setting system attributes, if the category defines candidate values, only "attrNameId" and "attrValueId" are needed. For example: {"attrNameId":494, "attrValueId":284}. 2. When setting attributes that require manually entered content, only "attrNameId" and "attrValue" are needed. For example: {"attrNameId": 1000, "attrValue": "test"} 3. When setting custom attributes, only "attrName" and "attrValue" are needed. For example: {"attrName": "Color", "attrValue": "red"} 4. When setting an Other attribute, three parameters are needed: "attrNameId", "attrValueId", "attrValue". For example: {"attrNameId": 1000, "attrValueId": 4, "attrValue": "Other Value"}. */
   aeopAeProductPropertys?: Array<AliexpressPostproductRedefiningPostmultilanguageaeproductAeopAeProductProperty>;
-  /** 商品的SKU信息，列表类型，以json格式来表达。参看aeopAeProductSKUs数据结构。特别提示：新增SKU实际可售库存属性ipmSkuStock，该属性值的合理取值范围为0~999999，如该商品有SKU时，请确保至少有一个SKU是有货状态，也就是ipmSkuStock取值是1~999999，在整个商品纬度库存值的取值范围是1~999999。 */
+  /** Product SKU information, a list type expressed in JSON format. See the aeopAeProductSKUs data structure. Note: the new attribute ipmSkuStock is the actual sellable SKU inventory; its valid range is 0~999999. If the product has SKUs, make sure at least one SKU is in stock, i.e. ipmSkuStock is 1~999999; the inventory value at the whole-product level must be in the range 1~999999. */
   aeopAeProductSKUs?: Array<AliexpressPostproductRedefiningPostmultilanguageaeproductAeopAEProductSKU>;
 }
 
@@ -3350,7 +3350,7 @@ export const AliexpressPostproductRedefiningPostmultilanguageaeproductMultilangu
   };
 
 export interface AliexpressPostproductRedefiningQueryproductgroupidbyproductidAeopAEProductGroupIdHolder {
-  /** 产品分组ID */
+  /** Product group ID */
   groupId?: string;
 }
 
@@ -3360,15 +3360,15 @@ export const AliexpressPostproductRedefiningQueryproductgroupidbyproductidAeopAE
   };
 
 export interface AliexpressPostproductRedefiningQueryproductgroupidbyproductidAeopResultDTO {
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 接口调用结果。true/false分别表示成功和失败。 */
+  /** API call result. true/false indicate success and failure respectively. */
   success?: boolean;
-  /** 这个产品所关联的产品分组ID列表。 */
+  /** List of product group IDs associated with this product. */
   targetList?: Array<AliexpressPostproductRedefiningQueryproductgroupidbyproductidAeopAEProductGroupIdHolder>;
-  /** 调用接口的时间。 */
+  /** Time of the API call. */
   timeStamp?: string;
 }
 
@@ -3387,11 +3387,11 @@ export const AliexpressPostproductRedefiningQueryproductgroupidbyproductidAeopRe
   };
 
 export interface AliexpressPostproductRedefiningQuerypromisetemplatebyidAeopPromiseTemplateResponse {
-  /** 模板列表 */
+  /** Template list */
   templateList?: Array<AliexpressPostproductRedefiningQuerypromisetemplatebyidString>;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -3407,9 +3407,9 @@ export const AliexpressPostproductRedefiningQuerypromisetemplatebyidAeopPromiseT
   };
 
 export interface AliexpressPostproductRedefiningQuerypromisetemplatebyidString {
-  /** 模板id */
+  /** Template ID */
   id?: Long;
-  /** 模板名称 */
+  /** Template name */
   name?: string;
 }
 
@@ -3420,17 +3420,17 @@ export const AliexpressPostproductRedefiningQuerypromisetemplatebyidStringSchema
   };
 
 export interface AliexpressPostproductRedefiningRenewexpireAeopModifyProductResponse {
-  /** 错误详情 */
+  /** Error details */
   errorDetails?: Array<string>;
-  /** 成功修改的商品个数 */
+  /** Number of products successfully modified */
   modifyCount?: number;
-  /** 是否操作成功 true/false分别代表成功失败 */
+  /** Whether the operation succeeded, true/false represent success and failure respectively */
   isSuccess?: boolean;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 错误码 */
+  /** Error code */
   errorCode?: number;
-  /** 系统异常信息 */
+  /** System exception message */
   errorMessage?: string;
 }
 
@@ -3445,13 +3445,13 @@ export const AliexpressPostproductRedefiningRenewexpireAeopModifyProductResponse
   };
 
 export interface AliexpressPostproductRedefiningSetgroupsAeopResultDTO {
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 报错信息：设置商品分组前请做好前置校验，只有叶子节点的group_id或者 child_group_list 为空的一级group_id下可以挂载商品。 */
+  /** Error message: before setting product groups, do the prerequisite validation; products can only be attached to a leaf-node group_id or a first-level group_id whose child_group_list is empty. */
   errorMessage?: string;
-  /** 操作结果。true/false分别表示成功和失败。 */
+  /** Operation result. true/false indicate success and failure respectively. */
   success?: boolean;
-  /** 绑定成功的产品分组列表。 */
+  /** List of product groups successfully bound. */
   targetList?: Array<Long>;
   /** 20150714015815415-0700 */
   timeStamp?: string;
@@ -3467,15 +3467,15 @@ export const AliexpressPostproductRedefiningSetgroupsAeopResultDTOSchema: Schema
   };
 
 export interface AliexpressPostproductRedefiningSetshopwindowproductAeopProductWindowResponse {
-  /** 错误原因 */
+  /** Error reason */
   errorCause?: string;
-  /** 剩余的可用橱窗数。 */
+  /** Number of remaining available showcases. */
   remainingWindowCount?: Long;
-  /** 接口调用结果。true/false分别表示成功和失败。 */
+  /** API call result. true/false indicate success and failure respectively. */
   isSuccess?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -3489,15 +3489,15 @@ export const AliexpressPostproductRedefiningSetshopwindowproductAeopProductWindo
   };
 
 export interface AliexpressPostproductRedefiningSetsizechartAeopRelateSizeChartResponse {
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 尺码表模版Id */
+  /** Size chart template ID */
   sizechartId?: Long;
-  /** 设置结果。true/false分别表示成功和失败。 */
+  /** Setting result. true/false indicate success and failure respectively. */
   isSuccess?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -3512,13 +3512,13 @@ export const AliexpressPostproductRedefiningSetsizechartAeopRelateSizeChartRespo
 
 /** Parameters for `aliexpress.postproduct.redefining.categoryforecast`. */
 export interface AliexpressPostproductRedefiningCategoryforecastParams {
-  /** 必填。图片url，请isv上传商品图片，通过图片银行接口获取。当语种为俄语时不必填。 */
+  /** Required. Image url. ISVs should upload product images and obtain them via the image bank API. Not required when the language is Russian. */
   imageUrl?: string;
-  /** 商品标题 */
+  /** Product title */
   subject?: string;
-  /** 必填。商品标题语种:en，ru，pt，id，es，fr，it，de，nl，tr，he，ja，ar，th，vi，ko，pl */
+  /** Required. Product title language: en, ru, pt, id, es, fr, it, de, nl, tr, he, ja, ar, th, vi, ko, pl */
   locale?: string;
-  /** 是否过滤类目准入权限 N=不过滤 | Y=过滤，不填写时，默认为N , 如果是发品类目预测需要填 Y，否则返回的类目可能会在发品时报错，影响用户体验 */
+  /** Whether to filter by category access permission: N=do not filter | Y=filter. Default is N if not filled in. For listing category prediction, Y must be filled in, otherwise the returned categories may cause errors when listing, affecting user experience */
   isFilterByPermission?: string;
 }
 
@@ -3556,9 +3556,9 @@ export const aliexpressPostproductRedefiningCategoryforecast: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.createproductgroup`. */
 export interface AliexpressPostproductRedefiningCreateproductgroupParams {
-  /** 分组的名称, 请控制在1～50个英文字符之内。 */
+  /** Group name, keep it within 1-50 English characters. */
   name?: string;
-  /** 父分组的ID。如果为0则表示创建根分组，否则创建指定分组下的二级分组。 */
+  /** ID of the parent group. If 0, a root group is created; otherwise a second-level group is created under the specified group. */
   parentId?: LongInput;
 }
 
@@ -3595,9 +3595,9 @@ export const aliexpressPostproductRedefiningCreateproductgroup: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.editaeproduct`. */
 export interface AliexpressPostproductRedefiningEditaeproductParams {
-  /** 扩展参数 json格式 */
+  /** Extended parameters in json format */
   extParam?: string;
-  /** 产品信息 */
+  /** Product information */
   aeopAEProduct?: AliexpressPostproductRedefiningEditaeproductAeopAEProduct;
 }
 
@@ -3637,9 +3637,9 @@ export const aliexpressPostproductRedefiningEditaeproduct: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.editmultilanguageproduct`. */
 export interface AliexpressPostproductRedefiningEditmultilanguageproductParams {
-  /** 待编辑的商品ID。 */
+  /** ID of the product to be edited. */
   productId?: LongInput;
-  /** 商品多语言信息 */
+  /** Product multilingual information */
   aeopAEProductMultilanguageInfo?: AliexpressPostproductRedefiningEditmultilanguageproductAeopAEProductMultilanguageInfo;
 }
 
@@ -3682,9 +3682,9 @@ export const aliexpressPostproductRedefiningEditmultilanguageproduct: ApiDefinit
 
 /** Parameters for `aliexpress.postproduct.redefining.editmutilpleskustocks`. */
 export interface AliexpressPostproductRedefiningEditmutilpleskustocksParams {
-  /** 产品ID */
+  /** Product ID */
   productId?: LongInput;
-  /** SKU的库存信息(一个或着多个),格式{"id":number1,"id":number2}。number为要编辑的可售库存数量。其中id可以通过商品查询接口：aliexpress.offer.product.query 中的aeop_ae_product_s_k_us列表中各个sku对象中“id”字段值进行获取, 没有sku销售属性的商品其id必须回传“<none>”值，例如：{"<none>":240} */
+  /** Stock information of the SKU (one or more), format {"id":number1,"id":number2}. number is the sellable stock quantity to edit. The id can be obtained from the "id" field of each sku object in the aeop_ae_product_s_k_us list of the product query API aliexpress.offer.product.query; for products without SKU sales attributes, the id must be passed back as "<none>", for example: {"<none>":240} */
   skuStocks?: Record<string, unknown>;
 }
 
@@ -3721,9 +3721,9 @@ export const aliexpressPostproductRedefiningEditmutilpleskustocks: ApiDefinition
 
 /** Parameters for `aliexpress.postproduct.redefining.editproductcategoryattributes`. */
 export interface AliexpressPostproductRedefiningEditproductcategoryattributesParams {
-  /** 产品的ID */
+  /** Product ID */
   productId?: LongInput;
-  /** 类目属性信息 */
+  /** Category attribute information */
   productCategoryAttributes?: Array<AliexpressPostproductRedefiningEditproductcategoryattributesAeopAeProductProperty>;
 }
 
@@ -3766,15 +3766,15 @@ export const aliexpressPostproductRedefiningEditproductcategoryattributes: ApiDe
 
 /** Parameters for `aliexpress.postproduct.redefining.editproductcidattidsku`. */
 export interface AliexpressPostproductRedefiningEditproductcidattidskuParams {
-  /** 商品分国家报价(区域价)不传默认回填。想编辑分国家价格需要product_skus 这个参数不为空，才能编辑分国家报价。如果想删除分国家报价，只需将该对象的属性configurationType设为"delete" ，例如{"configurationType":"delete","configurationData":""}; configuration_type : 分国家定价规则类型[percentage：基于基准价格按比例配置; relative:相对原价涨或跌多少；absolute：按照具体报价配置 ;delete ：删除分国家报价] ； configuration_data : jsonArray格式的分国家定价规则数据。 [{"absoluteQuoteMap":{"14:173":"1.0"},"shiptoCountry":"RU"},{"absoluteQuoteMap":{"14:173":"2.0"},"shiptoCountry":"US"}] 其中shiptoCountry：ISO两位的国家编码（目前支持国家：RU US CA ES FR UK NL IL BR CL AU UA BY JP TH SG KR ID MY PH VN IT DE SA AE PL TR）， absoluteQuoteMap：价格调整信息，为map结构，其中的key为商品查询sku中的id字段，示例为"<none>", "14:173", "14:173;3:2034781"；值则为具体的按照configuration_type设置的数据 percentage：相对于基准价的调价比例（百分比整数，支持负数，当前限制>=-50）; relative: 相对基准价的调整值，支持负数; absolute：直接设置具体数值，必须大于零。注意计算得到的分国家报价必须大于零，不能传空； */
+  /** Per-country product prices (regional prices); if not provided, the existing values are backfilled by default. To edit per-country prices, the product_skus parameter must not be empty. To delete per-country prices, just set the object's configurationType to "delete", for example {"configurationType":"delete","configurationData":""}; configuration_type: per-country pricing rule type [percentage: configured as a ratio of the base price; relative: how much to raise or lower relative to the original price; absolute: configured with specific prices; delete: delete per-country prices]; configuration_data: per-country pricing rule data in jsonArray format. [{"absoluteQuoteMap":{"14:173":"1.0"},"shiptoCountry":"RU"},{"absoluteQuoteMap":{"14:173":"2.0"},"shiptoCountry":"US"}] Where shiptoCountry: two-letter ISO country code (currently supported countries: RU US CA ES FR UK NL IL BR CL AU UA BY JP TH SG KR ID MY PH VN IT DE SA AE PL TR), absoluteQuoteMap: price adjustment info, a map whose key is the id field of the SKU in the product query, for example "<none>", "14:173", "14:173;3:2034781"; the value is the data set according to configuration_type. percentage: adjustment ratio relative to the base price (integer percentage, negatives supported, currently limited to >=-50); relative: adjustment value relative to the base price, negatives supported; absolute: set the specific value directly, must be greater than zero. Note that the calculated per-country price must be greater than zero and cannot be empty; */
   aeopNationalQuoteConfiguration?: string;
-  /** 必填，商品id，一次只能上传一个 */
+  /** Required, product id; only one can be uploaded at a time */
   productId?: LongInput;
-  /** 产品类目ID，如果不想调整类目，则不要填写。 */
+  /** Product category ID. Do not fill in if you do not want to change the category. */
   categoryId?: LongInput;
-  /** 该产品新的类目SKU属性。如果没有指定categoryId, 则该SKU属性则为当前产品所属类目下的SKU属性，如果指定了categoryId, 则该SKU属性则为新类目下的SKU属性。特别提示：由于当前接口是全量编辑接口，如果修改了product_skus，那么product_skus下的数据会完全替换，需要isv每次调用都要把sku内部相关图片、销售属性、分国家报价参数填充完整，否则会出现商品数据丢失的情况。isv请充分测试后再使用。 */
+  /** New category SKU attributes for this product. If categoryId is not specified, these SKU attributes are those under the category the product currently belongs to; if categoryId is specified, they are the SKU attributes under the new category. Special note: since this API is a full-edit API, if product_skus is modified, the data under product_skus is completely replaced, so the ISV must fill in all SKU-related images, sales attributes and per-country pricing parameters on every call, otherwise product data will be lost. ISVs should test thoroughly before use. */
   productSkus?: Array<AliexpressPostproductRedefiningEditproductcidattidskuAeopAEProductSKU>;
-  /** 该产品新的类目属性。如果没有指定categoryId, 则该类目属性则为当前产品所属类目下的类目属性，如果指定了categoryId, 则该类目属性则为新类目下的类目属性。 */
+  /** The new category attributes of this product. If categoryId is not specified, these are the category attributes under the product's current category; if categoryId is specified, these are the category attributes under the new category. */
   productProperties?: Array<AliexpressPostproductRedefiningEditproductcidattidskuAeopAeProductProperty>;
 }
 
@@ -3824,11 +3824,11 @@ export const aliexpressPostproductRedefiningEditproductcidattidsku: ApiDefinitio
 
 /** Parameters for `aliexpress.postproduct.redefining.editsimpleproductfiled`. */
 export interface AliexpressPostproductRedefiningEditsimpleproductfiledParams {
-  /** 指定编辑产品的id */
+  /** ID of the product to edit */
   productId?: LongInput;
-  /** 编辑的字段名称，为以下字段内容里的其中一项, 可以编辑的字段包括: subject: 商品的标题; detail: 商品的详细描述信息； deliveryTime: 备货期； groupId: 产品组； freightTemplateId: 运费模版； packageLength: 商品包装长度； packageWidth: 商品包装宽度； packageHeight：商品包装高度； grossWeight: 商品毛重； wsValidNum商品的有效天数；mobileDetail：无线详描（注意：该字段的提交修改，数据生效时间：商品（到期或手动）下架再上架生效。”）; reduceStrategy: 库存扣减策略(总共有2种：下单减库存(place_order_withhold)和支付减库存(payment_success_deduct)。);imageURLs:商品主图 多个图片时，用冒号分隔 ;promiseTemplateId:服务模板id */
+  /** Name of the field to edit, one of the following fields. Editable fields include: subject: product title; detail: product detailed description; deliveryTime: stocking period; groupId: product group; freightTemplateId: shipping template; packageLength: product package length; packageWidth: product package width; packageHeight: product package height; grossWeight: product gross weight; wsValidNum: product validity period in days; mobileDetail: mobile detailed description (note: changes submitted to this field take effect after the product is delisted (on expiry or manually) and listed again.); reduceStrategy: inventory deduction strategy (2 options: reduce inventory on order placement (place_order_withhold) and reduce inventory on payment success (payment_success_deduct).); imageURLs: product main images, separated by colons when there are multiple images; promiseTemplateId: service template ID */
   fiedName?: string;
-  /** 根据fiedName变化：fiedName=detail时，本字段是一段html字符串；fiedName=mobileDetail时，本字段的值是一段json字符串；fiedName=groupId时，本字段是一个产品分组唯一标识（数字类型），服务模版传参数是[1005003352630153,1005003352630154],fiedName= custom_image分国家主图变更传参{"BR":"https://ae04.alicdn.com/kf/HTB1uD3ZXUz1gK0jSZLeq6z9kVXat.jpg","RU":"http://g02.a.alicdn.com/kf/HTB1DkaWJXXXXXb6XFXXq6xXFXXXp.jpg"}。 */
+  /** Varies with fiedName: when fiedName=detail, this field is an HTML string; when fiedName=mobileDetail, the value of this field is a JSON string; when fiedName=groupId, this field is a unique product group identifier (numeric), and the service template parameter is [1005003352630153,1005003352630154]; when fiedName= custom_image, for per-country main image changes pass {"BR":"https://ae04.alicdn.com/kf/HTB1uD3ZXUz1gK0jSZLeq6z9kVXat.jpg","RU":"http://g02.a.alicdn.com/kf/HTB1DkaWJXXXXXb6XFXXq6xXFXXXp.jpg"}. */
   fiedvalue?: string;
 }
 
@@ -3866,13 +3866,13 @@ export const aliexpressPostproductRedefiningEditsimpleproductfiled: ApiDefinitio
 
 /** Parameters for `aliexpress.postproduct.redefining.editsingleskuprice`. */
 export interface AliexpressPostproductRedefiningEditsingleskupriceParams {
-  /** 需修改编辑的商品ID */
+  /** ID of the product to be edited */
   productId?: LongInput;
-  /** 需修改编辑的商品单个SKU对应的id值。id可以通过商品查询接口：aliexpress.offer.product.query 中的aeop_ae_product_s_k_us列表中各个sku对象中“id”字段值进行获取, 没有sku销售属性的商品其id必须回传“<none>”值 */
+  /** The id of the single product SKU to be edited. The id can be obtained from the "id" field of each sku object in the aeop_ae_product_s_k_us list returned by the product query API aliexpress.offer.product.query; for products without SKU sales attributes, the id must be passed back as "<none>" */
   skuId?: string;
-  /** 修改编辑后的商品价格 */
+  /** Edited product price */
   skuPrice?: string;
-  /** 修改编辑后的商品促销价格 */
+  /** Edited product promotion price */
   salePrice?: string;
 }
 
@@ -3911,11 +3911,11 @@ export const aliexpressPostproductRedefiningEditsingleskuprice: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.editsingleskustock`. */
 export interface AliexpressPostproductRedefiningEditsingleskustockParams {
-  /** 需修改编辑的商品ID */
+  /** ID of the product to be edited */
   productId?: LongInput;
-  /** 需修改编辑的商品单个SKU所对应的id值。id可以通过商品查询接口：aliexpress.offer.product.query 中的aeop_ae_product_s_k_us列表中各个sku对象中“id”字段值进行获取, 没有sku销售属性的商品其id必须回传“<none>”值 */
+  /** The id of the single product SKU to be edited. The id can be obtained from the "id" field of each sku object in the aeop_ae_product_s_k_us list returned by the product query API aliexpress.offer.product.query; for products without SKU sales attributes, the id must be passed back as "<none>" */
   skuId?: string;
-  /** SKU的库存值 */
+  /** SKU inventory value */
   ipmSkuStock?: LongInput;
 }
 
@@ -3953,7 +3953,7 @@ export const aliexpressPostproductRedefiningEditsingleskustock: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.findaeproductbyid`. */
 export interface AliexpressPostproductRedefiningFindaeproductbyidParams {
-  /** 商品ID */
+  /** Product ID */
   productId?: LongInput;
 }
 
@@ -3988,11 +3988,11 @@ export const aliexpressPostproductRedefiningFindaeproductbyid: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.findaeproductbyidfordropshipper`. */
 export interface AliexpressPostproductRedefiningFindaeproductbyidfordropshipperParams {
-  /** 商品ID */
+  /** Product ID */
   productId?: LongInput;
-  /** 国家 */
+  /** Country */
   localCountry?: string;
-  /** 语言 */
+  /** Language */
   localLanguage?: string;
 }
 
@@ -4031,11 +4031,11 @@ export const aliexpressPostproductRedefiningFindaeproductbyidfordropshipper: Api
 
 /** Parameters for `aliexpress.postproduct.redefining.findaeproductdetailmodulelistbyqurey`. */
 export interface AliexpressPostproductRedefiningFindaeproductdetailmodulelistbyqureyParams {
-  /** 要查询模块的状态，包含：tbd(审核不通过),auditing（审核中）,approved（审核通过） */
+  /** Status of the module to query, including: tbd (review failed), auditing (under review), approved (review passed) */
   moduleStatus?: string;
-  /** 要查询模块的类型，包含：custom（自定义模块）,relation（关联模块） */
+  /** Type of module to query, including: custom (custom module), relation (related module) */
   type?: string;
-  /** 要查询当前页码，每页返回50条记录，从1开始 */
+  /** Current page number to query, 50 records are returned per page, starting from 1 */
   pageIndex?: number;
 }
 
@@ -4075,7 +4075,7 @@ export const aliexpressPostproductRedefiningFindaeproductdetailmodulelistbyqurey
 
 /** Parameters for `aliexpress.postproduct.redefining.findaeproductmodulebyid`. */
 export interface AliexpressPostproductRedefiningFindaeproductmodulebyidParams {
-  /** moduleId 对应商品详情中的kse标签中的id属性;如: id="1004" */
+  /** moduleId corresponds to the id attribute of the kse tag in the product details; e.g.: id="1004" */
   moduleId?: LongInput;
 }
 
@@ -4112,15 +4112,15 @@ export const aliexpressPostproductRedefiningFindaeproductmodulebyid: ApiDefiniti
 
 /** Parameters for `aliexpress.postproduct.redefining.findaeproductprohibitedwords`. */
 export interface AliexpressPostproductRedefiningFindaeproductprohibitedwordsParams {
-  /** 商品类目ID */
+  /** Product category ID */
   categoryId?: number;
-  /** 商品的标题 */
+  /** Product title */
   title?: string;
-  /** 关键字 */
+  /** Keyword */
   keywords?: Array<string>;
-  /** 商品类目属性 */
+  /** Product category attributes */
   productProperties?: Array<string>;
-  /** 商品的详细描述 */
+  /** Detailed product description */
   detail?: string;
 }
 
@@ -4161,7 +4161,7 @@ export const aliexpressPostproductRedefiningFindaeproductprohibitedwords: ApiDef
 
 /** Parameters for `aliexpress.postproduct.redefining.findaeproductstatusbyid`. */
 export interface AliexpressPostproductRedefiningFindaeproductstatusbyidParams {
-  /** 商品ID,每次只能输入一个 */
+  /** Product ID, only one can be entered at a time */
   productId?: LongInput;
 }
 
@@ -4198,7 +4198,7 @@ export const aliexpressPostproductRedefiningFindaeproductstatusbyid: ApiDefiniti
 
 /** Parameters for `aliexpress.postproduct.redefining.findproductinfolistquery`. */
 export interface AliexpressPostproductRedefiningFindproductinfolistqueryParams {
-  /** 商品列表查询 */
+  /** Product list query */
   aeopAEProductListQuery?: AliexpressPostproductRedefiningFindproductinfolistqueryAeopAEProductListQuery;
 }
 
@@ -4271,11 +4271,11 @@ export const aliexpressPostproductRedefiningGetproductgrouplist: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.getsizechartinfobycategoryid`. */
 export interface AliexpressPostproductRedefiningGetsizechartinfobycategoryidParams {
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 不传默认查询对应的AE的普通账号数据，渠道seller id （可以在这个API中查询：global.seller.relation.query），全托管及海外托管店铺请使用对应的channel_seller_id */
+  /** If not passed, queries the data of the corresponding regular AE account by default. Channel seller id (can be queried with this API: global.seller.relation.query). For fully-managed and overseas-managed stores, use the corresponding channel_seller_id */
   channelSellerId?: string;
-  /** 商品类目Id */
+  /** Product category ID */
   categoryId?: LongInput;
 }
 
@@ -4314,13 +4314,13 @@ export const aliexpressPostproductRedefiningGetsizechartinfobycategoryid: ApiDef
 
 /** Parameters for `aliexpress.postproduct.redefining.getsizechartinfobytype`. */
 export interface AliexpressPostproductRedefiningGetsizechartinfobytypeParams {
-  /** 渠道seller id,不填则默认使用当前登录卖家id （可以在这个API中查询：global.seller.relation.query) */
+  /** Channel seller id; if not filled in, the currently logged-in seller id is used by default (can be queried in this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 尺码模版大类，clothings("女装"),shoesnew("鞋类"),men_clothings_new("男装"),underwear_women_new("女内衣"),underwear_men_new("男内衣"),shoes_children_new("童鞋") */
+  /** Size template category, clothings ("women's clothing"), shoesnew ("footwear"), men_clothings_new ("men's clothing"), underwear_women_new ("women's underwear"), underwear_men_new ("men's underwear"), shoes_children_new ("children's shoes") */
   type?: string;
-  /** 尺码小类，WOMENS_BOTTOMS("女式下装"), WOMENS_SWIMWEAR("女式泳装"), WOMENS_OUTERWEAR("女士外套"), WOMENS_JUMPSUITS("女士连体裤"), WOMENS_BODAYSUITS("女士紧身衣"), WOMENS_SKIRTS("女士短裙"), WOMENS_TOPS("女上装"), DRESSES("连衣裙"), PLUS_SIZE_WOMENS_BOTTOMS("大码-女式下装"), PLUS_SIZE_WOMENS_SWIMWEAR("大码-女式泳装"), PLUS_SIZE_WOMENS_OUTERWAER("大码-女士外套"), PLUS_SIZE_WOMENS_JUMPSUITS("大码-女士连体裤"), PLUS_SIZE_WOMENS_BODAYSUITS("大码-女士紧身衣"), PLUS_SIZE_WOMENS_SKIRTS("大码-女士短裙"), PLUS_SIZE_WOMENS_TOPS("大码-女上装"), PLUS_SIZE_DRESSES("大码-连衣裙"),WOMENS_CEREMONIAL_DRESS("女式礼服"), WOMENS_EROTIC_CLOTHING("情趣服装"),MENS_SHOES("男鞋"),WOMENS_SHOES("女鞋"),MENS_BOOTS("男靴"),WOMENS_BOOTS("女靴"),MENS_SPORTS_SHOES("男运动鞋"),WOMANS_SPORTS_SHOES("女运动鞋"),MENS_TOPS("男上装"),MENS_BOTTOMS("男下装"),MENS_OUTERWEAR("男士外套"),MENS_SUIT("男西装"),WOMENS_UNDERWEAR("女式内裤"),WOMENS_BRA("文胸"),WOMENS_ROBE("女式睡袍"),WOMENS_SOCKS("女式袜子"),WOMENS_UNDERWEAR_BODYSUITS("女式紧身衣"),WOMENS_UNDERWEAR_JUMPSUITS("女式连体裤"),WOMENS_UNDERWEAR_TOP("女内衣上装"),WOMENS_UNDERWEAR_BUTTOM("女内衣下装"),MENS_UNDERWEAR("男式内裤"),MENS_ROBE("男式睡袍"),MENS_SOCKS("男式袜子"),MENS_UNDERWEAR_BODYSUITS("男式紧身衣"),MENS_UNDERWEAR_JUMPSUITS("男式连体裤"),MENS_UNDERWEAR_TOP("男内衣上装"),MENS_UNDERWEAR_BUTTOM("男内衣下装"),CHILDRENS_SHOES("童鞋"); */
+  /** Size subcategory, WOMENS_BOTTOMS("Women's bottoms"), WOMENS_SWIMWEAR("Women's swimwear"), WOMENS_OUTERWEAR("Women's outerwear"), WOMENS_JUMPSUITS("Women's jumpsuits"), WOMENS_BODAYSUITS("Women's bodysuits"), WOMENS_SKIRTS("Women's skirts"), WOMENS_TOPS("Women's tops"), DRESSES("Dresses"), PLUS_SIZE_WOMENS_BOTTOMS("Plus size - women's bottoms"), PLUS_SIZE_WOMENS_SWIMWEAR("Plus size - women's swimwear"), PLUS_SIZE_WOMENS_OUTERWAER("Plus size - women's outerwear"), PLUS_SIZE_WOMENS_JUMPSUITS("Plus size - women's jumpsuits"), PLUS_SIZE_WOMENS_BODAYSUITS("Plus size - women's bodysuits"), PLUS_SIZE_WOMENS_SKIRTS("Plus size - women's skirts"), PLUS_SIZE_WOMENS_TOPS("Plus size - women's tops"), PLUS_SIZE_DRESSES("Plus size - dresses"), WOMENS_CEREMONIAL_DRESS("Women's formal dresses"), WOMENS_EROTIC_CLOTHING("Lingerie costumes"), MENS_SHOES("Men's shoes"), WOMENS_SHOES("Women's shoes"), MENS_BOOTS("Men's boots"), WOMENS_BOOTS("Women's boots"), MENS_SPORTS_SHOES("Men's sports shoes"), WOMANS_SPORTS_SHOES("Women's sports shoes"), MENS_TOPS("Men's tops"), MENS_BOTTOMS("Men's bottoms"), MENS_OUTERWEAR("Men's outerwear"), MENS_SUIT("Men's suits"), WOMENS_UNDERWEAR("Women's underwear"), WOMENS_BRA("Bras"), WOMENS_ROBE("Women's robes"), WOMENS_SOCKS("Women's socks"), WOMENS_UNDERWEAR_BODYSUITS("Women's bodysuits"), WOMENS_UNDERWEAR_JUMPSUITS("Women's jumpsuits"), WOMENS_UNDERWEAR_TOP("Women's underwear tops"), WOMENS_UNDERWEAR_BUTTOM("Women's underwear bottoms"), MENS_UNDERWEAR("Men's underwear"), MENS_ROBE("Men's robes"), MENS_SOCKS("Men's socks"), MENS_UNDERWEAR_BODYSUITS("Men's bodysuits"), MENS_UNDERWEAR_JUMPSUITS("Men's jumpsuits"), MENS_UNDERWEAR_TOP("Men's underwear tops"), MENS_UNDERWEAR_BUTTOM("Men's underwear bottoms"), CHILDRENS_SHOES("Children's shoes"); */
   subType?: string;
-  /** 尺码分组，鞋类尺码模版使用, standard(常规码),onesize(均码),standarddual(常规双码),cnsize(中国码),cnsizedual(中国双码) */
+  /** Size group, used by shoe size templates: standard (regular sizes), onesize (one size), standarddual (regular dual sizes), cnsize (China sizes), cnsizedual (China dual sizes) */
   sizeGroup?: string;
 }
 
@@ -4389,9 +4389,9 @@ export const aliexpressPostproductRedefiningGetwindowproducts: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.offlineaeproduct`. */
 export interface AliexpressPostproductRedefiningOfflineaeproductParams {
-  /** 下架原因，目前仅用于商品诊断优化 */
+  /** Delist reason, currently used only for product diagnosis and optimization */
   editReason?: string;
-  /** 需要下架的产品id。多个产品ID用英文分号隔开。 */
+  /** IDs of products to be delisted. Separate multiple product IDs with an English semicolon. */
   productIds?: string;
 }
 
@@ -4427,7 +4427,7 @@ export const aliexpressPostproductRedefiningOfflineaeproduct: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.onlineaeproduct`. */
 export interface AliexpressPostproductRedefiningOnlineaeproductParams {
-  /** 需要上架的产品id列表。可输入多个，之前用半角分号分割。 */
+  /** List of product IDs to be listed. Multiple IDs can be entered, separated by a half-width semicolon. */
   productIds?: string;
 }
 
@@ -4462,7 +4462,7 @@ export const aliexpressPostproductRedefiningOnlineaeproduct: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.postaeproduct`. */
 export interface AliexpressPostproductRedefiningPostaeproductParams {
-  /** 扩展参数 json 格式 custom_image 分国家主图 vat_tags 含税标 */
+  /** Extended parameters in json format. custom_image: country-specific main image; vat_tags: tax-included tag */
   extParam?: string;
   /** none */
   aeopAEProduct?: AliexpressPostproductRedefiningPostaeproductAeopAEProduct;
@@ -4504,9 +4504,9 @@ export const aliexpressPostproductRedefiningPostaeproduct: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.postmultilanguageaeproduct`. */
 export interface AliexpressPostproductRedefiningPostmultilanguageaeproductParams {
-  /** 扩展参数字段 json custom_image 分国家主图 vat_tags 含税标 */
+  /** Extended parameter field json. custom_image: country-specific main image; vat_tags: tax-included tag */
   extParam?: string;
-  /** 产品信息 */
+  /** Product information */
   product?: AliexpressPostproductRedefiningPostmultilanguageaeproductMultilanguageAeopAEProduct;
 }
 
@@ -4549,7 +4549,7 @@ export const aliexpressPostproductRedefiningPostmultilanguageaeproduct: ApiDefin
 
 /** Parameters for `aliexpress.postproduct.redefining.queryproductgroupidbyproductid`. */
 export interface AliexpressPostproductRedefiningQueryproductgroupidbyproductidParams {
-  /** 产品id */
+  /** Product ID */
   productId?: LongInput;
 }
 
@@ -4586,7 +4586,7 @@ export const aliexpressPostproductRedefiningQueryproductgroupidbyproductid: ApiD
 
 /** Parameters for `aliexpress.postproduct.redefining.querypromisetemplatebyid`. */
 export interface AliexpressPostproductRedefiningQuerypromisetemplatebyidParams {
-  /** 输入服务模板编号。注：输入为-1时，获取所有服务模板列表。 */
+  /** Enter the service template number. Note: entering -1 gets the list of all service templates. */
   templateId?: LongInput;
 }
 
@@ -4623,7 +4623,7 @@ export const aliexpressPostproductRedefiningQuerypromisetemplatebyid: ApiDefinit
 
 /** Parameters for `aliexpress.postproduct.redefining.renewexpire`. */
 export interface AliexpressPostproductRedefiningRenewexpireParams {
-  /** 需要延长有效期的商品id */
+  /** ID of the product whose validity period needs to be extended */
   productId?: LongInput;
 }
 
@@ -4658,9 +4658,9 @@ export const aliexpressPostproductRedefiningRenewexpire: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.setgroups`. */
 export interface AliexpressPostproductRedefiningSetgroupsParams {
-  /** 产品ID */
+  /** Product ID */
   productId?: LongInput;
-  /** 商品分组ID。如果需要将一个商品设置成多个分组，需要将分组id用逗号分隔，如：'123,456,789' 至多3个。 设置商品分组前请做好前置校验，只有叶子节点的group_id或者 child_group_list 为空的一级group_id下可以挂载商品。 查询商家商品分组接口：aliexpress.product.productgroups.get */
+  /** Product group ID. To assign a product to multiple groups, separate the group IDs with commas, for example '123,456,789', at most 3. Do pre-validation before setting product groups: products can only be attached to a leaf-node group_id, or to a first-level group_id whose child_group_list is empty. API for querying the seller's product groups: aliexpress.product.productgroups.get */
   groupIds?: string;
 }
 
@@ -4695,7 +4695,7 @@ export const aliexpressPostproductRedefiningSetgroups: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.setshopwindowproduct`. */
 export interface AliexpressPostproductRedefiningSetshopwindowproductParams {
-  /** 待设置橱窗的商品id，可输入多个，之前用半角分号分割。 */
+  /** IDs of products to be set as showcase; multiple IDs can be entered, separated by a half-width semicolon. */
   productIdList?: string;
 }
 
@@ -4731,15 +4731,15 @@ export const aliexpressPostproductRedefiningSetshopwindowproduct: ApiDefinition<
 
 /** Parameters for `aliexpress.postproduct.redefining.setsizechart`. */
 export interface AliexpressPostproductRedefiningSetsizechartParams {
-  /** 尺码表模版Id列表, 必须与当前商品所在类目想对应。 */
+  /** List of size chart template IDs, which must correspond to the category of the current product. */
   sizechartIdList?: Array<LongInput>;
-  /** 不传默认查询对应的AE的普通账号数据，渠道seller id （可以在这个API中查询：global.seller.relation.query），全托管及海外托管店铺请使用对应的channel_seller_id */
+  /** If not passed, queries the data of the corresponding regular AE account by default. Channel seller id (can be queried with this API: global.seller.relation.query). For fully-managed and overseas-managed stores, use the corresponding channel_seller_id */
   channelSellerId?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 商品Id */
+  /** Product ID */
   productId?: LongInput;
-  /** 尺码表模版Id, 必须与当前商品所在类目想对应。 */
+  /** Size chart template ID, which must correspond to the category of the current product. */
   sizechartId?: LongInput;
 }
 

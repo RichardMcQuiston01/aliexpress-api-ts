@@ -9,13 +9,13 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressPopChoiceCollectedProductsListPopChoiceProductListQueryRequest {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 单页展示数量，默认20 */
+  /** Number displayed per page, default 20 */
   pageSize?: number;
-  /** 当前页数 */
+  /** Current page number */
   currentPage?: number;
-  /** 类目id */
+  /** Category ID */
   leafCategory?: Long;
 }
 
@@ -28,19 +28,19 @@ export const AliexpressPopChoiceCollectedProductsListPopChoiceProductListQueryRe
   };
 
 export interface AliexpressPopChoiceCollectedProductsListPopCollectedProductListQueryResponse {
-  /** 商品总数 */
+  /** Total number of products */
   totalItem?: Long;
-  /** 页码总数 */
+  /** Total number of pages */
   totalPage?: number;
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 报错信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 半托管商品列表 */
+  /** Semi-managed product list */
   collectedProductList?: Array<AliexpressPopChoiceCollectedProductsListPopCollectedProductSearchResultDTO>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 当前页数 */
+  /** Current page number */
   currentPage?: number;
 }
 
@@ -61,23 +61,23 @@ export const AliexpressPopChoiceCollectedProductsListPopCollectedProductListQuer
   };
 
 export interface AliexpressPopChoiceCollectedProductsListPopCollectedProductSearchResultDTO {
-  /** 预约时间 */
+  /** Appointment time */
   preTime?: string;
-  /** 商品主图 */
+  /** Product main image */
   productImage?: string;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 商品下库存总数 */
+  /** Total inventory under the product */
   totalStocks?: string;
-  /** 最大SKU价格 */
+  /** Maximum SKU price */
   maxSkuPrice?: string;
-  /** 最小SKU价格 */
+  /** Minimum SKU price */
   minSkuPrice?: string;
-  /** 商品标题 */
+  /** Product title */
   title?: string;
-  /** 货币币种 */
+  /** Currency */
   currencyCode?: string;
-  /** 预约状态(0 ,"预约中"), (2 ,"加入半托管失败") */
+  /** Appointment status (0, "appointment in progress"), (2, "failed to join semi-managed") */
   preStatus?: string;
 }
 
@@ -95,25 +95,25 @@ export const AliexpressPopChoiceCollectedProductsListPopCollectedProductSearchRe
   };
 
 export interface AliexpressPopChoiceDraftQueryAeopSKUProperty {
-  /** SKU属性值 */
+  /** SKU attribute value */
   skuPropertyValue?: string;
-  /** SKU属性值ID */
+  /** SKU attribute value ID */
   propertyValueIdLong?: Long;
-  /** SKU属性名ID */
+  /** SKU attribute name ID */
   skuPropertyIdLong?: Long;
-  /** SKU属性名称 */
+  /** SKU attribute name */
   skuPropertyName?: string;
-  /** 属性值自定义名称 */
+  /** Custom name of the attribute value */
   propertyValueDefinitionName?: string;
-  /** 半托管编辑页面sku展示图片（取pop信息sku套图的首张图片信息） */
+  /** SKU display image on the semi-managed edit page (takes the first image of the SKU image set from the pop information) */
   skuImage?: string;
-  /** 额定电压 */
+  /** Rated voltage */
   plugParentPropertyId?: Long;
-  /** 额定电压区间值 */
+  /** Rated voltage range value */
   plugParentValueId?: Long;
-  /** SKU级联属性父属性id */
+  /** Parent attribute id of the SKU cascading attribute */
   parentPropertyId?: string;
-  /** SKU级联属性父属性值id */
+  /** Parent attribute value id of the SKU cascading attribute */
   parentValueId?: string;
 }
 
@@ -131,13 +131,13 @@ export const AliexpressPopChoiceDraftQueryAeopSKUPropertySchema: Schema = {
 };
 
 export interface AliexpressPopChoiceDraftQueryLogisticAttrDTO {
-  /** 物流属性 ID */
+  /** Logistics attribute ID */
   value?: Long;
-  /** 上级物流属性 ID，没有上级为空 */
+  /** Parent logistics attribute ID; empty if there is no parent */
   parentValueId?: Long;
-  /** 上级文本 */
+  /** Parent text */
   parentText?: string;
-  /** 当前层级属性文本 */
+  /** Attribute text of the current level */
   text?: string;
 }
 
@@ -149,13 +149,13 @@ export const AliexpressPopChoiceDraftQueryLogisticAttrDTOSchema: Schema = {
 };
 
 export interface AliexpressPopChoiceDraftQueryPopChoiceProductDetailQueryResponse {
-  /** 半托管商品详情 */
+  /** Semi-managed product details */
   popChoiceProduct?: AliexpressPopChoiceDraftQueryPopChoiceProductDTO;
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -172,13 +172,13 @@ export const AliexpressPopChoiceDraftQueryPopChoiceProductDetailQueryResponseSch
   };
 
 export interface AliexpressPopChoiceDraftQueryPopChoiceProductDTO {
-  /** 该半托管商品下SKU列表 */
+  /** List of SKUs under this semi-consignment product */
   productSkuList?: Array<AliexpressPopChoiceDraftQueryPopChoiceProductSkuDTO>;
-  /** 半托管商品id */
+  /** Semi-managed product ID */
   productId?: Long;
-  /** 货币码 */
+  /** Currency code */
   currencyCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Long;
 }
 
@@ -194,21 +194,21 @@ export const AliexpressPopChoiceDraftQueryPopChoiceProductDTOSchema: Schema = {
 };
 
 export interface AliexpressPopChoiceDraftQueryPopChoiceProductSkuDTO {
-  /** SKU属性列表 */
+  /** SKU attribute list */
   skuPropertyList?: Array<AliexpressPopChoiceDraftQueryAeopSKUProperty>;
-  /** SkuId，平台生成的唯一性随机数 */
+  /** SkuId, unique random number generated by the platform */
   skuId?: string;
-  /** sku编码 */
+  /** SKU code */
   skuCode?: string;
-  /** 高 */
+  /** Height */
   packageHeight?: string;
-  /** 重 */
+  /** Weight */
   packageWeight?: string;
-  /** 宽 */
+  /** Width */
   packageWidth?: string;
-  /** 长 */
+  /** Length */
   packageLength?: string;
-  /** 货品信息 */
+  /** Goods information */
   scItemInfo?: AliexpressPopChoiceDraftQueryPopChoiceProductSkuScItemInfo;
 }
 
@@ -233,11 +233,11 @@ export const AliexpressPopChoiceDraftQueryPopChoiceProductSkuDTOSchema: Schema =
   };
 
 export interface AliexpressPopChoiceDraftQueryPopChoiceProductSkuScItemInfo {
-  /** 是否原箱0否1是 */
+  /** Whether original carton 0 no 1 yes */
   originalBox?: string;
-  /** 特殊商品类型 */
+  /** Special product type */
   specialProductTypeList?: Array<string>;
-  /** 物流属性 */
+  /** Logistics attributes */
   logisticAttrList?: Array<AliexpressPopChoiceDraftQueryLogisticAttrDTO>;
 }
 
@@ -253,11 +253,11 @@ export const AliexpressPopChoiceDraftQueryPopChoiceProductSkuScItemInfoSchema: S
   };
 
 export interface AliexpressPopChoiceInfoQueryPopChoiceCountryDTO {
-  /** 中文国家名称 */
+  /** Country name in Chinese */
   cnName?: string;
-  /** 国家码 */
+  /** Country code */
   countryCode?: string;
-  /** 英文国家名称 */
+  /** Country name in English */
   enName?: string;
 }
 
@@ -268,15 +268,15 @@ export const AliexpressPopChoiceInfoQueryPopChoiceCountryDTOSchema: Schema = {
 };
 
 export interface AliexpressPopChoiceInfoQueryPopChoiceSellerInfoResponseDTO {
-  /** 请求结果 */
+  /** Request result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 半托管目前支持的国家列表 */
+  /** List of countries currently supported by semi-consignment */
   popChoiceCountryList?: Array<AliexpressPopChoiceInfoQueryPopChoiceCountryDTO>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 商家下半托管仓库列表 */
+  /** List of semi-consignment warehouses under the merchant */
   popChoiceWarehouseList?: Array<AliexpressPopChoiceInfoQueryPopChoiceWarehouseDTO>;
 }
 
@@ -298,9 +298,9 @@ export const AliexpressPopChoiceInfoQueryPopChoiceSellerInfoResponseDTOSchema: S
   };
 
 export interface AliexpressPopChoiceInfoQueryPopChoiceWarehouseDTO {
-  /** 仓库名称 */
+  /** Warehouse name */
   warehouseName?: string;
-  /** 仓库码 */
+  /** Warehouse code */
   warehouseCode?: string;
 }
 
@@ -310,19 +310,19 @@ export const AliexpressPopChoiceInfoQueryPopChoiceWarehouseDTOSchema: Schema = {
 };
 
 export interface AliexpressPopChoicePreProductQueryAeopSKUProperty {
-  /** SKU属性值 */
+  /** SKU attribute value */
   skuPropertyValue?: string;
-  /** SKU属性值ID */
+  /** SKU attribute value ID */
   propertyValueIdLong?: Long;
-  /** 女装类目SKU套图,3:4图片,图片数量限制 : 3到6张图片。女装(200000345)下的叶子类目必传参数 */
+  /** SKU image set for women's clothing categories, 3:4 images, 3 to 6 images allowed. Required for leaf categories under Women's Clothing (200000345) */
   imageUrlList?: Array<string>;
-  /** SKU属性名ID */
+  /** SKU attribute name ID */
   skuPropertyIdLong?: Long;
-  /** SKU属性名称 */
+  /** SKU attribute name */
   skuPropertyName?: string;
-  /** 属性值自定义名称 */
+  /** Custom name of the attribute value */
   propertyValueDefinitionName?: string;
-  /** SKU图片地址 */
+  /** SKU image URL */
   skuImage?: string;
 }
 
@@ -337,11 +337,11 @@ export const AliexpressPopChoicePreProductQueryAeopSKUPropertySchema: Schema = {
 };
 
 export interface AliexpressPopChoicePreProductQueryPopChoiceNationalPrice {
-  /** 国家/区域名称 */
+  /** Country/region name */
   nationName?: string;
-  /** SKU分国家零售价（包含物流费） */
+  /** SKU retail price by country (including logistics fee) */
   price?: string;
-  /** 国家/区域码 */
+  /** Country/region code */
   nationCode?: string;
 }
 
@@ -353,13 +353,13 @@ export const AliexpressPopChoicePreProductQueryPopChoiceNationalPriceSchema: Sch
   };
 
 export interface AliexpressPopChoicePreProductQueryPopChoiceProductDetailQueryResponse {
-  /** 半托管商品详情 */
+  /** Semi-managed product details */
   popChoiceProduct?: AliexpressPopChoicePreProductQueryPopChoiceProductDTO;
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -376,13 +376,13 @@ export const AliexpressPopChoicePreProductQueryPopChoiceProductDetailQueryRespon
   };
 
 export interface AliexpressPopChoicePreProductQueryPopChoiceProductDTO {
-  /** 该商品下已勾选参与的国家列表 */
+  /** List of countries selected to participate under this product */
   joinedCountryList?: Array<string>;
-  /** 该半托管商品下SKU列表 */
+  /** List of SKUs under this semi-consignment product */
   productSkuList?: Array<AliexpressPopChoicePreProductQueryPopChoiceProductSkuDTO>;
-  /** 半托管商品id */
+  /** Semi-managed product ID */
   productId?: Long;
-  /** 货币码 */
+  /** Currency code */
   currencyCode?: string;
 }
 
@@ -399,29 +399,29 @@ export const AliexpressPopChoicePreProductQueryPopChoiceProductDTOSchema: Schema
   };
 
 export interface AliexpressPopChoicePreProductQueryPopChoiceProductSkuDTO {
-  /** SKU分国家的零售价列表 */
+  /** List of SKU retail prices by country */
   choiceSkuPriceList?: Array<AliexpressPopChoicePreProductQueryPopChoiceNationalPrice>;
-  /** SKU货品信息 */
+  /** SKU goods information */
   popChoiceProductSkuScItemInfo?: AliexpressPopChoicePreProductQueryPopChoiceProductSkuScItemInfo;
-  /** SKU物流尺寸-高，单位cm */
+  /** SKU logistics dimension - height, in cm */
   packageHeight?: string;
-  /** SKU半托管库存列表 */
+  /** SKU semi-consignment inventory list */
   popChoiceSkuWarehouseStockList?: Array<AliexpressPopChoicePreProductQueryPopChoiceSkuWarehouseStock>;
-  /** SKU属性列表 */
+  /** SKU attribute list */
   skuPropertyList?: Array<AliexpressPopChoicePreProductQueryAeopSKUProperty>;
-  /** SKU级别重量，KG */
+  /** SKU-level weight, KG */
   packageWeight?: string;
-  /** SKU物流尺寸-宽，单位cm */
+  /** SKU logistics dimension - width, in cm */
   packageWidth?: string;
-  /** SKU物流尺寸-长，单位cm */
+  /** SKU logistics dimension - length, in cm */
   packageLength?: string;
-  /** SKU物流费用分国家列表 */
+  /** List of SKU logistics fees by country */
   freightFeeList?: Array<AliexpressPopChoicePreProductQueryPopChoiceNationalPrice>;
-  /** SkuId，平台生成的唯一性随机数 */
+  /** SkuId, unique random number generated by the platform */
   skuId?: string;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。如果用户只填写零售价（productprice）和商品编码，需要完整生成一条SKU记录提交，否则商品编码无法保存。系统会认为只提交了零售价，而没有SKU，导致商品编辑未保存。 */
+  /** Sku merchant code. Format: half-width alphanumeric characters, length 20, no spaces, greater-than or less-than signs. If the user only fills in the retail price (productprice) and the product code, a complete SKU record must still be generated and submitted, otherwise the product code cannot be saved. The system would consider that only the retail price was submitted without a SKU, so the product edit is not saved. */
   skuCode?: string;
-  /** SKU裸价 */
+  /** SKU base price */
   basePrice?: string;
 }
 
@@ -463,15 +463,15 @@ export const AliexpressPopChoicePreProductQueryPopChoiceProductSkuDTOSchema: Sch
   };
 
 export interface AliexpressPopChoicePreProductQueryPopChoiceProductSkuScItemInfo {
-  /** SKU货品编码 */
+  /** SKU goods code */
   scItemCode?: string;
-  /** SKU特殊商品类型 */
+  /** SKU special product type */
   specialProductTypeList?: Array<string>;
-  /** SKU货品条码 */
+  /** SKU goods barcode */
   scItemBarCode?: string;
-  /** SKU货品id */
+  /** SKU goods ID */
   scItemId?: Long;
-  /** 是否原箱，0否1是 */
+  /** Whether original carton, 0 no 1 yes */
   originalBox?: string;
 }
 
@@ -485,13 +485,13 @@ export const AliexpressPopChoicePreProductQueryPopChoiceProductSkuScItemInfoSche
   };
 
 export interface AliexpressPopChoicePreProductQueryPopChoiceSkuWarehouseStock {
-  /** 库存仓库类型, 暂不开放 */
+  /** Inventory warehouse type, not yet open */
   warehouseType?: string;
-  /** 库存仓库名称 */
+  /** Inventory warehouse name */
   warehouseName?: string;
-  /** 该仓库下SKU可售数量 */
+  /** Sellable quantity of the SKU under this warehouse */
   sellableQuantity?: Long;
-  /** 库存仓库代码 */
+  /** Inventory warehouse code */
   warehouseCode?: string;
 }
 
@@ -504,19 +504,19 @@ export const AliexpressPopChoicePreProductQueryPopChoiceSkuWarehouseStockSchema:
   };
 
 export interface AliexpressPopChoicePreProductSubmitAeopSKUProperty {
-  /** SKU属性值 */
+  /** SKU attribute value */
   skuPropertyValue?: string;
-  /** SKU属性值ID */
+  /** SKU attribute value ID */
   propertyValueIdLong?: Long;
-  /** 女装类目SKU套图,3:4图片,图片数量限制 : 3到6张图片。女装(200000345)下的叶子类目必传参数 */
+  /** SKU image set for women's clothing categories, 3:4 images, 3 to 6 images allowed. Required for leaf categories under Women's Clothing (200000345) */
   imageUrlList?: Array<string>;
-  /** SKU属性名ID */
+  /** SKU attribute name ID */
   skuPropertyIdLong?: Long;
-  /** SKU属性名称 */
+  /** SKU attribute name */
   skuPropertyName?: string;
-  /** 属性值自定义名称 */
+  /** Custom name of the attribute value */
   propertyValueDefinitionName?: string;
-  /** SKU图片地址 */
+  /** SKU image URL */
   skuImage?: string;
 }
 
@@ -532,13 +532,13 @@ export const AliexpressPopChoicePreProductSubmitAeopSKUPropertySchema: Schema =
   };
 
 export interface AliexpressPopChoicePreProductSubmitPopChoiceProductDTO {
-  /** 该商品下已勾选参与的国家列表 */
+  /** List of countries selected to participate under this product */
   joinedCountryList?: Array<string>;
-  /** 该半托管商品下SKU列表 */
+  /** List of SKUs under this semi-consignment product */
   productSkuList?: Array<AliexpressPopChoicePreProductSubmitPopChoiceProductSkuDTO>;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 货币码 */
+  /** Currency code */
   currencyCode?: string;
   categoryId?: string;
 }
@@ -557,25 +557,25 @@ export const AliexpressPopChoicePreProductSubmitPopChoiceProductDTOSchema: Schem
   };
 
 export interface AliexpressPopChoicePreProductSubmitPopChoiceProductSkuDTO {
-  /** 货品信息 */
+  /** Goods information */
   popChoiceProductSkuScItemInfo?: AliexpressPopChoicePreProductSubmitPopChoiceProductSkuScItemInfo;
-  /** SKU物流尺寸-高，单位cm */
+  /** SKU logistics dimension - height, in cm */
   packageHeight?: string;
-  /** 仓库库存信息 */
+  /** Warehouse inventory information */
   popChoiceSkuWarehouseStockList?: Array<AliexpressPopChoicePreProductSubmitPopChoiceSkuWarehouseStock>;
-  /** SKU属性列表 */
+  /** SKU attribute list */
   skuPropertyList?: Array<AliexpressPopChoicePreProductSubmitAeopSKUProperty>;
-  /** SKU级别重量，KG */
+  /** SKU-level weight, KG */
   packageWeight?: string;
-  /** SKU物流尺寸-宽，单位cm */
+  /** SKU logistics dimension - width, in cm */
   packageWidth?: string;
-  /** SKU物流尺寸-长，单位cm */
+  /** SKU logistics dimension - length, in cm */
   packageLength?: string;
-  /** SkuId，平台生成的唯一性随机数 */
+  /** SkuId, unique random number generated by the platform */
   skuId?: string;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。如果用户只填写零售价（productprice）和商品编码，需要完整生成一条SKU记录提交，否则商品编码无法保存。系统会认为只提交了零售价，而没有SKU，导致商品编辑未保存。 */
+  /** Sku merchant code. Format: half-width alphanumeric characters, length 20, no spaces, greater-than or less-than signs. If the user only fills in the retail price (productprice) and the product code, a complete SKU record must still be generated and submitted, otherwise the product code cannot be saved. The system would consider that only the retail price was submitted without a SKU, so the product edit is not saved. */
   skuCode?: string;
-  /** SKU裸价,不包含物流费 */
+  /** SKU base price, excluding logistics fee */
   basePrice?: string;
 }
 
@@ -607,13 +607,13 @@ export const AliexpressPopChoicePreProductSubmitPopChoiceProductSkuDTOSchema: Sc
   };
 
 export interface AliexpressPopChoicePreProductSubmitPopChoiceProductSkuScItemInfo {
-  /** 货品编辑 */
+  /** Goods edit */
   scItemCode?: string;
-  /** 特殊商品类型，"274526" ：内电 ； "274452" :弱磁 */
+  /** Special product type, "274526": built-in battery; "274452": weak magnetic */
   specialProductTypeList?: Array<string>;
-  /** 货品条码 */
+  /** Goods barcode */
   scItemBarCode?: string;
-  /** 是否原箱， "1"：是 ； "0"：否 */
+  /** Whether original box, "1": yes; "0": no */
   originalBox?: string;
 }
 
@@ -626,9 +626,9 @@ export const AliexpressPopChoicePreProductSubmitPopChoiceProductSkuScItemInfoSch
   };
 
 export interface AliexpressPopChoicePreProductSubmitPopChoiceSkuWarehouseStock {
-  /** 库存数量 */
+  /** Inventory quantity */
   sellableQuantity?: Long;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
 }
 
@@ -639,9 +639,9 @@ export const AliexpressPopChoicePreProductSubmitPopChoiceSkuWarehouseStockSchema
   };
 
 export interface AliexpressPopChoicePreProductSubmitProductApiResponseDTO {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 请求结果 */
+  /** Request result */
   success?: boolean;
 }
 
@@ -652,27 +652,27 @@ export const AliexpressPopChoicePreProductSubmitProductApiResponseDTOSchema: Sch
   };
 
 export interface AliexpressPopChoiceProductEditAeopSKUProperty {
-  /** 插头属性SKU级联属性父属性id */
+  /** Parent attribute id of the plug attribute SKU cascading attribute */
   plugParentPropertyId?: Long;
-  /** 插头属性SKU级联属性父属性值id */
+  /** Parent attribute value ID of the plug attribute SKU cascading attribute */
   plugParentValueId?: Long;
-  /** SKU属性值 */
+  /** SKU attribute value */
   skuPropertyValue?: string;
-  /** SKU属性值ID */
+  /** SKU attribute value ID */
   propertyValueIdLong?: Long;
-  /** 女装类目SKU套图,3:4图片,图片数量限制 : 3到6张图片。女装(200000345)下的叶子类目必传参数 */
+  /** SKU image set for women's clothing categories, 3:4 images, 3 to 6 images allowed. Required for leaf categories under Women's Clothing (200000345) */
   imageUrlList?: Array<string>;
-  /** SKU属性名ID */
+  /** SKU attribute name ID */
   skuPropertyIdLong?: Long;
-  /** SKU属性名称 */
+  /** SKU attribute name */
   skuPropertyName?: string;
-  /** 属性值自定义名称 */
+  /** Custom name of the attribute value */
   propertyValueDefinitionName?: string;
-  /** SKU图片地址 */
+  /** SKU image URL */
   skuImage?: string;
-  /** 级联属性父属性id */
+  /** Parent attribute id of the cascading attribute */
   parentPropertyId?: Long;
-  /** 级联属性父属性值id */
+  /** Parent attribute value id of the cascading attribute */
   parentValueId?: Long;
 }
 
@@ -691,9 +691,9 @@ export const AliexpressPopChoiceProductEditAeopSKUPropertySchema: Schema = {
 };
 
 export interface AliexpressPopChoiceProductEditLogisticAttrDTO {
-  /** 物流属性 ID */
+  /** Logistics attribute ID */
   value?: Long;
-  /** 上级物流属性 ID，没有上级为空 */
+  /** Parent logistics attribute ID; empty if there is no parent */
   parentValueId?: Long;
 }
 
@@ -703,15 +703,15 @@ export const AliexpressPopChoiceProductEditLogisticAttrDTOSchema: Schema = {
 };
 
 export interface AliexpressPopChoiceProductEditPopChoiceProductDTO {
-  /** 该商品下已勾选参与的国家列表 */
+  /** List of countries selected to participate under this product */
   joinedCountryList?: Array<string>;
-  /** 该半托管商品下SKU列表 */
+  /** List of SKUs under this semi-consignment product */
   productSkuList?: Array<AliexpressPopChoiceProductEditPopChoiceProductSkuDTO>;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 货币码 */
+  /** Currency code */
   currencyCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: string;
 }
 
@@ -728,29 +728,29 @@ export const AliexpressPopChoiceProductEditPopChoiceProductDTOSchema: Schema = {
 };
 
 export interface AliexpressPopChoiceProductEditPopChoiceProductSkuDTO {
-  /** 货品信息 */
+  /** Goods information */
   popChoiceProductSkuScItemInfo?: AliexpressPopChoiceProductEditPopChoiceProductSkuScItemInfo;
-  /** SKU物流尺寸-高，单位cm */
+  /** SKU logistics dimension - height, in cm */
   packageHeight?: string;
-  /** 仓库库存信息 */
+  /** Warehouse inventory information */
   popChoiceSkuWarehouseStockList?: Array<AliexpressPopChoiceProductEditPopChoiceSkuWarehouseStock>;
-  /** SKU属性列表 */
+  /** SKU attribute list */
   skuPropertyList?: Array<AliexpressPopChoiceProductEditAeopSKUProperty>;
-  /** SKU级别重量，KG */
+  /** SKU-level weight, KG */
   packageWeight?: string;
-  /** SKU物流尺寸-宽，单位cm */
+  /** SKU logistics dimension - width, in cm */
   packageWidth?: string;
-  /** SKU物流尺寸-长，单位cm */
+  /** SKU logistics dimension - length, in cm */
   packageLength?: string;
-  /** SkuId，平台生成的唯一性随机数 */
+  /** SkuId, unique random number generated by the platform */
   skuId?: string;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。如果用户只填写零售价（productprice）和商品编码，需要完整生成一条SKU记录提交，否则商品编码无法保存。系统会认为只提交了零售价，而没有SKU，导致商品编辑未保存。 */
+  /** Sku merchant code. Format: half-width alphanumeric characters, length 20, no spaces, greater-than or less-than signs. If the user only fills in the retail price (productprice) and the product code, a complete SKU record must still be generated and submitted, otherwise the product code cannot be saved. The system would consider that only the retail price was submitted without a SKU, so the product edit is not saved. */
   skuCode?: string;
-  /** SKU裸价,不包含物流费 */
+  /** SKU base price, excluding logistics fee */
   basePrice?: string;
-  /** 手机机型sku图，仅对选择了手机机型的sku生效 */
+  /** Mobile phone model SKU image, only effective for SKUs with a phone model selected */
   mobileModelSkuImage?: string;
-  /** sku组套信息 */
+  /** SKU bundle information */
   skuCate?: string;
 }
 
@@ -783,15 +783,15 @@ export const AliexpressPopChoiceProductEditPopChoiceProductSkuDTOSchema: Schema 
   };
 
 export interface AliexpressPopChoiceProductEditPopChoiceProductSkuScItemInfo {
-  /** 货品编辑 */
+  /** Goods edit */
   scItemCode?: string;
-  /** 内电：274526 弱磁：274452 粉末：274511 液体：274259 膏体：274363 */
+  /** Built-in battery: 274526; weak magnetic: 274452; powder: 274511; liquid: 274259; paste: 274363 */
   specialProductTypeList?: Array<string>;
-  /** 货品条码 */
+  /** Goods barcode */
   scItemBarCode?: string;
-  /** 是否原箱， "1"：是 ； "0"：否 */
+  /** Whether original box, "1": yes; "0": no */
   originalBox?: string;
-  /** 商品物流属性 */
+  /** Product logistics attributes */
   logisticAttrList?: Array<AliexpressPopChoiceProductEditLogisticAttrDTO>;
 }
 
@@ -809,9 +809,9 @@ export const AliexpressPopChoiceProductEditPopChoiceProductSkuScItemInfoSchema: 
   };
 
 export interface AliexpressPopChoiceProductEditPopChoiceSkuWarehouseStock {
-  /** 库存数量 */
+  /** Inventory quantity */
   sellableQuantity?: Long;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
 }
 
@@ -822,9 +822,9 @@ export const AliexpressPopChoiceProductEditPopChoiceSkuWarehouseStockSchema: Sch
   };
 
 export interface AliexpressPopChoiceProductEditProductApiResponseDTO {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 请求结果 */
+  /** Request result */
   success?: boolean;
 }
 
@@ -835,27 +835,27 @@ export const AliexpressPopChoiceProductEditProductApiResponseDTOSchema: Schema =
   };
 
 export interface AliexpressPopChoiceProductPostAeopSKUProperty {
-  /** SKU属性值 */
+  /** SKU attribute value */
   skuPropertyValue?: string;
-  /** SKU属性值ID */
+  /** SKU attribute value ID */
   propertyValueIdLong?: Long;
-  /** 女装类目SKU套图,3:4图片,图片数量限制 : 3到6张图片。女装(200000345)下的叶子类目必传参数 */
+  /** SKU image set for women's clothing categories, 3:4 images, 3 to 6 images allowed. Required for leaf categories under Women's Clothing (200000345) */
   imageUrlList?: Array<string>;
-  /** SKU属性名ID */
+  /** SKU attribute name ID */
   skuPropertyIdLong?: Long;
-  /** SKU属性名称 */
+  /** SKU attribute name */
   skuPropertyName?: string;
-  /** 插头属性SKU级联属性父属性id */
+  /** Parent attribute id of the plug attribute SKU cascading attribute */
   plugParentPropertyId?: Long;
-  /** 插头属性SKU级联属性父属性值id */
+  /** Parent attribute value ID of the plug attribute SKU cascading attribute */
   plugParentValueId?: Long;
-  /** 属性值自定义名称 */
+  /** Custom name of the attribute value */
   propertyValueDefinitionName?: string;
-  /** SKU图片地址 */
+  /** SKU image URL */
   skuImage?: string;
-  /** 级联属性父属性id */
+  /** Parent attribute id of the cascading attribute */
   parentPropertyId?: Long;
-  /** 级联属性父属性值id */
+  /** Parent attribute value id of the cascading attribute */
   parentValueId?: Long;
 }
 
@@ -874,9 +874,9 @@ export const AliexpressPopChoiceProductPostAeopSKUPropertySchema: Schema = {
 };
 
 export interface AliexpressPopChoiceProductPostLogisticAttrDTO {
-  /** 物流属性 ID */
+  /** Logistics attribute ID */
   value?: Long;
-  /** 上级物流属性 ID，没有上级为空 */
+  /** Parent logistics attribute ID; empty if there is no parent */
   parentValueId?: Long;
 }
 
@@ -886,15 +886,15 @@ export const AliexpressPopChoiceProductPostLogisticAttrDTOSchema: Schema = {
 };
 
 export interface AliexpressPopChoiceProductPostPopChoiceProductDTO {
-  /** 该商品下已勾选参与的国家列表 */
+  /** List of countries selected to participate under this product */
   joinedCountryList?: Array<string>;
-  /** 该半托管商品下SKU列表 */
+  /** List of SKUs under this semi-consignment product */
   productSkuList?: Array<AliexpressPopChoiceProductPostPopChoiceProductSkuDTO>;
-  /** 商品id */
+  /** Product ID */
   draftId?: string;
-  /** 货币码 */
+  /** Currency code */
   currencyCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: string;
 }
 
@@ -911,29 +911,29 @@ export const AliexpressPopChoiceProductPostPopChoiceProductDTOSchema: Schema = {
 };
 
 export interface AliexpressPopChoiceProductPostPopChoiceProductSkuDTO {
-  /** 货品信息 */
+  /** Goods information */
   popChoiceProductSkuScItemInfo?: AliexpressPopChoiceProductPostPopChoiceProductSkuScItemInfo;
-  /** SKU物流尺寸-高，单位cm */
+  /** SKU logistics dimension - height, in cm */
   packageHeight?: string;
-  /** 仓库库存信息 */
+  /** Warehouse inventory information */
   popChoiceSkuWarehouseStockList?: Array<AliexpressPopChoiceProductPostPopChoiceSkuWarehouseStock>;
-  /** SKU属性列表 */
+  /** SKU attribute list */
   skuPropertyList?: Array<AliexpressPopChoiceProductPostAeopSKUProperty>;
-  /** SKU级别重量，KG */
+  /** SKU-level weight, KG */
   packageWeight?: string;
-  /** SKU物流尺寸-宽，单位cm */
+  /** SKU logistics dimension - width, in cm */
   packageWidth?: string;
-  /** SKU物流尺寸-长，单位cm */
+  /** SKU logistics dimension - length, in cm */
   packageLength?: string;
-  /** SkuId，平台生成的唯一性随机数 */
+  /** SkuId, unique random number generated by the platform */
   skuId?: string;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。如果用户只填写零售价（productprice）和商品编码，需要完整生成一条SKU记录提交，否则商品编码无法保存。系统会认为只提交了零售价，而没有SKU，导致商品编辑未保存。 */
+  /** Sku merchant code. Format: half-width alphanumeric characters, length 20, no spaces, greater-than or less-than signs. If the user only fills in the retail price (productprice) and the product code, a complete SKU record must still be generated and submitted, otherwise the product code cannot be saved. The system would consider that only the retail price was submitted without a SKU, so the product edit is not saved. */
   skuCode?: string;
-  /** SKU裸价,不包含物流费 */
+  /** SKU base price, excluding logistics fee */
   basePrice?: string;
-  /** 手机机型sku图，仅对选择了手机机型的sku生效 */
+  /** Mobile phone model SKU image, only effective for SKUs with a phone model selected */
   mobileModelSkuImage?: string;
-  /** sku组套信息 */
+  /** SKU bundle information */
   skuCate?: string;
 }
 
@@ -966,15 +966,15 @@ export const AliexpressPopChoiceProductPostPopChoiceProductSkuDTOSchema: Schema 
   };
 
 export interface AliexpressPopChoiceProductPostPopChoiceProductSkuScItemInfo {
-  /** 货品编辑 */
+  /** Goods edit */
   scItemCode?: string;
-  /** 内电：274526 弱磁：274452 粉末：274511 液体：274259 膏体：274363 */
+  /** Built-in battery: 274526; weak magnetic: 274452; powder: 274511; liquid: 274259; paste: 274363 */
   specialProductTypeList?: Array<string>;
-  /** 货品条码 */
+  /** Goods barcode */
   scItemBarCode?: string;
-  /** 是否原箱， "1"：是 ； "0"：否 */
+  /** Whether original box, "1": yes; "0": no */
   originalBox?: string;
-  /** 商品物流属性 */
+  /** Product logistics attributes */
   logisticAttrList?: Array<AliexpressPopChoiceProductPostLogisticAttrDTO>;
 }
 
@@ -992,9 +992,9 @@ export const AliexpressPopChoiceProductPostPopChoiceProductSkuScItemInfoSchema: 
   };
 
 export interface AliexpressPopChoiceProductPostPopChoiceSkuWarehouseStock {
-  /** 库存数量 */
+  /** Inventory quantity */
   sellableQuantity?: Long;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
 }
 
@@ -1005,9 +1005,9 @@ export const AliexpressPopChoiceProductPostPopChoiceSkuWarehouseStockSchema: Sch
   };
 
 export interface AliexpressPopChoiceProductPostProductApiResponseDTO {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 请求结果 */
+  /** Request result */
   success?: boolean;
 }
 
@@ -1018,27 +1018,27 @@ export const AliexpressPopChoiceProductPostProductApiResponseDTOSchema: Schema =
   };
 
 export interface AliexpressPopChoiceProductQueryAeopSKUProperty {
-  /** SKU属性值 */
+  /** SKU attribute value */
   skuPropertyValue?: string;
-  /** SKU属性值ID */
+  /** SKU attribute value ID */
   propertyValueIdLong?: Long;
-  /** 女装类目SKU套图,3:4图片,图片数量限制 : 3到6张图片。女装(200000345)下的叶子类目必传参数 */
+  /** SKU image set for women's clothing categories, 3:4 images, 3 to 6 images allowed. Required for leaf categories under Women's Clothing (200000345) */
   imageUrlList?: Array<string>;
-  /** SKU属性名ID */
+  /** SKU attribute name ID */
   skuPropertyIdLong?: Long;
-  /** SKU属性名称 */
+  /** SKU attribute name */
   skuPropertyName?: string;
-  /** 属性值自定义名称 */
+  /** Custom name of the attribute value */
   propertyValueDefinitionName?: string;
-  /** SKU图片地址 */
+  /** SKU image URL */
   skuImage?: string;
-  /** 级联属性父属性id */
+  /** Parent attribute id of the cascading attribute */
   parentPropertyId?: Long;
-  /** 级联属性父属性值id */
+  /** Parent attribute value id of the cascading attribute */
   parentValueId?: Long;
-  /** 插头属性SKU级联属性父属性id */
+  /** Parent attribute id of the plug attribute SKU cascading attribute */
   plugParentPropertyId?: Long;
-  /** 插头属性SKU级联属性父属性值id */
+  /** Parent attribute value ID of the plug attribute SKU cascading attribute */
   plugParentValueId?: Long;
 }
 
@@ -1057,13 +1057,13 @@ export const AliexpressPopChoiceProductQueryAeopSKUPropertySchema: Schema = {
 };
 
 export interface AliexpressPopChoiceProductQueryLogisticAttrDTO {
-  /** 当前层级文本 */
+  /** Current level text */
   text?: string;
-  /** 物流属性 ID */
+  /** Logistics attribute ID */
   value?: Long;
-  /** 上级物流属性 ID，没有上级为空 */
+  /** Parent logistics attribute ID; empty if there is no parent */
   parentValueId?: Long;
-  /** 上级文本 */
+  /** Parent text */
   parentText?: string;
 }
 
@@ -1075,11 +1075,11 @@ export const AliexpressPopChoiceProductQueryLogisticAttrDTOSchema: Schema = {
 };
 
 export interface AliexpressPopChoiceProductQueryPopChoiceNationalPrice {
-  /** 国家/地区名称 */
+  /** Country/region name */
   nationName?: string;
-  /** SKU物流费用 */
+  /** SKU logistics fee */
   price?: string;
-  /** 国家/地区码 */
+  /** Country/region code */
   nationCode?: string;
 }
 
@@ -1091,13 +1091,13 @@ export const AliexpressPopChoiceProductQueryPopChoiceNationalPriceSchema: Schema
   };
 
 export interface AliexpressPopChoiceProductQueryPopChoiceProductDetailQueryResponse {
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 半托管商品详情 */
+  /** Semi-managed product details */
   popChoiceProduct?: AliexpressPopChoiceProductQueryPopChoiceProductDTO;
 }
 
@@ -1114,15 +1114,15 @@ export const AliexpressPopChoiceProductQueryPopChoiceProductDetailQueryResponseS
   };
 
 export interface AliexpressPopChoiceProductQueryPopChoiceProductDTO {
-  /** 半托管商品id */
+  /** Semi-managed product ID */
   productId?: Long;
-  /** 货币码 */
+  /** Currency code */
   currencyCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Long;
-  /** 该商品下已勾选参与的国家列表 */
+  /** List of countries selected to participate under this product */
   joinedCountryList?: Array<string>;
-  /** 该半托管商品下SKU列表 */
+  /** List of SKUs under this semi-consignment product */
   productSkuList?: Array<AliexpressPopChoiceProductQueryPopChoiceProductSkuDTO>;
 }
 
@@ -1140,31 +1140,31 @@ export const AliexpressPopChoiceProductQueryPopChoiceProductDTOSchema: Schema =
   };
 
 export interface AliexpressPopChoiceProductQueryPopChoiceProductSkuDTO {
-  /** SKU物流尺寸-高，单位cm */
+  /** SKU logistics dimension - height, in cm */
   packageHeight?: string;
-  /** SKU半托管库存列表 */
+  /** SKU semi-consignment inventory list */
   popChoiceSkuWarehouseStockList?: Array<AliexpressPopChoiceProductQueryPopChoiceSkuWarehouseStock>;
-  /** SKU属性列表 */
+  /** SKU attribute list */
   skuPropertyList?: Array<AliexpressPopChoiceProductQueryAeopSKUProperty>;
-  /** SKU级别重量，KG */
+  /** SKU-level weight, KG */
   packageWeight?: string;
-  /** SKU物流尺寸-宽，单位cm */
+  /** SKU logistics dimension - width, in cm */
   packageWidth?: string;
-  /** SKU物流尺寸-长，单位cm */
+  /** SKU logistics dimension - length, in cm */
   packageLength?: string;
-  /** SKU物流费用分国家列表 */
+  /** List of SKU logistics fees by country */
   freightFeeList?: Array<AliexpressPopChoiceProductQueryPopChoiceNationalPrice>;
-  /** SkuId，平台生成的唯一性随机数 */
+  /** SkuId, unique random number generated by the platform */
   skuId?: string;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。如果用户只填写零售价（productprice）和商品编码，需要完整生成一条SKU记录提交，否则商品编码无法保存。系统会认为只提交了零售价，而没有SKU，导致商品编辑未保存。 */
+  /** Sku merchant code. Format: half-width alphanumeric characters, length 20, no spaces, greater-than or less-than signs. If the user only fills in the retail price (productprice) and the product code, a complete SKU record must still be generated and submitted, otherwise the product code cannot be saved. The system would consider that only the retail price was submitted without a SKU, so the product edit is not saved. */
   skuCode?: string;
-  /** SKU裸价 */
+  /** SKU base price */
   basePrice?: string;
   /** "{unit: '100000015', categorization: '1', num: 1}" */
   skuCate?: string;
-  /** SKU分国家的零售价列表 */
+  /** List of SKU retail prices by country */
   choiceSkuPriceList?: Array<AliexpressPopChoiceProductQueryPopChoiceNationalPrice>;
-  /** SKU货品信息 */
+  /** SKU goods information */
   popChoiceProductSkuScItemInfo?: AliexpressPopChoiceProductQueryPopChoiceProductSkuScItemInfo;
 }
 
@@ -1206,17 +1206,17 @@ export const AliexpressPopChoiceProductQueryPopChoiceProductSkuDTOSchema: Schema
   };
 
 export interface AliexpressPopChoiceProductQueryPopChoiceProductSkuScItemInfo {
-  /** SKU货品编码 */
+  /** SKU goods code */
   scItemCode?: string;
-  /** SKU特殊商品类型 */
+  /** SKU special product type */
   specialProductTypeList?: Array<string>;
-  /** SKU货品条码 */
+  /** SKU goods barcode */
   scItemBarCode?: string;
-  /** SKU货品id */
+  /** SKU goods ID */
   scItemId?: Long;
-  /** 是否原箱，0否1是 */
+  /** Whether original carton, 0 no 1 yes */
   originalBox?: string;
-  /** 商品物流属性 */
+  /** Product logistics attributes */
   logisticAttrList?: Array<AliexpressPopChoiceProductQueryLogisticAttrDTO>;
 }
 
@@ -1235,13 +1235,13 @@ export const AliexpressPopChoiceProductQueryPopChoiceProductSkuScItemInfoSchema:
   };
 
 export interface AliexpressPopChoiceProductQueryPopChoiceSkuWarehouseStock {
-  /** 库存仓库类型, 暂不开放 */
+  /** Inventory warehouse type, not yet open */
   warehouseType?: string;
-  /** 库存仓库名称 */
+  /** Inventory warehouse name */
   warehouseName?: string;
-  /** 该仓库下SKU可售数量 */
+  /** Sellable quantity of the SKU under this warehouse */
   sellableQuantity?: Long;
-  /** 库存仓库代码 */
+  /** Inventory warehouse code */
   warehouseCode?: string;
 }
 
@@ -1254,19 +1254,19 @@ export const AliexpressPopChoiceProductQueryPopChoiceSkuWarehouseStockSchema: Sc
   };
 
 export interface AliexpressPopChoiceProductsListPopChoiceProductListQueryRequest {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 商品发布时间结束于，yyyy-MM-dd hh:mm:ss */
+  /** Product publish time ends at, yyyy-MM-dd hh:mm:ss */
   gmtModifiedEnd?: string;
-  /** 商品标签，已加入"joined" ,待加入"selected"，待预存"pre_selected", 待预存预计1月15日上线，待加入查询功能预计1月30日上线，暂时无法使用 */
+  /** Product tag: joined "joined", to be joined "selected", to be pre-deposited "pre_selected". Pre-deposit is expected to go live on January 15, and the to-be-joined query function on January 30; currently unavailable */
   joinedProductTab?: string;
-  /** 单页展示数量，默认20 */
+  /** Number displayed per page, default 20 */
   pageSize?: number;
-  /** 商品发布时间开始于，yyyy-MM-dd hh:mm:ss */
+  /** Product publish time starts at, yyyy-MM-dd hh:mm:ss */
   gmtModifiedStart?: string;
-  /** 当前页数 */
+  /** Current page number */
   currentPage?: number;
-  /** 类目id */
+  /** Category ID */
   leafCategory?: Long;
 }
 
@@ -1282,19 +1282,19 @@ export const AliexpressPopChoiceProductsListPopChoiceProductListQueryRequestSche
   };
 
 export interface AliexpressPopChoiceProductsListPopChoiceProductListQueryResponse {
-  /** 商品总数 */
+  /** Total number of products */
   totalItem?: Long;
-  /** 页码总数 */
+  /** Total number of pages */
   totalPage?: number;
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 报错信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 半托管商品列表 */
+  /** Semi-managed product list */
   popChoiceProductList?: Array<AliexpressPopChoiceProductsListPopChoiceProductSearchResultDTO>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 当前页数 */
+  /** Current page number */
   currentPage?: number;
 }
 
@@ -1315,25 +1315,25 @@ export const AliexpressPopChoiceProductsListPopChoiceProductListQueryResponseSch
   };
 
 export interface AliexpressPopChoiceProductsListPopChoiceProductSearchResultDTO {
-  /** 修改时间 */
+  /** Update time */
   modifiedTime?: string;
-  /** 商品主图 */
+  /** Product main image */
   productImage?: string;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 创建时间 */
+  /** Creation time */
   createTime?: string;
-  /** 商品下库存总数 */
+  /** Total inventory under the product */
   totalStocks?: string;
-  /** 最大SKU价格 */
+  /** Maximum SKU price */
   maxSkuPrice?: string;
-  /** 最小SKU价格 */
+  /** Minimum SKU price */
   minSkuPrice?: string;
-  /** 商品标题 */
+  /** Product title */
   title?: string;
-  /** 货币币种 */
+  /** Currency */
   currencyCode?: string;
-  /** 商品状态 */
+  /** Product status */
   productStatus?: string;
 }
 
@@ -1352,7 +1352,7 @@ export const AliexpressPopChoiceProductsListPopChoiceProductSearchResultDTOSchem
   };
 
 export interface AliexpressPopChoiceProductStocksUpdatePopChoiceSkuStockDTO {
-  /** 仓库库存列表 */
+  /** Warehouse inventory list */
   popChoiceSkuWarehouseStockList?: Array<AliexpressPopChoiceProductStocksUpdatePopChoiceSkuWarehouseStock>;
   /** sku id */
   skuId?: string;
@@ -1370,9 +1370,9 @@ export const AliexpressPopChoiceProductStocksUpdatePopChoiceSkuStockDTOSchema: S
   };
 
 export interface AliexpressPopChoiceProductStocksUpdatePopChoiceSkuWarehouseStock {
-  /** 库存数量 >=0 */
+  /** Inventory quantity >=0 */
   sellableQuantity?: Long;
-  /** 库存编码 */
+  /** Inventory code */
   warehouseCode?: string;
 }
 
@@ -1383,9 +1383,9 @@ export const AliexpressPopChoiceProductStocksUpdatePopChoiceSkuWarehouseStockSch
   };
 
 export interface AliexpressPopChoiceProductStocksUpdateProductApiResponseDTO {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 请求结果 */
+  /** Request result */
   success?: boolean;
 }
 
@@ -1398,7 +1398,7 @@ export const AliexpressPopChoiceProductStocksUpdateProductApiResponseDTOSchema: 
 export interface AliexpressPopSelfServiceHscodeQueryCountryHsCodeDTO {
   /** hsCode */
   hsCode?: string;
-  /** 国家码 */
+  /** Country code */
   countryCode?: string;
 }
 
@@ -1409,15 +1409,15 @@ export const AliexpressPopSelfServiceHscodeQueryCountryHsCodeDTOSchema: Schema =
   };
 
 export interface AliexpressPopSelfServiceHscodeQueryCountryTaxRateDTO {
-  /** 标准税率 */
+  /** Standard tax rate */
   taxLevel?: string;
-  /** 税率值 */
+  /** Tax rate value */
   taxRate?: string;
   /** hsCode */
   hsCode?: string;
-  /** 国家码 */
+  /** Country code */
   countryCode?: string;
-  /** 描述 */
+  /** Description */
   taxLevelDesc?: string;
 }
 
@@ -1454,7 +1454,7 @@ export interface AliexpressPopChoiceCollectedProductsListParams {
 
 /** Response of `aliexpress.pop.choice.collected.products.list`. */
 export interface AliexpressPopChoiceCollectedProductsListResponse {
-  /** 半托管商品列表查询结果 */
+  /** Semi-consignment product list query result */
   result?: AliexpressPopChoiceCollectedProductsListPopCollectedProductListQueryResponse;
 }
 
@@ -1488,15 +1488,15 @@ export const aliexpressPopChoiceCollectedProductsList: ApiDefinition<
 
 /** Parameters for `aliexpress.pop.choice.draft.query`. */
 export interface AliexpressPopChoiceDraftQueryParams {
-  /** 1.针对新发场景 这个字段传draft_id 如果是首次升级 则传product_id */
+  /** 1. For new publishing scenarios, pass draft_id in this field; if upgrading for the first time, pass product_id */
   productId?: LongInput;
-  /** 语言 */
+  /** Language */
   language?: string;
 }
 
 /** Response of `aliexpress.pop.choice.draft.query`. */
 export interface AliexpressPopChoiceDraftQueryResponse {
-  /** 半托管商品详情查询结果 */
+  /** Semi-consignment product detail query result */
   result?: AliexpressPopChoiceDraftQueryPopChoiceProductDetailQueryResponse;
 }
 
@@ -1526,17 +1526,17 @@ export const aliexpressPopChoiceDraftQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.pop.choice.info.query`. */
 export interface AliexpressPopChoiceInfoQueryParams {
-  /** 针对新发场景 这个字段传draft_id的值,如果商品已存在 则传product_id */
+  /** For new publishing scenarios, pass the value of draft_id in this field; if the product already exists, pass product_id */
   productId?: LongInput;
 }
 
 /** Response of `aliexpress.pop.choice.info.query`. */
 export interface AliexpressPopChoiceInfoQueryResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressPopChoiceInfoQueryPopChoiceSellerInfoResponseDTO;
-  /** 当前商品支持的特殊商品类型(弱磁、纯电等) */
+  /** Special product types supported by the current product (weak magnetic, pure battery, etc.) */
   productSupportSpecialType?: Array<Long>;
-  /** 当前商品特殊商品类型是否必传，比如宠物类目要求必传宠物类型 */
+  /** Whether the special product type is required for the current product, e.g. the pet category requires the pet type */
   specialTypeTequired?: boolean;
 }
 
@@ -1566,15 +1566,15 @@ export const aliexpressPopChoiceInfoQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.pop.choice.pre.product.query`. */
 export interface AliexpressPopChoicePreProductQueryParams {
-  /** 半托管商品id */
+  /** Semi-managed product ID */
   productId?: LongInput;
-  /** 语言 */
+  /** Language */
   language?: string;
 }
 
 /** Response of `aliexpress.pop.choice.pre.product.query`. */
 export interface AliexpressPopChoicePreProductQueryResponse {
-  /** 半托管商品详情查询结果 */
+  /** Semi-consignment product detail query result */
   result?: AliexpressPopChoicePreProductQueryPopChoiceProductDetailQueryResponse;
 }
 
@@ -1604,13 +1604,13 @@ export const aliexpressPopChoicePreProductQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.pop.choice.pre.product.submit`. */
 export interface AliexpressPopChoicePreProductSubmitParams {
-  /** 商品信息 */
+  /** Product information */
   popChoiceProduct?: AliexpressPopChoicePreProductSubmitPopChoiceProductDTO;
 }
 
 /** Response of `aliexpress.pop.choice.pre.product.submit`. */
 export interface AliexpressPopChoicePreProductSubmitResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: AliexpressPopChoicePreProductSubmitProductApiResponseDTO;
 }
 
@@ -1642,13 +1642,13 @@ export const aliexpressPopChoicePreProductSubmit: ApiDefinition<
 
 /** Parameters for `aliexpress.pop.choice.product.edit`. */
 export interface AliexpressPopChoiceProductEditParams {
-  /** 商品信息 */
+  /** Product information */
   popChoiceProduct?: AliexpressPopChoiceProductEditPopChoiceProductDTO;
 }
 
 /** Response of `aliexpress.pop.choice.product.edit`. */
 export interface AliexpressPopChoiceProductEditResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: AliexpressPopChoiceProductEditProductApiResponseDTO;
 }
 
@@ -1680,13 +1680,13 @@ export const aliexpressPopChoiceProductEdit: ApiDefinition<
 
 /** Parameters for `aliexpress.pop.choice.product.post`. */
 export interface AliexpressPopChoiceProductPostParams {
-  /** 商品信息 */
+  /** Product information */
   popChoiceProduct?: AliexpressPopChoiceProductPostPopChoiceProductDTO;
 }
 
 /** Response of `aliexpress.pop.choice.product.post`. */
 export interface AliexpressPopChoiceProductPostResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: AliexpressPopChoiceProductPostProductApiResponseDTO;
 }
 
@@ -1718,15 +1718,15 @@ export const aliexpressPopChoiceProductPost: ApiDefinition<
 
 /** Parameters for `aliexpress.pop.choice.product.query`. */
 export interface AliexpressPopChoiceProductQueryParams {
-  /** 半托管商品id */
+  /** Semi-managed product ID */
   productId?: LongInput;
-  /** 语言 */
+  /** Language */
   language?: string;
 }
 
 /** Response of `aliexpress.pop.choice.product.query`. */
 export interface AliexpressPopChoiceProductQueryResponse {
-  /** 半托管商品详情查询结果 */
+  /** Semi-consignment product detail query result */
   result?: AliexpressPopChoiceProductQueryPopChoiceProductDetailQueryResponse;
 }
 
@@ -1756,15 +1756,15 @@ export const aliexpressPopChoiceProductQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.pop.choice.product.stocks.update`. */
 export interface AliexpressPopChoiceProductStocksUpdateParams {
-  /** sku列表 */
+  /** SKU list */
   popChoiceSkuStockList?: Array<AliexpressPopChoiceProductStocksUpdatePopChoiceSkuStockDTO>;
-  /** 商品ID */
+  /** Product ID */
   productId?: LongInput;
 }
 
 /** Response of `aliexpress.pop.choice.product.stocks.update`. */
 export interface AliexpressPopChoiceProductStocksUpdateResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: AliexpressPopChoiceProductStocksUpdateProductApiResponseDTO;
 }
 
@@ -1802,7 +1802,7 @@ export interface AliexpressPopChoiceProductsListParams {
 
 /** Response of `aliexpress.pop.choice.products.list`. */
 export interface AliexpressPopChoiceProductsListResponse {
-  /** 半托管商品列表查询结果 */
+  /** Semi-consignment product list query result */
   result?: AliexpressPopChoiceProductsListPopChoiceProductListQueryResponse;
 }
 
@@ -1836,15 +1836,15 @@ export const aliexpressPopChoiceProductsList: ApiDefinition<
 
 /** Parameters for `aliexpress.pop.self.service.hscode.query`. */
 export interface AliexpressPopSelfServiceHscodeQueryParams {
-  /** 请求语言 */
+  /** Request language */
   language?: string;
-  /** 卖家sellerId */
+  /** Seller sellerId */
   channelSellerId?: LongInput;
   /** hsCode */
   hsCode?: string;
-  /** 分国家hsCode */
+  /** hsCode by country */
   countryHsCodeList?: Array<AliexpressPopSelfServiceHscodeQueryCountryHsCodeDTO>;
-  /** 叶子类目id */
+  /** Leaf category ID */
   leafCategoryId?: string;
 }
 

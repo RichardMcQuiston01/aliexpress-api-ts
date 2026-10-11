@@ -9,13 +9,13 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressMerchantAddressListAeopResult {
-  /** 调用结果 */
+  /** Call result */
   success?: boolean;
-  /** 异常信息 */
+  /** Exception information */
   errorMessage?: string;
-  /** 异常code */
+  /** Exception code */
   errorCode?: string;
-  /** 地址列表 */
+  /** Address list */
   addressList?: Array<AliexpressMerchantAddressListMerchantAddress>;
 }
 
@@ -31,11 +31,11 @@ export const AliexpressMerchantAddressListAeopResultSchema: Schema = {
 };
 
 export interface AliexpressMerchantAddressListContactDTO {
-  /** 手机 */
+  /** Mobile phone */
   phone?: string;
-  /** 姓名 */
+  /** Name */
   contactName?: string;
-  /** 电话号 */
+  /** Phone number */
   mobile?: string;
 }
 
@@ -46,35 +46,35 @@ export const AliexpressMerchantAddressListContactDTOSchema: Schema = {
 };
 
 export interface AliexpressMerchantAddressListMerchantAddress {
-  /** 区域编码：例如 330110 */
+  /** Region code: e.g. 330110 */
   areaCode?: string;
-  /** 区域 。余杭区 */
+  /** District, e.g. Yuhang District */
   area?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 城市街道 地址：浙江省,杭州市,余杭区 */
+  /** City and street address: Zhejiang Province, Hangzhou City, Yuhang District */
   streetAddress?: string;
-  /** 国家编码 */
+  /** Country code */
   countryIsoCode?: string;
-  /** 城市，杭州市 */
+  /** City, e.g. Hangzhou */
   city?: string;
-  /** 地址类型：SALESRETURN（退货地址），WAREHOUSE（发货地址） */
+  /** Address type: SALESRETURN (return address), WAREHOUSE (shipping address) */
   addressType?: string;
-  /** 联系人信息 */
+  /** Contact information */
   contact?: AliexpressMerchantAddressListContactDTO;
-  /** 邮编 */
+  /** Postal code */
   postcode?: string;
-  /** 详细地址 */
+  /** Detailed address */
   detailAddress?: string;
-  /** 是否是默认地址 */
+  /** Whether it is the default address */
   defaultAddress?: boolean;
-  /** 地址树最低一级的编码。可能是区可能是县的id */
+  /** Code of the lowest level of the address tree. May be a district or county ID */
   locationId?: string;
-  /** 省或洲编码 */
+  /** Province or state code */
   provCode?: string;
-  /** 省 浙江省 */
+  /** Province, e.g. Zhejiang Province */
   prov?: string;
-  /** 城市编码 */
+  /** City code */
   cityCode?: string;
 }
 
@@ -101,13 +101,13 @@ export const AliexpressMerchantAddressListMerchantAddressSchema: Schema = {
 };
 
 export interface AliexpressMerchantAddressListMerchantAddressRequest {
-  /** 请输入全托管店铺的id。 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Enter the id of the fully-managed store. Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelSellerId?: Long;
-  /** 请输入国家编码ISO（注意香港是CN） */
+  /** Enter the ISO country code (note that Hong Kong is CN) */
   countryCode?: string;
-  /** 语言，默认值zh_CN */
+  /** Language, default zh_CN */
   language?: string;
-  /** 地址类型：SALESRETURN（退货地址），WAREHOUSE（发货地址） */
+  /** Address type: SALESRETURN (return address), WAREHOUSE (shipping address) */
   addressTypes?: Array<string>;
 }
 
@@ -120,13 +120,13 @@ export const AliexpressMerchantAddressListMerchantAddressRequestSchema: Schema =
   };
 
 export interface AliexpressMerchantAgreementSignListSellerAuthResponse {
-  /** 数据 列表为空或没有指定协议ID的数据时表示商家未签署该协议 */
+  /** If the data list is empty or has no data for the specified agreement ID, the merchant has not signed the agreement */
   data?: Array<AliexpressMerchantAgreementSignListString>;
-  /** 成功标识 */
+  /** Success flag */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误描述 */
+  /** Error description */
   error?: string;
 }
 
@@ -139,9 +139,9 @@ export const AliexpressMerchantAgreementSignListSellerAuthResponseSchema: Schema
   };
 
 export interface AliexpressMerchantAgreementSignListString {
-  /** 签署状态 0-已过期 1-未签署 2-已签署 */
+  /** Signing status 0 - expired 1 - not signed 2 - signed */
   signStatus?: number;
-  /** 协议ID */
+  /** Agreement ID */
   agreementId?: Long;
 }
 
@@ -151,13 +151,13 @@ export const AliexpressMerchantAgreementSignListStringSchema: Schema = {
 };
 
 export interface AliexpressMerchantDiagnosisQueryGetIsvDiagnosisResponseDTO {
-  /** 调用结果 */
+  /** Call result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 体检结果 */
+  /** Health check result */
   diagnosisResult?: AliexpressMerchantDiagnosisQueryIsvMerchantDiagnosisResultDTO;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -174,13 +174,13 @@ export const AliexpressMerchantDiagnosisQueryGetIsvDiagnosisResponseDTOSchema: S
   };
 
 export interface AliexpressMerchantDiagnosisQueryIsvMerchantDiagnosisResultDTO {
-  /** 体检等级 */
+  /** Health check level */
   level?: AliexpressMerchantDiagnosisQueryIsvMerchantHealthLevel;
-  /** 问题数量 */
+  /** Number of issues */
   issueNum?: number;
-  /** 处理链接 */
+  /** Handling link */
   actionUrl?: string;
-  /** 店铺体检状态 */
+  /** Store health check status */
   shopStatusDesc?: string;
 }
 
@@ -197,9 +197,9 @@ export const AliexpressMerchantDiagnosisQueryIsvMerchantDiagnosisResultDTOSchema
   };
 
 export interface AliexpressMerchantDiagnosisQueryIsvMerchantHealthLevel {
-  /** 体检等级。0：健康；100：一般；200：严重；300：店铺冻结；400：关店 */
+  /** Health check level. 0: healthy; 100: average; 200: severe; 300: store frozen; 400: store closed */
   levelCode?: number;
-  /** 体检等级名称 */
+  /** Health check level name */
   name?: string;
 }
 
@@ -210,29 +210,29 @@ export const AliexpressMerchantDiagnosisQueryIsvMerchantHealthLevelSchema: Schem
   };
 
 export interface AliexpressMerchantManufactureDetaildataObject {
-  /** 制造商id */
+  /** Manufacturer ID */
   id?: string;
-  /** 制造商名称 */
+  /** Manufacturer name */
   name?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 地址 */
+  /** Address */
   address?: string;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 手机号码前缀 */
+  /** Mobile number prefix */
   phonePrefix?: string;
-  /** 手机号码 */
+  /** Mobile phone number */
   phone?: string;
-  /** 省id */
+  /** Province ID */
   province?: string;
-  /** 市id */
+  /** City ID */
   city?: string;
-  /** 省名称 */
+  /** Province name */
   provinceName?: string;
-  /** 市名称 */
+  /** City name */
   cityName?: string;
-  /** 邮编 */
+  /** Postal code */
   postCode?: string;
 }
 
@@ -252,13 +252,13 @@ export const AliexpressMerchantManufactureDetaildataObjectSchema: Schema = {
 };
 
 export interface AliexpressMerchantManufactureDetailSellerAuthResponse {
-  /** 数据 */
+  /** Data */
   data?: AliexpressMerchantManufactureDetaildataObject;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   error?: string;
 }
 
@@ -275,9 +275,9 @@ export const AliexpressMerchantManufactureDetailSellerAuthResponseSchema: Schema
   };
 
 export interface AliexpressMerchantManufactureListdataObject {
-  /** 制造商id */
+  /** Manufacturer ID */
   id?: Long;
-  /** 制造商名称 */
+  /** Manufacturer name */
   name?: string;
 }
 
@@ -287,13 +287,13 @@ export const AliexpressMerchantManufactureListdataObjectSchema: Schema = {
 };
 
 export interface AliexpressMerchantManufactureListSellerAuthResponse {
-  /** 数据 */
+  /** Data */
   data?: Array<AliexpressMerchantManufactureListdataObject>;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   error?: string;
 }
 
@@ -310,31 +310,31 @@ export const AliexpressMerchantManufactureListSellerAuthResponseSchema: Schema =
   };
 
 export interface AliexpressMerchantMsrDetaildataObject {
-  /** 欧盟责任人id */
+  /** EU responsible person ID */
   id?: Long;
-  /** 欧盟责任人名称 */
+  /** EU responsible person name */
   name?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 地址 */
+  /** Address */
   address?: string;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 手机号码前缀 */
+  /** Mobile number prefix */
   phonePrefix?: string;
-  /** 手机号码 */
+  /** Mobile phone number */
   phone?: string;
-  /** 负责区域 */
+  /** Responsible region */
   responsibleScope?: string;
-  /** 省id */
+  /** Province ID */
   province?: string;
-  /** 市id */
+  /** City ID */
   city?: string;
-  /** 省名称 */
+  /** Province name */
   provinceName?: string;
-  /** 市名称 */
+  /** City name */
   cityName?: string;
-  /** 负责人区域 */
+  /** Owner region */
   responsiblePersonRegion?: string;
 }
 
@@ -355,13 +355,13 @@ export const AliexpressMerchantMsrDetaildataObjectSchema: Schema = {
 };
 
 export interface AliexpressMerchantMsrDetailSellerAuthResponse {
-  /** 详情 */
+  /** Details */
   data?: AliexpressMerchantMsrDetaildataObject;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误 */
+  /** Error */
   error?: string;
 }
 
@@ -375,9 +375,9 @@ export const AliexpressMerchantMsrDetailSellerAuthResponseSchema: Schema = {
 export interface AliexpressMerchantMsrListdataObject {
   /** id */
   id?: Long;
-  /** 名称 */
+  /** Name */
   name?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
 }
 
@@ -388,13 +388,13 @@ export const AliexpressMerchantMsrListdataObjectSchema: Schema = {
 };
 
 export interface AliexpressMerchantMsrListSellerAuthResponse {
-  /** msr列表 */
+  /** MSR list */
   data?: Array<AliexpressMerchantMsrListdataObject>;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   error?: string;
 }
 
@@ -406,7 +406,7 @@ export const AliexpressMerchantMsrListSellerAuthResponseSchema: Schema = {
 };
 
 export interface AliexpressMerchantOverseaBrandGetResultDTO {
-  /** 结果数据 */
+  /** Result data */
   datas?: Array<AliexpressMerchantOverseaBrandGetString>;
 }
 
@@ -415,11 +415,11 @@ export const AliexpressMerchantOverseaBrandGetResultDTOSchema: Schema = {
 };
 
 export interface AliexpressMerchantOverseaBrandGetString {
-  /** 过期日期：yyyy-MM-dd */
+  /** Expiration date: yyyy-MM-dd */
   invalidTimeStr?: string;
-  /** 品牌名称 */
+  /** Brand name */
   brandName?: string;
-  /** 品牌id */
+  /** Brand ID */
   brandId?: Long;
 }
 
@@ -430,13 +430,13 @@ export const AliexpressMerchantOverseaBrandGetStringSchema: Schema = {
 };
 
 export interface AliexpressMerchantPartnerAuthCheckAuthCheckRequest {
-  /** 业务来源 */
+  /** Business source */
   source?: string;
-  /** 集团会员账号 */
+  /** Group member account */
   havanaId?: Long;
-  /** 待验证参数 */
+  /** Parameters to be verified */
   authInfoMap?: Record<string, unknown>;
-  /** 认证类型：1企业，5个人 */
+  /** Certification type: 1 enterprise, 5 individual */
   authType?: number;
 }
 
@@ -449,11 +449,11 @@ export const AliexpressMerchantPartnerAuthCheckAuthCheckRequestSchema: Schema =
   };
 
 export interface AliexpressMerchantPartnerAuthCheckAuthCheckResponse {
-  /** 验证结果 */
+  /** Verification result */
   authed?: boolean;
-  /** 认证异常原因 */
+  /** Certification exception reason */
   abnormDesc?: string;
-  /** 检验结果 */
+  /** Inspection result */
   checkResults?: string;
 }
 
@@ -478,21 +478,21 @@ export const AliexpressMerchantPartnerAuthCheckSellerResultSchema: Schema = {
 };
 
 export interface AliexpressMerchantPartnerPersonauthGetPersonAuthDTO {
-  /** 支付宝登录账号 */
+  /** Alipay login account */
   partnerAccountId?: string;
-  /** 注册号 */
+  /** Registration number */
   certNo?: string;
-  /** 公司名 */
+  /** Company name */
   firmName?: string;
-  /** 支付宝Id */
+  /** Alipay ID */
   userId?: string;
-  /** 主账号 */
+  /** Main account */
   aliId?: Long;
-  /** AE 登陆账号 */
+  /** AE login account */
   loginId?: string;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 手机号 */
+  /** Mobile number */
   contactMobile?: string;
 }
 
@@ -509,11 +509,11 @@ export const AliexpressMerchantPartnerPersonauthGetPersonAuthDTOSchema: Schema =
   };
 
 export interface AliexpressMerchantPrivateFileGetBaseResponse {
-  /** 错误code */
+  /** Error code */
   code?: string;
-  /** 返回对象 */
+  /** Returned object */
   data?: AliexpressMerchantPrivateFileGetSellerPrivateFileDTO;
-  /** 请求结果 */
+  /** Request result */
   retSuccess?: boolean;
   /** error_message */
   errorMessage?: string;
@@ -531,9 +531,9 @@ export const AliexpressMerchantPrivateFileGetBaseResponseSchema: Schema = {
 };
 
 export interface AliexpressMerchantPrivateFileGetSellerPrivateFileDTO {
-  /** 文件名 */
+  /** File name */
   fileName?: string;
-  /** 文件字节流数据 */
+  /** File byte stream data */
   content?: string;
 }
 
@@ -544,7 +544,7 @@ export const AliexpressMerchantPrivateFileGetSellerPrivateFileDTOSchema: Schema 
   };
 
 export interface AliexpressMerchantPrivateFileGetSellerPrivateFileRequestDTO {
-  /** 读取的文件id */
+  /** ID of the file to read */
   fileName?: string;
 }
 
@@ -554,13 +554,13 @@ export const AliexpressMerchantPrivateFileGetSellerPrivateFileRequestDTOSchema: 
   };
 
 export interface AliexpressMerchantProductPostLimitIsvProductInfoResponse {
-  /** 商家总商品数上限 */
+  /** Upper limit of total products for the merchant */
   sellerProductLimitData?: AliexpressMerchantProductPostLimitSellerProductLimitDTO;
   /** success */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -577,15 +577,15 @@ export const AliexpressMerchantProductPostLimitIsvProductInfoResponseSchema: Sch
   };
 
 export interface AliexpressMerchantProductPostLimitSellerProductLimitDTO {
-  /** 周期内新发商品上限数 */
+  /** Upper limit of newly published products within the period */
   productCurrentMonthLimitNum?: number;
-  /** 总可销售商品上限数 */
+  /** Upper limit of total sellable products */
   productTotalLimitNum?: number;
-  /** 总在线商品数 */
+  /** Total online products */
   productTotalOnlineNum?: number;
-  /** 总审核中商品数 */
+  /** Total products under review */
   productTotalAuditNum?: number;
-  /** 周期新发商品数 */
+  /** Newly listed products in the period */
   productCurrentMonthPubNum?: number;
 }
 
@@ -599,19 +599,19 @@ export const AliexpressMerchantProductPostLimitSellerProductLimitDTOSchema: Sche
   };
 
 export interface AliexpressMerchantProfileGetMerchantProfile {
-  /** 卖家sellerId 纯数字 */
+  /** Seller sellerId, digits only */
   sellerId?: Long;
-  /** 当前店铺商品数量(在线） */
+  /** Number of products in the current store (online) */
   onlineStoreProductNumber?: string;
-  /** 当前店铺商品数量(审核中） */
+  /** Number of products in the current store (under review) */
   authStoreProductNumber?: string;
-  /** 店铺最大商品数量限制。 发品前请做好前置校验 ，商家在线和审核中的商品数量加合要小于店铺最大商品数量限制。 limit_store_product_number > online_store_product_number + auth_store_product_number */
+  /** Maximum number of products allowed in the store. Validate before listing products: the sum of the merchant's online and under-review products must be less than the store's maximum product limit. limit_store_product_number > online_store_product_number + auth_store_product_number */
   limitStoreProductNumber?: string;
-  /** SUPPLY_PRICE_WITH_TAX：含税供货价; SUPPLY_PRICE_WITHOUT_TAX：不含税供货价 */
+  /** SUPPLY_PRICE_WITH_TAX: tax-inclusive supply price; SUPPLY_PRICE_WITHOUT_TAX: tax-exclusive supply price */
   supplyPriceTaxType?: string;
-  /** 卖家所属国家 */
+  /** Seller's country */
   country?: string;
-  /** 卖家可以使用的报价币种 */
+  /** Quote currencies available to the seller */
   quotationCurrency?: string;
 }
 
@@ -691,13 +691,13 @@ export const AliexpressMerchantRedefiningSaveremarkResultSchema: Schema = {
 };
 
 export interface AliexpressMerchantTaxinfoGetGlobalSellerTaxDTO {
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 税号 */
+  /** Tax ID */
   taxCode?: string;
-  /** 企业名 */
+  /** Enterprise name */
   taxEntityName?: string;
-  /** 注册号 */
+  /** Registration number */
   entMersisnum?: string;
 }
 
@@ -710,13 +710,13 @@ export const AliexpressMerchantTaxinfoGetGlobalSellerTaxDTOSchema: Schema = {
 
 /** Parameters for `aliexpress.merchant.Address.list`. */
 export interface AliexpressMerchantAddressListParams {
-  /** 请求参数 */
+  /** Request parameters */
   param?: AliexpressMerchantAddressListMerchantAddressRequest;
 }
 
 /** Response of `aliexpress.merchant.Address.list`. */
 export interface AliexpressMerchantAddressListResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressMerchantAddressListAeopResult;
 }
 
@@ -744,15 +744,15 @@ export const aliexpressMerchantAddressList: ApiDefinition<
 
 /** Parameters for `aliexpress.merchant.agreement.sign.list`. */
 export interface AliexpressMerchantAgreementSignListParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 协议ID列表 */
+  /** Agreement ID list */
   agreementIdList?: Array<LongInput>;
 }
 
 /** Response of `aliexpress.merchant.agreement.sign.list`. */
 export interface AliexpressMerchantAgreementSignListResponse {
-  /** 响应结果 */
+  /** Response result */
   result?: AliexpressMerchantAgreementSignListSellerAuthResponse;
 }
 
@@ -784,7 +784,7 @@ export interface AliexpressMerchantDiagnosisQueryParams {}
 
 /** Response of `aliexpress.merchant.diagnosis.query`. */
 export interface AliexpressMerchantDiagnosisQueryResponse {
-  /** 结果 */
+  /** Result */
   response?: AliexpressMerchantDiagnosisQueryGetIsvDiagnosisResponseDTO;
 }
 
@@ -812,9 +812,9 @@ export const aliexpressMerchantDiagnosisQuery: ApiDefinition<
 export interface AliexpressMerchantManufactureDetailParams {
   /** id */
   id?: LongInput;
-  /** 渠道seller id,不填则默认使用当前登录卖家id （可以在这个API中查询：global.seller.relation.query) */
+  /** Channel seller id; if not filled in, the currently logged-in seller id is used by default (can be queried in this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 渠道,填了渠道seller id就需要填渠道信息，跨境为AE_GLOBAL, 本地为AE_LOCAL（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel. If a channel seller id is filled in, channel info is required: AE_GLOBAL for cross-border, AE_LOCAL for local (can be queried in this API: global.seller.relation.query) */
   channel?: string;
 }
 
@@ -850,9 +850,9 @@ export const aliexpressMerchantManufactureDetail: ApiDefinition<
 
 /** Parameters for `aliexpress.merchant.manufacture.list`. */
 export interface AliexpressMerchantManufactureListParams {
-  /** 渠道seller id,不填则默认使用当前登录卖家id （可以在这个API中查询：global.seller.relation.query) */
+  /** Channel seller id; if not filled in, the currently logged-in seller id is used by default (can be queried in this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 渠道,填了渠道seller id就需要填渠道信息，跨境为AE_GLOBAL, 本地为AE_LOCAL（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel. If a channel seller id is filled in, channel info is required: AE_GLOBAL for cross-border, AE_LOCAL for local (can be queried in this API: global.seller.relation.query) */
   channel?: string;
 }
 
@@ -887,17 +887,17 @@ export const aliexpressMerchantManufactureList: ApiDefinition<
 
 /** Parameters for `aliexpress.merchant.msr.detail`. */
 export interface AliexpressMerchantMsrDetailParams {
-  /** 数据id */
+  /** Data ID */
   id?: LongInput;
-  /** 渠道seller id,不填则默认使用当前登录卖家id （可以在这个API中查询：global.seller.relation.query) */
+  /** Channel seller id; if not filled in, the currently logged-in seller id is used by default (can be queried in this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 渠道,填了渠道seller id就需要填渠道信息，跨境为AE_GLOBAL, 本地为AE_LOCAL（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel. If a channel seller id is filled in, channel info is required: AE_GLOBAL for cross-border, AE_LOCAL for local (can be queried in this API: global.seller.relation.query) */
   channel?: string;
 }
 
 /** Response of `aliexpress.merchant.msr.detail`. */
 export interface AliexpressMerchantMsrDetailResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressMerchantMsrDetailSellerAuthResponse;
 }
 
@@ -927,9 +927,9 @@ export const aliexpressMerchantMsrDetail: ApiDefinition<
 
 /** Parameters for `aliexpress.merchant.msr.list`. */
 export interface AliexpressMerchantMsrListParams {
-  /** 渠道seller id,不填则默认使用当前登录卖家id （可以在这个API中查询：global.seller.relation.query) */
+  /** Channel seller id; if not filled in, the currently logged-in seller id is used by default (can be queried in this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 渠道,填了渠道seller id就需要填渠道信息，跨境为AE_GLOBAL, 本地为AE_LOCAL（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel. If a channel seller id is filled in, channel info is required: AE_GLOBAL for cross-border, AE_LOCAL for local (can be queried in this API: global.seller.relation.query) */
   channel?: string;
 }
 
@@ -967,7 +967,7 @@ export interface AliexpressMerchantOverseaBrandGetParams {}
 
 /** Response of `aliexpress.merchant.oversea.brand.get`. */
 export interface AliexpressMerchantOverseaBrandGetResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressMerchantOverseaBrandGetResultDTO;
 }
 
@@ -993,13 +993,13 @@ export const aliexpressMerchantOverseaBrandGet: ApiDefinition<
 
 /** Parameters for `aliexpress.merchant.partner.alipayuserid.usedstatus.get`. */
 export interface AliexpressMerchantPartnerAlipayuseridUsedstatusGetParams {
-  /** 支付宝用户id */
+  /** Alipay user ID */
   alipayUserId?: string;
 }
 
 /** Response of `aliexpress.merchant.partner.alipayuserid.usedstatus.get`. */
 export interface AliexpressMerchantPartnerAlipayuseridUsedstatusGetResponse {
-  /** 查询结果 */
+  /** Query result */
   result?: boolean;
 }
 
@@ -1024,7 +1024,7 @@ export const aliexpressMerchantPartnerAlipayuseridUsedstatusGet: ApiDefinition<
 
 /** Parameters for `aliexpress.merchant.partner.auth.check`. */
 export interface AliexpressMerchantPartnerAuthCheckParams {
-  /** 请求 */
+  /** Request */
   paramAuthCheckRequest?: AliexpressMerchantPartnerAuthCheckAuthCheckRequest;
 }
 
@@ -1068,7 +1068,7 @@ export interface AliexpressMerchantPartnerPersonauthGetParams {
 
 /** Response of `aliexpress.merchant.partner.personauth.get`. */
 export interface AliexpressMerchantPartnerPersonauthGetResponse {
-  /** 认证信息 */
+  /** Authentication information */
   result?: AliexpressMerchantPartnerPersonauthGetPersonAuthDTO;
 }
 
@@ -1102,7 +1102,7 @@ export interface AliexpressMerchantPrivateFileGetParams {
 
 /** Response of `aliexpress.merchant.private.file.get`. */
 export interface AliexpressMerchantPrivateFileGetResponse {
-  /** 返回包装对象 */
+  /** Returned wrapper object */
   result?: AliexpressMerchantPrivateFileGetBaseResponse;
 }
 
@@ -1134,13 +1134,13 @@ export const aliexpressMerchantPrivateFileGet: ApiDefinition<
 
 /** Parameters for `aliexpress.merchant.product.post.limit`. */
 export interface AliexpressMerchantProductPostLimitParams {
-  /** 渠道 seller id，可以从global.seller.relation.query 查询 */
+  /** Channel seller id, can be queried from global.seller.relation.query */
   channelSellerId?: LongInput;
 }
 
 /** Response of `aliexpress.merchant.product.post.limit`. */
 export interface AliexpressMerchantProductPostLimitResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressMerchantProductPostLimitIsvProductInfoResponse;
 }
 
@@ -1168,13 +1168,13 @@ export const aliexpressMerchantProductPostLimit: ApiDefinition<
 
 /** Parameters for `aliexpress.merchant.profile.get`. */
 export interface AliexpressMerchantProfileGetParams {
-  /** 渠道卖家ID */
+  /** Channel seller ID */
   channelSellerId?: LongInput;
 }
 
 /** Response of `aliexpress.merchant.profile.get`. */
 export interface AliexpressMerchantProfileGetResponse {
-  /** 卖家资料 */
+  /** Seller profile */
   profile?: AliexpressMerchantProfileGetMerchantProfile;
 }
 
@@ -1202,9 +1202,9 @@ export const aliexpressMerchantProfileGet: ApiDefinition<
 
 /** Parameters for `aliexpress.merchant.redefining.queryremark`. */
 export interface AliexpressMerchantRedefiningQueryremarkParams {
-  /** 业务类型，默认为订单备注 */
+  /** Business type, default is order remark */
   bizType?: LongInput;
-  /** 备注Id，业务类型为订单备注，则为订单Id */
+  /** Remark ID; if the business type is order remarks, it is the order ID */
   remarkId?: LongInput;
 }
 
@@ -1239,9 +1239,9 @@ export const aliexpressMerchantRedefiningQueryremark: ApiDefinition<
 
 /** Parameters for `aliexpress.merchant.redefining.queryremarks`. */
 export interface AliexpressMerchantRedefiningQueryremarksParams {
-  /** 业务类型，0 为订单备注。 */
+  /** Business type, 0 is order remark. */
   bizType?: LongInput;
-  /** 业务类型为订单备注，则remark_ids为订单ID列表。 */
+  /** If the business type is order remarks, remark_ids is the list of order IDs. */
   remarkIds?: Array<LongInput>;
 }
 
@@ -1276,11 +1276,11 @@ export const aliexpressMerchantRedefiningQueryremarks: ApiDefinition<
 
 /** Parameters for `aliexpress.merchant.redefining.saveremark`. */
 export interface AliexpressMerchantRedefiningSaveremarkParams {
-  /** 业务类型，默认为订单备注 */
+  /** Business type, default is order remark */
   bizType?: LongInput;
-  /** 备注Id */
+  /** Remarks ID */
   remarkId?: LongInput;
-  /** 备注内容 */
+  /** Remarks content */
   content?: string;
 }
 

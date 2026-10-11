@@ -10,41 +10,41 @@ import type {
 
 /** Parameters for `aliexpress.ad.agentworkorder.plan.create`. */
 export interface AliexpressAdAgentworkorderPlanCreateParams {
-  /** 预计uv */
+  /** Estimated UV */
   uv?: LongInput;
-  /** 部服务商代投工单业务单号 */
+  /** Business order number of the service provider's managed ad-placement work order */
   outerBizNo?: string;
-  /** AE工单单号 */
+  /** AE work order number */
   bizNo?: string;
-  /** 金额币种单位，默认美元 */
+  /** Amount currency unit, default USD */
   budgetCurrency?: string;
-  /** 预计点击人数 */
+  /** Estimated number of clicks */
   clickCnt?: LongInput;
-  /** 素材策略 */
+  /** Material strategy */
   materialStrategies?: string;
-  /** 广告类型信息 */
+  /** Ad type information */
   adTypes?: string;
-  /** 优化策略 */
+  /** Optimization strategy */
   optimizeStrategies?: string;
-  /** 预算投放计划 */
+  /** Budget delivery plan */
   budgetPlans?: string;
-  /** 预计cpc，单位为分，整数 */
+  /** Estimated cpc, in cents, integer */
   cpc?: LongInput;
-  /** 人群策略，json字符串 */
+  /** Audience strategy, json string */
   crowdStrategy?: string;
-  /** 预计曝光人群数量 */
+  /** Estimated number of audience reached */
   impressCnt?: LongInput;
-  /** 商家ID */
+  /** Merchant ID */
   sellerId?: LongInput;
 }
 
 /** Response of `aliexpress.ad.agentworkorder.plan.create`. */
 export interface AliexpressAdAgentworkorderPlanCreateResponse {
-  /** 错误码 */
+  /** Error code */
   resultCode?: string;
-  /** 错误码描述 */
+  /** Error code description */
   resultMessage?: string;
-  /** 数据实体对象 */
+  /** Data entity object */
   data?: string;
 }
 
@@ -82,27 +82,27 @@ export const aliexpressAdAgentworkorderPlanCreate: ApiDefinition<
 
 /** Parameters for `aliexpress.ad.agentworkorder.plan.effect`. */
 export interface AliexpressAdAgentworkorderPlanEffectParams {
-  /** 外部服务商代投工单业务单号 */
+  /** Business order number of the external service provider's managed ad-placement work order */
   outerBizNo?: string;
-  /** AE工单单号 */
+  /** AE work order number */
   bizNo?: string;
-  /** 操作结果，CONFIRM-确认,REJECT-拒绝 */
+  /** Operation result, CONFIRM - confirm, REJECT - reject */
   operateType?: string;
-  /** 投放方案推送接口有返回planId */
+  /** The campaign plan push API returns planId */
   planId?: LongInput;
-  /** 操作备注 */
+  /** Operation remarks */
   operateDesc?: string;
-  /** 商户id */
+  /** Merchant ID */
   sellerId?: LongInput;
 }
 
 /** Response of `aliexpress.ad.agentworkorder.plan.effect`. */
 export interface AliexpressAdAgentworkorderPlanEffectResponse {
-  /** 数据对象，预留 */
+  /** Data object, reserved */
   data?: string;
-  /** 错误码 */
+  /** Error code */
   resultCode?: string;
-  /** 错误码描述 */
+  /** Error code description */
   resultMessage?: string;
 }
 

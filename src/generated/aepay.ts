@@ -9,9 +9,9 @@ import type {
 } from '../core/index.js';
 
 export interface AepayMerchantPrivateFileGetFileContentDTO {
-  /** 文件名 */
+  /** File name */
   fileName?: string;
-  /** 文件字节流数据 */
+  /** File byte stream data */
   content?: string;
 }
 
@@ -30,11 +30,11 @@ export const AepayMerchantPrivateFileGetFileGetRequestSchema: Schema = {
 };
 
 export interface AepayMerchantPrivateFileGetResultDTO {
-  /** 错误code */
+  /** Error code */
   code?: string;
-  /** 返回对象 */
+  /** Returned object */
   data?: AepayMerchantPrivateFileGetFileContentDTO;
-  /** 请求结果 */
+  /** Request result */
   retSuccess?: boolean;
   /** error_message */
   errorMessage?: string;
