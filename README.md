@@ -117,6 +117,7 @@ await client.solution.productListGet(params, {
 - [API Guide](./API.md): method names, results, errors, and number types.
 - [Configuration](./CONFIGURATION.md): client options, call options, proxies, and security notes.
 - [Contributing](./CONTRIBUTING.md): run the tests, rebuild the API code, and publish a release.
+- [Roadmap](./ROADMAP.md): what is released, what is next, and what is only an idea.
 - [Changelog](./CHANGELOG.md): what changed in each version.
 
 [Back to Top](#table-of-contents)
