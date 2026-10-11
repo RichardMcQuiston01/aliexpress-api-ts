@@ -2,11 +2,12 @@
 
 [Back to README](./README.md)
 
-| [Unreleased](#unreleased) | [0.2.0](#020) | [0.1.0](#010) |
+| [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
 
-## Unreleased
+## 0.2.1
 
 - Add `npm run get-token` (`examples/get-token.ts`), a CLI that performs the OAuth login and prints an access token for testing.
+- Rewrite the README and add the Getting Started, API, Configuration and Contributing guides. No code changes.
 
 [Back to Top](#changelog)
 
