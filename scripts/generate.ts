@@ -7,7 +7,13 @@
  * extracted `*-source.jar`. Output is deterministic, so regenerating from the
  * same SDK version produces no diff.
  */
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
 import { join, resolve } from 'node:path';
 import * as prettier from 'prettier';
 import {
@@ -155,6 +161,40 @@ interface NamespaceFile {
   readonly apiEntries: { method: string; constName: string; apiName: string }[];
 }
 
+// ---------------------------------------------------------------------------
+// Comment translation
+// ---------------------------------------------------------------------------
+
+const CJK_PATTERN = /[\u3000-\u303f\u4e00-\u9fff\uff00-\uffef]/;
+const TRANSLATIONS_PATH = 'scripts/translations/zh-en.json';
+
+/** Chinese comment -> English, loaded once from the committed table. */
+const translations: ReadonlyMap<string, string> = new Map(
+  existsSync(TRANSLATIONS_PATH)
+    ? Object.entries(
+        JSON.parse(readFileSync(TRANSLATIONS_PATH, 'utf8')) as Record<
+          string,
+          string
+        >
+      )
+    : []
+);
+/** Chinese comments that had no entry in the table (reported at the end). */
+const untranslated = new Set<string>();
+
+/**
+ * Returns the English text for a field comment. Comments without Chinese
+ * pass through. A Chinese comment with no table entry is kept as is and
+ * recorded, so a new SDK version never loses text silently.
+ */
+function localize(doc: string): string {
+  if (!CJK_PATTERN.test(doc)) return doc;
+  const english = translations.get(doc);
+  if (english !== undefined) return english;
+  untranslated.add(doc);
+  return doc;
+}
+
 function docComment(text: string, extra: string[] = []): string {
   const lines = [...(text ? [text] : []), ...extra];
   if (lines.length === 0) return '';
@@ -187,7 +227,7 @@ function emitInterface(
     if (mapped.domain) file.refs.add(mapped.domain);
     properties.push({ property: field.name, wire: field.wire, mapped });
     lines.push(
-      `${docComment(field.doc)}${JSON.stringify(field.name)}?: ${mapped.ts};`
+      `${docComment(localize(field.doc))}${JSON.stringify(field.name)}?: ${mapped.ts};`
     );
   }
   file.body.push(
@@ -423,6 +463,24 @@ async function main(): Promise<void> {
   writeFileSync(join(outDir, 'index.ts'), await format(indexSource));
 
   console.log(`Wrote ${files.size + 2} files to ${outDir}.`);
+  console.log(
+    `Comment translations: ${translations.size} in table, ${untranslated.size} Chinese comment(s) without a translation.`
+  );
+  if (untranslated.size > 0) {
+    const missingPath = 'scripts/translations/missing.json';
+    writeFileSync(
+      missingPath,
+      JSON.stringify([...untranslated].sort(), null, 2) + '\n'
+    );
+    console.log(`Wrote the untranslated comments to ${missingPath}.`);
+    if (args.includes('--strict')) {
+      throw new Error(
+        'Untranslated Chinese comments remain (--strict). Add them to ' +
+          TRANSLATIONS_PATH +
+          '.'
+      );
+    }
+  }
 }
 
 main().catch((error: unknown) => {
