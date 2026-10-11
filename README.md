@@ -1,29 +1,44 @@
 # @richardmcquiston01/unofficial-aliexpress-api
 
-- Author:  Richard McQuiston
-- Website:  https://richardmcquiston.com/
+- Author: [Richard McQuiston](mailto:richard.mcquiston@gmail.com)
+- Website: https://richardmcquiston.com/
+
+## Table of Contents
+
+| [Overview](#overview) | [Features](#features) | [Getting Started](#getting-started) | [More Information](#more-information) | [Buy Me a Coffee](#buy-me-a-coffee) | [License](#license) | [Copyright](#copyright) |
 
 ## Overview
 
-TypeScript based package wrapper for the AliExpress API.
+This is an unofficial TypeScript client for the AliExpress Open Platform. It lets your code call the AliExpress Application Programming Interface (API) with full type hints.
+
+It covers all 932 API methods from the AliExpress Java Software Development Kit (SDK). The methods are grouped into 83 namespaces, such as `client.solution` and `client.auth`.
+
+This package is not made by, or tied to, AliExpress or Alibaba. Its models come from version 1.3.5-ae of the Java SDK.
+
+The tests use a mock gateway. Live tests also exist, but you run them yourself with your own app key. See the [Getting Started Guide](./GETTING_STARTED.md).
+
+[Back to Top](#table-of-contents)
 
 ## Features
 
-- All **932** AliExpress Open Platform (IOP) API methods, fully typed (2,400+ request/response models).
-- Namespaced client: `client.<namespace>.<method>()`, e.g. `client.solution.productListGet()`.
-- camelCase TypeScript properties mapped to the gateway's wire names.
-- Calls never throw: every call resolves to `{ ok: true, data }` or `{ ok: false, error }` with a descriptive `AliExpressError`.
-- HMAC-SHA256 request signing, TOP (`/sync`) and GOP (`/rest`) protocols, multipart file uploads.
-- 16-19 digit ids (order ids) stay exact: `Long` values beyond `Number.MAX_SAFE_INTEGER` are returned as strings.
-- Zero runtime dependencies. ESM + CJS. Node.js 18+.
+- All 932 API methods, with typed requests and responses.
+- Simple names, such as `client.solution.productListGet()`.
+- Calls never throw. Each call returns `{ ok: true, data }` or `{ ok: false, error }`.
+- Clear error messages that name the API, the error code, and the request ID.
+- Request signing is done for you.
+- Supports both request styles that the Java SDK uses, and file uploads.
+- Big numbers, such as order identifiers (IDs), stay exact.
+- No runtime dependencies. Works with both `import` and `require`.
+
+[Back to Top](#table-of-contents)
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18 or later.
-- An app key and secret from the [AliExpress Open Platform](https://openservice.aliexpress.com/).
-- An access token for the seller/user account (see [Authorization](#authorization)).
+- Node.js 18 or newer.
+- An app key and an app secret from the [AliExpress Open Platform](https://openservice.aliexpress.com/).
+- An access token for calls that act on a seller's account. The [Getting Started Guide](./GETTING_STARTED.md) shows how to get one.
 
 ### Installation
 
@@ -32,6 +47,8 @@ npm install @richardmcquiston01/unofficial-aliexpress-api
 ```
 
 ### Usage
+
+Create a client, call a method, and check `ok` before you use the data.
 
 ```ts
 import { AliExpressClient } from '@richardmcquiston01/unofficial-aliexpress-api';
@@ -47,125 +64,62 @@ const result = await client.solution.productListGet({
 });
 
 if (!result.ok) {
-  // e.g. AliExpress API "aliexpress.solution.product.list.get" returned an
-  // error (code=IllegalAccessToken, request_id=...): The access token is invalid
   console.error(result.error.kind, result.error.message);
 } else {
   console.log(result.data.result);
 }
 ```
 
-Namespaces and method names come from the API name: `aliexpress.solution.product.list.get` is
-`client.solution.productListGet`, and `/auth/token/create` is `client.auth.tokenCreate`. Every
-definition is also available through `namespaceRegistry` and `client.call(definition, params)`.
-
-#### Authorization
-
-```ts
-import { generateOAuthState } from '@richardmcquiston01/unofficial-aliexpress-api';
-
-// 1. Start: bind a random `state` to the user's session (CSRF protection).
-const state = generateOAuthState();
-session.oauthState = state;
-res.redirect(
-  client.getAuthorizationUrl({ redirectUri: 'https://example.com/callback', state })
-);
-
-// 2. Callback: AliExpress redirects back with ?code=...&state=...
-if (req.query.state !== session.oauthState) throw new Error('OAuth state mismatch');
-const token = await client.auth.tokenCreate({ code: String(req.query.code) });
-if (token.ok) console.log(token.data.accessToken, token.data.refreshToken);
-```
-
-`redirectUri` must be `https` (loopback `http` is allowed for local development) and contain no
-credentials. Register the same URI in your AliExpress app settings.
-
-#### Security notes
-
-- `baseUrl` must be `https` (loopback `http` only for local development) with no credentials,
-  query or fragment.
-- `appSecret` and `accessToken` live in private fields: they do not appear in `JSON.stringify(client)`,
-  `Object.keys(client)` or typical loggers.
-- HTTP redirects are refused (`redirect: 'error'`), so credentials in a request body are never
-  replayed to another URL. Pass a custom `fetch` if you really need to follow them.
-- Error messages never include the request URL; the raw error is on `error.cause`. Credentials
-  echoed in gateway error bodies are redacted from messages (the untouched body is `result.rawBody`).
-
-#### Per-call options
-
-```ts
-await client.ds.recommendFeedGet(params, {
-  accessToken: 'other-seller-token',
-  timeoutMs: 10_000,
-  signal: abortController.signal,
-});
-```
-
-#### Errors
-
-`result.error.kind` is one of `validation`, `network`, `timeout`, `aborted`, `http`, `parse`, `api`.
-API errors expose `code`, `subCode`, `subMessage`, `errorType` and `requestId`.
-
-#### Proxy
-
-Pass a custom `fetch`, for example with undici:
-
-```ts
-import { ProxyAgent, fetch as undiciFetch } from 'undici';
-const dispatcher = new ProxyAgent('http://proxy:8080');
-const client = new AliExpressClient({
-  appKey, appSecret,
-  fetch: (url, init) => undiciFetch(url as string, { ...init, dispatcher } as never) as never,
-});
-```
+A method name comes from the API name. The API `aliexpress.solution.product.list.get` becomes `client.solution.productListGet`. The API `/auth/token/create` becomes `client.auth.tokenCreate`. See the [API Guide](./API.md) for the full rules.
 
 ### Examples
 
-File uploads take a `FileInput`:
+List the top seller categories:
 
 ```ts
-// Any API with a file parameter (type `FileInput`) is sent as multipart/form-data.
+const categories = await client.solution.sellerCategoryTreeQuery({
+  categoryId: 0,
+  filterNoPermission: true,
+});
+```
+
+Trade a login code for an access token:
+
+```ts
+const token = await client.auth.tokenCreate({ code: 'CODE_FROM_THE_CALLBACK' });
+if (token.ok) {
+  console.log(token.data.accessToken, token.data.refreshToken);
+}
+```
+
+Upload a file. Any API with a file field sends the request as a multipart form:
+
+```ts
 await client.affiliate.imageSearch({
   imageFileBytes: { fileName: 'photo.png', content: bytes, mimeType: 'image/png' },
 });
 ```
 
-## Getting an access token for testing
+Set a timeout or a different token for one call:
 
-`npm run get-token` walks you through the OAuth login from the command line. Set
-`ALIEXPRESS_APP_KEY`, `ALIEXPRESS_APP_SECRET` and `ALIEXPRESS_REDIRECT_URI` (it must exactly match
-the callback URL registered for your app). The script prints a login link, you approve the app,
-then paste the address the browser lands on (or just the `code`). It checks the `state`,
-exchanges the code, and prints `export ALIEXPRESS_ACCESS_TOKEN=...` for `npm run test:live`.
-See `examples/get-token.ts`.
-
-## Testing
-
-```bash
-npm test            # unit + all 932 endpoints against a mock gateway
-npm run test:live   # opt-in, read-only calls against the real gateway
+```ts
+await client.solution.productListGet(params, {
+  accessToken: 'another-seller-token',
+  timeoutMs: 10_000,
+});
 ```
 
-The live tests are skipped unless `ALIEXPRESS_APP_KEY`, `ALIEXPRESS_APP_SECRET` and
-`ALIEXPRESS_ACCESS_TOKEN` are set.
+[Back to Top](#table-of-contents)
 
-## Regenerating the API surface
+## More Information
 
-`src/generated/` is produced from AliExpress's official Java SDK (`iop-api-sdk`). To refresh it:
+- [Getting Started Guide](./GETTING_STARTED.md): create an app, log in a seller, and get a token.
+- [API Guide](./API.md): method names, results, errors, and number types.
+- [Configuration](./CONFIGURATION.md): client options, call options, proxies, and security notes.
+- [Contributing](./CONTRIBUTING.md): run the tests, rebuild the API code, and publish a release.
+- [Changelog](./CHANGELOG.md): what changed in each version.
 
-```bash
-unzip -q gop-sdk-Java-source.jar -d sdk && unzip -q sdk/*.jar -d sdk/src
-npm run generate -- --src sdk/src/src/main/java/com/aliexpress/open
-```
-
-Notes on fidelity with the Java SDK: protocol is inferred from the API name (names starting with `/`
-use GOP, the rest TOP); requests whose declared method is not `POST` (including `HSF`) are sent as
-`GET`, as the Java SDK does. Override with the `httpMethod` / `protocol` call options.
-
-## Disclaimer
-
-This is an unofficial community package. It is not affiliated with or endorsed by AliExpress or
-Alibaba. The request/response models are derived from AliExpress's published Java SDK.
+[Back to Top](#table-of-contents)
 
 ## Buy Me a Coffee
 
@@ -175,10 +129,16 @@ If this app, code, or repository has helped you or someone you know, please cons
 
 [![Donate via Stripe](./donate.svg)](https://donate.stripe.com/00w5kD3Gj1Xo9v7gVOcs800)
 
+[Back to Top](#table-of-contents)
+
 ## License
 
 Apache 2
 
+[Back to Top](#table-of-contents)
+
 ## Copyright
 
-(c)2026 Richard McQuiston.  All rights reserved.
+(c)2026 Richard McQuiston. All rights reserved.
+
+[Back to Top](#table-of-contents)
