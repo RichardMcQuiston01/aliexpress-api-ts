@@ -1,8 +1,14 @@
 # CHANGELOG
 
+[Back to README](./README.md)
+
+| [Unreleased](#unreleased) | [0.2.0](#020) | [0.1.0](#010) |
+
 ## Unreleased
 
 - Add `npm run get-token` (`examples/get-token.ts`), a CLI that performs the OAuth login and prints an access token for testing.
+
+[Back to Top](#changelog)
 
 ## 0.2.0
 
@@ -25,7 +31,15 @@ Also in this release:
 - Opt-in live smoke tests (`npm run test:live`).
 - Fix: `FileItem` fields nested in response/domain models (an SDK quirk) are now typed `unknown` instead of `FileInput`.
 
+[Back to Top](#changelog)
+
 ## 0.1.0
 
 - Initial release: typed client for all 932 IOP API methods with namespaced access.
 - Signing, TOP/GOP protocols, multipart uploads, big-integer-safe parsing, typed errors.
+
+[Back to Top](#changelog)
+
+---
+
+[Back to README](./README.md)
