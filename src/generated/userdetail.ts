@@ -9,17 +9,17 @@ import type {
 } from '../core/index.js';
 
 export interface UserdetailGetGlobalUserDTO {
-  /** 用户状态 */
+  /** User status */
   userStatus?: number;
-  /** 国家短码 */
+  /** Country short code */
   countryCode?: string;
-  /** 邮箱地址 */
+  /** Email address */
   email?: string;
-  /** 姓名 */
+  /** Name */
   fullName?: string;
-  /** 用户id */
+  /** User ID */
   userId?: number;
-  /** 用户类型 */
+  /** User type */
   userType?: string;
 }
 
@@ -33,13 +33,13 @@ export const UserdetailGetGlobalUserDTOSchema: Schema = {
 };
 
 export interface UserdetailGetresultResponse {
-  /** 结果失败 */
+  /** Result failure */
   notSuccess?: boolean;
-  /** 结果成功 */
+  /** Result success */
   success?: string;
-  /** 数据报文 */
+  /** Data message */
   module?: UserdetailGetGlobalUserDTO;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -52,13 +52,13 @@ export const UserdetailGetresultResponseSchema: Schema = {
 
 /** Parameters for `/userdetail/get`. */
 export interface UserdetailGetParams {
-  /** 用户id */
+  /** User ID */
   id?: LongInput;
 }
 
 /** Response of `/userdetail/get`. */
 export interface UserdetailGetResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: UserdetailGetresultResponse;
 }
 

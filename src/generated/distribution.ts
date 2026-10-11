@@ -9,9 +9,9 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressDistributionBatchProductInventoryUpdateList {
-  /** 源头商品id */
+  /** Source product ID */
   srcProductId?: string;
-  /** 需要更新SKU列表 */
+  /** List of SKUs that need to be updated */
   multipleSkuUpdateList?: Array<AliexpressDistributionBatchProductInventoryUpdateOpenSkuUpdateDTO>;
 }
 
@@ -27,9 +27,9 @@ export const AliexpressDistributionBatchProductInventoryUpdateListSchema: Schema
   };
 
 export interface AliexpressDistributionBatchProductInventoryUpdateOpenBatchProductUpdateRequestDTO {
-  /** 需要更新商品列表 */
+  /** List of products that need to be updated */
   multipleProductUpdateList?: Array<AliexpressDistributionBatchProductInventoryUpdateList>;
-  /** 用于区分不同业务站点 */
+  /** Used to distinguish different business sites */
   siteCode?: string;
 }
 
@@ -46,11 +46,11 @@ export const AliexpressDistributionBatchProductInventoryUpdateOpenBatchProductUp
 export interface AliexpressDistributionBatchProductInventoryUpdateOpenSkuUpdateDTO {
   /** SKU Code */
   skuCode?: string;
-  /** Unix时间戳 */
+  /** Unix timestamp */
   lastModifiedDate?: string;
-  /** SKU 库存 */
+  /** SKU inventory */
   inventory?: string;
-  /** 库存类型，商家仓或自有仓 */
+  /** Inventory type, merchant warehouse or own warehouse */
   inventoryType?: string;
 }
 
@@ -63,9 +63,9 @@ export const AliexpressDistributionBatchProductInventoryUpdateOpenSkuUpdateDTOSc
   };
 
 export interface AliexpressDistributionBatchProductPriceUpdateList {
-  /** 源头商品id */
+  /** Source product ID */
   srcProductId?: string;
-  /** 需要更新SKU列表 */
+  /** List of SKUs that need to be updated */
   multipleSkuUpdateList?: Array<AliexpressDistributionBatchProductPriceUpdateOpenSkuUpdateDTO>;
 }
 
@@ -79,9 +79,9 @@ export const AliexpressDistributionBatchProductPriceUpdateListSchema: Schema = {
 };
 
 export interface AliexpressDistributionBatchProductPriceUpdateOpenBatchProductUpdateRequestDTO {
-  /** 需要更新商品列表 */
+  /** List of products that need to be updated */
   multipleProductUpdateList?: Array<AliexpressDistributionBatchProductPriceUpdateList>;
-  /** 用于区分不同业务站点 */
+  /** Used to distinguish different business sites */
   siteCode?: string;
 }
 
@@ -96,11 +96,11 @@ export const AliexpressDistributionBatchProductPriceUpdateOpenBatchProductUpdate
   };
 
 export interface AliexpressDistributionBatchProductPriceUpdateOpenSkuUpdateDTO {
-  /** SKU价格单位美元 */
+  /** SKU price unit USD */
   price?: string;
   /** SKU Code */
   skuCode?: string;
-  /** Unix时间戳 */
+  /** Unix timestamp */
   lastModifiedDate?: string;
 }
 
@@ -112,9 +112,9 @@ export const AliexpressDistributionBatchProductPriceUpdateOpenSkuUpdateDTOSchema
   };
 
 export interface AliexpressDistributionBatchProductStatusUpdateList {
-  /** 源头商品id */
+  /** Source product ID */
   srcProductId?: string;
-  /** 需要更新SKU列表 */
+  /** List of SKUs that need to be updated */
   multipleSkuUpdateList?: Array<AliexpressDistributionBatchProductStatusUpdateOpenSkuUpdateDTO>;
 }
 
@@ -130,11 +130,11 @@ export const AliexpressDistributionBatchProductStatusUpdateListSchema: Schema =
   };
 
 export interface AliexpressDistributionBatchProductStatusUpdateOpenBatchProductUpdateRequestDTO {
-  /** 需要更新商品列表 */
+  /** List of products that need to be updated */
   multipleProductUpdateList?: Array<AliexpressDistributionBatchProductStatusUpdateList>;
-  /** 用于区分不同业务站点 */
+  /** Used to distinguish different business sites */
   siteCode?: string;
-  /** 对批量商品的操作，上下架 */
+  /** Operation on batch products, listing/delisting */
   updateStatusOperation?: string;
 }
 
@@ -152,9 +152,9 @@ export const AliexpressDistributionBatchProductStatusUpdateOpenBatchProductUpdat
 export interface AliexpressDistributionBatchProductStatusUpdateOpenSkuUpdateDTO {
   /** SKU Code */
   skuCode?: string;
-  /** Unix时间戳 */
+  /** Unix timestamp */
   lastModifiedDate?: string;
-  /** SKU 库存 */
+  /** SKU inventory */
   inventory?: string;
 }
 
@@ -166,13 +166,13 @@ export const AliexpressDistributionBatchProductStatusUpdateOpenSkuUpdateDTOSchem
   };
 
 export interface AliexpressDistributionProductEditOpenProductAttributeDTO {
-  /** 商品属性名称 */
+  /** Product attribute name */
   attributeName?: string;
-  /** 商品属性名称id */
+  /** Product attribute name id */
   attributeNameId?: string;
-  /** 商品属性值 */
+  /** Product attribute value */
   attributeValue?: string;
-  /** 商品属性值名称id */
+  /** Product attribute value name id */
   attributeValueId?: string;
 }
 
@@ -185,41 +185,41 @@ export const AliexpressDistributionProductEditOpenProductAttributeDTOSchema: Sch
   };
 
 export interface AliexpressDistributionProductEditOpenProductBaseRequestDTO {
-  /** 源头商品ID */
+  /** Source product ID */
   srcProductId?: string;
-  /** 商品编号 */
+  /** Product number */
   modelNo?: string;
-  /** 多语言详描列表 */
+  /** Multilingual detailed description list */
   multiLanguageDescriptionList?: Array<AliexpressDistributionProductEditOpenProductDescriptionDTO>;
-  /** 多语言商品标题列表 */
+  /** List of multilingual product titles */
   multiLanguageSubjectList?: Array<AliexpressDistributionProductEditOpenProductTitleDTO>;
-  /** 多语言尺码表列表 */
+  /** List of multilingual size charts */
   sizeChartImageList?: Array<AliexpressDistributionProductEditOpenProductTitleDTO>;
-  /** 单位厘米 */
+  /** Unit: cm */
   packageLength?: string;
-  /** 单位厘米 */
+  /** Unit: cm */
   packageWidth?: string;
-  /** 单位厘米 */
+  /** Unit: cm */
   packageHeight?: string;
-  /** 单位千克 */
+  /** Unit: kg */
   weight?: string;
-  /** 源头类目id */
+  /** Source category ID */
   categoryId?: string;
-  /** 源头品牌名称 */
+  /** Source brand name */
   brandName?: string;
-  /** 源头品牌id */
+  /** Source brand ID */
   brandId?: string;
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 业务区分站点编码 */
+  /** Business site distinction code */
   siteCode?: string;
-  /** 商品非销售属性 */
+  /** Product non-sales attributes */
   attributeList?: Array<AliexpressDistributionProductEditOpenProductAttributeDTO>;
-  /** 商品主图列表 */
+  /** Product main image list */
   mainImageUrlsList?: Array<string>;
-  /** 商品SKU列表 */
+  /** Product SKU list */
   skuInfoList?: Array<AliexpressDistributionProductEditOpenSkuInfoDTO>;
-  /** 附加参数，json字符串 */
+  /** Additional parameters, json string */
   extraParams?: string;
 }
 
@@ -266,9 +266,9 @@ export const AliexpressDistributionProductEditOpenProductBaseRequestDTOSchema: S
   };
 
 export interface AliexpressDistributionProductEditOpenProductDescMobileDetailDTO {
-  /** 移动详描版本 */
+  /** Mobile detailed description version */
   version?: string;
-  /** 详描模块列表 */
+  /** Detailed description module list */
   moduleList?: Array<AliexpressDistributionProductEditOpenProductDescModuleDTO>;
 }
 
@@ -283,11 +283,11 @@ export const AliexpressDistributionProductEditOpenProductDescMobileDetailDTOSche
   };
 
 export interface AliexpressDistributionProductEditOpenProductDescModuleDTO {
-  /** 模块类型 */
+  /** Module type */
   type?: string;
-  /** 文字模块列表 */
+  /** Text module list */
   texts?: Array<AliexpressDistributionProductEditOpenProductTextsDTO>;
-  /** 图片模块列表 */
+  /** Image module list */
   images?: Array<AliexpressDistributionProductEditOpenProductImageDTO>;
 }
 
@@ -307,11 +307,11 @@ export const AliexpressDistributionProductEditOpenProductDescModuleDTOSchema: Sc
   };
 
 export interface AliexpressDistributionProductEditOpenProductDescriptionDTO {
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** html版本详描 */
+  /** HTML version of the detailed description */
   webDetail?: string;
-  /** 移动详描 */
+  /** Mobile detailed description */
   mobileDetail?: AliexpressDistributionProductEditOpenProductDescMobileDetailDTO;
 }
 
@@ -328,7 +328,7 @@ export const AliexpressDistributionProductEditOpenProductDescriptionDTOSchema: S
   };
 
 export interface AliexpressDistributionProductEditOpenProductImageDTO {
-  /** 图片url */
+  /** Image URL */
   url?: string;
 }
 
@@ -338,9 +338,9 @@ export const AliexpressDistributionProductEditOpenProductImageDTOSchema: Schema 
   };
 
 export interface AliexpressDistributionProductEditOpenProductTextsDTO {
-  /** 文字模块内容 */
+  /** Text module content */
   content?: string;
-  /** 文字模块类别 */
+  /** Text module type */
   classType?: string;
 }
 
@@ -351,9 +351,9 @@ export const AliexpressDistributionProductEditOpenProductTextsDTOSchema: Schema 
   };
 
 export interface AliexpressDistributionProductEditOpenProductTitleDTO {
-  /** 商品标题语言 */
+  /** Product title language */
   language?: string;
-  /** 商品标题内容 */
+  /** Product title content */
   subject?: string;
 }
 
@@ -364,15 +364,15 @@ export const AliexpressDistributionProductEditOpenProductTitleDTOSchema: Schema 
   };
 
 export interface AliexpressDistributionProductEditOpenSkuAttributeDTO {
-  /** SKU图片 */
+  /** SKU image */
   skuImageUrl?: string;
-  /** SKU属性名称 */
+  /** SKU attribute name */
   skuAttributeName?: string;
-  /** SKU属性名称id */
+  /** SKU attribute name id */
   skuAttributeNameId?: string;
-  /** SKU属性值 */
+  /** SKU attribute value */
   skuAttributeValue?: string;
-  /** SKU属性值id */
+  /** SKU attribute value id */
   skuAttributeValueId?: string;
 }
 
@@ -386,19 +386,19 @@ export const AliexpressDistributionProductEditOpenSkuAttributeDTOSchema: Schema 
   };
 
 export interface AliexpressDistributionProductEditOpenSkuInfoDTO {
-  /** SKU价格 */
+  /** SKU price */
   price?: string;
   /** SKU BarCode */
   barCode?: string;
   /** SKU EanCode */
   eanCode?: string;
-  /** SKU库存 */
+  /** SKU inventory */
   inventory?: string;
   /** SKU Code */
   skuCode?: string;
-  /** SKU销售属性列表 */
+  /** List of SKU sales attributes */
   skuAttributesList?: Array<AliexpressDistributionProductEditOpenSkuAttributeDTO>;
-  /** 库存类型，商家仓/自营仓 */
+  /** Inventory type, merchant warehouse / self-operated warehouse */
   inventoryType?: string;
 }
 
@@ -417,7 +417,7 @@ export const AliexpressDistributionProductEditOpenSkuInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressDistributionProductInfoGetOpenProductBaseRequestDTO {
-  /** 源头商品id */
+  /** Source product ID */
   srcProductId?: string;
 }
 
@@ -427,7 +427,7 @@ export const AliexpressDistributionProductInfoGetOpenProductBaseRequestDTOSchema
   };
 
 export interface AliexpressDistributionProductInfoGetOpenProductInfoDTO {
-  /** 源头商品SKU列表 */
+  /** List of source product SKUs */
   skuInfoList?: Array<AliexpressDistributionProductInfoGetOpenSkuInfoDTO>;
   /** Product Id */
   srcProductId?: string;
@@ -444,11 +444,11 @@ export const AliexpressDistributionProductInfoGetOpenProductInfoDTOSchema: Schem
   };
 
 export interface AliexpressDistributionProductInfoGetOpenSkuInfoDTO {
-  /** 源头SKU价格，货币美元 */
+  /** Source SKU price, currency USD */
   price?: string;
   /** SKU Code */
   skuCode?: string;
-  /** SKU变更时间 */
+  /** SKU change time */
   lastModifiedDate?: string;
 }
 
@@ -460,13 +460,13 @@ export const AliexpressDistributionProductInfoGetOpenSkuInfoDTOSchema: Schema =
   };
 
 export interface AliexpressDistributionProductPostOpenProductAttributeDTO {
-  /** 商品属性名称 */
+  /** Product attribute name */
   attributeName?: string;
-  /** 商品属性名称id */
+  /** Product attribute name id */
   attributeNameId?: string;
-  /** 商品属性值 */
+  /** Product attribute value */
   attributeValue?: string;
-  /** 商品属性值名称id */
+  /** Product attribute value name id */
   attributeValueId?: string;
 }
 
@@ -479,41 +479,41 @@ export const AliexpressDistributionProductPostOpenProductAttributeDTOSchema: Sch
   };
 
 export interface AliexpressDistributionProductPostOpenProductBaseRequestDTO {
-  /** 源头商品ID */
+  /** Source product ID */
   srcProductId?: string;
-  /** 商品编号 */
+  /** Product number */
   modelNo?: string;
-  /** 多语言详描列表 */
+  /** Multilingual detailed description list */
   multiLanguageDescriptionList?: Array<AliexpressDistributionProductPostOpenProductDescriptionDTO>;
-  /** 多语言商品标题列表 */
+  /** List of multilingual product titles */
   multiLanguageSubjectList?: Array<AliexpressDistributionProductPostOpenProductTitleDTO>;
-  /** 多语言尺码表列表 */
+  /** List of multilingual size charts */
   sizeChartImageList?: Array<AliexpressDistributionProductPostOpenProductTitleDTO>;
-  /** 单位厘米 */
+  /** Unit: cm */
   packageLength?: string;
-  /** 单位厘米 */
+  /** Unit: cm */
   packageWidth?: string;
-  /** 单位厘米 */
+  /** Unit: cm */
   packageHeight?: string;
-  /** 单位千克 */
+  /** Unit: kg */
   weight?: string;
-  /** 源头类目id */
+  /** Source category ID */
   categoryId?: string;
-  /** 源头品牌名称 */
+  /** Source brand name */
   brandName?: string;
-  /** 源头品牌id */
+  /** Source brand ID */
   brandId?: string;
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 业务区分站点编码 */
+  /** Business site distinction code */
   siteCode?: string;
-  /** 商品非销售属性 */
+  /** Product non-sales attributes */
   attributeList?: Array<AliexpressDistributionProductPostOpenProductAttributeDTO>;
-  /** 商品主图列表 */
+  /** Product main image list */
   mainImageUrlsList?: Array<string>;
-  /** 商品SKU列表 */
+  /** Product SKU list */
   skuInfoList?: Array<AliexpressDistributionProductPostOpenSkuInfoDTO>;
-  /** 附加参数，json字符串 */
+  /** Additional parameters, json string */
   extraParams?: string;
 }
 
@@ -560,9 +560,9 @@ export const AliexpressDistributionProductPostOpenProductBaseRequestDTOSchema: S
   };
 
 export interface AliexpressDistributionProductPostOpenProductDescMobileDetailDTO {
-  /** 移动详描版本 */
+  /** Mobile detailed description version */
   version?: string;
-  /** 详描模块列表 */
+  /** Detailed description module list */
   moduleList?: Array<AliexpressDistributionProductPostOpenProductDescModuleDTO>;
 }
 
@@ -577,11 +577,11 @@ export const AliexpressDistributionProductPostOpenProductDescMobileDetailDTOSche
   };
 
 export interface AliexpressDistributionProductPostOpenProductDescModuleDTO {
-  /** 模块类型 */
+  /** Module type */
   type?: string;
-  /** 文字模块列表 */
+  /** Text module list */
   texts?: Array<AliexpressDistributionProductPostOpenProductTextsDTO>;
-  /** 图片模块列表 */
+  /** Image module list */
   images?: Array<AliexpressDistributionProductPostOpenProductImageDTO>;
 }
 
@@ -601,11 +601,11 @@ export const AliexpressDistributionProductPostOpenProductDescModuleDTOSchema: Sc
   };
 
 export interface AliexpressDistributionProductPostOpenProductDescriptionDTO {
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** html版本详描 */
+  /** HTML version of the detailed description */
   webDetail?: string;
-  /** 移动详描 */
+  /** Mobile detailed description */
   mobileDetail?: AliexpressDistributionProductPostOpenProductDescMobileDetailDTO;
 }
 
@@ -622,7 +622,7 @@ export const AliexpressDistributionProductPostOpenProductDescriptionDTOSchema: S
   };
 
 export interface AliexpressDistributionProductPostOpenProductImageDTO {
-  /** 图片url */
+  /** Image URL */
   url?: string;
 }
 
@@ -632,9 +632,9 @@ export const AliexpressDistributionProductPostOpenProductImageDTOSchema: Schema 
   };
 
 export interface AliexpressDistributionProductPostOpenProductTextsDTO {
-  /** 文字模块内容 */
+  /** Text module content */
   content?: string;
-  /** 文字模块类别 */
+  /** Text module type */
   classType?: string;
 }
 
@@ -645,9 +645,9 @@ export const AliexpressDistributionProductPostOpenProductTextsDTOSchema: Schema 
   };
 
 export interface AliexpressDistributionProductPostOpenProductTitleDTO {
-  /** 商品标题语言 */
+  /** Product title language */
   language?: string;
-  /** 商品标题内容 */
+  /** Product title content */
   subject?: string;
 }
 
@@ -658,15 +658,15 @@ export const AliexpressDistributionProductPostOpenProductTitleDTOSchema: Schema 
   };
 
 export interface AliexpressDistributionProductPostOpenSkuAttributeDTO {
-  /** SKU图片 */
+  /** SKU image */
   skuImageUrl?: string;
-  /** SKU属性名称 */
+  /** SKU attribute name */
   skuAttributeName?: string;
-  /** SKU属性名称id */
+  /** SKU attribute name id */
   skuAttributeNameId?: string;
-  /** SKU属性值 */
+  /** SKU attribute value */
   skuAttributeValue?: string;
-  /** SKU属性值id */
+  /** SKU attribute value id */
   skuAttributeValueId?: string;
 }
 
@@ -680,19 +680,19 @@ export const AliexpressDistributionProductPostOpenSkuAttributeDTOSchema: Schema 
   };
 
 export interface AliexpressDistributionProductPostOpenSkuInfoDTO {
-  /** SKU价格 */
+  /** SKU price */
   price?: string;
   /** SKU BarCode */
   barCode?: string;
   /** SKU EanCode */
   eanCode?: string;
-  /** SKU库存 */
+  /** SKU inventory */
   inventory?: string;
   /** SKU Code */
   skuCode?: string;
-  /** SKU销售属性列表 */
+  /** List of SKU sales attributes */
   skuAttributesList?: Array<AliexpressDistributionProductPostOpenSkuAttributeDTO>;
-  /** 库存类型，商家仓/自营仓 */
+  /** Inventory type, merchant warehouse / self-operated warehouse */
   inventoryType?: string;
 }
 
@@ -712,19 +712,19 @@ export const AliexpressDistributionProductPostOpenSkuInfoDTOSchema: Schema = {
 
 /** Parameters for `aliexpress.distribution.batch.product.inventory.update`. */
 export interface AliexpressDistributionBatchProductInventoryUpdateParams {
-  /** 输入参数 */
+  /** Input parameters */
   updateProductRequest?: AliexpressDistributionBatchProductInventoryUpdateOpenBatchProductUpdateRequestDTO;
 }
 
 /** Response of `aliexpress.distribution.batch.product.inventory.update`. */
 export interface AliexpressDistributionBatchProductInventoryUpdateResponse {
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
   /** forTrace */
   traceId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
 }
 
@@ -763,11 +763,11 @@ export interface AliexpressDistributionBatchProductPriceUpdateParams {
 
 /** Response of `aliexpress.distribution.batch.product.price.update`. */
 export interface AliexpressDistributionBatchProductPriceUpdateResponse {
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 返回数据 */
+  /** Returned data */
   data?: string;
 }
 
@@ -798,19 +798,19 @@ export const aliexpressDistributionBatchProductPriceUpdate: ApiDefinition<
 
 /** Parameters for `aliexpress.distribution.batch.product.status.update`. */
 export interface AliexpressDistributionBatchProductStatusUpdateParams {
-  /** 输入参数 */
+  /** Input parameters */
   updateProductRequest?: AliexpressDistributionBatchProductStatusUpdateOpenBatchProductUpdateRequestDTO;
 }
 
 /** Response of `aliexpress.distribution.batch.product.status.update`. */
 export interface AliexpressDistributionBatchProductStatusUpdateResponse {
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 排查调用id */
+  /** Troubleshooting call ID */
   traceId?: string;
-  /** 数据对象 */
+  /** Data object */
   data?: string;
 }
 
@@ -850,13 +850,13 @@ export interface AliexpressDistributionProductEditParams {
 export interface AliexpressDistributionProductEditResponse {
   /** Product Id */
   data?: Long;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: string;
-  /** 内部追踪id */
+  /** Internal trace ID */
   traceId?: string;
 }
 
@@ -888,21 +888,21 @@ export const aliexpressDistributionProductEdit: ApiDefinition<
 
 /** Parameters for `aliexpress.distribution.product.info.get`. */
 export interface AliexpressDistributionProductInfoGetParams {
-  /** 请求参数 */
+  /** Request parameters */
   productQueryRequest?: AliexpressDistributionProductInfoGetOpenProductBaseRequestDTO;
 }
 
 /** Response of `aliexpress.distribution.product.info.get`. */
 export interface AliexpressDistributionProductInfoGetResponse {
-  /** 源头商品id */
+  /** Source product ID */
   data?: AliexpressDistributionProductInfoGetOpenProductInfoDTO;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 内部追踪id */
+  /** Internal trace ID */
   traceId?: string;
 }
 
@@ -946,13 +946,13 @@ export interface AliexpressDistributionProductPostParams {
 export interface AliexpressDistributionProductPostResponse {
   /** Product Id */
   data?: Long;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: string;
-  /** 内部追踪id */
+  /** Internal trace ID */
   traceId?: string;
 }
 

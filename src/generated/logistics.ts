@@ -9,13 +9,13 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressLogisticsAbnormalorderQueryAeopPackgeInfo {
-  /** 包裹长度（cm） */
+  /** Package length (cm) */
   goodsLength?: number;
-  /** 包裹宽度（cm） */
+  /** Package width (cm) */
   goodsWidth?: number;
-  /** 包裹高度（cm） */
+  /** Package height (cm) */
   goodsHeight?: number;
-  /** 包裹重量（g） */
+  /** Package weight (g) */
   goodsWeight?: number;
 }
 
@@ -28,67 +28,67 @@ export const AliexpressLogisticsAbnormalorderQueryAeopPackgeInfoSchema: Schema =
   };
 
 export interface AliexpressLogisticsAbnormalorderQueryAeopWarehouseAbnormalOrderResult {
-  /** 解决方案_仓编码 */
+  /** Solution_warehouse code */
   schemeCode?: string;
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: Long;
-  /** 不可达保险 */
+  /** Undeliverable insurance */
   unreachableInsured?: boolean;
-  /** 国内快递公司 */
+  /** Domestic courier company */
   domesticLogisticCompanyName?: string;
-  /** 异常原因 */
+  /** Exception reason */
   abnormalReason?: string;
-  /** 逆向高货值保险 */
+  /** Reverse high-value insurance */
   reHighValueInsure?: boolean;
-  /** 揽收仓名称 */
+  /** Pickup warehouse name */
   warehouseName?: string;
-  /** 解决方案编码 */
+  /** Solution code */
   solutionCode?: string;
-  /** 揽收仓编码 */
+  /** Pickup warehouse code */
   warehouseCode?: string;
-  /** 高货值保险 */
+  /** High-value insurance */
   highValueInsure?: boolean;
-  /** 物流详情链接 */
+  /** Logistics detail link */
   logisticDetailUrl?: string;
-  /** 订单状态名称 */
+  /** Order status name */
   orderStatusName?: string;
-  /** 支付状态编码 */
+  /** Payment status code */
   paymentStatusCode?: string;
-  /** 退回运单号 */
+  /** Return waybill number */
   undExpressMailNo?: string;
-  /** 禁运审核结果 */
+  /** Shipping ban review result */
   forbiddenAuditResult?: string;
-  /** 取消状态名称 */
+  /** Cancellation status name */
   cancelStatusName?: string;
   /** id */
   id?: Long;
-  /** 解决方案名称 */
+  /** Solution name */
   solutionName?: string;
-  /** 状态变更时间 */
+  /** Status change time */
   gmtStatusUpdate?: string;
-  /** 异常编码 */
+  /** Exception code */
   abnormalCode?: string;
-  /** 运单号 */
+  /** Waybill number */
   intlTrackingNo?: string;
-  /** 订单创建时间 */
+  /** Order creation time */
   gmtCreate?: string;
-  /** 取消状态编码 */
+  /** Cancellation status code */
   cancelStatusCode?: string;
-  /** 订单状态编码 */
+  /** Order status code */
   orderStatusCode?: string;
-  /** 支付状态名称 */
+  /** Payment status name */
   paymentStatusName?: string;
-  /** 国内运单号 */
+  /** Domestic waybill number */
   domesticLogisticTrackingNo?: string;
-  /** mailNo异常获取相关编码 */
+  /** Code related to mailNo exception retrieval */
   mailnoStatusErrorcode?: string;
-  /** mailNo异常获取相关描述 */
+  /** Description related to mailNo exception retrieval */
   mailnoStatusErrormsg?: string;
-  /** 物流单LP号 */
+  /** Logistics order LP number */
   outOrderCode?: string;
-  /** 异常滞留决策超时时间 */
+  /** Timeout for the abnormal stranded-package decision */
   overTime?: string;
-  /** 异常滞留包裹长宽高重 */
+  /** Length, width, height and weight of the abnormal stranded package */
   aeopPackgeInfo?: AliexpressLogisticsAbnormalorderQueryAeopPackgeInfo;
 }
 
@@ -132,37 +132,37 @@ export const AliexpressLogisticsAbnormalorderQueryAeopWarehouseAbnormalOrderResu
   };
 
 export interface AliexpressLogisticsAsfShipmentInquirySolutionCbLogisticsServiceOpenApiResult {
-  /** APL时效档位排序 */
+  /** APL delivery time tier ranking */
   aplLevelRank?: string;
-  /** APL时效档位名称 */
+  /** APL delivery time tier name */
   aplLevelName?: string;
-  /** 推荐排序 */
+  /** Recommended order */
   recommendOrder?: string;
-  /** APL配送选项码 */
+  /** APL delivery option code */
   deliveryOptionCode?: string;
-  /** APL配送标签排序 */
+  /** APL delivery label ranking */
   deliveryRank?: string;
-  /** APL配送标签名称 */
+  /** APL delivery label name */
   displayName?: string;
-  /** APL配送标签 */
+  /** APL delivery label */
   deliveryTag?: string;
-  /** APL排序值 */
+  /** APL sort value */
   sort?: number;
-  /** 物流服务编码 */
+  /** Logistics service code */
   serviceName?: string;
-  /** 运单号校验正则 */
+  /** Tracking number validation regex */
   trackingNoRegex?: string;
-  /** APL时效档位码 */
+  /** APL delivery time tier code */
   aplLevelCode?: string;
-  /** 物流商编码 */
+  /** Logistics provider code */
   logisticsCompany?: string;
-  /** 最大处理天数 */
+  /** Maximum processing days */
   maxProcessDay?: number;
-  /** 最短处理天数 */
+  /** Minimum processing days */
   minProcessDay?: number;
-  /** APL配送标签名称 */
+  /** APL delivery label name */
   deliveryName?: string;
-  /** APL推荐标识 */
+  /** APL recommendation flag */
   aplRecommend?: string;
 }
 
@@ -187,13 +187,13 @@ export const AliexpressLogisticsAsfShipmentInquirySolutionCbLogisticsServiceOpen
   };
 
 export interface AliexpressLogisticsAsfShipmentInquirySolutionCbOpenApiBaseRespons {
-  /** 数据 */
+  /** Data */
   data?: Array<AliexpressLogisticsAsfShipmentInquirySolutionCbLogisticsServiceOpenApiResult>;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误码文案 */
+  /** Error code text */
   errorMessage?: string;
 }
 
@@ -307,21 +307,21 @@ export const AliexpressLogisticsBuyerFreightCalculateMoneySchema: Schema = {
 };
 
 export interface AliexpressLogisticsBuyerFreightGetAeopFreightCalculateForBuyerDTO {
-  /** 商品价格币种 */
+  /** Product price currency */
   priceCurrency?: string;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 目的国家code */
+  /** Destination country code */
   countryCode?: string;
-  /** 目的省市code */
+  /** Destination province/city code */
   provinceCode?: string;
-  /** 目的城市code */
+  /** Destination city code */
   cityCode?: string;
-  /** 发货国 */
+  /** Shipping country */
   sendGoodsCountryCode?: string;
-  /** 商品价格 */
+  /** Product price */
   price?: string;
-  /** 商品购买数量 */
+  /** Product purchase quantity */
   productNum?: number;
   /** skuId */
   skuId?: Long;
@@ -341,17 +341,17 @@ export const AliexpressLogisticsBuyerFreightGetAeopFreightCalculateForBuyerDTOSc
   };
 
 export interface AliexpressLogisticsBuyerFreightGetAeopFreightCalculateResultForBuyerDTO {
-  /** 预估运达时效 */
+  /** Estimated delivery time */
   estimatedDeliveryTime?: string;
-  /** 物流方式 */
+  /** Logistics method */
   shippingMethod?: string;
-  /** 运费对象 */
+  /** Shipping fee object */
   freight?: AliexpressLogisticsBuyerFreightGetMoney;
-  /** 错误吗 */
+  /** Error code */
   errorCode?: Long;
-  /** 是否可tracking */
+  /** Whether trackable */
   trackingAvailable?: boolean;
-  /** 线路服务名称 */
+  /** Route service name */
   serviceName?: string;
 }
 
@@ -370,11 +370,11 @@ export const AliexpressLogisticsBuyerFreightGetAeopFreightCalculateResultForBuye
   };
 
 export interface AliexpressLogisticsBuyerFreightGetAeopFreightCalculateResultListResponseForBuyer {
-  /** 错误描述 */
+  /** Error description */
   errorDesc?: string;
-  /** 服务列表 */
+  /** Service list */
   aeopFreightCalculateResultForBuyerDtolist?: Array<AliexpressLogisticsBuyerFreightGetAeopFreightCalculateResultForBuyerDTO>;
-  /** 结果 */
+  /** Result */
   success?: boolean;
 }
 
@@ -391,11 +391,11 @@ export const AliexpressLogisticsBuyerFreightGetAeopFreightCalculateResultListRes
   };
 
 export interface AliexpressLogisticsBuyerFreightGetMoney {
-  /** 运费对象值 */
+  /** Shipping fee object value */
   cent?: Long;
-  /** 运费对象值 */
+  /** Shipping fee object value */
   currency?: string;
-  /** 运费对象值 */
+  /** Shipping fee object value */
   currencyCode?: string;
 }
 
@@ -406,21 +406,21 @@ export const AliexpressLogisticsBuyerFreightGetMoneySchema: Schema = {
 };
 
 export interface AliexpressLogisticsCreatewarehouseorderAeopWlCreateWarehouseOrderResultDTO {
-  /** 创建时错误码(1表示无错误) */
+  /** Error code at creation (1 means no error) */
   errorCode?: Long;
-  /** 创建时错误信息 */
+  /** Error message at creation */
   errorDesc?: string;
-  /** 国际运单号 */
+  /** International waybill number */
   intlTrackingNo?: string;
-  /** 外部订单号 */
+  /** External order number */
   outOrderId?: Long;
-  /** 创建订单是否成功 */
+  /** Whether order creation succeeded */
   success?: boolean;
-  /** 订单来源 */
+  /** Order source */
   tradeOrderFrom?: string;
-  /** 交易订单号 */
+  /** Transaction order number */
   tradeOrderId?: Long;
-  /** 物流订单号 */
+  /** Logistics order number */
   warehouseOrderId?: Long;
 }
 
@@ -472,27 +472,27 @@ export const AliexpressLogisticsCreatewarehouseorderAeopWlDeclareAddressDTOSchem
   };
 
 export interface AliexpressLogisticsCreatewarehouseorderAeopWlDeclareProductForTopDTO {
-  /** 判断是否属于非液体化妆品 */
+  /** Determines whether it is a non-liquid cosmetic */
   aneroidMarkup?: boolean;
-  /** 是否易碎 */
+  /** Whether fragile */
   breakable?: boolean;
-  /** 类目中文名称 */
+  /** Category Chinese name */
   categoryCnDesc?: string;
-  /** 类目英文名称 */
+  /** Category English name */
   categoryEnDesc?: string;
-  /** 是否包含电池 */
+  /** Whether it contains a battery */
   containsBattery?: boolean;
-  /** 海关编码 */
+  /** Customs code */
   hsCode?: string;
-  /** 是否纯电池 */
+  /** Whether it is battery only */
   onlyBattery?: boolean;
-  /** 产品申报金额 */
+  /** Product declared value */
   productDeclareAmount?: string;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 产品数量 */
+  /** Product quantity */
   productNum?: number;
-  /** 产品重量 */
+  /** Product weight */
   productWeight?: string;
   /** scItem code */
   scItemCode?: string;
@@ -504,9 +504,9 @@ export interface AliexpressLogisticsCreatewarehouseorderAeopWlDeclareProductForT
   skuCode?: string;
   /** sku value */
   skuValue?: string;
-  /** 是否特货 */
+  /** Whether special goods */
   containsSpecialGoods?: boolean;
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   childOrderId?: Long;
 }
 
@@ -533,9 +533,9 @@ export const AliexpressLogisticsCreatewarehouseorderAeopWlDeclareProductForTopDT
   };
 
 export interface AliexpressLogisticsCreatewarehouseorderMoney {
-  /** 分 */
+  /** Cent */
   cent?: Long;
-  /** 币种三字码 */
+  /** Three-letter currency code */
   currencyCode?: string;
 }
 
@@ -545,37 +545,37 @@ export const AliexpressLogisticsCreatewarehouseorderMoneySchema: Schema = {
 };
 
 export interface AliexpressLogisticsCreatewarehouseorderstruct {
-  /** 电话 */
+  /** Phone */
   phone?: string;
-  /** 传真 */
+  /** Fax */
   fax?: string;
-  /** 类型 */
+  /** Type */
   memberType?: string;
-  /** 旺旺 */
+  /** Wangwang */
   trademanageId?: string;
-  /** 邮编 */
+  /** Postal code */
   postCode?: string;
-  /** 街道 */
+  /** Street */
   street?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 区 */
+  /** District */
   county?: string;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 卖家后台地址id,用来获取卖家详细地址信息，传入值为Long型；传入addressId后，其余字段值无效。 */
+  /** Seller console address id, used to get detailed seller address information; the value passed is of type Long. After addressId is passed, the other field values are ignored. */
   addressId?: Long;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 详细地址 */
+  /** Detailed address */
   streetAddress?: string;
-  /** 电话 */
+  /** Phone */
   mobile?: string;
-  /** 仓Code */
+  /** Warehouse code */
   fromWarehouseCode?: string;
 }
 
@@ -620,19 +620,19 @@ export const AliexpressLogisticsDsTrackinginfoQueryStringSchema: Schema = {
 };
 
 export interface AliexpressLogisticsGetannouncementResult {
-  /** 封面 */
+  /** Cover */
   cover?: string;
-  /** 消息类型 */
+  /** Message type */
   messageType?: string;
-  /** 描述 */
+  /** Description */
   description?: string;
-  /** 标题 */
+  /** Title */
   title?: string;
-  /** 跳转链接 */
+  /** Redirect link */
   url?: string;
-  /** 状态 */
+  /** Status */
   status?: string;
-  /** 发布时间 */
+  /** Publish time */
   publishTime?: string;
 }
 
@@ -647,11 +647,11 @@ export const AliexpressLogisticsGetannouncementResultSchema: Schema = {
 };
 
 export interface AliexpressLogisticsGetannouncementResultdata {
-  /** 结果列表 */
+  /** Result list */
   resultList?: Array<AliexpressLogisticsGetannouncementResult>;
   /** 1 */
   errorDesc?: string;
-  /** 明细条目执行结果的成功状态 */
+  /** Success status of the detail entry execution result */
   success?: boolean;
 }
 
@@ -689,11 +689,11 @@ export const AliexpressLogisticsGetpdfsbycloudprintAeopCloudPrintDataResponseSch
   };
 
 export interface AliexpressLogisticsGetpdfsbycloudprintAeopWarehouseOrderQueryPdfRequest {
-  /** 物流订单号 */
+  /** Logistics order number */
   id?: Long;
-  /** 创建线上发货 产生的 货物跟踪编码 或 国际运单号 */
+  /** Goods tracking code or international tracking number generated by creating an online shipment */
   internationalLogisticsId?: string;
-  /** 自定义分拣单信息 */
+  /** Custom sorting order information */
   extendData?: string;
 }
 
@@ -742,23 +742,23 @@ export const AliexpressLogisticsGetpdfsbycloudprintCloudPrintDataSchema: Schema 
   };
 
 export interface AliexpressLogisticsLocalCreatewarehouseorderAeopLocalWlCreateWarehouseOrderResultDTO {
-  /** 首公里揽收模式 */
+  /** First-mile pickup mode */
   firstMileMode?: string;
-  /** 创建时错误码(1表示无错误) */
+  /** Error code at creation (1 means no error) */
   errorCode?: Long;
-  /** 创建时错误信息 */
+  /** Error message at creation */
   errorDesc?: string;
-  /** 国际运单号 */
+  /** International waybill number */
   intlTrackingNo?: string;
-  /** 外部订单号 */
+  /** External order number */
   outOrderId?: Long;
-  /** 创建订单是否成功 */
+  /** Whether order creation succeeded */
   success?: boolean;
-  /** 订单来源 */
+  /** Order source */
   tradeOrderFrom?: string;
-  /** 交易订单号 */
+  /** Transaction order number */
   tradeOrderId?: Long;
-  /** 物流订单号 */
+  /** Logistics order number */
   warehouseOrderId?: Long;
 }
 
@@ -797,27 +797,27 @@ export const AliexpressLogisticsLocalCreatewarehouseorderAeopWlDeclareAddressDTO
   };
 
 export interface AliexpressLogisticsLocalCreatewarehouseorderAeopWlDeclareProductForTopDTO {
-  /** 判断是否属于非液体化妆品 */
+  /** Determines whether it is a non-liquid cosmetic */
   aneroidMarkup?: boolean;
-  /** 是否易碎 */
+  /** Whether fragile */
   breakable?: boolean;
-  /** 类目中文名称 */
+  /** Category Chinese name */
   categoryCnDesc?: string;
-  /** 类目英文名称 */
+  /** Category English name */
   categoryEnDesc?: string;
-  /** 是否包含电池 */
+  /** Whether it contains a battery */
   containsBattery?: boolean;
-  /** 海关编码 */
+  /** Customs code */
   hsCode?: string;
-  /** 是否纯电池 */
+  /** Whether it is battery only */
   onlyBattery?: boolean;
-  /** 产品申报金额 */
+  /** Product declared value */
   productDeclareAmount?: string;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 产品数量 */
+  /** Product quantity */
   productNum?: number;
-  /** 产品重量 */
+  /** Product weight */
   productWeight?: string;
   /** scItem code */
   scItemCode?: string;
@@ -829,9 +829,9 @@ export interface AliexpressLogisticsLocalCreatewarehouseorderAeopWlDeclareProduc
   skuCode?: string;
   /** sku value */
   skuValue?: string;
-  /** 是否特货 */
+  /** Whether special goods */
   containsSpecialGoods?: boolean;
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   childOrderId?: Long;
 }
 
@@ -858,9 +858,9 @@ export const AliexpressLogisticsLocalCreatewarehouseorderAeopWlDeclareProductFor
   };
 
 export interface AliexpressLogisticsLocalCreatewarehouseorderMoney {
-  /** 分 */
+  /** Cent */
   cent?: Long;
-  /** 币种三字码 */
+  /** Three-letter currency code */
   currencyCode?: string;
 }
 
@@ -870,35 +870,35 @@ export const AliexpressLogisticsLocalCreatewarehouseorderMoneySchema: Schema = {
 };
 
 export interface AliexpressLogisticsLocalCreatewarehouseorderstruct {
-  /** 电话 */
+  /** Phone */
   phone?: string;
-  /** 传真 */
+  /** Fax */
   fax?: string;
-  /** 类型 */
+  /** Type */
   memberType?: string;
-  /** 旺旺 */
+  /** Wangwang */
   trademanageId?: string;
-  /** 邮编 */
+  /** Postal code */
   postCode?: string;
-  /** 街道 */
+  /** Street */
   street?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 区 */
+  /** District */
   county?: string;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 卖家后台地址id,用来获取卖家详细地址信息，传入值为Long型；传入addressId后，其余字段值无效。 */
+  /** Seller console address id, used to get detailed seller address information; the value passed is of type Long. After addressId is passed, the other field values are ignored. */
   addressId?: Long;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 详细地址 */
+  /** Detailed address */
   streetAddress?: string;
-  /** 电话 */
+  /** Phone */
   mobile?: string;
 }
 
@@ -1175,23 +1175,23 @@ export const AliexpressLogisticsLocalListlogisticsserviceLogisticsSolutionDOSche
   };
 
 export interface AliexpressLogisticsOrderCreateorderAeopWlCreateWarehouseOrderResultDTO {
-  /** LP单号 */
+  /** LP number */
   outOrderCode?: string;
-  /** 创建时错误码(1表示无错误) */
+  /** Error code at creation (1 means no error) */
   errorCode?: Long;
-  /** 创建时错误信息 */
+  /** Error message at creation */
   errorDesc?: string;
-  /** 货物跟踪编码/国际运单号 */
+  /** Cargo tracking code / international waybill number */
   intlTrackingNo?: string;
-  /** 外部订单号 */
+  /** External order number */
   outOrderId?: Long;
-  /** 创建订单是否成功 */
+  /** Whether order creation succeeded */
   success?: boolean;
-  /** 订单来源 */
+  /** Order source */
   tradeOrderFrom?: string;
-  /** 交易订单号 */
+  /** Transaction order number */
   tradeOrderId?: Long;
-  /** 物流订单号 */
+  /** Logistics order number */
   warehouseOrderId?: Long;
 }
 
@@ -1209,11 +1209,11 @@ export const AliexpressLogisticsOrderCreateorderAeopWlCreateWarehouseOrderResult
   };
 
 export interface AliexpressLogisticsOrderCreateorderAeopWlDeclareAddressDTO {
-  /** 海外不可达退回地址 */
+  /** Overseas undeliverable return address */
   overseasRefundAddress?: AliexpressLogisticsOrderCreateorderstruct;
-  /** 发件地址 */
+  /** Sender address */
   sender?: AliexpressLogisticsOrderCreateorderstruct;
-  /** 上门揽收时必填，自寄自送不填 */
+  /** Required for door-to-door pickup, leave empty for self-delivery */
   pickup?: AliexpressLogisticsOrderCreateorderstruct;
   /** receiver address */
   receiver?: AliexpressLogisticsOrderCreateorderstruct;
@@ -1251,41 +1251,41 @@ export const AliexpressLogisticsOrderCreateorderAeopWlDeclareAddressDTOSchema: S
   };
 
 export interface AliexpressLogisticsOrderCreateorderAeopWlDeclareProductForTopDTO {
-  /** 判断是否属于非液体化妆品 */
+  /** Determines whether it is a non-liquid cosmetic */
   aneroidMarkup?: boolean;
-  /** 是否易碎 */
+  /** Whether fragile */
   breakable?: boolean;
-  /** 类目中文名称 */
+  /** Category Chinese name */
   categoryCnDesc?: string;
-  /** 类目英文名称 */
+  /** Category English name */
   categoryEnDesc?: string;
-  /** 是否包含电池 */
+  /** Whether it contains a battery */
   containsBattery?: boolean;
-  /** 海关编码 */
+  /** Customs code */
   hsCode?: string;
-  /** 是否纯电池 */
+  /** Whether it is battery only */
   onlyBattery?: boolean;
-  /** 产品申报金额 */
+  /** Product declared value */
   productDeclareAmount?: string;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 产品数量 */
+  /** Product quantity */
   productNum?: number;
-  /** 产品重量 */
+  /** Product weight */
   productWeight?: string;
-  /** 货品 code */
+  /** Goods code */
   scItemCode?: string;
-  /** 货品 id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 货品 name */
+  /** Goods name */
   scItemName?: string;
   /** sku code */
   skuCode?: string;
-  /** sku 值 */
+  /** SKU value */
   skuValue?: string;
-  /** 是否特货 */
+  /** Whether special goods */
   containsSpecialGoods?: boolean;
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   childOrderId?: Long;
 }
 
@@ -1312,9 +1312,9 @@ export const AliexpressLogisticsOrderCreateorderAeopWlDeclareProductForTopDTOSch
   };
 
 export interface AliexpressLogisticsOrderCreateorderMoney {
-  /** 分 */
+  /** Cent */
   cent?: Long;
-  /** 币种三字码 */
+  /** Three-letter currency code */
   currencyCode?: string;
 }
 
@@ -1324,37 +1324,37 @@ export const AliexpressLogisticsOrderCreateorderMoneySchema: Schema = {
 };
 
 export interface AliexpressLogisticsOrderCreateorderstruct {
-  /** 卖家后台地址id,用来获取卖家详细地址信息，传入值为Long型,必传 */
+  /** Seller console address id, used to get detailed seller address information; the value passed is of type Long, required */
   addressId?: Long;
-  /** 电话 */
+  /** Phone */
   phone?: string;
-  /** 传真 */
+  /** Fax */
   fax?: string;
-  /** 类型 */
+  /** Type */
   memberType?: string;
-  /** 旺旺 */
+  /** Wangwang */
   trademanageId?: string;
-  /** 邮编 */
+  /** Postal code */
   postCode?: string;
-  /** 街道 */
+  /** Street */
   street?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 区 */
+  /** District */
   county?: string;
-  /** 邮箱 */
+  /** Email */
   email?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 详细地址 */
+  /** Detailed address */
   streetAddress?: string;
-  /** 电话 */
+  /** Phone */
   mobile?: string;
-  /** 短地址 */
+  /** Short address */
   natAddr?: string;
 }
 
@@ -1404,9 +1404,9 @@ export interface AliexpressLogisticsOrderModifyshipmentAeopShipmentDTO {
   trackingWebSite?: string;
   /** logistics service */
   serviceName?: string;
-  /** 实际承运商--物流方案为“卖家自定义-中国”(OTHER)时该字段为必填 */
+  /** Actual carrier. Required when the logistics solution is "Seller custom - China" (OTHER) */
   actualCarrier?: string;
-  /** 合单的时候传 consolidation */
+  /** Pass consolidation when merging orders */
   packageType?: string;
 }
 
@@ -1422,11 +1422,11 @@ export const AliexpressLogisticsOrderModifyshipmentAeopShipmentDTOSchema: Schema
 export interface AliexpressLogisticsOrderShipmentAeopSellerShipmentSubTradeOrderDTO {
   /** ioss */
   ioss?: string;
-  /** 申明发货类型 part / all */
+  /** Declared shipment type: part / all */
   sendType?: string;
-  /** 发货列表 */
+  /** Shipment list */
   shipmentList?: Array<AliexpressLogisticsOrderShipmentAeopShipmentDTO>;
-  /** 子交易单序号 */
+  /** Sub-transaction order sequence number */
   subTradeOrderIndex?: Long;
 }
 
@@ -1443,9 +1443,9 @@ export const AliexpressLogisticsOrderShipmentAeopSellerShipmentSubTradeOrderDTOS
   };
 
 export interface AliexpressLogisticsOrderShipmentAeopSellerShipmentSubTradeOrderRequest {
-  /** 子单列表 */
+  /** Sub-order list */
   subTradeOrderList?: Array<AliexpressLogisticsOrderShipmentAeopSellerShipmentSubTradeOrderDTO>;
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: Long;
 }
 
@@ -1461,15 +1461,15 @@ export const AliexpressLogisticsOrderShipmentAeopSellerShipmentSubTradeOrderRequ
   };
 
 export interface AliexpressLogisticsOrderShipmentAeopSellerShipmentSubTradeOrderResponse {
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 子交易单列表 */
+  /** Sub-transaction order list */
   subTradeOrderList?: Array<AliexpressLogisticsOrderShipmentAeopSellerShipmentSubTradeOrderDTO>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: Long;
 }
 
@@ -1488,15 +1488,15 @@ export const AliexpressLogisticsOrderShipmentAeopSellerShipmentSubTradeOrderResp
   };
 
 export interface AliexpressLogisticsOrderShipmentAeopShipmentDTO {
-  /** 货物跟踪编码/国际运单号 */
+  /** Cargo tracking code / international waybill number */
   logisticsNo?: string;
-  /** 物流方案编码 */
+  /** Logistics plan code */
   serviceName?: string;
-  /** 运单号轨迹查询地址-物流方案为自定义(OTHER开头)的时候必填 */
+  /** Tracking number trajectory query URL. Required when the logistics solution is custom (starts with OTHER) */
   trackingWebSite?: string;
-  /** 实际承运商--物流方案为“卖家自定义-中国”(OTHER)时该字段为必填 */
+  /** Actual carrier. Required when the logistics solution is "Seller custom - China" (OTHER) */
   actualCarrier?: string;
-  /** 合单的时候传 consolidation */
+  /** Pass consolidation when merging orders */
   packageType?: string;
 }
 
@@ -1521,11 +1521,11 @@ export const AliexpressLogisticsQueryEnumCountryListSchema: Schema = {
 };
 
 export interface AliexpressLogisticsQueryEnumenumsMap {
-  /** destination国家 */
+  /** destination country */
   countryOfDestinationList?: Array<AliexpressLogisticsQueryEnumSelectCommonStructureInfo>;
-  /** delivery国家 */
+  /** delivery country */
   countryOfDeliveryList?: Array<AliexpressLogisticsQueryEnumSelectCommonStructureInfo>;
-  /** 头程单状态 */
+  /** First-leg order status */
   logisticsOrderStatusList?: Array<AliexpressLogisticsQueryEnumSelectCommonStructureInfo>;
 }
 
@@ -1550,11 +1550,11 @@ export const AliexpressLogisticsQueryEnumenumsMapSchema: Schema = {
 export interface AliexpressLogisticsQueryEnumMerchantServiceResponse {
   /** mode */
   mode?: AliexpressLogisticsQueryEnumQueryLocOrdersEnumDTO;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorInfo?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -1583,13 +1583,13 @@ export const AliexpressLogisticsQueryEnumOrderStatusListSchema: Schema = {
 };
 
 export interface AliexpressLogisticsQueryEnumQueryLocOrdersEnumDTO {
-  /** 仓列表 */
+  /** Warehouse list */
   resCodeList?: Array<AliexpressLogisticsQueryEnumResCodeList>;
-  /** 物流单状态 */
+  /** Logistics order status */
   orderStatusList?: Array<AliexpressLogisticsQueryEnumOrderStatusList>;
-  /** 国家列表 */
+  /** Country list */
   countryList?: Array<AliexpressLogisticsQueryEnumCountryList>;
-  /** 枚举 */
+  /** Enum */
   enums?: AliexpressLogisticsQueryEnumenumsMap;
 }
 
@@ -1638,26 +1638,26 @@ export const AliexpressLogisticsQueryEnumSelectCommonStructureInfoSchema: Schema
   };
 
 export interface AliexpressLogisticsQuerylogisticsorderdetailAeopLogisticsOrderDetailDTO {
-  /** 物流单超时关单时间（1.从物流单创建时间起，30天内可以查询到该字段； 2. 仅支持4PL线上创建的物流单查询超时关单时间） */
+  /** Logistics order timeout close time (1. This field can be queried within 30 days from the logistics order creation time; 2. The timeout close time can only be queried for logistics orders created online via 4PL) */
   closeTime?: Long;
   feeList?: Array<AliexpressLogisticsQuerylogisticsorderdetailFeeDTO>;
-  /** 标签列表 */
+  /** Label list */
   tags?: Array<string>;
-  /** 商家自税信息 */
+  /** Merchant self-declared tax information */
   selfTaxInfo?: AliexpressLogisticsQuerylogisticsorderdetailSelfTaxInfo;
-  /** 渠道编码 */
+  /** Channel code */
   channelCode?: string;
   /** gmtCreate */
   gmtCreate?: string;
-  /** 货物跟踪编码/国际运单号 */
+  /** Cargo tracking code / international waybill number */
   internationalLogisticsNum?: string;
-  /** 物流服务编码 */
+  /** Logistics service code */
   internationalLogisticsType?: string;
-  /** 运费 */
+  /** Shipping fee */
   logisticsFee?: AliexpressLogisticsQuerylogisticsorderdetailMoney;
-  /** 物流订单号 */
+  /** Logistics order number */
   logisticsOrderId?: Long;
-  /** 物流订单状态 */
+  /** Logistics order status */
   logisticsStatus?: string;
   /** tradeOrderId */
   tradeOrderId?: Long;
@@ -1665,11 +1665,11 @@ export interface AliexpressLogisticsQuerylogisticsorderdetailAeopLogisticsOrderD
   outOrderCode?: string;
   /** batchId */
   batchId?: string;
-  /** 物流服务列表 */
+  /** Logistics service list */
   logisticsServiceList?: Array<AliexpressLogisticsQuerylogisticsorderdetailLogisticsServiceDTO>;
-  /** 解决方案code */
+  /** Solution code */
   solutionCode?: string;
-  /** 多币种运费list */
+  /** Multi-currency shipping fee list */
   logisticsFeeList?: Array<AliexpressLogisticsQuerylogisticsorderdetailMoney>;
 }
 
@@ -1716,9 +1716,9 @@ export const AliexpressLogisticsQuerylogisticsorderdetailAeopLogisticsOrderDetai
   };
 
 export interface AliexpressLogisticsQuerylogisticsorderdetailAeopLogisticsOrderDetailQueryResult {
-  /** 当前页 */
+  /** Current page */
   currentPage?: number;
-  /** 错误描述 */
+  /** Error description */
   errorDesc?: string;
   /** result */
   resultList?: Array<AliexpressLogisticsQuerylogisticsorderdetailAeopLogisticsOrderDetailDTO>;
@@ -1743,17 +1743,17 @@ export const AliexpressLogisticsQuerylogisticsorderdetailAeopLogisticsOrderDetai
   };
 
 export interface AliexpressLogisticsQuerylogisticsorderdetailFeeDTO {
-  /** 汇率 */
+  /** Exchange rate */
   exchangeRate?: string;
-  /** 费用项编码 */
+  /** Fee item code */
   feeCode?: string;
-  /** 费用项名称 */
+  /** Fee item name */
   feeName?: string;
-  /** 状态 */
+  /** Status */
   status?: string;
-  /** 费用数据 */
+  /** Fee data */
   fee?: AliexpressLogisticsQuerylogisticsorderdetailLogisticsFee;
-  /** 计费重量（克） */
+  /** Billable weight (grams) */
   freightWeight?: string;
 }
 
@@ -1772,11 +1772,11 @@ export const AliexpressLogisticsQuerylogisticsorderdetailFeeDTOSchema: Schema =
   };
 
 export interface AliexpressLogisticsQuerylogisticsorderdetailLogisticsFee {
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
-  /** 金额（元） */
+  /** Amount (yuan) */
   amount?: string;
-  /** 金额（分） */
+  /** Amount (cents) */
   cent?: string;
 }
 
@@ -1788,9 +1788,9 @@ export const AliexpressLogisticsQuerylogisticsorderdetailLogisticsFeeSchema: Sch
   };
 
 export interface AliexpressLogisticsQuerylogisticsorderdetailLogisticsServiceDTO {
-  /** 物流服务编码 */
+  /** Logistics service code */
   code?: string;
-  /** 资源编码 */
+  /** Resource code */
   resourceCode?: string;
 }
 
@@ -1833,9 +1833,9 @@ export const AliexpressLogisticsQuerylogisticsorderdetailSelfTaxInfoSchema: Sche
   };
 
 export interface AliexpressLogisticsQueryRuleInfoNetRuleDTO {
-  /** 服务网规信息列表 */
+  /** List of service network regulation information */
   serviceNetRuleInfoList?: Array<AliexpressLogisticsQueryRuleInfoServiceNetRuleInfo>;
-  /** 包裹规则列表 */
+  /** Package rule list */
   packageNetRuleInfoList?: Array<AliexpressLogisticsQueryRuleInfoPackageNetRuleInfo>;
 }
 
@@ -1853,17 +1853,17 @@ export const AliexpressLogisticsQueryRuleInfoNetRuleDTOSchema: Schema = {
 };
 
 export interface AliexpressLogisticsQueryRuleInfoPackageNetRuleConditionDTO {
-  /** 是否包含国家关系， true表示包含 false表示不包含 */
+  /** Whether to include country relations, true means include, false means do not include */
   isContainCountry?: boolean;
-  /** 国家code */
+  /** Country code */
   country?: Array<string>;
-  /** 比较符号 */
+  /** Comparison operator */
   compareType?: string;
-  /** 物流服务数组 */
+  /** Logistics service array */
   serviceNames?: Array<string>;
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
-  /** 金额 */
+  /** Amount */
   value?: string;
 }
 
@@ -1878,9 +1878,9 @@ export const AliexpressLogisticsQueryRuleInfoPackageNetRuleConditionDTOSchema: S
   };
 
 export interface AliexpressLogisticsQueryRuleInfoPackageNetRuleConfigDTO {
-  /** 条件 */
+  /** Condition */
   conditionList?: Array<AliexpressLogisticsQueryRuleInfoPackageNetRuleConditionDTO>;
-  /** 物流服务数组 */
+  /** Logistics service array */
   serviceNames?: Array<string>;
 }
 
@@ -1895,9 +1895,9 @@ export const AliexpressLogisticsQueryRuleInfoPackageNetRuleConfigDTOSchema: Sche
   };
 
 export interface AliexpressLogisticsQueryRuleInfoPackageNetRuleInfo {
-  /** 包裹规则明细 */
+  /** Package rule details */
   packageNetRuleConfigDto?: AliexpressLogisticsQueryRuleInfoPackageNetRuleConfigDTO;
-  /** 标准 */
+  /** Standard */
   logisticsClass?: string;
 }
 
@@ -1912,7 +1912,7 @@ export const AliexpressLogisticsQueryRuleInfoPackageNetRuleInfoSchema: Schema =
   };
 
 export interface AliexpressLogisticsQueryRuleInfoQueryLogisticsRuleInfoRequest {
-  /** 查询类型，type目前只有 platformRule 表示查询网规信息。 */
+  /** Query type. Currently type only has platformRule, which means querying platform rule information. */
   type?: string;
 }
 
@@ -1922,11 +1922,11 @@ export const AliexpressLogisticsQueryRuleInfoQueryLogisticsRuleInfoRequestSchema
   };
 
 export interface AliexpressLogisticsQueryRuleInfoQueryLogisticsRuleInfoResult {
-  /** 错误信息 */
+  /** Error message */
   errorDesc?: string;
-  /** 规则json */
+  /** Rule JSON */
   data?: AliexpressLogisticsQueryRuleInfoNetRuleDTO;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
 }
 
@@ -1938,13 +1938,13 @@ export const AliexpressLogisticsQueryRuleInfoQueryLogisticsRuleInfoResultSchema:
   };
 
 export interface AliexpressLogisticsQueryRuleInfoServiceNetRuleConditionDTO {
-  /** 国家code */
+  /** Country code */
   country?: string;
-  /** 金额 */
+  /** Amount */
   amount?: Long;
-  /** 比较符号 */
+  /** Comparison operator */
   compareType?: string;
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
 }
 
@@ -1957,11 +1957,11 @@ export const AliexpressLogisticsQueryRuleInfoServiceNetRuleConditionDTOSchema: S
   };
 
 export interface AliexpressLogisticsQueryRuleInfoServiceNetRuleConfigDTO {
-  /** 条件 */
+  /** Condition */
   condition?: Array<AliexpressLogisticsQueryRuleInfoServiceNetRuleConditionDTO>;
-  /** 物流服务code列表 */
+  /** List of logistics service codes */
   logisticsCodeLevels?: Array<string>;
-  /** 物流服务code列表 */
+  /** List of logistics service codes */
   logisticsCodes?: Array<string>;
 }
 
@@ -1977,9 +1977,9 @@ export const AliexpressLogisticsQueryRuleInfoServiceNetRuleConfigDTOSchema: Sche
   };
 
 export interface AliexpressLogisticsQueryRuleInfoServiceNetRuleInfo {
-  /** 服务类型 */
+  /** Service type */
   serviceType?: string;
-  /** 服务规则明细 */
+  /** Service rule details */
   serviceNetRuleConfigDto?: AliexpressLogisticsQueryRuleInfoServiceNetRuleConfigDTO;
 }
 
@@ -2159,9 +2159,9 @@ export const AliexpressLogisticsRedefiningGetnextleveladdressdataStringSchema: S
   };
 
 export interface AliexpressLogisticsRedefiningGetonlinelogisticsinfoLogisticsServiceDTO {
-  /** 物流服务编码 */
+  /** Logistics service code */
   code?: string;
-  /** 资源编码 */
+  /** Resource code */
   resourceCode?: string;
 }
 
@@ -2174,9 +2174,9 @@ export const AliexpressLogisticsRedefiningGetonlinelogisticsinfoLogisticsService
 export interface AliexpressLogisticsRedefiningGetonlinelogisticsinfoMoney {
   /** cent */
   cent?: Long;
-  /** currencyCode(币种) */
+  /** currencyCode (currency) */
   currencyCode?: string;
-  /** amount(金额) */
+  /** amount (monetary amount) */
   amount?: string;
 }
 
@@ -2188,7 +2188,7 @@ export const AliexpressLogisticsRedefiningGetonlinelogisticsinfoMoneySchema: Sch
   };
 
 export interface AliexpressLogisticsRedefiningGetonlinelogisticsinfoString {
-  /** original International Mail No.(原始国际运单号) */
+  /** original International Mail No. */
   originalInternationalLogisticsId?: string;
   /** chinaLogisticsType */
   chinaLogisticsType?: string;
@@ -2196,9 +2196,9 @@ export interface AliexpressLogisticsRedefiningGetonlinelogisticsinfoString {
   channelCode?: string;
   /** logisticsStatus */
   logisticsStatus?: string;
-  /** lpNumber(物流单LP号) */
+  /** lpNumber (logistics order LP number) */
   lpNumber?: string;
-  /** latest International Mail No.(最新国际运单号) */
+  /** latest International Mail No. */
   internationallogisticsId?: string;
   /** internationalLogisticsType */
   internationalLogisticsType?: string;
@@ -2206,15 +2206,15 @@ export interface AliexpressLogisticsRedefiningGetonlinelogisticsinfoString {
   orderId?: Long;
   /** onlineLogisticsId */
   onlineLogisticsId?: Long;
-  /** logisticsFee(优先参考logistics_fee_list) */
+  /** logisticsFee (refer to logistics_fee_list first) */
   logisticsFee?: AliexpressLogisticsRedefiningGetonlinelogisticsinfoMoney;
-  /** 物流服务列表 */
+  /** Logistics service list */
   logisticsServiceList?: Array<AliexpressLogisticsRedefiningGetonlinelogisticsinfoLogisticsServiceDTO>;
-  /** 解决方案code */
+  /** Solution code */
   solutionCode?: string;
-  /** 多币种运费列表 */
+  /** Multi-currency shipping fee list */
   logisticsFeeList?: Array<AliexpressLogisticsRedefiningGetonlinelogisticsinfoMoney>;
-  /** lm资源code */
+  /** lm resource code */
   lmResourceCode?: string;
 }
 
@@ -2253,31 +2253,31 @@ export const AliexpressLogisticsRedefiningGetonlinelogisticsinfoStringSchema: Sc
   };
 
 export interface AliexpressLogisticsRedefiningGetonlinelogisticsservicelistbyorderidString {
-  /** 仓库中文名称 */
+  /** Warehouse Chinese name */
   warehouseName?: string;
-  /** 物流方案名称 */
+  /** Logistics plan name */
   logisticsServiceName?: string;
-  /** 运输时效 */
+  /** Transit time */
   logisticsTimeliness?: string;
-  /** 物流方案ID */
+  /** Logistics plan ID */
   logisticsServiceId?: string;
-  /** 交货地址 */
+  /** Delivery address */
   deliveryAddress?: string;
-  /** 是否国际快递线路 */
+  /** Whether it is an international express route */
   expressLogisticsService?: boolean;
-  /** 试算结果 */
+  /** Trial calculation result */
   trialResult?: string;
-  /** 其它费用项 */
+  /** Other fee items */
   otherFees?: Array<AliexpressLogisticsRedefiningGetonlinelogisticsservicelistbyorderidString>;
-  /** 推荐指数 */
+  /** Recommendation index */
   recommendIndex?: number;
-  /** 可用物流服务列表 */
+  /** List of available logistics services */
   availableLogisticServiceList?: Array<AliexpressLogisticsRedefiningGetonlinelogisticsservicelistbyorderidString>;
   /** amount */
   amount?: Long;
-  /** 费用名称 */
+  /** Fee name */
   name?: string;
-  /** 费用项code */
+  /** Fee item code */
   code?: string;
   /** curreny */
   curreny?: string;
@@ -2325,19 +2325,19 @@ export const AliexpressLogisticsRedefiningGetprintinfosAeopWarehouseOrderQueryPd
   };
 
 export interface AliexpressLogisticsRedefiningListlogisticsserviceAeopLogisticsServiceResult {
-  /** 推荐显示排序 */
+  /** Recommended display order */
   recommendOrder?: Long;
-  /** 物流追踪号码校验规则，采用正则表达 */
+  /** Validation rule for the logistics tracking number, using a regular expression */
   trackingNoRegex?: string;
-  /** 最小处理时间 */
+  /** Minimum processing time */
   minProcessDay?: Long;
-  /** 物流公司 */
+  /** Logistics company */
   logisticsCompany?: string;
-  /** 最大处理时间 */
+  /** Maximum processing time */
   maxProcessDay?: Long;
-  /** 展示名称 */
+  /** Display name */
   displayName?: string;
-  /** 物流服务key */
+  /** Logistics service key */
   serviceName?: string;
 }
 
@@ -2357,13 +2357,13 @@ export interface AliexpressLogisticsRedefiningQuerytrackingresultString {
   eventDesc?: string;
   /** signedName */
   signedName?: string;
-  /** 废弃;请勿再使用该字段.改成使用action_code */
+  /** Deprecated; do not use this field any more. Use action_code instead. */
   status?: string;
   /** address */
   address?: string;
-  /** 如果想与菜鸟全球物流跟踪官网的时间保持一致，java可以使用以下代码处理 LocalDateTime.ofInstant(Instant.ofEpochMilli(eventDate.getTime()), ZoneId.of("America/Los_Angeles")).format("yyyy-MM-dd HH:mm:ss");其他语言可以自行转换 */
+  /** To keep the time consistent with the Cainiao global logistics tracking official website, Java can use the following code: LocalDateTime.ofInstant(Instant.ofEpochMilli(eventDate.getTime()), ZoneId.of("America/Los_Angeles")).format("yyyy-MM-dd HH:mm:ss"); other languages can convert it themselves */
   eventDate?: string;
-  /** CONSIGN("声明发货"),OM_CONSIGN("商家发货"),GTMS_ASN("接收到电子预报"),PU_PICKUP_SUCCESS("揽收成功"),PU_PICKUP_FAILURE("揽收异常"),PU_SIGN_IN_SUCCESS("揽收点签收成功"),PU_SIGN_IN_FAILURE("揽收点签收异常"),SC_SIGN_IN_SUCCESS("签收成功"),SC_SIGN_IN_FAILURE("签收异常"),SC_INBOUND_SUCCESS("入库成功"),SC_INBOUND_FAILURE("入库异常"),SC_OUTBOUND_SUCCESS("出库成功"),SC_OUTBOUND_FAILURE("出库异常"),SC_HO_OUT_SUCCESS("仓转交干线成功"),SC_HO_OUT_FAILURE("仓转交干线异常"),TD_TRANS_ARRIVE("到达中转"),TD_TRANS_DEPART("离开中转"),CC_TRANS＿START("中转国清关开始"),CC_TRANS＿SUCCESS("中转国清关成功"),CC_TRANS_FAILURE("中转国清关失败"),LH_HO_IN_SUCCESS("交接成功"),LH_HO_IN_FAILURE("交接异常"),LH_POST_COLLECTION("交接异常"),LH_HO_AIRLINE("交航安检成功"),LH_HO_AIRLINE_FAILURE("交航安检失败"),LH_DEPART("航班起飞 (干线离开）"),LH_ARRIVE("航班到达（干线抵达目的国）"),LH_ARRIVE_FAILURE("干线到达异常"),LH_HO_OUT_SUCCESS("干线转交成功"),LH_HO_OUT_FAILURE("干线转交异常"),LH_OTHER("其他"),CC_EX_START("出口清关开始"),CC_EX_SUCCESS("出口清关完成"),CC_EX_FAILURE("出口清关异常"),CC_HO_IN_SUCCESS("清关交接成功"),CC_HO_IN_FAILURE("清关交接异常"),CC_IM_START("清关开始(目的地）"),CC_IM_PROCESS("清关中(目的地）"),CC_IM_SUCCESS("清关完成(目的地）"),CC_IM_FAILURE("清关异常(目的地）"),CC_HO_OUT_SUCCESS("清关转交成功"),CC_HO_OUT_FAILURE("清关转交失败"),CUS_SUCCESS("海关审单通过"),CUS_FAILURE("海关审单异常"),CUS_TAX("海关出税"),CIQ_SUCCESS("商检审单通过"),CIQ_FAILURE("商检审单异常"),CUS_DECLARE("海关申报"),GTMS_ACCEPT("到达目的国/配送揽收成功"),GTMS_SC_ARRIVE("到达目的国SC"),GTMS_SC_ARRIVE_FAILURE("到达目的国SC失败"),GTMS_DO_ARRIVE("到达最后投递站"),GTMS_DO_DEPART("离开最后投递站"),GTMS_DELIVERING("开始投递"),GTMS_DEL_FAILURE("投递失败"),GTMS_RE_DELIVERING("再次投递"),GTMS_RELABEL("转单"),GTMS_SIGNED("用户签收"),GTMS_SIGN_FAILURE("用户签收异常"),GTMS_WAIT_SELF_PICK("等待用户自提"),GTMS_STA_SIGNED("自提点签收"),GTMS_STA_SIGN_FAILURE("自提点签收异常"),GTMS_STATION_IN("配送中各节点（国外）"),GTMS_STATION_OUT("配送中各节点（国外）"),GTMS_FAILURE("配送异常"),RT_INBOUND("退回给卖家（回到海外cp仓库）"),RETURNED("退回卖家签收"),GOT("配送揽收成功（国内）"),REJECT("配送揽收异常（国内）"),DEPARTURE("配送中各节点（国内）"),ARRIVAL("配送中各节点（国内）"),SENT_SCAN("包裹开始派送（国内）"),SIGNED("包裹妥投成功（国内）"),FAILED("包裹妥投异常（国内）"),GTMS_OTHER("其他"),GSTA_SIGN("自提点用户签收"),GSTA_SIGN_FAIL("自提点用户签收异常"),STA_SIGN("自提点用户签收(国内段）"),STA_SIGN_FAIL("自提点用户签收异常（国内段）"),GSTA_OTHER("其他"),RT_OUTBOUND("海外CP出库"),RT_DESTROY("海外CP销毁"),RT_HO_OUT("CP交出"),RT_WH_HO_IN("退货仓接收"),RT_WH_HO_IN_FAIL("退货仓接收失败"),RT_WH_INBOUND("退货仓入库"),RT_WH_INBOUND_FAILURE("退货仓入库失败"),RT_WH_DESTROY("销毁"),RT_WH_OUTBOUND("退货仓出库"),RT_WH_HO_OUT("退货仓交出"),RT_TRANSWH_HO_IN("中转仓接收"),RT_TRANSWH_INBOUND("中转仓入库"),RT_TRANSWH_OUTBOUND("中转仓出库"),RT_TMS_ACCEPT("国内配接收"),GWMS_ACCEPT("接单成功"),GWMS_REJECT("接单异常"),GWMS_PACKAGE("打包完成"),GWMS_EXCEPTION("仓内异常"),GWMS_OUTBOUND("出库成功"),GWMS_CANCEL("取消成功"),GWMS_PICK("拣选完成"),GWMS_HANDOVER("交接成功"),GSTAHUB_INBOUND("自提分拨中心入库成功"),GSTAHUB_INBOUND_FAIL("自提分拨中心入库失败"),GSTA_INBOUND("自提点入库成功"),GSTA_INBOUND_FAIL("自提点入库失败"),GSTA_BUYER_SIGN("自提点用户签收"),GSTA_BUYER_SIGN_FAIL("自提点用户签收失败"),GTMS_STA_WAIT_CUST_CHANGE_ADDRESS("二次路由待消费者更新收件地址"),GTMS_STA_CUST_TO_DOOR("二次路由消费者已更新收件地址"),GTMS_STA_CHANGE("二次路由消费者已更新自提点地址"),GTMS_STA_CN_TO_DOOR("二次路由已更新收件地址"),GTMS_STA_CN_CHANGE("二次路由已更新自提点地址"),GTMS_STA_CNCP_TO_DOOR("二次路由物流商已更新收件地址"),GTMS_STA_CNCP_CHANGE("二次路由物流商已更新自提点地址")等 */
+  /** CONSIGN("Declare shipment"), OM_CONSIGN("Merchant shipment"), GTMS_ASN("Electronic pre-alert received"), PU_PICKUP_SUCCESS("Pickup successful"), PU_PICKUP_FAILURE("Pickup exception"), PU_SIGN_IN_SUCCESS("Pickup point sign-in successful"), PU_SIGN_IN_FAILURE("Pickup point sign-in exception"), SC_SIGN_IN_SUCCESS("Sign-in successful"), SC_SIGN_IN_FAILURE("Sign-in exception"), SC_INBOUND_SUCCESS("Inbound successful"), SC_INBOUND_FAILURE("Inbound exception"), SC_OUTBOUND_SUCCESS("Outbound successful"), SC_OUTBOUND_FAILURE("Outbound exception"), SC_HO_OUT_SUCCESS("Warehouse handover to line-haul successful"), SC_HO_OUT_FAILURE("Warehouse handover to line-haul exception"), TD_TRANS_ARRIVE("Arrived at transit"), TD_TRANS_DEPART("Departed from transit"), CC_TRANS_START("Transit country customs clearance started"), CC_TRANS_SUCCESS("Transit country customs clearance successful"), CC_TRANS_FAILURE("Transit country customs clearance failed"), LH_HO_IN_SUCCESS("Handover successful"), LH_HO_IN_FAILURE("Handover exception"), LH_POST_COLLECTION("Handover exception"), LH_HO_AIRLINE("Handover to airline security check successful"), LH_HO_AIRLINE_FAILURE("Handover to airline security check failed"), LH_DEPART("Flight departed (line-haul departure)"), LH_ARRIVE("Flight arrived (line-haul arrived at destination country)"), LH_ARRIVE_FAILURE("Line-haul arrival exception"), LH_HO_OUT_SUCCESS("Line-haul handover successful"), LH_HO_OUT_FAILURE("Line-haul handover exception"), LH_OTHER("Other"), CC_EX_START("Export customs clearance started"), CC_EX_SUCCESS("Export customs clearance completed"), CC_EX_FAILURE("Export customs clearance exception"), CC_HO_IN_SUCCESS("Customs clearance handover successful"), CC_HO_IN_FAILURE("Customs clearance handover exception"), CC_IM_START("Customs clearance started (destination)"), CC_IM_PROCESS("Customs clearance in progress (destination)"), CC_IM_SUCCESS("Customs clearance completed (destination)"), CC_IM_FAILURE("Customs clearance exception (destination)"), CC_HO_OUT_SUCCESS("Customs clearance handover successful"), CC_HO_OUT_FAILURE("Customs clearance handover failed"), CUS_SUCCESS("Customs document review passed"), CUS_FAILURE("Customs document review exception"), CUS_TAX("Customs tax issued"), CIQ_SUCCESS("Commodity inspection document review passed"), CIQ_FAILURE("Commodity inspection document review exception"), CUS_DECLARE("Customs declaration"), GTMS_ACCEPT("Arrived at destination country / delivery pickup successful"), GTMS_SC_ARRIVE("Arrived at destination country SC"), GTMS_SC_ARRIVE_FAILURE("Arrival at destination country SC failed"), GTMS_DO_ARRIVE("Arrived at last delivery station"), GTMS_DO_DEPART("Departed from last delivery station"), GTMS_DELIVERING("Delivery started"), GTMS_DEL_FAILURE("Delivery failed"), GTMS_RE_DELIVERING("Redelivery"), GTMS_RELABEL("Relabel"), GTMS_SIGNED("Signed for by user"), GTMS_SIGN_FAILURE("User sign-for exception"), GTMS_WAIT_SELF_PICK("Awaiting user self-pickup"), GTMS_STA_SIGNED("Signed for at self-pickup point"), GTMS_STA_SIGN_FAILURE("Self-pickup point sign-for exception"), GTMS_STATION_IN("Delivery nodes (overseas)"), GTMS_STATION_OUT("Delivery nodes (overseas)"), GTMS_FAILURE("Delivery exception"), RT_INBOUND("Returned to seller (back to overseas CP warehouse)"), RETURNED("Returned to seller and signed for"), GOT("Delivery pickup successful (domestic)"), REJECT("Delivery pickup exception (domestic)"), DEPARTURE("Delivery nodes (domestic)"), ARRIVAL("Delivery nodes (domestic)"), SENT_SCAN("Parcel dispatch started (domestic)"), SIGNED("Parcel delivered successfully (domestic)"), FAILED("Parcel delivery exception (domestic)"), GTMS_OTHER("Other"), GSTA_SIGN("User signed for at self-pickup point"), GSTA_SIGN_FAIL("User sign-for exception at self-pickup point"), STA_SIGN("User signed for at self-pickup point (domestic leg)"), STA_SIGN_FAIL("User sign-for exception at self-pickup point (domestic leg)"), GSTA_OTHER("Other"), RT_OUTBOUND("Overseas CP outbound"), RT_DESTROY("Overseas CP destroyed"), RT_HO_OUT("CP handover"), RT_WH_HO_IN("Return warehouse received"), RT_WH_HO_IN_FAIL("Return warehouse receipt failed"), RT_WH_INBOUND("Return warehouse inbound"), RT_WH_INBOUND_FAILURE("Return warehouse inbound failed"), RT_WH_DESTROY("Destroyed"), RT_WH_OUTBOUND("Return warehouse outbound"), RT_WH_HO_OUT("Return warehouse handover"), RT_TRANSWH_HO_IN("Transit warehouse received"), RT_TRANSWH_INBOUND("Transit warehouse inbound"), RT_TRANSWH_OUTBOUND("Transit warehouse outbound"), RT_TMS_ACCEPT("Domestic delivery received"), GWMS_ACCEPT("Order accepted"), GWMS_REJECT("Order acceptance exception"), GWMS_PACKAGE("Packing completed"), GWMS_EXCEPTION("In-warehouse exception"), GWMS_OUTBOUND("Outbound successful"), GWMS_CANCEL("Cancellation successful"), GWMS_PICK("Picking completed"), GWMS_HANDOVER("Handover successful"), GSTAHUB_INBOUND("Self-pickup distribution center inbound successful"), GSTAHUB_INBOUND_FAIL("Self-pickup distribution center inbound failed"), GSTA_INBOUND("Self-pickup point inbound successful"), GSTA_INBOUND_FAIL("Self-pickup point inbound failed"), GSTA_BUYER_SIGN("User signed for at self-pickup point"), GSTA_BUYER_SIGN_FAIL("User sign-for failed at self-pickup point"), GTMS_STA_WAIT_CUST_CHANGE_ADDRESS("Secondary routing: awaiting consumer to update delivery address"), GTMS_STA_CUST_TO_DOOR("Secondary routing: consumer updated delivery address"), GTMS_STA_CHANGE("Secondary routing: consumer updated self-pickup point address"), GTMS_STA_CN_TO_DOOR("Secondary routing: delivery address updated"), GTMS_STA_CN_CHANGE("Secondary routing: self-pickup point address updated"), GTMS_STA_CNCP_TO_DOOR("Secondary routing: logistics provider updated delivery address"), GTMS_STA_CNCP_CHANGE("Secondary routing: logistics provider updated self-pickup point address"), etc. */
   actionCode?: string;
 }
 
@@ -2433,9 +2433,9 @@ export const AliexpressLogisticsRedefiningSellermodifiedshipmentsupportsubtradeo
 export interface AliexpressLogisticsSellershipmentsupportsubtradeorderAeopSellerShipmentSubTradeOrderDTO {
   /** part / all */
   sendType?: string;
-  /** 子订单序号，从1开始 */
+  /** Sub-order sequence number, starting from 1 */
   subTradeOrderIndex?: Long;
-  /** ioss税号 */
+  /** IOSS tax number */
   ioss?: string;
   /** 1 */
   shipmentList?: Array<AliexpressLogisticsSellershipmentsupportsubtradeorderAeopShipmentDTO>;
@@ -2490,17 +2490,17 @@ export const AliexpressLogisticsServiceQueryAeopOnlineLogisticsFeeItemSchema: Sc
   };
 
 export interface AliexpressLogisticsServiceQueryAeopOnlineLogisticsServiceItemDTO {
-  /** 重量;必填;单位KG */
+  /** Weight; required; unit: KG */
   goodsWeight?: string;
-  /** 长;必填;单位cm */
+  /** Length; required; unit: cm */
   goodsLength?: number;
-  /** 高;必填;单位cm */
+  /** Height; required; unit: cm */
   goodsHeight?: number;
-  /** 宽;必填;单位cm */
+  /** Width; required; unit: cm */
   goodsWidth?: number;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** 子交易单id */
+  /** Sub-transaction order ID */
   orderId?: Long;
 }
 
@@ -2515,21 +2515,21 @@ export const AliexpressLogisticsServiceQueryAeopOnlineLogisticsServiceItemDTOSch
   };
 
 export interface AliexpressLogisticsServiceQueryAeopOnlineLogisticsServiceRequest {
-  /** 物流属性 */
+  /** Logistics attributes */
   constraintsType?: string;
-  /** 子交易单列表 */
+  /** Sub-transaction order list */
   subOrderList?: Array<AliexpressLogisticsServiceQueryAeopOnlineLogisticsServiceItemDTO>;
-  /** 主交易单id */
+  /** Main transaction order ID */
   orderId?: Long;
-  /** 长;单位cm */
+  /** Length; unit: cm */
   goodsLength?: number;
-  /** 重量;单位KG */
+  /** Weight; unit: KG */
   goodsWeight?: string;
-  /** 高;单位cm */
+  /** Height; unit: cm */
   goodsHeight?: number;
-  /** 宽;单位cm */
+  /** Width; unit: cm */
   goodsWidth?: number;
-  /** 语言 */
+  /** Language */
   locale?: string;
 }
 
@@ -2551,9 +2551,9 @@ export const AliexpressLogisticsServiceQueryAeopOnlineLogisticsServiceRequestSch
   };
 
 export interface AliexpressLogisticsServiceQueryAeopOnlineLogisticsServiceResponse {
-  /** 是否成功 */
+  /** Whether successful */
   isSuccess?: boolean;
-  /** 错误描述 */
+  /** Error description */
   errorDesc?: string;
   /** result list */
   resultList?: Array<AliexpressLogisticsServiceQueryAeopOnlineLogisticsServiceResult>;
@@ -2572,47 +2572,47 @@ export const AliexpressLogisticsServiceQueryAeopOnlineLogisticsServiceResponseSc
   };
 
 export interface AliexpressLogisticsServiceQueryAeopOnlineLogisticsServiceResult {
-  /** 线路等级Code */
+  /** Route grade Code */
   aplLevelCode?: string;
-  /** 线路等级名称 */
+  /** Route level name */
   aplLevelName?: string;
-  /** 线路等级排序 */
+  /** Route level sort order */
   aplLevelRank?: number;
-  /** 线路标签Code */
+  /** Route label Code */
   aplDeliveryTag?: string;
-  /** 线路标签名称 */
+  /** Route label name */
   aplDeliveryName?: string;
-  /** 线路标签排序 */
+  /** Route label sort order */
   aplDeliveryRank?: number;
-  /** 排序依据 */
+  /** Sort basis */
   sort?: number;
-  /** 解决方案code */
+  /** Solution code */
   solutionCode?: string;
-  /** 仓库code */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 线路原始等级code */
+  /** Original grade code of the route */
   aplLevelCodeOri?: string;
-  /** 可用物流服务列表 */
+  /** List of available logistics services */
   availableLogisticServiceList?: Array<AliexpressLogisticsServiceQueryLogisticsServiceDTO>;
-  /** 推荐指数 */
+  /** Recommendation index */
   recommendIndex?: string;
   /** - */
   isExpressLogisticsService?: boolean;
-  /** 其它费用项 */
+  /** Other fee items */
   otherFees?: Array<AliexpressLogisticsServiceQueryAeopOnlineLogisticsFeeItem>;
-  /** 仓库中文名称 */
+  /** Warehouse Chinese name */
   warehouseName?: string;
-  /** 折扣试算结果 */
+  /** Discount trial calculation result */
   discountTrialResult?: string;
-  /** 试算结果 */
+  /** Trial calculation result */
   trialResult?: string;
-  /** 交货地址 */
+  /** Delivery address */
   deliveryAddress?: string;
-  /** 运输时效 */
+  /** Transit time */
   logisticsTimeliness?: string;
-  /** 物流方案名称 */
+  /** Logistics plan name */
   logisticsServiceName?: string;
-  /** 物流方案ID */
+  /** Logistics plan ID */
   logisticsServiceId?: string;
 }
 
@@ -2650,11 +2650,11 @@ export const AliexpressLogisticsServiceQueryAeopOnlineLogisticsServiceResultSche
   };
 
 export interface AliexpressLogisticsServiceQueryLogisticsServiceDTO {
-  /** 物流服务编码 */
+  /** Logistics service code */
   resourceCode?: string;
-  /** 物流服务名称 */
+  /** Logistics service name */
   name?: string;
-  /** 物流服务编码 */
+  /** Logistics service code */
   code?: string;
 }
 
@@ -2666,15 +2666,15 @@ export const AliexpressLogisticsServiceQueryLogisticsServiceDTOSchema: Schema =
   };
 
 export interface AliexpressLogisticsValueaddedInsuranceEstimateErrorInfo {
-  /** 内部错误信息 */
+  /** Internal error message */
   internalErrorMsg?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 内部错误码 */
+  /** Internal error code */
   internalErrorCode?: string;
-  /** 是否重试 */
+  /** Whether to retry */
   retry?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -2688,15 +2688,15 @@ export const AliexpressLogisticsValueaddedInsuranceEstimateErrorInfoSchema: Sche
   };
 
 export interface AliexpressLogisticsValueaddedInsuranceEstimateGlspResponse {
-  /** 返回实体,包含四个字段:1.是否校验通过，2.保费，3投保金额下限，4投保金额上限，5高货值保险类型 */
+  /** Returned entity, containing five fields: 1. whether validation passed, 2. premium, 3. lower limit of insured amount, 4. upper limit of insured amount, 5. high-value insurance type */
   result?: string;
-  /** 错误栈 */
+  /** Error stack */
   errorInfoDetails?: Array<string>;
-  /** 错误信息 */
+  /** Error message */
   errorInfo?: AliexpressLogisticsValueaddedInsuranceEstimateErrorInfo;
-  /** 是否重试 */
+  /** Whether to retry */
   retry?: boolean;
-  /** 是否成功 */
+  /** Whether successful */
   isSuccess?: boolean;
 }
 
@@ -2714,11 +2714,11 @@ export const AliexpressLogisticsValueaddedInsuranceEstimateGlspResponseSchema: S
   };
 
 export interface AliexpressLogisticsWarehouseQuerydetailLogisticsServiceDTO {
-  /** 名称 */
+  /** Name */
   name?: string;
-  /** 资源code */
+  /** Resource code */
   resourceCode?: string;
-  /** 物流服务编码 */
+  /** Logistics service code */
   code?: string;
 }
 
@@ -2730,9 +2730,9 @@ export const AliexpressLogisticsWarehouseQuerydetailLogisticsServiceDTOSchema: S
   };
 
 export interface AliexpressLogisticsWarehouseQuerydetailMoney {
-  /** 金额 */
+  /** Amount */
   cent?: Long;
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
 }
 
@@ -2742,13 +2742,13 @@ export const AliexpressLogisticsWarehouseQuerydetailMoneySchema: Schema = {
 };
 
 export interface AliexpressLogisticsWarehouseQuerydetailResult {
-  /** 结果 */
+  /** Result */
   resultList?: Array<AliexpressLogisticsWarehouseQuerydetailString>;
   /** totalPage */
   totalPage?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 当前页 */
+  /** Current page */
   currentPage?: Long;
 }
 
@@ -2764,23 +2764,23 @@ export const AliexpressLogisticsWarehouseQuerydetailResultSchema: Schema = {
 };
 
 export interface AliexpressLogisticsWarehouseQuerydetailString {
-  /** 多币种运费list */
+  /** Multi-currency shipping fee list */
   logisticsFeeList?: Array<AliexpressLogisticsWarehouseQuerydetailMoney>;
-  /** 物流订单号 */
+  /** Logistics order number */
   logisticsOrderId?: Long;
-  /** 交易单 */
+  /** Transaction order */
   tradeOrderId?: Long;
-  /** 物流服务编码 */
+  /** Logistics service code */
   internationalLogisticsType?: string;
   /** LP */
   outOrderCode?: string;
-  /** 运费 */
+  /** Shipping fee */
   logisticsFee?: AliexpressLogisticsWarehouseQuerydetailMoney;
-  /** 物流服务列表 */
+  /** Logistics service list */
   logisticsServiceList?: Array<AliexpressLogisticsWarehouseQuerydetailLogisticsServiceDTO>;
-  /** 物流订单状态 */
+  /** Logistics order status */
   logisticsStatus?: string;
-  /** 国际运单号 */
+  /** International waybill number */
   internationalLogisticsNum?: string;
 }
 
@@ -2810,13 +2810,13 @@ export const AliexpressLogisticsWarehouseQuerydetailStringSchema: Schema = {
 
 /** Parameters for `/aliexpress/logistics/query/rule/info`. */
 export interface AliexpressLogisticsQueryRuleInfoParams {
-  /** 入参 */
+  /** Input parameters */
   param1?: AliexpressLogisticsQueryRuleInfoQueryLogisticsRuleInfoRequest;
 }
 
 /** Response of `/aliexpress/logistics/query/rule/info`. */
 export interface AliexpressLogisticsQueryRuleInfoResponse {
-  /** 结果json */
+  /** Result JSON */
   result?: AliexpressLogisticsQueryRuleInfoQueryLogisticsRuleInfoResult;
 }
 
@@ -2848,41 +2848,41 @@ export const aliexpressLogisticsQueryRuleInfo: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.abnormalorder.query`. */
 export interface AliexpressLogisticsAbnormalorderQueryParams {
-  /** 订单创建时间开始 */
+  /** Order creation time start */
   gmtCreateStart?: string;
-  /** 交易订单号 */
+  /** Transaction order number */
   tradeOrderId?: LongInput;
-  /** 页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 状态编码列表 */
+  /** Status code list */
   warehouseStatusList?: Array<string>;
-  /** 状态变更时间开始 */
+  /** Status change time start */
   gmtStatusUpdateStart?: string;
-  /** 运单号 */
+  /** Waybill number */
   intlTrackingNo?: string;
-  /** 订单创建时间结束 */
+  /** Order creation time end */
   gmtCreateEnd?: string;
-  /** 当前页 */
+  /** Current page */
   currentPage?: number;
-  /** 状态变更时间结束 */
+  /** Status change time end */
   gmtStatusUpdateEnd?: string;
-  /** 是否需要额外的mailNo相关信息 */
+  /** Whether additional mailNo-related information is needed */
   needMailNoInfo?: boolean;
 }
 
 /** Response of `aliexpress.logistics.abnormalorder.query`. */
 export interface AliexpressLogisticsAbnormalorderQueryResponse {
-  /** 订单详情 */
+  /** Order details */
   result?: Array<AliexpressLogisticsAbnormalorderQueryAeopWarehouseAbnormalOrderResult>;
-  /** 错误描述 */
+  /** Error description */
   errorDesc?: string;
-  /** 总页数 */
+  /** Total pages */
   totalPage?: number;
-  /** 总条数 */
+  /** Total count */
   totalCount?: number;
-  /** 当前页 */
+  /** Current page */
   currentPage?: number;
-  /** 是否成功 */
+  /** Whether successful */
   isSuccess?: boolean;
 }
 
@@ -2925,25 +2925,25 @@ export const aliexpressLogisticsAbnormalorderQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.asf.shipment.inquiry.solution`. */
 export interface AliexpressLogisticsAsfShipmentInquirySolutionParams {
-  /** 交易单id */
+  /** Transaction order ID */
   tradeOrderId?: LongInput;
-  /** 交易子单id */
+  /** Transaction sub-order ID */
   tradeOrderItemId?: LongInput;
-  /** 长（单位cm） */
+  /** Length (unit: cm) */
   length?: LongInput;
-  /** 重量（单位g） */
+  /** Weight (unit: g) */
   weight?: LongInput;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** 宽（单位cm） */
+  /** Width (unit: cm) */
   width?: LongInput;
-  /** 高（单位cm） */
+  /** Height (unit: cm) */
   height?: LongInput;
 }
 
 /** Response of `aliexpress.logistics.asf.shipment.inquiry.solution`. */
 export interface AliexpressLogisticsAsfShipmentInquirySolutionResponse {
-  /** 返回体 */
+  /** Return body */
   result?: AliexpressLogisticsAsfShipmentInquirySolutionCbOpenApiBaseRespons;
 }
 
@@ -3018,13 +3018,13 @@ export const aliexpressLogisticsBuyerFreightCalculate: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.buyer.freight.get`. */
 export interface AliexpressLogisticsBuyerFreightGetParams {
-  /** 入参对象 */
+  /** Input object */
   aeopFreightCalculateForBuyerDTO?: AliexpressLogisticsBuyerFreightGetAeopFreightCalculateForBuyerDTO;
 }
 
 /** Response of `aliexpress.logistics.buyer.freight.get`. */
 export interface AliexpressLogisticsBuyerFreightGetResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressLogisticsBuyerFreightGetAeopFreightCalculateResultListResponseForBuyer;
 }
 
@@ -3060,31 +3060,31 @@ export const aliexpressLogisticsBuyerFreightGet: ApiDefinition<
 export interface AliexpressLogisticsCreatewarehouseorderParams {
   /** addresses */
   addressDTOs?: AliexpressLogisticsCreatewarehouseorderAeopWlDeclareAddressDTO;
-  /** 申报产品信息,列表类型，以json格式来表达。{productId为产品ID(必填,如为礼品,则设置为0);categoryCnDesc为申报中文名称(必填,长度1-20);categoryEnDesc为申报英文名称(必填,长度1-60);productNum产品件数(必填1-999);productDeclareAmount为产品申报金额(必填,0.01-10000.00);productWeight为产品申报重量(必填0.001-2.000);isContainsBattery为是否包含锂电池(必填0/1);scItemId为仓储发货属性代码（团购订单，仓储发货必填，物流服务为RUSTON 哈尔滨备货仓 HRB_WLB_RUSTONHEB，属性代码对应AE商品的sku属性一级，暂时没有提供接口查询属性代码，可以在仓储管理--库存管理页面查看，例如： 团购产品的sku属性White对应属性代码 40414943126）;skuValue为属性名称（团购订单，仓储发货必填，例如：White）;hsCode为产品海关编码，获取相关数据请至：http://www.customs.gov.cn/Tabid/67737/Default.aspx};isAneroidMarkup为是否含非液体化妆品（必填，填0代表不含非液体化妆品；填1代表含非液体化妆品；默认为0）;isOnlyBattery为是否含纯电池产品（必填，填0代表不含纯电池产品；填1代表含纯电池产品；默认为0）; */
+  /** Declared product information, list type, expressed in JSON format. {productId is the product ID (required; set to 0 if it is a gift); categoryCnDesc is the declared Chinese name (required, length 1-20); categoryEnDesc is the declared English name (required, length 1-60); productNum is the product quantity (required, 1-999); productDeclareAmount is the declared product amount (required, 0.01-10000.00); productWeight is the declared product weight (required, 0.001-2.000); isContainsBattery indicates whether it contains a lithium battery (required, 0/1); scItemId is the warehouse shipping attribute code (required for group-buying orders shipped from a warehouse; for logistics service RUSTON Harbin stocking warehouse HRB_WLB_RUSTONHEB, the attribute code corresponds to the first-level SKU attribute of the AE product; no API is currently provided to query attribute codes, which can be viewed on the Warehouse Management - Inventory Management page, for example: the SKU attribute White of a group-buying product corresponds to attribute code 40414943126); skuValue is the attribute name (required for group-buying orders shipped from a warehouse, for example: White); hsCode is the product customs code, to get the related data go to: http://www.customs.gov.cn/Tabid/67737/Default.aspx}; isAneroidMarkup indicates whether it contains non-liquid cosmetics (required; 0 means no non-liquid cosmetics; 1 means contains non-liquid cosmetics; default 0); isOnlyBattery indicates whether it contains battery-only products (required; 0 means no battery-only products; 1 means contains battery-only products; default 0); */
   declareProductDTOs?: string;
-  /** 国内快递公司名称,物流公司Id为-1时,必填 */
+  /** Domestic courier company name, required when the logistics company ID is -1 */
   domesticLogisticsCompany?: string;
-  /** 国内快递ID(物流公司是other时,ID为-1) */
+  /** Domestic courier ID (when the logistics company is other, the ID is -1) */
   domesticLogisticsCompanyId?: LongInput;
-  /** 国内快递运单号,长度1-32 */
+  /** Domestic express tracking number, length 1-32 */
   domesticTrackingNo?: string;
-  /** 包裹数量： 创建国家小包订单时非必填，创建国家快递订单时必填 */
+  /** Number of packages: optional when creating a country small-parcel order, required when creating a country express order */
   packageNum?: LongInput;
-  /** 订单来源 */
+  /** Order source */
   tradeOrderFrom?: string;
-  /** 交易订单号 */
+  /** Transaction order number */
   tradeOrderId?: LongInput;
-  /** 不可达处理(退回:0/销毁:1) 。详情请参考：http://bbs.seller.aliexpress.com/bbs/read.php?tid=514111 */
+  /** Handling of undeliverable items (return: 0 / destroy: 1). For details see: http://bbs.seller.aliexpress.com/bbs/read.php?tid=514111 */
   undeliverableDecision?: number;
-  /** ”根据订单号获取线上发货物流方案“API获取用户选择的实际发货物流服务（物流服务key,即仓库服务名称)例如：HRB_WLB_ZTOGZ是 中俄航空 Ruston广州仓库； HRB_WLB_RUSTONHEB为哈尔滨备货仓暂不支持，该渠道请做忽略。 */
+  /** The actual shipping logistics service chosen by the user (logistics service key, i.e. warehouse service name) obtained from the "get online shipping logistics plan by order number" API. For example: HRB_WLB_ZTOGZ is China-Russia Air Ruston Guangzhou warehouse; HRB_WLB_RUSTONHEB is the Harbin stocking warehouse, which is not supported yet; ignore this channel. */
   warehouseCarrierService?: string;
-  /** 发票号（可空） */
+  /** Invoice number (optional) */
   invoiceNumber?: string;
-  /** ISV用户唯一标识，一般为userId,最大长度为16个字符 */
+  /** Unique ISV user identifier, generally userId, maximum length 16 characters */
   topUserKey?: string;
-  /** 包裹保额 */
+  /** Package insured amount */
   insuranceCoverage?: AliexpressLogisticsCreatewarehouseorderMoney;
-  /** 是否同意升级逆向高货值保险 */
+  /** Whether to agree to upgrade reverse high-value insurance */
   isAgreeUpgradeReverseParcelInsure?: string;
 }
 
@@ -3092,7 +3092,7 @@ export interface AliexpressLogisticsCreatewarehouseorderParams {
 export interface AliexpressLogisticsCreatewarehouseorderResponse {
   /** result */
   result?: AliexpressLogisticsCreatewarehouseorderAeopWlCreateWarehouseOrderResultDTO;
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   resultSuccess?: boolean;
 }
 
@@ -3202,17 +3202,17 @@ export const aliexpressLogisticsDsTrackinginfoQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.getannouncement`. */
 export interface AliexpressLogisticsGetannouncementParams {
-  /** 商家id */
+  /** Merchant ID */
   sellerId?: string;
-  /** 结束时间 */
+  /** End time */
   startTime?: LongInput;
-  /** 开始时间 */
+  /** Start time */
   endTime?: LongInput;
 }
 
 /** Response of `aliexpress.logistics.getannouncement`. */
 export interface AliexpressLogisticsGetannouncementResponse {
-  /** 明细条目执行结果对象 */
+  /** Detail entry execution result object */
   resultdata?: AliexpressLogisticsGetannouncementResultdata;
 }
 
@@ -3242,9 +3242,9 @@ export const aliexpressLogisticsGetannouncement: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.getpdfsbycloudprint`. */
 export interface AliexpressLogisticsGetpdfsbycloudprintParams {
-  /** 是否打印详情 */
+  /** Whether to print details */
   printDetail?: boolean;
-  /** 批量查询线上发货信息进去打印,列表类型，以json格式来表达 */
+  /** Batch query of online shipment information for printing; list type, expressed in JSON format */
   warehouseOrderQueryDTOs?: Array<AliexpressLogisticsGetpdfsbycloudprintAeopWarehouseOrderQueryPdfRequest>;
 }
 
@@ -3297,7 +3297,7 @@ export interface AliexpressLogisticsGetwlmailingaddresssnapshotdtoResponse {
   errorMsg?: string;
   /** success */
   isSuccess?: boolean;
-  /** 智利税号 */
+  /** Chile tax ID */
   rutNo?: string;
 }
 
@@ -3327,23 +3327,23 @@ export const aliexpressLogisticsGetwlmailingaddresssnapshotdto: ApiDefinition<
 export interface AliexpressLogisticsLocalCreatewarehouseorderParams {
   /** addresses */
   addressDTOs?: AliexpressLogisticsLocalCreatewarehouseorderAeopWlDeclareAddressDTO;
-  /** 申报产品信息,列表类型，以json格式来表达。{productId为产品ID(必填,如为礼品,则设置为0);categoryCnDesc为申报中文名称(必填,长度1-20);categoryEnDesc为申报英文名称(必填,长度1-60);productNum产品件数(必填1-999);productDeclareAmount为产品申报金额(必填,0.01-10000.00);productWeight为产品申报重量(必填0.001-2.000);isContainsBattery为是否包含锂电池(必填0/1);scItemId为仓储发货属性代码（团购订单，仓储发货必填，物流服务为RUSTON 哈尔滨备货仓 HRB_WLB_RUSTONHEB，属性代码对应AE商品的sku属性一级，暂时没有提供接口查询属性代码，可以在仓储管理--库存管理页面查看，例如： 团购产品的sku属性White对应属性代码 40414943126）;skuValue为属性名称（团购订单，仓储发货必填，例如：White）;hsCode为产品海关编码，获取相关数据请至：http://www.customs.gov.cn/Tabid/67737/Default.aspx};isAneroidMarkup为是否含非液体化妆品（必填，填0代表不含非液体化妆品；填1代表含非液体化妆品；默认为0）;isOnlyBattery为是否含纯电池产品（必填，填0代表不含纯电池产品；填1代表含纯电池产品；默认为0）; */
+  /** Declared product information, list type, expressed in JSON format. {productId is the product ID (required; set to 0 if it is a gift); categoryCnDesc is the declared Chinese name (required, length 1-20); categoryEnDesc is the declared English name (required, length 1-60); productNum is the product quantity (required, 1-999); productDeclareAmount is the declared product amount (required, 0.01-10000.00); productWeight is the declared product weight (required, 0.001-2.000); isContainsBattery indicates whether it contains a lithium battery (required, 0/1); scItemId is the warehouse shipping attribute code (required for group-buying orders shipped from a warehouse; for logistics service RUSTON Harbin stocking warehouse HRB_WLB_RUSTONHEB, the attribute code corresponds to the first-level SKU attribute of the AE product; no API is currently provided to query attribute codes, which can be viewed on the Warehouse Management - Inventory Management page, for example: the SKU attribute White of a group-buying product corresponds to attribute code 40414943126); skuValue is the attribute name (required for group-buying orders shipped from a warehouse, for example: White); hsCode is the product customs code, to get the related data go to: http://www.customs.gov.cn/Tabid/67737/Default.aspx}; isAneroidMarkup indicates whether it contains non-liquid cosmetics (required; 0 means no non-liquid cosmetics; 1 means contains non-liquid cosmetics; default 0); isOnlyBattery indicates whether it contains battery-only products (required; 0 means no battery-only products; 1 means contains battery-only products; default 0); */
   declareProductDTOs?: Array<AliexpressLogisticsLocalCreatewarehouseorderAeopWlDeclareProductForTopDTO>;
-  /** 包裹数量： 创建国家小包订单时非必填，创建国家快递订单时必填 */
+  /** Number of packages: optional when creating a country small-parcel order, required when creating a country express order */
   packageNum?: LongInput;
-  /** 订单来源 */
+  /** Order source */
   tradeOrderFrom?: string;
-  /** 交易订单号 */
+  /** Transaction order number */
   tradeOrderId?: LongInput;
-  /** 不可达处理(退回:0/销毁:1) 。详情请参考：http://bbs.seller.aliexpress.com/bbs/read.php?tid=514111 */
+  /** Handling of undeliverable items (return: 0 / destroy: 1). For details see: http://bbs.seller.aliexpress.com/bbs/read.php?tid=514111 */
   undeliverableDecision?: number;
-  /** 发票号（可空） */
+  /** Invoice number (optional) */
   invoiceNumber?: string;
-  /** ISV用户唯一标识，一般为userId,最大长度为16个字符 */
+  /** Unique ISV user identifier, generally userId, maximum length 16 characters */
   topUserKey?: string;
-  /** 包裹保额 */
+  /** Package insured amount */
   insuranceCoverage?: AliexpressLogisticsLocalCreatewarehouseorderMoney;
-  /** 是否同意升级逆向高货值保险 */
+  /** Whether to agree to upgrade reverse high-value insurance */
   isAgreeUpgradeReverseParcelInsure?: boolean;
 }
 
@@ -3351,7 +3351,7 @@ export interface AliexpressLogisticsLocalCreatewarehouseorderParams {
 export interface AliexpressLogisticsLocalCreatewarehouseorderResponse {
   /** result */
   result?: AliexpressLogisticsLocalCreatewarehouseorderAeopLocalWlCreateWarehouseOrderResultDTO;
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   resultSuccess?: boolean;
 }
 
@@ -3407,7 +3407,7 @@ export const aliexpressLogisticsLocalCreatewarehouseorder: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.local.getlogisticsselleraddress`. */
 export interface AliexpressLogisticsLocalGetlogisticsselleraddressParams {
-  /** sender,pickup,refund 地址类型 */
+  /** sender,pickup,refund address type */
   sellerAddressQuery?: Array<string>;
 }
 
@@ -3443,7 +3443,7 @@ export const aliexpressLogisticsLocalGetlogisticsselleraddress: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.local.getlogisticsselleraddresses`. */
 export interface AliexpressLogisticsLocalGetlogisticsselleraddressesParams {
-  /** sender,pickup,refund 地址类型 */
+  /** sender,pickup,refund address type */
   sellerAddressQuery?: Array<string>;
 }
 
@@ -3579,57 +3579,57 @@ export const aliexpressLogisticsLocalListlogisticsservice: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.order.createorder`. */
 export interface AliexpressLogisticsOrderCreateorderParams {
-  /** 是否同意升级逆向高货值保险 */
+  /** Whether to agree to upgrade reverse high-value insurance */
   isAgreeUpgradeReverseParcelInsure?: string;
-  /** 订单对应收货地址OAID */
+  /** OAID of the shipping address corresponding to the order */
   oaid?: string;
-  /** 发货方式：上门揽收DOOR_PICKUP, 自寄SELF_POST, 自送SELF_SEND */
+  /** Shipping method: door pickup DOOR_PICKUP, self-post SELF_POST, self-delivery SELF_SEND */
   pickupType?: string;
-  /** 包裹长 cm */
+  /** Package length, cm */
   goodsLength?: LongInput;
-  /** 包裹宽 cm */
+  /** Package width, cm */
   goodsWidth?: LongInput;
-  /** 包裹高 cm */
+  /** Package height, cm */
   goodsHeight?: LongInput;
-  /** 退回策略 */
+  /** Return policy */
   overseasReturnStrategy?: string;
-  /** 重发的包裹单号 */
+  /** Reshipped package number */
   fulfillmentPackageId?: string;
-  /** 地址 */
+  /** Address */
   addressDTOs?: AliexpressLogisticsOrderCreateorderAeopWlDeclareAddressDTO;
-  /** 申报产品信息,列表类型，以json格式来表达。{productId为产品ID(必填,如为礼品,则设置为0);categoryCnDesc为申报中文名称(必填,长度1-20);categoryEnDesc为申报英文名称(必填,长度1-60);productNum产品件数(必填1-999);productDeclareAmount为产品申报金额(必填,0.01-10000.00);productWeight为产品申报重量(必填0.001-2.000);isContainsBattery为是否包含锂电池(必填0/1);scItemId为仓储发货属性代码（团购订单，仓储发货必填，物流服务为RUSTON 哈尔滨备货仓 HRB_WLB_RUSTONHEB，属性代码对应AE商品的sku属性一级，暂时没有提供接口查询属性代码，可以在仓储管理--库存管理页面查看，例如： 团购产品的sku属性White对应属性代码 40414943126）;skuValue为属性名称（团购订单，仓储发货必填，例如：White）;hsCode为产品海关编码，获取相关数据请至：http://www.customs.gov.cn/Tabid/67737/Default.aspx};isAneroidMarkup为是否含非液体化妆品（必填，填0代表不含非液体化妆品；填1代表含非液体化妆品；默认为0）;isOnlyBattery为是否含纯电池产品（必填，填0代表不含纯电池产品；填1代表含纯电池产品；默认为0）; */
+  /** Declared product information, list type, expressed in JSON format. {productId is the product ID (required; set to 0 if it is a gift); categoryCnDesc is the declared Chinese name (required, length 1-20); categoryEnDesc is the declared English name (required, length 1-60); productNum is the product quantity (required, 1-999); productDeclareAmount is the declared product amount (required, 0.01-10000.00); productWeight is the declared product weight (required, 0.001-2.000); isContainsBattery indicates whether it contains a lithium battery (required, 0/1); scItemId is the warehouse shipping attribute code (required for group-buying orders shipped from a warehouse; for logistics service RUSTON Harbin stocking warehouse HRB_WLB_RUSTONHEB, the attribute code corresponds to the first-level SKU attribute of the AE product; no API is currently provided to query attribute codes, which can be viewed on the Warehouse Management - Inventory Management page, for example: the SKU attribute White of a group-buying product corresponds to attribute code 40414943126); skuValue is the attribute name (required for group-buying orders shipped from a warehouse, for example: White); hsCode is the product customs code, to get the related data go to: http://www.customs.gov.cn/Tabid/67737/Default.aspx}; isAneroidMarkup indicates whether it contains non-liquid cosmetics (required; 0 means no non-liquid cosmetics; 1 means contains non-liquid cosmetics; default 0); isOnlyBattery indicates whether it contains battery-only products (required; 0 means no battery-only products; 1 means contains battery-only products; default 0); */
   declareProductDTOs?: Array<AliexpressLogisticsOrderCreateorderAeopWlDeclareProductForTopDTO>;
-  /** 国内快递公司编码，只有传了pickupType时可以非必填 */
+  /** Domestic courier company code, optional only when pickupType is passed */
   domesticLogisticsCompany?: string;
-  /** 国内快递ID(自送ID为-1)，只有传了pickupType时可以非必填 */
+  /** Domestic courier ID (self-delivery ID is -1); can be optional only when pickupType is passed */
   domesticLogisticsCompanyId?: LongInput;
-  /** 国内快递运单号,长度1-32，只有传了pickupType时可以非必填 */
+  /** Domestic courier waybill number, length 1-32; can be optional only when pickupType is passed */
   domesticTrackingNo?: string;
-  /** 包裹数量： 创建国家小包订单时非必填，创建国家快递订单时必填 */
+  /** Number of packages: optional when creating a country small-parcel order, required when creating a country express order */
   packageNum?: LongInput;
-  /** 订单来源 */
+  /** Order source */
   tradeOrderFrom?: string;
-  /** 交易订单号 */
+  /** Transaction order number */
   tradeOrderId?: LongInput;
-  /** 不可达处理(退回:0/销毁:1) 。详情请参考：http://bbs.seller.aliexpress.com/bbs/read.php?tid=514111 */
+  /** Handling of undeliverable items (return: 0 / destroy: 1). For details see: http://bbs.seller.aliexpress.com/bbs/read.php?tid=514111 */
   undeliverableDecision?: number;
-  /** ”根据订单号获取线上发货物流方案“API获取用户选择的实际发货物流服务（物流服务key,即仓库服务名称)例如：HRB_WLB_ZTOGZ是 中俄航空 Ruston广州仓库； HRB_WLB_RUSTONHEB为哈尔滨备货仓暂不支持，该渠道请做忽略。 */
+  /** The actual shipping logistics service chosen by the user (logistics service key, i.e. warehouse service name) obtained from the "get online shipping logistics plan by order number" API. For example: HRB_WLB_ZTOGZ is China-Russia Air Ruston Guangzhou warehouse; HRB_WLB_RUSTONHEB is the Harbin stocking warehouse, which is not supported yet; ignore this channel. */
   warehouseCarrierService?: string;
-  /** 发票号（可空） */
+  /** Invoice number (optional) */
   invoiceNumber?: string;
-  /** ISV用户唯一标识,最大长度为16个字符 */
+  /** Unique ISV user identifier, maximum length 16 characters */
   topUserKey?: string;
-  /** 包裹保额 */
+  /** Package insured amount */
   insuranceCoverage?: AliexpressLogisticsOrderCreateorderMoney;
 }
 
 /** Response of `aliexpress.logistics.order.createorder`. */
 export interface AliexpressLogisticsOrderCreateorderResponse {
-  /** 接口透出额外提示错误或者文案json格式 */
+  /** Extra error prompt or copy exposed by the API, in JSON format */
   extInfo?: string;
   /** result */
   result?: AliexpressLogisticsOrderCreateorderAeopWlCreateWarehouseOrderResultDTO;
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   resultSuccess?: boolean;
 }
 
@@ -3769,7 +3769,7 @@ export interface AliexpressLogisticsOrderShipmentParams {
 
 /** Response of `aliexpress.logistics.order.shipment`. */
 export interface AliexpressLogisticsOrderShipmentResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressLogisticsOrderShipmentAeopSellerShipmentSubTradeOrderResponse;
 }
 
@@ -3832,23 +3832,23 @@ export const aliexpressLogisticsQueryEnum: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.querylogisticsorderdetail`. */
 export interface AliexpressLogisticsQuerylogisticsorderdetailParams {
-  /** 当前页 */
+  /** Current page */
   currentPage?: number;
-  /** 国内运单号 */
+  /** Domestic waybill number */
   domesticLogisticsNum?: string;
-  /** 起始创建时间 */
+  /** Start creation time */
   gmtCreateEndStr?: string;
-  /** 截止创建时间 */
+  /** End creation time */
   gmtCreateStartStr?: string;
-  /** 国际运单号 */
+  /** International waybill number */
   internationalLogisticsNum?: string;
-  /** 订单状态 */
+  /** Order status */
   logisticsStatus?: string;
-  /** 页面大小 */
+  /** Page size */
   pageSize?: number;
-  /** 交易订单号 */
+  /** Transaction order number */
   tradeOrderId?: LongInput;
-  /** 物流服务编码 */
+  /** Logistics service code */
   warehouseCarrierService?: string;
 }
 
@@ -4021,7 +4021,7 @@ export const aliexpressLogisticsRedefiningGetfieldinfoforprint: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.redefining.getlogisticsselleraddresses`. */
 export interface AliexpressLogisticsRedefiningGetlogisticsselleraddressesParams {
-  /** 地址类型 */
+  /** Address type */
   sellerAddressQuery?: Array<string>;
 }
 
@@ -4124,11 +4124,11 @@ export const aliexpressLogisticsRedefiningGetnextleveladdressdata: ApiDefinition
 
 /** Parameters for `aliexpress.logistics.redefining.getonlinelogisticsinfo`. */
 export interface AliexpressLogisticsRedefiningGetonlinelogisticsinfoParams {
-  /** logistics order code(物流单LP号) */
+  /** logistics order code (logistics order LP number) */
   logisticsOrderCode?: string;
-  /** domestic tracking number(国内运单号) */
+  /** domestic tracking number */
   chinaLogisticsId?: string;
-  /** package tracking number or logistics number(货物跟踪编码/国际运单号) */
+  /** package tracking number or logistics number (tracking code / international waybill number) */
   internationalLogisticsId?: string;
   /** status of the logistics order (INIT, WAIT, PICKUP, PICKUP, WAREHOUSE, WAREHOUSE, REROUTE, WAREHOUSE, WAIT, LOGISTICS, OUT, OUT, SEND, SEND, ORDER, ORDER, CLOSED) */
   logisticsStatus?: string;
@@ -4140,11 +4140,11 @@ export interface AliexpressLogisticsRedefiningGetonlinelogisticsinfoParams {
   queryExpressOrder?: boolean;
   /** current page */
   currentPage?: number;
-  /** trade order id(交易单号) */
+  /** trade order id (trade order number) */
   orderId?: LongInput;
   /** time in YYYY-MM-dd HH:mm:SS */
   gmtCreateStartStr?: string;
-  /** logistics order id(物流单ID) */
+  /** logistics order id (logistics order ID) */
   logisticsOrderId?: LongInput;
 }
 
@@ -4201,17 +4201,17 @@ export const aliexpressLogisticsRedefiningGetonlinelogisticsinfo: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.redefining.getonlinelogisticsservicelistbyorderid`. */
 export interface AliexpressLogisticsRedefiningGetonlinelogisticsservicelistbyorderidParams {
-  /** 包裹宽度 */
+  /** Package width */
   goodsWidth?: LongInput;
-  /** 包裹高度 */
+  /** Package height */
   goodsHeight?: LongInput;
-  /** 包裹重量 */
+  /** Package weight */
   goodsWeight?: string;
-  /** 包裹长度 */
+  /** Package length */
   goodsLength?: LongInput;
-  /** 交易订单号 */
+  /** Transaction order number */
   orderId?: LongInput;
-  /** 多语言，zh_CN：中文、en_US：英语、ru_RU：俄语 */
+  /** Language, zh_CN: Chinese, en_US: English, ru_RU: Russian */
   locale?: string;
 }
 
@@ -4266,7 +4266,7 @@ export interface AliexpressLogisticsRedefiningGetprintinfoParams {
 
 /** Response of `aliexpress.logistics.redefining.getprintinfo`. */
 export interface AliexpressLogisticsRedefiningGetprintinfoResponse {
-  /** 通过国际订单号获取的body内容用base64转码后生成运单标签的pdf字节流。 */
+  /** PDF byte stream of the waybill label, generated by base64-encoding the body content obtained via the international order number. */
   result?: string;
 }
 
@@ -4298,7 +4298,7 @@ export interface AliexpressLogisticsRedefiningGetprintinfosParams {
 
 /** Response of `aliexpress.logistics.redefining.getprintinfos`. */
 export interface AliexpressLogisticsRedefiningGetprintinfosResponse {
-  /** 通过国际订单号获取的body内容用base64转码后生成运单标签的pdf字节流。 */
+  /** PDF byte stream of the waybill label, generated by base64-encoding the body content obtained via the international order number. */
   result?: string;
 }
 
@@ -4379,9 +4379,9 @@ export interface AliexpressLogisticsRedefiningQuerytrackingresultParams {
 
 /** Response of `aliexpress.logistics.redefining.querytrackingresult`. */
 export interface AliexpressLogisticsRedefiningQuerytrackingresultResponse {
-  /** 追踪详细信息列表 */
+  /** Tracking detail information list */
   details?: Array<AliexpressLogisticsRedefiningQuerytrackingresultString>;
-  /** 追踪网址 */
+  /** Tracking URL */
   officialWebsite?: string;
   /** error description */
   errorDesc?: string;
@@ -4528,27 +4528,27 @@ export const aliexpressLogisticsRedefiningSellermodifiedshipmentsupportsubtradeo
 
 /** Parameters for `aliexpress.logistics.sellermodifiedshipmentfortop`. */
 export interface AliexpressLogisticsSellermodifiedshipmentfortopParams {
-  /** 跟踪网址 */
+  /** Tracking URL */
   trackingWebsite?: string;
-  /** 用户需要修改的的老的发货物流服务 */
+  /** The old shipping logistics service that the user needs to change */
   oldServiceName?: string;
-  /** 新的发货物流服务 */
+  /** New shipping logistics service */
   newServiceName?: string;
-  /** 旧的货物跟踪编码/国际运单号 */
+  /** Old cargo tracking code / international waybill number */
   oldLogisticsNo?: string;
   /** memo */
   description?: string;
-  /** 新的货物跟踪编码/国际运单号 */
+  /** New cargo tracking code / international waybill number */
   newLogisticsNo?: string;
-  /** 状态包括：全部发货(all)、部分发货(part) */
+  /** Status includes: full shipment (all), partial shipment (part) */
   sendType?: string;
-  /** 交易订单号 */
+  /** Transaction order number */
   outRef?: string;
-  /** 包裹类型 */
+  /** Package type */
   packageType?: string;
-  /** 实际承运商--物流方案为“卖家自定义-中国”(OTHER)时该字段为必填 */
+  /** Actual carrier. Required when the logistics solution is "Seller custom - China" (OTHER) */
   actualCarrier?: string;
-  /** 多语言，ae_ES西班牙语，pt_BR巴西 */
+  /** Language, ae_ES Spanish, pt_BR Brazil */
   locale?: string;
 }
 
@@ -4594,25 +4594,25 @@ export const aliexpressLogisticsSellermodifiedshipmentfortop: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.sellershipmentfortop`. */
 export interface AliexpressLogisticsSellershipmentfortopParams {
-  /** 货物跟踪编码/国际运单号 */
+  /** Cargo tracking code / international waybill number */
   logisticsNo?: string;
   /** memo */
   description?: string;
-  /** 声明发货类型，all表示全部发货，part表示部分声明发货。 */
+  /** Declared shipment type, all means full shipment, part means partial declared shipment. */
   sendType?: string;
-  /** 交易订单号 */
+  /** Transaction order number */
   outRef?: string;
-  /** 追踪网址 */
+  /** Tracking URL */
   trackingWebsite?: string;
-  /** 物流服务名称 */
+  /** Logistics service name */
   serviceName?: string;
-  /** 包裹类型 */
+  /** Package type */
   packageType?: string;
-  /** 实际承运商--物流方案为“卖家自定义-中国”(OTHER)时该字段为必填 */
+  /** Actual carrier. Required when the logistics solution is "Seller custom - China" (OTHER) */
   actualCarrier?: string;
-  /** ioss税号 */
+  /** IOSS tax number */
   ioss?: string;
-  /** 多语言，es_ES西班牙语， pt_BR巴西 */
+  /** Language, es_ES Spanish, pt_BR Brazil */
   locale?: string;
 }
 
@@ -4659,7 +4659,7 @@ export const aliexpressLogisticsSellershipmentfortop: ApiDefinition<
 export interface AliexpressLogisticsSellershipmentsupportsubtradeorderParams {
   /** 1 */
   subTradeOrderList?: Array<AliexpressLogisticsSellershipmentsupportsubtradeorderAeopSellerShipmentSubTradeOrderDTO>;
-  /** 主订单ID */
+  /** Main order ID */
   tradeOrderId?: LongInput;
 }
 
@@ -4713,13 +4713,13 @@ export const aliexpressLogisticsSellershipmentsupportsubtradeorder: ApiDefinitio
 
 /** Parameters for `aliexpress.logistics.service.query`. */
 export interface AliexpressLogisticsServiceQueryParams {
-  /** 入參对象 */
+  /** Input object */
   interfaceRequest?: AliexpressLogisticsServiceQueryAeopOnlineLogisticsServiceRequest;
 }
 
 /** Response of `aliexpress.logistics.service.query`. */
 export interface AliexpressLogisticsServiceQueryResponse {
-  /** 返回对象 */
+  /** Returned object */
   resultResponse?: AliexpressLogisticsServiceQueryAeopOnlineLogisticsServiceResponse;
 }
 
@@ -4753,19 +4753,19 @@ export const aliexpressLogisticsServiceQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.valueadded.insurance.estimate`. */
 export interface AliexpressLogisticsValueaddedInsuranceEstimateParams {
-  /** 是否升级正逆向货值保障（默认值false） */
+  /** Whether to upgrade the forward and reverse goods value guarantee (default false) */
   agreeUpgradeReverseParcelInsure?: boolean;
-  /** 交易单ID */
+  /** Transaction order ID */
   tradeOrderId?: LongInput;
-  /** 保额，单位：美金(分)；最小值4500 */
+  /** Insured amount, unit: US dollar (cents); minimum 4500 */
   insuranceCoverage?: LongInput;
-  /** 解决方案Code（CAINIAO_STANDARD｜CAINIAO_PREMIUM｜CAINIAO_STANDARD_HEAVY） */
+  /** Solution Code (CAINIAO_STANDARD | CAINIAO_PREMIUM | CAINIAO_STANDARD_HEAVY) */
   solutionCode?: string;
 }
 
 /** Response of `aliexpress.logistics.valueadded.insurance.estimate`. */
 export interface AliexpressLogisticsValueaddedInsuranceEstimateResponse {
-  /** 返回体 */
+  /** Return body */
   result?: AliexpressLogisticsValueaddedInsuranceEstimateGlspResponse;
 }
 
@@ -4799,31 +4799,31 @@ export const aliexpressLogisticsValueaddedInsuranceEstimate: ApiDefinition<
 
 /** Parameters for `aliexpress.logistics.warehouse.querydetail`. */
 export interface AliexpressLogisticsWarehouseQuerydetailParams {
-  /** 仓发订单类型 DOMESTIC 优选仓 EUOVERSEA 海外仓 */
+  /** Warehouse-shipment order type DOMESTIC preferred warehouse EUOVERSEA overseas warehouse */
   consignType?: string;
-  /** 当前页 */
+  /** Current page */
   currentPage?: number;
-  /** 国内运单号 */
+  /** Domestic waybill number */
   domesticLogisticsNum?: string;
-  /** 截止创建时间 */
+  /** End creation time */
   gmtCreateEndStr?: string;
-  /** 起始创建时间 */
+  /** Start creation time */
   gmtCreateStartStr?: string;
-  /** 国际运单号 */
+  /** International waybill number */
   internationalLogisticsNum?: string;
-  /** 订单状态 */
+  /** Order status */
   logisticsStatus?: string;
-  /** 页面大小 */
+  /** Page size */
   pageSize?: number;
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: LongInput;
-  /** 物流服务编码 */
+  /** Logistics service code */
   warehouseCarrierService?: string;
 }
 
 /** Response of `aliexpress.logistics.warehouse.querydetail`. */
 export interface AliexpressLogisticsWarehouseQuerydetailResponse {
-  /** 接口返回model */
+  /** API return model */
   returnResult?: AliexpressLogisticsWarehouseQuerydetailResult;
 }
 

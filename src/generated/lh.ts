@@ -10,15 +10,15 @@ import type {
 
 /** Parameters for `/lh/fee/api`. */
 export interface LhFeeApiParams {
-  /** 测试名字 */
+  /** Test name */
   name?: string;
 }
 
 /** Response of `/lh/fee/api`. */
 export interface LhFeeApiResponse {
-  /** 测试年龄 */
+  /** Test age */
   age?: Long;
-  /** 测试分数 */
+  /** Test score */
   score?: Long;
 }
 
@@ -40,13 +40,13 @@ export const lhFeeApi: ApiDefinition<LhFeeApiParams, LhFeeApiResponse> = {
 
 /** Parameters for `/lh/january/first/api`. */
 export interface LhJanuaryFirstApiParams {
-  /** 名字 */
+  /** Name */
   name?: string;
 }
 
 /** Response of `/lh/january/first/api`. */
 export interface LhJanuaryFirstApiResponse {
-  /** 分数 */
+  /** Score */
   score?: Long;
 }
 
@@ -70,13 +70,13 @@ export const lhJanuaryFirstApi: ApiDefinition<
 
 /** Parameters for `/lh/online/test/fee/api`. */
 export interface LhOnlineTestFeeApiParams {
-  /** 测试名字 */
+  /** Test name */
   name?: string;
 }
 
 /** Response of `/lh/online/test/fee/api`. */
 export interface LhOnlineTestFeeApiResponse {
-  /** 测试年龄 */
+  /** Test age */
   age?: Long;
 }
 
@@ -100,15 +100,15 @@ export const lhOnlineTestFeeApi: ApiDefinition<
 
 /** Parameters for `/lh/test/fee/second/api`. */
 export interface LhTestFeeSecondApiParams {
-  /** 测试名字 */
+  /** Test name */
   name?: string;
 }
 
 /** Response of `/lh/test/fee/second/api`. */
 export interface LhTestFeeSecondApiResponse {
-  /** 测试年龄 */
+  /** Test age */
   age?: Long;
-  /** 测试分数 */
+  /** Test score */
   score?: Long;
 }
 
@@ -133,13 +133,13 @@ export const lhTestFeeSecondApi: ApiDefinition<
 
 /** Parameters for `/lh/test/fourth/api`. */
 export interface LhTestFourthApiParams {
-  /** 测试ID */
+  /** Test ID */
   id?: LongInput;
 }
 
 /** Response of `/lh/test/fourth/api`. */
 export interface LhTestFourthApiResponse {
-  /** 测试名字 */
+  /** Test name */
   name?: string;
 }
 

@@ -9,7 +9,7 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressWarehouseAddressGet {
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
   /** errorMessage */
   errorMessage?: string;
@@ -17,21 +17,21 @@ export interface AliexpressWarehouseAddressGet {
   errorCode?: string;
   /** data */
   data?: AliexpressWarehouseAddressGet;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** 仓Code */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 货主ID */
+  /** Cargo owner ID */
   goodsOwnerId?: string;
-  /** 仓类型 */
+  /** Warehouse type */
   addressType?: string;
-  /** 国家二字码 */
+  /** Two-letter country code */
   countryISOCode?: string;
   /** province */
   province?: string;
   /** city */
   city?: string;
-  /** 区域 */
+  /** Region */
   district?: string;
   /** street */
   street?: string;
@@ -71,15 +71,15 @@ export const AliexpressWarehouseAddressGetSchema: Schema = {
 export interface AliexpressWarehouseItemCreatePost {
   /** true|false */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
   /** data */
   data?: AliexpressWarehouseItemCreatePost;
-  /** 新建/更新成功货品ID */
+  /** ID of product successfully created/updated */
   successIds?: Array<string>;
-  /** 新建/更新失败货品ID */
+  /** ID of product that failed to be created/updated */
   failedIds?: Array<string>;
 }
 
@@ -95,15 +95,15 @@ export const AliexpressWarehouseItemCreatePostSchema: Schema = {
 export interface AliexpressWarehouseOwnerCreatePost {
   /** true|false */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
   /** errorMessage */
   errorMessage?: string;
   /** data */
   data?: AliexpressWarehouseOwnerCreatePost;
-  /** 货主ID */
+  /** Cargo owner ID */
   ownerId?: string;
-  /** 密钥:支持免登 */
+  /** Key: supports login-free access */
   secretKey?: string;
 }
 
@@ -125,9 +125,9 @@ export interface AliexpressWarehouseReturnFoCancelPost {
   errorCode?: string;
   /** data */
   data?: AliexpressWarehouseReturnFoCancelPost;
-  /** true表示取消成功，false表示取消失败，当返回false时，需要返回取消失败原因 */
+  /** true means the cancellation succeeded, false means it failed. When false is returned, the reason for the cancellation failure must be returned */
   cancelStatus?: boolean;
-  /** 取消失败原因 */
+  /** Cancellation failure reason */
   reason?: string;
 }
 
@@ -141,15 +141,15 @@ export const AliexpressWarehouseReturnFoCancelPostSchema: Schema = {
 };
 
 export interface AliexpressWarehouseReturnFoCreatePost {
-  /** 请求时候成功 true|false */
+  /** Whether the request succeeded true|false */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
   /** data */
   data?: AliexpressWarehouseReturnFoCreatePost;
-  /** 退仓方式是否成功更新 */
+  /** Whether the warehouse return method was updated successfully */
   accept?: boolean;
 }
 
@@ -170,9 +170,9 @@ export interface AliexpressWarehouseReverseFoCancelPost {
   errorCode?: string;
   /** data */
   data?: AliexpressWarehouseReverseFoCancelPost;
-  /** true表示取消成功，false表示取消失败，当返回false时，需要返回取消失败原因 */
+  /** true means the cancellation succeeded, false means it failed. When false is returned, the reason for the cancellation failure must be returned */
   cancelStatus?: boolean;
-  /** 取消失败原因 */
+  /** Cancellation failure reason */
   reason?: string;
 }
 
@@ -205,17 +205,17 @@ export const AliexpressWarehouseReverseFoCreatePostSchema: Schema = {
 
 /** Parameters for `/aliexpress/warehouse/address/get`. */
 export interface AliexpressWarehouseAddressGetParams {
-  /** wms、oms，易仓专用 */
+  /** wms, oms, dedicated to Yicang */
   systemType?: string;
-  /** 仓客户ID */
+  /** Warehouse customer ID */
   warehouseCustomerId?: string;
-  /** 货主ID */
+  /** Cargo owner ID */
   goodsOwnerId?: string;
-  /** 仓库Code */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 默认en */
+  /** Default en */
   locale?: string;
-  /** 正向还是逆向forward，reverse */
+  /** Forward or reverse: forward, reverse */
   addressType?: string;
 }
 
@@ -250,19 +250,19 @@ export const aliexpressWarehouseAddressGet: ApiDefinition<
 
 /** Parameters for `/aliexpress/warehouse/item/create/post`. */
 export interface AliexpressWarehouseItemCreatePostParams {
-  /** wms、oms，易仓专用 */
+  /** wms, oms, dedicated to Yicang */
   systemType?: string;
-  /** 易仓多租户路由ID，自研系统为固定值 */
+  /** Yicang multi-tenant routing ID, a fixed value for self-developed systems */
   warehouseCustomerId?: string;
-  /** 货主ID */
+  /** Cargo owner ID */
   goodsOwnerId?: string;
-  /** 货品所在仓code */
+  /** Warehouse code where the product is located */
   warehouseCode?: string;
-  /** 业务请求时间戳 */
+  /** Business request timestamp */
   requestTime?: string;
-  /** 业务请求ID，用于做幂等 */
+  /** Business request ID, used for idempotency */
   requestId?: string;
-  /** 货品列表 */
+  /** Goods list */
   scItems?: string;
 }
 
@@ -298,19 +298,19 @@ export const aliexpressWarehouseItemCreatePost: ApiDefinition<
 
 /** Parameters for `/aliexpress/warehouse/owner/create/post`. */
 export interface AliexpressWarehouseOwnerCreatePostParams {
-  /** wms、oms，易仓专用，其他wms可以不传此字段，用来标识调用易仓的是新的wms系统还是老的oms系统 */
+  /** wms, oms. Dedicated to Yicang; other WMS can omit this field. Used to identify whether the Yicang call is for the new wms system or the old oms system */
   systemType?: string;
-  /** 易仓多租户路由ID，自研系统为固定值 */
+  /** Yicang multi-tenant routing ID, a fixed value for self-developed systems */
   warehouseCustomerId?: string;
-  /** 货主id */
+  /** Cargo owner ID */
   goodsOwnerId?: string;
-  /** 店铺昵称 */
+  /** Store nickname */
   shopName?: string;
   /** sign|cancel */
   method?: string;
-  /** 业务请求时间戳 */
+  /** Business request timestamp */
   requestTime?: string;
-  /** 业务请求ID，用于做幂等 */
+  /** Business request ID, used for idempotency */
   requestId?: string;
 }
 
@@ -346,15 +346,15 @@ export const aliexpressWarehouseOwnerCreatePost: ApiDefinition<
 
 /** Parameters for `/aliexpress/warehouse/return/fo/cancel/post`. */
 export interface AliexpressWarehouseReturnFoCancelPostParams {
-  /** wms、oms，易仓专用 */
+  /** wms, oms, dedicated to Yicang */
   systemType?: string;
-  /** 租户ID */
+  /** Tenant ID */
   warehouseCustomerId?: string;
-  /** 商家ID */
+  /** Merchant ID */
   goodsOwnerId?: string;
-  /** 退仓单ID */
+  /** Warehouse return order ID */
   outBizId?: string;
-  /** 取消原因 */
+  /** Cancellation reason */
   cancelReason?: string;
 }
 
@@ -388,39 +388,39 @@ export const aliexpressWarehouseReturnFoCancelPost: ApiDefinition<
 
 /** Parameters for `/aliexpress/warehouse/return/fo/create/post`. */
 export interface AliexpressWarehouseReturnFoCreatePostParams {
-  /** wms、oms，易仓专用 */
+  /** wms, oms, dedicated to Yicang */
   systemType?: string;
-  /** 易仓多租户路由ID，自研系统为固定值 */
+  /** Yicang multi-tenant routing ID, a fixed value for self-developed systems */
   warehouseCustomerId?: string;
-  /** AE生成的退仓单ID */
+  /** Warehouse return order ID generated by AE */
   outBizId?: string;
-  /** 货主id */
+  /** Cargo owner ID */
   goodsOwnerId?: string;
-  /** 仓Code */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 实际执行时间 */
+  /** Actual execution time */
   realExecuteTime?: string;
-  /** 提货服务商 */
+  /** Pickup service provider */
   pickingProvider?: string;
-  /** 提货面单号 */
+  /** Pickup waybill number */
   pickingOrderNumber?: string;
-  /** 提货面单图片 */
+  /** Pickup waybill image */
   pickingOrderUrl?: string;
-  /** 提货码 */
+  /** Pickup code */
   pickingCode?: string;
-  /** 联系人电话 */
+  /** Contact phone number */
   contactPhone?: string;
-  /** 联系人姓名 */
+  /** Contact name */
   contactName?: string;
-  /** 操作类型 destory|self-pickup|provider-pickup|shipping */
+  /** Operation type destory|self-pickup|provider-pickup|shipping */
   method?: string;
-  /** 货品处置列表 */
+  /** Goods disposal list */
   items?: string;
-  /** 请求时间戳 */
+  /** Request timestamp */
   requestTime?: string;
-  /** 请求ID，唯一 */
+  /** Request ID, unique */
   requestId?: string;
-  /** 自动销毁时间 */
+  /** Automatic destruction time */
   autoDestroyDays?: string;
 }
 
@@ -466,21 +466,21 @@ export const aliexpressWarehouseReturnFoCreatePost: ApiDefinition<
 
 /** Parameters for `/aliexpress/warehouse/reverse/fo/cancel/post`. */
 export interface AliexpressWarehouseReverseFoCancelPostParams {
-  /** wms、oms，易仓专用 */
+  /** wms, oms, dedicated to Yicang */
   systemType?: string;
-  /** 租户ID */
+  /** Tenant ID */
   warehouseCustomerId?: string;
-  /** 商家ID */
+  /** Merchant ID */
   goodsOwnerId?: string;
-  /** WMS仓库订单号 */
+  /** WMS warehouse order number */
   wmsOrderId?: string;
-  /** wmsOrderId与outBizId,必须至少一个 */
+  /** At least one of wmsOrderId and outBizId is required */
   outBizId?: string;
-  /** 取消原因 */
+  /** Cancellation reason */
   cancelReason?: string;
-  /** 地址类型 */
+  /** Address type */
   addressType?: string;
-  /** 取消场景 */
+  /** Cancellation scenario */
   cancelScene?: string;
 }
 
@@ -517,31 +517,31 @@ export const aliexpressWarehouseReverseFoCancelPost: ApiDefinition<
 
 /** Parameters for `/aliexpress/warehouse/reverse/fo/create/post`. */
 export interface AliexpressWarehouseReverseFoCreatePostParams {
-  /** ：wms、oms，易仓专用 */
+  /** : wms, oms, dedicated to Yicang */
   systemType?: string;
-  /** 仓租户ID */
+  /** Warehouse tenant ID */
   warehouseCustomerId?: string;
-  /** 商家在wms系统内唯一id */
+  /** Unique id of the merchant in the wms system */
   goodsOwnerId?: string;
-  /** AE平台交易单号 */
+  /** AE platform transaction order number */
   aeTradeOrderId?: string;
-  /** 商家在AE店铺名称 */
+  /** Merchant's store name on AE */
   shopName?: string;
-  /** 标识唯一的一个wms系统内的物流订单 */
+  /** Identifies a unique logistics order within a WMS system */
   outBizId?: string;
-  /** 履约仓库 */
+  /** Fulfillment warehouse */
   warehouseCode?: string;
-  /** 寄件人参数 */
+  /** Sender parameters */
   senderParam?: string;
-  /** 收件人参数 */
+  /** Recipient parameters */
   receiverParam?: string;
-  /** item详情 */
+  /** Item details */
   itemList?: string;
-  /** 物流详情 */
+  /** Logistics details */
   logisticParam?: string;
-  /** 扩展字段 */
+  /** Extension field */
   extendParam?: string;
-  /** 地址类型 */
+  /** Address type */
   addressType?: string;
 }
 

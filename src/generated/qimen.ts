@@ -9,19 +9,19 @@ import type {
 } from '../core/index.js';
 
 export interface QimenAliexpressWarehouseBaseinfoGet {
-  /** 接口执行结果，接口出现系统异常的时候返回false */
+  /** API execution result; returns false when a system exception occurs in the API */
   success?: string;
-  /** success为false的时候返回错误原因信息 */
+  /** Error reason message returned when success is false */
   errorMessage?: string;
-  /** success为false的时候返回错误原因编码 */
+  /** Error reason code returned when success is false */
   errorCode?: string;
   /** data */
   data?: Array<QimenAliexpressWarehouseBaseinfoGet>;
-  /** 仓名称 */
+  /** Warehouse name */
   warehouseName?: string;
-  /** 仓编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 仓地址 */
+  /** Warehouse address */
   warehouseAddress?: string;
 }
 
@@ -36,17 +36,17 @@ export const QimenAliexpressWarehouseBaseinfoGetSchema: Schema = {
 };
 
 export interface QimenAliexpressWarehouseCalculateFeeGet {
-  /** 返回 */
+  /** Return */
   data?: QimenAliexpressWarehouseCalculateFeeGet;
-  /** 返回 */
+  /** Return */
   success?: boolean;
-  /** 返回 */
+  /** Return */
   errorMessage?: string;
-  /** 返回 */
+  /** Return */
   errorCode?: string;
-  /** 总费用 */
+  /** Total fee */
   fee?: Long;
-  /** 币种 */
+  /** Currency */
   currency?: string;
 }
 
@@ -60,17 +60,17 @@ export const QimenAliexpressWarehouseCalculateFeeGetSchema: Schema = {
 };
 
 export interface QimenAliexpressWarehouseFoCancelPost {
-  /** 返回域 */
+  /** Return field */
   data?: QimenAliexpressWarehouseFoCancelPost;
-  /** 是否成功 */
+  /** Whether successful */
   success?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 取消原因 */
+  /** Cancellation reason */
   reason?: string;
-  /** 状态 */
+  /** Status */
   cancelStatus?: boolean;
 }
 
@@ -84,15 +84,15 @@ export const QimenAliexpressWarehouseFoCancelPostSchema: Schema = {
 };
 
 export interface QimenAliexpressWarehouseFoCreateAsyncPost {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorMessage?: string;
-  /** 错误code */
+  /** Error code */
   errorCode?: string;
-  /** 值域 */
+  /** Value range */
   data?: QimenAliexpressWarehouseFoCreateAsyncPost;
-  /** 仓订单号 */
+  /** Warehouse order number */
   wmsOrderId?: string;
 }
 
@@ -105,59 +105,59 @@ export const QimenAliexpressWarehouseFoCreateAsyncPostSchema: Schema = {
 };
 
 export interface QimenAliexpressWarehouseFoDetailGet {
-  /** 返回 */
+  /** Return */
   data?: QimenAliexpressWarehouseFoDetailGet;
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
   /** errorMessage */
   errorMessage?: string;
   /** errorCode */
   errorCode?: string;
-  /** AE平台交易单号 */
+  /** AE platform transaction order number */
   aeTradeOrderId?: string;
-  /** 外部单号 */
+  /** External order number */
   outBizId?: string;
-  /** 仓订单状态码名称 */
+  /** Warehouse order status code name */
   orderStatusName?: string;
-  /** 订单修改时间 */
+  /** Order update time */
   orderUpdateTime?: string;
-  /** 仓订单创建时间 */
+  /** Warehouse order creation time */
   orderCreateTime?: string;
-  /** 仓订单状态码 */
+  /** Warehouse order status code */
   orderStatusCode?: string;
-  /** 仓订单出库时间 */
+  /** Warehouse order outbound time */
   orderOutboundTime?: string;
-  /** 返回 */
+  /** Return */
   packageList?: Array<QimenAliexpressWarehouseFoDetailGet>;
-  /** 仓code */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 仓库订单号 */
+  /** Warehouse order number */
   wmsOrderId?: string;
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 仓库该订单总费用（卖家需要付的） */
+  /** Total warehouse fee for this order (payable by the seller) */
   fee?: string;
-  /** 包裹高度，单位：毫米 */
+  /** Package height, unit: millimeters */
   packageHeight?: string;
-  /** 运单号 */
+  /** Waybill number */
   orderMailNo?: string;
-  /** 包裹重量，单位：克 */
+  /** Package weight, unit: grams */
   packageWeight?: string;
-  /** 物流服务名称 */
+  /** Logistics service name */
   shippingMethod?: string;
-  /** 物流公司英文名称 */
+  /** Logistics company English name */
   logisticsCompanyEn?: string;
-  /** 包裹长度，单位：毫米 */
+  /** Package length, unit: millimeters */
   packageLength?: string;
-  /** 包裹宽度，单位：毫米 */
+  /** Package width, unit: millimeters */
   packageWidth?: string;
-  /** 返回 */
+  /** Return */
   packageSkuList?: Array<QimenAliexpressWarehouseFoDetailGet>;
-  /** 物流公司中文名称 */
+  /** Logistics company Chinese name */
   logisticsCompanyCn?: string;
-  /** 包裹宽度，单位：毫米 */
+  /** Package width, unit: millimeters */
   quantity?: Long;
-  /** wms系统内skuid */
+  /** skuid within the wms system */
   skuId?: string;
 }
 
@@ -200,13 +200,13 @@ export const QimenAliexpressWarehouseFoDetailGetSchema: Schema = {
 };
 
 export interface QimenAliexpressWarehouseFoInterceptPost {
-  /** 接口调用成功与否 */
+  /** Whether the API call succeeded */
   success?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 结果成功与否 */
+  /** Whether the result succeeded */
   data?: string;
 }
 
@@ -218,19 +218,19 @@ export const QimenAliexpressWarehouseFoInterceptPostSchema: Schema = {
 };
 
 export interface QimenAliexpressWarehouseFoModifyPost {
-  /** 返回 */
+  /** Return */
   data?: QimenAliexpressWarehouseFoModifyPost;
-  /** 是否成功 */
+  /** Whether successful */
   success?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** WMS仓库订单号 */
+  /** WMS warehouse order number */
   wmsOrderId?: string;
-  /** 订单状态 */
+  /** Order status */
   orderStatus?: string;
-  /** 物流追踪单号 */
+  /** Logistics tracking number */
   trackingNo?: string;
 }
 
@@ -297,17 +297,17 @@ export const QimenAliexpressWarehouseInventoryGetSchema: Schema = {
 };
 
 export interface QimenAliexpressWarehouseLogisticsGet {
-  /** 具体数据 */
+  /** Specific data */
   data?: Array<QimenAliexpressWarehouseLogisticsGet>;
-  /** 接口执行结果。执行失败时为false */
+  /** API execution result. false when execution fails */
   success?: string;
-  /** 报错原因信息 */
+  /** Error reason information */
   errorMessage?: string;
-  /** 报错原因编码 */
+  /** Error reason code */
   errorCode?: string;
-  /** 尾程名称 */
+  /** Last-mile name */
   warehouseLogisticsSolutionsName?: string;
-  /** 尾程编码 */
+  /** Last-mile code */
   warehouseLogisticsSolutionsCode?: string;
 }
 
@@ -321,15 +321,15 @@ export const QimenAliexpressWarehouseLogisticsGetSchema: Schema = {
 };
 
 export interface QimenAliexpressWarehouseOwnerIdCheckGet {
-  /** 执行结果 */
+  /** Execution result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** wms系统自己定义的异常code */
+  /** Exception code defined by the WMS system itself */
   errorCode?: string;
-  /** 数据结构 */
+  /** Data structure */
   data?: QimenAliexpressWarehouseOwnerIdCheckGet;
-  /** 必填，校验结果，true为校验通过，false为校验失败 */
+  /** Required. Validation result, true means validation passed, false means validation failed */
   checkResult?: boolean;
 }
 
@@ -342,17 +342,17 @@ export const QimenAliexpressWarehouseOwnerIdCheckGetSchema: Schema = {
 };
 
 export interface QimenAliexpressWarehouseSalesGet {
-  /** 业务数据 */
+  /** Business data */
   data?: QimenAliexpressWarehouseSalesGet;
-  /** 接口执行结果 */
+  /** API execution result */
   success?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
-  /** 销量 */
+  /** Sales volume */
   sales?: string;
-  /** 库存 */
+  /** Inventory */
   stocks?: string;
 }
 
@@ -386,31 +386,31 @@ export const QimenAliexpressWarehouseSkuBindlistPostSchema: Schema = {
 export interface QimenAliexpressWarehouseSkulistInfoGet {
   /** true */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: string;
   /** 1 */
   data?: QimenAliexpressWarehouseSkulistInfoGet;
-  /** 总数量 */
+  /** Total quantity */
   totalCount?: Long;
   /** 1 */
   items?: Array<QimenAliexpressWarehouseSkulistInfoGet>;
   /** SKU ID */
   skuId?: string;
-  /** 中文名 */
+  /** Chinese name */
   skuTitleCn?: string;
-  /** 英文名 */
+  /** English name */
   skuTitleEn?: string;
-  /** 必填，单位：克 */
+  /** Required, unit: grams */
   weight?: Long;
-  /** 必填 单位：厘米 */
+  /** Required, unit: cm */
   length?: Long;
-  /** 必填 单位：厘米 */
+  /** Required, unit: cm */
   width?: Long;
-  /** 必填 单位：厘米 */
+  /** Required, unit: cm */
   height?: Long;
-  /** 图片链接 */
+  /** Image link */
   imageLink?: string;
   /** true */
   containBattery?: boolean;
@@ -435,21 +435,21 @@ export const QimenAliexpressWarehouseSkulistInfoGetSchema: Schema = {
 };
 
 export interface QimenAliexpressWarehouseSubscribeGet {
-  /** 结果 */
+  /** Result */
   data?: QimenAliexpressWarehouseSubscribeGet;
-  /** 结果，接口执行结果。当出现系统错误时，为false */
+  /** Result, the API execution result. false when a system error occurs */
   success?: boolean;
-  /** 当success为false时。此字段填充失败原因 */
+  /** When success is false, this field is filled with the failure reason */
   errorMessage?: string;
-  /** 当success为false时。此字段填充失败原因描述 */
+  /** When success is false, this field is filled with the description of the failure reason */
   errorCode?: string;
-  /** 订阅关系是否正常 */
+  /** Whether the subscription is valid */
   isSubscribe?: boolean;
-  /** 当isSubscribe为false时。此字段填充失败原因 */
+  /** When isSubscribe is false, this field is filled with the failure reason */
   exceptionMessage?: string;
-  /** 公司名称，当isSubscribe为true时，返回公司名称 */
+  /** Company name, returned when isSubscribe is true */
   companyName?: string;
-  /** 公司法人，当isSubscribe为true时，返回姓名 */
+  /** Company legal representative, name returned when isSubscribe is true */
   name?: string;
 }
 
@@ -470,7 +470,7 @@ export interface QimenAliexpressWarehouseBaseinfoGetParams {
   country?: string;
   /** 123 */
   warehouseCustomerId?: string;
-  /** 仓系统参数 */
+  /** Warehouse system parameters */
   systemType?: string;
 }
 
@@ -502,33 +502,33 @@ export const qimenAliexpressWarehouseBaseinfoGet: ApiDefinition<
 
 /** Parameters for `/qimen/aliexpress/warehouse/calculateFee/get`. */
 export interface QimenAliexpressWarehouseCalculateFeeGetParams {
-  /** 仓code */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 高（CM） */
+  /** Height (CM) */
   height?: LongInput;
-  /** 商家在WMS系统中唯一的货主代码 */
+  /** Unique cargo owner code of the merchant in the WMS system */
   goodsOwnerId?: string;
-  /** 邮编 */
+  /** Postal code */
   zipcode?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 物流服务名称 */
+  /** Logistics service name */
   shippingMethod?: string;
-  /** 系统类型：wms、oms，易仓专用 */
+  /** System type: wms, oms, for Yicang only */
   systemType?: string;
-  /** 长（CM） */
+  /** Length (CM) */
   length?: LongInput;
-  /** 宽（CM） */
+  /** Width (CM) */
   width?: LongInput;
-  /** 服务商 */
+  /** Service provider */
   warehouseCustomerId?: string;
-  /** 重量 */
+  /** Weight */
   weight?: LongInput;
 }
 
 /** Response of `/qimen/aliexpress/warehouse/calculateFee/get`. */
 export interface QimenAliexpressWarehouseCalculateFeeGetResponse {
-  /** 返回 */
+  /** Return */
   result?: QimenAliexpressWarehouseCalculateFeeGet;
 }
 
@@ -562,21 +562,21 @@ export const qimenAliexpressWarehouseCalculateFeeGet: ApiDefinition<
 
 /** Parameters for `/qimen/aliexpress/warehouse/fo/cancel/post`. */
 export interface QimenAliexpressWarehouseFoCancelPostParams {
-  /** 货主代码（客户代码） */
+  /** Cargo owner code (customer code) */
   goodsOwnerId?: string;
-  /** 系统类型：wms、oms，易仓专用 */
+  /** System type: wms, oms, for Yicang only */
   systemType?: string;
-  /** 服务商 */
+  /** Service provider */
   warehouseCustomerId?: string;
-  /** 取消原因 */
+  /** Cancellation reason */
   cancelReason?: string;
-  /** WMS仓库订单号 */
+  /** WMS warehouse order number */
   wmsOrderId?: string;
 }
 
 /** Response of `/qimen/aliexpress/warehouse/fo/cancel/post`. */
 export interface QimenAliexpressWarehouseFoCancelPostResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: QimenAliexpressWarehouseFoCancelPost;
 }
 
@@ -604,51 +604,51 @@ export const qimenAliexpressWarehouseFoCancelPost: ApiDefinition<
 
 /** Parameters for `/qimen/aliexpress/warehouse/fo/create/async/post`. */
 export interface QimenAliexpressWarehouseFoCreateAsyncPostParams {
-  /** 货主代码（客户代码） */
+  /** Cargo owner code (customer code) */
   goodsOwnerId?: string;
-  /** AE平台交易单号 */
+  /** AE platform transaction order number */
   aeTradeOrderId?: string;
-  /** 外部单号 */
+  /** External order number */
   outBizId?: string;
-  /** 国家二字码 */
+  /** Two-letter country code */
   country?: string;
-  /** 市 */
+  /** City */
   city?: string;
-  /** 地址2，地址1超长时，截取的地址放在地址2中 */
+  /** Address 2. When address 1 is too long, the truncated part is placed in address 2 */
   address2?: string;
-  /** 地址1 */
+  /** Address 1 */
   address1?: string;
-  /** 配送方式 */
+  /** Delivery method */
   shippingMethod?: string;
-  /** 服务商 */
+  /** Service provider */
   warehouseCustomerId?: string;
-  /** 履约仓库 */
+  /** Fulfillment warehouse */
   warehouseCode?: string;
-  /** 邮编 */
+  /** Postal code */
   zipcode?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 联系电话 */
+  /** Contact phone number */
   phone?: string;
-  /** 系统类型：wms、oms，易仓专用 */
+  /** System type: wms, oms, for Yicang only */
   systemType?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 物品 */
+  /** Item */
   items?: string;
-  /** AE店铺 */
+  /** AE store */
   shopName?: string;
-  /** 地址三，门牌号 */
+  /** Address line 3, house number */
   addressAddition?: string;
-  /** cpf号 */
+  /** CPF number */
   cpf?: string;
-  /** 沙特国家短地址 */
+  /** Saudi Arabia national short address */
   nationalAddr?: string;
 }
 
 /** Response of `/qimen/aliexpress/warehouse/fo/create/async/post`. */
 export interface QimenAliexpressWarehouseFoCreateAsyncPostResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: QimenAliexpressWarehouseFoCreateAsyncPost;
 }
 
@@ -695,21 +695,21 @@ export const qimenAliexpressWarehouseFoCreateAsyncPost: ApiDefinition<
 
 /** Parameters for `/qimen/aliexpress/warehouse/fo/detail/get`. */
 export interface QimenAliexpressWarehouseFoDetailGetParams {
-  /** 外部单号 */
+  /** External order number */
   outBizId?: string;
-  /** 系统类型：wms、oms，易仓专用 */
+  /** System type: wms, oms, for Yicang only */
   systemType?: string;
-  /** 服务商 */
+  /** Service provider */
   warehouseCustomerId?: string;
-  /** WMS仓库订单号 */
+  /** WMS warehouse order number */
   wmsOrderId?: string;
-  /** 商家在wms系统内唯一id */
+  /** Unique id of the merchant in the wms system */
   goodsOwnerId?: string;
 }
 
 /** Response of `/qimen/aliexpress/warehouse/fo/detail/get`. */
 export interface QimenAliexpressWarehouseFoDetailGetResponse {
-  /** 返回 */
+  /** Return */
   result?: QimenAliexpressWarehouseFoDetailGet;
 }
 
@@ -737,21 +737,21 @@ export const qimenAliexpressWarehouseFoDetailGet: ApiDefinition<
 
 /** Parameters for `/qimen/aliexpress/warehouse/fo/intercept/post`. */
 export interface QimenAliexpressWarehouseFoInterceptPostParams {
-  /** 货主代码（客户代码） */
+  /** Cargo owner code (customer code) */
   goodsOwnerId?: string;
-  /** 系统类型 */
+  /** System type */
   systemType?: string;
-  /** 仓客户代码 */
+  /** Warehouse customer code */
   warehouseCustomerId?: string;
-  /** 取消原因 */
+  /** Cancellation reason */
   cancelReason?: string;
-  /** WMS仓库订单号 */
+  /** WMS warehouse order number */
   wmsOrderId?: string;
 }
 
 /** Response of `/qimen/aliexpress/warehouse/fo/intercept/post`. */
 export interface QimenAliexpressWarehouseFoInterceptPostResponse {
-  /** 出参结构体 */
+  /** Output structure */
   result?: QimenAliexpressWarehouseFoInterceptPost;
 }
 
@@ -779,49 +779,49 @@ export const qimenAliexpressWarehouseFoInterceptPost: ApiDefinition<
 
 /** Parameters for `/qimen/aliexpress/warehouse/fo/modify/post`. */
 export interface QimenAliexpressWarehouseFoModifyPostParams {
-  /** 货主代码（客户代码） */
+  /** Cargo owner code (customer code) */
   goodsOwnerId?: string;
-  /** AE平台交易单号 */
+  /** AE platform transaction order number */
   aeTradeOrderId?: string;
-  /** 外部单号 */
+  /** External order number */
   outBizId?: string;
-  /** 国家二字码 */
+  /** Two-letter country code */
   country?: string;
-  /** 市 */
+  /** City */
   city?: string;
-  /** 地址2，地址1超长时，截取的地址放在地址2中 */
+  /** Address 2. When address 1 is too long, the truncated part is placed in address 2 */
   address2?: string;
-  /** 地址1 */
+  /** Address 1 */
   address1?: string;
-  /** 配送方式 */
+  /** Delivery method */
   shippingMethod?: string;
-  /** 服务商 */
+  /** Service provider */
   warehouseCustomerId?: string;
-  /** 履约仓库 */
+  /** Fulfillment warehouse */
   warehouseCode?: string;
-  /** 邮编 */
+  /** Postal code */
   zipcode?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 联系电话 */
+  /** Contact phone number */
   phone?: string;
-  /** 系统类型：wms、oms，易仓专用 */
+  /** System type: wms, oms, for Yicang only */
   systemType?: string;
-  /** 姓名 */
+  /** Name */
   name?: string;
-  /** 物品 */
+  /** Item */
   items?: string;
-  /** WMS仓库订单号 */
+  /** WMS warehouse order number */
   wmsOrderId?: string;
-  /** 地址3，门牌号 */
+  /** Address line 3, house number */
   addressAddition?: string;
-  /** 沙特短地址 */
+  /** Saudi Arabia short address */
   nationalAddr?: string;
 }
 
 /** Response of `/qimen/aliexpress/warehouse/fo/modify/post`. */
 export interface QimenAliexpressWarehouseFoModifyPostResponse {
-  /** 返回 */
+  /** Return */
   result?: QimenAliexpressWarehouseFoModifyPost;
 }
 
@@ -863,15 +863,15 @@ export const qimenAliexpressWarehouseFoModifyPost: ApiDefinition<
 
 /** Parameters for `/qimen/aliexpress/warehouse/inventory/get`. */
 export interface QimenAliexpressWarehouseInventoryGetParams {
-  /** 非必填，系统类型：wms、oms，易仓专用，其他wms可以不传此字段，用来标识调用易仓的是新的wms系统还是老的oms系统 */
+  /** Optional. System type: wms, oms, specific to Yicang; other WMS can omit this field. Used to identify whether the call to Yicang is to the new wms system or the old oms system */
   systemType?: string;
   /** warehouseCustomerId */
   warehouseCustomerId?: string;
-  /** 货主ID */
+  /** Cargo owner ID */
   goodsOwnerId?: string;
-  /** 这里的仓code列表是商家在AE平台申请了的海外仓列表 */
+  /** The warehouse code list here is the list of overseas warehouses the merchant has applied for on the AE platform */
   warehouseCodeList?: string;
-  /** 当skuIdList为空时，需要查询当前goodsOwnerId在warehouseCodeList中所有的sku的库存；当skuIdList不为空时，查询skuIdList在warehouseCodeList的库存即可 */
+  /** When skuIdList is empty, query the inventory of all skus of the current goodsOwnerId in warehouseCodeList; when skuIdList is not empty, only query the inventory of skuIdList in warehouseCodeList */
   skuIdList?: string;
   /** pageSize */
   pageSize?: string;
@@ -911,17 +911,17 @@ export const qimenAliexpressWarehouseInventoryGet: ApiDefinition<
 
 /** Parameters for `/qimen/aliexpress/warehouse/logistics/get`. */
 export interface QimenAliexpressWarehouseLogisticsGetParams {
-  /** 仓客户id(针对易仓) */
+  /** Warehouse customer id (for Yicang) */
   warehouseCustomerId?: string;
-  /** 仓code */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 系统类型：wms、oms，易仓专用，其他wms可以不传此字段 */
+  /** System type: wms, oms, for Yicang only; other WMS may omit this field */
   systemType?: string;
 }
 
 /** Response of `/qimen/aliexpress/warehouse/logistics/get`. */
 export interface QimenAliexpressWarehouseLogisticsGetResponse {
-  /** 返回实体 */
+  /** Returned entity */
   result?: QimenAliexpressWarehouseLogisticsGet;
 }
 
@@ -947,19 +947,19 @@ export const qimenAliexpressWarehouseLogisticsGet: ApiDefinition<
 
 /** Parameters for `/qimen/aliexpress/warehouse/owner/id/check/get`. */
 export interface QimenAliexpressWarehouseOwnerIdCheckGetParams {
-  /** 非必填，系统类型：wms、oms，易仓专用，其他wms可以不传此字段，用来标识调用易仓的是新的wms系统还是老的oms系统 */
+  /** Optional. System type: wms, oms, specific to Yicang; other WMS can omit this field. Used to identify whether the call to Yicang is to the new wms system or the old oms system */
   systemType?: string;
-  /** 千象用来标识哪个服务商 */
+  /** Used by Qianxiang to identify which service provider */
   warehouseCustomerId?: string;
-  /** 货主代码（客户代码） */
+  /** Cargo owner code (customer code) */
   goodsOwnerId?: string;
-  /** 当前货主代码对应的wms系统的tocken或者密码字段 */
+  /** Token or password field of the WMS system corresponding to the current cargo owner code */
   ownerToken?: string;
 }
 
 /** Response of `/qimen/aliexpress/warehouse/owner/id/check/get`. */
 export interface QimenAliexpressWarehouseOwnerIdCheckGetResponse {
-  /** 数据结构 */
+  /** Data structure */
   result?: QimenAliexpressWarehouseOwnerIdCheckGet;
 }
 
@@ -986,25 +986,25 @@ export const qimenAliexpressWarehouseOwnerIdCheckGet: ApiDefinition<
 
 /** Parameters for `/qimen/aliexpress/warehouse/sales/get`. */
 export interface QimenAliexpressWarehouseSalesGetParams {
-  /** 店铺id */
+  /** Store ID */
   shopId?: string;
-  /** 客户id(千象专用) */
+  /** Customer id (dedicated to Qianxiang) */
   warehouseCustomerId?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 货主id */
+  /** Cargo owner ID */
   goodsOwnerId?: string;
-  /** 查询起始日期 yyyy.MM.dd HH:mm:ss */
+  /** Query start date yyyy.MM.dd HH:mm:ss */
   startTime?: string;
-  /** 查询结束日期 yyyy.MM.dd HH:mm:ss */
+  /** Query end date yyyy.MM.dd HH:mm:ss */
   endTime?: string;
-  /** 系统类型：wms、oms，易仓专用，其他wms可以不传此字段 */
+  /** System type: wms, oms, for Yicang only; other WMS may omit this field */
   systemType?: string;
 }
 
 /** Response of `/qimen/aliexpress/warehouse/sales/get`. */
 export interface QimenAliexpressWarehouseSalesGetResponse {
-  /** 返回实体 */
+  /** Returned entity */
   result?: QimenAliexpressWarehouseSalesGet;
 }
 
@@ -1083,9 +1083,9 @@ export interface QimenAliexpressWarehouseSkulistInfoGetParams {
   skuIdList?: string;
   /** warehouseCode */
   warehouseCode?: string;
-  /** 页面大小 */
+  /** Page size */
   pageSize?: LongInput;
-  /** 页面，以1开始 */
+  /** Page number, starting from 1 */
   pageNo?: LongInput;
 }
 
@@ -1121,21 +1121,21 @@ export const qimenAliexpressWarehouseSkulistInfoGet: ApiDefinition<
 
 /** Parameters for `/qimen/aliexpress/warehouse/subscribe/get`. */
 export interface QimenAliexpressWarehouseSubscribeGetParams {
-  /** 店铺id */
+  /** Store ID */
   shopId?: string;
-  /** 仓客户id */
+  /** Warehouse customer ID */
   warehouseCustomerId?: string;
-  /** 仓code */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 货主id */
+  /** Cargo owner ID */
   goodsOwnerId?: string;
-  /** 仓系统类型 */
+  /** Warehouse system type */
   systemType?: string;
 }
 
 /** Response of `/qimen/aliexpress/warehouse/subscribe/get`. */
 export interface QimenAliexpressWarehouseSubscribeGetResponse {
-  /** 结果 */
+  /** Result */
   result?: QimenAliexpressWarehouseSubscribeGet;
 }
 

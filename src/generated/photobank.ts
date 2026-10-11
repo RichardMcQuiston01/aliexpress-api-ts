@@ -9,7 +9,7 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressPhotobankRedefiningDelunusephotoAeopDeleteImageRequest {
-  /** 图片ID(通过“图片银行列表分页查询”接口进行获取，出参中“ iid:图片”为图片ID。 */
+  /** Image ID (obtained via the "Image bank list paginated query" API; "iid: image" in the output is the image ID. */
   imageRepositoryId?: Long;
 }
 
@@ -19,11 +19,11 @@ export const AliexpressPhotobankRedefiningDelunusephotoAeopDeleteImageRequestSch
   };
 
 export interface AliexpressPhotobankRedefiningDelunusephotoAeopDeleteImageResponse {
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** success:调用是否成功, true或者false; */
+  /** success: whether the call succeeded, true or false; */
   isSuccess?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
 }
 
@@ -35,13 +35,13 @@ export const AliexpressPhotobankRedefiningDelunusephotoAeopDeleteImageResponseSc
   };
 
 export interface AliexpressPhotobankRedefiningGetphotobankinfoAeopPhotoBankInfoResponse {
-  /** 图片银行总容量，单位字节。 */
+  /** Total capacity of the image bank, unit: bytes. */
   capicity?: Long;
-  /** 图片银行已使用量，单位字节。 */
+  /** Image bank used space, unit: bytes. */
   useage?: Long;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -54,9 +54,9 @@ export const AliexpressPhotobankRedefiningGetphotobankinfoAeopPhotoBankInfoRespo
   };
 
 export interface AliexpressPhotobankRedefiningListgroupAeopPhotoBankImageGroupDTO {
-  /** 图片分组ID */
+  /** Image group ID */
   groupId?: string;
-  /** 图片分组名称 */
+  /** Image group name */
   groupName?: string;
 }
 
@@ -67,13 +67,13 @@ export const AliexpressPhotobankRedefiningListgroupAeopPhotoBankImageGroupDTOSch
   };
 
 export interface AliexpressPhotobankRedefiningListgroupAeopPhotoBankImageGroupResponse {
-  /** 图片银行分组列表，如果没有任何的分组信息。这个属性为:[]。 */
+  /** Image bank group list. If there is no group information, this property is: []. */
   photoBankImageGroupList?: Array<AliexpressPhotobankRedefiningListgroupAeopPhotoBankImageGroupDTO>;
-  /** 本次调用是否成功。 */
+  /** Whether this call succeeded. */
   success?: boolean;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -91,27 +91,27 @@ export const AliexpressPhotobankRedefiningListgroupAeopPhotoBankImageGroupRespon
   };
 
 export interface AliexpressPhotobankRedefiningListimagepaginationAeopImage {
-  /** 这张图片在图片银行中名称。可以根据这个值在图片银行中搜索到对应的图片。 */
+  /** Name of this image in the image bank. The corresponding image can be found in the image bank by this value. */
   displayName?: string;
-  /** 这张图片的大小。单位：字节(B)。 */
+  /** Size of this image. Unit: bytes (B). */
   fileSize?: number;
   /** gmtCreate */
   gmtCreate?: string;
   /** gmtModified */
   gmtModified?: string;
-  /** 图片银行产品分组ID */
+  /** Image bank product group ID */
   groupId?: string;
-  /** 这张图片的高度。单位：像素。 */
+  /** Height of this image. Unit: pixels. */
   height?: number;
-  /** 这张图片在图片银行中的ID。 */
+  /** ID of this image in the image bank. */
   iid?: Long;
-  /** 这张图片被引用的次数。 */
+  /** Number of times this image has been referenced. */
   referenceCount?: number;
   /** status */
   status?: string;
-  /** 这张图片的URL。可以将这个URL添加到产品的主图或者详描中。 */
+  /** URL of this image. This URL can be added to the product's main image or detailed description. */
   url?: string;
-  /** 这张图片的宽度。单位：像素。 */
+  /** Width of this image. Unit: pixels. */
   width?: number;
 }
 
@@ -131,13 +131,13 @@ export const AliexpressPhotobankRedefiningListimagepaginationAeopImageSchema: Sc
   };
 
 export interface AliexpressPhotobankRedefiningListimagepaginationAeopImagePaginationRequest {
-  /** 当前页码 */
+  /** Current page number */
   currentPage?: number;
-  /** 图片组id */
+  /** Image group ID */
   groupId?: string;
-  /** 图片存放位置.可选值:allGroup(所有分组), temp(被禁用的图片), subGroup(某一分组), unGroup(非分组). 如果locationType参数值为allGroup,temp,unGroup时，将忽略groupId参数。 如果locationType的参数值为subGroup,须指定groupId参数。 */
+  /** Image storage location. Allowed values: allGroup (all groups), temp (disabled images), subGroup (a specific group), unGroup (ungrouped). If locationType is allGroup, temp or unGroup, the groupId parameter is ignored. If locationType is subGroup, the groupId parameter must be specified. */
   locationType?: string;
-  /** 默认18个，最大值 50 */
+  /** Default 18, maximum 50 */
   pageSize?: number;
 }
 
@@ -150,19 +150,19 @@ export const AliexpressPhotobankRedefiningListimagepaginationAeopImagePagination
   };
 
 export interface AliexpressPhotobankRedefiningListimagepaginationAeopImagePaginationResult {
-  /** 本次查询结果返回的图片列表。 */
+  /** List of images returned by this query. */
   images?: Array<AliexpressPhotobankRedefiningListimagepaginationAeopImage>;
-  /** 当前参数组成的查询对象。 */
+  /** Query object composed of the current parameters. */
   query?: AliexpressPhotobankRedefiningListimagepaginationAeopImagePaginationRequest;
-  /** 本次调用是否成功。 */
+  /** Whether this call succeeded. */
   success?: boolean;
-  /** 当前分组下的图片总数。如果locationType取值为"allGroup", 则为这个用户的图片总数。 */
+  /** Total number of images in the current group. If locationType is "allGroup", this is the total number of images for this user. */
   total?: number;
-  /** 本次查询结果分页的页数。 */
+  /** Number of pages of this query result pagination. */
   totalPage?: number;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -187,11 +187,11 @@ export const AliexpressPhotobankRedefiningListimagepaginationAeopImagePagination
   };
 
 export interface AliexpressPhotobankRedefiningQueryphotobankimagebypathsAeopPhotoBankImageResponse {
-  /** 图片信息列表。 */
+  /** Image information list. */
   images?: string;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -203,25 +203,25 @@ export const AliexpressPhotobankRedefiningQueryphotobankimagebypathsAeopPhotoBan
   };
 
 export interface AliexpressPhotobankRedefiningUploadimageAeopUploadImageResponse {
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 图片的名称。 */
+  /** Image name. */
   fileName?: string;
-  /** 图片的高度。单位：像素 */
+  /** Image height. Unit: pixels */
   height?: number;
-  /** 图片银行总的空间大小。单位：MB */
+  /** Total space of the image bank. Unit: MB */
   photobankTotalSize?: string;
-  /** 这张图片的URL。 */
+  /** URL of this image. */
   photobankUrl?: string;
-  /** 已经使用了的图片银行空间。单位：MB */
+  /** Image bank space already used. Unit: MB */
   photobankUsedSize?: string;
-  /** 图片上传的结果。 */
+  /** Result of the image upload. */
   status?: string;
-  /** 接口调用的结果。 */
+  /** Result of the API call. */
   success?: boolean;
-  /** 图片的宽度。单位：像素 */
+  /** Image width. Unit: pixels */
   width?: number;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
 }
 
@@ -240,25 +240,25 @@ export const AliexpressPhotobankRedefiningUploadimageAeopUploadImageResponseSche
   };
 
 export interface AliexpressPhotobankRedefiningUploadimageforsdkAeopUploadImageResponse {
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 图片的高度。单位：像素 */
+  /** Image height. Unit: pixels */
   height?: number;
-  /** 图片上传的结果。 */
+  /** Result of the image upload. */
   status?: string;
-  /** 图片银行总的空间大小。单位：MB */
+  /** Total space of the image bank. Unit: MB */
   photobankTotalSize?: string;
-  /** 图片的宽度。单位：像素 */
+  /** Image width. Unit: pixels */
   width?: number;
-  /** 已经使用了的图片银行空间。单位：MB */
+  /** Image bank space already used. Unit: MB */
   photobankUsedSize?: string;
-  /** 图片的名称。 */
+  /** Image name. */
   fileName?: string;
   /** isSuccess */
   isSuccess?: boolean;
-  /** 这张图片的URL。 */
+  /** URL of this image. */
   photobankUrl?: string;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
 }
 
@@ -277,13 +277,13 @@ export const AliexpressPhotobankRedefiningUploadimageforsdkAeopUploadImageRespon
   };
 
 export interface AliexpressPhotobankRedefiningWbimageGetBaseResultDTO {
-  /** 生成白底图图片链接 */
+  /** Link of the generated white background image */
   data?: string;
-  /** 调用结果 */
+  /** Call result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCodeStr?: string;
 }
 
@@ -296,7 +296,7 @@ export const AliexpressPhotobankRedefiningWbimageGetBaseResultDTOSchema: Schema 
   };
 
 export interface AliexpressPhotobankRedefiningWbimageGetGetWBImageRequest {
-  /** 原图片链接 */
+  /** Original image link */
   originalImageUrl?: string;
 }
 
@@ -377,7 +377,7 @@ export const aliexpressPhotobankRedefiningGetphotobankinfo: ApiDefinition<
 
 /** Parameters for `aliexpress.photobank.redefining.listgroup`. */
 export interface AliexpressPhotobankRedefiningListgroupParams {
-  /** 图片组ID。不填groupId则返回所有图片组信息 */
+  /** Image group ID. If groupId is not provided, all image group information is returned */
   groupId?: string;
 }
 
@@ -452,7 +452,7 @@ export const aliexpressPhotobankRedefiningListimagepagination: ApiDefinition<
 
 /** Parameters for `aliexpress.photobank.redefining.queryphotobankimagebypaths`. */
 export interface AliexpressPhotobankRedefiningQueryphotobankimagebypathsParams {
-  /** 图片文件名，多个文件用逗号分隔 */
+  /** Image file names, multiple files separated by commas */
   paths?: Array<string>;
 }
 
@@ -489,11 +489,11 @@ export const aliexpressPhotobankRedefiningQueryphotobankimagebypaths: ApiDefinit
 
 /** Parameters for `aliexpress.photobank.redefining.uploadimage`. */
 export interface AliexpressPhotobankRedefiningUploadimageParams {
-  /** 上传文件名称，长度不要超过256个字符。 */
+  /** Uploaded file name, length must not exceed 256 characters. */
   fileName?: string;
-  /** 图片保存的图片组，groupId为空，则图片保存在Other组中。 */
+  /** Image group in which the image is saved. If groupId is empty, the image is saved in the Other group. */
   groupId?: string;
-  /** 图片文件的字节流图片大小限制：3MB */
+  /** Byte stream of the image file, image size limit: 3MB */
   imageBytes?: FileInput;
 }
 
@@ -529,11 +529,11 @@ export const aliexpressPhotobankRedefiningUploadimage: ApiDefinition<
 
 /** Parameters for `aliexpress.photobank.redefining.uploadimageforsdk`. */
 export interface AliexpressPhotobankRedefiningUploadimageforsdkParams {
-  /** 图片保存的图片组，groupId为空，则图片保存在Other组中。 */
+  /** Image group in which the image is saved. If groupId is empty, the image is saved in the Other group. */
   groupId?: string;
-  /** 上传文件名称，长度不要超过256个字符。 */
+  /** Uploaded file name, length must not exceed 256 characters. */
   fileName?: string;
-  /** 图片文件的字节流图片大小限制：3MB。图片大小不能超过5000*5000。 */
+  /** Byte stream of the image file. Image size limit: 3MB. The image dimensions cannot exceed 5000*5000. */
   imageBytes?: FileInput;
 }
 
@@ -570,13 +570,13 @@ export const aliexpressPhotobankRedefiningUploadimageforsdk: ApiDefinition<
 
 /** Parameters for `aliexpress.photobank.redefining.wbimage.get`. */
 export interface AliexpressPhotobankRedefiningWbimageGetParams {
-  /** 请求参数 */
+  /** Request parameters */
   getWbImageRequest?: AliexpressPhotobankRedefiningWbimageGetGetWBImageRequest;
 }
 
 /** Response of `aliexpress.photobank.redefining.wbimage.get`. */
 export interface AliexpressPhotobankRedefiningWbimageGetResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressPhotobankRedefiningWbimageGetBaseResultDTO;
 }
 

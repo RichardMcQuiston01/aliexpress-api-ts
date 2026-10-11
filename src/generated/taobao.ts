@@ -9,13 +9,13 @@ import type {
 } from '../core/index.js';
 
 export interface TaobaoAppstoreSubscribeGetUserSubscribe {
-  /** 订购结束时间。格式:yyyy-MM-dd HH:mm:ss */
+  /** Subscription end time. Format: yyyy-MM-dd HH:mm:ss */
   endDate?: string;
-  /** 0-无版本信息；1-初级版；2-中级版；3-高级版 */
+  /** 0 - no version information; 1 - basic edition; 2 - intermediate edition; 3 - advanced edition */
   versionNo?: number;
-  /** 订购开始时间。格式:yyyy-MM-dd HH:mm:ss */
+  /** Subscription start time. Format: yyyy-MM-dd HH:mm:ss */
   startDate?: string;
-  /** 订购状况。应用订购者：subscribeUser;尚未订购：unsubscribeUser；非法用户：invalidateUser */
+  /** Subscription status. App subscriber: subscribeUser; not yet subscribed: unsubscribeUser; invalid user: invalidateUser */
   status?: string;
 }
 
@@ -31,9 +31,9 @@ export interface TaobaoVasOrderSearchArticleBizOrder {
   orderCycleStart?: string;
   /** null */
   refundFee?: string;
-  /** 默认收费项目 */
+  /** Default charge item */
   articleItemName?: string;
-  /** 类目测试1 */
+  /** Category test 1 */
   articleName?: string;
   /** 0 */
   totalPayFee?: string;
@@ -53,7 +53,7 @@ export interface TaobaoVasOrderSearchArticleBizOrder {
   activityCode?: string;
   /** null */
   itemName?: string;
-  /** 0个月 */
+  /** 0 months */
   orderCycle?: string;
   /** 0 */
   bizOrderId?: number;
@@ -87,9 +87,9 @@ export const TaobaoVasOrderSearchArticleBizOrderSchema: Schema = {
 };
 
 export interface TaobaoVasSubscribeGetArticleSub {
-  /** 收费项目代码，从合作伙伴后台（my.open.taobao.com）-收费管理-收费项目列表 能够获得收费项目代码 */
+  /** Charge item code. The charge item code can be obtained from the partner back office (my.open.taobao.com) - Charge Management - Charge Item List */
   itemCode?: string;
-  /** 订购关系到期时间 */
+  /** Subscription expiration time */
   deadline?: string;
 }
 
@@ -99,23 +99,23 @@ export const TaobaoVasSubscribeGetArticleSubSchema: Schema = {
 };
 
 export interface TaobaoVasSubscSearchArticleSub {
-  /** 会员名 */
+  /** Member name */
   nick?: string;
-  /** 收费项目名称 */
+  /** Charge item name */
   itemName?: string;
-  /** 是否到期提醒 */
+  /** Whether to remind of expiration */
   expireNotice?: boolean;
-  /** 应用名称 */
+  /** Application name */
   articleName?: string;
-  /** 收费项目代码，从合作伙伴后台（my.open.taobao.com）-收费管理-收费项目列表 能够获得收费项目代码 */
+  /** Charge item code. The charge item code can be obtained from the partner back office (my.open.taobao.com) - Charge Management - Charge Item List */
   itemCode?: string;
-  /** 是否自动续费 */
+  /** Whether to auto-renew */
   autosub?: boolean;
-  /** 订购关系到期时间 */
+  /** Subscription expiration time */
   deadline?: string;
-  /** 应用收费代码，从合作伙伴后台（my.open.taobao.com）-收费管理-收费项目列表 能够获得该应用的收费代码 */
+  /** App charge code. The app's charge code can be obtained from the partner back office (my.open.taobao.com) - Charge Management - Charge Item List */
   articleCode?: string;
-  /** 状态，1=有效 2=过期 */
+  /** Status, 1=valid 2=expired */
   status?: number;
 }
 
@@ -133,15 +133,15 @@ export const TaobaoVasSubscSearchArticleSubSchema: Schema = {
 
 /** Parameters for `taobao.appstore.subscribe.get`. */
 export interface TaobaoAppstoreSubscribeGetParams {
-  /** 用户昵称 */
+  /** User nickname */
   nick?: string;
-  /** 插件实例ID */
+  /** Plugin instance ID */
   leaseId?: LongInput;
 }
 
 /** Response of `taobao.appstore.subscribe.get`. */
 export interface TaobaoAppstoreSubscribeGetResponse {
-  /** 用户订购信息 */
+  /** User subscription information */
   userSubscribe?: TaobaoAppstoreSubscribeGetUserSubscribe;
 }
 
@@ -170,25 +170,25 @@ export const taobaoAppstoreSubscribeGet: ApiDefinition<
 
 /** Parameters for `taobao.vas.order.search`. */
 export interface TaobaoVasOrderSearchParams {
-  /** 订单创建时间（订购时间）结束值 */
+  /** End value of order creation time (order placement time) */
   endCreated?: string;
-  /** 订单类型，1=新订 2=续订 3=升级 4=后台赠送 5=后台自动续订 6=订单审核后生成订购关系（暂时用不到） 空=全部 */
+  /** Order type, 1=new order 2=renewal 3=upgrade 4=back-office gift 5=back-office auto renewal 6=subscription relationship generated after order review (not used for now) empty=all */
   bizType?: LongInput;
-  /** 订单id号 */
+  /** Order ID */
   bizOrderId?: LongInput;
-  /** 子订单id号 */
+  /** Sub-order ID */
   orderId?: LongInput;
-  /** 收费项目代码，从合作伙伴后台（my.open.taobao.com）-收费管理-收费项目列表 能够获得收费项目代码 */
+  /** Charge item code. The charge item code can be obtained from the partner back office (my.open.taobao.com) - Charge Management - Charge Item List */
   itemCode?: string;
-  /** 订单创建时间（订购时间）起始值（当start_created和end_created都不填写时，默认返回最近90天的数据） */
+  /** Start value of order creation time (subscription time) (when neither start_created nor end_created is filled in, the data of the last 90 days is returned by default) */
   startCreated?: string;
-  /** 应用收费代码，从合作伙伴后台（my.open.taobao.com）-收费管理-收费项目列表 能够获得该应用的收费代码 */
+  /** App charge code. The app's charge code can be obtained from the partner back office (my.open.taobao.com) - Charge Management - Charge Item List */
   articleCode?: string;
-  /** 一页包含的记录数 */
+  /** Number of records per page */
   pageNo?: string;
-  /** 页码 */
+  /** Page number */
   pageSize?: string;
-  /** ae会员 */
+  /** AE member */
   nick?: string;
 }
 
@@ -234,33 +234,33 @@ export const taobaoVasOrderSearch: ApiDefinition<
 
 /** Parameters for `taobao.vas.subsc.search`. */
 export interface TaobaoVasSubscSearchParams {
-  /** 到期时间结束值 */
+  /** Expiration time end value */
   endDeadline?: string;
-  /** 到期时间起始值（当start_deadline和end_deadline都不填写时，默认返回最近90天的数据） */
+  /** Start value of the expiration time (when neither start_deadline nor end_deadline is provided, data for the last 90 days is returned by default) */
   startDeadline?: string;
-  /** 是否到期提醒，true=到期提醒 false=非到期提醒 空=全部 */
+  /** Whether expiration reminder is on. true = expiration reminder, false = no expiration reminder, empty = all */
   expireNotice?: boolean;
-  /** 页码 */
+  /** Page number */
   pageNo?: number;
-  /** 收费项目代码，从合作伙伴后台（my.open.taobao.com）-收费管理-收费项目列表 能够获得收费项目代码 */
+  /** Charge item code. The charge item code can be obtained from the partner back office (my.open.taobao.com) - Charge Management - Charge Item List */
   itemCode?: string;
-  /** 一页包含的记录数 */
+  /** Number of records per page */
   pageSize?: number;
-  /** 是否自动续费，true=自动续费 false=非自动续费 空=全部 */
+  /** Whether auto-renewal is on. true = auto-renewal, false = no auto-renewal, empty = all */
   autosub?: boolean;
-  /** 应用收费代码，从合作伙伴后台（my.open.taobao.com）-收费管理-收费项目列表 能够获得该应用的收费代码 */
+  /** App charge code. The app's charge code can be obtained from the partner back office (my.open.taobao.com) - Charge Management - Charge Item List */
   articleCode?: string;
-  /** 订购记录状态，1=有效 2=过期 空=全部 */
+  /** Subscription record status, 1=valid 2=expired empty=all */
   status?: LongInput;
-  /** ae会员 */
+  /** AE member */
   nick?: string;
 }
 
 /** Response of `taobao.vas.subsc.search`. */
 export interface TaobaoVasSubscSearchResponse {
-  /** 总记录数 */
+  /** Total number of records */
   totalItem?: number;
-  /** 订购关系对象 */
+  /** Subscription relationship object */
   articleSubs?: Array<TaobaoVasSubscSearchArticleSub>;
 }
 
@@ -298,15 +298,15 @@ export const taobaoVasSubscSearch: ApiDefinition<
 
 /** Parameters for `taobao.vas.subscribe.get`. */
 export interface TaobaoVasSubscribeGetParams {
-  /** 商品编码，从合作伙伴后台（my.open.taobao.com）-收费管理-收费项目列表 能够获得该应用的商品代码 */
+  /** Product code. The product code of the application can be obtained from the partner console (my.open.taobao.com) - Billing Management - Billing Item List */
   articleCode?: string;
-  /** 会员名 */
+  /** Member name */
   nick?: string;
 }
 
 /** Response of `taobao.vas.subscribe.get`. */
 export interface TaobaoVasSubscribeGetResponse {
-  /** 用户订购信息 */
+  /** User subscription information */
   articleUserSubscribes?: Array<TaobaoVasSubscribeGetArticleSub>;
 }
 

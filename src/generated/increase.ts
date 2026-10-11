@@ -10,7 +10,7 @@ import type {
 
 /** Parameters for `/increase/api/test`. */
 export interface IncreaseApiTestParams {
-  /** 订单id */
+  /** Order ID */
   orderId?: string;
 }
 

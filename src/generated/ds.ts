@@ -620,13 +620,13 @@ export const AliexpressDsImageSearchV2PagingResultSchema: Schema = {
 };
 
 export interface AliexpressDsMemberBenefitGetBenefitCatalog {
-  /** 权益码 */
+  /** Benefit code */
   code?: string;
-  /** 权益标题 */
+  /** Benefit title */
   title?: string;
-  /** 是否可以申请权限 */
+  /** Whether permission can be requested */
   canApply?: string;
-  /** 是否拥有权限 */
+  /** Whether permission is held */
   canBenefit?: string;
 }
 
@@ -638,7 +638,7 @@ export const AliexpressDsMemberBenefitGetBenefitCatalogSchema: Schema = {
 };
 
 export interface AliexpressDsOrderAfterpayAfterPayRequest {
-  /** 订单id */
+  /** Order ID */
   orderId?: string;
 }
 
@@ -838,7 +838,7 @@ export interface AliexpressDsOrderCreateTradeExtraParam {
   customizeSkuMap?: Record<string, unknown>;
   /** SA natAddr */
   natAddr?: string;
-  /** 收件人生日，当收货国家为巴西（BR）时，此字段为必填项。 格式： ddMMyyyy（日-月-年，8位数字，无分隔符）。 示例： 01022026 代表 2026年2月1日。 */
+  /** Recipient's birthday. Required when the destination country is Brazil (BR). Format: ddMMyyyy (day-month-year, 8 digits, no separators). Example: 01022026 represents February 1, 2026. */
   birthday?: string;
 }
 
@@ -952,11 +952,11 @@ export const AliexpressDsOrderTrackingGetResultSchema: Schema = {
 };
 
 export interface AliexpressDsPodTokenExchangeExchangeTokenDTO {
-  /** 过期时间，秒 */
+  /** Expiration time, in seconds */
   expireIn?: Long;
-  /** 到期时间戳，毫秒 */
+  /** Expiration timestamp, in milliseconds */
   expireTime?: Long;
-  /** token标识 */
+  /** Token identifier */
   identity?: string;
 }
 
@@ -969,7 +969,7 @@ export const AliexpressDsPodTokenExchangeExchangeTokenDTOSchema: Schema = {
 export interface AliexpressDsPodTokenExchangeResult {
   /** true or false */
   ret?: boolean;
-  /** 错误码 */
+  /** Error code */
   code?: string;
   /** data */
   data?: AliexpressDsPodTokenExchangeExchangeTokenDTO;
@@ -989,7 +989,7 @@ export interface AliexpressDsPodWorkDeleteResult {
   ret?: boolean;
   /** error code */
   code?: string;
-  /** true表示删除成功 */
+  /** true means deletion succeeded */
   data?: string;
   /** error message */
   message?: string;
@@ -1003,13 +1003,13 @@ export const AliexpressDsPodWorkDeleteResultSchema: Schema = {
 };
 
 export interface AliexpressDsPodWorkDetailcustGroupSnapShotListObject {
-  /** 定制分组明细 */
+  /** Customization group details */
   custSkuSnapShotList?: Array<AliexpressDsPodWorkDetailcustSkuSnapShotListObject>;
-  /** 分组属性值 */
+  /** Group attribute value */
   valueName?: string;
-  /** 分组属性id */
+  /** Group attribute ID */
   propertyId?: string;
-  /** 分组sku图 */
+  /** Group SKU image */
   propertyPicUrl?: string;
 }
 
@@ -1026,7 +1026,7 @@ export const AliexpressDsPodWorkDetailcustGroupSnapShotListObjectSchema: Schema 
   };
 
 export interface AliexpressDsPodWorkDetailcustomizeInfoObject {
-  /** AE内部定制id */
+  /** AE internal customization id */
   customizeInfoId?: string;
 }
 
@@ -1039,7 +1039,7 @@ export interface AliexpressDsPodWorkDetailcustSkuSnapShotListObject {
   skuId?: string;
   /** custPicUrl */
   custPicUrl?: string;
-  /** sku 定制数据详情 */
+  /** SKU customization data details */
   customizeInfo?: AliexpressDsPodWorkDetailcustomizeInfoObject;
 }
 
@@ -1057,15 +1057,15 @@ export const AliexpressDsPodWorkDetailcustSkuSnapShotListObjectSchema: Schema =
 export interface AliexpressDsPodWorkDetaildataObject {
   /** product id */
   itemId?: Long;
-  /** 用户编辑后的预览图 */
+  /** Preview image edited by the user */
   custPicUrl?: string;
-  /** 商品主图 */
+  /** Product main image */
   mainPicRrl?: string;
-  /** 定制作品id */
+  /** Customization work ID */
   workId?: string;
   /** product title */
   title?: string;
-  /** 定制分组 */
+  /** Customization group */
   custGroupSnapShotList?: Array<AliexpressDsPodWorkDetailcustGroupSnapShotListObject>;
 }
 
@@ -1101,15 +1101,15 @@ export const AliexpressDsPodWorkDetailResultSchema: Schema = {
 };
 
 export interface AliexpressDsPodWorkListdataObject {
-  /** 总作品数 */
+  /** Total number of works */
   total?: number;
-  /** 当前页数 */
+  /** Current page number */
   currentIndex?: number;
-  /** 总页数 */
+  /** Total pages */
   pages?: number;
-  /** 当前页内行数 */
+  /** Number of rows in the current page */
   size?: number;
-  /** 数据对象 */
+  /** Data object */
   records?: Array<AliexpressDsPodWorkListrecordsObject>;
 }
 
@@ -1122,15 +1122,15 @@ export const AliexpressDsPodWorkListdataObjectSchema: Schema = {
 };
 
 export interface AliexpressDsPodWorkListrecordsObject {
-  /** 商品标题 */
+  /** Product title */
   productTitle?: string;
-  /** 商品ID */
+  /** Product ID */
   itemId?: Long;
-  /** 定制商品图片 */
+  /** Customized product image */
   custPicUrl?: string;
-  /** 作品id，用于查询作品想去 */
+  /** Work id, used to query work details */
   workId?: Long;
-  /** 零售价格 */
+  /** Retail price */
   retailPrice?: string;
 }
 
@@ -2038,7 +2038,7 @@ export const AliexpressDsProductWholesaleGetWholesalePriceTierSchema: Schema = {
 };
 
 export interface AliexpressDsPromotionCollectdataObject {
-  /** 券id */
+  /** Coupon ID */
   promotionIds?: Array<Long>;
 }
 
@@ -2049,7 +2049,7 @@ export const AliexpressDsPromotionCollectdataObjectSchema: Schema = {
 export interface AliexpressDsPromotionCollectResult {
   /** true for success response */
   ret?: boolean;
-  /** 数据对象 */
+  /** Data object */
   data?: AliexpressDsPromotionCollectdataObject;
   /** error code */
   errCode?: string;
@@ -2103,7 +2103,7 @@ export const AliexpressDsPromotionQueryDsCouponSchema: Schema = {
 export interface AliexpressDsPromotionQueryResult {
   /** if the result is success */
   ret?: boolean;
-  /** 券列表 */
+  /** Coupon list */
   data?: AliexpressDsPromotionQuerydataObject;
   /** error code */
   errCode?: string;
@@ -2272,25 +2272,25 @@ export const AliexpressDsTextSearchSearchResponseSchema: Schema = {
 };
 
 export interface AliexpressDsTextSearchSelectionSearchProduct {
-  /** 折后价 */
+  /** Discounted price */
   salePriceFormat?: string;
-  /** 商品链接 */
+  /** Product link */
   itemUrl?: string;
-  /** 订单数（近180天） */
+  /** Number of orders (last 180 days) */
   orders?: string;
-  /** 评分 */
+  /** Rating */
   score?: string;
-  /** 标题 */
+  /** Title */
   title?: string;
-  /** 主图链接 */
+  /** Main image link */
   itemMainPic?: string;
-  /** 类目id */
+  /** Category ID */
   cateId?: string;
-  /** 商品原价 */
+  /** Original product price */
   originalPriceFormat?: string;
-  /** 折后价detail */
+  /** Discounted price detail */
   originMinPrice?: string;
-  /** 商品id */
+  /** Product ID */
   itemId?: string;
   /** originalPrice */
   originalPrice?: string;
@@ -3254,21 +3254,21 @@ export const DsRecommendFeedGetTrafficProductDTOSchema: Schema = {
 
 /** Parameters for `/ds/dropshpper/add`. */
 export interface DsDropshpperAddParams {
-  /** DS站点的店铺地址 */
+  /** Store address of the DS site */
   storeUrl?: string;
-  /** 扩展信息 */
+  /** Extended information */
   extendInfo?: string;
 }
 
 /** Response of `/ds/dropshpper/add`. */
 export interface DsDropshpperAddResponse {
-  /** 错误信息 */
+  /** Error message */
   msg?: string;
-  /** 结果 */
+  /** Result */
   result?: boolean;
-  /** 错误码 */
+  /** Error code */
   resultCode?: number;
-  /** 是否调用成功 */
+  /** Whether the call succeeded */
   success?: boolean;
 }
 
@@ -3300,13 +3300,13 @@ export interface DsImageSearchParams {
   targetLanguage?: string;
   /** target_currency:USD, GBP, CAD, EUR, UAH, MXN, TRY, RUB, BRL, AUD, INR, JPY, IDR, SEK,KRW */
   targetCurrency?: string;
-  /** count of products， max 150. */
+  /** count of products, max 150. */
   productCnt?: number;
   /** SALE_PRICE_ASC, SALE_PRICE_DESC, LAST_VOLUME_ASC, LAST_VOLUME_DESC */
   sort?: string;
   /** optional Ship to Country */
   shptTo?: string;
-  /** image name in fileserver，max size 100 KB */
+  /** image name in fileserver, max size 100 KB */
   imageFileBytes?: FileInput;
 }
 
@@ -3486,7 +3486,7 @@ export interface DsRecommendFeedGetParams {
   targetLanguage?: string;
   /** record count of each page, 1 - 50 */
   pageSize?: LongInput;
-  /** sort by：priceAsc，priceDesc，volumeAsc、volumeDesc, discountAsc, discountDesc, DSRratingAsc，DSRratingDesc, */
+  /** Sort by: priceAsc, priceDesc, volumeAsc, volumeDesc, discountAsc, discountDesc, DSRratingAsc, DSRratingDesc, */
   sort?: string;
   /** feed name, eg. "DS bestseller" */
   feedName?: string;
@@ -3616,9 +3616,9 @@ export const aliexpressDsAddressGet: ApiDefinition<
 
 /** Parameters for `aliexpress.ds.category.get`. */
 export interface AliexpressDsCategoryGetParams {
-  /** 类目id */
+  /** Category ID */
   categoryId?: string;
-  /** 语言 */
+  /** Language */
   language?: string;
   /** signature */
   appSignature?: string;
@@ -3656,17 +3656,17 @@ export const aliexpressDsCategoryGet: ApiDefinition<
 
 /** Parameters for `aliexpress.ds.category.tree.get`. */
 export interface AliexpressDsCategoryTreeGetParams {
-  /** 语言 */
+  /** Language */
   lang?: string;
 }
 
 /** Response of `aliexpress.ds.category.tree.get`. */
 export interface AliexpressDsCategoryTreeGetResponse {
-  /** 响应码 */
+  /** Response code */
   rspCode?: number;
-  /** 响应信息 */
+  /** Response information */
   rspMsg?: string;
-  /** 结果 */
+  /** Result */
   result?: string;
 }
 
@@ -3832,7 +3832,7 @@ export const aliexpressDsFeednameGet: ApiDefinition<
 
 /** Parameters for `aliexpress.ds.freight.query`. */
 export interface AliexpressDsFreightQueryParams {
-  /** 物流查询请求 */
+  /** Logistics query request */
   queryDeliveryReq?: AliexpressDsFreightQueryOutProductRequest;
 }
 
@@ -3870,13 +3870,13 @@ export interface AliexpressDsImageSearchParams {
   targetLanguage?: string;
   /** target_currency:USD, GBP, CAD, EUR, UAH, MXN, TRY, RUB, BRL, AUD, INR, JPY, IDR, SEK,KRW */
   targetCurrency?: string;
-  /** count of products， max 150. */
+  /** count of products, max 150. */
   productCnt?: number;
   /** SALE_PRICE_ASC, SALE_PRICE_DESC, LAST_VOLUME_ASC, LAST_VOLUME_DESC */
   sort?: string;
   /** optional Ship to Country */
   shptTo?: string;
-  /** image name in fileserver，max size 100 KB */
+  /** image name in fileserver, max size 100 KB */
   imageFileBytes?: FileInput;
 }
 
@@ -4089,17 +4089,17 @@ export const aliexpressDsMemberOrderdataSubmit: ApiDefinition<
 
 /** Parameters for `aliexpress.ds.order.afterpay`. */
 export interface AliexpressDsOrderAfterpayParams {
-  /** 订单id */
+  /** Order ID */
   req?: AliexpressDsOrderAfterpayAfterPayRequest;
 }
 
 /** Response of `aliexpress.ds.order.afterpay`. */
 export interface AliexpressDsOrderAfterpayResponse {
-  /** 响应信息 */
+  /** Response information */
   rspMsg?: string;
-  /** 响应码 */
+  /** Response code */
   rspCode?: string;
-  /** 是否响应成功 */
+  /** Whether the response succeeded */
   result?: boolean;
 }
 
@@ -4228,13 +4228,13 @@ export const aliexpressDsPodTokenExchange: ApiDefinition<
 
 /** Parameters for `aliexpress.ds.pod.work.delete`. */
 export interface AliexpressDsPodWorkDeleteParams {
-  /** 准备删除的作品id */
+  /** Work id to be deleted */
   workId?: string;
 }
 
 /** Response of `aliexpress.ds.pod.work.delete`. */
 export interface AliexpressDsPodWorkDeleteResponse {
-  /** 数据对象 */
+  /** Data object */
   result?: AliexpressDsPodWorkDeleteResult;
 }
 
@@ -4266,7 +4266,7 @@ export interface AliexpressDsPodWorkDetailParams {
 
 /** Response of `aliexpress.ds.pod.work.detail`. */
 export interface AliexpressDsPodWorkDetailResponse {
-  /** 定制商品分组明细 */
+  /** Customized product group details */
   result?: AliexpressDsPodWorkDetailResult;
 }
 
@@ -4303,7 +4303,7 @@ export interface AliexpressDsPodWorkListParams {
 
 /** Response of `aliexpress.ds.pod.work.list`. */
 export interface AliexpressDsPodWorkListResponse {
-  /** 结果集 */
+  /** Result set */
   result?: AliexpressDsPodWorkListResult;
 }
 
@@ -4336,10 +4336,10 @@ export interface AliexpressDsProductGetParams {
   productId?: LongInput;
   /** Target currency */
   targetCurrency?: string;
-  /** hi de ru pt ko in en it fr zh es iw ar vi th uk ja id pl he nl tr (lowercase) or "en_US"、"ko_KR"... */
+  /** hi de ru pt ko in en it fr zh es iw ar vi th uk ja id pl he nl tr (lowercase) or "en_US", "ko_KR"... */
   targetLanguage?: string;
   removePersonalBenefit?: boolean;
-  /** ds营销价格，请联系DS业务获取使用方法 */
+  /** ds marketing price, contact DS business for usage */
   bizModel?: string;
   /** provice */
   provinceCode?: string;
@@ -4400,7 +4400,7 @@ export interface AliexpressDsProductInventoryGetParams {
 
 /** Response of `aliexpress.ds.product.inventory.get`. */
 export interface AliexpressDsProductInventoryGetResponse {
-  /** 结果对象 */
+  /** Result object */
   result?: AliexpressDsProductInventoryGetResult;
 }
 
@@ -4426,11 +4426,11 @@ export const aliexpressDsProductInventoryGet: ApiDefinition<
 
 /** Parameters for `aliexpress.ds.product.specialinfo.get`. */
 export interface AliexpressDsProductSpecialinfoGetParams {
-  /** 商品id */
+  /** Product ID */
   itemId?: LongInput;
-  /** 国家二字码 */
+  /** Two-letter country code */
   countryCodes?: Array<string>;
-  /** 您的appkey */
+  /** Your appkey */
   appKey?: string;
 }
 
@@ -4468,7 +4468,7 @@ export interface AliexpressDsProductWholesaleGetParams {
   productId?: LongInput;
   /** Target currency */
   targetCurrency?: string;
-  /** hi de ru pt ko in en it fr zh es iw ar vi th uk ja id pl he nl tr (lowercase) or "en_US"、"ko_KR"... */
+  /** hi de ru pt ko in en it fr zh es iw ar vi th uk ja id pl he nl tr (lowercase) or "en_US", "ko_KR"... */
   targetLanguage?: string;
   removePersonalBenefit?: boolean;
 }
@@ -4525,7 +4525,7 @@ export interface AliexpressDsPromotionCollectParams {
 
 /** Response of `aliexpress.ds.promotion.collect`. */
 export interface AliexpressDsPromotionCollectResponse {
-  /** 数据对象 */
+  /** Data object */
   result?: AliexpressDsPromotionCollectResult;
 }
 
@@ -4552,13 +4552,13 @@ export const aliexpressDsPromotionCollect: ApiDefinition<
 
 /** Parameters for `aliexpress.ds.promotion.query`. */
 export interface AliexpressDsPromotionQueryParams {
-  /** 券ID */
+  /** Coupon ID */
   dsMembershipCouponIds?: Array<LongInput>;
 }
 
 /** Response of `aliexpress.ds.promotion.query`. */
 export interface AliexpressDsPromotionQueryResponse {
-  /** 券查询 */
+  /** Coupon query */
   result?: AliexpressDsPromotionQueryResult;
 }
 
@@ -4590,7 +4590,7 @@ export interface AliexpressDsRecommendFeedGetParams {
   targetLanguage?: string;
   /** record count of each page, 1 - 50 */
   pageSize?: number;
-  /** sort by：priceAsc，priceDesc，volumeAsc、volumeDesc, discountAsc, discountDesc, DSRratingAsc，DSRratingDesc, */
+  /** Sort by: priceAsc, priceDesc, volumeAsc, volumeDesc, discountAsc, discountDesc, DSRratingAsc, DSRratingDesc, */
   sort?: string;
   /** Page number */
   pageNo?: number;
@@ -4679,13 +4679,13 @@ export const aliexpressDsSearchEventReport: ApiDefinition<
 
 /** Parameters for `aliexpress.ds.text.search`. */
 export interface AliexpressDsTextSearchParams {
-  /** 搜索关键词 */
+  /** Search keyword */
   keyWord?: string;
-  /** 语言 */
+  /** Language */
   local?: string;
-  /** 目的国家码 */
+  /** Destination country code */
   countryCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: LongInput;
   /** accept value: min_primin_price,asc min_price,desc orders,asc orders,desc comments,asc comments,descce,asc min_price,desc orders,asc orders,desc comments,asc comments,desc */
   sortBy?: string;
@@ -4693,7 +4693,7 @@ export interface AliexpressDsTextSearchParams {
   pageSize?: number;
   /** page index */
   pageIndex?: number;
-  /** 货币单位 */
+  /** Currency unit */
   currency?: string;
   /** search extend */
   searchExtend?: Array<AliexpressDsTextSearchSearchExtend>;

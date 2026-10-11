@@ -9,17 +9,17 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressCustomizeProductDetailApiCustomizeResponse {
-  /** 定制周期 */
+  /** Customization lead time */
   period?: number;
-  /** sku定制列表 */
+  /** SKU customization list */
   skuList?: Array<AliexpressCustomizeProductDetailCustomizeSkuDTO>;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 审核状态 */
+  /** Review status */
   auditStatus?: string;
-  /** 定制类型 */
+  /** Customization type */
   cusProductForm?: string;
-  /** 商品类型 */
+  /** Product type */
   productType?: string;
 }
 
@@ -38,23 +38,23 @@ export const AliexpressCustomizeProductDetailApiCustomizeResponseSchema: Schema 
   };
 
 export interface AliexpressCustomizeProductDetailCusParts {
-  /** 定制区域 */
+  /** Customization area */
   zone?: Record<string, unknown>;
-  /** 定制标题 */
+  /** Customization title */
   title?: string;
-  /** 定制类型 */
+  /** Customization type */
   type?: string;
-  /** 最大文字数 */
+  /** Maximum number of characters */
   textMaxCount?: number;
-  /** 定制顺序（1-6） */
+  /** Customization order (1-6) */
   order?: number;
-  /** 字体列表（定制类型为文本） */
+  /** Font list (customization type is text) */
   fontDTOList?: string;
-  /** 颜色列表（定制类型为文本 */
+  /** Color list (customization type is text */
   colorList?: string;
-  /** 规格列表（定制类型为规格） */
+  /** Specification list (customization type is specification) */
   specsList?: string;
-  /** 材质列表（定制类型为材质） */
+  /** Material list (customization type is material) */
   materialList?: string;
 }
 
@@ -71,7 +71,7 @@ export const AliexpressCustomizeProductDetailCusPartsSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductDetailCustomizeDetailRequest {
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
 }
 
@@ -81,19 +81,19 @@ export const AliexpressCustomizeProductDetailCustomizeDetailRequestSchema: Schem
   };
 
 export interface AliexpressCustomizeProductDetailCustomizeSkuDTO {
-  /** 背景图 */
+  /** Background image */
   backgroundImage?: string;
-  /** 定制项 */
+  /** Customization item */
   cusParts?: Array<AliexpressCustomizeProductDetailCusParts>;
-  /** 蒙版图 */
+  /** Mask image */
   maskImage?: string;
-  /** 合成图 */
+  /** Composite image */
   generateImage?: string;
   /** skuID */
   skuId?: string;
-  /** 定制模版主id */
+  /** Custom template main ID */
   mainTemplateId?: Long;
-  /** 定制模版子id */
+  /** Custom template sub ID */
   subTemplateId?: Long;
 }
 
@@ -112,13 +112,13 @@ export const AliexpressCustomizeProductDetailCustomizeSkuDTOSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductDetailMtopResult {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 返回数据 */
+  /** Returned data */
   model?: AliexpressCustomizeProductDetailApiCustomizeResponse;
-  /** 错误信息 */
+  /** Error message */
   msgInfo?: string;
-  /** 错误码 */
+  /** Error code */
   msgCode?: string;
 }
 
@@ -134,7 +134,7 @@ export const AliexpressCustomizeProductDetailMtopResultSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductInfoAuditResultQueryCustomizeInfoResultRequest {
-  /** 定制数据主键ID */
+  /** Primary key ID of the customization data */
   customizeInfoId?: Long;
 }
 
@@ -144,13 +144,13 @@ export const AliexpressCustomizeProductInfoAuditResultQueryCustomizeInfoResultRe
   };
 
 export interface AliexpressCustomizeProductInfoCreateCustomizeInfo {
-  /** 定制内容使用的模板ID */
+  /** Template ID used by the customization content */
   snapshotCustomizeTemplateId?: string;
-  /** 多个子定制项内容 */
+  /** Content of multiple customization sub-items */
   customizeInfoItems?: Array<AliexpressCustomizeProductInfoCreateCustomizeInfoItem>;
-  /** 定制效果图url */
+  /** URL of the customization preview image */
   customizePicUrl?: string;
-  /** 定制数据主键ID */
+  /** Primary key ID of the customization data */
   customizeInfoId?: Long;
 }
 
@@ -166,17 +166,17 @@ export const AliexpressCustomizeProductInfoCreateCustomizeInfoSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductInfoCreateCustomizeInfoItem {
-  /** 定制项* text类型：文字内容 * image类型：公网可访问的url */
+  /** Customization item * for text type: text content * for image type: publicly accessible url */
   contentValue?: string;
-  /** 类型，如text、image */
+  /** Type, such as text, image */
   type?: string;
-  /** 提示语，多语言 */
+  /** Prompt text, multilingual */
   lintText?: string;
-  /** 子定制区域效果图url，即contentRectF和limitRectF的交集区域图像 */
+  /** URL of the sub-customization area preview image, i.e. the image of the intersection of contentRectF and limitRectF */
   contentSnipingUrl?: string;
-  /** 序号 */
+  /** Sequence number */
   order?: number;
-  /** 图片或文本内容区域信息 */
+  /** Image or text content area information */
   contentRectF?: AliexpressCustomizeProductInfoCreateRegionInfo;
 }
 
@@ -195,11 +195,11 @@ export const AliexpressCustomizeProductInfoCreateCustomizeInfoItemSchema: Schema
   };
 
 export interface AliexpressCustomizeProductInfoCreateCustomizeInfoSaveRequest {
-  /** 定制数据主键ID */
+  /** Primary key ID of the customization data */
   customizeInfo?: AliexpressCustomizeProductInfoCreateCustomizeInfo;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** 定制模板 */
+  /** Customization template */
   customizeTemplate?: AliexpressCustomizeProductInfoCreateCustomizeTemplate;
 }
 
@@ -219,17 +219,17 @@ export const AliexpressCustomizeProductInfoCreateCustomizeInfoSaveRequestSchema:
   };
 
 export interface AliexpressCustomizeProductInfoCreateCustomizeTemplate {
-  /** 底图宽高，固定值，用于计算底图和定制图的相对位置和大小 */
+  /** Base image width and height, fixed values, used to calculate the relative position and size of the base image and the customized image */
   picWidth?: number;
-  /** 商品ID */
+  /** Product ID */
   itemId?: Long;
-  /** 底图URL */
+  /** Base image URL */
   picUrl?: string;
-  /** 底图宽高，固定值，用于计算底图和定制图的相对位置和大小 */
+  /** Base image width and height, fixed values, used to calculate the relative position and size of the base image and the customized image */
   picHeight?: number;
-  /** 模板ID */
+  /** Template ID */
   customizeTemplateId?: string;
-  /** 多个子定制项模板 */
+  /** Templates of multiple customization sub-items */
   customizeTemplateItems?: Array<AliexpressCustomizeProductInfoCreateCustomizeTemplateItem>;
   /** SKU ID */
   skuId?: Long;
@@ -251,15 +251,15 @@ export const AliexpressCustomizeProductInfoCreateCustomizeTemplateSchema: Schema
   };
 
 export interface AliexpressCustomizeProductInfoCreateCustomizeTemplateItem {
-  /** 定制区域限制 */
+  /** Customization area restrictions */
   limitRectF?: AliexpressCustomizeProductInfoCreateRegionInfo;
-  /** 大小限制 * text类型为字符数 * image类型为图片大小限制 单位 KB */
+  /** Size limit * for text type, the number of characters * for image type, the image size limit. Unit: KB */
   maxSize?: number;
-  /** 类型，如text、image */
+  /** Type, such as text, image */
   type?: string;
-  /** 标题，多语言 */
+  /** Title, multilingual */
   title?: string;
-  /** 序号 */
+  /** Sequence number */
   order?: number;
 }
 
@@ -277,17 +277,17 @@ export const AliexpressCustomizeProductInfoCreateCustomizeTemplateItemSchema: Sc
   };
 
 export interface AliexpressCustomizeProductInfoCreateRegionInfo {
-  /** 底图宽高，由开发者前端自定，长宽相等，仅表示示意图区域大小，不是真实图像大小。用于计算底图区域和定制区域的相对位置和大小关系 */
+  /** Base image width and height, defined by the developer's frontend, equal in length and width; it only represents the size of the schematic area, not the real image size. Used to calculate the relative position and size relationship between the base image area and the customization area */
   containerHeight?: Long;
-  /** 定制选择区域左上角 */
+  /** Top-left corner of the customization selection area */
   top?: Long;
-  /** 定制选择区域左上角 */
+  /** Top-left corner of the customization selection area */
   left?: Long;
-  /** 定制选择区域宽高 */
+  /** Width and height of the customization selection area */
   width?: Long;
-  /** 定制选择区域宽高 */
+  /** Width and height of the customization selection area */
   height?: Long;
-  /** 底图宽高，由开发者前端自定，长宽相等，仅表示示意图区域大小，不是真实图像大小。用于计算底图区域和定制区域的相对位置和大小关系 */
+  /** Base image width and height, defined by the developer's frontend, equal in length and width; it only represents the size of the schematic area, not the real image size. Used to calculate the relative position and size relationship between the base image area and the customization area */
   containerWidth?: Long;
 }
 
@@ -301,9 +301,9 @@ export const AliexpressCustomizeProductInfoCreateRegionInfoSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductInfoQueryCustomizeInfoQueryRequest {
-  /** 定制数据ID */
+  /** Customization data ID */
   customizeInfoId?: Long;
-  /** 语言 */
+  /** Language */
   locale?: string;
 }
 
@@ -314,15 +314,15 @@ export const AliexpressCustomizeProductInfoQueryCustomizeInfoQueryRequestSchema:
   };
 
 export interface AliexpressCustomizeProductQueryCustomizeListResponse {
-  /** 审核驳回原因 */
+  /** Review rejection reason */
   croRejectReason?: string;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 商品状态包括：审核驳回reject、审核通过pass，审核中approving */
+  /** Product status includes: review rejected: reject, review passed: pass, under review: approving */
   auditStatus?: string;
-  /** 定制类型 */
+  /** Customization type */
   cusProductForm?: string;
-  /** 商品类型 */
+  /** Product type */
   productType?: string;
 }
 
@@ -336,17 +336,17 @@ export const AliexpressCustomizeProductQueryCustomizeListResponseSchema: Schema 
   };
 
 export interface AliexpressCustomizeProductQueryCustomizePageRequest {
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 分页大小，最大20 */
+  /** Page size, maximum 20 */
   pageSize?: number;
-  /** 商品标题 */
+  /** Product title */
   productName?: string;
-  /** 可加入：UNJOIN-；已加入：JOINED */
+  /** Joinable: UNJOIN-; joined: JOINED */
   tab?: string;
-  /** 第几页 */
+  /** Page number */
   pageNo?: number;
-  /** 类目ID */
+  /** Category ID */
   categoryId?: Long;
 }
 
@@ -361,13 +361,13 @@ export const AliexpressCustomizeProductQueryCustomizePageRequestSchema: Schema =
   };
 
 export interface AliexpressCustomizeProductQueryMtopResult {
-  /** 接口调用结果true or false */
+  /** API call result true or false */
   success?: string;
-  /** 返回的数据 */
+  /** Returned data */
   model?: AliexpressCustomizeProductQueryPageResponse;
-  /** 错误信息 */
+  /** Error message */
   msgInfo?: string;
-  /** 错误码 */
+  /** Error code */
   msgCode?: string;
 }
 
@@ -383,11 +383,11 @@ export const AliexpressCustomizeProductQueryMtopResultSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductQueryPageInfoDTO {
-  /** 当前页 */
+  /** Current page */
   current?: number;
-  /** 总数量 */
+  /** Total quantity */
   total?: number;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
 }
 
@@ -398,9 +398,9 @@ export const AliexpressCustomizeProductQueryPageInfoDTOSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductQueryPageResponse {
-  /** 返回的列表数据 */
+  /** Returned list data */
   dataList?: Array<AliexpressCustomizeProductQueryCustomizeListResponse>;
-  /** 分页信息 */
+  /** Pagination information */
   pageInfo?: AliexpressCustomizeProductQueryPageInfoDTO;
 }
 
@@ -418,9 +418,9 @@ export const AliexpressCustomizeProductQueryPageResponseSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductSubmitCustomizeColorDTO {
-  /** 颜色rgb */
+  /** Color RGB */
   rgb?: string;
-  /** 颜色16进制值 */
+  /** Color hexadecimal value */
   value?: string;
 }
 
@@ -430,13 +430,13 @@ export const AliexpressCustomizeProductSubmitCustomizeColorDTOSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductSubmitCustomizeDTO {
-  /** 定制周期 */
+  /** Customization lead time */
   period?: number;
-  /** sku列表 */
+  /** SKU list */
   skuList?: Array<AliexpressCustomizeProductSubmitCustomizeSkuDTO>;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 定制类型（标准定制：with_pic_cus_product、非标准定制：no_pic_cus_product） */
+  /** Customization type (standard customization: with_pic_cus_product; non-standard customization: no_pic_cus_product) */
   cusProductForm?: string;
 }
 
@@ -452,7 +452,7 @@ export const AliexpressCustomizeProductSubmitCustomizeDTOSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductSubmitCustomizeFontDTO {
-  /** 字体值 */
+  /** Font value */
   value?: string;
 }
 
@@ -461,15 +461,15 @@ export const AliexpressCustomizeProductSubmitCustomizeFontDTOSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductSubmitCustomizeSkuDTO {
-  /** 定制项 */
+  /** Customization item */
   cusParts?: Array<AliexpressCustomizeProductSubmitCustomizeSkuDTOCusParts>;
-  /** 背景图（图片银行获取） */
+  /** Background image (obtained from the image bank) */
   backgroundImage?: string;
-  /** 合成图（由对应的背景图和蒙版图生成） */
+  /** Composite image (generated from the corresponding background image and mask image) */
   generateImage?: string;
   /** skuID */
   skuId?: string;
-  /** 蒙版图（图片银行获取） */
+  /** Mask image (obtained from the image bank) */
   maskImage?: string;
 }
 
@@ -486,23 +486,23 @@ export const AliexpressCustomizeProductSubmitCustomizeSkuDTOSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductSubmitCustomizeSkuDTOCusParts {
-  /** 定制文字最大限制数 */
+  /** Maximum character limit for customization text */
   textMaxCount?: number;
-  /** 定制区域 */
+  /** Customization area */
   zone?: AliexpressCustomizeProductSubmitCustomizeSkuDTOCusZone;
-  /** 材质列表（定制类型为材质） */
+  /** Material list (customization type is material) */
   materialList?: Array<string>;
-  /** 规格列表（定制类型为规格） */
+  /** Specification list (customization type is specification) */
   specsList?: Array<string>;
-  /** 定制标题 */
+  /** Customization title */
   title?: string;
-  /** 定制类型（文本：text、图片：image、规格：specs、材质：material） */
+  /** Customization type (text: text, image: image, specs: specs, material: material) */
   type?: string;
-  /** 字体列表 */
+  /** Font list */
   fontDTOList?: Array<AliexpressCustomizeProductSubmitCustomizeFontDTO>;
-  /** 定制顺序（1-6） */
+  /** Customization order (1-6) */
   order?: number;
-  /** 颜色列表 */
+  /** Color list */
   colorList?: Array<AliexpressCustomizeProductSubmitCustomizeColorDTO>;
 }
 
@@ -532,13 +532,13 @@ export const AliexpressCustomizeProductSubmitCustomizeSkuDTOCusPartsSchema: Sche
   };
 
 export interface AliexpressCustomizeProductSubmitCustomizeSkuDTOCusZone {
-  /** 左上角坐标 */
+  /** Top-left coordinates */
   top?: Long;
-  /** 左上角坐标 */
+  /** Top-left coordinates */
   left?: Long;
-  /** 宽 */
+  /** Width */
   width?: Long;
-  /** 高 */
+  /** Height */
   height?: Long;
 }
 
@@ -551,7 +551,7 @@ export const AliexpressCustomizeProductSubmitCustomizeSkuDTOCusZoneSchema: Schem
   };
 
 export interface AliexpressCustomizeProductSubmitCustomizeSubmitRequest {
-  /** 定制信息 */
+  /** Customization information */
   customizeDto?: AliexpressCustomizeProductSubmitCustomizeDTO;
 }
 
@@ -565,13 +565,13 @@ export const AliexpressCustomizeProductSubmitCustomizeSubmitRequestSchema: Schem
   };
 
 export interface AliexpressCustomizeProductSubmitMtopResult {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 商品ID */
+  /** Product ID */
   model?: string;
-  /** 错误信息 */
+  /** Error message */
   msgInfo?: string;
-  /** 错误码 */
+  /** Error code */
   msgCode?: string;
 }
 
@@ -583,11 +583,11 @@ export const AliexpressCustomizeProductSubmitMtopResultSchema: Schema = {
 };
 
 export interface AliexpressCustomizeProductTemplateQueryCustomizeTemplateQueryRequest {
-  /** 商品ID */
+  /** Product ID */
   itemId?: Long;
-  /** 语言 */
+  /** Language */
   locale?: string;
-  /** 商品sku Id */
+  /** Product sku Id */
   skuId?: Long;
 }
 
@@ -601,9 +601,9 @@ export const AliexpressCustomizeProductTemplateQueryCustomizeTemplateQueryReques
 export interface AliexpressCustomizeTemplateProductSubmitCustomizeSkuTemplateDTO {
   /** sku id */
   skuId?: Long;
-  /** 定制模版主id */
+  /** Custom template main ID */
   mainTemplateId?: Long;
-  /** 定制模版子id */
+  /** Custom template sub ID */
   subTemplateId?: Long;
 }
 
@@ -615,11 +615,11 @@ export const AliexpressCustomizeTemplateProductSubmitCustomizeSkuTemplateDTOSche
   };
 
 export interface AliexpressCustomizeTemplateProductSubmitCustomizeTemplateDTO {
-  /** 定制周期 */
+  /** Customization lead time */
   period?: number;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** sku列表 */
+  /** SKU list */
   skuList?: Array<AliexpressCustomizeTemplateProductSubmitCustomizeSkuTemplateDTO>;
 }
 
@@ -636,7 +636,7 @@ export const AliexpressCustomizeTemplateProductSubmitCustomizeTemplateDTOSchema:
   };
 
 export interface AliexpressCustomizeTemplateProductSubmitCustomizeTemplateSubmitReq {
-  /** 定制信息 */
+  /** Customization information */
   customizeDto?: AliexpressCustomizeTemplateProductSubmitCustomizeTemplateDTO;
 }
 
@@ -650,13 +650,13 @@ export const AliexpressCustomizeTemplateProductSubmitCustomizeTemplateSubmitReqS
   };
 
 export interface AliexpressCustomizeTemplateProductSubmitMtopResult {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 商品id */
+  /** Product ID */
   model?: Long;
-  /** 错误信息 */
+  /** Error message */
   msgInfo?: string;
-  /** 错误码 */
+  /** Error code */
   msgCode?: string;
 }
 
@@ -670,7 +670,7 @@ export const AliexpressCustomizeTemplateProductSubmitMtopResultSchema: Schema =
 
 /** Parameters for `aliexpress.customize.product.detail`. */
 export interface AliexpressCustomizeProductDetailParams {
-  /** 入参 */
+  /** Input parameters */
   param1?: AliexpressCustomizeProductDetailCustomizeDetailRequest;
 }
 
@@ -707,13 +707,13 @@ export const aliexpressCustomizeProductDetail: ApiDefinition<
 
 /** Parameters for `aliexpress.customize.product.info.audit.result.query`. */
 export interface AliexpressCustomizeProductInfoAuditResultQueryParams {
-  /** 入参 */
+  /** Input parameters */
   param0?: AliexpressCustomizeProductInfoAuditResultQueryCustomizeInfoResultRequest;
 }
 
 /** Response of `aliexpress.customize.product.info.audit.result.query`. */
 export interface AliexpressCustomizeProductInfoAuditResultQueryResponse {
-  /** 结果 */
+  /** Result */
   result?: Record<string, unknown>;
 }
 
@@ -742,13 +742,13 @@ export const aliexpressCustomizeProductInfoAuditResultQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.customize.product.info.create`. */
 export interface AliexpressCustomizeProductInfoCreateParams {
-  /** 入参 */
+  /** Input parameters */
   param0?: AliexpressCustomizeProductInfoCreateCustomizeInfoSaveRequest;
 }
 
 /** Response of `aliexpress.customize.product.info.create`. */
 export interface AliexpressCustomizeProductInfoCreateResponse {
-  /** 结果 */
+  /** Result */
   result?: Record<string, unknown>;
 }
 
@@ -776,13 +776,13 @@ export const aliexpressCustomizeProductInfoCreate: ApiDefinition<
 
 /** Parameters for `aliexpress.customize.product.info.query`. */
 export interface AliexpressCustomizeProductInfoQueryParams {
-  /** 入参 */
+  /** Input parameters */
   param0?: AliexpressCustomizeProductInfoQueryCustomizeInfoQueryRequest;
 }
 
 /** Response of `aliexpress.customize.product.info.query`. */
 export interface AliexpressCustomizeProductInfoQueryResponse {
-  /** 结果 */
+  /** Result */
   result?: Record<string, unknown>;
 }
 
@@ -810,7 +810,7 @@ export const aliexpressCustomizeProductInfoQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.customize.product.query`. */
 export interface AliexpressCustomizeProductQueryParams {
-  /** 入参 */
+  /** Input parameters */
   param1?: AliexpressCustomizeProductQueryCustomizePageRequest;
 }
 
@@ -884,13 +884,13 @@ export const aliexpressCustomizeProductSubmit: ApiDefinition<
 
 /** Parameters for `aliexpress.customize.product.template.query`. */
 export interface AliexpressCustomizeProductTemplateQueryParams {
-  /** 请求 */
+  /** Request */
   param0?: AliexpressCustomizeProductTemplateQueryCustomizeTemplateQueryRequest;
 }
 
 /** Response of `aliexpress.customize.product.template.query`. */
 export interface AliexpressCustomizeProductTemplateQueryResponse {
-  /** 结果 */
+  /** Result */
   result?: Record<string, unknown>;
 }
 
@@ -919,13 +919,13 @@ export const aliexpressCustomizeProductTemplateQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.customize.template.product.submit`. */
 export interface AliexpressCustomizeTemplateProductSubmitParams {
-  /** 定制信息参数 */
+  /** Customization information parameters */
   param1?: AliexpressCustomizeTemplateProductSubmitCustomizeTemplateSubmitReq;
 }
 
 /** Response of `aliexpress.customize.template.product.submit`. */
 export interface AliexpressCustomizeTemplateProductSubmitResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressCustomizeTemplateProductSubmitMtopResult;
 }
 

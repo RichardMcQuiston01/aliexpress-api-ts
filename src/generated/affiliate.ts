@@ -168,7 +168,7 @@ export interface AliexpressAffiliateFeaturedpromoProductsGetTrafficProductDTO {
   lastestVolume?: Long;
   hotProductCommissionRate?: string;
   originalPrice?: string;
-  /** product Type：ALL, PLAZA,TMALL */
+  /** product Type: ALL, PLAZA, TMALL */
   platformProductType?: string;
   /** url link of Product detail, not promotion link */
   productDetailUrl?: string;
@@ -471,7 +471,7 @@ export interface AliexpressAffiliateHotproductQueryTrafficProductDTO {
   originalPrice?: string;
   /** currency of original price */
   originalPriceCurrency?: string;
-  /** product Type：ALL, PLAZA,TMALL */
+  /** product Type: ALL, PLAZA, TMALL */
   platformProductType?: string;
   /** url link of Product detail, not promotion link */
   productDetailUrl?: string;
@@ -699,7 +699,7 @@ export interface AliexpressAffiliateImageSearchTrafficImageProductDTO {
   commisionRate?: string;
   /** Hot product commission rate */
   hotProductCommissionRate?: string;
-  /** product Type：ALL, PLAZA,TMALL */
+  /** product Type: ALL, PLAZA, TMALL */
   platformProductType?: string;
   /** commission rate for relevant market(only for relevant market countries: RU, AM, AZ, BY, GE, KG, KZ, MD, TJ, TM, UZ) */
   relevantMarketCommissionRate?: string;
@@ -916,7 +916,7 @@ export interface AliexpressAffiliateOrderGetTrafficOrderEffectDTO {
   incentiveCommissionRate?: string;
   /** is affiliate product */
   isAffiliateProduct?: string;
-  /** global、ru_site、es_site、it_site */
+  /** global, ru_site, es_site, it_site */
   orderType?: string;
 }
 
@@ -1023,7 +1023,7 @@ export interface AliexpressAffiliateOrderListbyindexTrafficOrderEffectDTO {
   estimatedIncentiveFinishedCommission?: Long;
   /** is affiliate product */
   isAffiliateProduct?: string;
-  /** global、ru_site、es_site、it_site */
+  /** global, ru_site, es_site, it_site */
   orderType?: string;
   /** Order status: Payment Completed(Buyer paid successfully), Buyer Confirmed Receipt(This status only change when:Buyer confirms receipt and settlement task begins which is manually executed by our operation team), Completed Settlement(Orders have been verified and commission has been paid), Invalid(Orders will not be settled including buyer refunds, order risks, antispam/penalty appeal failed, antispam/penalty appeal overdue, order not settled being over 180 days apart from the Completed Payment Time (such as in abnormal state like dispute), etc.) */
   orderStatus?: string;
@@ -1176,7 +1176,7 @@ export interface AliexpressAffiliateOrderListTrafficOrderEffectDTO {
   estimatedIncentiveFinishedCommission?: Long;
   /** is affiliate product */
   isAffiliateProduct?: string;
-  /** global、ru_site、es_site、it_site */
+  /** global, ru_site, es_site, it_site */
   orderType?: string;
   /** parent order ID::discarded. pls use order_id */
   parentOrderNumber?: Long;
@@ -1345,7 +1345,7 @@ export interface AliexpressAffiliateProductdetailGetTrafficProductDTO {
   originalPrice?: string;
   /** sale price (Non-APP Sale price) */
   originalPriceCurrency?: string;
-  /** product Type：ALL, PLAZA,TMALL */
+  /** product Type: ALL, PLAZA, TMALL */
   platformProductType?: string;
   /** url link of Product detail, not promotion link */
   productDetailUrl?: string;
@@ -1494,7 +1494,7 @@ export const AliexpressAffiliateProductQueryResponseDTOSchema: Schema = {
 export interface AliexpressAffiliateProductQueryTrafficProductDTO {
   /** SKU ID */
   skuId?: Long;
-  /** 商品税率，查询物流时需要 */
+  /** Product tax rate, needed when querying logistics */
   taxRate?: string;
   /** sale price on App */
   appSalePrice?: string;
@@ -1518,7 +1518,7 @@ export interface AliexpressAffiliateProductQueryTrafficProductDTO {
   originalPrice?: string;
   /** currency of original price */
   originalPriceCurrency?: string;
-  /** product Type：ALL, PLAZA,TMALL */
+  /** product Type: ALL, PLAZA, TMALL */
   platformProductType?: string;
   /** url link of Product detail, not promotion link */
   productDetailUrl?: string;
@@ -1659,15 +1659,15 @@ export const AliexpressAffiliateProductShippingGetResponseDTOSchema: Schema = {
 };
 
 export interface AliexpressAffiliateProductShippingGetTrafficProductShippingResultDTO {
-  /** 预计最多交货天数 */
+  /** Estimated maximum delivery days */
   maxDeliveryDays?: string;
-  /** 产品发货的国家 */
+  /** Country the product ships from */
   shipFromCountry?: string;
-  /** 产品的运费 */
+  /** Product shipping fee */
   shippingFee?: string;
-  /** 预计最少交货天数 */
+  /** Estimated minimum delivery days */
   minDeliveryDays?: string;
-  /** 预计交货天数 */
+  /** Estimated delivery days */
   deliveryDays?: string;
 }
 
@@ -2519,7 +2519,7 @@ export interface AliexpressAffiliateProductQueryParams {
   pageNo?: LongInput;
   /** record count of each page, 1 - 50 */
   pageSize?: LongInput;
-  /** product type：ALL,PLAZA,TMALL */
+  /** product type: ALL,PLAZA,TMALL */
   platformProductType?: string;
   /** sort by:SALE_PRICE_ASC, SALE_PRICE_DESC, LAST_VOLUME_ASC, LAST_VOLUME_DESC */
   sort?: string;
@@ -2533,7 +2533,7 @@ export interface AliexpressAffiliateProductQueryParams {
   promotionName?: string;
   /** The Ship to country. Filter products that can be sent to that country; Returns the price according to the country’s tax rate policy. */
   shipToCountry?: string;
-  /** Estimated delivery days. 3：in 3 days，5：in 5 days，7：in 7 days，10：in 10 days */
+  /** Estimated delivery days. 3: in 3 days, 5: in 5 days, 7: in 7 days, 10: in 10 days */
   deliveryDays?: string;
 }
 
@@ -2582,19 +2582,19 @@ export const aliexpressAffiliateProductQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.affiliate.product.shipping.get`. */
 export interface AliexpressAffiliateProductShippingGetParams {
-  /** 产品 ID */
+  /** Product ID */
   productId?: LongInput;
   /** SKU ID */
   skuId?: LongInput;
-  /** 发货目的地国家。筛选可发往该国家的产品；根据该国税率政策返回价格 */
+  /** Shipping destination country. Filters products that can be shipped to this country; price is returned according to the country's tax rate policy */
   shipToCountry?: string;
-  /** 目标货币：美元、英镑、加元、欧元、乌克兰格里夫纳、墨西哥比索、土耳其里拉、俄罗斯卢布、巴西雷亚尔、澳元、印度卢比、日元、印尼盾、瑞典克朗、韩元、以色列新谢克尔、泰铢、智利比索、越南盾 */
+  /** Target currency: US dollar, British pound, Canadian dollar, euro, Ukrainian hryvnia, Mexican peso, Turkish lira, Russian ruble, Brazilian real, Australian dollar, Indian rupee, Japanese yen, Indonesian rupiah, Swedish krona, Korean won, Israeli new shekel, Thai baht, Chilean peso, Vietnamese dong */
   targetCurrency?: string;
-  /** 目标货币的非App销售价格 */
+  /** Non-App selling price in the target currency */
   targetSalePrice?: string;
-  /** 目标语言：英语、俄语、葡萄牙语、西班牙语、法语、印尼语、意大利语、泰语、日语、阿拉伯语、越南语、土耳其语、德语、希伯来语、韩语、荷兰语、波兰语、墨西哥语、智利语、印度语 */
+  /** Target language: English, Russian, Portuguese, Spanish, French, Indonesian, Italian, Thai, Japanese, Arabic, Vietnamese, Turkish, German, Hebrew, Korean, Dutch, Polish, Mexican, Chilean, Hindi */
   targetLanguage?: string;
-  /** 产品税率 */
+  /** Product tax rate */
   taxRate?: string;
 }
 

@@ -9,13 +9,13 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressBrandCheckByTuringBaseSingleResult {
-  /** 数据结果 */
+  /** Data result */
   data?: boolean;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errMessage?: string;
 }
 
@@ -28,19 +28,19 @@ export const AliexpressBrandCheckByTuringBaseSingleResultSchema: Schema = {
 
 /** Parameters for `aliexpress.brand.checkByTuring`. */
 export interface AliexpressBrandCheckByTuringParams {
-  /** 质检单号 */
+  /** Quality inspection order number */
   sheetId?: string;
-  /** 图灵整鉴id */
+  /** Turing full authentication ID */
   oaid?: string;
-  /** 图灵鉴定code */
+  /** Turing appraisal code */
   code?: string;
-  /** 鉴定结果 */
+  /** Authentication result */
   appraisalResult?: number;
 }
 
 /** Response of `aliexpress.brand.checkByTuring`. */
 export interface AliexpressBrandCheckByTuringResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressBrandCheckByTuringBaseSingleResult;
 }
 

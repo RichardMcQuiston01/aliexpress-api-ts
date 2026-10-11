@@ -57,11 +57,11 @@ export const AliexpressSocialCategoryMobileQueryOpenApiResultSchema: Schema = {
 };
 
 export interface AliexpressSocialCountryGetCountryDTO {
-  /** 国家名称 */
+  /** Country name */
   name?: string;
-  /** 国家CODE */
+  /** Country CODE */
   code?: string;
-  /** 国家ID */
+  /** Country ID */
   id?: string;
 }
 
@@ -72,13 +72,13 @@ export const AliexpressSocialCountryGetCountryDTOSchema: Schema = {
 };
 
 export interface AliexpressSocialCountryGetItemPickPagingResult {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 返回数据集合 */
+  /** Returned data collection */
   results?: Array<AliexpressSocialCountryGetCountryDTO>;
 }
 
@@ -92,11 +92,11 @@ export const AliexpressSocialCountryGetItemPickPagingResultSchema: Schema = {
 export interface AliexpressSocialDiscategoryGetItemPickPagingResult {
   /** result */
   results?: Array<AliexpressSocialDiscategoryGetLabelDTO>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -113,11 +113,11 @@ export const AliexpressSocialDiscategoryGetItemPickPagingResultSchema: Schema =
   };
 
 export interface AliexpressSocialDiscategoryGetLabelDTO {
-  /** 子节点 */
+  /** Child node */
   childrens?: Array<AliexpressSocialDiscategoryGetLabelDTO>;
-  /** 类目名称 */
+  /** Category name */
   categoryName?: string;
-  /** 类目ID */
+  /** Category ID */
   categoryId?: string;
 }
 
@@ -132,19 +132,19 @@ export const AliexpressSocialDiscategoryGetLabelDTOSchema: Schema = {
 };
 
 export interface AliexpressSocialItemSearchItemPickPagingResult {
-  /** 搜索结构封装 */
+  /** Search structure wrapper */
   results?: Array<AliexpressSocialItemSearchItemSearchResult>;
-  /** 页码 */
+  /** Page number */
   pageNo?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 每页数据条数 */
+  /** Number of records per page */
   pageSize?: Long;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 总条数 */
+  /** Total count */
   totalCount?: Long;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -163,43 +163,43 @@ export const AliexpressSocialItemSearchItemPickPagingResultSchema: Schema = {
 };
 
 export interface AliexpressSocialItemSearchItemSearchResult {
-  /** 商品ID */
+  /** Product ID */
   itemId?: Long;
-  /** 商品标题 */
+  /** Product title */
   itemTitle?: string;
-  /** 商品URL */
+  /** Product URL */
   itemUrl?: string;
-  /** 商品主图 */
+  /** Product main image */
   itemMainPic?: string;
-  /** 商品原价最低值 */
+  /** Lowest original product price */
   itemOriginPriceMin?: string;
-  /** 商品原价最高值 */
+  /** Highest original product price */
   itemOriginPriceMax?: string;
-  /** 商品折扣价最低至 */
+  /** Minimum product discounted price */
   itemPriceDiscountMin?: string;
-  /** 商品折扣价最高值 */
+  /** Maximum product discounted price */
   itemPriceDiscountMax?: string;
-  /** 商品折扣率 */
+  /** Product discount rate */
   itemDiscountRate?: string;
-  /** 发布时间 */
+  /** Publish time */
   pubTime?: string;
-  /** 评价分 */
+  /** Review score */
   commentScore?: string;
-  /** 销量语义化 */
+  /** Semantic sales volume */
   sales30DaySemantic?: number;
-  /** 店铺URL */
+  /** Store URL */
   shopUrl?: string;
-  /** 评论语义化 */
+  /** Semantic review count */
   comment30DaySemantic?: number;
-  /** 卖家服务分 */
+  /** Seller service score */
   sellerLayer?: string;
-  /** 佣金比例 */
+  /** Commission rate */
   commissionRate?: string;
-  /** 收藏数语义化 */
+  /** Semantic favorites count */
   favoriteCntSemantic?: number;
-  /** 图片地址 */
+  /** Image URL */
   itemPics?: string;
-  /** 视频地址 */
+  /** Video URL */
   itemVideos?: string;
 }
 
@@ -2140,7 +2140,7 @@ export const aliexpressSocialCategoryTreeQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.social.country.get`. */
 export interface AliexpressSocialCountryGetParams {
-  /** 语言 */
+  /** Language */
   language?: string;
 }
 
@@ -2174,7 +2174,7 @@ export const aliexpressSocialCountryGet: ApiDefinition<
 
 /** Parameters for `aliexpress.social.discategory.get`. */
 export interface AliexpressSocialDiscategoryGetParams {
-  /** Locale值，格式为language+"_"+country */
+  /** Locale value, in the format language+"_"+country */
   locale?: string;
 }
 
@@ -2208,9 +2208,9 @@ export const aliexpressSocialDiscategoryGet: ApiDefinition<
 
 /** Parameters for `aliexpress.social.item.promotion`. */
 export interface AliexpressSocialItemPromotionParams {
-  /** 推广的商品链接 */
+  /** Promoted product link */
   targetUrl?: string;
-  /** 子渠道号 */
+  /** Sub-channel number */
   af?: string;
   /** campaign Id */
   cn?: string;
@@ -2222,13 +2222,13 @@ export interface AliexpressSocialItemPromotionParams {
 
 /** Response of `aliexpress.social.item.promotion`. */
 export interface AliexpressSocialItemPromotionResponse {
-  /** 推广链接 */
+  /** Promotion link */
   promotionUrl?: string;
-  /** 是否成功 */
+  /** Whether successful */
   isSuccess?: boolean;
-  /** 错误码 */
+  /** Error code */
   resultCode?: string;
-  /** 错误信息 */
+  /** Error message */
   resultMsg?: string;
 }
 
@@ -2259,47 +2259,47 @@ export const aliexpressSocialItemPromotion: ApiDefinition<
 
 /** Parameters for `aliexpress.social.item.search`. */
 export interface AliexpressSocialItemSearchParams {
-  /** 类目ID */
+  /** Category ID */
   cateId?: LongInput;
-  /** 页码 */
+  /** Page number */
   pageNo?: number;
-  /** 最低价格 */
+  /** Minimum price */
   minPrice?: string;
-  /** 最高价格 */
+  /** Maximum price */
   maxPrice?: string;
-  /** 搜索关键字 */
+  /** Search keyword */
   keyword?: string;
-  /** shipTo国家 */
+  /** shipTo country */
   shipTo?: string;
-  /** 是否有视频 */
+  /** Whether there is a video */
   hasVideo?: boolean;
   /** order by properties */
   orderBy?: string;
-  /** 是否逆序 */
+  /** Whether descending order */
   desc?: boolean;
   /** page size */
   pageSize?: number;
-  /** 是否免邮 */
+  /** Whether free shipping */
   isShipFree?: boolean;
-  /** 佣金最大值 */
+  /** Maximum commission */
   commissionRateMax?: string;
-  /** 佣金最小值 */
+  /** Minimum commission */
   commissionRateMin?: string;
-  /** 物流时效 */
+  /** Logistics delivery time */
   logisticsTime?: number;
-  /** 是否联盟商品 */
+  /** Whether it is an affiliate product */
   allianceItem?: boolean;
-  /** 评价分数 */
+  /** Review score */
   commentScore?: string;
-  /** locale,格式为language+"_"+country */
+  /** locale, in the format language+"_"+country */
   locale?: string;
-  /** 币种 */
+  /** Currency */
   currency?: string;
 }
 
 /** Response of `aliexpress.social.item.search`. */
 export interface AliexpressSocialItemSearchResponse {
-  /** 报类型 */
+  /** Report type */
   result?: AliexpressSocialItemSearchItemPickPagingResult;
 }
 

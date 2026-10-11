@@ -103,15 +103,15 @@ export interface AliexpressFundMerchantOrderdetailOpenApiStandardOrderDetailDTO 
   productInfo?: AliexpressFundMerchantOrderdetailOpenApiStandardProductInfo;
   /** currency */
   currency?: string;
-  /** 确认收货时间 */
+  /** Receipt confirmation time */
   receiptConfirmationTime?: Long;
-  /** 发货时间 */
+  /** Shipping time */
   deliveryTime?: Long;
   /** un_settled_reason */
   unSettledReason?: string;
-  /** 平台分账金额 */
+  /** Platform split amount */
   platformCommissionAmount?: Long;
-  /** 平台分账退回金额 */
+  /** Platform split-account refund amount */
   platformCommissionRefundAmount?: Long;
 }
 
@@ -360,9 +360,9 @@ export const AliexpressFundMerchantRecipetConfigQueryReceiptFlowTypeSchema: Sche
   };
 
 export interface AliexpressFundMerchantRecipetDebtQueryFundResponse {
-  /** 数据集 */
+  /** Dataset */
   data?: Array<AliexpressFundMerchantRecipetDebtQueryMoney>;
-  /** 成功状态 */
+  /** Success status */
   success?: boolean;
 }
 
@@ -377,9 +377,9 @@ export const AliexpressFundMerchantRecipetDebtQueryFundResponseSchema: Schema =
   };
 
 export interface AliexpressFundMerchantRecipetDebtQueryMoney {
-  /** 金额 */
+  /** Amount */
   amountInMinorUnit?: number;
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
 }
 
@@ -389,29 +389,29 @@ export const AliexpressFundMerchantRecipetDebtQueryMoneySchema: Schema = {
 };
 
 export interface AliexpressFundMerchantRecipetFlowdetailQueryReceiptFlowRecord {
-  /** 收支流水金额 */
+  /** Cash flow amount */
   receiptFlowAmount?: Long;
-  /** 出资方 */
+  /** Funder */
   fromIdentityType?: string;
-  /** 收支流水名称 */
+  /** Cash flow name */
   receiptFlowName?: string;
-  /** 收支流水备注 */
+  /** Cash flow remarks */
   receiptFlowRemark?: string;
-  /** 收支流水时间 */
+  /** Cash flow time */
   receiptFlowTime?: Long;
-  /** 收支流水类型 */
+  /** Cash flow type */
   receiptFlowType?: string;
-  /** 收支流水id */
+  /** Cash flow ID */
   receiptFlowId?: string;
-  /** 收支流水币种 */
+  /** Cash flow currency */
   receiptFlowCurrency?: string;
-  /** 入资方 */
+  /** Fund recipient */
   toIdentityType?: string;
-  /** 交易订单号 */
+  /** Transaction order number */
   tradeOrderId?: string;
-  /** 收入\支出 */
+  /** Income/expense */
   revenueAndExpenditureType?: string;
-  /** 结算渠道 */
+  /** Settlement channel */
   settleChannel?: string;
 }
 
@@ -432,7 +432,7 @@ export const AliexpressFundMerchantRecipetFlowdetailQueryReceiptFlowRecordSchema
   };
 
 export interface AliexpressFundMerchantRecipetFlowdetailQueryReceiptFlowResponse {
-  /** 条数 */
+  /** Count */
   totalAmount?: Long;
   /** receiptFlowSums */
   receiptFlowSums?: Array<AliexpressFundMerchantRecipetFlowdetailQueryReceiptFlowSum>;
@@ -459,11 +459,11 @@ export const AliexpressFundMerchantRecipetFlowdetailQueryReceiptFlowResponseSche
   };
 
 export interface AliexpressFundMerchantRecipetFlowdetailQueryReceiptFlowSum {
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 收入金额 */
+  /** Income amount */
   revenueAmountLong?: Long;
-  /** 支出金额 */
+  /** Expense amount */
   expenditureAmountLong?: Long;
 }
 
@@ -503,25 +503,25 @@ export const FundMerchantRecipetConfigQueryReceiptFlowTypeSchema: Schema = {
 };
 
 export interface FundMerchantRecipetFlowDetailQueryReceiptFlowRecord {
-  /** 收支流水金额 */
+  /** Cash flow amount */
   receiptFlowAmount?: Long;
-  /** 出资方 */
+  /** Funder */
   fromIdentityType?: string;
-  /** 收支流水名称 */
+  /** Cash flow name */
   receiptFlowName?: string;
-  /** 备注 */
+  /** Remarks */
   featureDesc?: string;
-  /** 收支流水备注 */
+  /** Cash flow remarks */
   receiptFlowRemark?: string;
-  /** 收支流水时间 */
+  /** Cash flow time */
   receiptFlowTime?: Long;
-  /** 收支流水类型 */
+  /** Cash flow type */
   receiptFlowType?: string;
-  /** 收支流水id */
+  /** Cash flow ID */
   receiptFlowId?: string;
-  /** 收支流水币种 */
+  /** Cash flow currency */
   receiptFlowCurrency?: string;
-  /** 入资方 */
+  /** Fund recipient */
   toIdentityType?: string;
 }
 
@@ -567,7 +567,7 @@ export const FundMerchantRecipetFlowDetailQueryReceiptFlowResponseSchema: Schema
   };
 
 export interface FundMerchantRecipetFlowDetailQueryReceiptFlowSum {
-  /** 币种 */
+  /** Currency */
   currency?: string;
   /** revenueAmountLong */
   revenueAmountLong?: Long;
@@ -623,23 +623,23 @@ export const fundMerchantRecipetConfigQuery: ApiDefinition<
 
 /** Parameters for `/fund/merchant/recipet/flowDetail/query`. */
 export interface FundMerchantRecipetFlowDetailQueryParams {
-  /** 订单ID */
+  /** Order ID */
   orderId?: string;
   /** page_size */
   pageSize?: number;
-  /** 卖家ID */
+  /** Seller ID */
   channelSellerId?: LongInput;
-  /** 费用receipt_flow_types */
+  /** Fee receipt_flow_types */
   receiptFlowTypes?: Array<string>;
   /** page_no */
   pageNo?: number;
-  /** 币种 */
+  /** Currency */
   currency?: string;
   /** app_key */
   appKey?: string;
-  /** 大于2020-01-01，结束时间和开始时间相差60天内 */
+  /** Later than 2020-01-01; the difference between end time and start time must be within 60 days */
   endTimestamp?: LongInput;
-  /** 大于2020-01-01，结束时间和开始时间相差60天内 */
+  /** Later than 2020-01-01; the difference between end time and start time must be within 60 days */
   startTimestamp?: LongInput;
 }
 
@@ -850,7 +850,7 @@ export interface AliexpressFundMerchantRecipetDebtQueryParams {}
 
 /** Response of `aliexpress.fund.merchant.recipet.debt.query`. */
 export interface AliexpressFundMerchantRecipetDebtQueryResponse {
-  /** 结果集 */
+  /** Result set */
   result?: AliexpressFundMerchantRecipetDebtQueryFundResponse;
 }
 
@@ -876,19 +876,19 @@ export const aliexpressFundMerchantRecipetDebtQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.fund.merchant.recipet.flowdetail.query`. */
 export interface AliexpressFundMerchantRecipetFlowdetailQueryParams {
-  /** 订单ID */
+  /** Order ID */
   orderId?: string;
   /** page_size */
   pageSize?: number;
-  /** 费用receipt_flow_types */
+  /** Fee receipt_flow_types */
   receiptFlowTypes?: Array<string>;
   /** page_no */
   pageNo?: number;
-  /** 币种 */
+  /** Currency */
   currency?: string;
-  /** 大于2020-01-01，结束时间和开始时间相差60天内 */
+  /** Later than 2020-01-01; the difference between end time and start time must be within 60 days */
   endTimestamp?: LongInput;
-  /** 大于2020-01-01，结束时间和开始时间相差60天内 */
+  /** Later than 2020-01-01; the difference between end time and start time must be within 60 days */
   startTimestamp?: LongInput;
 }
 

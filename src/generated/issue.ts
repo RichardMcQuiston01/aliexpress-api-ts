@@ -9,15 +9,15 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressIssueDetailGetApiAttachmentDTO {
-  /** 图片路径 */
+  /** Image path */
   filePath?: string;
-  /** 创建时间 */
+  /** Creation time */
   gmtCreate?: string;
-  /** 纠纷id */
+  /** Dispute ID */
   issueId?: Long;
-  /** 过程id */
+  /** Process ID */
   issueProcessId?: Long;
-  /** 所属人:buyer\seller */
+  /** Owner: buyer\seller */
   owner?: string;
 }
 
@@ -30,25 +30,25 @@ export const AliexpressIssueDetailGetApiAttachmentDTOSchema: Schema = {
 };
 
 export interface AliexpressIssueDetailGetApiIssueProcessDTO {
-  /** 操作类型 发起纠纷initiate取消纠纷，cancel买家取消纠纷, 买家同意方案buyer_accept,卖家同意方案seller_accept,买家拒绝方案buyer_refuse, 买家创建方案buyer_create_solution, 买家修改方案buyer_modify_solution,买家删除方案buyer_delete_solution,卖家创建方案seller_create_solution,卖家修改方案seller_modify_solution,卖家删除方案seller_delete_solution */
+  /** Operation type: initiate a dispute initiate; cancel a dispute cancel; buyer cancels dispute; buyer accepts solution buyer_accept; seller accepts solution seller_accept; buyer rejects solution buyer_refuse; buyer creates solution buyer_create_solution; buyer modifies solution buyer_modify_solution; buyer deletes solution buyer_delete_solution; seller creates solution seller_create_solution; seller modifies solution seller_modify_solution; seller deletes solution seller_delete_solution */
   actionType?: string;
-  /** 图片附件 */
+  /** Image attachment */
   attachments?: Array<AliexpressIssueDetailGetApiAttachmentDTO>;
-  /** 过程context,eg:buyer提起填写内容,seller拒绝填写内容 */
+  /** Process context, e.g. content filled in when the buyer initiates, content filled in when the seller refuses */
   content?: string;
-  /** 创建时间 */
+  /** Creation time */
   gmtCreate?: string;
-  /** 是否有buyer视频(淘宝视频必须授权才能播放,目前不支持) */
+  /** Whether there is a buyer video (Taobao videos must be authorized to play; currently not supported) */
   hasBuyerVideo?: boolean;
-  /** 是否有seller视频(淘宝视频必须授权才能播放,目前不支持) */
+  /** Whether there is a seller video (Taobao videos must be authorized to play; currently not supported) */
   hasSellerVideo?: boolean;
-  /** 过程id：过期字段，已经不返回。请忽略。 */
+  /** Process ID: expired field, no longer returned. Please ignore. */
   id?: Long;
   /** issueId */
   issueId?: Long;
-  /** 是否收到货 */
+  /** Whether the goods were received */
   receiveGoods?: boolean;
-  /** 操作人类型：seller卖家，buyer买家，waiter客服，system */
+  /** Operator type: seller: seller, buyer: buyer, waiter: customer service, system */
   submitMemberType?: string;
 }
 
@@ -70,65 +70,65 @@ export const AliexpressIssueDetailGetApiIssueProcessDTOSchema: Schema = {
 };
 
 export interface AliexpressIssueDetailGetIssueDetailOpenApiDTO {
-  /** sku图片的地址 */
+  /** Address of the SKU image */
   skuMainPicUrl?: string;
-  /** 纠纷发起数量 */
+  /** Number of disputes initiated */
   issueQuantity?: number;
-  /** 纠纷类型 */
+  /** Dispute type */
   issueType?: string;
-  /** 商品id */
+  /** Product ID */
   productId?: string;
-  /** 纠纷详细状态： wait_for_seller_response：等待卖家响应，wait_for_buyer_response：等待买家响应，wait_for_service_provider_response：买家退货处理中，wait_for_AE_feedback：等待平台反馈， wait_for_your_response：等待卖家响应方案，wait_for_your_evidence：等待提供证据， wait_for_final_solution：等待平台给出最终方案，wait_for_seller_set_return_address：等待卖家提供退货地址， wait_for_buyer_return：等待买家退货，wait_for_seller_confirmation：等待卖家确认收货，wait_for_warehouse_confirmation：等待仓库确认收货，wait_for_warehouse_quality_check：买家已经退货，正在等待仓库质检 ，wait_ae_final_feedback：等待平台反馈，return_success：纠纷已结束，退货成功，refund_success：纠纷已结束，退款成功，refund_reject：纠纷已结束，0退款，ae_feedback_finish：纠纷方案已达成 */
+  /** Detailed dispute status: wait_for_seller_response: waiting for seller response, wait_for_buyer_response: waiting for buyer response, wait_for_service_provider_response: buyer return in progress, wait_for_AE_feedback: waiting for platform feedback, wait_for_your_response: waiting for seller to respond to the proposal, wait_for_your_evidence: waiting for evidence to be provided, wait_for_final_solution: waiting for the platform to give the final solution, wait_for_seller_set_return_address: waiting for seller to provide return address, wait_for_buyer_return: waiting for buyer to return, wait_for_seller_confirmation: waiting for seller to confirm receipt, wait_for_warehouse_confirmation: waiting for warehouse to confirm receipt, wait_for_warehouse_quality_check: buyer has returned the item, waiting for warehouse quality check, wait_ae_final_feedback: waiting for platform feedback, return_success: dispute ended, return successful, refund_success: dispute ended, refund successful, refund_reject: dispute ended, 0 refund, ae_feedback_finish: dispute solution reached */
   reverseDetailStatus?: string;
-  /** 纠纷超时类型：WAIT_SOLUTION_TIMEOUT：纠纷协商超时， WAIT_SELLER_FILL_ADDRESS_TIMEOUT：卖家补充退货地址超时， WAIT_RECEIVE_ITEM_TIMEOUT：卖家收货超时 */
+  /** Dispute timeout type: WAIT_SOLUTION_TIMEOUT: dispute negotiation timeout, WAIT_SELLER_FILL_ADDRESS_TIMEOUT: seller timed out supplying the return address, WAIT_RECEIVE_ITEM_TIMEOUT: seller timed out receiving the item */
   timeoutType?: string;
-  /** 超时触发时间美国西太平洋时间(America/Los_Angeles时区)： yyyy-MM-dd HH:mm:ss 格式 */
+  /** Timeout trigger time in US Western Pacific time (America/Los_Angeles time zone): yyyy-MM-dd HH:mm:ss format */
   timeoutTriggerTime?: string;
-  /** 纠纷创建时间 */
+  /** Dispute creation time */
   gmtCreate?: string;
-  /** 纠纷id */
+  /** Dispute ID */
   id?: Long;
-  /** 纠纷原因 */
+  /** Dispute reason */
   issueReason?: string;
-  /** 纠纷原因id */
+  /** Dispute reason ID */
   issueReasonId?: Long;
-  /** 纠纷状态 处理中 processing、 纠纷取消canceled_issue、纠纷完结,退款处理完成finish */
+  /** Dispute status: processing: processing; canceled_issue: dispute canceled; finish: dispute completed, refund processed */
   issueStatus?: string;
-  /** 订单id */
+  /** Order ID */
   orderId?: Long;
-  /** 父订单id */
+  /** Parent order ID */
   parentOrderId?: Long;
-  /** 平台方案集合 */
+  /** Platform plan collection */
   platformSolutionList?: Array<AliexpressIssueDetailGetSolutionApiDTO>;
-  /** 产品名称 */
+  /** Product name */
   productName?: string;
-  /** 产品价格 */
+  /** Product price */
   productPrice?: string;
-  /** 产品价格币种 */
+  /** Product price currency */
   productPriceCurrency?: string;
-  /** 退款上限 */
+  /** Refund cap */
   refundMoneyMax?: string;
-  /** 退款上限币种 */
+  /** Refund cap currency */
   refundMoneyMaxCurrency?: string;
-  /** 退款上限当地货币 */
+  /** Refund cap in local currency */
   refundMoneyMaxLocal?: string;
-  /** 退款上限当地货币币种 */
+  /** Currency of the refund cap in local currency */
   refundMoneyMaxLocalCurrency?: string;
-  /** 卖家协商方案 */
+  /** Seller negotiated plan */
   sellerSolutionList?: Array<AliexpressIssueDetailGetSolutionApiDTO>;
-  /** 操作记录 */
+  /** Operation record */
   processDtoList?: Array<AliexpressIssueDetailGetApiIssueProcessDTO>;
-  /** 是否售后宝纠纷 */
+  /** Whether it is an after-sales guarantee dispute */
   afterSaleWarranty?: boolean;
-  /** 买家登录帐号 */
+  /** Buyer login account */
   buyerLoginId?: string;
-  /** 买家退货物流公司 */
+  /** Buyer's return logistics company */
   buyerReturnLogisticsCompany?: string;
-  /** 退货物流订单LP单号 */
+  /** LP number of the return logistics order */
   buyerReturnLogisticsLpNo?: string;
-  /** 买家退货单号 */
+  /** Buyer return tracking number */
   buyerReturnNo?: string;
-  /** 买家协商方案 */
+  /** Buyer negotiated plan */
   buyerSolutionList?: Array<AliexpressIssueDetailGetSolutionApiDTO>;
 }
 
@@ -182,49 +182,49 @@ export const AliexpressIssueDetailGetIssueDetailOpenApiDTOSchema: Schema = {
 };
 
 export interface AliexpressIssueDetailGetSolutionApiDTO {
-  /** 买家接受时间 */
+  /** Buyer acceptance time */
   buyerAcceptTime?: string;
-  /** 内容 */
+  /** Content */
   content?: string;
-  /** 是否是默认方案 */
+  /** Whether it is the default plan */
   isDefault?: boolean;
-  /** 方案创建时间 */
+  /** Plan creation time */
   gmtCreate?: string;
-  /** 最后修改时间 */
+  /** Last update time */
   gmtModified?: string;
-  /** 方案id */
+  /** Plan ID */
   id?: Long;
-  /** 纠纷id */
+  /** Dispute ID */
   issueId?: Long;
-  /** 退货运费金额 */
+  /** Return shipping fee amount */
   logisticsFeeAmount?: Long;
-  /** 退货运费币种 */
+  /** Return shipping fee currency */
   logisticsFeeAmountCurrency?: string;
-  /** 运费承担方：seller、buyer、platform */
+  /** Freight bearer: seller, buyer, platform */
   logisticsFeeBearRole?: string;
-  /** 订单id */
+  /** Order ID */
   orderId?: Long;
-  /** 达成时间 */
+  /** Agreement time */
   reachedTime?: string;
-  /** 方案达成类型：协商一致negotiation_consensus、平台仲裁platform_arbitrate、卖家响应超时seller_reponse_timeout */
+  /** Resolution agreement type: mutual agreement negotiation_consensus, platform arbitration platform_arbitrate, seller response timeout seller_reponse_timeout */
   reachedType?: string;
-  /** 退款金额本币 */
+  /** Refund amount in local currency */
   refundMoney?: string;
-  /** 本币币种 */
+  /** Local currency */
   refundMoneyCurrency?: string;
-  /** 退款金额 美金 */
+  /** Refund amount in USD */
   refundMoneyPost?: string;
   /** refundMoneyPostCurrency */
   refundMoneyPostCurrency?: string;
-  /** 卖家接受时间 */
+  /** Seller acceptance time */
   sellerAcceptTime?: string;
-  /** 方案提出者 */
+  /** Plan proposer */
   solutionOwner?: string;
-  /** 方案类型：退款refund、退货退款return_and_refund */
+  /** Solution type: refund: refund; return_and_refund: return and refund */
   solutionType?: string;
-  /** 方案状态 待买卖家双方接受wait_buyer_and_seller_accept,待买家接受wait_buyer_accept,待卖家接受wait_seller_accept,达成reached,买家拒绝buyer_refused,卖家接受买家拒绝(针对平台方案)seller_accept_and_buyer_refused,退货阶段,卖家上升仲裁,平台给方案,之前达成的方案改成此状态reach_cancle,执行perform */
+  /** Solution status: waiting for both buyer and seller to accept wait_buyer_and_seller_accept, waiting for buyer to accept wait_buyer_accept, waiting for seller to accept wait_seller_accept, reached reached, buyer refused buyer_refused, seller accepts after buyer refused (for platform solutions) seller_accept_and_buyer_refused, return stage, seller escalates to arbitration, platform provides a solution, a previously reached solution is changed to this status reach_cancle, perform perform */
   status?: string;
-  /** 版本号 */
+  /** Version number */
   version?: number;
 }
 
@@ -254,23 +254,23 @@ export const AliexpressIssueDetailGetSolutionApiDTOSchema: Schema = {
 };
 
 export interface AliexpressIssueIssuelistGetIssueAPIIssueDTO {
-  /** 买家登录id */
+  /** Buyer login ID */
   buyerLoginId?: string;
-  /** 创建时间 */
+  /** Creation time */
   gmtCreate?: string;
-  /** 最后修改时间 */
+  /** Last update time */
   gmtModified?: string;
-  /** 纠纷id */
+  /** Dispute ID */
   issueId?: Long;
-  /** 纠纷状态 处理中 processing、 纠纷取消canceled_issue、纠纷完结,退款处理完成finish */
+  /** Dispute status: processing: processing; canceled_issue: dispute canceled; finish: dispute completed, refund processed */
   issueStatus?: string;
-  /** 订单id */
+  /** Order ID */
   orderId?: Long;
-  /** 子订单id */
+  /** Sub-order ID */
   parentOrderId?: Long;
-  /** 纠纷原因中文 */
+  /** Dispute reason in Chinese */
   reasonChinese?: string;
-  /** 纠纷原因英文 */
+  /** Dispute reason in English */
   reasonEnglish?: string;
 }
 
@@ -287,21 +287,21 @@ export const AliexpressIssueIssuelistGetIssueAPIIssueDTOSchema: Schema = {
 };
 
 export interface AliexpressIssueIssuelistGetIssueAPIListQueryDTO {
-  /** 渠道卖家ID */
+  /** Channel seller ID */
   channelSellerId?: Long;
-  /** 纠纷单创建开始时间 */
+  /** Dispute creation start time */
   createTimeStart?: string;
-  /** 纠纷单创建结束时间 */
+  /** Dispute creation end time */
   createTimeEnd?: string;
-  /** 买家登录id */
+  /** Buyer login ID */
   buyerLoginId?: string;
-  /** 当前页 */
+  /** Current page */
   currentPage?: number;
-  /** 纠纷状态 处理中processing、 纠纷取消canceled_issue、纠纷完结,退款处理完成finish */
+  /** Dispute status: processing: processing; canceled_issue: dispute canceled; finish: dispute completed, refund processed */
   issueStatus?: string;
-  /** 订单号 */
+  /** Order number */
   orderNo?: Long;
-  /** 每页大小，不要大于50. */
+  /** Page size, should not be greater than 50. */
   pageSize?: number;
 }
 
@@ -317,21 +317,21 @@ export const AliexpressIssueIssuelistGetIssueAPIListQueryDTOSchema: Schema = {
 };
 
 export interface AliexpressIssuePartnerOrderIssuesGetAeopIssueInfo {
-  /** 纠纷创建时间，格式为yyyy-MM-dd HH:mm:ss，为美国太平洋时间 */
+  /** Dispute create time, format: yyyy-MM-dd HH:mm:ss, in US Pacific Time */
   gmtCreate?: string;
-  /** 纠纷修改时间，格式为：yyyy-MM-dd HH:mm:ss，为美国太平洋时间 */
+  /** Dispute update time, format: yyyy-MM-dd HH:mm:ss, in US Pacific Time */
   gmtModified?: string;
-  /** 纠纷ID */
+  /** Dispute ID */
   id?: Long;
-  /** 纠纷状态 */
+  /** Dispute status */
   issueStatus?: string;
-  /** 子订单id */
+  /** Sub-order ID */
   orderId?: Long;
-  /** 父订单id */
+  /** Parent order ID */
   parentOrderId?: Long;
-  /** 纠纷原因中文描述 */
+  /** Chinese description of the dispute reason */
   reasonChinese?: string;
-  /** 纠纷原因英文描述 */
+  /** English description of the dispute reason */
   reasonEnglish?: string;
 }
 
@@ -347,25 +347,25 @@ export const AliexpressIssuePartnerOrderIssuesGetAeopIssueInfoSchema: Schema = {
 };
 
 export interface AliexpressIssueSolutionSaveSellerAddOrModifySolutionDTO {
-  /** 是否新增方案(true新增,false修改) */
+  /** Whether to add a new plan (true add, false modify) */
   addSellerSolution?: boolean;
-  /** 方案类型(SNAD才可更改类型)：退款refund,退货退款return_and_refund */
+  /** Solution type (type can only be changed for SNAD): refund: refund; return_and_refund: return and refund */
   addSolutionType?: string;
-  /** 买家登录id */
+  /** Buyer login ID */
   buyerLoginId?: string;
-  /** 拒绝买家方案id，增加方案时必填 */
+  /** Reject-buyer proposal id; required when adding a proposal */
   buyerSolutionId?: Long;
-  /** 纠纷id */
+  /** Dispute ID */
   issueId?: Long;
-  /** 修改的卖家方案id，修改方案时必填 */
+  /** ID of the seller plan to modify, required when modifying a plan */
   modifySellerSolutionId?: Long;
-  /** 新增or修改金额(元) */
+  /** Amount to add or modify (yuan) */
   refundAmount?: string;
-  /** 新增or修改金额的币种 */
+  /** Currency of the amount to add or modify */
   refundAmountCurrency?: string;
-  /** 退货地址id，新增退货方案时必填 */
+  /** Return address id; required when adding a return proposal */
   returnGoodAddressId?: Long;
-  /** 新增or修改理由说明 */
+  /** Reason for the addition or modification */
   solutionContext?: string;
 }
 
@@ -385,17 +385,17 @@ export const AliexpressIssueSolutionSaveSellerAddOrModifySolutionDTOSchema: Sche
 
 /** Parameters for `aliexpress.issue.detail.get`. */
 export interface AliexpressIssueDetailGetParams {
-  /** 渠道卖家ID */
+  /** Channel seller ID */
   channelSellerId?: LongInput;
-  /** 买家登录帐号 */
+  /** Buyer login account */
   buyerLoginId?: string;
-  /** 纠纷id */
+  /** Dispute ID */
   issueId?: LongInput;
 }
 
 /** Response of `aliexpress.issue.detail.get`. */
 export interface AliexpressIssueDetailGetResponse {
-  /** 返回结果集 */
+  /** Returned result set */
   resultObject?: AliexpressIssueDetailGetIssueDetailOpenApiDTO;
 }
 
@@ -425,19 +425,19 @@ export const aliexpressIssueDetailGet: ApiDefinition<
 
 /** Parameters for `aliexpress.issue.image.upload`. */
 export interface AliexpressIssueImageUploadParams {
-  /** 买家登录帐号 */
+  /** Buyer login account */
   buyerLoginId?: string;
-  /** 文件后缀名 */
+  /** File extension */
   extension?: string;
-  /** 纠纷id */
+  /** Dispute ID */
   issueId?: LongInput;
-  /** 图片内容 字节流 */
+  /** Image content, byte stream */
   imageBytes?: FileInput;
 }
 
 /** Response of `aliexpress.issue.image.upload`. */
 export interface AliexpressIssueImageUploadResponse {
-  /** 返回成功失败标志 */
+  /** Returned success/failure flag */
   resultObject?: boolean;
 }
 
@@ -464,19 +464,19 @@ export const aliexpressIssueImageUpload: ApiDefinition<
 
 /** Parameters for `aliexpress.issue.issuelist.get`. */
 export interface AliexpressIssueIssuelistGetParams {
-  /** 详情描述如下 */
+  /** Description as follows */
   queryDto?: AliexpressIssueIssuelistGetIssueAPIListQueryDTO;
 }
 
 /** Response of `aliexpress.issue.issuelist.get`. */
 export interface AliexpressIssueIssuelistGetResponse {
-  /** 当前页 */
+  /** Current page */
   currentPage?: number;
   /** dataList */
   dataList?: Array<AliexpressIssueIssuelistGetIssueAPIIssueDTO>;
-  /** 每页条数 */
+  /** Records per page */
   pageSize?: number;
-  /** 总记录数 */
+  /** Total number of records */
   totalItem?: number;
 }
 
@@ -511,13 +511,13 @@ export const aliexpressIssueIssuelistGet: ApiDefinition<
 
 /** Parameters for `aliexpress.issue.partner.order.issues.get`. */
 export interface AliexpressIssuePartnerOrderIssuesGetParams {
-  /** 主订单id */
+  /** Main order ID */
   parentOrderId?: LongInput;
 }
 
 /** Response of `aliexpress.issue.partner.order.issues.get`. */
 export interface AliexpressIssuePartnerOrderIssuesGetResponse {
-  /** 纠纷列表 */
+  /** Dispute list */
   issues?: Array<AliexpressIssuePartnerOrderIssuesGetAeopIssueInfo>;
 }
 
@@ -545,19 +545,19 @@ export const aliexpressIssuePartnerOrderIssuesGet: ApiDefinition<
 
 /** Parameters for `aliexpress.issue.solution.agree`. */
 export interface AliexpressIssueSolutionAgreeParams {
-  /** 买家登录id */
+  /** Buyer login ID */
   buyerLoginId?: string;
-  /** 纠纷id */
+  /** Dispute ID */
   issueId?: LongInput;
-  /** 若退货需提供退货地址id */
+  /** Return address id must be provided if returning goods */
   returnAddressId?: LongInput;
-  /** 同意方案id */
+  /** Agreed plan ID */
   solutionId?: LongInput;
 }
 
 /** Response of `aliexpress.issue.solution.agree`. */
 export interface AliexpressIssueSolutionAgreeResponse {
-  /** 是否成功 */
+  /** Whether successful */
   resultObject?: boolean;
 }
 
@@ -584,13 +584,13 @@ export const aliexpressIssueSolutionAgree: ApiDefinition<
 
 /** Parameters for `aliexpress.issue.solution.save`. */
 export interface AliexpressIssueSolutionSaveParams {
-  /** 详细参数如下 */
+  /** See detailed parameters below */
   paramDto?: AliexpressIssueSolutionSaveSellerAddOrModifySolutionDTO;
 }
 
 /** Response of `aliexpress.issue.solution.save`. */
 export interface AliexpressIssueSolutionSaveResponse {
-  /** 返回成功或失败结果 */
+  /** Returns success or failure result */
   resultObject?: boolean;
 }
 

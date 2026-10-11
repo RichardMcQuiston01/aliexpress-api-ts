@@ -9,9 +9,9 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressLocalServicePlatHscodeQueryString {
-  /** 属性项名称 */
+  /** Attribute item name */
   propertyName?: string;
-  /** 属性值名称 */
+  /** Attribute value name */
   valueName?: string;
 }
 
@@ -21,11 +21,11 @@ export const AliexpressLocalServicePlatHscodeQueryStringSchema: Schema = {
 };
 
 export interface AliexpressLocalServicePlatHscodeQueryTaxRateContentDO {
-  /** 税码标题/名称 */
+  /** Tax code title/name */
   taxTitle?: string;
-  /** 税码描述/编码值 */
+  /** Tax code description/code value */
   taxDesc?: string;
-  /** 位数（2/4/6） */
+  /** Number of digits (2/4/6) */
   taxDigit?: string;
 }
 
@@ -37,15 +37,15 @@ export const AliexpressLocalServicePlatHscodeQueryTaxRateContentDOSchema: Schema
   };
 
 export interface AliexpressLocalServicePlatHscodeQueryTaxRateLevelDO {
-  /** 税率级别描述 */
+  /** Tax rate level description */
   taxRateLevel?: string;
-  /** 税率 */
+  /** Tax rate */
   taxRate?: string;
-  /** 国家code */
+  /** Country code */
   countryCode?: string;
-  /** 国家name */
+  /** Country name */
   countryName?: string;
-  /** 国家对应l类目的valudeId */
+  /** valueId of the l-category corresponding to the country */
   countryValueId?: string;
 }
 
@@ -59,15 +59,15 @@ export const AliexpressLocalServicePlatHscodeQueryTaxRateLevelDOSchema: Schema =
   };
 
 export interface AliexpressLocalServicePlatHscodeQueryTaxRateValueDTO {
-  /** 税率类型 */
+  /** Tax rate type */
   taxRateType?: string;
   /** hsCode */
   hsCode?: string;
-  /** 税码层级内容列表（2位/4位/6位税码及描述） */
+  /** List of tax code hierarchy contents (2-digit/4-digit/6-digit tax codes and descriptions) */
   taxRateContentList?: Array<AliexpressLocalServicePlatHscodeQueryTaxRateContentDO>;
-  /** 本国税率等级 */
+  /** Domestic tax rate level */
   curCountryTax?: AliexpressLocalServicePlatHscodeQueryTaxRateLevelDO;
-  /** 税率等级列表 */
+  /** Tax rate level list */
   taxRateLevelList?: Array<AliexpressLocalServicePlatHscodeQueryTaxRateLevelDO>;
 }
 
@@ -93,11 +93,11 @@ export const AliexpressLocalServicePlatHscodeQueryTaxRateValueDTOSchema: Schema 
   };
 
 export interface AliexpressLocalServiceProductEditAeopPackageDTO {
-  /** 每包的数量 */
+  /** Quantity per package */
   lotNum?: number;
-  /** 产品的单位 */
+  /** Product unit */
   productUnit?: number;
-  /** 打包销售: true 非打包销售:false */
+  /** Sold as a bundle: true; not sold as a bundle: false */
   packageType?: boolean;
 }
 
@@ -108,19 +108,19 @@ export const AliexpressLocalServiceProductEditAeopPackageDTOSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductEditAeopProductInfoDTO {
-  /** 商品标题 */
+  /** Product title */
   subjectList?: Array<AliexpressLocalServiceProductEditSubject>;
-  /** 商品原发语种：en_US */
+  /** Original language of the product: en_US */
   locale?: string;
-  /** 货币单位。如果不提供该值信息，则默认为"USD"；非俄罗斯卖家这个属性值可以不提供。对于俄罗斯海外卖家，该单位值必须提供，如: "RUB"。 */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; non-Russian sellers may omit this attribute. For Russian overseas sellers, this unit value must be provided, e.g. "RUB". */
   currencyCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Long;
-  /** 运费模板id */
+  /** Shipping template ID */
   postageId?: Long;
-  /** 是否支持分目的国供货价设置，默认为false，如果需要设置分目的国家供货价，则传true，会取sku维度的dest_country_supply_price_list对应目的国家供货价 */
+  /** Whether to support setting supply prices per destination country, default false. Pass true to set supply prices per destination country; the destination country supply price corresponding to the SKU-level dest_country_supply_price_list will be used */
   supportCountrySupplyPrice?: boolean;
-  /** 商品id，编辑接口必传 */
+  /** Product id, required by the edit API */
   productId?: Long;
 }
 
@@ -140,11 +140,11 @@ export const AliexpressLocalServiceProductEditAeopProductInfoDTOSchema: Schema =
   };
 
 export interface AliexpressLocalServiceProductEditAeopQualificationStructDTO {
-  /** 资质信息类型 ："image","text" */
+  /** Qualification information type: "image","text" */
   type?: string;
-  /** 具体的资质信息：图片链接或文本 */
+  /** Specific qualification information: image link or text */
   value?: string;
-  /** 资质信息key, 每个类目下的key都不一样，请先调用资质信息查询接口：aliexpress.category.qualifications.list，查询对应的key和type */
+  /** Qualification info key. The key differs for each category; first call the qualification info query API: aliexpress.category.qualifications.list to query the corresponding key and type */
   key?: string;
 }
 
@@ -156,11 +156,11 @@ export const AliexpressLocalServiceProductEditAeopQualificationStructDTOSchema: 
   };
 
 export interface AliexpressLocalServiceProductEditDetailSource {
-  /** 移动端详描内容，具体格式请参考： https://open.aliexpress.com/doc/doc.htm#/?docId=725 */
+  /** Mobile detail description content. For the specific format, refer to: https://open.aliexpress.com/doc/doc.htm#/?docId=725 */
   mobileDetail?: string;
-  /** 详描语种：en_US */
+  /** Detailed description language: en_US */
   locale?: string;
-  /** PC 端详描内容，注意!!! 对于PC端详描内容校验规则：关联模块(relation)数量至多1个，PC端详描下总信息模块数至多3个，当type=”html"并且其content中包含关联模块(relation)或自定义模块(custom)时，其中的关联模块和自定义模块也会被参与计数，请isv自行排查"html"模块中是否有关联模块(relation)和自定义模块(custom),请isv们做好前置校验，避免重复计数。具体格式请参考：https://open.aliexpress.com/doc/doc.htm#/?docId=725 */
+  /** PC detail description content. Note!!! Validation rules for PC detail description content: at most 1 relation module (relation), and at most 3 information modules in total under the PC detail description. When type="html" and its content contains a relation module (relation) or a custom module (custom), those relation and custom modules are also counted; ISVs should check themselves whether the "html" module contains relation (relation) or custom (custom) modules and do pre-validation to avoid double counting. For the specific format see: https://open.aliexpress.com/doc/doc.htm#/?docId=725 */
   webDetail?: string;
 }
 
@@ -171,11 +171,11 @@ export const AliexpressLocalServiceProductEditDetailSourceSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductEditInfluencerVideo {
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
 }
 
@@ -186,9 +186,9 @@ export const AliexpressLocalServiceProductEditInfluencerVideoSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductEditInfluencerVideoInfo {
-  /** 默认网红视频 */
+  /** Default influencer video */
   influencerVideo?: AliexpressLocalServiceProductEditInfluencerVideo;
-  /** 分国家网红视频 */
+  /** Influencer videos by country */
   nationalInfluencerVideos?: Array<AliexpressLocalServiceProductEditInfluencerVideo>;
 }
 
@@ -207,13 +207,13 @@ export const AliexpressLocalServiceProductEditInfluencerVideoInfoSchema: Schema 
   };
 
 export interface AliexpressLocalServiceProductEditLocalServiceDestCountrySupplyPriceDTO {
-  /** 国家编码，例如西班牙：ES */
+  /** Country code, e.g. Spain: ES */
   countryCode?: string;
-  /** 对应目的国家的供货价 */
+  /** Supply price for the corresponding destination country */
   moneyValue?: string;
-  /** 对应目的国家的供货价的货值 */
+  /** Goods value of the supply price for the destination country */
   countryGoodsValue?: string;
-  /** 对应目的国家的供货价的物流费 */
+  /** Logistics fee of the supply price for the destination country */
   countryLogisticValue?: string;
 }
 
@@ -226,19 +226,19 @@ export const AliexpressLocalServiceProductEditLocalServiceDestCountrySupplyPrice
   };
 
 export interface AliexpressLocalServiceProductEditLocalServiceProductDTO {
-  /** 媒体信息 */
+  /** Media information */
   multimedia?: AliexpressLocalServiceProductEditMultimedia;
-  /** sku列表 */
+  /** SKU list */
   productSkuList?: Array<AliexpressLocalServiceProductEditLocalServiceProductSku>;
-  /** 包裹信息 */
+  /** Package information */
   packageDto?: AliexpressLocalServiceProductEditAeopPackageDTO;
-  /** 商品基本信息 */
+  /** Basic product information */
   productInfoDto?: AliexpressLocalServiceProductEditAeopProductInfoDTO;
-  /** 扩展信息 */
+  /** Extended information */
   productExtDto?: AliexpressLocalServiceProductEditProductExtDTO;
-  /** 商品属性列表 */
+  /** Product attribute list */
   productPropertyList?: Array<AliexpressLocalServiceProductEditProductProperty>;
-  /** 详描列表 */
+  /** Detailed description list */
   detailSourceList?: Array<AliexpressLocalServiceProductEditDetailSource>;
 }
 
@@ -282,37 +282,37 @@ export const AliexpressLocalServiceProductEditLocalServiceProductDTOSchema: Sche
   };
 
 export interface AliexpressLocalServiceProductEditLocalServiceProductSku {
-  /** sku供货价 */
+  /** SKU supply price */
   supplyPrice?: string;
-  /** Sku属性对象list，允许1-3个sku属性对象，按sku属性顺序排放。sku属性从类目属性接口getAttributesResultByCateId获取。该项值输入sku属性，不能输入普通类目属性。 */
+  /** List of SKU attribute objects; 1-3 SKU attribute objects are allowed, arranged in SKU attribute order. SKU attributes are obtained from the category attribute API getAttributesResultByCateId. This item takes SKU attributes; ordinary category attributes cannot be entered. */
   skuPropertyList?: Array<AliexpressLocalServiceProductEditSKUProperty>;
-  /** Sku编码 */
+  /** SKU code */
   skuCode?: string;
-  /** sku的状态 ，是否销售，active ：销售 ； inactive ：不销售 */
+  /** SKU status, whether it is for sale: active: on sale; inactive: not on sale */
   status?: string;
-  /** sku 级别重量，KG，请做好必填校验，最多两位小数。如果是美国海外托管卖家，单位是磅或者盎司，磅最多两位小数，盎司正整数 */
+  /** SKU-level weight, KG. Please do the required-field validation, at most two decimal places. For US overseas managed sellers, the unit is pounds or ounces; pounds allow at most two decimal places, ounces must be positive integers */
   packageWeight?: string;
-  /** sku级别 高度。cm，请做好必填校验。如果是美国海外托管卖家，单位是英寸 */
+  /** SKU-level height. cm; please perform required validation. For US overseas managed sellers, the unit is inches */
   packageHeight?: string;
-  /** sku级别 宽度。cm，请做好必填校验。如果是美国海外托管卖家，单位是英寸 */
+  /** SKU-level width. cm; please perform required validation. For US overseas managed sellers, the unit is inches */
   packageWidth?: string;
-  /** sku级别 长度。cm，请做好必填校验。如果是美国海外托管卖家，单位是英寸 */
+  /** SKU-level length. cm; please perform required validation. For US overseas managed sellers, the unit is inches */
   packageLength?: string;
-  /** 可售库存 */
+  /** Sellable inventory */
   sellableQuantity?: Long;
-  /** 分目的国供货价，非必填，只有需要设置不同目的国的供货价则通过此字段传入，比如西班牙供货价，则传[{"ES":"23.43"}] */
+  /** Supply price per destination country, optional. Pass supply prices for different destination countries through this field only if needed, e.g. for the Spain supply price, pass [{"ES":"23.43"}] */
   destCountrySupplyPriceList?: Array<AliexpressLocalServiceProductEditLocalServiceDestCountrySupplyPriceDTO>;
-  /** skuId，AE内部生成唯一标识。编辑商品时如果sku销售属性没有变化需要回填。 销售属性变化了，可以传空 */
+  /** skuId, a unique identifier generated internally by AE. When editing a product, it needs to be filled back if the SKU sales attributes have not changed. If the sales attributes have changed, it can be left empty */
   skuId?: Long;
-  /** 美国sku重量单位（只对美国卖家生效），1表示磅，2表示盎司） */
+  /** US SKU weight unit (only effective for US sellers), 1 means pound, 2 means ounce) */
   packageWeightUnit?: string;
-  /** SKU维度属性信息（仅SKU包装属性信息可以使用） */
+  /** SKU-dimension attribute information (only SKU packaging attribute information can be used) */
   skuDescPropertyList?: Array<AliexpressLocalServiceProductEditSKUProperty>;
-  /** 物流属性，特殊商品类型： 内电 ：274526 ， 弱磁 ： 274452 */
+  /** Logistics attribute, special product type: built-in battery: 274526, weak magnetic: 274452 */
   specialProductTypeList?: Array<string>;
-  /** GLO维度供货价的货值 */
+  /** Goods value of the GLO-dimension supply price */
   gloGoodsValue?: string;
-  /** GLO维度供货价的物流费 */
+  /** Logistics fee of the GLO-dimension supply price */
   gloLogisticValue?: string;
 }
 
@@ -350,15 +350,15 @@ export const AliexpressLocalServiceProductEditLocalServiceProductSkuSchema: Sche
   };
 
 export interface AliexpressLocalServiceProductEditMultimedia {
-  /** 视频信息 */
+  /** Video information */
   videoList?: Array<AliexpressLocalServiceProductEditVideo>;
-  /** 营销图列表 */
+  /** Marketing image list */
   marketImageList?: Array<AliexpressLocalServiceProductEditProductMarketImage>;
-  /** 商品主图列表 */
+  /** Product main image list */
   mainImageList?: Array<string>;
-  /** 是否处理分国家主图 */
+  /** Whether to process main images by country */
   processCustomizedImages?: boolean;
-  /** 分国家主图map */
+  /** Main image map by country */
   customizedImages?: Record<string, unknown>;
 }
 
@@ -379,23 +379,23 @@ export const AliexpressLocalServiceProductEditMultimediaSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductEditProductExtDTO {
-  /** 资质信息 */
+  /** Qualification information */
   aeopQualificationStructList?: Array<AliexpressLocalServiceProductEditAeopQualificationStructDTO>;
-  /** 欧盟责任人id，需要调用查询欧盟责任人列表接口：aliexpress.category.eu.responsible.persons.list，获取对应的欧盟责任人列表 */
+  /** EU responsible person id. Call the EU responsible person list query API: aliexpress.category.eu.responsible.persons.list to get the corresponding list of EU responsible persons */
   msrEuId?: Long;
-  /** 产品所关联的尺码模版ID */
+  /** ID of the size template associated with the product */
   sizeChartId?: Long;
-  /** 产品所关联的尺码模版ID列表 */
+  /** List of size template IDs associated with the product */
   sizeChartIdList?: Array<Long>;
-  /** 发货期，商家承诺的发货时间 */
+  /** Handling time, the shipping time promised by the merchant */
   deliveryTime?: number;
-  /** 制造商id */
+  /** Manufacturer ID */
   manufacturerId?: Long;
-  /** 扩展字段 */
+  /** Extension field */
   extParam?: string;
-  /** 商品说明书 */
+  /** Product manual */
   productManual?: string;
-  /** 网红视频信息 */
+  /** Influencer video information */
   influencerVideoInfo?: AliexpressLocalServiceProductEditInfluencerVideoInfo;
 }
 
@@ -420,9 +420,9 @@ export const AliexpressLocalServiceProductEditProductExtDTOSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductEditProductMarketImage {
-  /** 1：代表长图，大小为750*1000; 2：代表方图，大小为800*800 */
+  /** 1: tall image, size 750*1000; 2: square image, size 800*800 */
   imageType?: number;
-  /** 营销图片URL */
+  /** Marketing image URL */
   url?: string;
 }
 
@@ -433,19 +433,19 @@ export const AliexpressLocalServiceProductEditProductMarketImageSchema: Schema =
   };
 
 export interface AliexpressLocalServiceProductEditProductProperty {
-  /** 属性值区间开始 */
+  /** Attribute value range start */
   attrValueStart?: string;
-  /** 属性值id */
+  /** Attribute value ID */
   attrValueId?: Long;
-  /** 属性值区间结束 */
+  /** Attribute value range end */
   attrValueEnd?: string;
-  /** 属性值名称 */
+  /** Attribute value name */
   attrValue?: string;
-  /** 属性单位 */
+  /** Attribute unit */
   attrValueUnit?: string;
-  /** 属性名称 */
+  /** Attribute name */
   attrName?: string;
-  /** 属性id */
+  /** Attribute ID */
   attrNameId?: Long;
 }
 
@@ -460,23 +460,23 @@ export const AliexpressLocalServiceProductEditProductPropertySchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductEditSKUProperty {
-  /** 销售属性值 */
+  /** Sales attribute value */
   skuPropertyValue?: string;
-  /** 销售属性值id */
+  /** Sales attribute value ID */
   propertyValueId?: Long;
-  /** 销售属性名 */
+  /** Sales attribute name */
   skuPropertyName?: string;
-  /** 销售属性id */
+  /** Sales attribute ID */
   skuPropertyId?: Long;
-  /** 销售属性别名 */
+  /** Sales attribute alias */
   propertyValueDefinitionName?: string;
-  /** sku图片 */
+  /** SKU image */
   skuImage?: string;
-  /** 插头属性SKU级联属性父属性id */
+  /** Parent attribute id of the plug attribute SKU cascading attribute */
   plugParentPropertyId?: Long;
-  /** 插头属性SKU级联属性父属性值id */
+  /** Parent attribute value ID of the plug attribute SKU cascading attribute */
   plugParentValueId?: Long;
-  /** 不同商品销售属性值的图片。可以使用速卖通平台以外的商品图片URL，也可以使用速卖通平台的图片银行的URL。如需了解速卖通平台图片银行的更多信息以及如何上传图片，请参考以下 API：aliexpress.photobank.redefining.uploadimageforsd */
+  /** Images for different product sales attribute values. You can use product image URLs from outside the AliExpress platform, or URLs from the AliExpress image bank. For more information about the AliExpress image bank and how to upload images, see the following API: aliexpress.photobank.redefining.uploadimageforsd */
   imageUrlList?: Array<string>;
 }
 
@@ -493,9 +493,9 @@ export const AliexpressLocalServiceProductEditSKUPropertySchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductEditSubject {
-  /** 语种 ：en_US */
+  /** Language: en_US */
   locale?: string;
-  /** 多语言标题内容 */
+  /** Multilingual title content */
   value?: string;
 }
 
@@ -505,11 +505,11 @@ export const AliexpressLocalServiceProductEditSubjectSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductEditVideo {
-  /** 视频封面 */
+  /** Video cover */
   posterUrl?: string;
-  /** 视频类型 ：MAIN_IMAGE_VIDEO */
+  /** Video type: MAIN_IMAGE_VIDEO */
   mediaType?: string;
-  /** 媒体id，通过媒体中心接口获取 */
+  /** Media id, obtained through the media center API */
   mediaId?: Long;
 }
 
@@ -520,9 +520,9 @@ export const AliexpressLocalServiceProductEditVideoSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductInventoryInvitationRejectReasonListInventoryInvitationIsvRejectReasonDTO {
-  /** 拒绝原因 */
+  /** Rejection reason */
   reasonName?: string;
-  /** 拒绝编码 */
+  /** Rejection code */
   reasonCode?: string;
 }
 
@@ -533,13 +533,13 @@ export const AliexpressLocalServiceProductInventoryInvitationRejectReasonListInv
   };
 
 export interface AliexpressLocalServiceProductInventoryInvitationRejectReasonListInventoryInvitationIsvResponseDTO {
-  /** 结果 */
+  /** Result */
   data?: Array<AliexpressLocalServiceProductInventoryInvitationRejectReasonListInventoryInvitationIsvRejectReasonDTO>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误消息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -557,9 +557,9 @@ export const AliexpressLocalServiceProductInventoryInvitationRejectReasonListInv
   };
 
 export interface AliexpressLocalServiceProductInventoryInvitationTicketAcceptInventoryInvitationIsvArrivalPlanDTO {
-  /** 到货时间 */
+  /** Arrival time */
   arrivalTime?: Long;
-  /** 计划到货库存 */
+  /** Planned arrival inventory */
   planInventory?: Long;
 }
 
@@ -570,13 +570,13 @@ export const AliexpressLocalServiceProductInventoryInvitationTicketAcceptInvento
   };
 
 export interface AliexpressLocalServiceProductInventoryInvitationTicketAcceptInventoryInvitationIsvResponseDTO {
-  /** 接受结果 */
+  /** Acceptance result */
   data?: boolean;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误消息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -589,13 +589,13 @@ export const AliexpressLocalServiceProductInventoryInvitationTicketAcceptInvento
   };
 
 export interface AliexpressLocalServiceProductInventoryInvitationTicketRefuseCommonResultDTO {
-  /** 返回结果 */
+  /** Returned result */
   data?: boolean;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误消息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -608,61 +608,61 @@ export const AliexpressLocalServiceProductInventoryInvitationTicketRefuseCommonR
   };
 
 export interface AliexpressLocalServiceProductInventoryInvitationTicketsListInventoryInvitationIsvTicketDTO {
-  /** 最晚接受时间 */
+  /** Latest acceptance time */
   acceptEndTime?: Long;
-  /** 实际库存 */
+  /** Actual inventory */
   realInventory?: number;
-  /** 已接受库存 */
+  /** Accepted inventory */
   acceptCount?: number;
-  /** 计算在途库存 */
+  /** Calculated in-transit inventory */
   calArrivalInventory?: number;
-  /** 渠道卖家id */
+  /** Channel seller ID */
   sellerId?: Long;
-  /** 商家操作时间 */
+  /** Merchant operation time */
   sellerOperateTime?: Long;
-  /** 区域供货价 */
+  /** Regional supply price */
   regionApprovedSupplyPriceList?: Array<AliexpressLocalServiceProductInventoryInvitationTicketsListInventoryInvitationTicketRegionSupplyPriceDTO>;
-  /** 售止拒绝原因 */
+  /** Sales-stop rejection reason */
   saleStopAuditRejectReason?: string;
   /** sku id */
   skuId?: string;
-  /** 发货地 */
+  /** Shipping origin */
   shipFrom?: string;
-  /** 建议补货量 */
+  /** Suggested replenishment quantity */
   suggestInventory?: number;
-  /** 货品id */
+  /** Goods ID */
   scItemId?: Long;
-  /** 有效供货价范围 */
+  /** Valid supply price range */
   approvedSupplyPriceInterval?: string;
-  /** 下发时间 */
+  /** Dispatch time */
   sendTime?: Long;
-  /** 在途库存计划列表 */
+  /** In-transit inventory plan list */
   arrivalPlanList?: Array<AliexpressLocalServiceProductInventoryInvitationTicketsListInventoryInvitationTicketArrivalPlanDTO>;
-  /** 最晚到达时间 */
+  /** Latest arrival time */
   arrivalEndTime?: Long;
-  /** 商品id */
+  /** Product ID */
   itemId?: Long;
-  /** 本地链活动列表 */
+  /** Local chain activity list */
   localLinkActivityList?: Array<AliexpressLocalServiceProductInventoryInvitationTicketsListInventoryInvitationLocalLinkActivityDTO>;
-  /** 邀约类型 */
+  /** Invitation type */
   invitationType?: string;
-  /** 售止审核状态 */
+  /** Sales-stop review status */
   saleStopAuditStatus?: string;
-  /** 计算库存 */
+  /** Calculated inventory */
   calInventory?: number;
-  /** 邀约单状态 */
+  /** Invitation order status */
   ticketStatus?: number;
-  /** 仓类型 */
+  /** Warehouse type */
   warehouseType?: string;
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
-  /** 拒绝原因 */
+  /** Rejection reason */
   sellerRejectReason?: string;
-  /** sku编码 */
+  /** SKU code */
   skuCode?: string;
-  /** 单据id */
+  /** Document ID */
   ticketId?: number;
-  /** 任务id */
+  /** Task ID */
   taskId?: number;
 }
 
@@ -714,11 +714,11 @@ export const AliexpressLocalServiceProductInventoryInvitationTicketsListInventor
   };
 
 export interface AliexpressLocalServiceProductInventoryInvitationTicketsListInventoryInvitationLocalLinkActivityDTO {
-  /** 活动名称 */
+  /** Activity name */
   activityId?: string;
-  /** 销售开始时间 */
+  /** Sales start time */
   salePeriodStartTime?: Long;
-  /** 销售结束时间 */
+  /** Sales end time */
   salePeriodEndTime?: Long;
 }
 
@@ -730,13 +730,13 @@ export const AliexpressLocalServiceProductInventoryInvitationTicketsListInventor
   };
 
 export interface AliexpressLocalServiceProductInventoryInvitationTicketsListInventoryInvitationTicketArrivalPlanDTO {
-  /** 到达时间 */
+  /** Arrival time */
   arrivalTime?: Long;
-  /** 计划id */
+  /** Plan ID */
   planId?: number;
-  /** 计划库存 */
+  /** Planned inventory */
   planInventory?: number;
-  /** 计划状态 */
+  /** Plan status */
   status?: number;
 }
 
@@ -749,9 +749,9 @@ export const AliexpressLocalServiceProductInventoryInvitationTicketsListInventor
   };
 
 export interface AliexpressLocalServiceProductInventoryInvitationTicketsListInventoryInvitationTicketRegionSupplyPriceDTO {
-  /** 供货价 */
+  /** Supply price */
   supplyPrice?: string;
-  /** 国家区域编码 */
+  /** Country region code */
   countryCode?: string;
 }
 
@@ -762,19 +762,19 @@ export const AliexpressLocalServiceProductInventoryInvitationTicketsListInventor
   };
 
 export interface AliexpressLocalServiceProductInventoryInvitationTicketsListPageResultDTO {
-  /** 邀约单数据 */
+  /** Invitation order data */
   result?: Array<AliexpressLocalServiceProductInventoryInvitationTicketsListInventoryInvitationIsvTicketDTO>;
-  /** 页码 */
+  /** Page number */
   pageNo?: boolean;
-  /** 是否成功 */
+  /** Whether successful */
   success?: string;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
-  /** 总数 */
+  /** Total */
   totalCount?: number;
 }
 
@@ -795,11 +795,11 @@ export const AliexpressLocalServiceProductInventoryInvitationTicketsListPageResu
   };
 
 export interface AliexpressLocalServiceProductPostAeopPackageDTO {
-  /** 每包的数量 */
+  /** Quantity per package */
   lotNum?: number;
-  /** 产品的单位 */
+  /** Product unit */
   productUnit?: number;
-  /** 打包销售: true 非打包销售:false */
+  /** Sold as a bundle: true; not sold as a bundle: false */
   packageType?: boolean;
 }
 
@@ -810,17 +810,17 @@ export const AliexpressLocalServiceProductPostAeopPackageDTOSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductPostAeopProductInfoDTO {
-  /** 商品标题 */
+  /** Product title */
   subjectList?: Array<AliexpressLocalServiceProductPostSubject>;
-  /** 商品原发语种：en_US */
+  /** Original language of the product: en_US */
   locale?: string;
-  /** 货币单位。如果不提供该值信息，则默认为"USD"；非俄罗斯卖家这个属性值可以不提供。对于俄罗斯海外卖家，该单位值必须提供，如: "RUB"。 */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; non-Russian sellers may omit this attribute. For Russian overseas sellers, this unit value must be provided, e.g. "RUB". */
   currencyCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Long;
-  /** 运费模板id */
+  /** Shipping template ID */
   postageId?: Long;
-  /** 是否支持分目的国供货价设置，默认为false，如果需要设置分目的国家供货价，则传true，会取sku维度的dest_country_supply_price_list对应目的国家供货价 */
+  /** Whether to support setting supply prices per destination country, default false. Pass true to set supply prices per destination country; the destination country supply price corresponding to the SKU-level dest_country_supply_price_list will be used */
   supportCountrySupplyPrice?: boolean;
 }
 
@@ -839,11 +839,11 @@ export const AliexpressLocalServiceProductPostAeopProductInfoDTOSchema: Schema =
   };
 
 export interface AliexpressLocalServiceProductPostAeopQualificationStructDTO {
-  /** 资质信息类型 ："image","text" */
+  /** Qualification information type: "image","text" */
   type?: string;
-  /** 具体的资质信息：图片链接或文本 */
+  /** Specific qualification information: image link or text */
   value?: string;
-  /** 资质信息key, 每个类目下的key都不一样，请先调用资质信息查询接口：aliexpress.category.qualifications.list，查询对应的key和type */
+  /** Qualification info key. The key differs for each category; first call the qualification info query API: aliexpress.category.qualifications.list to query the corresponding key and type */
   key?: string;
 }
 
@@ -855,11 +855,11 @@ export const AliexpressLocalServiceProductPostAeopQualificationStructDTOSchema: 
   };
 
 export interface AliexpressLocalServiceProductPostDetailSource {
-  /** 移动端详描内容，具体格式请参考： https://open.aliexpress.com/doc/doc.htm#/?docId=725 */
+  /** Mobile detail description content. For the specific format, refer to: https://open.aliexpress.com/doc/doc.htm#/?docId=725 */
   mobileDetail?: string;
-  /** 详描语种：en_US */
+  /** Detailed description language: en_US */
   locale?: string;
-  /** PC 端详描内容，注意!!! 对于PC端详描内容校验规则：关联模块(relation)数量至多1个，PC端详描下总信息模块数至多3个，当type=”html"并且其content中包含关联模块(relation)或自定义模块(custom)时，其中的关联模块和自定义模块也会被参与计数，请isv自行排查"html"模块中是否有关联模块(relation)和自定义模块(custom),请isv们做好前置校验，避免重复计数。具体格式请参考：https://open.aliexpress.com/doc/doc.htm#/?docId=725 */
+  /** PC detail description content. Note!!! Validation rules for PC detail description content: at most 1 relation module (relation), and at most 3 information modules in total under the PC detail description. When type="html" and its content contains a relation module (relation) or a custom module (custom), those relation and custom modules are also counted; ISVs should check themselves whether the "html" module contains relation (relation) or custom (custom) modules and do pre-validation to avoid double counting. For the specific format see: https://open.aliexpress.com/doc/doc.htm#/?docId=725 */
   webDetail?: string;
 }
 
@@ -870,11 +870,11 @@ export const AliexpressLocalServiceProductPostDetailSourceSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductPostInfluencerVideo {
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
 }
 
@@ -885,9 +885,9 @@ export const AliexpressLocalServiceProductPostInfluencerVideoSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductPostInfluencerVideoInfo {
-  /** 默认网红视频 */
+  /** Default influencer video */
   influencerVideo?: AliexpressLocalServiceProductPostInfluencerVideo;
-  /** 分国家网红视频 */
+  /** Influencer videos by country */
   nationalInfluencerVideos?: Array<AliexpressLocalServiceProductPostInfluencerVideo>;
 }
 
@@ -906,13 +906,13 @@ export const AliexpressLocalServiceProductPostInfluencerVideoInfoSchema: Schema 
   };
 
 export interface AliexpressLocalServiceProductPostLocalServiceDestCountrySupplyPriceDTO {
-  /** 国家编码，例如西班牙：ES */
+  /** Country code, e.g. Spain: ES */
   countryCode?: string;
-  /** 对应目的国家的供货价 */
+  /** Supply price for the corresponding destination country */
   moneyValue?: string;
-  /** 对应目的国家供货价的货值 */
+  /** Goods value of the supply price for the corresponding destination country */
   countryGoodsValue?: string;
-  /** 对应目的国家供货价的物流费 */
+  /** Logistics fee of the supply price for the destination country */
   countryLogisticValue?: string;
 }
 
@@ -925,21 +925,21 @@ export const AliexpressLocalServiceProductPostLocalServiceDestCountrySupplyPrice
   };
 
 export interface AliexpressLocalServiceProductPostLocalServiceProductDTO {
-  /** 包裹信息 */
+  /** Package information */
   packageDto?: AliexpressLocalServiceProductPostAeopPackageDTO;
-  /** 商品基本信息 */
+  /** Basic product information */
   productInfoDto?: AliexpressLocalServiceProductPostAeopProductInfoDTO;
-  /** 扩展信息 */
+  /** Extended information */
   productExtDto?: AliexpressLocalServiceProductPostProductExtDTO;
-  /** 商品属性列表 */
+  /** Product attribute list */
   productPropertyList?: Array<AliexpressLocalServiceProductPostProductProperty>;
-  /** 详描列表 */
+  /** Detailed description list */
   detailSourceList?: Array<AliexpressLocalServiceProductPostDetailSource>;
-  /** 商机 ID */
+  /** Business opportunity ID */
   planId?: string;
-  /** 媒体信息 */
+  /** Media information */
   multimedia?: AliexpressLocalServiceProductPostMultimedia;
-  /** sku列表 */
+  /** SKU list */
   productSkuList?: Array<AliexpressLocalServiceProductPostLocalServiceProductSku>;
 }
 
@@ -984,35 +984,35 @@ export const AliexpressLocalServiceProductPostLocalServiceProductDTOSchema: Sche
   };
 
 export interface AliexpressLocalServiceProductPostLocalServiceProductSku {
-  /** Sku编码 */
+  /** SKU code */
   skuCode?: string;
-  /** sku的状态 ，是否销售，active ：销售 ； inactive ：不销售 */
+  /** SKU status, whether it is for sale: active: on sale; inactive: not on sale */
   status?: string;
-  /** sku 级别重量，KG，请做好必填校验，最多两位小数。如果是美国海外托管卖家，单位是磅或者盎司，磅最多两位小数，盎司正整数 */
+  /** SKU-level weight, KG. Please do the required-field validation, at most two decimal places. For US overseas managed sellers, the unit is pounds or ounces; pounds allow at most two decimal places, ounces must be positive integers */
   packageWeight?: string;
-  /** sku级别 高度。cm，请做好必填校验。如果是美国海外托管卖家，单位是英寸 */
+  /** SKU-level height. cm; please perform required validation. For US overseas managed sellers, the unit is inches */
   packageHeight?: string;
-  /** sku级别 宽度。cm，请做好必填校验。如果是美国海外托管卖家，单位是英寸 */
+  /** SKU-level width. cm; please perform required validation. For US overseas managed sellers, the unit is inches */
   packageWidth?: string;
-  /** sku级别 长度。cm，请做好必填校验。如果是美国海外托管卖家，单位是英寸 */
+  /** SKU-level length. cm; please perform required validation. For US overseas managed sellers, the unit is inches */
   packageLength?: string;
-  /** 可售库存 */
+  /** Sellable inventory */
   sellableQuantity?: Long;
-  /** 分目的国供货价，非必填，只有需要设置不同目的国的供货价则通过此字段传入，比如西班牙供货价，则传[{"ES":"23.43"}] */
+  /** Supply price per destination country, optional. Pass supply prices for different destination countries through this field only if needed, e.g. for the Spain supply price, pass [{"ES":"23.43"}] */
   destCountrySupplyPriceList?: Array<AliexpressLocalServiceProductPostLocalServiceDestCountrySupplyPriceDTO>;
-  /** 美国sku重量单位（只对美国卖家生效），1表示磅，2表示盎司） */
+  /** US SKU weight unit (only effective for US sellers), 1 means pound, 2 means ounce) */
   packageWeightUnit?: string;
-  /** SKU维度属性信息（仅SKU包装属性信息可以使用） */
+  /** SKU-dimension attribute information (only SKU packaging attribute information can be used) */
   skuDescPropertyList?: Array<AliexpressLocalServiceProductPostSKUProperty>;
-  /** 物流属性，特殊商品类型： 内电 ：274526 ， 弱磁 ： 274452 */
+  /** Logistics attribute, special product type: built-in battery: 274526, weak magnetic: 274452 */
   specialProductTypeList?: Array<string>;
-  /** GLO维度供货价的货值 */
+  /** Goods value of the GLO-dimension supply price */
   gloGoodsValue?: string;
-  /** GLO维度供货价的物流费 */
+  /** Logistics fee of the GLO-dimension supply price */
   gloLogisticValue?: string;
-  /** sku供货价 */
+  /** SKU supply price */
   supplyPrice?: string;
-  /** Sku属性对象list，允许1-3个sku属性对象，按sku属性顺序排放。sku属性从类目属性接口getAttributesResultByCateId获取。该项值输入sku属性，不能输入普通类目属性。 */
+  /** List of SKU attribute objects; 1-3 SKU attribute objects are allowed, arranged in SKU attribute order. SKU attributes are obtained from the category attribute API getAttributesResultByCateId. This item takes SKU attributes; ordinary category attributes cannot be entered. */
   skuPropertyList?: Array<AliexpressLocalServiceProductPostSKUProperty>;
 }
 
@@ -1049,15 +1049,15 @@ export const AliexpressLocalServiceProductPostLocalServiceProductSkuSchema: Sche
   };
 
 export interface AliexpressLocalServiceProductPostMultimedia {
-  /** 视频信息 */
+  /** Video information */
   videoList?: Array<AliexpressLocalServiceProductPostVideo>;
-  /** 营销图列表 */
+  /** Marketing image list */
   marketImageList?: Array<AliexpressLocalServiceProductPostProductMarketImage>;
-  /** 商品主图列表 */
+  /** Product main image list */
   mainImageList?: Array<string>;
-  /** 是否处理分国家主图 */
+  /** Whether to process main images by country */
   processCustomizedImages?: string;
-  /** 分国家主图信息 */
+  /** Main image information by country */
   customizedImages?: Record<string, unknown>;
 }
 
@@ -1078,23 +1078,23 @@ export const AliexpressLocalServiceProductPostMultimediaSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductPostProductExtDTO {
-  /** 资质信息 */
+  /** Qualification information */
   aeopQualificationStructList?: Array<AliexpressLocalServiceProductPostAeopQualificationStructDTO>;
-  /** 欧盟责任人id，需要调用查询欧盟责任人列表接口：aliexpress.category.eu.responsible.persons.list，获取对应的欧盟责任人列表 */
+  /** EU responsible person id. Call the EU responsible person list query API: aliexpress.category.eu.responsible.persons.list to get the corresponding list of EU responsible persons */
   msrEuId?: Long;
-  /** 产品所关联的尺码模版ID */
+  /** ID of the size template associated with the product */
   sizeChartId?: Long;
-  /** 产品所关联的尺码模版ID列表 */
+  /** List of size template IDs associated with the product */
   sizeChartIdList?: Array<Long>;
-  /** 发货期，商家承诺的发货时间，目前取消发货期走白名单中 */
+  /** Shipping period, the shipping time promised by the merchant. Currently canceling the shipping period requires being on the whitelist */
   deliveryTime?: number;
-  /** 制造商id */
+  /** Manufacturer ID */
   manufacturerId?: Long;
-  /** 扩展字段参数 */
+  /** Extension field parameters */
   extParam?: string;
-  /** 商品说明书 */
+  /** Product manual */
   productManual?: string;
-  /** 网红视频信息 */
+  /** Influencer video information */
   influencerVideoInfo?: AliexpressLocalServiceProductPostInfluencerVideoInfo;
 }
 
@@ -1119,9 +1119,9 @@ export const AliexpressLocalServiceProductPostProductExtDTOSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductPostProductMarketImage {
-  /** 1：代表长图，大小为750*1000; 2：代表方图，大小为800*800 */
+  /** 1: tall image, size 750*1000; 2: square image, size 800*800 */
   imageType?: number;
-  /** 营销图片URL */
+  /** Marketing image URL */
   url?: string;
 }
 
@@ -1132,19 +1132,19 @@ export const AliexpressLocalServiceProductPostProductMarketImageSchema: Schema =
   };
 
 export interface AliexpressLocalServiceProductPostProductProperty {
-  /** 属性值区间开始 */
+  /** Attribute value range start */
   attrValueStart?: string;
-  /** 属性值id */
+  /** Attribute value ID */
   attrValueId?: Long;
-  /** 属性值区间结束 */
+  /** Attribute value range end */
   attrValueEnd?: string;
-  /** 属性值名称 */
+  /** Attribute value name */
   attrValue?: string;
-  /** 属性单位 */
+  /** Attribute unit */
   attrValueUnit?: string;
-  /** 属性名称 */
+  /** Attribute name */
   attrName?: string;
-  /** 属性id */
+  /** Attribute ID */
   attrNameId?: Long;
 }
 
@@ -1159,23 +1159,23 @@ export const AliexpressLocalServiceProductPostProductPropertySchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductPostSKUProperty {
-  /** SKU维度属性值 */
+  /** SKU-dimension attribute value */
   skuPropertyValue?: string;
-  /** SKU维度属性值ID */
+  /** SKU-dimension attribute value ID */
   propertyValueId?: Long;
-  /** SKU维度属性项名称 */
+  /** SKU-dimension attribute item name */
   skuPropertyName?: string;
-  /** SKU维度属性项ID */
+  /** SKU-dimension attribute item ID */
   skuPropertyId?: Long;
-  /** 插头属性SKU级联属性父属性id */
+  /** Parent attribute id of the plug attribute SKU cascading attribute */
   plugParentPropertyId?: Long;
-  /** 插头属性SKU级联属性父属性值id */
+  /** Parent attribute value ID of the plug attribute SKU cascading attribute */
   plugParentValueId?: Long;
-  /** 不同商品销售属性值的图片。可以使用速卖通平台以外的商品图片URL，也可以使用速卖通平台的图片银行的URL。如需了解速卖通平台图片银行的更多信息以及如何上传图片，请参考以下 API：aliexpress.photobank.redefining.uploadimageforsd */
+  /** Images for different product sales attribute values. You can use product image URLs from outside the AliExpress platform, or URLs from the AliExpress image bank. For more information about the AliExpress image bank and how to upload images, see the following API: aliexpress.photobank.redefining.uploadimageforsd */
   imageUrlList?: Array<string>;
-  /** 销售属性别名 */
+  /** Sales attribute alias */
   propertyValueDefinitionName?: string;
-  /** sku图片 */
+  /** SKU image */
   skuImage?: string;
 }
 
@@ -1192,9 +1192,9 @@ export const AliexpressLocalServiceProductPostSKUPropertySchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductPostSubject {
-  /** 语种 ：en_US */
+  /** Language: en_US */
   locale?: string;
-  /** 多语言标题内容 */
+  /** Multilingual title content */
   value?: string;
 }
 
@@ -1204,11 +1204,11 @@ export const AliexpressLocalServiceProductPostSubjectSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductPostVideo {
-  /** 视频封面 */
+  /** Video cover */
   posterUrl?: string;
-  /** 视频类型 ：MAIN_IMAGE_VIDEO */
+  /** Video type: MAIN_IMAGE_VIDEO */
   mediaType?: string;
-  /** 媒体id，通过媒体中心接口获取 */
+  /** Media id, obtained through the media center API */
   mediaId?: Long;
 }
 
@@ -1219,13 +1219,13 @@ export const AliexpressLocalServiceProductPostVideoSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductPricesEditCountrySupplyPriceDTO {
-  /** 国家代码，KR，ES,FR,IT,PL.,DE,NL等 */
+  /** Country code, KR, ES, FR, IT, PL., DE, NL, etc. */
   countryCode?: string;
-  /** 对应国家的供货价 */
+  /** Supply price for the corresponding country */
   countrySupplyPrice?: string;
-  /** 分目的国供货价的货值 */
+  /** Goods value of the supply price by destination country */
   countryGoodsValue?: string;
-  /** 分目的国供货价的物流费 */
+  /** Logistics fee of the supply price by destination country */
   countryLogisticValue?: string;
 }
 
@@ -1240,13 +1240,13 @@ export const AliexpressLocalServiceProductPricesEditCountrySupplyPriceDTOSchema:
 export interface AliexpressLocalServiceProductPricesEditSkuPriceModel {
   /** skuId */
   skuId?: Long;
-  /** sku供货价，必须设置 */
+  /** SKU supply price, must be set */
   supplyPrice?: string;
-  /** 分目的国家供货价列表，如果发品的时候设置了分目的国供货价，则可以通过该参数对目的国供货价进行修改，如果商品没有设置，无法通过该接口新增或修改分目的国供货价 */
+  /** List of per-destination-country supply prices. If per-destination-country supply prices were set when publishing the product, they can be modified with this parameter; if the product has none set, they cannot be added or modified through this API */
   dimSupplyPriceList?: Array<AliexpressLocalServiceProductPricesEditCountrySupplyPriceDTO>;
-  /** glo供货价的货值 */
+  /** Goods value of the glo supply price */
   gloGoodsValue?: string;
-  /** glo供货价物流费 */
+  /** Logistics fee of the glo supply price */
   gloLogisticValue?: string;
 }
 
@@ -1264,11 +1264,11 @@ export const AliexpressLocalServiceProductPricesEditSkuPriceModelSchema: Schema 
   };
 
 export interface AliexpressLocalServiceProductQueryAeopPackageDTO {
-  /** 每包的数量 */
+  /** Quantity per package */
   lotNum?: number;
-  /** 产品的单位 */
+  /** Product unit */
   productUnit?: number;
-  /** 打包销售: true 非打包销售:false */
+  /** Sold as a bundle: true; not sold as a bundle: false */
   packageType?: boolean;
 }
 
@@ -1279,25 +1279,25 @@ export const AliexpressLocalServiceProductQueryAeopPackageDTOSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductQueryAeopProductInfoDTO {
-  /** 商品多语言标题 */
+  /** Product multilingual title */
   subjectList?: Array<AliexpressLocalServiceProductQuerySubject>;
-  /** 修改日期 */
+  /** Update date */
   gmtModified?: string;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 创建时间 */
+  /** Creation time */
   gmtCreate?: string;
-  /** 原发语种： en_US */
+  /** Original language: en_US */
   locale?: string;
-  /** 货币单位。如果不提供该值信息，则默认为"USD"；非俄罗斯卖家这个属性值可以不提供。对于俄罗斯海外卖家，该单位值必须提供，如: "RUB"。 */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; non-Russian sellers may omit this attribute. For Russian overseas sellers, this unit value must be provided, e.g. "RUB". */
   currencyCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Long;
-  /** 产品的状态，包括onSelling（正在销售），PENDING_LAUNCH (待上架),offline（已下架），auditing（审核中），editingRequired（审核不通过） */
+  /** Product status, including onSelling (on sale), PENDING_LAUNCH (pending listing), offline (delisted), auditing (under review), editingRequired (review failed) */
   productStatusType?: string;
-  /** 运费模板id */
+  /** Shipping template ID */
   postageId?: Long;
-  /** 是否分国家供货价设置，如果是true表示sku要取dest_country_supply_price_list 分国家供货价，false则直接取supply_price */
+  /** Whether per-country supply prices are set. If true, the SKU uses the per-country supply prices in dest_country_supply_price_list; if false, supply_price is used directly */
   supportCountrySupplyPrice?: boolean;
 }
 
@@ -1320,11 +1320,11 @@ export const AliexpressLocalServiceProductQueryAeopProductInfoDTOSchema: Schema 
   };
 
 export interface AliexpressLocalServiceProductQueryAeopQualificationStructDTO {
-  /** 资质信息类型 ："image","text" */
+  /** Qualification information type: "image","text" */
   type?: string;
-  /** 具体的资质信息：图片链接或文本 */
+  /** Specific qualification information: image link or text */
   value?: string;
-  /** 资质信息key, 每个类目下的key都不一样，请先调用资质信息查询接口：aliexpress.category.qualifications.list，查询对应的key和type */
+  /** Qualification info key. The key differs for each category; first call the qualification info query API: aliexpress.category.qualifications.list to query the corresponding key and type */
   key?: string;
 }
 
@@ -1336,11 +1336,11 @@ export const AliexpressLocalServiceProductQueryAeopQualificationStructDTOSchema:
   };
 
 export interface AliexpressLocalServiceProductQueryDetailSource {
-  /** 移动端详描内容，具体格式请参考： https://open.aliexpress.com/doc/doc.htm#/?docId=725 */
+  /** Mobile detail description content. For the specific format, refer to: https://open.aliexpress.com/doc/doc.htm#/?docId=725 */
   mobileDetail?: string;
-  /** 详描语种：en_US */
+  /** Detailed description language: en_US */
   locale?: string;
-  /** PC 端详描内容，注意!!! 对于PC端详描内容校验规则：关联模块(relation)数量至多1个，PC端详描下总信息模块数至多3个，当type=”html"并且其content中包含关联模块(relation)或自定义模块(custom)时，其中的关联模块和自定义模块也会被参与计数，请isv自行排查"html"模块中是否有关联模块(relation)和自定义模块(custom),请isv们做好前置校验，避免重复计数。具体格式请参考：https://open.aliexpress.com/doc/doc.htm#/?docId=725 */
+  /** PC detail description content. Note!!! Validation rules for PC detail description content: at most 1 relation module (relation), and at most 3 information modules in total under the PC detail description. When type="html" and its content contains a relation module (relation) or a custom module (custom), those relation and custom modules are also counted; ISVs should check themselves whether the "html" module contains relation (relation) or custom (custom) modules and do pre-validation to avoid double counting. For the specific format see: https://open.aliexpress.com/doc/doc.htm#/?docId=725 */
   webDetail?: string;
 }
 
@@ -1351,11 +1351,11 @@ export const AliexpressLocalServiceProductQueryDetailSourceSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductQueryInfluencerVideo {
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
 }
 
@@ -1366,9 +1366,9 @@ export const AliexpressLocalServiceProductQueryInfluencerVideoSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductQueryInfluencerVideoInfo {
-  /** 默认网红视频 */
+  /** Default influencer video */
   influencerVideo?: AliexpressLocalServiceProductQueryInfluencerVideo;
-  /** 分国家网红视频 */
+  /** Influencer videos by country */
   nationalInfluencerVideos?: Array<AliexpressLocalServiceProductQueryInfluencerVideo>;
 }
 
@@ -1387,19 +1387,19 @@ export const AliexpressLocalServiceProductQueryInfluencerVideoInfoSchema: Schema
   };
 
 export interface AliexpressLocalServiceProductQueryLocalServiceDestCountrySupplyPriceDTO {
-  /** 目的国国家编码 GLO,KR等 */
+  /** Destination country code, e.g. GLO, KR */
   countryCode?: string;
-  /** 分目的国供货价 */
+  /** Supply price by destination country */
   moneyValue?: string;
-  /** 分目的国当前生效供货价 */
+  /** Currently effective supply price by destination country */
   currentEffectiveSupplyPrice?: string;
-  /** sku分国家维度仓配型 */
+  /** SKU warehouse-and-delivery type by country */
   countryStockWareStype?: string;
-  /** 平台仓是否不可售 */
+  /** Whether the platform warehouse is unsellable */
   countryWareSaled?: boolean;
-  /** 分目的国供货价的货值 */
+  /** Goods value of the supply price by destination country */
   countryGoodsValue?: string;
-  /** 分目的国供货价的物流费 */
+  /** Logistics fee of the supply price by destination country */
   countryLogisticValue?: string;
 }
 
@@ -1415,21 +1415,21 @@ export const AliexpressLocalServiceProductQueryLocalServiceDestCountrySupplyPric
   };
 
 export interface AliexpressLocalServiceProductQueryLocalServiceProductDTO {
-  /** 商品的SKU信息 */
+  /** SKU information of the product */
   productSkuList?: Array<AliexpressLocalServiceProductQueryLocalServiceProductSku>;
-  /** 商品多媒体信息 */
+  /** Product multimedia information */
   multimedia?: AliexpressLocalServiceProductQueryMultimedia;
-  /** 包裹信息 */
+  /** Package information */
   packageDto?: AliexpressLocalServiceProductQueryAeopPackageDTO;
-  /** 扩展信息 */
+  /** Extended information */
   productExtDto?: AliexpressLocalServiceProductQueryProductExtDTO;
-  /** 商品基本信息 */
+  /** Basic product information */
   productInfoDto?: AliexpressLocalServiceProductQueryAeopProductInfoDTO;
-  /** 商品属性列表 */
+  /** Product attribute list */
   productPropertyList?: Array<AliexpressLocalServiceProductQueryProductProperty>;
-  /** 详描列表 */
+  /** Detailed description list */
   detailSourceList?: Array<AliexpressLocalServiceProductQueryDetailSource>;
-  /** 商机计划 ID */
+  /** Business opportunity plan ID */
   planId?: string;
 }
 
@@ -1474,43 +1474,43 @@ export const AliexpressLocalServiceProductQueryLocalServiceProductDTOSchema: Sch
   };
 
 export interface AliexpressLocalServiceProductQueryLocalServiceProductSku {
-  /** sku供货价 */
+  /** SKU supply price */
   supplyPrice?: string;
-  /** Sku属性对象list，允许1-3个sku属性对象，按sku属性顺序排放。sku属性从类目属性接口getAttributesResultByCateId获取。该项值输入sku属性，不能输入普通类目属性。 */
+  /** List of SKU attribute objects; 1-3 SKU attribute objects are allowed, arranged in SKU attribute order. SKU attributes are obtained from the category attribute API getAttributesResultByCateId. This item takes SKU attributes; ordinary category attributes cannot be entered. */
   skuPropertyList?: Array<AliexpressLocalServiceProductQuerySKUProperty>;
-  /** SKU 的 id字段，格式：“sku_property_id:property_value_id” */
+  /** SKU id field, format: "sku_property_id:property_value_id" */
   id?: string;
-  /** skuId，AE内部生成唯一标识。 */
+  /** skuId, unique identifier generated internally by AE. */
   skuId?: Long;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。如果用户只填写零售价（productprice）和商品编码，需要完整生成一条SKU记录提交，否则商品编码无法保存。系统会认为只提交了零售价，而没有SKU，导致商品编辑未保存。 */
+  /** Sku merchant code. Format: half-width alphanumeric characters, length 20, no spaces, greater-than or less-than signs. If the user only fills in the retail price (productprice) and the product code, a complete SKU record must still be generated and submitted, otherwise the product code cannot be saved. The system would consider that only the retail price was submitted without a SKU, so the product edit is not saved. */
   skuCode?: string;
-  /** sku的状态 ，是否销售，active ：销售 ； inactive ：不销售 */
+  /** SKU status, whether it is for sale: active: on sale; inactive: not on sale */
   status?: string;
-  /** sku 级别重量，KG，请做好必填校验 */
+  /** SKU-level weight, KG, please implement required-field validation */
   packageWeight?: string;
-  /** sku级别 高度。cm，请做好必填校验 */
+  /** SKU-level height. cm, please implement required-field validation */
   packageHeight?: string;
-  /** sku级别 宽度。cm，请做好必填校验 */
+  /** SKU-level width. cm, please implement required-field validation */
   packageWidth?: string;
-  /** sku级别 长度。cm，请做好必填校验 */
+  /** SKU-level length. cm, please implement required-field validation */
   packageLength?: string;
-  /** sku当前生效供货价 */
+  /** Currently effective supply price of the SKU */
   effectiveSupplyPrice?: string;
-  /** sku分目的国供货价，GLO表示其他国家/地区 */
+  /** SKU supply price per destination country, GLO means other countries/regions */
   destCountrySupplyPriceList?: Array<AliexpressLocalServiceProductQueryLocalServiceDestCountrySupplyPriceDTO>;
-  /** 商家仓库存 */
+  /** Merchant warehouse inventory */
   sellableQuantity?: Long;
-  /** 美国sku重量单位 */
+  /** Weight unit of US SKU */
   packageWeightUnit?: string;
-  /** SKU维度属性信息（仅SKU包装属性信息可以使用） */
+  /** SKU-dimension attribute information (only SKU packaging attribute information can be used) */
   skuDescPropertyList?: Array<AliexpressLocalServiceProductQuerySKUProperty>;
-  /** 物流属性，特殊商品类型： 内电 ：274526 ， 弱磁 ： 274452 */
+  /** Logistics attribute, special product type: built-in battery: 274526, weak magnetic: 274452 */
   specialProductTypeList?: Array<string>;
-  /** sku维度仓配类型 */
+  /** SKU-level warehouse-and-delivery type */
   skuStockWareType?: string;
-  /** GLO含邮供货价对应的货值 */
+  /** Goods value corresponding to the GLO postage-inclusive supply price */
   gloGoodsValue?: string;
-  /** GLO含邮供货价对应的物流费 */
+  /** Logistics fee corresponding to the GLO postage-inclusive supply price */
   gloLogisticValue?: string;
 }
 
@@ -1551,13 +1551,13 @@ export const AliexpressLocalServiceProductQueryLocalServiceProductSkuSchema: Sch
   };
 
 export interface AliexpressLocalServiceProductQueryMultimedia {
-  /** 多媒体信息。 */
+  /** Multimedia information. */
   videoList?: Array<AliexpressLocalServiceProductQueryVideo>;
-  /** 营销图列表 */
+  /** Marketing image list */
   marketImageList?: Array<AliexpressLocalServiceProductQueryProductMarketImage>;
-  /** 商品主图列表 */
+  /** Product main image list */
   mainImageList?: Array<string>;
-  /** 分国家主图信息 */
+  /** Main image information by country */
   customizedImages?: Record<string, unknown>;
 }
 
@@ -1577,23 +1577,23 @@ export const AliexpressLocalServiceProductQueryMultimediaSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductQueryProductExtDTO {
-  /** 资质信息 */
+  /** Qualification information */
   aeopQualificationStructList?: Array<AliexpressLocalServiceProductQueryAeopQualificationStructDTO>;
-  /** 欧盟责任人id，需要调用查询欧盟责任人列表接口：aliexpress.category.eu.responsible.persons.list，获取对应的欧盟责任人列表 */
+  /** EU responsible person id. Call the EU responsible person list query API: aliexpress.category.eu.responsible.persons.list to get the corresponding list of EU responsible persons */
   msrEuId?: Long;
-  /** 产品所关联的尺码模版ID */
+  /** ID of the size template associated with the product */
   sizeChartId?: string;
-  /** 产品所关联的尺码模版ID列表 */
+  /** List of size template IDs associated with the product */
   sizeChartIdList?: Array<Long>;
-  /** json格式的扩展参数 new_standard_size_chart 是否是新版尺码商品 */
+  /** Extended parameters in JSON format. new_standard_size_chart: whether the product uses the new size chart */
   extParam?: string;
-  /** 发货期 */
+  /** Shipping period */
   deliveryTime?: number;
-  /** 制造商id */
+  /** Manufacturer ID */
   manufacturerId?: Long;
-  /** 商品说明书url */
+  /** Product manual url */
   productManual?: string;
-  /** 网红视频信息 */
+  /** Influencer video information */
   influencerVideoInfo?: AliexpressLocalServiceProductQueryInfluencerVideoInfo;
 }
 
@@ -1618,9 +1618,9 @@ export const AliexpressLocalServiceProductQueryProductExtDTOSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductQueryProductMarketImage {
-  /** 1：代表长图，大小为750*1000; 2：代表方图，大小为800*800 */
+  /** 1: tall image, size 750*1000; 2: square image, size 800*800 */
   imageType?: number;
-  /** 营销图片URL */
+  /** Marketing image URL */
   url?: string;
 }
 
@@ -1631,19 +1631,19 @@ export const AliexpressLocalServiceProductQueryProductMarketImageSchema: Schema 
   };
 
 export interface AliexpressLocalServiceProductQueryProductProperty {
-  /** 属性值区间开始 */
+  /** Attribute value range start */
   attrValueStart?: string;
-  /** 属性值id */
+  /** Attribute value ID */
   attrValueId?: Long;
-  /** 属性值区间结束 */
+  /** Attribute value range end */
   attrValueEnd?: string;
-  /** 属性值名称 */
+  /** Attribute value name */
   attrValue?: string;
-  /** 属性单位 */
+  /** Attribute unit */
   attrValueUnit?: string;
-  /** 属性名称 */
+  /** Attribute name */
   attrName?: string;
-  /** 属性id */
+  /** Attribute ID */
   attrNameId?: Long;
 }
 
@@ -1658,23 +1658,23 @@ export const AliexpressLocalServiceProductQueryProductPropertySchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductQuerySKUProperty {
-  /** SKU属性值 */
+  /** SKU attribute value */
   skuPropertyValue?: string;
-  /** 不同商品销售属性值的图片。可以使用速卖通平台以外的商品图片URL，也可以使用速卖通平台的图片银行的URL。如需了解速卖通平台图片银行的更多信息以及如何上传图片，请参考以下 API：aliexpress.photobank.redefining.uploadimageforsd */
+  /** Images for different product sales attribute values. You can use product image URLs from outside the AliExpress platform, or URLs from the AliExpress image bank. For more information about the AliExpress image bank and how to upload images, see the following API: aliexpress.photobank.redefining.uploadimageforsd */
   imageUrlList?: Array<string>;
-  /** SKU属性值ID */
+  /** SKU attribute value ID */
   propertyValueId?: Long;
-  /** SKU属性名 */
+  /** SKU attribute name */
   skuPropertyName?: string;
-  /** SKU属性ID */
+  /** SKU attribute ID */
   skuPropertyId?: Long;
-  /** SKU属性别名 */
+  /** SKU attribute alias */
   propertyValueDefinitionName?: string;
-  /** SKU图片地址 */
+  /** SKU image URL */
   skuImage?: string;
-  /** 插头属性SKU级联属性父属性id */
+  /** Parent attribute id of the plug attribute SKU cascading attribute */
   plugParentPropertyId?: Long;
-  /** 插头属性SKU级联属性父属性值id */
+  /** Parent attribute value ID of the plug attribute SKU cascading attribute */
   plugParentValueId?: Long;
 }
 
@@ -1691,9 +1691,9 @@ export const AliexpressLocalServiceProductQuerySKUPropertySchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductQuerySubject {
-  /** 语种 ：en_US */
+  /** Language: en_US */
   locale?: string;
-  /** 多语言标题内容 */
+  /** Multilingual title content */
   value?: string;
 }
 
@@ -1703,11 +1703,11 @@ export const AliexpressLocalServiceProductQuerySubjectSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductQueryVideo {
-  /** 视频封面 */
+  /** Video cover */
   posterUrl?: string;
-  /** 视频类型 ：MAIN_IMAGE_VIDEO */
+  /** Video type: MAIN_IMAGE_VIDEO */
   mediaType?: string;
-  /** 媒体id， */
+  /** Media ID */
   mediaId?: Long;
 }
 
@@ -1718,17 +1718,17 @@ export const AliexpressLocalServiceProductQueryVideoSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductsListLocalServiceProductSearchApiResponseDTO {
-  /** 总页数 */
+  /** Total pages */
   totalPage?: Long;
-  /** 请求结果：成功。失败 */
+  /** Request result: success. failure */
   success?: boolean;
-  /** 每页商品数 */
+  /** Number of products per page */
   pageSize?: Long;
-  /** 总商品数 */
+  /** Total number of products */
   totalCount?: Long;
-  /** 当前页 */
+  /** Current page */
   currentPage?: Long;
-  /** 商品列表 */
+  /** Product list */
   productList?: Array<AliexpressLocalServiceProductsListLocalServiceProductSearchBaseResultDTO>;
 }
 
@@ -1748,35 +1748,35 @@ export const AliexpressLocalServiceProductsListLocalServiceProductSearchApiRespo
   };
 
 export interface AliexpressLocalServiceProductsListLocalServiceProductSearchBaseResultDTO {
-  /** 审核不通过的原因类型： PRODUCT_AUDIT_SUB_STATUS_BASIC("audit_sub_status_basic", "商品基础信息审核"), PRODUCT_AUDIT_SUB_STATUS_SUPPLY_PRICE("audit_sub_status_supply_price", "商品供应价格审核"), PRODUCT_AUDIT_SUB_STATUS_CRO("audit_sub_status_cro", "商品CRO审核"), PRODUCT_AUDIT_SUB_STATUS_QF("audit_sub_status_qf", "商品资质审核"), PRODUCT_AUDIT_SUB_STATUS_SALE_PRICE("audit_sub_status_sale_price", "商品零售价审核"), UP_SHELF_PRODUCT("up_shelf_product", "商品上架审核"), DOWN_SHELF_PRODUCT("down_shelf_product", "商品下架审核"), DELETE_PRODUCT("delete_product", "商品删除审核"), AUDIT_APPROVE("audit_approve", "商品审核通过"), AUDIT_REJECT("audit_reject", "商品审核拒绝"); */
+  /** Reason type for audit rejection: PRODUCT_AUDIT_SUB_STATUS_BASIC("audit_sub_status_basic", "Product basic information audit"), PRODUCT_AUDIT_SUB_STATUS_SUPPLY_PRICE("audit_sub_status_supply_price", "Product supply price audit"), PRODUCT_AUDIT_SUB_STATUS_CRO("audit_sub_status_cro", "Product CRO audit"), PRODUCT_AUDIT_SUB_STATUS_QF("audit_sub_status_qf", "Product qualification audit"), PRODUCT_AUDIT_SUB_STATUS_SALE_PRICE("audit_sub_status_sale_price", "Product retail price audit"), UP_SHELF_PRODUCT("up_shelf_product", "Product listing audit"), DOWN_SHELF_PRODUCT("down_shelf_product", "Product delisting audit"), DELETE_PRODUCT("delete_product", "Product deletion audit"), AUDIT_APPROVE("audit_approve", "Product audit approved"), AUDIT_REJECT("audit_reject", "Product audit rejected"); */
   auditFailureType?: string;
-  /** 商品币种 */
+  /** Product currency */
   currencyCode?: string;
-  /** 商品叶子类目id */
+  /** Product leaf category id */
   leafCategoryId?: Long;
-  /** 运费模板id */
+  /** Shipping template ID */
   shippingTemplate?: Long;
-  /** 审核不通过原因明细 */
+  /** Details of review rejection reasons */
   auditFailureReason?: string;
-  /** 修改时间：2023-01-03 20:32:37 */
+  /** Update time: 2023-01-03 20:32:37 */
   modifiedTime?: string;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 商品最小供货价 */
+  /** Minimum product supply price */
   productMinPrice?: string;
-  /** 商品总库存 */
+  /** Total product inventory */
   totalStocks?: Long;
-  /** 商品最大供货价 */
+  /** Maximum product supply price */
   productMaxPrice?: string;
-  /** 标题 */
+  /** Title */
   title?: string;
-  /** 商品审核状态，1表示审核通过 ， 其余都是不通过 */
+  /** Product review status, 1 means review passed, all others mean not passed */
   productAuditStatus?: number;
-  /** 商品主图 */
+  /** Product main image */
   imageUrls?: string;
-  /** 创建时间 */
+  /** Creation time */
   createdTime?: string;
-  /** sku列表 */
+  /** SKU list */
   searchSkuInfoList?: Array<AliexpressLocalServiceProductsListSearchSkuInfo>;
 }
 
@@ -1804,25 +1804,25 @@ export const AliexpressLocalServiceProductsListLocalServiceProductSearchBaseResu
   };
 
 export interface AliexpressLocalServiceProductsListProductSearchConditionDO {
-  /** 审核不通过原因枚举：audit_sub_status_basic(基础信息审核不通过),audit_sub_status_supply_price(供应价格审核不通过),audit_sub_status_cro(风控审核不通过),up_shelf_product(商品上架审核不通过),down_shelf_product(商品下架审核不通过) */
+  /** Audit failure reason enum: audit_sub_status_basic (basic information audit failed), audit_sub_status_supply_price (supply price audit failed), audit_sub_status_cro (risk control audit failed), up_shelf_product (product listing audit failed), down_shelf_product (product delisting audit failed) */
   auditFailureReason?: string;
-  /** 更新时间范围（指定时间之前） case：2022-07-14 16:41:00 */
+  /** Update time range (before the specified time) case: 2022-07-14 16:41:00 */
   updateBefore?: string;
-  /** 创建时间范围（指定时间之前） case：2022-07-14 16:41:00 */
+  /** Create time range (before the specified time) case: 2022-07-14 16:41:00 */
   createBefore?: string;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 创建时间范围（指定时间之后） case：2022-07-13 16:41:00 */
+  /** Create time range (after the specified time) case: 2022-07-13 16:41:00 */
   createAfter?: string;
-  /** 更新时间范围（指定时间之后） case：2022-07-13 16:41:00 */
+  /** Update time range (after the specified time) case: 2022-07-13 16:41:00 */
   updateAfter?: string;
-  /** product_status 商品状态: ONLINE 在线；PENDING_LAUNCH 待上架；PENDING_APPROVAL 审核中；VIOLATION_QC_FAILED 审核不通过；OFFLINE 已下架； */
+  /** product_status product status: ONLINE online; PENDING_LAUNCH pending listing; PENDING_APPROVAL under review; VIOLATION_QC_FAILED audit failed; OFFLINE delisted; */
   productStatus?: string;
-  /** 类目id */
+  /** Category ID */
   leafCategoryId?: Long;
-  /** 欧盟责任人筛选，-2代表未关联 */
+  /** EU responsible person filter, -2 means not linked */
   msrEuId?: Long;
-  /** 制造商筛选，-2代表未关联 */
+  /** Manufacturer filter, -2 means not linked */
   manufacturerId?: Long;
 }
 
@@ -1841,13 +1841,13 @@ export const AliexpressLocalServiceProductsListProductSearchConditionDOSchema: S
   };
 
 export interface AliexpressLocalServiceProductsListProductSkuWarehouseStockDTO {
-  /** 仓库类型，只有 类型 = jit_warehouse的仓对应的库存可以编辑。 */
+  /** Warehouse type. Only inventory in warehouses with type = jit_warehouse can be edited. */
   warehouseType?: string;
-  /** 仓库名称 */
+  /** Warehouse name */
   warehouseName?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 库存 */
+  /** Inventory */
   sellableQuantity?: Long;
 }
 
@@ -1860,27 +1860,27 @@ export const AliexpressLocalServiceProductsListProductSkuWarehouseStockDTOSchema
   };
 
 export interface AliexpressLocalServiceProductsListSearchSkuInfo {
-  /** sku供货价 */
+  /** SKU supply price */
   supplyPrice?: string;
-  /** sku审核状态 ， 1 或空 ：表示审核通过 ， 其余都是审核不通过。 当商品供货价审核不通过的时候才会存在，用来区分哪个sku的供货价审核不通过，与 suggest_price 和suggest_note 配合使用。 */
+  /** sku audit status; 1 or empty: audit passed; anything else is audit failed. Exists only when the product's supply price audit fails, used to distinguish which sku's supply price failed the audit; used together with suggest_price and suggest_note. */
   skuAuditStatus?: string;
-  /** sku总库存 */
+  /** SKU total inventory */
   skuStock?: Long;
-  /** sku 按照仓查询库存 */
+  /** SKU inventory query by warehouse */
   skuWarehouseStockList?: Array<AliexpressLocalServiceProductsListProductSkuWarehouseStockDTO>;
-  /** 卖家订单的sku 编码： sku_code */
+  /** SKU code of the seller order: sku_code */
   sellerSku?: string;
-  /** sku_id, 编辑库存的时候使用，sku的唯一标识 */
+  /** sku_id, used when editing inventory, the unique identifier of the SKU */
   skuId?: Long;
-  /** sku属性串 */
+  /** SKU attribute string */
   variation?: string;
-  /** 审核不通过：建议供货价 */
+  /** Review rejected: suggested supply price */
   suggestPrice?: string;
-  /** 审核不通过：建议标签 */
+  /** Review rejected: suggested tag */
   suggestNote?: string;
-  /** 是否销售，active：销售， inactive ：不销售 */
+  /** Whether to sell, active: sell, inactive: do not sell */
   status?: string;
-  /** sku当前生效供货价 */
+  /** Currently effective supply price of the SKU */
   effectiveSupplyPrice?: string;
 }
 
@@ -1903,9 +1903,9 @@ export const AliexpressLocalServiceProductsListSearchSkuInfoSchema: Schema = {
 };
 
 export interface AliexpressLocalServiceProductStocksQueryLocalServiceProductSkuStockDTO {
-  /** sku不同仓 对应库存列表 */
+  /** Inventory list for the SKU in different warehouses */
   skuWarehouseStockList?: Array<AliexpressLocalServiceProductStocksQueryLocalServiceSkuStockWarehouseDTO>;
-  /** sku唯一标识 */
+  /** SKU unique identifier */
   skuId?: Long;
 }
 
@@ -1921,19 +1921,19 @@ export const AliexpressLocalServiceProductStocksQueryLocalServiceProductSkuStock
   };
 
 export interface AliexpressLocalServiceProductStocksQueryLocalServiceSkuStockWarehouseDTO {
-  /** 仓库类型， 只有类型 =dropshipping的仓才能编辑库存 */
+  /** Warehouse type. Inventory can only be edited for warehouses of type dropshipping */
   warehouseType?: string;
-  /** 仓库名称 */
+  /** Warehouse name */
   warehouseName?: string;
-  /** 库存 */
+  /** Inventory */
   sellableQuantity?: number;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 卖家是否可以编辑库存。true 可以，false 不可以 */
+  /** Whether the seller can edit inventory. true can, false cannot */
   canChangeQuantity?: boolean;
-  /** 是否可增加库存 */
+  /** Whether inventory can be increased */
   canIncreaseQuantity?: boolean;
-  /** 是否可减少库存 */
+  /** Whether inventory can be decreased */
   canDecreaseQuantity?: boolean;
 }
 
@@ -1949,7 +1949,7 @@ export const AliexpressLocalServiceProductStocksQueryLocalServiceSkuStockWarehou
   };
 
 export interface AliexpressLocalServiceProductStocksUpdateLocalServiceProductSingleSkuUpdateResponseDTO {
-  /** 单sku仓库下列表 */
+  /** List under a single SKU warehouse */
   skuWarehouseStockList?: Array<AliexpressLocalServiceProductStocksUpdateLocalServiceSingleWarehouseStockUpdateResponseDTO>;
   /** sku id */
   skuId?: string;
@@ -1967,13 +1967,13 @@ export const AliexpressLocalServiceProductStocksUpdateLocalServiceProductSingleS
   };
 
 export interface AliexpressLocalServiceProductStocksUpdateLocalServiceSingleWarehouseStockUpdateResponseDTO {
-  /** 单个sku单个仓库下是否成功 */
+  /** Whether successful for a single SKU under a single warehouse */
   success?: boolean;
-  /** 具体仓库下库存更新的错误说明 */
+  /** Error description for inventory update under a specific warehouse */
   errorMessage?: string;
-  /** 具体仓库下库存更新的错误码 */
+  /** Error code for inventory update under a specific warehouse */
   errorCode?: string;
-  /** 仓库编码 */
+  /** Warehouse code */
   warehouseCode?: string;
 }
 
@@ -1986,9 +1986,9 @@ export const AliexpressLocalServiceProductStocksUpdateLocalServiceSingleWarehous
   };
 
 export interface AliexpressLocalServiceProductStocksUpdateProductSkuStockDTO {
-  /** sku不同仓 对应库存列表 */
+  /** Inventory list for the SKU in different warehouses */
   skuWarehouseStockList?: Array<AliexpressLocalServiceProductStocksUpdateProductSkuWarehouseStockDTO>;
-  /** sku唯一标识，可以通过这个接口获取：aliexpress.local.service.products.list */
+  /** Unique SKU identifier, which can be obtained via this API: aliexpress.local.service.products.list */
   skuId?: Long;
 }
 
@@ -2004,11 +2004,11 @@ export const AliexpressLocalServiceProductStocksUpdateProductSkuStockDTOSchema: 
   };
 
 export interface AliexpressLocalServiceProductStocksUpdateProductSkuWarehouseStockDTO {
-  /** 仓库类型， 只有类型 =dropshipping 的仓才能编辑库存 */
+  /** Warehouse type. Inventory can only be edited for warehouses of type dropshipping */
   warehouseType?: string;
-  /** 库存数量 */
+  /** Inventory quantity */
   sellableQuantity?: Long;
-  /** 仓库编码dropshipping 的仓才能编辑库存 */
+  /** Warehouse code. Inventory can only be edited for dropshipping warehouses */
   warehouseCode?: string;
 }
 
@@ -2020,9 +2020,9 @@ export const AliexpressLocalServiceProductStocksUpdateProductSkuWarehouseStockDT
   };
 
 export interface AliexpressLocalServiceSellerSelfHscodeQuerySellerSearchTaxRateValueDTO {
-  /** 总数 */
+  /** Total */
   total?: number;
-  /** 当前页 */
+  /** Current page */
   curPage?: number;
   /** result */
   sellerSearchTaxRateValueDtolist?: Array<AliexpressLocalServiceSellerSelfHscodeQueryTaxRateValueDTO>;
@@ -2040,11 +2040,11 @@ export const AliexpressLocalServiceSellerSelfHscodeQuerySellerSearchTaxRateValue
   };
 
 export interface AliexpressLocalServiceSellerSelfHscodeQueryTaxRateContentDO {
-  /** 税率标题 */
+  /** Tax rate title */
   taxTitle?: string;
-  /** 税率描述 */
+  /** Tax rate description */
   taxDesc?: string;
-  /** 税率号 */
+  /** Tax rate number */
   taxDigit?: string;
 }
 
@@ -2062,7 +2062,7 @@ export interface AliexpressLocalServiceSellerSelfHscodeQueryTaxRateValueDTO {
   hsCode?: string;
   /** [] */
   taxRateLevelDolist?: string;
-  /** 税率类型 */
+  /** Tax rate type */
   taxRateType?: string;
   /** [] */
   taxRateContentDolist?: Array<AliexpressLocalServiceSellerSelfHscodeQueryTaxRateContentDO>;
@@ -2083,23 +2083,23 @@ export const AliexpressLocalServiceSellerSelfHscodeQueryTaxRateValueDTOSchema: S
 
 /** Parameters for `aliexpress.local.service.plat.hscode.query`. */
 export interface AliexpressLocalServicePlatHscodeQueryParams {
-  /** 主图 */
+  /** Main image */
   picMainUrl?: string;
-  /** 英文标题 */
+  /** English title */
   itemTitle?: string;
-  /** 叶子类目id */
+  /** Leaf category ID */
   leafCategoryId?: string;
-  /** 商品属性列表 */
+  /** Product attribute list */
   itemPropertyList?: Array<AliexpressLocalServicePlatHscodeQueryString>;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = LOCAL_SERVICE 的海外托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the overseas-managed store with business_type = LOCAL_SERVICE */
   channelSellerId?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
 }
 
 /** Response of `aliexpress.local.service.plat.hscode.query`. */
 export interface AliexpressLocalServicePlatHscodeQueryResponse {
-  /** 平台推荐hsCode及税率 */
+  /** Platform-recommended hsCode and tax rate */
   taxRateValueDto?: AliexpressLocalServicePlatHscodeQueryTaxRateValueDTO;
 }
 
@@ -2136,19 +2136,19 @@ export const aliexpressLocalServicePlatHscodeQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.local.service.product.edit`. */
 export interface AliexpressLocalServiceProductEditParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = LOCAL_SERVCICE 的海外托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the overseas-managed store with business_type = LOCAL_SERVCICE */
   channelSellerId?: LongInput;
-  /** 商品模型 */
+  /** Product model */
   localServiceProductDto?: AliexpressLocalServiceProductEditLocalServiceProductDTO;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
 }
 
 /** Response of `aliexpress.local.service.product.edit`. */
 export interface AliexpressLocalServiceProductEditResponse {
-  /** 成功，返回商品id */
+  /** Success, returns product id */
   productId?: Long;
-  /** 返回结果：成功，失败 */
+  /** Return result: success, failure */
   success?: boolean;
 }
 
@@ -2179,19 +2179,19 @@ export const aliexpressLocalServiceProductEdit: ApiDefinition<
 
 /** Parameters for `aliexpress.local.service.product.inventory.invitation.reject.reason.list`. */
 export interface AliexpressLocalServiceProductInventoryInvitationRejectReasonListParams {
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: LongInput;
-  /** 语言 */
+  /** Language */
   language?: string;
   /** sku_id */
   skuId?: string;
-  /** 单据id */
+  /** Document ID */
   ticketId?: LongInput;
 }
 
 /** Response of `aliexpress.local.service.product.inventory.invitation.reject.reason.list`. */
 export interface AliexpressLocalServiceProductInventoryInvitationRejectReasonListResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressLocalServiceProductInventoryInvitationRejectReasonListInventoryInvitationIsvResponseDTO;
 }
 
@@ -2226,23 +2226,23 @@ export const aliexpressLocalServiceProductInventoryInvitationRejectReasonList: A
 
 /** Parameters for `aliexpress.local.service.product.inventory.invitation.ticket.accept`. */
 export interface AliexpressLocalServiceProductInventoryInvitationTicketAcceptParams {
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 到货计划 */
+  /** Arrival plan */
   arrivalPlanList?: Array<AliexpressLocalServiceProductInventoryInvitationTicketAcceptInventoryInvitationIsvArrivalPlanDTO>;
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: LongInput;
-  /** 海外直接加货库存 */
+  /** Overseas direct stock-add inventory */
   directInventoryCount?: LongInput;
   /** sku id */
   skuId?: string;
-  /** 单据id */
+  /** Document ID */
   ticketId?: LongInput;
 }
 
 /** Response of `aliexpress.local.service.product.inventory.invitation.ticket.accept`. */
 export interface AliexpressLocalServiceProductInventoryInvitationTicketAcceptResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressLocalServiceProductInventoryInvitationTicketAcceptInventoryInvitationIsvResponseDTO;
 }
 
@@ -2284,23 +2284,23 @@ export const aliexpressLocalServiceProductInventoryInvitationTicketAccept: ApiDe
 
 /** Parameters for `aliexpress.local.service.product.inventory.invitation.ticket.refuse`. */
 export interface AliexpressLocalServiceProductInventoryInvitationTicketRefuseParams {
-  /** 其他原因 */
+  /** Other reasons */
   remark?: string;
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: LongInput;
-  /** 错误编码（如果是INVENTORY_INVITATION_REJECT_REASON_8 则必须传remark） */
+  /** Error code (if it is INVENTORY_INVITATION_REJECT_REASON_8, remark must be passed) */
   reasonCode?: string;
   /** sku id */
   skuId?: string;
-  /** 单据id */
+  /** Document ID */
   ticketId?: LongInput;
 }
 
 /** Response of `aliexpress.local.service.product.inventory.invitation.ticket.refuse`. */
 export interface AliexpressLocalServiceProductInventoryInvitationTicketRefuseResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressLocalServiceProductInventoryInvitationTicketRefuseCommonResultDTO;
 }
 
@@ -2337,31 +2337,31 @@ export const aliexpressLocalServiceProductInventoryInvitationTicketRefuse: ApiDe
 
 /** Parameters for `aliexpress.local.service.product.inventory.invitation.tickets.list`. */
 export interface AliexpressLocalServiceProductInventoryInvitationTicketsListParams {
-  /** 下发开始时间（最多查询近 1 年下发的库存邀约单据） */
+  /** Issue start time (inventory invitation documents issued within the last 1 year can be queried at most) */
   sendStartTime?: LongInput;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 渠道卖家ID */
+  /** Channel seller ID */
   channelSellerId?: LongInput;
-  /** 邀约类型（日常：DAILY 竞价：LOCAL_LINK） */
+  /** Invitation type (daily: DAILY, bidding: LOCAL_LINK) */
   invitationType?: string;
-  /** 页码 */
+  /** Page number */
   pageNo?: number;
-  /** 邀约单状态（待接受：2 已接受：3 已拒绝：4 任务超时：10） */
+  /** Invitation order status (pending acceptance: 2, accepted: 3, rejected: 4, task timed out: 10) */
   ticketStatus?: number;
-  /** 商品id列表 */
+  /** Product ID list */
   itemIdList?: Array<LongInput>;
-  /** sku id 列表 */
+  /** sku id list */
   skuIdList?: Array<string>;
-  /** 下发结束时间（最多查询近 1 年下发的库存邀约单据） */
+  /** Issue end time (inventory invitation documents issued within the last 1 year can be queried at most) */
   sendEndTime?: LongInput;
 }
 
 /** Response of `aliexpress.local.service.product.inventory.invitation.tickets.list`. */
 export interface AliexpressLocalServiceProductInventoryInvitationTicketsListResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressLocalServiceProductInventoryInvitationTicketsListPageResultDTO;
 }
 
@@ -2401,19 +2401,19 @@ export const aliexpressLocalServiceProductInventoryInvitationTicketsList: ApiDef
 
 /** Parameters for `aliexpress.local.service.product.post`. */
 export interface AliexpressLocalServiceProductPostParams {
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = LOCAL_SERVCICE 的海外托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the overseas-managed store with business_type = LOCAL_SERVCICE */
   channelSellerId?: LongInput;
-  /** 商品模型 */
+  /** Product model */
   localServiceProductDto?: AliexpressLocalServiceProductPostLocalServiceProductDTO;
 }
 
 /** Response of `aliexpress.local.service.product.post`. */
 export interface AliexpressLocalServiceProductPostResponse {
-  /** 成功，返回商品id */
+  /** Success, returns product id */
   productId?: Long;
-  /** 返回结果：成功，失败 */
+  /** Return result: success, failure */
   success?: boolean;
 }
 
@@ -2444,25 +2444,25 @@ export const aliexpressLocalServiceProductPost: ApiDefinition<
 
 /** Parameters for `aliexpress.local.service.product.prices.edit`. */
 export interface AliexpressLocalServiceProductPricesEditParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = LOCAL_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = LOCAL_SERVICE */
   channelSellerId?: LongInput;
-  /** 商品sku供货价列表 */
+  /** List of product SKU supply prices */
   skuPriceModelList?: Array<AliexpressLocalServiceProductPricesEditSkuPriceModel>;
-  /** 商品id */
+  /** Product ID */
   productId?: LongInput;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
 }
 
 /** Response of `aliexpress.local.service.product.prices.edit`. */
 export interface AliexpressLocalServiceProductPricesEditResponse {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 是否成功，注意请求成功会进入审核流程，审核通过之后供货价才会生效 */
+  /** Whether successful. Note that a successful request enters the review process, and the supply price takes effect only after the review is approved */
   success?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -2496,19 +2496,19 @@ export const aliexpressLocalServiceProductPricesEdit: ApiDefinition<
 
 /** Parameters for `aliexpress.local.service.product.query`. */
 export interface AliexpressLocalServiceProductQueryParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = LOCAL_SERVICE 的海外托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the overseas-managed store with business_type = LOCAL_SERVICE */
   channelSellerId?: LongInput;
-  /** 商品id */
+  /** Product ID */
   productId?: LongInput;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
 }
 
 /** Response of `aliexpress.local.service.product.query`. */
 export interface AliexpressLocalServiceProductQueryResponse {
-  /** 商品模型 */
+  /** Product model */
   localServiceProductDto?: AliexpressLocalServiceProductQueryLocalServiceProductDTO;
-  /** 请求结果：成功，失败 */
+  /** Request result: success, failure */
   success?: boolean;
 }
 
@@ -2539,11 +2539,11 @@ export const aliexpressLocalServiceProductQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.local.service.product.status.update`. */
 export interface AliexpressLocalServiceProductStatusUpdateParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = LOCAL_SERVICE 的海外托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the overseas-managed store with business_type = LOCAL_SERVICE */
   channelSellerId?: string;
-  /** 商品id */
+  /** Product ID */
   productId?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
   /** ON_SHELF/OFF_SHELF */
   productOptType?: string;
@@ -2551,11 +2551,11 @@ export interface AliexpressLocalServiceProductStatusUpdateParams {
 
 /** Response of `aliexpress.local.service.product.status.update`. */
 export interface AliexpressLocalServiceProductStatusUpdateResponse {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -2584,19 +2584,19 @@ export const aliexpressLocalServiceProductStatusUpdate: ApiDefinition<
 
 /** Parameters for `aliexpress.local.service.product.stocks.query`. */
 export interface AliexpressLocalServiceProductStocksQueryParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelSellerId?: LongInput;
-  /** 商品id */
+  /** Product ID */
   productId?: LongInput;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
 }
 
 /** Response of `aliexpress.local.service.product.stocks.query`. */
 export interface AliexpressLocalServiceProductStocksQueryResponse {
-  /** 商品sku库存列表 */
+  /** Product SKU inventory list */
   productSkuStockList?: Array<AliexpressLocalServiceProductStocksQueryLocalServiceProductSkuStockDTO>;
-  /** 请求结果：成功，失败 */
+  /** Request result: success, failure */
   success?: boolean;
 }
 
@@ -2628,27 +2628,27 @@ export const aliexpressLocalServiceProductStocksQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.local.service.product.stocks.update`. */
 export interface AliexpressLocalServiceProductStocksUpdateParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = LOCAL_SERVICE 的全托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = LOCAL_SERVICE */
   channelSellerId?: LongInput;
-  /** 商品sku库存列表 */
+  /** Product SKU inventory list */
   productSkuStockList?: Array<AliexpressLocalServiceProductStocksUpdateProductSkuStockDTO>;
-  /** 商品id */
+  /** Product ID */
   productId?: LongInput;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
 }
 
 /** Response of `aliexpress.local.service.product.stocks.update`. */
 export interface AliexpressLocalServiceProductStocksUpdateResponse {
-  /** sku列表 */
+  /** SKU list */
   productSkuStockList?: Array<AliexpressLocalServiceProductStocksUpdateLocalServiceProductSingleSkuUpdateResponseDTO>;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 当所有仓库库存均更新成功时为true,其他情况表示部分失败，开发者需解析sku_warehouse_stock_list获取具体成功和失败的仓库列表及原因 */
+  /** true when the inventory of all warehouses was updated successfully; otherwise it indicates partial failure, and the developer must parse sku_warehouse_stock_list to get the lists of successful and failed warehouses and the reasons */
   success?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -2688,21 +2688,21 @@ export const aliexpressLocalServiceProductStocksUpdate: ApiDefinition<
 
 /** Parameters for `aliexpress.local.service.products.list`. */
 export interface AliexpressLocalServiceProductsListParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = LOCAL_SERVICE 的海外托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the overseas-managed store with business_type = LOCAL_SERVICE */
   channelSellerId?: LongInput;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 分页查询，每页数量，最多20个商品 */
+  /** Paginated query, number per page, at most 20 products */
   pageSize?: LongInput;
-  /** 查询条件 */
+  /** Query conditions */
   searchConditionDo?: AliexpressLocalServiceProductsListProductSearchConditionDO;
-  /** 当前页 */
+  /** Current page */
   currentPage?: LongInput;
 }
 
 /** Response of `aliexpress.local.service.products.list`. */
 export interface AliexpressLocalServiceProductsListResponse {
-  /** 查询结果 */
+  /** Query result */
   result?: AliexpressLocalServiceProductsListLocalServiceProductSearchApiResponseDTO;
 }
 
@@ -2739,21 +2739,21 @@ export const aliexpressLocalServiceProductsList: ApiDefinition<
 
 /** Parameters for `aliexpress.local.service.seller.self.hscode.query`. */
 export interface AliexpressLocalServiceSellerSelfHscodeQueryParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = LOCAL_SERVICE 的海外托管店铺 channel_seller_id */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the overseas-managed store with business_type = LOCAL_SERVICE */
   channelSellerId?: LongInput;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 页数 */
+  /** Number of pages */
   pageNum?: number;
-  /** 每页大小 */
+  /** Page size */
   pageSize?: number;
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 卖家自主填写的hsCode */
+  /** hsCode filled in by the seller */
   sellerSelfHsCode?: string;
-  /** 模糊搜索 */
+  /** Fuzzy search */
   fuzzySearchContent?: string;
-  /** 是否需要查税率 */
+  /** Whether tax rate lookup is needed */
   needQueryTaxRate?: boolean;
 }
 

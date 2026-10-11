@@ -9,9 +9,9 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressDataQdFileUploadFileUploadMeta {
-  /** 上传分区信息 */
+  /** Upload partition information */
   partition?: string;
-  /** 业务代码 */
+  /** Business code */
   bizCode?: string;
 }
 
@@ -21,13 +21,13 @@ export const AliexpressDataQdFileUploadFileUploadMetaSchema: Schema = {
 };
 
 export interface AliexpressDataQdFileUploadTaiHangResponse {
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   success?: boolean;
-  /** 本例中固定为空 */
+  /** Fixed as empty in this example */
   module?: string;
-  /** 错误代码，1 - 文件过大；2 - 传参错误；3 - 分区文件数据超上限，单分区文件数量上限512，容量上限1G; 4 - 系统错误 */
+  /** Error code, 1 - file too large; 2 - parameter error; 3 - partition file data exceeds the limit, the upper limit is 512 files per partition and 1G capacity; 4 - system error */
   errorcode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -40,15 +40,15 @@ export const AliexpressDataQdFileUploadTaiHangResponseSchema: Schema = {
 
 /** Parameters for `aliexpress.data.qd.file.upload`. */
 export interface AliexpressDataQdFileUploadParams {
-  /** 上传数据配置信息 */
+  /** Upload data configuration information */
   uploadMeta?: AliexpressDataQdFileUploadFileUploadMeta;
-  /** 文件字节数组 */
+  /** File byte array */
   fileData?: FileInput;
 }
 
 /** Response of `aliexpress.data.qd.file.upload`. */
 export interface AliexpressDataQdFileUploadResponse {
-  /** 调用结果 */
+  /** Call result */
   result?: AliexpressDataQdFileUploadTaiHangResponse;
 }
 
@@ -81,21 +81,21 @@ export const aliexpressDataQdFileUpload: ApiDefinition<
 
 /** Parameters for `aliexpress.data.redefining.queryproductaddcartinfoeverydaybyid`. */
 export interface AliexpressDataRedefiningQueryproductaddcartinfoeverydaybyidParams {
-  /** 当前页码 */
+  /** Current page number */
   currentPage?: number;
-  /** 查询时间段的截止时间。例如：yyyy-mm-dd */
+  /** End time of the query period. For example: yyyy-mm-dd */
   endDate?: string;
-  /** 每页结果数量 */
+  /** Number of results per page */
   pageSize?: number;
-  /** 商品id */
+  /** Product ID */
   productId?: string;
-  /** 查询时间段的开始时间。例如：yyyy-mm-dd */
+  /** Start time of the query period. For example: yyyy-mm-dd */
   startDate?: string;
 }
 
 /** Response of `aliexpress.data.redefining.queryproductaddcartinfoeverydaybyid`. */
 export interface AliexpressDataRedefiningQueryproductaddcartinfoeverydaybyidResponse {
-  /** 加入购物车数量。 "result": "{"itemList":[{"count": 加入购物车数量, "date": 日期},{"count": 加入购物车数量, "date": 日期}],"success": 本次调用是否成功, "totalItem": 总记录数 }" 没有结果时的返回： {\"itemList\":商品列表为空,\"success\":本次调用是否成功,\"totalItem\":商品数为0} */
+  /** Add-to-cart count. "result": "{"itemList":[{"count": add-to-cart count, "date": date},{"count": add-to-cart count, "date": date}],"success": whether this call succeeded, "totalItem": total record count }" Returned when there is no result: {\"itemList\": product list is empty,\"success\": whether this call succeeded,\"totalItem\": product count is 0} */
   result?: string;
 }
 
@@ -125,13 +125,13 @@ export const aliexpressDataRedefiningQueryproductaddcartinfoeverydaybyid: ApiDef
 
 /** Parameters for `aliexpress.data.redefining.queryproductbusinessinfobyid`. */
 export interface AliexpressDataRedefiningQueryproductbusinessinfobyidParams {
-  /** 商品id */
+  /** Product ID */
   paramString?: string;
 }
 
 /** Response of `aliexpress.data.redefining.queryproductbusinessinfobyid`. */
 export interface AliexpressDataRedefiningQueryproductbusinessinfobyidResponse {
-  /** 单个商品浏览量。 {"addCartCount":30天加入购物车数量,"exposedCount":30天曝光量,"favoritedCount":30天加心愿单量,"gmvPerBuyer":客单价,"gmvPerBuyer30d":最近30天客单价,"gmvPerOrder":订单均额,"gmvPerOrder30d":最近30天订单均额,"outputOrder":30天成交订单数,"refundAmt":30天退款金额,"success":本次调用是否成功,"viewedCount":30天浏览量} 没有结果时的返回： {\"itemList\":商品列表为空,\"success\":本次调用是否成功,\"totalItem\":商品数为0} */
+  /** Page views of a single product. {"addCartCount": add-to-cart count in 30 days,"exposedCount": impressions in 30 days,"favoritedCount": wishlist adds in 30 days,"gmvPerBuyer": average spend per buyer,"gmvPerBuyer30d": average spend per buyer in the last 30 days,"gmvPerOrder": average order value,"gmvPerOrder30d": average order value in the last 30 days,"outputOrder": completed orders in 30 days,"refundAmt": refund amount in 30 days,"success": whether this call succeeded,"viewedCount": views in 30 days} Returned when there is no result: {\"itemList\": product list is empty,\"success\": whether this call succeeded,\"totalItem\": product count is 0} */
   result?: string;
 }
 
@@ -156,21 +156,21 @@ export const aliexpressDataRedefiningQueryproductbusinessinfobyid: ApiDefinition
 
 /** Parameters for `aliexpress.data.redefining.queryproductexposedinfoeverydaybyid`. */
 export interface AliexpressDataRedefiningQueryproductexposedinfoeverydaybyidParams {
-  /** 当前页码 */
+  /** Current page number */
   currentPage?: number;
-  /** 查询时间段的截止时间。例如：yyyy-mm-dd */
+  /** End time of the query period. For example: yyyy-mm-dd */
   endDate?: string;
-  /** 每页结果数量，默认20个，最大值 50 */
+  /** Number of results per page, default 20, maximum 50 */
   pageSize?: number;
-  /** 商品id */
+  /** Product ID */
   productId?: string;
-  /** 查询时间段的开始时间。例如：yyyy-mm-dd */
+  /** Start time of the query period. For example: yyyy-mm-dd */
   startDate?: string;
 }
 
 /** Response of `aliexpress.data.redefining.queryproductexposedinfoeverydaybyid`. */
 export interface AliexpressDataRedefiningQueryproductexposedinfoeverydaybyidResponse {
-  /** "result": "{"itemList":[{"count": 曝光量, "date": 日期},{"count": 曝光量, "date": 日期}],"success": 本次调用是否成功, "totalItem": 总记录数 }"。 没有结果时的返回： {\"itemList\":商品列表为空,\"success\":本次调用是否成功,\"totalItem\":商品数为0} */
+  /** "result": "{"itemList":[{"count": impressions, "date": date},{"count": impressions, "date": date}],"success": whether this call succeeded, "totalItem": total record count }". Returned when there is no result: {\"itemList\": product list is empty,\"success\": whether this call succeeded,\"totalItem\": product count is 0} */
   result?: string;
 }
 
@@ -200,21 +200,21 @@ export const aliexpressDataRedefiningQueryproductexposedinfoeverydaybyid: ApiDef
 
 /** Parameters for `aliexpress.data.redefining.queryproductfavoritedinfoeverydaybyid`. */
 export interface AliexpressDataRedefiningQueryproductfavoritedinfoeverydaybyidParams {
-  /** 当前页码 */
+  /** Current page number */
   currentPage?: number;
-  /** 查询时间段的截止时间。例如：yyyy-mm-dd */
+  /** End time of the query period. For example: yyyy-mm-dd */
   endDate?: string;
-  /** 每页结果数量，默认20个，最大值 50 */
+  /** Number of results per page, default 20, maximum 50 */
   pageSize?: number;
-  /** 商品id */
+  /** Product ID */
   productId?: string;
-  /** 查询时间段的开始时间。例如：yyyy-mm-dd */
+  /** Start time of the query period. For example: yyyy-mm-dd */
   startDate?: string;
 }
 
 /** Response of `aliexpress.data.redefining.queryproductfavoritedinfoeverydaybyid`. */
 export interface AliexpressDataRedefiningQueryproductfavoritedinfoeverydaybyidResponse {
-  /** "result": "{"itemList":[{"count": 加心愿单量, "date": 日期},{"count": 加心愿单量, "date": 日期}],"success": 本次调用是否成功, "totalItem": 总记录数 }"。 没有结果时的返回： {\"itemList\":商品列表为空,\"success\":本次调用是否成功,\"totalItem\":商品数为0} */
+  /** "result": "{"itemList":[{"count": wishlist adds, "date": date},{"count": wishlist adds, "date": date}],"success": whether this call succeeded, "totalItem": total record count }". Returned when there is no result: {\"itemList\": product list is empty,\"success\": whether this call succeeded,\"totalItem\": product count is 0} */
   result?: string;
 }
 
@@ -244,21 +244,21 @@ export const aliexpressDataRedefiningQueryproductfavoritedinfoeverydaybyid: ApiD
 
 /** Parameters for `aliexpress.data.redefining.queryproductsalesinfoeverydaybyid`. */
 export interface AliexpressDataRedefiningQueryproductsalesinfoeverydaybyidParams {
-  /** 当前页码 */
+  /** Current page number */
   currentPage?: number;
-  /** 查询时间段的截止时间。例如：yyyy-mm-dd */
+  /** End time of the query period. For example: yyyy-mm-dd */
   endDate?: string;
-  /** 每页结果数量，默认20个，最大值 50 */
+  /** Number of results per page, default 20, maximum 50 */
   pageSize?: number;
-  /** 商品id */
+  /** Product ID */
   productId?: string;
-  /** 查询时间段的开始时间。例如：yyyy-mm-dd */
+  /** Start time of the query period. For example: yyyy-mm-dd */
   startDate?: string;
 }
 
 /** Response of `aliexpress.data.redefining.queryproductsalesinfoeverydaybyid`. */
 export interface AliexpressDataRedefiningQueryproductsalesinfoeverydaybyidResponse {
-  /** "result": "{"itemList":[{"count": 销量, "date": 日期},{"count": 销量, "date": 日期}],"success": 本次调用是否成功, "totalItem": 总记录数 }" 没有结果时的返回： {\"itemList\":商品列表为空,\"success\":本次调用是否成功,\"totalItem\":商品数为0} */
+  /** "result": "{"itemList":[{"count": sales volume, "date": date},{"count": sales volume, "date": date}],"success": whether this call succeeded, "totalItem": total record count }" Returned when there is no result: {\"itemList\": product list is empty,\"success\": whether this call succeeded,\"totalItem\": product count is 0} */
   result?: string;
 }
 
@@ -288,21 +288,21 @@ export const aliexpressDataRedefiningQueryproductsalesinfoeverydaybyid: ApiDefin
 
 /** Parameters for `aliexpress.data.redefining.queryproductviewedinfoeverydaybyid`. */
 export interface AliexpressDataRedefiningQueryproductviewedinfoeverydaybyidParams {
-  /** 当前页码 */
+  /** Current page number */
   currentPage?: number;
-  /** 查询时间段的截止时间。例如：yyyy-mm-dd */
+  /** End time of the query period. For example: yyyy-mm-dd */
   endDate?: string;
-  /** 每页结果数量，默认20个，最大值 50 */
+  /** Number of results per page, default 20, maximum 50 */
   pageSize?: number;
-  /** 商品id */
+  /** Product ID */
   productId?: string;
-  /** 查询时间段的开始时间。例如：yyyy-mm-dd */
+  /** Start time of the query period. For example: yyyy-mm-dd */
   startDate?: string;
 }
 
 /** Response of `aliexpress.data.redefining.queryproductviewedinfoeverydaybyid`. */
 export interface AliexpressDataRedefiningQueryproductviewedinfoeverydaybyidResponse {
-  /** "result": "{"itemList":[{"count": 浏览量, "date": 日期},{"count": 浏览量, "date": 日期}],"success": 本次调用是否成功, "totalItem": 总记录数 }"。 没有结果时的返回： {\"itemList\":商品列表为空,\"success\":本次调用是否成功,\"totalItem\":商品数为0} */
+  /** "result": "{"itemList":[{"count": views, "date": date},{"count": views, "date": date}],"success": whether this call succeeded, "totalItem": total record count }". Returned when there is no result: {\"itemList\": product list is empty,\"success\": whether this call succeeded,\"totalItem\": product count is 0} */
   result?: string;
 }
 

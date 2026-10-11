@@ -169,7 +169,7 @@ export const AliexpressTradeBuyPlaceorderProductBaseItemSchema: Schema = {
 export interface AliexpressTradeBuyPlaceorderTradeExtraParam {
   /** SA natAddr */
   natAddr?: string;
-  /** 收件人生日，当收货国家为巴西（BR）时，此字段为必填项。 格式： ddMMyyyy（日-月-年，8位数字，无分隔符）。 示例： 01022026 代表 2026年2月1日。 */
+  /** Recipient's birthday. Required when the destination country is Brazil (BR). Format: ddMMyyyy (day-month-year, 8 digits, no separators). Example: 01022026 represents February 1, 2026. */
   birthday?: string;
 }
 
@@ -179,19 +179,19 @@ export const AliexpressTradeBuyPlaceorderTradeExtraParamSchema: Schema = {
 };
 
 export interface AliexpressTradeComplianceOrderQueryDsa3plAuditHistoryResponse {
-  /** 拒绝原因 */
+  /** Rejection reason */
   rejectReason?: string;
-  /** 审核提交时间 */
+  /** Review submission time */
   auditSubmitTime?: Long;
-  /** 商品图 */
+  /** Product image */
   itemImages?: Array<string>;
-  /** 审核时间 */
+  /** Review time */
   auditTime?: Long;
-  /** 审核状态 */
+  /** Review status */
   auditStatus?: string;
-  /** 审核类型 */
+  /** Review type */
   auditType?: string;
-  /** 外包装图 */
+  /** Outer packaging image */
   packageImages?: Array<string>;
 }
 
@@ -207,11 +207,11 @@ export const AliexpressTradeComplianceOrderQueryDsa3plAuditHistoryResponseSchema
   };
 
 export interface AliexpressTradeComplianceOrderQueryDsa3plChildAuditResponse {
-  /** 审核历史 */
+  /** Review history */
   auditHistory?: Array<AliexpressTradeComplianceOrderQueryDsa3plAuditHistoryResponse>;
-  /** 是否可人审 */
+  /** Whether manual review is possible */
   canAppeal?: boolean;
-  /** 交易子单 id */
+  /** Transaction sub-order ID */
   childTradeOrderId?: string;
 }
 
@@ -413,31 +413,31 @@ export const AliexpressTradeDsOrderGetSimpleMoneySchema: Schema = {
 };
 
 export interface AliexpressTradeInvoiceSellerInvoicingApplyInfoGetSellerInvoiceApplyInfoDTO {
-  /** 国家 */
+  /** Country */
   country?: string;
-  /** 地址 */
+  /** Address */
   address?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 订单号 */
+  /** Order number */
   orderId?: string;
-  /** 个人/公司 */
+  /** Individual/company */
   addressType?: string;
-  /** 公司名字 */
+  /** Company name */
   companyName?: string;
-  /** 邮编 */
+  /** Postal code */
   postalCode?: string;
-  /** 用户名 */
+  /** User name */
   customerName?: string;
-  /** 国家码 */
+  /** Country code */
   countryCode?: string;
-  /** 用户id */
+  /** User ID */
   customerId?: string;
-  /** 州 */
+  /** State */
   state?: string;
-  /** 税号 */
+  /** Tax ID */
   taxNo?: string;
-  /** 邮箱 */
+  /** Email */
   email?: string;
 }
 
@@ -459,9 +459,9 @@ export const AliexpressTradeInvoiceSellerInvoicingApplyInfoGetSellerInvoiceApply
   };
 
 export interface AliexpressTradeInvoiceSellerInvoicingApplyInfoGetSellerInvoiceApplyQueryRequestDTO {
-  /** 订单号 */
+  /** Order number */
   orderId?: string;
-  /** 用户id */
+  /** User ID */
   customerId?: string;
 }
 
@@ -789,13 +789,13 @@ export const AliexpressTradeNewRedefiningcopy2AeopTpRefundInfoDTOSchema: Schema 
   };
 
 export interface AliexpressTradeNewRedefiningcopy2AeopTpSingleOrderQuery {
-  /** 扩展信息目前支持纠纷信息，放款信息，物流信息，买方信息和退款信息，分别对应二进制位1,2,3,4,5。例如，只查询纠纷信息和物流信息，extInfoBitFlag=10100；将此字段留空意味着返回所有信息。 */
+  /** Extended info currently supports dispute info, payout info, logistics info, buyer info and refund info, corresponding to binary bits 1,2,3,4,5 respectively. For example, to query only dispute info and logistics info, extInfoBitFlag=10100; leaving this field empty returns all info. */
   extInfoBitFlag?: number;
-  /** 暂不支持. */
+  /** Not supported yet. */
   fieldList?: string;
-  /** 订单id */
+  /** Order ID */
   orderId?: Long;
-  /** 暂不支持 */
+  /** Not supported yet */
   showId?: string;
 }
 
@@ -1515,13 +1515,13 @@ export const AliexpressTradeNewRedefiningcopy3AeopTpRefundInfoDTOSchema: Schema 
   };
 
 export interface AliexpressTradeNewRedefiningcopy3AeopTpSingleOrderQuery {
-  /** 扩展信息目前支持纠纷信息，放款信息，物流信息，买方信息和退款信息，分别对应二进制位1,2,3,4,5。例如，只查询纠纷信息和物流信息，extInfoBitFlag=10100；将此字段留空意味着返回所有信息。 */
+  /** Extended info currently supports dispute info, payout info, logistics info, buyer info and refund info, corresponding to binary bits 1,2,3,4,5 respectively. For example, to query only dispute info and logistics info, extInfoBitFlag=10100; leaving this field empty returns all info. */
   extInfoBitFlag?: number;
-  /** 暂不支持. */
+  /** Not supported yet. */
   fieldList?: string;
-  /** 订单id */
+  /** Order ID */
   orderId?: Long;
-  /** 暂不支持 */
+  /** Not supported yet */
   showId?: string;
 }
 
@@ -1595,49 +1595,49 @@ export const AliexpressTradeNewRedefiningcopy3SimpleMoneySchema: Schema = {
 };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidAeopTpAddressDTO {
-  /** 四级区划 */
+  /** Four-level administrative divisions */
   tAN?: string;
-  /** 联系邮件 */
+  /** Contact email */
   contactEmail?: string;
-  /** 地址类型 */
+  /** Address type */
   addressType?: string;
-  /** 税号 */
+  /** Tax ID */
   taxNumber?: string;
-  /** 本地地址 */
+  /** Local address */
   localAddress?: AliexpressTradeNewRedefiningFindorderbyidAeopTpAddressDTO;
-  /** 沙特国家码 */
+  /** Saudi Arabia country code */
   natAddr?: string;
-  /** 地址1 */
+  /** Address 1 */
   address?: string;
-  /** 地址2 */
+  /** Address 2 */
   address2?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 收件人 */
+  /** Recipient */
   contactPerson?: string;
-  /** 国家/地区 */
+  /** Country/region */
   country?: string;
-  /** 街道详细地址 */
+  /** Detailed street address */
   detailAddress?: string;
-  /** 传真号 */
+  /** Fax number */
   faxArea?: string;
-  /** 传真国家/地区码 */
+  /** Fax country/region code */
   faxCountry?: string;
-  /** 传真号 */
+  /** Fax number */
   faxNumber?: string;
-  /** 手机号 */
+  /** Mobile number */
   mobileNo?: string;
-  /** 区号 */
+  /** Area code */
   phoneArea?: string;
-  /** 国家/地区码 */
+  /** Country/region code */
   phoneCountry?: string;
-  /** 电话 */
+  /** Phone */
   phoneNumber?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 邮编 */
+  /** Postal code */
   zip?: string;
-  /** 巴西个人税号 */
+  /** Brazil individual tax ID */
   cpfNo?: string;
 }
 
@@ -1672,77 +1672,77 @@ export const AliexpressTradeNewRedefiningFindorderbyidAeopTpAddressDTOSchema: Sc
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidAeopTpChildOrderDTO {
-  /** 联盟佣金比例 */
+  /** Affiliate commission rate */
   afflicateFeeRate?: string;
-  /** 纠纷信息 */
+  /** Dispute information */
   childIssueInfo?: AliexpressTradeNewRedefiningFindorderbyidAeopTpIssueInfoDTO;
-  /** 子订单ID */
+  /** Sub-order ID */
   childOrderId?: string;
-  /** 交易佣金比例 */
+  /** Transaction commission rate */
   escrowFeeRate?: string;
-  /** 冻结状态（NO_FROZEN:未冻结；IN_FROZEN:冻结中） */
+  /** Freeze status (NO_FROZEN: not frozen; IN_FROZEN: frozen) */
   frozenStatus?: string;
-  /** 资金状态(NOT_PAY：待支付；PAY_SUCCESS:支付成功) */
+  /** Fund status (NOT_PAY: pending payment; PAY_SUCCESS: payment successful) */
   fundStatus?: string;
-  /** 订单ID */
+  /** Order ID */
   id?: Long;
-  /** 订单原始总金额 */
+  /** Original total order amount */
   initOrderAmt?: AliexpressTradeNewRedefiningFindorderbyidMoneyStr;
-  /** 纠纷状态 */
+  /** Dispute status */
   issueStatus?: string;
-  /** 子订单放款信息 */
+  /** Sub-order payout information */
   loanInfo?: AliexpressTradeNewRedefiningFindorderbyidAeopTpLoanInfoDTO;
-  /** 放款金额 */
+  /** Payout amount */
   logisticsAmount?: AliexpressTradeNewRedefiningFindorderbyidMoneyStr;
-  /** 物流类型，买家选择的物流方式 */
+  /** Logistics type, the logistics method chosen by the buyer */
   logisticsType?: string;
-  /** 每个piece或lot对应多少个产品 */
+  /** How many products each piece or lot contains */
   lotNum?: number;
-  /** 子订单序号，用于子订单发货，即sub_trade_order_index */
+  /** Sub-order index, used for sub-order shipment, i.e. sub_trade_order_index */
   orderSortId?: number;
-  /** 订单状态：PLACE_ORDER_SUCCESS:等待买家付款; IN_CANCEL:买家申请取消; WAIT_SELLER_SEND_GOODS:等待您发货; SELLER_PART_SEND_GOODS:部分发货; WAIT_BUYER_ACCEPT_GOODS:等待买家收货; FUND_PROCESSING:买卖家达成一致，资金处理中； IN_ISSUE:含纠纷中的订单; IN_FROZEN:冻结中的订单; WAIT_SELLER_EXAMINE_MONEY:等待您确认金额; RISK_CONTROL:订单处于风控24小时中，从买家在线支付完成后开始，持续24小时。 */
+  /** Order status: PLACE_ORDER_SUCCESS: waiting for buyer payment; IN_CANCEL: buyer requested cancellation; WAIT_SELLER_SEND_GOODS: waiting for you to ship; SELLER_PART_SEND_GOODS: partially shipped; WAIT_BUYER_ACCEPT_GOODS: waiting for buyer to receive; FUND_PROCESSING: buyer and seller reached an agreement, funds being processed; IN_ISSUE: order with a dispute; IN_FROZEN: frozen order; WAIT_SELLER_EXAMINE_MONEY: waiting for you to confirm the amount; RISK_CONTROL: order is in 24-hour risk control, starting after the buyer completes online payment and lasting 24 hours. */
   orderStatus?: string;
-  /** 商品扩展属性，skuid等 */
+  /** Extended product attributes, such as skuid */
   productAttributes?: string;
-  /** 商品数量 */
+  /** Product quantity */
   productCount?: number;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 商品名称 */
+  /** Product name */
   productName?: string;
-  /** 商品单价 */
+  /** Product unit price */
   productPrice?: AliexpressTradeNewRedefiningFindorderbyidMoneyStr;
-  /** 商品规格，已废弃 */
+  /** Product specification, deprecated */
   productStandard?: string;
-  /** 产品单位 */
+  /** Product unit */
   productUnit?: string;
-  /** 子订单退款信息 */
+  /** Sub-order refund information */
   refundInfo?: AliexpressTradeNewRedefiningFindorderbyidAeopTpRefundInfoDTO;
-  /** 发货类型"SELLER_SEND_GOODS": 卖家发货; "WAREHOUSE_SEND_GOODS":仓库发货 */
+  /** Shipment type "SELLER_SEND_GOODS": seller ships; "WAREHOUSE_SEND_GOODS": warehouse ships */
   sendGoodsOperator?: string;
-  /** SKU信息 */
+  /** SKU information */
   skuCode?: string;
-  /** 快照ID */
+  /** Snapshot ID */
   snapshotId?: string;
-  /** 产品快照的图片路径 */
+  /** Image path of the product snapshot */
   snapshotSmallPhotoPath?: string;
-  /** 商品主图Url */
+  /** Product main image URL */
   productImgUrl?: string;
-  /** 快照Url */
+  /** Snapshot URL */
   productSnapUrl?: string;
-  /** 备货时间 */
+  /** Stocking time */
   goodsPrepareTime?: number;
-  /** 物流服务 */
+  /** Logistics service */
   logisticsServiceName?: string;
-  /** 买家备注(子订单级别) */
+  /** Buyer remarks (sub-order level) */
   buyerMemo?: string;
-  /** cainiaoInternationalWarehouse表示是菜鸟认证海外仓发货的，这类订单（子订单）将由菜鸟系统下发海外仓系统，进行订单履行，商家ERP需进行过滤此类型的订单（子订单）。其他情况为空 */
+  /** cainiaoInternationalWarehouse indicates shipment from a Cainiao-certified overseas warehouse. Such orders (sub-orders) are sent by the Cainiao system to the overseas warehouse system for fulfillment, and the merchant ERP must filter out this type of order (sub-order). Empty in other cases. */
   logisticsWarehouseType?: string;
-  /** 子订单中的各种标 */
+  /** Various tags in the sub-order */
   tags?: Array<string>;
-  /** U_TAXED海外仓已税，跨境已税是I_TAXED */
+  /** U_TAXED overseas warehouse duty paid, cross-border duty paid is I_TAXED */
   alreadyTaxed?: string;
-  /** 存储子订单的拓展参数，Json格式 orderBusinessModel: 业务模式 siteLang: 下单语言 */
+  /** Extended parameters for storing the sub-order, in JSON format. orderBusinessModel: business model; siteLang: order placement language */
   extendMap?: string;
 }
 
@@ -1811,11 +1811,11 @@ export const AliexpressTradeNewRedefiningFindorderbyidAeopTpChildOrderDTOSchema:
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidAeopTpIssueInfoDTO {
-  /** 纠纷类型 */
+  /** Dispute type */
   issueModel?: string;
-  /** 纠纷状态 处理中 processing、 纠纷取消canceled_issue、纠纷完结,退款处理完成finish */
+  /** Dispute status: processing: processing; canceled_issue: dispute canceled; finish: dispute completed, refund processed */
   issueStatus?: string;
-  /** 纠纷创建时间 */
+  /** Dispute creation time */
   issueTime?: string;
 }
 
@@ -1827,9 +1827,9 @@ export const AliexpressTradeNewRedefiningFindorderbyidAeopTpIssueInfoDTOSchema: 
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidAeopTpLoanInfoDTO {
-  /** 子订单放款金额 */
+  /** Sub-order payout amount */
   loanAmount?: AliexpressTradeNewRedefiningFindorderbyidMoneyStr;
-  /** 放款时间 (此时间为美国太平洋时间） */
+  /** Payout time (this time is US Pacific Time) */
   loanTime?: string;
 }
 
@@ -1844,23 +1844,23 @@ export const AliexpressTradeNewRedefiningFindorderbyidAeopTpLoanInfoDTOSchema: S
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidAeopTpLogisticInfoDTO {
-  /** 妥投时间（此时间为美国太平洋时间） */
+  /** Delivery time (in US Pacific Time) */
   gmtReceived?: string;
-  /** 发货时间（此时间为美国太平洋时间） */
+  /** Shipping time (in US Pacific Time) */
   gmtSend?: string;
-  /** 是否可获取物流追踪信息 */
+  /** Whether logistics tracking information can be obtained */
   haveTrackingInfo?: boolean;
-  /** 物流追踪号 */
+  /** Logistics tracking number */
   logisticsNo?: string;
-  /** 发货物流服务展示线路英文名称 */
+  /** English name of the displayed route of the shipping logistics service */
   logisticsServiceName?: string;
-  /** 物流服务名称key(与声明发货中的service_name相同) */
+  /** Logistics service name key (same as service_name in the declared shipment) */
   logisticsTypeCode?: string;
-  /** 投递状态。(default:初始值; received:已经妥投; not_received:没有妥投; suspected_received:疑似妥投) */
+  /** Delivery status. (default: initial value; received: delivered; not_received: not delivered; suspected_received: suspected delivered) */
   receiveStatus?: string;
-  /** 未妥投原因，如国家/地区不匹配 */
+  /** Reason for non-delivery, e.g. country/region mismatch */
   recvStatusDesc?: string;
-  /** 物流订单ID */
+  /** Logistics order ID */
   shipOrderId?: Long;
 }
 
@@ -1878,21 +1878,21 @@ export const AliexpressTradeNewRedefiningFindorderbyidAeopTpLogisticInfoDTOSchem
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidAeopTpOperationLogDTO {
-  /** 操作类型，用于记录操作事件。可能值为front_create_order, front_seller_send_all_goods, front_seller_send_part_goods, front_pay_online_success, front_trade_completed, front_trade_success, trade_close, front_buyerComfirmAcceptGoods, front_sellerAnnounceSendGoods, front_paypal_pay_success, front_pay_wu_success, front_pay_qw_success, front_mb_pay_success, cancel_order_close_trade, buyer_close_cancel, pledge_refund_ing, pledge_refund_fail, pledge_refund_success, pledge_issue_buyer_create, pledge_issue_buyer_modify, pledge_issue_buyer_accept, pledge_issue_buyer_cancel, pledge_issue_cs_cancel_money, risk_control_pass, buyer_cancle_group_after_payment, group_success, group_failure, buyer_cancle_group_after_payment, presell_promotion_end */
+  /** Operation type, used to record operation events. Possible values: front_create_order, front_seller_send_all_goods, front_seller_send_part_goods, front_pay_online_success, front_trade_completed, front_trade_success, trade_close, front_buyerComfirmAcceptGoods, front_sellerAnnounceSendGoods, front_paypal_pay_success, front_pay_wu_success, front_pay_qw_success, front_mb_pay_success, cancel_order_close_trade, buyer_close_cancel, pledge_refund_ing, pledge_refund_fail, pledge_refund_success, pledge_issue_buyer_create, pledge_issue_buyer_modify, pledge_issue_buyer_accept, pledge_issue_buyer_cancel, pledge_issue_cs_cancel_money, risk_control_pass, buyer_cancle_group_after_payment, group_success, group_failure, buyer_cancle_group_after_payment, presell_promotion_end */
   actionType?: string;
-  /** 子订单ID */
+  /** Sub-order ID */
   childOrderId?: Long;
-  /** 创建时间（此时间为美国太平洋时间） */
+  /** Creation time (in US Pacific Time) */
   gmtCreate?: string;
-  /** 修改时间（此时间为美国太平洋时间） */
+  /** Update time (in US Pacific Time) */
   gmtModified?: string;
   /** id */
   id?: Long;
-  /** 操作备注 */
+  /** Operation remarks */
   memo?: string;
-  /** 操作者 */
+  /** Operator */
   operator?: string;
-  /** 订单ID */
+  /** Order ID */
   orderId?: Long;
 }
 
@@ -1909,115 +1909,115 @@ export const AliexpressTradeNewRedefiningFindorderbyidAeopTpOperationLogDTOSchem
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidAeopTpOrderDetailDTO {
-  /** RST税金 */
+  /** RST tax */
   retailSalesTax?: AliexpressTradeNewRedefiningFindorderbyidretailSalesTaxObject;
-  /** 加密oaid */
+  /** Encrypted oaid */
   oaid?: string;
-  /** 半托管发货预计可得 */
+  /** Estimated proceeds from semi-consignment shipping */
   semiShipEstimatedRevenue?: string;
-  /** 自发货预计可得 */
+  /** Estimated earnings for self-shipping */
   selfShipEstimatedRevenue?: string;
-  /** 半托管切发货截止时间 */
+  /** Semi-consignment shipping cutoff time */
   semiSwitchShipDeadline?: string;
-  /** 商家设置运费 */
+  /** Merchant-set shipping fee */
   originalTemplateSettingFee?: string;
-  /** 主单扩展字段 */
+  /** Main order extension field */
   extendMap?: string;
-  /** 新的卖家视角订单金额，和商家后台金额保持一致 */
+  /** New seller-perspective order amount, consistent with the amount in the merchant backend */
   newSellerOrderAmount?: AliexpressTradeNewRedefiningFindorderbyidSimpleMoney;
-  /** 买家视角订单金额 */
+  /** Order amount from the buyer's perspective */
   actualFee?: AliexpressTradeNewRedefiningFindorderbyidSimpleMoney;
-  /** 买家支付金额 */
+  /** Buyer payment amount */
   paymentAmount?: AliexpressTradeNewRedefiningFindorderbyidSimpleMoney;
-  /** 订单调价金额 */
+  /** Order price adjustment amount */
   adjustFee?: AliexpressTradeNewRedefiningFindorderbyidSimpleMoney;
-  /** 店铺优惠金额 */
+  /** Store discount amount */
   promotionFee?: AliexpressTradeNewRedefiningFindorderbyidSimpleMoney;
-  /** 含税价增值税 */
+  /** VAT on tax-inclusive price */
   includeTaxFee?: AliexpressTradeNewRedefiningFindorderbyidSimpleMoney;
-  /** 买家全名 */
+  /** Buyer full name */
   buyerSignerFullname?: string;
-  /** 买家登录id */
+  /** Buyer login ID */
   buyerloginid?: string;
-  /** 商品信息 */
+  /** Product information */
   childOrderExtInfoList?: Array<AliexpressTradeNewRedefiningFindorderbyidAeopTpOrderProductInfoDTO>;
-  /** 退款信息 */
+  /** Refund information */
   refundInfo?: AliexpressTradeNewRedefiningFindorderbyidAeopTpRefundInfoDTO;
-  /** 子订单列表 */
+  /** Sub-order list */
   childOrderList?: Array<AliexpressTradeNewRedefiningFindorderbyidAeopTpChildOrderDTO>;
-  /** 卖家操作员Ali id */
+  /** Seller operator Ali id */
   sellerOperatorAliidloginid?: string;
-  /** 卖家操作员登录ID */
+  /** Login ID of the seller operator */
   sellerOperatorLoginId?: string;
-  /** 卖家名称 */
+  /** Seller name */
   sellerSignerFullname?: string;
-  /** 支付金额结算币种 */
+  /** Settlement currency of the payment amount */
   settlementCurrency?: string;
-  /** 是否是货到付款订单 */
+  /** Whether it is a cash-on-delivery order */
   cod?: boolean;
-  /** 新订单金额，比order_amount更准确，考虑了卖家调价及COD费用。仅限于新订单（7.18-7.31期间创建的部分订单及8.1以后创建的所有订单）。 */
+  /** New order amount, more accurate than order_amount, as it takes into account seller price adjustments and COD fees. Only for new orders (some orders created between 7.18-7.31 and all orders created after 8.1). */
   newOrderAmount?: AliexpressTradeNewRedefiningFindorderbyidSimpleMoney;
-  /** 买家申请取消订单的原因，仅对取消中的订单有效 */
+  /** Reason for the buyer's request to cancel the order, only valid for orders being canceled */
   cancelRequestReason?: string;
-  /** 新订单金额，比order_amount更准确，考虑了卖家调价及COD费用。仅限于新订单（7.18-7.31期间创建的部分订单及8.1以后创建的所有订单）。含税价订单，不含税金 */
+  /** New order amount, more accurate than order_amount, as it takes into account seller price adjustments and COD fees. Only for new orders (some orders created between 7.18-7.31 and all orders created after 8.1). For tax-inclusive orders, excludes tax. */
   sellerOrderAmount?: AliexpressTradeNewRedefiningFindorderbyidSimpleMoney;
-  /** 手续费（已废弃） */
+  /** Handling fee (deprecated) */
   escrowFee?: AliexpressTradeNewRedefiningFindorderbyidMoneyStr;
-  /** 冻结状态 */
+  /** Freeze status */
   frozenStatus?: string;
-  /** 资金状态 */
+  /** Fund status */
   fundStatus?: string;
-  /** 订单创建时间(此时间为美国太平洋时间) */
+  /** Order creation time (this time is US Pacific Time) */
   gmtCreate?: string;
-  /** 订单修改时间(此时间为美国太平洋时间) */
+  /** Order update time (this time is US Pacific Time) */
   gmtModified?: string;
-  /** 支付成功时间（与订单列表中gmtPayTime字段意义相同）(此时间为美国太平洋时间) */
+  /** Payment success time (same meaning as the gmtPayTime field in the order list) (this time is US Pacific Time) */
   gmtPaySuccess?: string;
-  /** 订单结束时间(此时间为美国太平洋时间) */
+  /** Order end time (this time is US Pacific Time) */
   gmtTradeEnd?: string;
-  /** 订单ID */
+  /** Order ID */
   id?: Long;
-  /** 产品总金额 */
+  /** Total product amount */
   initOderAmount?: AliexpressTradeNewRedefiningFindorderbyidMoneyStr;
-  /** 纠纷信息 */
+  /** Dispute information */
   issueInfo?: AliexpressTradeNewRedefiningFindorderbyidAeopTpIssueInfoDTO;
-  /** 纠纷状态（IN_ISSUE:纠纷中，NO_ISSUE:无纠纷;END_ISSUE:纠纷结束） */
+  /** Dispute status (IN_ISSUE: in dispute, NO_ISSUE: no dispute; END_ISSUE: dispute ended) */
   issueStatus?: string;
-  /** 放款信息 */
+  /** Payout information */
   loanInfo?: AliexpressTradeNewRedefiningFindorderbyidAeopTpLoanInfoDTO;
-  /** 放款状态("loan_none":无放款;"wait_loan":等待放款;"loan_ok":放款成功) */
+  /** Payout status ("loan_none": no payout; "wait_loan": waiting for payout; "loan_ok": payout successful) */
   loanStatus?: string;
-  /** 运费佣金比例(已废弃) */
+  /** Shipping fee commission rate (deprecated) */
   logisitcsEscrowFeeRate?: string;
-  /** 物流信息 */
+  /** Logistics information */
   logisticInfoList?: Array<AliexpressTradeNewRedefiningFindorderbyidAeopTpLogisticInfoDTO>;
-  /** 物流费用 */
+  /** Logistics fee */
   logisticsAmount?: AliexpressTradeNewRedefiningFindorderbyidMoneyStr;
-  /** 物流状态：NO_LOGISTICS 无物流信息、等待卖家发货 WAIT_SELLER_SEND_GOODS,卖家部分发货 SELLER_SEND_PART_GOODS,卖家已发货 SELLER_SEND_GOODS,买家已确认收货 BUYER_ACCEPT_GOODS,NO_LOGISTICS */
+  /** Logistics status: NO_LOGISTICS no logistics information, awaiting seller shipment WAIT_SELLER_SEND_GOODS, seller partially shipped SELLER_SEND_PART_GOODS, seller shipped SELLER_SEND_GOODS, buyer confirmed receipt BUYER_ACCEPT_GOODS, NO_LOGISTICS */
   logisticsStatus?: string;
-  /** 买家备注（订单级别） */
+  /** Buyer remarks (order level) */
   memo?: string;
-  /** 操作日志列表 */
+  /** Operation log list */
   oprLogDtoList?: Array<AliexpressTradeNewRedefiningFindorderbyidAeopTpOperationLogDTO>;
-  /** 订单金额 */
+  /** Order amount */
   orderAmount?: AliexpressTradeNewRedefiningFindorderbyidMoneyStr;
-  /** 订单结束原因 */
+  /** Order end reason */
   orderEndReason?: string;
-  /** 留言信息（已废弃） */
+  /** Message information (deprecated) */
   orderMsgList?: Array<AliexpressTradeNewRedefiningFindorderbyidAeopTpOrderMsgDTO>;
-  /** 订单状态 */
+  /** Order status */
   orderStatus?: string;
-  /** 当前状态超时日期 （此时间为美国太平洋时间） */
+  /** Timeout date of the current status (this time is US Pacific Time) */
   overTimeLeft?: string;
-  /** 买家支付金额(结算币种) */
+  /** Amount paid by the buyer (settlement currency) */
   payAmountBySettlementCur?: string;
-  /** 付款方式 （migs信用卡支付走人民币渠道； migs102MasterCard支付并且走人民币渠道； migs101Visa支付并且走人民币渠道； pp101 PayPal； mb MoneyBooker渠道； tt101 Bank Transfer支付； wu101 West Union支付； wp101 Visa走美金渠道的支付； wp102 Mastercard 走美金渠道的支付； qw101 QIWI支付； cybs101 Visa走CYBS渠道的支付； cybs102 Mastercard 走CYBS渠道的支付； wm101 WebMoney支付； ebanx101 巴西Beloto支付 ；） */
+  /** Payment method (migs credit card payment via the RMB channel; migs102 MasterCard payment via the RMB channel; migs101 Visa payment via the RMB channel; pp101 PayPal; mb MoneyBooker channel; tt101 Bank Transfer payment; wu101 West Union payment; wp101 Visa payment via the USD channel; wp102 Mastercard payment via the USD channel; qw101 QIWI payment; cybs101 Visa payment via the CYBS channel; cybs102 Mastercard payment via the CYBS channel; wm101 WebMoney payment; ebanx101 Brazil Beloto payment ;) */
   paymentType?: string;
-  /** 是否手机订单 */
+  /** Whether it is a mobile order */
   isPhone?: boolean;
-  /** 收货地址信息 */
+  /** Shipping address information */
   receiptAddress?: AliexpressTradeNewRedefiningFindorderbyidAeopTpAddressDTO;
-  /** 买家信息 */
+  /** Buyer information */
   buyerInfo?: AliexpressTradeNewRedefiningFindorderbyidAeopTpPersonDTO;
 }
 
@@ -2176,39 +2176,39 @@ export const AliexpressTradeNewRedefiningFindorderbyidAeopTpOrderDetailDTOSchema
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidAeopTpOrderMsgDTO {
-  /** 订单号 */
+  /** Order number */
   businessOrderId?: number;
-  /** 留言内容 */
+  /** Message content */
   content?: string;
-  /** 创建时间 */
+  /** Creation time */
   gmtCreate?: string;
-  /** 修改时间 */
+  /** Update time */
   gmtModified?: string;
   /** id */
   id?: Long;
-  /** 信息发送方( buyer; seller) */
+  /** Message sender (buyer; seller) */
   poster?: string;
-  /** 接收者主帐号序号 */
+  /** Receiver main account sequence number */
   receiverAdminSeq?: Long;
-  /** 接收者FirstName */
+  /** Receiver FirstName */
   receiverFirstName?: string;
-  /** 接收者LastName */
+  /** Receiver LastName */
   receiverLastName?: string;
-  /** 接收者帐号ID */
+  /** Recipient account ID */
   receiverLoginId?: string;
-  /** 接收者帐号序号 */
+  /** Recipient account sequence number */
   receiverSeq?: Long;
-  /** 发送者主帐号序号 */
+  /** Sender main account sequence number */
   senderAdminSeq?: Long;
-  /** 发送者FirstName */
+  /** Sender FirstName */
   senderFirstName?: string;
-  /** 发送者LastName */
+  /** Sender LastName */
   senderLastName?: string;
-  /** 发送者帐号ID */
+  /** Sender account ID */
   senderLoginId?: string;
-  /** 发送者帐号序号 */
+  /** Sender account sequence number */
   senderSeq?: Long;
-  /** 留言状态 */
+  /** Message status */
   status?: string;
 }
 
@@ -2236,17 +2236,17 @@ export const AliexpressTradeNewRedefiningFindorderbyidAeopTpOrderMsgDTOSchema: S
 export interface AliexpressTradeNewRedefiningFindorderbyidAeopTpOrderProductInfoDTO {
   /** sku id */
   skuId?: string;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 商品名称 */
+  /** Product name */
   productName?: string;
-  /** 商品数量 */
+  /** Product quantity */
   quantity?: Long;
-  /** 商品SKU */
+  /** Product SKU */
   sku?: string;
-  /** 商品单价 */
+  /** Product unit price */
   unitPrice?: AliexpressTradeNewRedefiningFindorderbyidMoneyStr;
-  /** 类目id */
+  /** Category ID */
   categoryId?: string;
 }
 
@@ -2266,13 +2266,13 @@ export const AliexpressTradeNewRedefiningFindorderbyidAeopTpOrderProductInfoDTOS
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidAeopTpPersonDTO {
-  /** 国家/地区 */
+  /** Country/region */
   country?: string;
   /** first name */
   firstName?: string;
   /** last name */
   lastName?: string;
-  /** 登录id */
+  /** Login ID */
   loginId?: string;
 }
 
@@ -2285,17 +2285,17 @@ export const AliexpressTradeNewRedefiningFindorderbyidAeopTpPersonDTOSchema: Sch
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidAeopTpRefundInfoDTO {
-  /** 退款现金金额(不包括coupon) */
+  /** Refund cash amount (excluding coupon) */
   refundCashAmt?: AliexpressTradeNewRedefiningFindorderbyidMoneyStr;
-  /** 退款coupon金额 */
+  /** Refund coupon amount */
   refundCouponAmt?: AliexpressTradeNewRedefiningFindorderbyidMoneyStr;
-  /** 退款原因 */
+  /** Refund reason */
   refundReason?: string;
-  /** 退款状态：等待退款 wait_refund,退款成功 refund_ok, 退款取消refund_cancel, 关闭 close, 退款冻结 refund_frozen */
+  /** Refund status: awaiting refund wait_refund, refund successful refund_ok, refund canceled refund_cancel, closed close, refund frozen refund_frozen */
   refundStatus?: string;
-  /** 退款时间 （此时间为美国太平洋时间） */
+  /** Refund time (this time is US Pacific Time) */
   refundTime?: string;
-  /** 退款类型：售后退款 c,售中退款 sale_refund，赔付退款 payout_refund, , 淘代销包赔退款: "consignment_guarantee_pay_refund" , paypal 出资赔付: "paypal_payout" , 延保售后退款: "extended_warranty_refund" , PAYPAL 发起退款追偿: "paypal_recover_refund" , 提前放款后的退款: "pre_loan_refund" ,追偿类: "recovery_refund" , PAYPAL发起退款: "paypal_issue_refund" , 包赔退款: "guarantee_pay_refund" */
+  /** Refund type: after-sales refund c, in-sales refund sale_refund, compensation refund payout_refund, , Taobao consignment guaranteed compensation refund: "consignment_guarantee_pay_refund" , PayPal-funded compensation: "paypal_payout" , extended warranty after-sales refund: "extended_warranty_refund" , refund recovery initiated by PAYPAL: "paypal_recover_refund" , refund after early payout: "pre_loan_refund" , recovery type: "recovery_refund" , refund initiated by PAYPAL: "paypal_issue_refund" , guaranteed compensation refund: "guarantee_pay_refund" */
   refundType?: string;
 }
 
@@ -2318,15 +2318,15 @@ export const AliexpressTradeNewRedefiningFindorderbyidAeopTpRefundInfoDTOSchema:
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidAeopTpSingleOrderQuery {
-  /** 需要本地地址 */
+  /** Local address required */
   needLocalAddress?: boolean;
-  /** 扩展信息目前支持纠纷信息，放款信息，物流信息，买方信息和退款信息，分别对应二进制位1,2,3,4,5。例如，只查询纠纷信息和物流信息，extInfoBitFlag=10100；将此字段留空意味着返回所有信息。 */
+  /** Extended info currently supports dispute info, payout info, logistics info, buyer info and refund info, corresponding to binary bits 1,2,3,4,5 respectively. For example, to query only dispute info and logistics info, extInfoBitFlag=10100; leaving this field empty returns all info. */
   extInfoBitFlag?: number;
-  /** 暂不支持. */
+  /** Not supported yet. */
   fieldList?: string;
-  /** 订单id */
+  /** Order ID */
   orderId?: Long;
-  /** 暂不支持 */
+  /** Not supported yet */
   showId?: string;
 }
 
@@ -3020,13 +3020,13 @@ export const AliexpressTradeNewRedefiningFindorderbyidcopy1692616251789AeopTpRef
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidcopy1692616251789AeopTpSingleOrderQuery {
-  /** 扩展信息目前支持纠纷信息，放款信息，物流信息，买方信息和退款信息，分别对应二进制位1,2,3,4,5。例如，只查询纠纷信息和物流信息，extInfoBitFlag=10100；将此字段留空意味着返回所有信息。 */
+  /** Extended info currently supports dispute info, payout info, logistics info, buyer info and refund info, corresponding to binary bits 1,2,3,4,5 respectively. For example, to query only dispute info and logistics info, extInfoBitFlag=10100; leaving this field empty returns all info. */
   extInfoBitFlag?: number;
-  /** 暂不支持. */
+  /** Not supported yet. */
   fieldList?: string;
-  /** 订单id */
+  /** Order ID */
   orderId?: Long;
-  /** 暂不支持 */
+  /** Not supported yet */
   showId?: string;
 }
 
@@ -3104,15 +3104,15 @@ export const AliexpressTradeNewRedefiningFindorderbyidcopy1692616251789SimpleMon
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidCurrency {
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
-  /** 默认最小精确度 */
+  /** Default minimum precision */
   defaultFractionDigits?: Long;
-  /** 币种名称 */
+  /** Currency name */
   displayName?: string;
-  /** 币种数字编码 */
+  /** Currency numeric code */
   numericCode?: Long;
-  /** 币种符号 */
+  /** Currency symbol */
   symbol?: string;
 }
 
@@ -3125,17 +3125,17 @@ export const AliexpressTradeNewRedefiningFindorderbyidCurrencySchema: Schema = {
 };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidMoneyStr {
-  /** 金额（mount=cent/cent_factor） */
+  /** Amount (mount=cent/cent_factor) */
   amount?: string;
-  /** 最小货币单位（例如人民币：分） */
+  /** Smallest currency unit (e.g. for CNY: fen) */
   cent?: Long;
-  /** 到最小货币单元的乘积因子（例如人民币：100） */
+  /** Multiplication factor to the smallest currency unit (e.g. Chinese yuan: 100) */
   centFactor?: Long;
-  /** 货币描述 */
+  /** Currency description */
   currency?: AliexpressTradeNewRedefiningFindorderbyidCurrency;
-  /** 币种USD/RUB */
+  /** Currency USD/RUB */
   currencyCode?: string;
-  /** 过时字段，尽量使用amount字段 */
+  /** Deprecated field; prefer the amount field */
   amountStr?: string;
 }
 
@@ -3153,9 +3153,9 @@ export const AliexpressTradeNewRedefiningFindorderbyidMoneyStrSchema: Schema = {
 };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidretailSalesTaxObject {
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
-  /** 金额 */
+  /** Amount */
   amount?: string;
 }
 
@@ -3166,9 +3166,9 @@ export const AliexpressTradeNewRedefiningFindorderbyidretailSalesTaxObjectSchema
   };
 
 export interface AliexpressTradeNewRedefiningFindorderbyidSimpleMoney {
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
-  /** 金额 */
+  /** Amount */
   amount?: string;
 }
 
@@ -3179,7 +3179,7 @@ export const AliexpressTradeNewRedefiningFindorderbyidSimpleMoneySchema: Schema 
   };
 
 export interface AliexpressTradeNewRedefiningFindorderstatisticsbyidAeopTpAddressDTO {
-  /** 国家/地区 */
+  /** Country/region */
   country?: string;
 }
 
@@ -3189,19 +3189,19 @@ export const AliexpressTradeNewRedefiningFindorderstatisticsbyidAeopTpAddressDTO
   };
 
 export interface AliexpressTradeNewRedefiningFindorderstatisticsbyidAeopTpOrderDetailDTO {
-  /** 商品信息 */
+  /** Product information */
   childOrderExtInfoList?: Array<AliexpressTradeNewRedefiningFindorderstatisticsbyidAeopTpOrderProductInfoDTO>;
-  /** 订单创建时间(此时间为美国太平洋时间) */
+  /** Order creation time (this time is US Pacific Time) */
   gmtCreate?: string;
-  /** 订单修改时间(此时间为美国太平洋时间) */
+  /** Order update time (this time is US Pacific Time) */
   gmtModified?: string;
-  /** 订单ID */
+  /** Order ID */
   id?: Long;
-  /** 订单状态 */
+  /** Order status */
   orderStatus?: string;
-  /** 收货地址信息 */
+  /** Shipping address information */
   receiptAddress?: AliexpressTradeNewRedefiningFindorderstatisticsbyidAeopTpAddressDTO;
-  /** 新订单金额，比order_amount更准确，考虑了卖家调价及COD费用。仅限于新订单（7.18-7.31期间创建的部分订单及8.1以后创建的所有订单）。 */
+  /** New order amount, more accurate than order_amount, as it takes into account seller price adjustments and COD fees. Only for new orders (some orders created between 7.18-7.31 and all orders created after 8.1). */
   newOrderAmount?: AliexpressTradeNewRedefiningFindorderstatisticsbyidSimpleMoney;
 }
 
@@ -3232,15 +3232,15 @@ export const AliexpressTradeNewRedefiningFindorderstatisticsbyidAeopTpOrderDetai
   };
 
 export interface AliexpressTradeNewRedefiningFindorderstatisticsbyidAeopTpOrderProductInfoDTO {
-  /** 单价 */
+  /** Unit price */
   unitPrice?: AliexpressTradeNewRedefiningFindorderstatisticsbyidunitPriceObject;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 商品名称 */
+  /** Product name */
   productName?: string;
-  /** 商品数量 */
+  /** Product quantity */
   quantity?: Long;
-  /** 类目id */
+  /** Category ID */
   categoryId?: string;
 }
 
@@ -3259,7 +3259,7 @@ export const AliexpressTradeNewRedefiningFindorderstatisticsbyidAeopTpOrderProdu
   };
 
 export interface AliexpressTradeNewRedefiningFindorderstatisticsbyidAeopTpSingleOrderQuery {
-  /** 订单id */
+  /** Order ID */
   orderId?: Long;
 }
 
@@ -3269,9 +3269,9 @@ export const AliexpressTradeNewRedefiningFindorderstatisticsbyidAeopTpSingleOrde
   };
 
 export interface AliexpressTradeNewRedefiningFindorderstatisticsbyidSimpleMoney {
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
-  /** 金额 */
+  /** Amount */
   amount?: string;
 }
 
@@ -3282,9 +3282,9 @@ export const AliexpressTradeNewRedefiningFindorderstatisticsbyidSimpleMoneySchem
   };
 
 export interface AliexpressTradeNewRedefiningFindorderstatisticsbyidunitPriceObject {
-  /** 金额 */
+  /** Amount */
   amount?: string;
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
 }
 
@@ -3295,9 +3295,9 @@ export const AliexpressTradeNewRedefiningFindorderstatisticsbyidunitPriceObjectS
   };
 
 export interface AliexpressTradeOrderChangeStatusOrderStatusChangeMiniAppRequest {
-  /** AE订单号 */
+  /** AE order number */
   tradeOrderId?: string;
-  /** 操作类型 */
+  /** Operation type */
   action?: string;
 }
 
@@ -3310,9 +3310,9 @@ export const AliexpressTradeOrderChangeStatusOrderStatusChangeMiniAppRequestSche
 export interface AliexpressTradeOrderChangeStatusOrderStatusChangeMiniAppResponse {
   /** msg */
   msg?: string;
-  /** 操作是否成功 */
+  /** Whether the operation succeeded */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -3324,15 +3324,15 @@ export const AliexpressTradeOrderChangeStatusOrderStatusChangeMiniAppResponseSch
   };
 
 export interface AliexpressTradeOrderCreateCreateOrderMiniAppRequest {
-  /** 总价 */
+  /** Total price */
   total?: AliexpressTradeOrderCreatePrice;
-  /** 物流服务商 */
+  /** Logistics service provider */
   logisticsServiceName?: string;
-  /** 用户openId */
+  /** User openId */
   openId?: string;
-  /** 外部订单ID */
+  /** External order ID */
   outId?: string;
-  /** AE地址组件的地址ID */
+  /** Address ID of the AE address component */
   addressId?: Long;
 }
 
@@ -3346,15 +3346,15 @@ export const AliexpressTradeOrderCreateCreateOrderMiniAppRequestSchema: Schema =
   };
 
 export interface AliexpressTradeOrderCreateCreateOrderMiniAppResponse {
-  /** 返回msg */
+  /** Returned msg */
   msg?: string;
-  /** 是否处理成功 */
+  /** Whether processing succeeded */
   success?: boolean;
-  /** AE的订单ID */
+  /** AE order ID */
   orderList?: Array<string>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 收银台token */
+  /** Cashier token */
   paymentCashierToken?: string;
 }
 
@@ -3368,7 +3368,7 @@ export const AliexpressTradeOrderCreateCreateOrderMiniAppResponseSchema: Schema 
   };
 
 export interface AliexpressTradeOrderCreatePrice {
-  /** 价格，精确到分 */
+  /** Price, accurate to cents */
   price?: string;
 }
 
@@ -3377,15 +3377,15 @@ export const AliexpressTradeOrderCreatePriceSchema: Schema = {
 };
 
 export interface AliexpressTradeOrderQueryOrder {
-  /** 扩展信息 */
+  /** Extended information */
   extraMap?: Record<string, unknown>;
-  /** 订单结束原因 */
+  /** Order end reason */
   endReason?: string;
-  /** AE订单ID */
+  /** AE order ID */
   tradeOrderId?: string;
-  /** AE订单支付状态 */
+  /** AE order payment status */
   payStatus?: string;
-  /** AE订单状态 */
+  /** AE order status */
   status?: string;
 }
 
@@ -3398,7 +3398,7 @@ export const AliexpressTradeOrderQueryOrderSchema: Schema = {
 };
 
 export interface AliexpressTradeOrderQueryOrderQueryMiniAppRequest {
-  /** AE订单IDs */
+  /** AE order IDs */
   orderIds?: Array<string>;
 }
 
@@ -3409,11 +3409,11 @@ export const AliexpressTradeOrderQueryOrderQueryMiniAppRequestSchema: Schema = {
 export interface AliexpressTradeOrderQueryOrderQueryMiniAppResponse {
   /** msg */
   msg?: string;
-  /** 操作是否成功 */
+  /** Whether the operation succeeded */
   success?: boolean;
-  /** 订单列表 */
+  /** Order list */
   orderList?: Array<AliexpressTradeOrderQueryOrder>;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -3426,15 +3426,15 @@ export const AliexpressTradeOrderQueryOrderQueryMiniAppResponseSchema: Schema =
   };
 
 export interface AliexpressTradeRedefiningFindloanlistqueryCurrency {
-  /** 币种名称 */
+  /** Currency name */
   displayName?: string;
-  /** 币种符号 */
+  /** Currency symbol */
   symbol?: string;
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
-  /** 币种数字编码 */
+  /** Currency numeric code */
   numericCode?: number;
-  /** 默认最小精确度（精确到的小数点位数） */
+  /** Default minimum precision (number of decimal places) */
   defaultFractionDigits?: number;
 }
 
@@ -3448,9 +3448,9 @@ export const AliexpressTradeRedefiningFindloanlistqueryCurrencySchema: Schema =
   };
 
 export interface AliexpressTradeRedefiningFindloanlistqueryFundLoanListVO {
-  /** 总条数 */
+  /** Total count */
   totalItem?: number;
-  /** 订单放款列表 */
+  /** Order payout list */
   orderList?: Array<AliexpressTradeRedefiningFindloanlistqueryOrderLoanItemVO>;
 }
 
@@ -3465,17 +3465,17 @@ export const AliexpressTradeRedefiningFindloanlistqueryFundLoanListVOSchema: Sch
   };
 
 export interface AliexpressTradeRedefiningFindloanlistqueryFundloanRequest {
-  /** 放款时间截止值，格式: mm/dd/yyyy hh:mm:ss,如10/09/2013 00:00:00。时间需精确到秒，否则条件无效。 */
+  /** End value of payout time, format: mm/dd/yyyy hh:mm:ss, e.g. 10/09/2013 00:00:00. The time must be precise to the second, otherwise the condition is invalid. */
   createDateEnd?: string;
-  /** 放款时间起始值，格式: mm/dd/yyyy hh:mm:ss,如10/08/2013 00:00:00。时间需精确到秒，否则条件无效。 */
+  /** Start value of payout time, format: mm/dd/yyyy hh:mm:ss, e.g. 10/08/2013 00:00:00. The time must be precise to the second, otherwise the condition is invalid. */
   createDateStart?: string;
-  /** 订单放款状态：wait_loan 未放款，loan_ok已放款。 */
+  /** Order payout status: wait_loan not paid out, loan_ok paid out. */
   loanStatus?: string;
-  /** 当前页码.。 */
+  /** Current page number. */
   page?: number;
-  /** 每页个数，最大200。 */
+  /** Items per page, maximum 200. */
   pageSize?: number;
-  /** 主订单id，一次只能查询一个. */
+  /** Main order id; only one can be queried at a time. */
   orderId?: Long;
 }
 
@@ -3490,15 +3490,15 @@ export const AliexpressTradeRedefiningFindloanlistqueryFundloanRequestSchema: Sc
   };
 
 export interface AliexpressTradeRedefiningFindloanlistqueryMoney {
-  /** 货币描述 */
+  /** Currency description */
   currency?: AliexpressTradeRedefiningFindloanlistqueryCurrency;
-  /** 币种USD/RUB */
+  /** Currency USD/RUB */
   currencyCode?: string;
-  /** 到最小货币单元的乘积因子 */
+  /** Multiplication factor to the smallest currency unit */
   centFactor?: number;
-  /** 分 */
+  /** Cent */
   cent?: Long;
-  /** 金额 */
+  /** Amount */
   amount?: string;
 }
 
@@ -3515,13 +3515,13 @@ export const AliexpressTradeRedefiningFindloanlistqueryMoneySchema: Schema = {
 };
 
 export interface AliexpressTradeRedefiningFindloanlistqueryOrderLoanItemVO {
-  /** 订单ID */
+  /** Order ID */
   orderId?: Long;
-  /** 子订单元素列表 */
+  /** Sub-order element list */
   sonOrderList?: Array<AliexpressTradeRedefiningFindloanlistquerySonOrderLoanVO>;
-  /** 订单状态： PLACE_ORDER_SUCCESS:等待买家付款; IN_CANCEL:买家申请取消; WAIT_SELLER_SEND_GOODS:等待您发货; SELLER_PART_SEND_GOODS:部分发货; WAIT_BUYER_ACCEPT_GOODS:等待买家收货; FUND_PROCESSING:买卖家达成一致，资金处理中； IN_ISSUE:含纠纷中的订单; IN_FROZEN:冻结中的订单; WAIT_SELLER_EXAMINE_MONEY:等待您确认金额; RISK_CONTROL:订单处于风控24小时中，从买家在线支付完成后开始，持续24小时。 以上状态查询可分别做单独查询，不传订单状态查询订单信息不包含（FINISH，已结束订单状态） FINISH:已结束的订单，需单独查询。 */
+  /** Order status: PLACE_ORDER_SUCCESS: waiting for buyer payment; IN_CANCEL: buyer requested cancellation; WAIT_SELLER_SEND_GOODS: waiting for you to ship; SELLER_PART_SEND_GOODS: partially shipped; WAIT_BUYER_ACCEPT_GOODS: waiting for buyer to receive; FUND_PROCESSING: buyer and seller reached an agreement, funds being processed; IN_ISSUE: order with a dispute; IN_FROZEN: frozen order; WAIT_SELLER_EXAMINE_MONEY: waiting for you to confirm the amount; RISK_CONTROL: order is in 24-hour risk control, starting after the buyer completes online payment and lasting 24 hours. The above statuses can each be queried separately; if no order status is passed, the query results do not include (FINISH, completed orders). FINISH: completed orders, which must be queried separately. */
   orderStatus?: string;
-  /** 总金额 */
+  /** Total amount */
   amountTotal?: AliexpressTradeRedefiningFindloanlistqueryMoney;
 }
 
@@ -3542,27 +3542,27 @@ export const AliexpressTradeRedefiningFindloanlistqueryOrderLoanItemVOSchema: Sc
   };
 
 export interface AliexpressTradeRedefiningFindloanlistquerySonOrderLoanVO {
-  /** 放款时间（不返回） */
+  /** Payout time (not returned) */
   releasedDatetime?: string;
-  /** 待放款原因 */
+  /** Reason payout is pending */
   waitLoanReson?: string;
-  /** 实际放款出账金额 */
+  /** Actual payout amount */
   realLoanAmount?: AliexpressTradeRedefiningFindloanlistqueryMoney;
-  /** 联盟佣金 */
+  /** Affiliate commission */
   affiliateCommission?: AliexpressTradeRedefiningFindloanlistqueryMoney;
-  /** 手续费 */
+  /** Handling fee */
   escrowFee?: AliexpressTradeRedefiningFindloanlistqueryMoney;
-  /** 放款金额 */
+  /** Payout amount */
   loanAmount?: AliexpressTradeRedefiningFindloanlistqueryMoney;
-  /** 实际退款出账金额 */
+  /** Actual refund payout amount */
   realRefundAmount?: AliexpressTradeRedefiningFindloanlistqueryMoney;
-  /** 退款金额 */
+  /** Refund amount */
   refundAmount?: AliexpressTradeRedefiningFindloanlistqueryMoney;
-  /** 放款金额(已废弃) */
+  /** Payout amount (deprecated) */
   amount?: AliexpressTradeRedefiningFindloanlistqueryMoney;
-  /** 放款状态 */
+  /** Payout status */
   loanStatus?: string;
-  /** 子订单ID */
+  /** Sub-order ID */
   childOrderId?: Long;
 }
 
@@ -3610,25 +3610,25 @@ export const AliexpressTradeRedefiningFindloanlistquerySonOrderLoanVOSchema: Sch
   };
 
 export interface AliexpressTradeRedefiningFindorderbaseinfoOrderBaseInfo {
-  /** 订单修改时间,此事件为美国太平洋时间。 */
+  /** Order update time, this is US Pacific Time. */
   gmtModified?: string;
-  /** 冻结状态("NO_FROZEN":无冻结;"IN_FROZEN":冻结中) */
+  /** Frozen status ("NO_FROZEN": not frozen; "IN_FROZEN": frozen) */
   frozenStatus?: string;
-  /** 纠纷状态("NO_ISSUE":无纠纷;"IN_ISSUE":纠纷中;"END_ISSUE":纠纷结束) */
+  /** Dispute status ("NO_ISSUE": no dispute; "IN_ISSUE": in dispute; "END_ISSUE": dispute ended) */
   issueStatus?: string;
-  /** 物流状态("WAIT_SELLER_SEND_GOODS":等待卖家发货; "SELLER_SEND_PART_GOODS": 卖家部分发货;"SELLER_SEND_GOODS":卖家已发货;"BUYER_ACCEPT_GOODS":买家确认收货;"NO_LOGISTICS":无物流) */
+  /** Logistics status ("WAIT_SELLER_SEND_GOODS": awaiting seller shipment; "SELLER_SEND_PART_GOODS": seller partially shipped; "SELLER_SEND_GOODS": seller shipped; "BUYER_ACCEPT_GOODS": buyer confirmed receipt; "NO_LOGISTICS": no logistics) */
   logisticsStatus?: string;
-  /** 订单创建时间，此时间为美国太平洋时间。 */
+  /** Order creation time, this is US Pacific Time. */
   gmtCreate?: string;
-  /** 订单放款状态("wait_loan":未放款;"loan_ok":已放款) */
+  /** Order payout status ("wait_loan": not paid out; "loan_ok": paid out) */
   loanStatus?: string;
-  /** 负责人账号ID */
+  /** Owner account ID */
   sellerOperatorLoginId?: string;
-  /** 资金状态("NOT_PAY":未付款;"PAY_SUCCESS":付款成功;"WAIT_SELLER_CHECK":等待卖家验款) */
+  /** Fund status ("NOT_PAY": unpaid; "PAY_SUCCESS": payment successful; "WAIT_SELLER_CHECK": awaiting seller payment verification) */
   fundStatus?: string;
-  /** 卖家全名 */
+  /** Seller full name */
   sellerSignerFullname?: string;
-  /** 订单状态 */
+  /** Order status */
   orderStatus?: string;
 }
 
@@ -3657,7 +3657,7 @@ export interface AliexpressTradeRedefiningFindorderbaseinfoTpOpenSingleOrderQuer
   showId?: string;
   /** 12345 */
   extInfoBitFlag?: number;
-  /** 订单ID */
+  /** Order ID */
   orderId?: Long;
   /** 12345 */
   sellerAliid?: Long;
@@ -3675,17 +3675,17 @@ export const AliexpressTradeRedefiningFindorderbaseinfoTpOpenSingleOrderQuerySch
   };
 
 export interface AliexpressTradeRedefiningFindorderlistsimplequeryOrderListRequest {
-  /** 订单创建时间结束值，格式: yyyy-MM-dd hh:MM:ss,如2015-07-10 00:00:00 倘若时间维度未精确到时分秒，故该时间条件筛选不许生效。此入参时间为美国太平洋时间。 */
+  /** End value of order creation time, format: yyyy-MM-dd hh:MM:ss, e.g. 2015-07-10 00:00:00. If the time is not precise to hours, minutes and seconds, this time filter will not take effect. This input time is US Pacific Time. */
   createDateEnd?: string;
-  /** 订单创建时间起始值，格式: yyyy-MM-dd hh:MM:ss,如2015-07-09 00:00:00 倘若时间维度未精确到时分秒，故该时间条件筛选不许生效。此入参为美国太平洋时间。 */
+  /** Start value of order creation time, format: yyyy-MM-dd hh:MM:ss, e.g. 2015-07-09 00:00:00. If the time is not precise to hours, minutes and seconds, this time filter will not take effect. This input is US Pacific Time. */
   createDateStart?: string;
-  /** 查询多个订单状态下的订单信息，具体订单状态见order_status详情。 */
+  /** Query order information under multiple order statuses; see the order_status details for specific order statuses. */
   orderStatusList?: string;
-  /** 当前页码 */
+  /** Current page number */
   page?: number;
-  /** 每页订单数，最大50 */
+  /** Orders per page, maximum 50 */
   pageSize?: number;
-  /** 订单状态： PLACE_ORDER_SUCCESS:等待买家付款; IN_CANCEL:买家申请取消; WAIT_SELLER_SEND_GOODS:等待您发货; SELLER_PART_SEND_GOODS:部分发货; WAIT_BUYER_ACCEPT_GOODS:等待买家收货; FUND_PROCESSING:买家确认收货后，等待退放款处理的状态; FINISH:已结束的订单; IN_ISSUE:含纠纷的订单; IN_FROZEN:冻结中的订单; WAIT_SELLER_EXAMINE_MONEY:等待您确认金额; RISK_CONTROL:订单处于风控24小时中，从买家在线支付完成后开始，持续24小时。 */
+  /** Order status: PLACE_ORDER_SUCCESS: waiting for buyer payment; IN_CANCEL: buyer requested cancellation; WAIT_SELLER_SEND_GOODS: waiting for you to ship; SELLER_PART_SEND_GOODS: partially shipped; WAIT_BUYER_ACCEPT_GOODS: waiting for buyer to receive; FUND_PROCESSING: after the buyer confirms receipt, waiting for refund and payout processing; FINISH: completed order; IN_ISSUE: order with a dispute; IN_FROZEN: frozen order; WAIT_SELLER_EXAMINE_MONEY: waiting for you to confirm the amount; RISK_CONTROL: order is in 24-hour risk control, starting after the buyer completes online payment and lasting 24 hours. */
   orderStatus?: string;
 }
 
@@ -3700,21 +3700,21 @@ export const AliexpressTradeRedefiningFindorderlistsimplequeryOrderListRequestSc
   };
 
 export interface AliexpressTradeRedefiningFindorderlistsimplequerySimpleOrderItemVO {
-  /** 商品列表 */
+  /** Product list */
   productList?: Array<AliexpressTradeRedefiningFindorderlistsimplequerySimpleOrderProductVO>;
-  /** 订单备注 */
+  /** Order remarks */
   memo?: string;
-  /** 当前状态的超时剩余时间，单位毫秒（负数表示已超时时间）。已作废,不再返回值。 */
+  /** Remaining time before the current status times out, in milliseconds (a negative number means the time already elapsed past the timeout). Deprecated, no longer returns a value. */
   timeoutLeftTime?: Long;
-  /** 订单类型（AE_COMMON:普通订单;AE_TRIAL:试用订单;AE_RECHARGE:手机充值订单) */
+  /** Order type (AE_COMMON: regular order; AE_TRIAL: trial order; AE_RECHARGE: mobile top-up order) */
   bizType?: string;
-  /** 订单状态 */
+  /** Order status */
   orderStatus?: string;
-  /** 订单修改时间，美国太平洋时间 */
+  /** Order update time, US Pacific Time */
   gmtModified?: string;
-  /** 订单创建时间，美国太平洋时间 */
+  /** Order creation time, US Pacific Time */
   gmtCreate?: string;
-  /** 订单ID */
+  /** Order ID */
   orderId?: Long;
 }
 
@@ -3736,9 +3736,9 @@ export const AliexpressTradeRedefiningFindorderlistsimplequerySimpleOrderItemVOS
   };
 
 export interface AliexpressTradeRedefiningFindorderlistsimplequerySimpleOrderListVO {
-  /** 总数量(SC订单不包含在结果中） */
+  /** Total quantity (SC orders are not included in the results) */
   totalItem?: number;
-  /** 订单列表 */
+  /** Order list */
   orderList?: Array<AliexpressTradeRedefiningFindorderlistsimplequerySimpleOrderItemVO>;
 }
 
@@ -3754,31 +3754,31 @@ export const AliexpressTradeRedefiningFindorderlistsimplequerySimpleOrderListVOS
   };
 
 export interface AliexpressTradeRedefiningFindorderlistsimplequerySimpleOrderProductVO {
-  /** 是否假一赔三产品 */
+  /** Whether it is a fake-one-pay-three product */
   moneyBack3x?: boolean;
-  /** 商品编码 */
+  /** Product code */
   skuCode?: string;
-  /** 商品货币名称 */
+  /** Product currency name */
   productUnitPriceCur?: string;
-  /** 商品单价 */
+  /** Product unit price */
   productUnitPrice?: string;
-  /** 商品数量 */
+  /** Product quantity */
   productCount?: number;
-  /** 商品主图URL */
+  /** Product main image URL */
   productImgUrl?: string;
-  /** 快照URL */
+  /** Snapshot URL */
   productSnapUrl?: string;
-  /** 商品名称 */
+  /** Product name */
   productName?: string;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 子订单状态 */
+  /** Sub-order status */
   sonOrderStatus?: string;
-  /** 商品单位 */
+  /** Product unit */
   productUnit?: string;
-  /** 备货时间 */
+  /** Stocking time */
   goodsPrepareTime?: number;
-  /** 子订单号 */
+  /** Sub-order number */
   childId?: Long;
 }
 
@@ -3800,45 +3800,45 @@ export const AliexpressTradeRedefiningFindorderlistsimplequerySimpleOrderProduct
   };
 
 export interface AliexpressTradeRedefiningFindorderreceiptinfoAeopTpAddressDTO {
-  /** 加密OAID */
+  /** Encrypted OAID */
   oaid?: string;
-  /** 沙特国家地址 */
+  /** Saudi Arabia national address */
   natAddr?: string;
-  /** 四级区划 */
+  /** Four-level administrative divisions */
   tAN?: string;
-  /** 传真区号 */
+  /** Fax area code */
   faxArea?: string;
-  /** 邮编 */
+  /** Postal code */
   zip?: string;
-  /** 传真国家/地区码 */
+  /** Fax country/region code */
   faxCountry?: string;
-  /** 地址2 */
+  /** Address 2 */
   address2?: string;
-  /** 国家/地区编码 */
+  /** Country/region code */
   country?: string;
-  /** 城市 */
+  /** City */
   city?: string;
-  /** 街道详细地址 */
+  /** Detailed street address */
   detailAddress?: string;
-  /** 传真号 */
+  /** Fax number */
   faxNumber?: string;
-  /** 电话 */
+  /** Phone */
   phoneNumber?: string;
-  /** 地址1 */
+  /** Address 1 */
   address?: string;
-  /** 省份 */
+  /** Province */
   province?: string;
-  /** 区号 */
+  /** Area code */
   phoneArea?: string;
-  /** 国家/地区码 */
+  /** Country/region code */
   phoneCountry?: string;
-  /** 收件人 */
+  /** Recipient */
   contactPerson?: string;
-  /** 手机 */
+  /** Mobile phone */
   mobileNo?: string;
-  /** 国家/地区全称 */
+  /** Country/region full name */
   countryName?: string;
-  /** 个人税号 */
+  /** Individual tax ID */
   cpfNo?: string;
 }
 
@@ -3867,19 +3867,19 @@ export const AliexpressTradeRedefiningFindorderreceiptinfoAeopTpAddressDTOSchema
   };
 
 export interface AliexpressTradeRedefiningFindorderreceiptinfoTpOpenSingleOrderQuery {
-  /** 无效，请不要设置任何值 */
+  /** Invalid, do not set any value */
   buyerAliid?: Long;
-  /** 无效，请不要设置任何值 */
+  /** Invalid, do not set any value */
   fieldList?: string;
-  /** 无效，请不要设置任何值 */
+  /** Invalid, do not set any value */
   sellerOperatorAliid?: Long;
-  /** 无效，请不要设置任何值 */
+  /** Invalid, do not set any value */
   showId?: string;
-  /** 无效，请不要设置任何值 */
+  /** Invalid, do not set any value */
   extInfoBitFlag?: number;
-  /** 订单ID */
+  /** Order ID */
   orderId?: Long;
-  /** 无效，请不要设置任何值 */
+  /** Invalid, do not set any value */
   sellerAliid?: Long;
 }
 
@@ -3895,41 +3895,41 @@ export const AliexpressTradeRedefiningFindorderreceiptinfoTpOpenSingleOrderQuery
   };
 
 export interface AliexpressTradeRedefiningFindordertradeinfoChildOrderDTO {
-  /** 子订单ID */
+  /** Sub-order ID */
   id?: Long;
-  /** 商品排序号 */
+  /** Product sort number */
   orderSortId?: number;
-  /** 子订单初始金额的货币单位 */
+  /** Currency unit of the initial amount of the sub-order */
   initOrderAmtCur?: string;
-  /** 子订单初始金额 */
+  /** Initial sub-order amount */
   initOrderAmt?: string;
-  /** 商品属性 */
+  /** Product attributes */
   productAttributes?: string;
-  /** 商品的SKU编码 */
+  /** SKU code of the product */
   skuCode?: string;
-  /** lot数量 */
+  /** Lot quantity */
   lotNum?: string;
-  /** 商品规格 */
+  /** Product specifications */
   productStandard?: string;
-  /** 商品计量单位 */
+  /** Product unit of measure */
   productUnit?: string;
-  /** 商品数量 */
+  /** Product quantity */
   productCount?: number;
-  /** 商品价格的货币单位 */
+  /** Currency unit of the product price */
   productPriceCur?: string;
-  /** 商品价格 */
+  /** Product price */
   productPrice?: string;
-  /** 商品名称 */
+  /** Product name */
   productName?: string;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 冻结状态(NO_FROZEN:无冻结；IN_FROZEN:冻结中) */
+  /** Freeze status (NO_FROZEN: not frozen; IN_FROZEN: frozen) */
   frozenStatus?: string;
-  /** 纠纷状态(NO_ISSUE:无纠纷；IN_ISSUE:纠纷中；END_ISSUE:纠纷结束) */
+  /** Dispute status (NO_ISSUE: no dispute; IN_ISSUE: in dispute; END_ISSUE: dispute ended) */
   issueStatus?: string;
-  /** 资金状态(NOT_PAY:未付款; PAY_SUCCESS:付款成功; WAIT_SELLER_CHECK:卖家验款) */
+  /** Fund status (NOT_PAY: unpaid; PAY_SUCCESS: payment successful; WAIT_SELLER_CHECK: seller payment verification) */
   fundStatus?: string;
-  /** 子订单状态 */
+  /** Sub-order status */
   orderStatus?: string;
 }
 
@@ -3956,23 +3956,23 @@ export const AliexpressTradeRedefiningFindordertradeinfoChildOrderDTOSchema: Sch
   };
 
 export interface AliexpressTradeRedefiningFindordertradeinfoOrderTradeInfo {
-  /** 订单金额的货币单位 */
+  /** Currency unit of the order amount */
   initOderAmountCur?: string;
-  /** 订单ID */
+  /** Order ID */
   id?: Long;
-  /** 订单初始金额 */
+  /** Initial order amount */
   initOderAmount?: string;
-  /** 物流金额的货币单位 */
+  /** Currency unit of the logistics amount */
   logisticsAmountCur?: string;
-  /** 商品列表 */
+  /** Product list */
   childOrderList?: Array<AliexpressTradeRedefiningFindordertradeinfoChildOrderDTO>;
-  /** 是否手机订单 */
+  /** Whether it is a mobile order */
   isPhone?: boolean;
-  /** 物流金额（仅返回买家支付的物流费用） */
+  /** Logistics amount (only the logistics fee paid by the buyer is returned) */
   logisticsAmount?: string;
-  /** 订单金额 */
+  /** Order amount */
   orderAmount?: string;
-  /** 订单金额货币单位 */
+  /** Currency unit of the order amount */
   orderAmountCur?: string;
 }
 
@@ -3994,7 +3994,7 @@ export const AliexpressTradeRedefiningFindordertradeinfoOrderTradeInfoSchema: Sc
   };
 
 export interface AliexpressTradeRedefiningFindordertradeinfoTpOpenSingleOrderQuery {
-  /** 买家ID */
+  /** Buyer ID */
   buyerAliid?: Long;
   /** 12345 */
   fieldList?: string;
@@ -4004,7 +4004,7 @@ export interface AliexpressTradeRedefiningFindordertradeinfoTpOpenSingleOrderQue
   showId?: string;
   /** 12345 */
   extInfoBitFlag?: number;
-  /** 订单ID */
+  /** Order ID */
   orderId?: Long;
   /** 12345 */
   sellerAliid?: Long;
@@ -4022,9 +4022,9 @@ export const AliexpressTradeRedefiningFindordertradeinfoTpOpenSingleOrderQuerySc
   };
 
 export interface AliexpressTradeRedefiningSendcodeSendCodeLineRequest {
-  /** 子单id */
+  /** Sub-order ID */
   orderLineId?: Long;
-  /** 码列表 */
+  /** Code list */
   codeList?: Array<AliexpressTradeRedefiningSendcodeVirtualCode>;
 }
 
@@ -4039,11 +4039,11 @@ export const AliexpressTradeRedefiningSendcodeSendCodeLineRequestSchema: Schema 
   };
 
 export interface AliexpressTradeRedefiningSendcodeSendCodeRequest {
-  /** 业务类型 */
+  /** Business type */
   bizType?: string;
-  /** 订单id */
+  /** Order ID */
   orderId?: Long;
-  /** 码列表，子单维度 */
+  /** Code list, sub-order dimension */
   sendCodeList?: Array<AliexpressTradeRedefiningSendcodeSendCodeLineRequest>;
 }
 
@@ -4058,9 +4058,9 @@ export const AliexpressTradeRedefiningSendcodeSendCodeRequestSchema: Schema = {
 };
 
 export interface AliexpressTradeRedefiningSendcodeVirtualCode {
-  /** 码,密文 */
+  /** Code, ciphertext */
   code?: string;
-  /** 有效时间 */
+  /** Validity period */
   expireTime?: string;
 }
 
@@ -4070,11 +4070,11 @@ export const AliexpressTradeRedefiningSendcodeVirtualCodeSchema: Schema = {
 };
 
 export interface AliexpressTradeRedefiningVerifycodeSellerVerifyCodeRequest {
-  /** 订单 id */
+  /** Order ID */
   orderId?: Long;
-  /** 券码 */
+  /** Coupon code */
   code?: string;
-  /** 券码业务类型 */
+  /** Voucher code business type */
   bizType?: string;
 }
 
@@ -4086,9 +4086,9 @@ export const AliexpressTradeRedefiningVerifycodeSellerVerifyCodeRequestSchema: S
   };
 
 export interface AliexpressTradeSellerOrderAcceptcancelAeopOrderCancelRequest {
-  /** 买家登录帐号 */
+  /** Buyer login account */
   buyerLoginId?: string;
-  /** 订单id */
+  /** Order ID */
   orderId?: Long;
 }
 
@@ -4099,13 +4099,13 @@ export const AliexpressTradeSellerOrderAcceptcancelAeopOrderCancelRequestSchema:
   };
 
 export interface AliexpressTradeSellerOrderAcceptcancelAeopResultDTO {
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 返回结果 */
+  /** Returned result */
   target?: boolean;
 }
 
@@ -4118,27 +4118,27 @@ export const AliexpressTradeSellerOrderAcceptcancelAeopResultDTOSchema: Schema =
   };
 
 export interface AliexpressTradeSellerOrderDecryptresultObjObject {
-  /** 买家全名 */
+  /** Buyer full name */
   buyerSignerFullname?: string;
-  /** 电话号码 */
+  /** Phone number */
   phoneNumber?: string;
   /** address2 */
   address2?: string;
-  /** 收件人 */
+  /** Recipient */
   contactPerson?: string;
-  /** 收件详细地址 */
+  /** Detailed recipient address */
   detailAddress?: string;
-  /** 移动手机号码 */
+  /** Mobile phone number */
   mobileNo?: string;
-  /** 买家 first_name */
+  /** Buyer first_name */
   firstName?: string;
-  /** 买家联系邮箱 */
+  /** Buyer contact email */
   contactEmail?: string;
-  /** 沙特national address */
+  /** Saudi national address */
   natAddr?: string;
-  /** 三级地址区划tAN */
+  /** Third-level address division tAN */
   tAN?: string;
-  /** 护照编号（南非税号） */
+  /** Passport number (South Africa tax number) */
   passportNo?: string;
 }
 
@@ -4157,69 +4157,69 @@ export const AliexpressTradeSellerOrderDecryptresultObjObjectSchema: Schema = {
 };
 
 export interface AliexpressTradeSellerOrderlistGetAeopOrderItemDTO {
-  /** 存储主订单的拓展参数，是一个map 序列化成Json的。 */
+  /** Stores the extension parameters of the main order, a map serialized to JSON. */
   extendMap?: string;
-  /** 订单类型。（AE_COMMON:普通订单;AE_TRIAL:试用订单;AE_RECHARGE:手机充值订单) */
+  /** Order type. (AE_COMMON: regular order; AE_TRIAL: trial order; AE_RECHARGE: mobile top-up order) */
   bizType?: string;
-  /** 买家登录id */
+  /** Buyer login ID */
   buyerLoginId?: string;
-  /** 买家全名 */
+  /** Buyer full name */
   buyerSignerFullname?: string;
-  /** 结束原因 */
+  /** End reason */
   endReason?: string;
-  /** 手续费 */
+  /** Handling fee */
   escrowFee?: AliexpressTradeSellerOrderlistGetSimpleMoney;
-  /** 手续费率 */
+  /** Handling fee rate */
   escrowFeeRate?: number;
-  /** 冻结状态。(NO_FROZEN:无冻结; IN_FROZEN:冻结中) */
+  /** Frozen status. (NO_FROZEN: not frozen; IN_FROZEN: frozen) */
   frozenStatus?: string;
-  /** 资金状态。(NOT_PAY:未付款; PAY_SUCCESS:付款成功; WAIT_SELLER_CHECK:卖家验款) */
+  /** Fund status. (NOT_PAY: unpaid; PAY_SUCCESS: payment successful; WAIT_SELLER_CHECK: seller payment verification) */
   fundStatus?: string;
-  /** 订单创建时间 */
+  /** Order creation time */
   gmtCreate?: string;
-  /** 订单支付时间（和订单详情中gmtPaysuccess字段意义相同。) */
+  /** Order payment time (same meaning as the gmtPaysuccess field in the order details.) */
   gmtPayTime?: string;
-  /** 最后一次订单发货时间（已完成订单不返回时间） */
+  /** Last order shipment time (not returned for completed orders) */
   gmtSendGoodsTime?: string;
-  /** 订单最后更新时间 */
+  /** Last update time of the order */
   gmtUpdate?: string;
-  /** 是否已请求放款 */
+  /** Whether payout has been requested */
   hasRequestLoan?: boolean;
-  /** 纠纷状态。(NO_ISSUE:无纠纷; IN_ISSUE:纠纷中; END_ISSUE:纠纷结束) */
+  /** Dispute status. (NO_ISSUE: no dispute; IN_ISSUE: in dispute; END_ISSUE: dispute ended) */
   issueStatus?: string;
-  /** 剩余发货时间（天） */
+  /** Remaining shipping time (days) */
   leftSendGoodDay?: string;
-  /** 剩余发货时间（小时） */
+  /** Remaining shipping time (hours) */
   leftSendGoodHour?: string;
-  /** 剩余发货时间（分钟） */
+  /** Remaining shipping time (minutes) */
   leftSendGoodMin?: string;
-  /** 放款金额 */
+  /** Payout amount */
   loanAmount?: AliexpressTradeSellerOrderlistGetSimpleMoney;
-  /** 运费佣金比例 */
+  /** Shipping fee commission rate */
   logisitcsEscrowFeeRate?: string;
-  /** 物流状态。（WAIT_SELLER_SEND_GOODS:等待卖家发货; SELLER_SEND_PART_GOODS:卖家部分发货; SELLER_SEND_GOODS:卖家已发货; BUYER_ACCEPT_GOODS:买家已确认收货; NO_LOGISTICS:没有物流流转信息） */
+  /** Logistics status. (WAIT_SELLER_SEND_GOODS: awaiting seller shipment; SELLER_SEND_PART_GOODS: seller partially shipped; SELLER_SEND_GOODS: seller shipped; BUYER_ACCEPT_GOODS: buyer confirmed receipt; NO_LOGISTICS: no logistics tracking information) */
   logisticsStatus?: string;
-  /** 订单详情链接 */
+  /** Order detail link */
   orderDetailUrl?: string;
-  /** 订单ID */
+  /** Order ID */
   orderId?: Long;
-  /** 订单状态 */
+  /** Order status */
   orderStatus?: string;
-  /** 付款金额 */
+  /** Payment amount */
   payAmount?: AliexpressTradeSellerOrderlistGetSimpleMoney;
-  /** 付款方式。 （migs:信用卡支付走人民币渠道; migs102:MasterCard支付并且走人民币渠道; migs101:Visa支付并且走人民币渠道; pp101:PayPal; mb: MoneyBooker渠道; tt101:Bank Transfer支付; wu101: West Union支付； wp101:Visa走美金渠道的支付; wp102:Mastercard走美金渠道的支付; qw101:QIWI支付; cybs101:Visa走CYBS渠道的支付; cybs102: Mastercard走CYBS渠道的支付; wm101:WebMoney支付; ebanx101:巴西Beloto支付） */
+  /** Payment method. (migs: credit card payment via the RMB channel; migs102: MasterCard payment via the RMB channel; migs101: Visa payment via the RMB channel; pp101: PayPal; mb: MoneyBooker channel; tt101: Bank Transfer payment; wu101: West Union payment; wp101: Visa payment via the USD channel; wp102: Mastercard payment via the USD channel; qw101: QIWI payment; cybs101: Visa payment via the CYBS channel; cybs102: Mastercard payment via the CYBS channel; wm101: WebMoney payment; ebanx101: Brazil Beloto payment) */
   paymentType?: string;
-  /** 是否手机订单 */
+  /** Whether it is a mobile order */
   phone?: boolean;
-  /** 商品列表 */
+  /** Product list */
   productList?: Array<AliexpressTradeSellerOrderlistGetAeopOrderProductDTO>;
-  /** 卖家登录ID */
+  /** Seller login ID */
   sellerLoginId?: string;
-  /** 卖家操作人员的登录id */
+  /** Login id of the seller operator */
   sellerOperatorLoginId?: string;
-  /** 卖家全名 */
+  /** Seller full name */
   sellerSignerFullname?: string;
-  /** 当前状态下的超时剩余时间（负数表示已超时时间） */
+  /** Remaining timeout time in the current status (a negative number indicates time already overdue) */
   timeoutLeftTime?: Long;
 }
 
@@ -4275,73 +4275,73 @@ export const AliexpressTradeSellerOrderlistGetAeopOrderItemDTOSchema: Schema = {
 };
 
 export interface AliexpressTradeSellerOrderlistGetAeopOrderProductDTO {
-  /** 存储子订单的拓展参数，是一个map 序列化成Json的。"orderBusinessModel":"SEMI_CHOICE_SELF"是半托管 */
+  /** Extended parameters stored for the sub-order, a map serialized to JSON. "orderBusinessModel":"SEMI_CHOICE_SELF" means semi-managed */
   extendMap?: string;
-  /** 联盟佣金比例 */
+  /** Affiliate commission rate */
   afflicateFeeRate?: string;
-  /** 买家firstName */
+  /** Buyer firstName */
   buyerSignerFirstName?: string;
-  /** 买家lastName */
+  /** Buyer lastName */
   buyerSignerLastName?: string;
-  /** 子订单是否能提交纠纷 */
+  /** Whether a dispute can be submitted for the sub-order */
   canSubmitIssue?: boolean;
-  /** 子订单id */
+  /** Sub-order ID */
   childId?: Long;
-  /** 妥投时间 */
+  /** Delivery completion time */
   deliveryTime?: string;
-  /** 交易佣金比例 */
+  /** Transaction commission rate */
   escrowFeeRate?: string;
-  /** 限时达 */
+  /** Time-limited delivery */
   freightCommitDay?: string;
-  /** 资金状态。(NOT_PAY:未付款; PAY_SUCCESS:付款成功; WAIT_SELLER_CHECK:卖家验款) */
+  /** Fund status. (NOT_PAY: unpaid; PAY_SUCCESS: payment successful; WAIT_SELLER_CHECK: seller payment verification) */
   fundStatus?: string;
-  /** 备货时间 */
+  /** Stocking time */
   goodsPrepareTime?: number;
-  /** 纠纷类型 */
+  /** Dispute type */
   issueMode?: string;
-  /** 纠纷状态。(NO_ISSUE:无纠纷; IN_ISSUE:纠纷中; END_ISSUE:纠纷结束) */
+  /** Dispute status. (NO_ISSUE: no dispute; IN_ISSUE: in dispute; END_ISSUE: dispute ended) */
   issueStatus?: string;
-  /** 物流费用（子订单没有运费，请忽略） */
+  /** Logistics fee (sub-orders have no shipping fee; ignore) */
   logisticsAmount?: AliexpressTradeSellerOrderlistGetSimpleMoney;
-  /** 物流服务 */
+  /** Logistics service */
   logisticsServiceName?: string;
-  /** 物流类型 */
+  /** Logistics type */
   logisticsType?: string;
-  /** 买家备注 */
+  /** Buyer remarks */
   memo?: string;
-  /** 是否假一赔三产品 */
+  /** Whether it is a fake-one-pay-three product */
   moneyBack3x?: boolean;
-  /** 订单id */
+  /** Order ID */
   orderId?: Long;
-  /** 商品数量 */
+  /** Product quantity */
   productCount?: number;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 商品主图Url */
+  /** Product main image URL */
   productImgUrl?: string;
-  /** 商品名称 */
+  /** Product name */
   productName?: string;
-  /** 快照Url */
+  /** Snapshot URL */
   productSnapUrl?: string;
-  /** 商品规格 */
+  /** Product specifications */
   productStandard?: string;
-  /** 商品单位 */
+  /** Product unit */
   productUnit?: string;
-  /** 商品单价 */
+  /** Product unit price */
   productUnitPrice?: AliexpressTradeSellerOrderlistGetSimpleMoney;
-  /** 发货者类型。 "SELLER_SEND_GOODS": 卖家发货; "WAREHOUSE_SEND_GOODS":仓库发货 */
+  /** Shipper type. "SELLER_SEND_GOODS": seller ships; "WAREHOUSE_SEND_GOODS": warehouse ships */
   sendGoodsOperator?: string;
-  /** 最后发货时间 */
+  /** Latest shipping time */
   sendGoodsTime?: string;
-  /** 订单显示状态 */
+  /** Order display status */
   showStatus?: string;
-  /** 商品编码 */
+  /** Product code */
   skuCode?: string;
-  /** 子订单状态 */
+  /** Sub-order status */
   sonOrderStatus?: string;
-  /** 全部商品金额 */
+  /** Total amount of all products */
   totalProductAmount?: AliexpressTradeSellerOrderlistGetSimpleMoney;
-  /** 子订单中的各种标 */
+  /** Various tags in the sub-order */
   tags?: Array<string>;
 }
 
@@ -4396,29 +4396,29 @@ export const AliexpressTradeSellerOrderlistGetAeopOrderProductDTOSchema: Schema 
   };
 
 export interface AliexpressTradeSellerOrderlistGetAeopOrderQuery {
-  /** 卖家渠道 id */
+  /** Seller channel ID */
   sellerChannelId?: Long;
-  /** 券码code */
+  /** Voucher code */
   code?: string;
-  /** 订单类型 */
+  /** Order type */
   bizType?: string;
-  /** 买家登录id */
+  /** Buyer login ID */
   buyerLoginId?: string;
-  /** 订单创建时间结束值，格式: yyyy-mm-dd hh:mm:ss,此时间为美国太平洋时间 */
+  /** End value of order create time, format: yyyy-mm-dd hh:mm:ss. This time is US Pacific Time */
   createDateEnd?: string;
-  /** 订单创建时间起始值 格式: yyyy-mm-dd hh:mm:ss。此时间为美国太平洋时间 */
+  /** Start value of order create time, format: yyyy-mm-dd hh:mm:ss. This time is US Pacific Time */
   createDateStart?: string;
-  /** 页码 */
+  /** Page number */
   currentPage?: number;
-  /** 订单修改时间结束值，格式: yyyy-mm-dd hh:mm:ss。此时间为美国太平洋时间 */
+  /** End value of order update time, format: yyyy-mm-dd hh:mm:ss. This time is US Pacific Time */
   modifiedDateEnd?: string;
-  /** 订单修改时间起始值 格式: yyyy-mm-dd hh:mm:ss 需要加上createdate控制查询范围。可查询时间范围；默认180天，查询已结束订单为30天。此时间为美国太平洋时间 */
+  /** Start value of order update time, format: yyyy-mm-dd hh:mm:ss. Must be used with createdate to control the query range. Queryable time range: 180 days by default, 30 days for finished orders. This time is US Pacific Time */
   modifiedDateStart?: string;
-  /** 订单状态： PLACE_ORDER_SUCCESS:等待买家付款; IN_CANCEL:买家申请取消; WAIT_SELLER_SEND_GOODS:等待您发货; SELLER_PART_SEND_GOODS:部分发货; WAIT_BUYER_ACCEPT_GOODS:等待买家收货; FUND_PROCESSING:买卖家达成一致，资金处理中； IN_ISSUE:含纠纷中的订单; IN_FROZEN:冻结中的订单; WAIT_SELLER_EXAMINE_MONEY:等待您确认金额; RISK_CONTROL:订单处于风控24小时中，从买家在线支付完成后开始，持续24小时。 以上状态查询可分别做单独查询，不传订单状态查询订单信息不包含（FINISH，已结束订单状态） FINISH:已结束的订单，需单独查询。 */
+  /** Order status: PLACE_ORDER_SUCCESS: waiting for buyer payment; IN_CANCEL: buyer requested cancellation; WAIT_SELLER_SEND_GOODS: waiting for you to ship; SELLER_PART_SEND_GOODS: partially shipped; WAIT_BUYER_ACCEPT_GOODS: waiting for buyer to receive; FUND_PROCESSING: buyer and seller reached an agreement, funds being processed; IN_ISSUE: order with a dispute; IN_FROZEN: frozen order; WAIT_SELLER_EXAMINE_MONEY: waiting for you to confirm the amount; RISK_CONTROL: order is in 24-hour risk control, starting after the buyer completes online payment and lasting 24 hours. The above statuses can each be queried separately; if no order status is passed, the query results do not include (FINISH, completed orders). FINISH: completed orders, which must be queried separately. */
   orderStatus?: string;
-  /** 查询多个订单状态下的订单信息，具体订单状态见order_status描述 */
+  /** Query order information under multiple order statuses; see the order_status description for specific order statuses */
   orderStatusList?: Array<string>;
-  /** 每页条数 */
+  /** Records per page */
   pageSize?: number;
 }
 
@@ -4438,23 +4438,23 @@ export const AliexpressTradeSellerOrderlistGetAeopOrderQuerySchema: Schema = {
 };
 
 export interface AliexpressTradeSellerOrderlistGetAeopPageResultDTO {
-  /** 页码 */
+  /** Page number */
   currentPage?: Long;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 每页条数 */
+  /** Records per page */
   pageSize?: Long;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 出参如下 */
+  /** Output as follows */
   targetList?: Array<AliexpressTradeSellerOrderlistGetAeopOrderItemDTO>;
   /** timeStamp */
   timeStamp?: string;
-  /** 总数量(SC订单不包含在结果中） */
+  /** Total quantity (SC orders are not included in the results) */
   totalCount?: Long;
-  /** 总页数 */
+  /** Total pages */
   totalPage?: Long;
 }
 
@@ -4476,9 +4476,9 @@ export const AliexpressTradeSellerOrderlistGetAeopPageResultDTOSchema: Schema =
   };
 
 export interface AliexpressTradeSellerOrderlistGetSimpleMoney {
-  /** 金额 */
+  /** Amount */
   amount?: string;
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
 }
 
@@ -4488,11 +4488,11 @@ export const AliexpressTradeSellerOrderlistGetSimpleMoneySchema: Schema = {
 };
 
 export interface AliexpressTradeSellerOrderRefusecancelAeopOrderCancelRequest {
-  /** 买家登录帐号 */
+  /** Buyer login account */
   buyerLoginId?: string;
-  /** 拒绝原因 */
+  /** Rejection reason */
   memo?: string;
-  /** 订单id */
+  /** Order ID */
   orderId?: Long;
 }
 
@@ -4504,13 +4504,13 @@ export const AliexpressTradeSellerOrderRefusecancelAeopOrderCancelRequestSchema:
   };
 
 export interface AliexpressTradeSellerOrderRefusecancelAeopResultDTO {
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 返回结果 */
+  /** Returned result */
   target?: boolean;
 }
 
@@ -4523,11 +4523,11 @@ export const AliexpressTradeSellerOrderRefusecancelAeopResultDTOSchema: Schema =
   };
 
 export interface AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoCategoryInfo {
-  /** 种类名称 */
+  /** Category name */
   categoryName?: string;
-  /** 是否叶子节点 */
+  /** Whether it is a leaf node */
   isLeaf?: boolean;
-  /** 种类ID */
+  /** Category ID */
   categoryId?: string;
 }
 
@@ -4539,17 +4539,17 @@ export const AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoCategoryInfoSc
   };
 
 export interface AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoPropertyInfo {
-  /** 属性名称_多语言 */
+  /** Attribute name_multilingual */
   multiLangPropertyName?: string;
-  /** 属性值ID */
+  /** Attribute value ID */
   valueId?: string;
-  /** 属性名称 */
+  /** Attribute name */
   propertyName?: string;
-  /** 属性值名称 */
+  /** Attribute value name */
   valueName?: string;
-  /** 属性值名称_多语言 */
+  /** Attribute value name_multilingual */
   multiLangValueName?: string;
-  /** 属性ID */
+  /** Attribute ID */
   propertyId?: string;
 }
 
@@ -4564,11 +4564,11 @@ export const AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoPropertyInfoSc
   };
 
 export interface AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoWithHsCodeCategoryInfo {
-  /** 种类名称 */
+  /** Category name */
   categoryName?: string;
-  /** 是否叶子节点 */
+  /** Whether it is a leaf node */
   isLeaf?: boolean;
-  /** 种类ID */
+  /** Category ID */
   categoryId?: string;
 }
 
@@ -4580,17 +4580,17 @@ export const AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoWithHsCodeCate
   };
 
 export interface AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoWithHsCodePropertyInfo {
-  /** 属性名称_多语言 */
+  /** Attribute name_multilingual */
   multiLangPropertyName?: string;
-  /** 属性值ID */
+  /** Attribute value ID */
   valueId?: string;
-  /** 属性名称 */
+  /** Attribute name */
   propertyName?: string;
-  /** 属性值名称 */
+  /** Attribute value name */
   valueName?: string;
-  /** 属性值名称_多语言 */
+  /** Attribute value name_multilingual */
   multiLangValueName?: string;
-  /** 属性ID */
+  /** Attribute ID */
   propertyId?: string;
 }
 
@@ -4605,13 +4605,13 @@ export const AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoWithHsCodeProp
   };
 
 export interface AliexpressTradeTaxHscodeSearchProductHscodeInfoCommonResponse {
-  /** 数据 */
+  /** Data */
   data?: Array<AliexpressTradeTaxHscodeSearchProductHscodeInfoProductHscodeSearchResponseDTO>;
-  /** 是否成功请求 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   error?: string;
 }
 
@@ -4629,13 +4629,13 @@ export const AliexpressTradeTaxHscodeSearchProductHscodeInfoCommonResponseSchema
   };
 
 export interface AliexpressTradeTaxHscodeSearchProductHscodeInfoProductHscodeSearchResponseDTO {
-  /** hsCode描述 */
+  /** hsCode description */
   hsCodeDesc?: string;
   /** hscode */
   hsCode?: string;
-  /** hsCode描述_多语言 */
+  /** hsCode description_multilingual */
   multiLangHsCodeDesc?: string;
-  /** 多语言语种 */
+  /** Multilingual languages */
   languageName?: string;
 }
 
@@ -4648,11 +4648,11 @@ export const AliexpressTradeTaxHscodeSearchProductHscodeInfoProductHscodeSearchR
   };
 
 export interface AliexpressTradeTaxHscodeSelectRegulatoryAttributesOptionsCategoryInfo {
-  /** 种类名称 */
+  /** Category name */
   categoryName?: string;
-  /** 是否叶子节点 */
+  /** Whether it is a leaf node */
   isLeaf?: boolean;
-  /** 种类ID */
+  /** Category ID */
   categoryId?: string;
 }
 
@@ -4664,17 +4664,17 @@ export const AliexpressTradeTaxHscodeSelectRegulatoryAttributesOptionsCategoryIn
   };
 
 export interface AliexpressTradeTaxHscodeSelectRegulatoryAttributesOptionsPropertyInfo {
-  /** 属性名称_多语言 */
+  /** Attribute name_multilingual */
   multiLangPropertyName?: string;
-  /** 属性值ID */
+  /** Attribute value ID */
   valueId?: string;
-  /** 属性名称 */
+  /** Attribute name */
   propertyName?: string;
-  /** 属性值名称 */
+  /** Attribute value name */
   valueName?: string;
-  /** 属性值名称_多语言 */
+  /** Attribute value name_multilingual */
   multiLangValueName?: string;
-  /** 属性ID */
+  /** Attribute ID */
   propertyId?: string;
 }
 
@@ -4689,13 +4689,13 @@ export const AliexpressTradeTaxHscodeSelectRegulatoryAttributesOptionsPropertyIn
   };
 
 export interface AliexpressTradeTaxInvoiceQueryBrazilInvoiceInfoCommonResponse {
-  /** 核心字段说明 1. status - 发票状态 类型：String 说明：表示发票的审核状态 示例值："REVIEW_SUCCESS"（审核成功） 字段路径：dataSource[].status 2. nfeTotalValue - 发票总金额 类型：Object 说明：NFE发票的总金额，包含币种信息 示例值：amount: 128.5, currencyCode: "BRL"（128.5巴西雷亚尔） 字段路径：dataSource[].nfeTotalValue.amount 和 dataSource[].nfeTotalValue.currencyCode 3. invoiceNumber - 发票票号 类型：String 说明：NFE发票的票号 示例值："12345" 字段路径：dataSource[].invoiceNumber 4. invoiceKey - 发票号 类型：String 说明：NFE发票的唯一标识Key（44位数字） 示例值："35210812345678000123550010000123451234567890" 字段路径：dataSource[].invoiceKey 5. sender_cnpj - 发票税号（发件人） 类型：String 说明：发件人（卖家）的CNPJ税号 示例值："12345678000123" 字段路径：dataSource[].extendInfo.sender_cnpj 6. sender_ie - 发件人IE号 类型：String 说明：发件人的州注册号（Inscrição Estadual） 示例值："123456789012" 字段路径：dataSource[].extendInfo.sender_ie 7. recipient_cpf - 收件人税号 类型：String 说明：收件人（买家）的CPF税号 示例值："12345678901" 字段路径：dataSource[].extendInfo.recipient_cpf 8. printInvoiceDate - 发票开具时间 类型：Long（时间戳） 说明：发票的打印/开具时间，Unix时间戳（毫秒） 示例值：1634567890000（对应日期：2021-10-18） 字段路径：dataSource[].printInvoiceDate */
+  /** Core field descriptions 1. status - Invoice status Type: String Description: the review status of the invoice Example value: "REVIEW_SUCCESS" (review successful) Field path: dataSource[].status 2. nfeTotalValue - Invoice total amount Type: Object Description: the total amount of the NFE invoice, including currency information Example value: amount: 128.5, currencyCode: "BRL" (128.5 Brazilian reais) Field path: dataSource[].nfeTotalValue.amount and dataSource[].nfeTotalValue.currencyCode 3. invoiceNumber - Invoice number Type: String Description: the number of the NFE invoice Example value: "12345" Field path: dataSource[].invoiceNumber 4. invoiceKey - Invoice key Type: String Description: the unique identifier key of the NFE invoice (44 digits) Example value: "35210812345678000123550010000123451234567890" Field path: dataSource[].invoiceKey 5. sender_cnpj - Invoice tax ID (sender) Type: String Description: the CNPJ tax ID of the sender (seller) Example value: "12345678000123" Field path: dataSource[].extendInfo.sender_cnpj 6. sender_ie - Sender IE number Type: String Description: the sender's state registration number (Inscrição Estadual) Example value: "123456789012" Field path: dataSource[].extendInfo.sender_ie 7. recipient_cpf - Recipient tax ID Type: String Description: the CPF tax ID of the recipient (buyer) Example value: "12345678901" Field path: dataSource[].extendInfo.recipient_cpf 8. printInvoiceDate - Invoice issue time Type: Long (timestamp) Description: the print/issue time of the invoice, Unix timestamp (milliseconds) Example value: 1634567890000 (corresponding date: 2021-10-18) Field path: dataSource[].printInvoiceDate */
   data?: string;
-  /** 请求是否成功的标识。true表示请求成功，false表示请求失败 */
+  /** Flag indicating whether the request succeeded. true means success, false means failure */
   success?: boolean;
-  /** 错误码。当请求失败时返回具体的错误类型标识 */
+  /** Error code. Returns the specific error type identifier when the request fails */
   errorCode?: string;
-  /** 错误信息。当请求失败时返回详细的错误描述信息 */
+  /** Error message. Detailed error description returned when the request fails */
   error?: string;
 }
 
@@ -4708,13 +4708,13 @@ export const AliexpressTradeTaxInvoiceQueryBrazilInvoiceInfoCommonResponseSchema
   };
 
 export interface AliexpressTradeTaxInvoiceUploadBrazilInvoiceCommonResponse {
-  /** successList 包含上传成功的文件名 failList 包含上传失败的文件名 */
+  /** successList contains the names of files uploaded successfully; failList contains the names of files that failed to upload */
   data?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息,例如"There are no [Awaiting shipment] and [Unfrozen] transaction orders"就代表当前订单并不满足"待发货且未冻结"的条件 */
+  /** Error message, e.g. "There are no [Awaiting shipment] and [Unfrozen] transaction orders" means the current order does not meet the condition "awaiting shipment and unfrozen" */
   error?: string;
 }
 
@@ -4867,10 +4867,10 @@ export const AliexpressTradeUcpCreateCheckoutresultResponseSchema: Schema = {
 
 export interface AliexpressTradeUcpGetCheckoutErrorCode {
   errorCodeParams?: string;
-  /** 提示文案 */
+  /** Prompt text */
   displayMessage?: string;
   subKey?: string;
-  /** 日志文案 */
+  /** Log text */
   logMessage?: string;
   key?: string;
   bizParams?: Record<string, unknown>;
@@ -5046,27 +5046,27 @@ export const aliexpressTradeBuyPlaceorder: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.compliance.order.aicheck`. */
 export interface AliexpressTradeComplianceOrderAicheckParams {
-  /** 商品 id */
+  /** Product ID */
   itemId?: string;
-  /** 交易单 id */
+  /** Transaction order ID */
   tradeOrderId?: string;
-  /** 商品本体图 url 列表（先通过 aliexpress.photobank.redefining.uploadimageforsdk 上传图片获取链接），不超过6张图片。交易子单合规检查要求必传，则必传 */
+  /** List of URLs of the product main body images (first upload images via aliexpress.photobank.redefining.uploadimageforsdk to get the links), at most 6 images. Required if required by the transaction sub-order compliance check. */
   itemImageUrls?: Array<string>;
-  /** 商品外包装图 url 列表（先通过 aliexpress.photobank.redefining.uploadimageforsdk 上传图片获取链接），不超过6张图片。交易子单合规检查要求必传，则必传 */
+  /** List of URLs of the product outer packaging images (first upload images via aliexpress.photobank.redefining.uploadimageforsdk to get the links), at most 6 images. Required if required by the transaction sub-order compliance check. */
   packageImageUrls?: Array<string>;
-  /** 交易子单 id */
+  /** Transaction sub-order ID */
   childTradeOrderId?: string;
 }
 
 /** Response of `aliexpress.trade.compliance.order.aicheck`. */
 export interface AliexpressTradeComplianceOrderAicheckResponse {
-  /** 状态信息 */
+  /** Status information */
   msg?: string;
-  /** 状态码 */
+  /** Status code */
   code?: string;
-  /** 消息体，固定为 null */
+  /** Message body, always null */
   data?: string;
-  /** 是否处理成功 */
+  /** Whether processing succeeded */
   success?: boolean;
 }
 
@@ -5097,29 +5097,29 @@ export const aliexpressTradeComplianceOrderAicheck: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.compliance.order.manualcheck`. */
 export interface AliexpressTradeComplianceOrderManualcheckParams {
-  /** 商品 id */
+  /** Product ID */
   itemId?: string;
-  /** 人工审核文本信息 */
+  /** Manual review text information */
   appealText?: string;
-  /** 交易单 id */
+  /** Transaction order ID */
   tradeOrderId?: string;
-  /** 商品本体图 url 列表，不为空则使用该参数中的图片进行审核，否则使用历史图片进行审核 */
+  /** List of product body image urls. If not empty, the images in this parameter are used for review; otherwise historical images are used for review */
   itemImageUrls?: Array<string>;
-  /** 商品外包装图 url 列表，不为空则使用该参数中的图片进行审核，否则使用历史图片进行审核 */
+  /** List of product outer packaging image urls. If not empty, the images in this parameter are used for review; otherwise historical images are used for review */
   packageImageUrls?: Array<string>;
-  /** 交易子单 id */
+  /** Transaction sub-order ID */
   childTradeOrderId?: string;
 }
 
 /** Response of `aliexpress.trade.compliance.order.manualcheck`. */
 export interface AliexpressTradeComplianceOrderManualcheckResponse {
-  /** 状态信息 */
+  /** Status information */
   msg?: string;
-  /** 状态码 */
+  /** Status code */
   code?: string;
-  /** 消息体，固定为null */
+  /** Message body, always null */
   data?: string;
-  /** 是否处理成功 */
+  /** Whether processing succeeded */
   success?: boolean;
 }
 
@@ -5151,21 +5151,21 @@ export const aliexpressTradeComplianceOrderManualcheck: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.compliance.order.query`. */
 export interface AliexpressTradeComplianceOrderQueryParams {
-  /** 交易子单列表 */
+  /** Transaction sub-order list */
   childTradeOrderIds?: Array<string>;
-  /** 交易主单 */
+  /** Main transaction order */
   tradeOrderId?: string;
 }
 
 /** Response of `aliexpress.trade.compliance.order.query`. */
 export interface AliexpressTradeComplianceOrderQueryResponse {
-  /** 状态信息 */
+  /** Status information */
   msg?: string;
-  /** 状态码 */
+  /** Status code */
   code?: string;
-  /** 结果 */
+  /** Result */
   data?: Array<AliexpressTradeComplianceOrderQueryDsa3plChildAuditResponse>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
 }
 
@@ -5231,19 +5231,19 @@ export const aliexpressTradeDsOrderGet: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.invoice.sellerInvoicingApplyInfo.get`. */
 export interface AliexpressTradeInvoiceSellerInvoicingApplyInfoGetParams {
-  /** 入参 */
+  /** Input parameters */
   param0?: AliexpressTradeInvoiceSellerInvoicingApplyInfoGetSellerInvoiceApplyQueryRequestDTO;
 }
 
 /** Response of `aliexpress.trade.invoice.sellerInvoicingApplyInfo.get`. */
 export interface AliexpressTradeInvoiceSellerInvoicingApplyInfoGetResponse {
-  /** 数据 */
+  /** Data */
   data?: AliexpressTradeInvoiceSellerInvoicingApplyInfoGetSellerInvoiceApplyInfoDTO;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 成功 */
+  /** Success */
   succeeded?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -5281,37 +5281,37 @@ export const aliexpressTradeInvoiceSellerInvoicingApplyInfoGet: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.invoice.sellerInvoicingResult.push`. */
 export interface AliexpressTradeInvoiceSellerInvoicingResultPushParams {
-  /** 开票状态. 只能传"GENERATED_SUCCESS". 请注意! 由于本接口只有当开票成功时才能调用,所以只可以传递规定的值. */
+  /** Invoice status. Only "GENERATED_SUCCESS" can be passed. Note: since this API can only be called when invoicing succeeds, only the specified value can be passed. */
   invoiceStatus?: string;
-  /** 开票日期, 注意, 传递的是毫秒级别的时间戳.比如:"1737374768053" */
+  /** Invoice date. Note that a millisecond-level timestamp is passed, e.g.: "1737374768053" */
   invoiceDate?: LongInput;
-  /** 发票号码，唯一标识，一个订单发票号码唯一 */
+  /** Invoice number, a unique identifier; the invoice number is unique within an order */
   invoiceNo?: string;
-  /** 幂等号，如果重复调用会进行幂等处理.requestNo由请求方自己生成,只需要保证每次请求的requestNo不同就好了.同一个requestNo的多次请求,我们会以第一次请求为准. */
+  /** Idempotency number; repeated calls are handled idempotently. requestNo is generated by the requester; just ensure each request has a different requestNo. For multiple requests with the same requestNo, the first request prevails. */
   requestNo?: string;
-  /** 发票文件类型,约定为"pdf"或者"png"" */
+  /** Invoice file type, agreed to be "pdf" or "png" */
   invoiceFileType?: string;
-  /** 开票方向 （正向/逆向）invoice_direction是开票方向, 正向是"BLUE", 逆向是"RED" (正向发票，指买家下单支付 逆向发票指的是买家发生了退款，开逆向发票) */
+  /** Invoicing direction (forward/reverse). invoice_direction is the invoicing direction: forward is "BLUE", reverse is "RED" (a forward invoice is for a buyer's order and payment; a reverse invoice is issued when the buyer receives a refund) */
   invoiceDirection?: string;
-  /** 发票名称 */
+  /** Invoice name */
   invoiceName?: string;
-  /** 订单id */
+  /** Order ID */
   orderId?: string;
-  /** 用户id */
+  /** User ID */
   customerId?: string;
-  /** 发票文件的数据. 字节流的方式, 请注意,限制在5M以下 */
+  /** Invoice file data, as a byte stream. Note: limited to under 5M */
   invoiceData?: FileInput;
 }
 
 /** Response of `aliexpress.trade.invoice.sellerInvoicingResult.push`. */
 export interface AliexpressTradeInvoiceSellerInvoicingResultPushResponse {
-  /** 是否成功 */
+  /** Whether successful */
   data?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 调用成功 */
+  /** Call succeeded */
   succeeded?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -5347,9 +5347,9 @@ export const aliexpressTradeInvoiceSellerInvoicingResultPush: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.new.redefining.findorderbyid`. */
 export interface AliexpressTradeNewRedefiningFindorderbyidParams {
-  /** 卖家渠道id */
+  /** Seller channel ID */
   sellerChannelId?: string;
-  /** 详细参考如下 */
+  /** See details below */
   param1?: AliexpressTradeNewRedefiningFindorderbyidAeopTpSingleOrderQuery;
 }
 
@@ -5357,7 +5357,7 @@ export interface AliexpressTradeNewRedefiningFindorderbyidParams {
 export interface AliexpressTradeNewRedefiningFindorderbyidResponse {
   /** timeStamp */
   timeStamp?: string;
-  /** 订单详情 */
+  /** Order details */
   target?: AliexpressTradeNewRedefiningFindorderbyidAeopTpOrderDetailDTO;
 }
 
@@ -5392,7 +5392,7 @@ export const aliexpressTradeNewRedefiningFindorderbyid: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.new.redefining.findorderbyidcopy1692616251789`. */
 export interface AliexpressTradeNewRedefiningFindorderbyidcopy1692616251789Params {
-  /** 详细参考如下 */
+  /** See details below */
   param1?: AliexpressTradeNewRedefiningFindorderbyidcopy1692616251789AeopTpSingleOrderQuery;
 }
 
@@ -5434,15 +5434,15 @@ export const aliexpressTradeNewRedefiningFindorderbyidcopy1692616251789: ApiDefi
 
 /** Parameters for `aliexpress.trade.new.redefining.findorderstatisticsbyid`. */
 export interface AliexpressTradeNewRedefiningFindorderstatisticsbyidParams {
-  /** 卖家渠道id */
+  /** Seller channel ID */
   sellerChannelId?: string;
-  /** 详细参考如下 */
+  /** See details below */
   param1?: AliexpressTradeNewRedefiningFindorderstatisticsbyidAeopTpSingleOrderQuery;
 }
 
 /** Response of `aliexpress.trade.new.redefining.findorderstatisticsbyid`. */
 export interface AliexpressTradeNewRedefiningFindorderstatisticsbyidResponse {
-  /** 订单详情 */
+  /** Order details */
   target?: AliexpressTradeNewRedefiningFindorderstatisticsbyidAeopTpOrderDetailDTO;
   /** timeStamp */
   timeStamp?: string;
@@ -5481,7 +5481,7 @@ export const aliexpressTradeNewRedefiningFindorderstatisticsbyid: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.new.redefiningcopy2`. */
 export interface AliexpressTradeNewRedefiningcopy2Params {
-  /** 详细参考如下 */
+  /** See details below */
   param1?: AliexpressTradeNewRedefiningcopy2AeopTpSingleOrderQuery;
 }
 
@@ -5519,7 +5519,7 @@ export const aliexpressTradeNewRedefiningcopy2: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.new.redefiningcopy3`. */
 export interface AliexpressTradeNewRedefiningcopy3Params {
-  /** 详细参考如下 */
+  /** See details below */
   param1?: AliexpressTradeNewRedefiningcopy3AeopTpSingleOrderQuery;
 }
 
@@ -5557,13 +5557,13 @@ export const aliexpressTradeNewRedefiningcopy3: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.order.changeStatus`. */
 export interface AliexpressTradeOrderChangeStatusParams {
-  /** 请求参数 */
+  /** Request parameters */
   param0?: AliexpressTradeOrderChangeStatusOrderStatusChangeMiniAppRequest;
 }
 
 /** Response of `aliexpress.trade.order.changeStatus`. */
 export interface AliexpressTradeOrderChangeStatusResponse {
-  /** 响应结果 */
+  /** Response result */
   result?: AliexpressTradeOrderChangeStatusOrderStatusChangeMiniAppResponse;
 }
 
@@ -5597,13 +5597,13 @@ export const aliexpressTradeOrderChangeStatus: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.order.create`. */
 export interface AliexpressTradeOrderCreateParams {
-  /** 入参 */
+  /** Input parameters */
   param0?: AliexpressTradeOrderCreateCreateOrderMiniAppRequest;
 }
 
 /** Response of `aliexpress.trade.order.create`. */
 export interface AliexpressTradeOrderCreateResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressTradeOrderCreateCreateOrderMiniAppResponse;
 }
 
@@ -5641,7 +5641,7 @@ export interface AliexpressTradeOrderQueryParams {
 
 /** Response of `aliexpress.trade.order.query`. */
 export interface AliexpressTradeOrderQueryResponse {
-  /** 返回值 */
+  /** Return value */
   result?: AliexpressTradeOrderQueryOrderQueryMiniAppResponse;
 }
 
@@ -5673,19 +5673,19 @@ export const aliexpressTradeOrderQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.redefining.confirmshippingmode`. */
 export interface AliexpressTradeRedefiningConfirmshippingmodeParams {
-  /** 订单id */
+  /** Order ID */
   orderId?: LongInput;
-  /** 发货模式 SELF_SHIPPING：自发货；SEMI_SHIPPING：托管发货； */
+  /** Shipping mode SELF_SHIPPING: self-shipping; SEMI_SHIPPING: managed shipping; */
   shippingMode?: string;
 }
 
 /** Response of `aliexpress.trade.redefining.confirmshippingmode`. */
 export interface AliexpressTradeRedefiningConfirmshippingmodeResponse {
-  /** 是否成功 */
+  /** Whether successful */
   isSuccess?: string;
-  /** 错误码：200其他错误；300未知异常；310当前订单不支持切发货模式；320当前只能选择自发货模式；330超税订单只能选择自发货 */
+  /** Error codes: 200 other error; 300 unknown exception; 310 the current order does not support switching the shipment mode; 320 currently only self-fulfillment mode can be selected; 330 orders exceeding the tax limit can only select self-fulfillment */
   errorCode?: Long;
-  /** 失败原因 */
+  /** Failure reason */
   memo?: string;
 }
 
@@ -5712,19 +5712,19 @@ export const aliexpressTradeRedefiningConfirmshippingmode: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.redefining.extendsbuyeracceptgoodstime`. */
 export interface AliexpressTradeRedefiningExtendsbuyeracceptgoodstimeParams {
-  /** 需要延长收货时间的订单ID */
+  /** ID of the order whose receipt time needs to be extended */
   param0?: LongInput;
-  /** 请求延长的具体天数 */
+  /** Specific number of days requested for extension */
   param1?: LongInput;
 }
 
 /** Response of `aliexpress.trade.redefining.extendsbuyeracceptgoodstime`. */
 export interface AliexpressTradeRedefiningExtendsbuyeracceptgoodstimeResponse {
-  /** 错误详细说明 */
+  /** Detailed error description */
   memo?: string;
-  /** 错误码(100:查询无此订单ID;200:业务数据错误，无对应的业务数据;201:延长时间超过了系统允许时间;210:业务数据错误 无法执行此操作;601:查询该帐号无权限进行数据修改) */
+  /** Error code (100: no such order ID found; 200: business data error, no corresponding business data; 201: extension time exceeds the system's allowed time; 210: business data error, cannot perform this operation; 601: the queried account has no permission to modify data) */
   subErrorCode?: Long;
-  /** 是否成功true/false */
+  /** Whether successful true/false */
   isSuccess?: boolean;
 }
 
@@ -5752,13 +5752,13 @@ export const aliexpressTradeRedefiningExtendsbuyeracceptgoodstime: ApiDefinition
 
 /** Parameters for `aliexpress.trade.redefining.findloanlistquery`. */
 export interface AliexpressTradeRedefiningFindloanlistqueryParams {
-  /** 入参 */
+  /** Input parameters */
   param1?: AliexpressTradeRedefiningFindloanlistqueryFundloanRequest;
 }
 
 /** Response of `aliexpress.trade.redefining.findloanlistquery`. */
 export interface AliexpressTradeRedefiningFindloanlistqueryResponse {
-  /** 出参 */
+  /** Output */
   result?: AliexpressTradeRedefiningFindloanlistqueryFundLoanListVO;
 }
 
@@ -5790,15 +5790,15 @@ export const aliexpressTradeRedefiningFindloanlistquery: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.redefining.findorderbaseinfo`. */
 export interface AliexpressTradeRedefiningFindorderbaseinfoParams {
-  /** 卖家渠道id */
+  /** Seller channel ID */
   sellerChannelId?: string;
-  /** 入参 */
+  /** Input parameters */
   param1?: AliexpressTradeRedefiningFindorderbaseinfoTpOpenSingleOrderQuery;
 }
 
 /** Response of `aliexpress.trade.redefining.findorderbaseinfo`. */
 export interface AliexpressTradeRedefiningFindorderbaseinfoResponse {
-  /** 出参 */
+  /** Output */
   result?: AliexpressTradeRedefiningFindorderbaseinfoOrderBaseInfo;
 }
 
@@ -5833,13 +5833,13 @@ export const aliexpressTradeRedefiningFindorderbaseinfo: ApiDefinition<
 /** Parameters for `aliexpress.trade.redefining.findorderlistsimplequery`. */
 export interface AliexpressTradeRedefiningFindorderlistsimplequeryParams {
   sellerChannelId?: string;
-  /** 入参 */
+  /** Input parameters */
   param1?: AliexpressTradeRedefiningFindorderlistsimplequeryOrderListRequest;
 }
 
 /** Response of `aliexpress.trade.redefining.findorderlistsimplequery`. */
 export interface AliexpressTradeRedefiningFindorderlistsimplequeryResponse {
-  /** 出参 */
+  /** Output */
   result?: AliexpressTradeRedefiningFindorderlistsimplequerySimpleOrderListVO;
 }
 
@@ -5875,13 +5875,13 @@ export const aliexpressTradeRedefiningFindorderlistsimplequery: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.redefining.findorderreceiptinfo`. */
 export interface AliexpressTradeRedefiningFindorderreceiptinfoParams {
-  /** 查询条件 */
+  /** Query conditions */
   param1?: AliexpressTradeRedefiningFindorderreceiptinfoTpOpenSingleOrderQuery;
 }
 
 /** Response of `aliexpress.trade.redefining.findorderreceiptinfo`. */
 export interface AliexpressTradeRedefiningFindorderreceiptinfoResponse {
-  /** 出参 */
+  /** Output */
   result?: AliexpressTradeRedefiningFindorderreceiptinfoAeopTpAddressDTO;
 }
 
@@ -5920,7 +5920,7 @@ export interface AliexpressTradeRedefiningFindordertradeinfoParams {
 
 /** Response of `aliexpress.trade.redefining.findordertradeinfo`. */
 export interface AliexpressTradeRedefiningFindordertradeinfoResponse {
-  /** 出参 */
+  /** Output */
   result?: AliexpressTradeRedefiningFindordertradeinfoOrderTradeInfo;
 }
 
@@ -5953,17 +5953,17 @@ export const aliexpressTradeRedefiningFindordertradeinfo: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.redefining.sendcode`. */
 export interface AliexpressTradeRedefiningSendcodeParams {
-  /** 参数 */
+  /** Parameter */
   param1?: AliexpressTradeRedefiningSendcodeSendCodeRequest;
 }
 
 /** Response of `aliexpress.trade.redefining.sendcode`. */
 export interface AliexpressTradeRedefiningSendcodeResponse {
-  /** 是否成功 */
+  /** Whether successful */
   isSuccess?: boolean;
-  /** 错误码：200其他错误；210 订单关闭；310 订单不存在；320 商家不匹配 */
+  /** Error code: 200 other errors; 210 order closed; 310 order does not exist; 320 seller mismatch */
   errorCode?: number;
-  /** 提示 */
+  /** Prompt */
   memo?: string;
 }
 
@@ -5993,17 +5993,17 @@ export const aliexpressTradeRedefiningSendcode: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.redefining.verifycode`. */
 export interface AliexpressTradeRedefiningVerifycodeParams {
-  /** 详细参考如下 */
+  /** See details below */
   param1?: AliexpressTradeRedefiningVerifycodeSellerVerifyCodeRequest;
 }
 
 /** Response of `aliexpress.trade.redefining.verifycode`. */
 export interface AliexpressTradeRedefiningVerifycodeResponse {
-  /** 是否成功 */
+  /** Whether successful */
   isSuccess?: boolean;
-  /** 错误码：200其他错误；300未知异常；310码和订单不匹配；320码状态错误，不能核销； */
+  /** Error code: 200 other errors; 300 unknown exception; 310 code and order do not match; 320 code status error, cannot be redeemed; */
   errorCode?: Long;
-  /** 失败原因 */
+  /** Failure reason */
   memo?: string;
 }
 
@@ -6033,7 +6033,7 @@ export const aliexpressTradeRedefiningVerifycode: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.seller.order.acceptcancel`. */
 export interface AliexpressTradeSellerOrderAcceptcancelParams {
-  /** 入参如下 */
+  /** Input parameters as follows */
   paramOrderCancelRequest?: AliexpressTradeSellerOrderAcceptcancelAeopOrderCancelRequest;
 }
 
@@ -6071,19 +6071,19 @@ export const aliexpressTradeSellerOrderAcceptcancel: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.seller.order.decrypt`. */
 export interface AliexpressTradeSellerOrderDecryptParams {
-  /** 订单id */
+  /** Order ID */
   orderId?: string;
-  /** 加密信息摘要 */
+  /** Encrypted information digest */
   oaid?: string;
 }
 
 /** Response of `aliexpress.trade.seller.order.decrypt`. */
 export interface AliexpressTradeSellerOrderDecryptResponse {
-  /** 返回值 */
+  /** Return value */
   resultObj?: AliexpressTradeSellerOrderDecryptresultObjObject;
-  /** 状态码 */
+  /** Status code */
   resultCode?: number;
-  /** 详细信息 */
+  /** Detailed information */
   resultInfo?: string;
 }
 
@@ -6114,7 +6114,7 @@ export const aliexpressTradeSellerOrderDecrypt: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.seller.order.refusecancel`. */
 export interface AliexpressTradeSellerOrderRefusecancelParams {
-  /** 入参如下 */
+  /** Input parameters as follows */
   paramOrderCancelRequest?: AliexpressTradeSellerOrderRefusecancelAeopOrderCancelRequest;
 }
 
@@ -6152,13 +6152,13 @@ export const aliexpressTradeSellerOrderRefusecancel: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.seller.orderlist.get`. */
 export interface AliexpressTradeSellerOrderlistGetParams {
-  /** 入参 */
+  /** Input parameters */
   paramAeopOrderQuery?: AliexpressTradeSellerOrderlistGetAeopOrderQuery;
 }
 
 /** Response of `aliexpress.trade.seller.orderlist.get`. */
 export interface AliexpressTradeSellerOrderlistGetResponse {
-  /** 出参 */
+  /** Output */
   result?: AliexpressTradeSellerOrderlistGetAeopPageResultDTO;
 }
 
@@ -6190,33 +6190,33 @@ export const aliexpressTradeSellerOrderlistGet: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.tax.hscode.queryRegulatoryAttributesInfo`. */
 export interface AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoParams {
-  /** 多语言语种 */
+  /** Multilingual languages */
   language?: string;
-  /** 已选择属性值列表 */
+  /** List of selected attribute values */
   selectedPropertyValueList?: Array<AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoPropertyInfo>;
-  /** 来源, 固定传递"ISV" */
+  /** Source, always pass "ISV" */
   source?: string;
-  /** 商品标题 */
+  /** Product title */
   title?: string;
-  /** 扩展信息 */
+  /** Extended information */
   extendInfo?: Record<string, unknown>;
-  /** 场景 */
+  /** Scenario */
   scene?: string;
-  /** 商品id */
+  /** Product ID */
   itemId?: string;
-  /** 种类列表的JSON格式,重要: category_list_json和category_list二者不可同时为非空.例如传入了前者,后者传递空即可.本质上前者只是后者转为json的字符串格式. */
+  /** Category list in JSON format. Important: category_list_json and category_list cannot both be non-empty. For example, if the former is passed, leave the latter empty. The former is essentially the latter converted to a JSON string. */
   categoryListJson?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: LongInput;
-  /** 商品属性信息(商品域调用传递) */
+  /** Product attribute information (passed by product domain calls) */
   elementMap?: Record<string, unknown>;
-  /** 已选择属性信息列表的JSON格式.重要: selected_property_value_list_json和selected_property_value_list二者不可同时为非空.例如传入了前者,后者传递空即可.本质上前者只是后者转为json的字符串格式. */
+  /** JSON format of the list of selected attribute information. Important: selected_property_value_list_json and selected_property_value_list cannot both be non-empty. For example, if the former is passed, leave the latter empty. In essence the former is just the latter converted to a JSON string. */
   selectedPropertyValueListJson?: string;
-  /** 商品主图URL */
+  /** Product main image URL */
   imageUrl?: string;
-  /** 种类列表 */
+  /** Category list */
   categoryList?: Array<AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoCategoryInfo>;
-  /** 固定传递DUTY */
+  /** Always pass DUTY */
   taxType?: string;
   /** hsCode */
   hsCode?: string;
@@ -6224,7 +6224,7 @@ export interface AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoParams {
 
 /** Response of `aliexpress.trade.tax.hscode.queryRegulatoryAttributesInfo`. */
 export interface AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoResponse {
-  /** 出参 */
+  /** Output */
   result?: Record<string, unknown>;
 }
 
@@ -6273,41 +6273,41 @@ export const aliexpressTradeTaxHscodeQueryRegulatoryAttributesInfo: ApiDefinitio
 
 /** Parameters for `aliexpress.trade.tax.hscode.queryRegulatoryAttributesInfoWithHsCode`. */
 export interface AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoWithHsCodeParams {
-  /** 已选择属性信息列表的JSON格式.重要: selected_property_value_list_json和selected_property_value_list二者不可同时为非空.例如传入了前者,后者传递空即可.本质上前者只是后者转为json的字符串格式. */
+  /** JSON format of the list of selected attribute information. Important: selected_property_value_list_json and selected_property_value_list cannot both be non-empty. For example, if the former is passed, leave the latter empty. In essence the former is just the latter converted to a JSON string. */
   selectedPropertyValueListJson?: string;
-  /** 商品主图URL */
+  /** Product main image URL */
   imageUrl?: string;
-  /** 种类列表 */
+  /** Category list */
   categoryList?: Array<AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoWithHsCodeCategoryInfo>;
-  /** 固定传递DUTY */
+  /** Always pass DUTY */
   taxType?: string;
   /** hsCode */
   hsCode?: string;
-  /** 多语言语种 */
+  /** Multilingual languages */
   language?: string;
-  /** 已选择属性值列表 */
+  /** List of selected attribute values */
   selectedPropertyValueList?: Array<AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoWithHsCodePropertyInfo>;
-  /** 来源, 固定传递"ISV" */
+  /** Source, always pass "ISV" */
   source?: string;
-  /** 商品标题 */
+  /** Product title */
   title?: string;
-  /** 扩展信息 */
+  /** Extended information */
   extendInfo?: Record<string, unknown>;
-  /** 场景 */
+  /** Scenario */
   scene?: string;
-  /** 商品id */
+  /** Product ID */
   itemId?: string;
-  /** 种类列表的JSON格式,重要: category_list_json和category_list二者不可同时为非空.例如传入了前者,后者传递空即可.本质上前者只是后者转为json的字符串格式. */
+  /** Category list in JSON format. Important: category_list_json and category_list cannot both be non-empty. For example, if the former is passed, leave the latter empty. The former is essentially the latter converted to a JSON string. */
   categoryListJson?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: LongInput;
-  /** 商品属性信息(商品域调用传递) */
+  /** Product attribute information (passed by product domain calls) */
   elementMap?: Record<string, unknown>;
 }
 
 /** Response of `aliexpress.trade.tax.hscode.queryRegulatoryAttributesInfoWithHsCode`. */
 export interface AliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoWithHsCodeResponse {
-  /** 出参 */
+  /** Output */
   result?: Record<string, unknown>;
 }
 
@@ -6358,21 +6358,21 @@ export const aliexpressTradeTaxHscodeQueryRegulatoryAttributesInfoWithHsCode: Ap
 
 /** Parameters for `aliexpress.trade.tax.hscode.searchProductHscodeInfo`. */
 export interface AliexpressTradeTaxHscodeSearchProductHscodeInfoParams {
-  /** 多语言,中文:zh_CN, 英文en_US */
+  /** Language, Chinese: zh_CN, English: en_US */
   language?: string;
-  /** taxType,本次传递"DUTY" */
+  /** taxType, pass "DUTY" this time */
   taxType?: string;
-  /** 文本搜索关键词 */
+  /** Text search keyword */
   keyWords?: string;
-  /** 商品id */
+  /** Product ID */
   productId?: string;
-  /** hsCode搜索关键词 */
+  /** hsCode search keyword */
   hsCode?: string;
 }
 
 /** Response of `aliexpress.trade.tax.hscode.searchProductHscodeInfo`. */
 export interface AliexpressTradeTaxHscodeSearchProductHscodeInfoResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressTradeTaxHscodeSearchProductHscodeInfoCommonResponse;
 }
 
@@ -6404,39 +6404,39 @@ export const aliexpressTradeTaxHscodeSearchProductHscodeInfo: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.tax.hscode.selectRegulatoryAttributesOptions`. */
 export interface AliexpressTradeTaxHscodeSelectRegulatoryAttributesOptionsParams {
-  /** 多语言语种 */
+  /** Multilingual languages */
   language?: string;
-  /** 已选择属性值列表 */
+  /** List of selected attribute values */
   selectedPropertyValueList?: Array<AliexpressTradeTaxHscodeSelectRegulatoryAttributesOptionsPropertyInfo>;
-  /** 来源, 固定传递"ISV" */
+  /** Source, always pass "ISV" */
   source?: string;
-  /** 商品标题 */
+  /** Product title */
   title?: string;
-  /** 扩展信息 */
+  /** Extended information */
   extendInfo?: Record<string, unknown>;
-  /** 场景 */
+  /** Scenario */
   scene?: string;
-  /** 商品id */
+  /** Product ID */
   itemId?: string;
-  /** 种类列表的JSON格式,重要: 和category_list二者不可同时为非空.例如传入了前者,后者传递空即可. */
+  /** Category list in JSON format. Important: this and category_list cannot both be non-empty. For example, if the former is passed, leave the latter empty. */
   categoryListJson?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: LongInput;
-  /** 商品属性信息(商品域调用传递) */
+  /** Product attribute information (passed by product domain calls) */
   elementMap?: Record<string, unknown>;
-  /** 已选择属性信息列表的JSON格式.重要: 和selected_property_value_list二者不可同时为非空.例如传入了前者,后者传递空即可. */
+  /** List of selected attribute info in JSON format. Important: cannot be non-empty at the same time as selected_property_value_list. For example, if the former is passed, leave the latter empty. */
   selectedPropertyValueListJson?: string;
-  /** 商品主图URL */
+  /** Product main image URL */
   imageUrl?: string;
-  /** 种类列表 */
+  /** Category list */
   categoryList?: Array<AliexpressTradeTaxHscodeSelectRegulatoryAttributesOptionsCategoryInfo>;
-  /** 固定传递DUTY */
+  /** Always pass DUTY */
   taxType?: string;
 }
 
 /** Response of `aliexpress.trade.tax.hscode.selectRegulatoryAttributesOptions`. */
 export interface AliexpressTradeTaxHscodeSelectRegulatoryAttributesOptionsResponse {
-  /** 出参 */
+  /** Output */
   result?: Record<string, unknown>;
 }
 
@@ -6485,15 +6485,15 @@ export const aliexpressTradeTaxHscodeSelectRegulatoryAttributesOptions: ApiDefin
 
 /** Parameters for `aliexpress.trade.tax.invoice.queryBrazilInvoiceInfo`. */
 export interface AliexpressTradeTaxInvoiceQueryBrazilInvoiceInfoParams {
-  /** 订单号的列表,支持批量查询,但一次查询不能超过20个元素. */
+  /** List of order numbers, batch query supported, but no more than 20 elements per query. */
   tradeOrderIdList?: Array<string>;
-  /** 请求来源,统一填写"ISV" */
+  /** Request source, always fill in "ISV" */
   source?: string;
 }
 
 /** Response of `aliexpress.trade.tax.invoice.queryBrazilInvoiceInfo`. */
 export interface AliexpressTradeTaxInvoiceQueryBrazilInvoiceInfoResponse {
-  /** 响应结果对象，包含查询返回的完整数据结构，主要包含 data（数据内容）和 pageInfo（分页信息）两个核心部分 */
+  /** Response result object, containing the complete data structure returned by the query, mainly two core parts: data (data content) and pageInfo (pagination info) */
   result?: AliexpressTradeTaxInvoiceQueryBrazilInvoiceInfoCommonResponse;
 }
 
@@ -6522,19 +6522,19 @@ export const aliexpressTradeTaxInvoiceQueryBrazilInvoiceInfo: ApiDefinition<
 
 /** Parameters for `aliexpress.trade.tax.invoice.UploadBrazilInvoice`. */
 export interface AliexpressTradeTaxInvoiceUploadBrazilInvoiceParams {
-  /** 上传文件的原始文件名称 */
+  /** Original file name of the uploaded file */
   originalFileName?: string;
-  /** 请求来源,统一填写"ISV" */
+  /** Request source, always fill in "ISV" */
   source?: string;
-  /** Aliexpress的订单号 */
+  /** AliExpress order number */
   orderId?: LongInput;
-  /** 上传的文件内容 */
+  /** Uploaded file content */
   invoiceData?: FileInput;
 }
 
 /** Response of `aliexpress.trade.tax.invoice.UploadBrazilInvoice`. */
 export interface AliexpressTradeTaxInvoiceUploadBrazilInvoiceResponse {
-  /** 响应结果对象 */
+  /** Response result object */
   result?: AliexpressTradeTaxInvoiceUploadBrazilInvoiceCommonResponse;
 }
 

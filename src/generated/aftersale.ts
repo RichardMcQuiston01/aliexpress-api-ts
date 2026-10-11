@@ -9,59 +9,59 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressAftersaleInsuranceOrderinfoGetAeOrderForPolicyDTO {
-  /** 请求退款的时间 */
+  /** Refund request time */
   applyRefundTime?: string;
-  /** 订单id */
+  /** Order ID */
   bizOrderId?: Long;
-  /** 买家订单收货国家 */
+  /** Receiving country of the buyer's order */
   buyerCountry?: string;
-  /** 买家id */
+  /** Buyer ID */
   buyerId?: Long;
-  /** 买家等级 */
+  /** Buyer level */
   buyerLevel?: string;
-  /** 买家名称 */
+  /** Buyer name */
   buyerName?: string;
-  /** 产品id */
+  /** Product ID */
   itemId?: Long;
-  /** 子类目id */
+  /** Subcategory ID */
   leafCategoryId?: number;
-  /** 子类目名称中文 */
+  /** Subcategory name in Chinese */
   leafCategoryNameCn?: string;
-  /** 子类目名称英文 */
+  /** Subcategory name in English */
   leafCategoryNameEn?: string;
-  /** 主订单号 */
+  /** Main order number */
   mainOrderId?: Long;
-  /** 订单金额 */
+  /** Order amount */
   orderAmount?: Long;
-  /** 币种 */
+  /** Currency */
   orderAmountCurrency?: string;
-  /** 订单创建时间 */
+  /** Order creation time */
   orderCreateTime?: string;
-  /** 支付时间 */
+  /** Payment time */
   orderPayTime?: string;
-  /** 属性 */
+  /** Attribute */
   productAttributes?: string;
-  /** 数量 */
+  /** Quantity */
   productCount?: number;
-  /** 产品图片（多个用逗号隔开） */
+  /** Product images (multiple separated by commas) */
   productImages?: string;
-  /** 产品名称中 */
+  /** Product name in Chinese */
   productNameCn?: string;
-  /** 产品名称英 */
+  /** Product name in English */
   productNameEn?: string;
-  /** 产品快照 */
+  /** Product snapshot */
   productSnapUrl?: string;
-  /** 类目id */
+  /** Category ID */
   rootCategoryId?: number;
-  /** 根类目名称 */
+  /** Root category name */
   rootCategoryNameCn?: string;
-  /** 根类目名称 */
+  /** Root category name */
   rootCategoryNameEn?: string;
-  /** 卖家id */
+  /** Seller ID */
   sellerId?: Long;
-  /** 卖家留言 */
+  /** Seller message */
   sellerMemo?: string;
-  /** 卖家名称 */
+  /** Seller name */
   sellerName?: string;
 }
 
@@ -97,13 +97,13 @@ export const AliexpressAftersaleInsuranceOrderinfoGetAeOrderForPolicyDTOSchema: 
   };
 
 export interface AliexpressAftersaleInsuranceOrderinfoGetInsuranceResultModel {
-  /** 错误code */
+  /** Error code */
   exceptionCode?: string;
-  /** 错误描述 */
+  /** Error description */
   exceptionDesc?: string;
-  /** 返回值 */
+  /** Return value */
   returnValue?: AliexpressAftersaleInsuranceOrderinfoGetAeOrderForPolicyDTO;
-  /** 接口调用是否成功 */
+  /** Whether the API call succeeded */
   success?: boolean;
 }
 
@@ -121,13 +121,13 @@ export const AliexpressAftersaleInsuranceOrderinfoGetInsuranceResultModelSchema:
 
 /** Parameters for `aliexpress.aftersale.insurance.orderinfo.get`. */
 export interface AliexpressAftersaleInsuranceOrderinfoGetParams {
-  /** 订单号 */
+  /** Order number */
   bizOrderId?: LongInput;
 }
 
 /** Response of `aliexpress.aftersale.insurance.orderinfo.get`. */
 export interface AliexpressAftersaleInsuranceOrderinfoGetResponse {
-  /** 返回值 */
+  /** Return value */
   result?: AliexpressAftersaleInsuranceOrderinfoGetInsuranceResultModel;
 }
 

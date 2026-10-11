@@ -341,7 +341,7 @@ export interface AliexpressSolutionOrderGetOrderDTO {
   orderId?: Long;
   /** order detail url */
   orderDetailUrl?: string;
-  /** logistics status。logistics status。(WAIT_SELLER_SEND_GOODS: Waiting for seller to ship; SELLER_SEND_PART_GOODS: Partial delivery by seller; SELLER_SEND_GOODS: Seller has shipped; BUYER_ACCEPT_GOODS: Buyer has confirmed receipt; NO_LOGISTICS: No logistics transfer) */
+  /** logistics status. logistics status. (WAIT_SELLER_SEND_GOODS: Waiting for seller to ship; SELLER_SEND_PART_GOODS: Partial delivery by seller; SELLER_SEND_GOODS: Seller has shipped; BUYER_ACCEPT_GOODS: Buyer has confirmed receipt; NO_LOGISTICS: No logistics transfer) */
   logisticsStatus?: string;
   /** logistics escrow fee rate */
   logisitcsEscrowFeeRate?: string;
@@ -349,7 +349,7 @@ export interface AliexpressSolutionOrderGetOrderDTO {
   loanAmount?: AliexpressSolutionOrderGetSimpleMoney;
   /** Remaining delivery time (minute) */
   leftSendGoodMin?: string;
-  /** Remaining delivery time (hour） */
+  /** Remaining delivery time (hour) */
   leftSendGoodHour?: string;
   /** Remaining delivery time (days) */
   leftSendGoodDay?: string;
@@ -367,7 +367,7 @@ export interface AliexpressSolutionOrderGetOrderDTO {
   gmtCreate?: string;
   /** fund status (NOT_PAY; PAY_SUCCESS; WAIT_SELLER_CHECK) */
   fundStatus?: string;
-  /** frozen status。(NO_FROZEN:no frozen; IN_FROZEN:in frozen) */
+  /** frozen status. (NO_FROZEN:no frozen; IN_FROZEN:in frozen) */
   frozenStatus?: string;
   /** escrow fee rate */
   escrowFeeRate?: number;
@@ -379,7 +379,7 @@ export interface AliexpressSolutionOrderGetOrderDTO {
   buyerSignerFullname?: string;
   /** buyer login id */
   buyerLoginId?: string;
-  /** order type。（AE_COMMON:common type,AE_TRIAL:trial type;AE_RECHARGE:recharge order) */
+  /** order type. (AE_COMMON: common type, AE_TRIAL: trial type; AE_RECHARGE: recharge order) */
   bizType?: string;
   /** pickup type of order */
   offlinePickupType?: string;
@@ -553,7 +553,7 @@ export const AliexpressSolutionOrderGetOrderProductDTOSchema: Schema = {
 export interface AliexpressSolutionOrderGetPaginationResult {
   /** error massage */
   errorMessage?: string;
-  /** total count(SC order is not include the result） */
+  /** total count(SC order is not include the result) */
   totalCount?: Long;
   /** target list */
   targetList?: Array<AliexpressSolutionOrderGetOrderDTO>;
@@ -743,7 +743,7 @@ export interface AliexpressSolutionOrderInfoGetcopy1692615547969GlobalAeopTpChil
   id?: Long;
   /** logistics type */
   logisticsType?: string;
-  /** frozen status（NO_FROZEN; IN_FROZEN） */
+  /** frozen status (NO_FROZEN; IN_FROZEN) */
   frozenStatus?: string;
   /** issue status */
   issueStatus?: string;
@@ -761,7 +761,7 @@ export interface AliexpressSolutionOrderInfoGetcopy1692615547969GlobalAeopTpChil
   loanInfo?: AliexpressSolutionOrderInfoGetcopy1692615547969GlobalAeopTpLoanInfoDTO;
   /** product snapshot Url */
   productSnapUrl?: string;
-  /** Order Status：PLACE_ORDER_SUCCESS; IN_CANCEL; WAIT_SELLER_SEND_GOODS; SELLER_PART_SEND_GOODS; WAIT_BUYER_ACCEPT_GOODS; FUND_PROCESSING; IN_ISSUE; IN_FROZEN; WAIT_SELLER_EXAMINE_MONEY; RISK_CONTROL. */
+  /** Order Status: PLACE_ORDER_SUCCESS; IN_CANCEL; WAIT_SELLER_SEND_GOODS; SELLER_PART_SEND_GOODS; WAIT_BUYER_ACCEPT_GOODS; FUND_PROCESSING; IN_ISSUE; IN_FROZEN; WAIT_SELLER_EXAMINE_MONEY; RISK_CONTROL. */
   orderStatus?: string;
   /** SKU code */
   skuCode?: string;
@@ -771,7 +771,7 @@ export interface AliexpressSolutionOrderInfoGetcopy1692615547969GlobalAeopTpChil
   productId?: Long;
   /** product quantity */
   productCount?: number;
-  /** fund status (NOT_PAY；PAY_SUCCESS) */
+  /** fund status (NOT_PAY; PAY_SUCCESS) */
   fundStatus?: string;
   /** escrow fee rate */
   escrowFeeRate?: string;
@@ -927,7 +927,7 @@ export interface AliexpressSolutionOrderInfoGetcopy1692615547969GlobalAeopTpLogi
   gmtReceived?: string;
   /** logistics service name key */
   logisticsTypeCode?: string;
-  /** receive status。(default:initial value; received:; not_received; suspected_received) */
+  /** receive status. (default: initial value; received:; not_received; suspected_received) */
   receiveStatus?: string;
 }
 
@@ -978,7 +978,7 @@ export const AliexpressSolutionOrderInfoGetcopy1692615547969GlobalAeopTpOperatio
 export interface AliexpressSolutionOrderInfoGetcopy1692615547969GlobalAeopTpOrderDetailDTO {
   /** child order ext info list */
   childOrderExtInfoList?: Array<AliexpressSolutionOrderInfoGetcopy1692615547969GlobalAeopTpOrderProductInfoDTO>;
-  /** Order Status：PLACE_ORDER_SUCCESS; IN_CANCEL; WAIT_SELLER_SEND_GOODS; SELLER_PART_SEND_GOODS; WAIT_BUYER_ACCEPT_GOODS; FUND_PROCESSING; IN_ISSUE; IN_FROZEN; WAIT_SELLER_EXAMINE_MONEY; RISK_CONTROL. */
+  /** Order Status: PLACE_ORDER_SUCCESS; IN_CANCEL; WAIT_SELLER_SEND_GOODS; SELLER_PART_SEND_GOODS; WAIT_BUYER_ACCEPT_GOODS; FUND_PROCESSING; IN_ISSUE; IN_FROZEN; WAIT_SELLER_EXAMINE_MONEY; RISK_CONTROL. */
   orderStatus?: string;
   /** buyer full name */
   buyerSignerFullname?: string;
@@ -1016,7 +1016,7 @@ export interface AliexpressSolutionOrderInfoGetcopy1692615547969GlobalAeopTpOrde
   frozenStatus?: string;
   /** issue status */
   issueStatus?: string;
-  /** logistics status：NO_LOGISTICS 、 WAIT_SELLER_SEND_GOODS, SELLER_SEND_PART_GOODS, SELLER_SEND_GOODS, BUYER_ACCEPT_GOODS,NO_LOGISTICS */
+  /** logistics status: NO_LOGISTICS , WAIT_SELLER_SEND_GOODS, SELLER_SEND_PART_GOODS, SELLER_SEND_GOODS, BUYER_ACCEPT_GOODS,NO_LOGISTICS */
   logisticsStatus?: string;
   /** order amount */
   orderAmount?: AliexpressSolutionOrderInfoGetcopy1692615547969GlobalMoneyStr;
@@ -1479,7 +1479,7 @@ export interface AliexpressSolutionOrderInfoGetGlobalAeopTpChildOrderDTO {
   id?: Long;
   /** logistics type */
   logisticsType?: string;
-  /** frozen status（NO_FROZEN; IN_FROZEN） */
+  /** frozen status (NO_FROZEN; IN_FROZEN) */
   frozenStatus?: string;
   /** issue status */
   issueStatus?: string;
@@ -1497,7 +1497,7 @@ export interface AliexpressSolutionOrderInfoGetGlobalAeopTpChildOrderDTO {
   loanInfo?: AliexpressSolutionOrderInfoGetGlobalAeopTpLoanInfoDTO;
   /** product snapshot Url */
   productSnapUrl?: string;
-  /** Order Status：PLACE_ORDER_SUCCESS; IN_CANCEL; WAIT_SELLER_SEND_GOODS; SELLER_PART_SEND_GOODS; WAIT_BUYER_ACCEPT_GOODS; FUND_PROCESSING; IN_ISSUE; IN_FROZEN; WAIT_SELLER_EXAMINE_MONEY; RISK_CONTROL. */
+  /** Order Status: PLACE_ORDER_SUCCESS; IN_CANCEL; WAIT_SELLER_SEND_GOODS; SELLER_PART_SEND_GOODS; WAIT_BUYER_ACCEPT_GOODS; FUND_PROCESSING; IN_ISSUE; IN_FROZEN; WAIT_SELLER_EXAMINE_MONEY; RISK_CONTROL. */
   orderStatus?: string;
   /** SKU code */
   skuCode?: string;
@@ -1507,7 +1507,7 @@ export interface AliexpressSolutionOrderInfoGetGlobalAeopTpChildOrderDTO {
   productId?: Long;
   /** product quantity */
   productCount?: number;
-  /** fund status (NOT_PAY；PAY_SUCCESS) */
+  /** fund status (NOT_PAY; PAY_SUCCESS) */
   fundStatus?: string;
   /** escrow fee rate */
   escrowFeeRate?: string;
@@ -1659,7 +1659,7 @@ export interface AliexpressSolutionOrderInfoGetGlobalAeopTpLogisticInfoDTO {
   gmtReceived?: string;
   /** logistics service name key */
   logisticsTypeCode?: string;
-  /** receive status。(default:initial value; received:; not_received; suspected_received) */
+  /** receive status. (default: initial value; received:; not_received; suspected_received) */
   receiveStatus?: string;
 }
 
@@ -1718,7 +1718,7 @@ export interface AliexpressSolutionOrderInfoGetGlobalAeopTpOrderDetailDTO {
   loanInfo?: AliexpressSolutionOrderInfoGetGlobalAeopTpLoanInfoDTO;
   /** child order ext info list */
   childOrderExtInfoList?: Array<AliexpressSolutionOrderInfoGetGlobalAeopTpOrderProductInfoDTO>;
-  /** Order Status：PLACE_ORDER_SUCCESS; IN_CANCEL; WAIT_SELLER_SEND_GOODS; SELLER_PART_SEND_GOODS; WAIT_BUYER_ACCEPT_GOODS; FUND_PROCESSING; IN_ISSUE; IN_FROZEN; WAIT_SELLER_EXAMINE_MONEY; RISK_CONTROL. */
+  /** Order Status: PLACE_ORDER_SUCCESS; IN_CANCEL; WAIT_SELLER_SEND_GOODS; SELLER_PART_SEND_GOODS; WAIT_BUYER_ACCEPT_GOODS; FUND_PROCESSING; IN_ISSUE; IN_FROZEN; WAIT_SELLER_EXAMINE_MONEY; RISK_CONTROL. */
   orderStatus?: string;
   /** buyer full name */
   buyerSignerFullname?: string;
@@ -1756,7 +1756,7 @@ export interface AliexpressSolutionOrderInfoGetGlobalAeopTpOrderDetailDTO {
   frozenStatus?: string;
   /** issue status */
   issueStatus?: string;
-  /** logistics status：NO_LOGISTICS 、 WAIT_SELLER_SEND_GOODS, SELLER_SEND_PART_GOODS, SELLER_SEND_GOODS, BUYER_ACCEPT_GOODS,NO_LOGISTICS */
+  /** logistics status: NO_LOGISTICS , WAIT_SELLER_SEND_GOODS, SELLER_SEND_PART_GOODS, SELLER_SEND_GOODS, BUYER_ACCEPT_GOODS,NO_LOGISTICS */
   logisticsStatus?: string;
   /** order amount */
   orderAmount?: AliexpressSolutionOrderInfoGetGlobalMoneyStr;
@@ -2204,11 +2204,11 @@ export const AliexpressSolutionProductEditAttributeDTOSchema: Schema = {
 };
 
 export interface AliexpressSolutionProductEditInfluencerVideoDTO {
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
 }
 
@@ -2219,9 +2219,9 @@ export const AliexpressSolutionProductEditInfluencerVideoDTOSchema: Schema = {
 };
 
 export interface AliexpressSolutionProductEditInfluencerVideoInfoDTO {
-  /** 默认网红视频 */
+  /** Default influencer video */
   influencerVideo?: AliexpressSolutionProductEditInfluencerVideoDTO;
-  /** 分国家网红视频 */
+  /** Influencer videos by country */
   nationalInfluencerVideos?: Array<AliexpressSolutionProductEditInfluencerVideoDTO>;
 }
 
@@ -2305,7 +2305,7 @@ export const AliexpressSolutionProductEditPostItemResponseDTOSchema: Schema = {
 };
 
 export interface AliexpressSolutionProductEditPostProductRequestDTO {
-  /** 网红视频信息 */
+  /** Influencer video information */
   influencerVideoInfo?: AliexpressSolutionProductEditInfluencerVideoInfoDTO;
   /** Qualification information. Please note that deleting the product qualification information will result in the product being penalized for non-compliance, so please do not delete the product qualification information. */
   itemQualifications?: Array<AliexpressSolutionProductEditItemQualificationDTO>;
@@ -2703,7 +2703,7 @@ export const AliexpressSolutionProductInfoGetGlobalAeopAEVideoSchema: Schema = {
 };
 
 export interface AliexpressSolutionProductInfoGetGlobalAeopFindProductResultDTO {
-  /** 网红视频信息 */
+  /** Influencer video information */
   influencerVideoInfo?: AliexpressSolutionProductInfoGetInfluencerVideoInfoDTO;
   /** refer to the preparation period of merchant before the package could be dispatched to the customer. */
   itemQualifications?: Array<AliexpressSolutionProductInfoGetItemQualificationDTO>;
@@ -2721,7 +2721,7 @@ export interface AliexpressSolutionProductInfoGetGlobalAeopFindProductResultDTO 
   shippingPriority?: string;
   /** chosen shipping warehouse country */
   shippingWarehouse?: string;
-  /** 商品说明书 */
+  /** Product manual */
   productManual?: string;
   /** Product properties */
   aeopAeProductPropertys?: Array<AliexpressSolutionProductInfoGetGlobalAeopAeProductProperty>;
@@ -2953,11 +2953,11 @@ export const AliexpressSolutionProductInfoGetGlobalSubjectSchema: Schema = {
 };
 
 export interface AliexpressSolutionProductInfoGetInfluencerVideoDTO {
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 国家 */
+  /** Country */
   country?: string;
 }
 
@@ -2969,9 +2969,9 @@ export const AliexpressSolutionProductInfoGetInfluencerVideoDTOSchema: Schema =
   };
 
 export interface AliexpressSolutionProductInfoGetInfluencerVideoInfoDTO {
-  /** 默认网红视频 */
+  /** Default influencer video */
   influencerVideo?: AliexpressSolutionProductInfoGetInfluencerVideoDTO;
-  /** 分国家网红视频 */
+  /** Influencer videos by country */
   nationalInfluencerVideos?: Array<AliexpressSolutionProductInfoGetInfluencerVideoDTO>;
 }
 
@@ -3091,7 +3091,7 @@ export const AliexpressSolutionProductInventoryQueryAeopSKUPropertySchema: Schem
   };
 
 export interface AliexpressSolutionProductInventoryQueryProductInfoDTO {
-  /** 商品Id */
+  /** Product ID */
   productId?: string;
   skuList?: Array<AliexpressSolutionProductInventoryQuerySkuStockDTO>;
 }
@@ -3107,13 +3107,13 @@ export const AliexpressSolutionProductInventoryQueryProductInfoDTOSchema: Schema
   };
 
 export interface AliexpressSolutionProductInventoryQueryProductInfoResult {
-  /** 调用结果 */
+  /** Call result */
   success?: string;
   /** error code */
   errorCode?: string;
   /** error msg */
   errorMessage?: string;
-  /** 商品信息 */
+  /** Product information */
   product?: AliexpressSolutionProductInventoryQueryProductInfoDTO;
 }
 
@@ -3130,13 +3130,13 @@ export const AliexpressSolutionProductInventoryQueryProductInfoResultSchema: Sch
   };
 
 export interface AliexpressSolutionProductInventoryQuerySkuStockDTO {
-  /** 库存信息 */
+  /** Inventory information */
   stockInfo?: Array<AliexpressSolutionProductInventoryQuerySkuWarehouseStockDTO>;
   /** skuID */
   skuId?: string;
   /** skuCode */
   skuCode?: string;
-  /** 销售属性 */
+  /** Sales attributes */
   saleProperty?: Array<AliexpressSolutionProductInventoryQueryAeopSKUProperty>;
 }
 
@@ -3281,11 +3281,11 @@ export interface AliexpressSolutionProductListGetItemListQuery {
   groupId?: Long;
   /** Search for products created after a specific time, format: yyyy-MM-dd hh:mm:ss */
   gmtCreateStart?: string;
-  /** Search for products created before a specific time，yyyy-MM-dd hh:mm:ss */
+  /** Search for products created before a specific time, yyyy-MM-dd hh:mm:ss */
   gmtCreateEnd?: string;
-  /** Search for product modified after a specific time，yyyy-MM-dd hh:mm:ss */
+  /** Search for product modified after a specific time, yyyy-MM-dd hh:mm:ss */
   gmtModifiedStart?: string;
-  /** Search for products modified before a specific time，yyyy-MM-dd hh:mm:ss */
+  /** Search for products modified before a specific time, yyyy-MM-dd hh:mm:ss */
   gmtModifiedEnd?: string;
   /** merchant sku code */
   skuCode?: string;
@@ -3391,7 +3391,7 @@ export interface AliexpressSolutionProductMultiStockUpdateSkuWarehouseStockDTO {
   sellableQuantity?: Long;
   /** warehouse code */
   warehouseCode?: string;
-  /** 仓库名 */
+  /** Warehouse name */
   warehouseName?: string;
 }
 
@@ -3421,9 +3421,9 @@ export const AliexpressSolutionProductPostAttributeDTOSchema: Schema = {
 };
 
 export interface AliexpressSolutionProductPostInfluencerVideo {
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
 }
 
@@ -3433,11 +3433,11 @@ export const AliexpressSolutionProductPostInfluencerVideoSchema: Schema = {
 };
 
 export interface AliexpressSolutionProductPostInfluencerVideoDTO {
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 分国家网红视频 */
+  /** Influencer videos by country */
   country?: string;
 }
 
@@ -3448,9 +3448,9 @@ export const AliexpressSolutionProductPostInfluencerVideoDTOSchema: Schema = {
 };
 
 export interface AliexpressSolutionProductPostInfluencerVideoInfo {
-  /** 默认网红视频 */
+  /** Default influencer video */
   influencerVideo?: AliexpressSolutionProductPostInfluencerVideo;
-  /** 分国家网红视频 */
+  /** Influencer videos by country */
   nationalInfluencerVideos?: Array<AliexpressSolutionProductPostInfluencerVideoDTO>;
 }
 
@@ -3551,7 +3551,7 @@ export interface AliexpressSolutionProductPostPostProductRequestDTO {
   shippingWarehouse?: string;
   /** productManual */
   productManual?: string;
-  /** 网红视频信息 */
+  /** Influencer video information */
   influencerVideoInfo?: AliexpressSolutionProductPostInfluencerVideoInfo;
   /** Indicate when the inventory of a specific product will be deducted: 1) place_order_withhold: the inventory is deducted just after the order is placed by customer. 2) payment_success_deduct: the stock is deducted after the payment is done successfully by the customer. */
   inventoryDeductionStrategy?: string;
@@ -4768,7 +4768,7 @@ export interface AliexpressSolutionProductInventoryQueryParams {
 
 /** Response of `aliexpress.solution.product.inventory.query`. */
 export interface AliexpressSolutionProductInventoryQueryResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressSolutionProductInventoryQueryProductInfoResult;
 }
 
@@ -4837,15 +4837,15 @@ export const aliexpressSolutionProductListGet: ApiDefinition<
 
 /** Parameters for `aliexpress.solution.product.multi.stock.update`. */
 export interface AliexpressSolutionProductMultiStockUpdateParams {
-  /** 商品ID */
+  /** Product ID */
   productId?: LongInput;
-  /** sku列表 */
+  /** SKU list */
   skuList?: Array<AliexpressSolutionProductMultiStockUpdateSkuStockDTO>;
 }
 
 /** Response of `aliexpress.solution.product.multi.stock.update`. */
 export interface AliexpressSolutionProductMultiStockUpdateResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AliexpressSolutionProductMultiStockUpdateAeopModifyProductResponse;
 }
 

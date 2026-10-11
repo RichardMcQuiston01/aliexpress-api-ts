@@ -9,11 +9,11 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressUgcProductVideoUploadPlainResult {
-  /** 数据 */
+  /** Data */
   data?: string;
-  /** 消息 */
+  /** Message */
   message?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
 }
 
@@ -25,17 +25,17 @@ export const AliexpressUgcProductVideoUploadPlainResultSchema: Schema = {
 
 /** Parameters for `aliexpress.ugc.product.video.upload`. */
 export interface AliexpressUgcProductVideoUploadParams {
-  /** 商品id */
+  /** Product ID */
   productId?: LongInput;
-  /** 表示更新主图视频 */
+  /** Indicates updating the main image video */
   mediaType?: string;
-  /** 视频地址，后缀以视频格式结束，视频大小2G，视频格式wmv,avi,mpg,mpeg,3gp,mov,mp4,flv,f4v,m4v,m2t,mts,rmvb,vob,mkv */
+  /** Video address, the suffix ends with the video format, video size 2G, video formats wmv,avi,mpg,mpeg,3gp,mov,mp4,flv,f4v,m4v,m2t,mts,rmvb,vob,mkv */
   videoFileUrl?: string;
 }
 
 /** Response of `aliexpress.ugc.product.video.upload`. */
 export interface AliexpressUgcProductVideoUploadResponse {
-  /** 返回 */
+  /** Return */
   result?: AliexpressUgcProductVideoUploadPlainResult;
 }
 

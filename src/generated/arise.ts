@@ -9,23 +9,23 @@ import type {
 } from '../core/index.js';
 
 export interface AriseCategoryAttributesListAriseAttributeDTO {
-  /** 属性值列表 */
+  /** Attribute value list */
   values?: Array<AriseCategoryAttributesListBaseAttributeValueDTO>;
-  /** 是否是sku销售属性 */
+  /** Whether it is a SKU sales attribute */
   isSaleProp?: boolean;
-  /** 属性展现样式 ：单选或多选 、是否可输入等。 1：文本 2：富文本 3：单选 4：多选 5：日历 6：数值 7：枚举单选可输入 8：枚举多选可输入 9：图片 */
+  /** Attribute display style: single or multiple choice, whether input is allowed, etc. 1: text 2: rich text 3: single choice 4: multiple choice 5: calendar 6: numeric 7: enum single choice with input 8: enum multiple choice with input 9: image */
   attributeShowTypeValue?: string;
-  /** 是否可以自定义sku图片： 标记商品sku属性中可以挂载sku图片的销售属性 */
+  /** Whether SKU images can be customized: marks the sales attributes in the product's SKU attributes to which SKU images can be attached */
   customizedPic?: boolean;
-  /** 是否是关键属性 */
+  /** Whether it is a key attribute */
   isKeyAttribute?: boolean;
-  /** 是否必填 */
+  /** Required */
   required?: boolean;
-  /** 是否是品牌 */
+  /** Whether it is a brand */
   isBrandProperty?: boolean;
-  /** 属性名称 */
+  /** Attribute name */
   name?: string;
-  /** 属性id */
+  /** Attribute ID */
   id?: number;
 }
 
@@ -46,9 +46,9 @@ export const AriseCategoryAttributesListAriseAttributeDTOSchema: Schema = {
 };
 
 export interface AriseCategoryAttributesListBaseAttributeValueDTO {
-  /** 属性值名称 */
+  /** Attribute value name */
   name?: string;
-  /** 属性值id */
+  /** Attribute value ID */
   id?: number;
 }
 
@@ -58,17 +58,17 @@ export const AriseCategoryAttributesListBaseAttributeValueDTOSchema: Schema = {
 };
 
 export interface AriseCategoryQualificationsListAriseQualificationDTO {
-  /** 资质信息名称 */
+  /** Qualification information name */
   label?: string;
-  /** 资质信息类型 ："image","text" */
+  /** Qualification information type: "image","text" */
   type?: string;
-  /** 资质信息key, 每个类目下的key都不一样，请先调用资质信息查询接口：aliexpress.category.qualifications.list，查询对应的key和type */
+  /** Qualification info key. The key differs for each category; first call the qualification info query API: aliexpress.category.qualifications.list to query the corresponding key and type */
   key?: string;
-  /** 资质信息说明 */
+  /** Qualification information description */
   tips?: string;
-  /** 是否必填 */
+  /** Required */
   required?: boolean;
-  /** 资质信息key父节点 */
+  /** Parent node of the qualification information key */
   parentKey?: string;
 }
 
@@ -83,13 +83,13 @@ export const AriseCategoryQualificationsListAriseQualificationDTOSchema: Schema 
   };
 
 export interface AriseCategoryTreeListAriseCategoryDTO {
-  /** 类目等级 */
+  /** Category level */
   level?: number;
-  /** 是否叶子类目 */
+  /** Whether it is a leaf category */
   leaf?: boolean;
-  /** 类目名称 */
+  /** Category name */
   categoryName?: string;
-  /** 类目ID */
+  /** Category ID */
   categoryId?: Long;
 }
 
@@ -101,13 +101,13 @@ export const AriseCategoryTreeListAriseCategoryDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsAwbPrintPrintAWBApiRequestDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: Long;
-  /** 包裹单号 */
+  /** Package number */
   packageIdList?: Array<string>;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channelType?: string;
-  /** 打印类型：HTML/PDF */
+  /** Print type: HTML/PDF */
   fileType?: string;
 }
 
@@ -119,17 +119,17 @@ export const AriseLogisticsAwbPrintPrintAWBApiRequestDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsPackingPackApiRequestDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: Long;
-  /** 操作方式：SELF_MAILING/EXPRESS_COLLECTION 自寄/上门揽，仅当发货方式为平台发货时需要设置该值 */
+  /** Operation method: SELF_MAILING/EXPRESS_COLLECTION self-mailing/door-to-door pickup; this value only needs to be set when the shipping method is platform shipping */
   operateWay?: string;
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: string;
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   tradeOrderItemIdList?: Array<string>;
-  /** 物流服务商编码 */
+  /** Logistics provider code */
   shipmentProviderCode?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channelType?: string;
 }
 
@@ -143,13 +143,13 @@ export const AriseLogisticsPackingPackApiRequestDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsPackingPackApiResponseDTO {
-  /** 打包明细结果 */
+  /** Packing detail result */
   packageDtoList?: Array<AriseLogisticsPackingPackingDTO>;
-  /** 接口调用结果，true代表成功，false代表失败 */
+  /** API call result, true means success, false means failure */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误码描述 */
+  /** Error code description */
   errorMessage?: string;
 }
 
@@ -165,19 +165,19 @@ export const AriseLogisticsPackingPackApiResponseDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsPackingPackingDTO {
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: string;
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   tradeOrderItemId?: string;
-  /** 包裹单号 */
+  /** Package number */
   packageId?: string;
-  /** 物流服务商编码 */
+  /** Logistics provider code */
   shipmentProviderCode?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
-  /** 打包结果（交易子单维度），0代表成功；40014代表打包失败 */
+  /** Packing result (trade sub-order dimension), 0 means success; 40014 means packing failed */
   resultCode?: string;
-  /** 打包结果描述（交易子单维度），40014错误码对应的失败原因有：1）请重新编辑发货地址和揽收地址并保存；2）包裹的长宽高体积重量超过官方物流限制，请联系您的小二申请开通自发货权限；3）订单校验异常，请联系客服小二；4）仓库地址不在揽收范围内，请自寄到仓库； */
+  /** Packing result description (trade sub-order level). Failure reasons for error code 40014: 1) re-edit and save the shipping address and pickup address; 2) the package's length, width, height, volume or weight exceeds the official logistics limit, contact your account manager to apply for self-shipping permission; 3) order validation exception, contact customer service; 4) the warehouse address is outside the pickup coverage area, send it to the warehouse yourself; */
   resultMsg?: string;
 }
 
@@ -192,15 +192,15 @@ export const AriseLogisticsPackingPackingDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsPackPackageDTO {
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: string;
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   tradeOrderItemIdList?: Array<string>;
-  /** 包裹单号 */
+  /** Package number */
   packageId?: string;
-  /** 物流服务商编码 */
+  /** Logistics provider code */
   shipmentProviderCode?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
 }
 
@@ -213,17 +213,17 @@ export const AriseLogisticsPackPackageDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsPackPackApiRequestDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: Long;
-  /** 操作方式：SELF_MAILING/EXPRESS_COLLECTION 自寄/上门揽，仅当发货方式为平台发货时需要设置该值 */
+  /** Operation method: SELF_MAILING/EXPRESS_COLLECTION self-mailing/door-to-door pickup; this value only needs to be set when the shipping method is platform shipping */
   operateWay?: string;
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: string;
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   tradeOrderItemIdList?: Array<string>;
-  /** 物流服务商编码 */
+  /** Logistics provider code */
   shipmentProviderCode?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channelType?: string;
 }
 
@@ -237,13 +237,13 @@ export const AriseLogisticsPackPackApiRequestDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsPackPackApiResponseDTO {
-  /** 打包明细结果 */
+  /** Packing detail result */
   packageDtolist?: Array<AriseLogisticsPackPackageDTO>;
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -259,11 +259,11 @@ export const AriseLogisticsPackPackApiResponseDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsPkgCollectionConfirmPackageConfirmCollectionApiRequestDTO {
-  /** 包裹id列表 */
+  /** Package ID list */
   packageIdList?: Array<string>;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channelType?: string;
 }
 
@@ -275,13 +275,13 @@ export const AriseLogisticsPkgCollectionConfirmPackageConfirmCollectionApiReques
   };
 
 export interface AriseLogisticsPkgCollectionConfirmPackageOperationApiResponseDTO {
-  /** 请求成功与否 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 操作结果 */
+  /** Operation result */
   operationResult?: AriseLogisticsPkgCollectionConfirmSellerOperationResultDTO;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -298,7 +298,7 @@ export const AriseLogisticsPkgCollectionConfirmPackageOperationApiResponseDTOSch
   };
 
 export interface AriseLogisticsPkgCollectionConfirmSellerOperationPackageResDTO {
-  /** 包裹ID */
+  /** Package ID */
   packageId?: string;
 }
 
@@ -308,9 +308,9 @@ export const AriseLogisticsPkgCollectionConfirmSellerOperationPackageResDTOSchem
   };
 
 export interface AriseLogisticsPkgCollectionConfirmSellerOperationResultDTO {
-  /** 操作消息 */
+  /** Operation message */
   operateMsg?: string;
-  /** 成功操作的包裹 */
+  /** Successfully processed packages */
   packages?: Array<AriseLogisticsPkgCollectionConfirmSellerOperationPackageResDTO>;
 }
 
@@ -326,11 +326,11 @@ export const AriseLogisticsPkgCollectionConfirmSellerOperationResultDTOSchema: S
   };
 
 export interface AriseLogisticsPkgDeliveryConfirmPackageConfirmDeliveryApiRequestDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: Long;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channelType?: string;
-  /** 包裹package列表 */
+  /** Package list */
   packageList?: Array<AriseLogisticsPkgDeliveryConfirmPackageDeliveryApiDTO>;
 }
 
@@ -346,9 +346,9 @@ export const AriseLogisticsPkgDeliveryConfirmPackageConfirmDeliveryApiRequestDTO
   };
 
 export interface AriseLogisticsPkgDeliveryConfirmPackageDeliveryApiDTO {
-  /** 包裹凭证地址 */
+  /** Package voucher URL */
   epodUrl?: string;
-  /** 包裹id */
+  /** Package ID */
   packageId?: string;
 }
 
@@ -359,13 +359,13 @@ export const AriseLogisticsPkgDeliveryConfirmPackageDeliveryApiDTOSchema: Schema
   };
 
 export interface AriseLogisticsPkgDeliveryConfirmPackageOperationApiResponseDTO {
-  /** 请求成功与否 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 操作结果 */
+  /** Operation result */
   operationResult?: AriseLogisticsPkgDeliveryConfirmSellerOperationResultDTO;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -382,7 +382,7 @@ export const AriseLogisticsPkgDeliveryConfirmPackageOperationApiResponseDTOSchem
   };
 
 export interface AriseLogisticsPkgDeliveryConfirmSellerOperationPackageResDTO {
-  /** 包裹ID */
+  /** Package ID */
   packageId?: string;
 }
 
@@ -392,9 +392,9 @@ export const AriseLogisticsPkgDeliveryConfirmSellerOperationPackageResDTOSchema:
   };
 
 export interface AriseLogisticsPkgDeliveryConfirmSellerOperationResultDTO {
-  /** 操作消息 */
+  /** Operation message */
   operateMsg?: string;
-  /** 成功操作的包裹 */
+  /** Successfully processed packages */
   packages?: Array<AriseLogisticsPkgDeliveryConfirmSellerOperationPackageResDTO>;
 }
 
@@ -409,11 +409,11 @@ export const AriseLogisticsPkgDeliveryConfirmSellerOperationResultDTOSchema: Sch
   };
 
 export interface AriseLogisticsPkgShipmentDeclarePackageDeclareShipmentApiRequestDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: Long;
-  /** 包裹单号列表 */
+  /** Package number list */
   packageIdList?: Array<string>;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channelType?: string;
 }
 
@@ -425,13 +425,13 @@ export const AriseLogisticsPkgShipmentDeclarePackageDeclareShipmentApiRequestDTO
   };
 
 export interface AriseLogisticsPkgShipmentDeclarePackageDeclareShipmentApiResponseDTO {
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 包裹声明发货明细结果 */
+  /** Result details of package declared shipment */
   packageOperateDtolist?: Array<AriseLogisticsPkgShipmentDeclarePackageOperateDTO>;
 }
 
@@ -450,11 +450,11 @@ export const AriseLogisticsPkgShipmentDeclarePackageDeclareShipmentApiResponseDT
 export interface AriseLogisticsPkgShipmentDeclarePackageOperateDTO {
   /** true */
   success?: boolean;
-  /** 包裹单号 */
+  /** Package number */
   packageId?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -466,13 +466,13 @@ export const AriseLogisticsPkgShipmentDeclarePackageOperateDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsRepackPackageOperateDTO {
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 包裹单号 */
+  /** Package number */
   packageId?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -484,11 +484,11 @@ export const AriseLogisticsRepackPackageOperateDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsRepackRepackApiRequestDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: Long;
-  /** 包裹单号 */
+  /** Package number */
   packageIdList?: Array<string>;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channelType?: string;
 }
 
@@ -499,13 +499,13 @@ export const AriseLogisticsRepackRepackApiRequestDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsRepackRepackApiResponseDTO {
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 作废包裹明细信息 */
+  /** Voided package detail information */
   packageOperateDtolist?: Array<AriseLogisticsRepackPackageOperateDTO>;
 }
 
@@ -521,13 +521,13 @@ export const AriseLogisticsRepackRepackApiResponseDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsShipmentConfirmPackageConfirmApiRequestDTO {
-  /** 确认事件：DELIVERY/DELIVERY_FAIL，妥投/妥投失败 */
+  /** Confirmation event: DELIVERY/DELIVERY_FAIL, delivered/delivery failed */
   eventCode?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: Long;
-  /** 包裹单号 */
+  /** Package number */
   packageIdList?: Array<string>;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channelType?: string;
 }
 
@@ -540,13 +540,13 @@ export const AriseLogisticsShipmentConfirmPackageConfirmApiRequestDTOSchema: Sch
   };
 
 export interface AriseLogisticsShipmentConfirmPackageConfirmApiResponseDTO {
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 物流确认妥投状态明细结果 */
+  /** Detailed result of logistics delivery confirmation status */
   packageOperateDtolist?: Array<AriseLogisticsShipmentConfirmPackageOperateDTO>;
 }
 
@@ -563,13 +563,13 @@ export const AriseLogisticsShipmentConfirmPackageConfirmApiResponseDTOSchema: Sc
   };
 
 export interface AriseLogisticsShipmentConfirmPackageOperateDTO {
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 包裹单号 */
+  /** Package number */
   packageId?: string;
 }
 
@@ -581,17 +581,17 @@ export const AriseLogisticsShipmentConfirmPackageOperateDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsShipmentDeclareDeclareShipmentApiRequestDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: Long;
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: string;
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   tradeOrderItemIdList?: Array<string>;
-  /** 物流服务商编码 */
+  /** Logistics provider code */
   shipmentProviderCode?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channelType?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
 }
 
@@ -606,13 +606,13 @@ export const AriseLogisticsShipmentDeclareDeclareShipmentApiRequestDTOSchema: Sc
   };
 
 export interface AriseLogisticsShipmentDeclareDeclareShipmentApiResponseDTO {
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 包裹单号 */
+  /** Package number */
   packageId?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -625,15 +625,15 @@ export const AriseLogisticsShipmentDeclareDeclareShipmentApiResponseDTOSchema: S
   };
 
 export interface AriseLogisticsShipmentProviderQueryShipmentProviderApiRequestDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: Long;
-  /** 操作方式：SELF_MAILING/EXPRESS_COLLECTION 自寄/上门揽，仅当发货方式为平台发货时需要设置该值 */
+  /** Operation method: SELF_MAILING/EXPRESS_COLLECTION self-mailing/door-to-door pickup; this value only needs to be set when the shipping method is platform shipping */
   operateWay?: string;
-  /** 交易单号 */
+  /** Transaction order number */
   tradeOrderId?: string;
-  /** 交易子单号 */
+  /** Transaction sub-order number */
   tradeOrderItemIdList?: Array<string>;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channelType?: string;
 }
 
@@ -647,15 +647,15 @@ export const AriseLogisticsShipmentProviderQueryShipmentProviderApiRequestDTOSch
   };
 
 export interface AriseLogisticsShipmentProviderQueryShipmentProviderApiResponseDTO {
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 物流服务模式：DELIVERED_BY_SELLER/DELIVERED_BY_PLATFORM，商家自发货/平台发货 */
+  /** Logistics service mode: DELIVERED_BY_SELLER/DELIVERED_BY_PLATFORM, seller self-fulfillment/platform fulfillment */
   shipmentProviderMode?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 物流服务商列表 */
+  /** Logistics provider list */
   shipmentProviderDtolist?: Array<AriseLogisticsShipmentProviderQueryShipmentProviderDTO>;
 }
 
@@ -673,9 +673,9 @@ export const AriseLogisticsShipmentProviderQueryShipmentProviderApiResponseDTOSc
   };
 
 export interface AriseLogisticsShipmentProviderQueryShipmentProviderDTO {
-  /** 物流服务商名称 */
+  /** Logistics provider name */
   shipmentProviderName?: string;
-  /** 物流服务商编码 */
+  /** Logistics provider code */
   shipmentProviderCode?: string;
 }
 
@@ -686,13 +686,13 @@ export const AriseLogisticsShipmentProviderQueryShipmentProviderDTOSchema: Schem
   };
 
 export interface AriseLogisticsShipmentUpdatePackageOperateDTO {
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 包裹单号 */
+  /** Package number */
   packageId?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -704,11 +704,11 @@ export const AriseLogisticsShipmentUpdatePackageOperateDTOSchema: Schema = {
 };
 
 export interface AriseLogisticsShipmentUpdatePackageUpdateApiRequestDTO {
-  /** 修改声明发货明细信息 */
+  /** Details for modifying declared shipment */
   packageUpdateDtolist?: Array<AriseLogisticsShipmentUpdatePackageUpdateDTO>;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   sellerId?: Long;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channelType?: string;
 }
 
@@ -724,13 +724,13 @@ export const AriseLogisticsShipmentUpdatePackageUpdateApiRequestDTOSchema: Schem
   };
 
 export interface AriseLogisticsShipmentUpdatePackageUpdateApiResponseDTO {
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 修改声明发货明细结果 */
+  /** Result details of modifying declared shipment */
   packageOperateDtolist?: Array<AriseLogisticsShipmentUpdatePackageOperateDTO>;
 }
 
@@ -747,11 +747,11 @@ export const AriseLogisticsShipmentUpdatePackageUpdateApiResponseDTOSchema: Sche
   };
 
 export interface AriseLogisticsShipmentUpdatePackageUpdateDTO {
-  /** 包裹单号 */
+  /** Package number */
   packageId?: string;
-  /** 物流服务商编码 */
+  /** Logistics provider code */
   shipmentProviderCode?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
 }
 
@@ -762,9 +762,9 @@ export const AriseLogisticsShipmentUpdatePackageUpdateDTOSchema: Schema = {
 };
 
 export interface AriseMerchantManufactureListIdMapDTO {
-  /** 欧盟责任人id */
+  /** EU responsible person ID */
   id?: Long;
-  /** 欧盟责任人名称 */
+  /** EU responsible person name */
   name?: string;
 }
 
@@ -774,9 +774,9 @@ export const AriseMerchantManufactureListIdMapDTOSchema: Schema = {
 };
 
 export interface AriseMerchantMsrListIdMapDTO {
-  /** 欧盟责任人id */
+  /** EU responsible person ID */
   id?: string;
-  /** 欧盟责任人名称 */
+  /** EU responsible person name */
   name?: string;
 }
 
@@ -786,19 +786,19 @@ export const AriseMerchantMsrListIdMapDTOSchema: Schema = {
 };
 
 export interface AriseOrderDetailQueryAddressInfoDTO {
-  /** 买家地址国家缩写 */
+  /** Country abbreviation of the buyer address */
   countryCode?: string;
-  /** 买家地址国家名 */
+  /** Buyer address country name */
   countryName?: string;
-  /** 买家地址邮编 */
+  /** Buyer address postal code */
   postcode?: string;
-  /** 买家地址所在城市 */
+  /** City of the buyer address */
   city?: string;
-  /** 买家地址所在州 */
+  /** Buyer address state */
   state?: string;
-  /** 买家的详细地址，对应Street和Unit */
+  /** Buyer's detailed address, corresponding to Street and Unit */
   detailAddress?: string;
-  /** 买家地址的额外信息 */
+  /** Additional information of the buyer address */
   extendAddress?: string;
 }
 
@@ -813,13 +813,13 @@ export const AriseOrderDetailQueryAddressInfoDTOSchema: Schema = {
 };
 
 export interface AriseOrderDetailQueryBaseResponse {
-  /** 成功或失败 */
+  /** Success or failure */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误详细信息 */
+  /** Detailed error information */
   errorMsg?: string;
-  /** 返回数据 */
+  /** Returned data */
   data?: AriseOrderDetailQueryOrderDetailOpenDTO;
 }
 
@@ -831,9 +831,9 @@ export const AriseOrderDetailQueryBaseResponseSchema: Schema = {
 };
 
 export interface AriseOrderDetailQueryOpenMoney {
-  /** 金额值 */
+  /** Amount value */
   amount?: string;
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
 }
 
@@ -843,31 +843,31 @@ export const AriseOrderDetailQueryOpenMoneySchema: Schema = {
 };
 
 export interface AriseOrderDetailQueryOrderDetailOpenDTO {
-  /** 收货人名字 */
+  /** Consignee name */
   receiverName?: string;
-  /** 收货人邮编 */
+  /** Consignee postal code */
   receiverPostalCode?: string;
-  /** 订单创建时间，unix时间戳，单位毫秒 */
+  /** Order creation time, unix timestamp, in milliseconds */
   orderCreateTime?: Long;
-  /** 订单id */
+  /** Order ID */
   tradeOrderId?: Long;
-  /** 收货人电话 */
+  /** Consignee phone */
   receiverPhoneNumber?: string;
-  /** 卖家订单备注 */
+  /** Seller order remarks */
   sellerMemo?: string;
-  /** 买家名字 */
+  /** Buyer name */
   buyerFullName?: string;
-  /** 买家收货地址信息 */
+  /** Buyer shipping address information */
   receiverAddressInfo?: AriseOrderDetailQueryAddressInfoDTO;
-  /** 支付信息，包括总价格折扣 */
+  /** Payment information, including total price and discounts */
   payInfo?: AriseOrderDetailQueryPayInfoDTO;
-  /** 订单总状态 */
+  /** Overall order status */
   orderStatus?: string;
-  /** 买家备注 */
+  /** Buyer remarks */
   buyerRemarkText?: string;
-  /** 收件人地址 */
+  /** Recipient address */
   receiverAddress?: string;
-  /** 子订单列表 */
+  /** Sub-order list */
   orderLines?: Array<AriseOrderDetailQueryOrderLineDetailOpenDTO>;
 }
 
@@ -896,63 +896,63 @@ export const AriseOrderDetailQueryOrderDetailOpenDTOSchema: Schema = {
 };
 
 export interface AriseOrderDetailQueryOrderLineDetailOpenDTO {
-  /** 运费 */
+  /** Shipping fee */
   shippingAmount?: AriseOrderDetailQueryOpenMoney;
-  /** 子订单号 */
+  /** Sub-order number */
   tradeOrderlineId?: Long;
-  /** 商品链接 */
+  /** Product link */
   productUrl?: string;
-  /** 优惠金额 */
+  /** Discount amount */
   promotionAmount?: AriseOrderDetailQueryOpenMoney;
   /** skuId */
   skuId?: Long;
-  /** 卖家自定义的skuCode */
+  /** skuCode defined by the seller */
   sellerSkuCode?: string;
-  /** 平台生成的skuCode */
+  /** skuCode generated by the platform */
   shopSkuCode?: string;
-  /** 子订单创建时间 */
+  /** Sub-order creation time */
   createTime?: Long;
-  /** 子订单修改时间 */
+  /** Sub-order update time */
   modifyTime?: Long;
-  /** 商品卖家折扣，如果没有此折扣则不返回此字段 */
+  /** Product seller discount; this field is not returned if there is no such discount */
   productSellerDiscountAmount?: AriseOrderDetailQueryOpenMoney;
-  /** 商品平台折扣，如果没有此折扣则不返回此字段 */
+  /** Product platform discount; this field is not returned if there is no such discount */
   productPlatformDiscountAmount?: AriseOrderDetailQueryOpenMoney;
-  /** 运费卖家折扣，如果没有此折扣则不返回此字段 */
+  /** Shipping fee seller discount; this field is not returned if there is no such discount */
   shippingSellerDiscountAmount?: AriseOrderDetailQueryOpenMoney;
-  /** 运费平台折扣，如果没有此折扣则不返回此字段 */
+  /** Shipping fee platform discount; this field is not returned if there is no such discount */
   shippingPlatformDiscountAmount?: AriseOrderDetailQueryOpenMoney;
-  /** 商品总优惠 */
+  /** Total product discount */
   productDiscountAmount?: AriseOrderDetailQueryOpenMoney;
-  /** 买家发起取消后，卖家响应处理的超时时间，当order_status为waitSellerConfirmCancel，本字段有效 */
+  /** Timeout for the seller to respond after the buyer initiates a cancellation. Valid when order_status is waitSellerConfirmCancel */
   cancelConfirmTimeout?: Long;
-  /** 包裹id，响应cancel时需要按照包裹维度响应，同一个包裹的子订单必须一次性响应，不同包裹的子订单不能同时响应 */
+  /** Package ID. When responding to cancel, respond per package; sub-orders in the same package must be responded to at once, and sub-orders in different packages cannot be responded to at the same time */
   packageId?: string;
-  /** 物流类型 */
+  /** Logistics type */
   deliveryType?: string;
-  /** 商品属性 */
+  /** Product attributes */
   productAttrs?: Array<string>;
-  /** 数量 */
+  /** Quantity */
   quantity?: number;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 商品总金额 */
+  /** Total product amount */
   productTotalAmount?: AriseOrderDetailQueryOpenMoney;
-  /** 运费总优惠，如果没有则不返回此字段 */
+  /** Total shipping fee discount; this field is not returned if there is none */
   shippingDiscountAmount?: AriseOrderDetailQueryOpenMoney;
-  /** 订单状态 */
+  /** Order status */
   orderStatus?: string;
-  /** 商品图片地址 */
+  /** Product image URL */
   productPictureUrl?: string;
-  /** 订单金额（卖家视角） */
+  /** Order amount (seller's perspective) */
   sellerOrderAmount?: AriseOrderDetailQueryOpenMoney;
-  /** 订单标 */
+  /** Order label */
   tags?: Array<string>;
-  /** 商品标题 */
+  /** Product title */
   productTitle?: string;
-  /** 商品单价 */
+  /** Product unit price */
   productUnitAmount?: AriseOrderDetailQueryOpenMoney;
-  /** 支付金额 */
+  /** Payment amount */
   payAmount?: AriseOrderDetailQueryOpenMoney;
 }
 
@@ -1033,11 +1033,11 @@ export const AriseOrderDetailQueryOrderLineDetailOpenDTOSchema: Schema = {
 };
 
 export interface AriseOrderDetailQueryOrderQueryDetailOpenRequest {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: Long;
-  /** 订单id */
+  /** Order ID */
   tradeOrderId?: Long;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   openChannel?: string;
 }
 
@@ -1048,27 +1048,27 @@ export const AriseOrderDetailQueryOrderQueryDetailOpenRequestSchema: Schema = {
 };
 
 export interface AriseOrderDetailQueryPayInfoDTO {
-  /** 支付时间， 时间戳 */
+  /** Payment time, timestamp */
   payTime?: Long;
-  /** 支付途径 */
+  /** Payment method */
   payChannel?: string;
-  /** 商品原价 */
+  /** Original product price */
   saleOriginalAmount?: string;
-  /** 商品总折扣 */
+  /** Total product discount */
   productDiscountAmount?: string;
-  /** 商品卖家折扣 */
+  /** Product seller discount */
   productSellerDiscountAmount?: string;
-  /** 商品平台折扣 */
+  /** Product platform discount */
   productPlatformDiscountAmount?: string;
-  /** 运费总价 */
+  /** Total shipping fee */
   shippingAmount?: string;
-  /** 运费总折扣 */
+  /** Total shipping fee discount */
   shippingDiscountAmount?: string;
-  /** 运费卖家折扣 */
+  /** Shipping fee seller discount */
   shippingSellerDiscountAmount?: string;
-  /** 运费平台折扣 */
+  /** Shipping fee platform discount */
   shippingPlatformDiscountAmount?: string;
-  /** 买家支付金额 */
+  /** Buyer payment amount */
   totalAmount?: string;
 }
 
@@ -1087,13 +1087,13 @@ export const AriseOrderDetailQueryPayInfoDTOSchema: Schema = {
 };
 
 export interface AriseOrderListQueryBaseResponse {
-  /** 返回数据 */
+  /** Returned data */
   data?: AriseOrderListQueryOrderListOpenDTO;
-  /** 成功或失败 */
+  /** Success or failure */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误详细信息 */
+  /** Detailed error information */
   errorMsg?: string;
 }
 
@@ -1105,9 +1105,9 @@ export const AriseOrderListQueryBaseResponseSchema: Schema = {
 };
 
 export interface AriseOrderListQueryOpenMoney {
-  /** 金额 */
+  /** Amount */
   amount?: string;
-  /** 币种 */
+  /** Currency */
   currencyCode?: string;
 }
 
@@ -1117,39 +1117,39 @@ export const AriseOrderListQueryOpenMoneySchema: Schema = {
 };
 
 export interface AriseOrderListQueryOrderLineSimplifiedOpenDTO {
-  /** 商品属性 */
+  /** Product attributes */
   productAttrs?: Array<string>;
-  /** 商品数量 */
+  /** Product quantity */
   quantity?: number;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 商品总费用 */
+  /** Total product cost */
   productTotalAmount?: AriseOrderListQueryOpenMoney;
-  /** 订单状态，包括waitPaid(待支付)、waitShipping(待发货)、waitDelivered(待收货)、waitSellerConfirmCancel(待卖家响应买家)、rejectBuyerCancel(取消请求已拒绝)、orderCancelled(订单取消)、delivered(已收货，订单完成)、closed(订单关闭) */
+  /** Order status, including waitPaid (awaiting payment), waitShipping (awaiting shipment), waitDelivered (awaiting delivery), waitSellerConfirmCancel (awaiting seller response to buyer), rejectBuyerCancel (cancellation request rejected), orderCancelled (order cancelled), delivered (received, order completed), closed (order closed) */
   orderStatus?: string;
-  /** 商品图片链接 */
+  /** Product image link */
   productPictureUrl?: string;
-  /** 订单金额，卖家视角 */
+  /** Order amount, seller's perspective */
   sellerOrderAmount?: AriseOrderListQueryOpenMoney;
-  /** 订单标 */
+  /** Order label */
   tags?: Array<string>;
-  /** 商品标题 */
+  /** Product title */
   productTitle?: string;
-  /** 商品单价 */
+  /** Product unit price */
   productUnitAmount?: AriseOrderListQueryOpenMoney;
-  /** 子订单id */
+  /** Sub-order ID */
   tradeOrderlineId?: Long;
-  /** 商品链接 */
+  /** Product link */
   productUrl?: string;
   /** sku id */
   skuId?: Long;
-  /** 买家发起取消后，卖家响应处理的超时时间，当order_status为waitSellerConfirmCancel，本字段有效 */
+  /** Timeout for the seller to respond after the buyer initiates a cancellation. Valid when order_status is waitSellerConfirmCancel */
   cancelConfirmTimeout?: Long;
-  /** 包裹id，响应cancel时需要按照包裹维度响应，同一个包裹的子订单必须一次性响应，不同包裹的子订单不能同时响应 */
+  /** Package ID. When responding to cancel, respond per package; sub-orders in the same package must be responded to at once, and sub-orders in different packages cannot be responded to at the same time */
   packageId?: string;
-  /** 是否不可退货 */
+  /** Whether returns are not allowed */
   isReturnableItem?: string;
-  /** 物流渠道 */
+  /** Logistics channel */
   deliveryType?: string;
 }
 
@@ -1186,9 +1186,9 @@ export const AriseOrderListQueryOrderLineSimplifiedOpenDTOSchema: Schema = {
 };
 
 export interface AriseOrderListQueryOrderListOpenDTO {
-  /** 分页信息 */
+  /** Pagination information */
   pageInfo?: AriseOrderListQueryPage;
-  /** 订单信息 */
+  /** Order information */
   orderInfos?: Array<AriseOrderListQueryOrderSimplifiedOpenDTO>;
 }
 
@@ -1202,23 +1202,23 @@ export const AriseOrderListQueryOrderListOpenDTOSchema: Schema = {
 };
 
 export interface AriseOrderListQueryOrderQueryListOpenRequest {
-  /** 订单状态，包括paymentPending(待支付)、waitSendGoods(待发货)、waitReceiveGoods(待收货)、waitSellerConfirmCancel(待卖家响应买家)、rejectBuyerCancel(取消请求已拒绝)、orderCancelled(订单取消)、receivedGoods(已收货，订单完成)、closed(订单关闭) */
+  /** Order status, including paymentPending (pending payment), waitSendGoods (pending shipment), waitReceiveGoods (pending receipt), waitSellerConfirmCancel (waiting for seller to respond to buyer), rejectBuyerCancel (cancellation request rejected), orderCancelled (order cancelled), receivedGoods (received, order completed), closed (order closed) */
   orderStatus?: string;
-  /** 查询的每页数量 */
+  /** Query page size */
   pageSize?: number;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: Long;
-  /** 订单创建时间-开始时间（unix时间戳，单位毫秒） */
+  /** Order creation time - start time (unix timestamp, in milliseconds) */
   createTimeStart?: string;
-  /** 订单创建时间-结束时间（unix时间戳，单位毫秒） */
+  /** Order creation time - end time (unix timestamp, in milliseconds) */
   createTimeEnd?: string;
-  /** 当前页数 */
+  /** Current page number */
   currentPage?: number;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   openChannel?: string;
-  /** 物流渠道 */
+  /** Logistics channel */
   filterDeliveryType?: string;
-  /** 商家订单备注，支持模糊搜索 */
+  /** Merchant order remark, supports fuzzy search */
   filterSellerRemarkText?: string;
 }
 
@@ -1235,19 +1235,19 @@ export const AriseOrderListQueryOrderQueryListOpenRequestSchema: Schema = {
 };
 
 export interface AriseOrderListQueryOrderSimplifiedOpenDTO {
-  /** 买家订单备注 */
+  /** Buyer order remarks */
   buyerRemarkText?: string;
-  /** 订单修改时间，unix时间戳，单位毫秒 */
+  /** Order update time, unix timestamp, in milliseconds */
   orderModifyTime?: string;
-  /** 子订单信息 */
+  /** Sub-order information */
   orderLines?: Array<AriseOrderListQueryOrderLineSimplifiedOpenDTO>;
-  /** 订单创建时间，unix时间戳，单位毫秒 */
+  /** Order creation time, unix timestamp, in milliseconds */
   orderCreateTime?: Long;
-  /** 订单id */
+  /** Order ID */
   tradeOrderId?: Long;
-  /** 商家订单备注 */
+  /** Merchant order remarks */
   sellerMemo?: string;
-  /** 买家名字 */
+  /** Buyer name */
   buyerFullName?: string;
 }
 
@@ -1266,13 +1266,13 @@ export const AriseOrderListQueryOrderSimplifiedOpenDTOSchema: Schema = {
 };
 
 export interface AriseOrderListQueryPage {
-  /** 总页数 */
+  /** Total pages */
   totalPageCount?: number;
-  /** 每页订单数 */
+  /** Orders per page */
   pageSize?: number;
-  /** 当前页号 */
+  /** Current page number */
   currentPage?: number;
-  /** 总订单数 */
+  /** Total number of orders */
   totalCount?: number;
 }
 
@@ -1284,13 +1284,13 @@ export const AriseOrderListQueryPageSchema: Schema = {
 };
 
 export interface AriseOrderMemoSetBaseResponse {
-  /** 附带结果，此接口为空 */
+  /** Accompanying result, empty for this API */
   data?: string;
-  /** 成功或失败 */
+  /** Success or failure */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误详细信息 */
+  /** Detailed error information */
   errorMsg?: string;
 }
 
@@ -1302,13 +1302,13 @@ export const AriseOrderMemoSetBaseResponseSchema: Schema = {
 };
 
 export interface AriseOrderMemoSetMemoSetOpenRequest {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: Long;
-  /** 订单id */
+  /** Order ID */
   tradeOrderId?: Long;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   openChannel?: string;
-  /** 要设置的订单备注，留空表示清除 */
+  /** Order remark to set; leave empty to clear */
   memo?: string;
 }
 
@@ -1320,29 +1320,29 @@ export const AriseOrderMemoSetMemoSetOpenRequestSchema: Schema = {
 };
 
 export interface AriseProductCreateAriseProductDTO {
-  /** 货币单位。如果不提供该值信息，则默认为"USD"； */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; */
   currencyCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Long;
-  /** hscode 必填。海关描述：可以通过hscode预测接口或关键字搜索接口获取。global.hscode.forecast.query ； global.hscode.keywords.query ； */
+  /** hscode is required. Customs description: can be obtained via the hscode forecast API or keyword search API. global.hscode.forecast.query ; global.hscode.keywords.query ; */
   hsCodeDo?: AriseProductCreateHsCodeDO;
-  /** 资质信息 */
+  /** Qualification information */
   qualificationList?: Array<AriseProductCreateQualificationDTO>;
-  /** 产品安全警告模块 */
+  /** Product safety warning module */
   safetyWarningModule?: AriseProductCreateSafetyWarningModule;
-  /** 标题模块 */
+  /** Title module */
   subjectList?: Array<AriseProductCreateSubject>;
-  /** sku模块 */
+  /** SKU module */
   productSkuList?: Array<AriseProductCreateProductSKU>;
-  /** 媒体模块 */
+  /** Media module */
   multimedia?: AriseProductCreateMultimedia;
-  /** 物流服务类型：0：平台物流，1：卖家物流 */
+  /** Logistics service type: 0: platform logistics, 1: seller logistics */
   deliverySelf?: string;
-  /** 商品初始发布语种标记。 ja_JP ： 日本日语 ko_KR：韩国韩语 tr_TR：土耳其土耳其语 nl_NL：荷兰荷兰语 pl_PL：波兰波兰语 ru_RU：俄国俄语 fr_FR：法国法语 en_US：美国英语 th_TH：泰国泰语 de_DE：德国德语 es_ES：西班牙西班牙语 */
+  /** Language tag of the product's initial listing. ja_JP: Japanese (Japan) ko_KR: Korean (South Korea) tr_TR: Turkish (Turkey) nl_NL: Dutch (Netherlands) pl_PL: Polish (Poland) ru_RU: Russian (Russia) fr_FR: French (France) en_US: English (US) th_TH: Thai (Thailand) de_DE: German (Germany) es_ES: Spanish (Spain) */
   locale?: string;
-  /** 详描模块 */
+  /** Detailed description module */
   detailSourceList?: Array<AriseProductCreateDetailSource>;
-  /** 商品属性模块 */
+  /** Product attribute module */
   productPropertyList?: Array<AriseProductCreateProductProperty>;
 }
 
@@ -1382,9 +1382,9 @@ export const AriseProductCreateAriseProductDTOSchema: Schema = {
 };
 
 export interface AriseProductCreateDetailSource {
-  /** 多语言详描语种标记 */
+  /** Language marker of the multilingual detailed description */
   locale?: string;
-  /** 多语言详描， HTML原始类型 */
+  /** Multilingual detailed description, raw HTML type */
   webDetail?: string;
 }
 
@@ -1394,9 +1394,9 @@ export const AriseProductCreateDetailSourceSchema: Schema = {
 };
 
 export interface AriseProductCreateHsCodeDO {
-  /** hscode 主键，可以通过hscode预测接口或关键字搜索接口获取。global.hscode.forecast.query ； global.hscode.keywords.query ； */
+  /** hscode primary key, can be obtained via the hscode forecast API or keyword search API. global.hscode.forecast.query ; global.hscode.keywords.query ; */
   hsCode?: string;
-  /** 具体的海关描述文本说明 */
+  /** Specific customs description text */
   text?: string;
 }
 
@@ -1406,11 +1406,11 @@ export const AriseProductCreateHsCodeDOSchema: Schema = {
 };
 
 export interface AriseProductCreateMultimedia {
-  /** 视频模块 */
+  /** Video module */
   videoList?: Array<AriseProductCreateVideo>;
-  /** 营销图模块 */
+  /** Marketing image module */
   marketImageList?: Array<AriseProductCreateProductMarketImage>;
-  /** 主图url集合 */
+  /** Main image URL collection */
   mainImageList?: Array<string>;
 }
 
@@ -1425,9 +1425,9 @@ export const AriseProductCreateMultimediaSchema: Schema = {
 };
 
 export interface AriseProductCreateProductMarketImage {
-  /** 营销图类型。1：代表长图，大小为750*1000; 2：代表方图，大小为800*800 */
+  /** Marketing image type. 1: tall image, size 750*1000; 2: square image, size 800*800 */
   imageType?: number;
-  /** 营销图片URL */
+  /** Marketing image URL */
   url?: string;
 }
 
@@ -1437,13 +1437,13 @@ export const AriseProductCreateProductMarketImageSchema: Schema = {
 };
 
 export interface AriseProductCreateProductProperty {
-  /** 属性名，可以自定义属性名 */
+  /** Attribute name; custom attribute names are allowed */
   attrName?: string;
-  /** 属性名id，，可以自定义属性名id */
+  /** Attribute name ID; custom attribute name IDs are allowed */
   attrNameId?: Long;
-  /** 属性值id，可以自定义属性值id */
+  /** Attribute value id; custom attribute value ids are allowed */
   attrValueId?: Long;
-  /** 属性值，可以自定义属性值 */
+  /** Attribute value; custom attribute values are allowed */
   attrValue?: string;
 }
 
@@ -1455,41 +1455,41 @@ export const AriseProductCreateProductPropertySchema: Schema = {
 };
 
 export interface AriseProductCreateProductSKU {
-  /** 包裹重量 */
+  /** Package weight */
   packageWeight?: string;
-  /** sku价格 */
+  /** SKU price */
   skuPrice?: string;
-  /** sku库存 */
+  /** SKU inventory */
   skuStock?: Long;
-  /** 包裹宽度 */
+  /** Package width */
   packageWidth?: string;
-  /** 包裹高度 */
+  /** Package height */
   packageHeight?: string;
-  /** sku日常促销价 */
+  /** SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** sku销售属性模块 可以从类目属性查询接口查询到类目下对应的 属性id和属性值id */
+  /** SKU sales attribute module. The corresponding attribute ids and attribute value ids under the category can be queried from the category attribute query API */
   skuPropertyList?: Array<AriseProductCreateSKUProperty>;
   /** eanCode */
   eanCode?: string;
-  /** sku套图 */
+  /** SKU image set */
   skuImageList?: Array<string>;
-  /** 包裹长度 */
+  /** Package length */
   packageLength?: string;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。 */
+  /** SKU seller code. Format: half-width alphanumeric characters, length 20, must not contain spaces, greater-than or less-than signs. */
   skuCode?: string;
-  /** sku状态，可选值为:上架 active, 下架 inactive */
+  /** SKU status, optional values: listed active, delisted inactive */
   status?: string;
-  /** 单位计数 */
+  /** Unit count */
   unitCount?: string;
-  /** 单位计数类型文本字段 */
+  /** Text field of the unit count type */
   unitCountTypeText?: string;
-  /** 单位计数类型id字段 */
+  /** id field of the unit count type */
   unitCountTypeValue?: Long;
-  /** 低库存预警 */
+  /** Low inventory warning */
   lowStockAlert?: string;
-  /** 制造商id，可以从：arise.merchant.manufacture.list查 */
+  /** Manufacturer id, can be queried from: arise.merchant.manufacture.list */
   manufacturerId?: Long;
-  /** 欧盟责任人id，可以从：arise.merchant.msr.list查 */
+  /** EU responsible person id, can be queried from: arise.merchant.msr.list */
   enResponsibleId?: Long;
 }
 
@@ -1519,11 +1519,11 @@ export const AriseProductCreateProductSKUSchema: Schema = {
 };
 
 export interface AriseProductCreateQualificationDTO {
-  /** 资质信息key, 每个类目下的key都不一样，请先调用资质信息查询接口：arise.category.qualifications.list，查询对应的key和type */
+  /** Qualification info key. The key differs for each category; first call the qualification info query API: arise.category.qualifications.list to query the corresponding key and type */
   key?: string;
-  /** 具体的资质信息：图片链接或文本。图片格式只允许jpg、png、jpeg这3种格式，请基于：global.mediacenter.image.channel.transfer将图片转存为fb-es.miravia域名再传入，否则报错 */
+  /** Specific qualification information: image link or text. Only jpg, png and jpeg image formats are allowed. Please first transfer the image to the fb-es.miravia domain via global.mediacenter.image.channel.transfer before passing it in, otherwise an error is reported */
   value?: string;
-  /** 资质信息类型 ："image","text" */
+  /** Qualification information type: "image","text" */
   type?: string;
 }
 
@@ -1534,9 +1534,9 @@ export const AriseProductCreateQualificationDTOSchema: Schema = {
 };
 
 export interface AriseProductCreateSafetyWarningDTO {
-  /** 多语言文案语种标记 */
+  /** Language marker of the multilingual copy */
   locale?: string;
-  /** 多语言内容，当未传入其他语种（西班牙语等）时，系统会自动翻译 */
+  /** Multilingual content. When other languages (Spanish, etc.) are not provided, the system translates automatically */
   value?: string;
 }
 
@@ -1546,9 +1546,9 @@ export const AriseProductCreateSafetyWarningDTOSchema: Schema = {
 };
 
 export interface AriseProductCreateSafetyWarningModule {
-  /** 产品安全警告多语言模块 */
+  /** Multilingual module for product safety warnings */
   safetyWarnings?: Array<AriseProductCreateSafetyWarningDTO>;
-  /** 该产品是否需要安全警告，如果为true，则safety_warnings下需要至少包含英文的安全警告内容 */
+  /** Whether this product requires a safety warning. If true, safety_warnings must contain at least an English safety warning */
   required?: boolean;
 }
 
@@ -1562,13 +1562,13 @@ export const AriseProductCreateSafetyWarningModuleSchema: Schema = {
 };
 
 export interface AriseProductCreateSKUProperty {
-  /** 属性值 */
+  /** Attribute value */
   skuPropertyValue?: string;
-  /** 属性值id。 ,支持自定义销售属性值，自定义id从-2开始递减，不能重复 */
+  /** Attribute value id. Custom sales attribute values are supported; custom ids start from -2 and decrease, and must not be duplicated */
   propertyValueId?: Long;
-  /** 属性名 */
+  /** Attribute name */
   skuPropertyName?: string;
-  /** 属性名id ,支持自定义销售属性，自定义id从-2开始递减，不能重复 */
+  /** Attribute name id. Custom sales attributes are supported; custom ids start from -2 and decrease, and must not be duplicated */
   skuPropertyId?: Long;
 }
 
@@ -1580,9 +1580,9 @@ export const AriseProductCreateSKUPropertySchema: Schema = {
 };
 
 export interface AriseProductCreateSubject {
-  /** 多语言标题语种标记 。ja_JP ： 日本日语 ko_KR：韩国韩语 tr_TR：土耳其土耳其语 nl_NL：荷兰荷兰语 pl_PL：波兰波兰语 ru_RU：俄国俄语 fr_FR：法国法语 en_US：美国英语 th_TH：泰国泰语 de_DE：德国德语 es_ES：西班牙西班牙语 */
+  /** Multi-language title language tag. ja_JP: Japanese (Japan) ko_KR: Korean (South Korea) tr_TR: Turkish (Turkey) nl_NL: Dutch (Netherlands) pl_PL: Polish (Poland) ru_RU: Russian (Russia) fr_FR: French (France) en_US: English (US) th_TH: Thai (Thailand) de_DE: German (Germany) es_ES: Spanish (Spain) */
   locale?: string;
-  /** 多语言标题内容 */
+  /** Multilingual title content */
   value?: string;
 }
 
@@ -1592,13 +1592,13 @@ export const AriseProductCreateSubjectSchema: Schema = {
 };
 
 export interface AriseProductCreateVideo {
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 视频的类型。 主图视频： MAIN_IMAGE_VIDEO */
+  /** Video type. Main image video: MAIN_IMAGE_VIDEO */
   mediaType?: string;
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频播放链接 */
+  /** Video playback link */
   videoUrl?: string;
 }
 
@@ -1610,9 +1610,9 @@ export const AriseProductCreateVideoSchema: Schema = {
 };
 
 export interface AriseProductOfflineErrorDetail {
-  /** 失败商品id */
+  /** Failed product ID */
   productId?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -1622,9 +1622,9 @@ export const AriseProductOfflineErrorDetailSchema: Schema = {
 };
 
 export interface AriseProductOnlineErrorDetail {
-  /** 商品id */
+  /** Product ID */
   productId?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -1634,11 +1634,11 @@ export const AriseProductOnlineErrorDetailSchema: Schema = {
 };
 
 export interface AriseProductPriceUpdateSkuPriceModel {
-  /** sku日常促销价 */
+  /** SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** sku价格 */
+  /** SKU price */
   skuPrice?: string;
-  /** sku_id 需要与商品查询中的sku_id 保持一致 */
+  /** sku_id must be consistent with the sku_id in the product query */
   skuId?: Long;
 }
 
@@ -1649,35 +1649,35 @@ export const AriseProductPriceUpdateSkuPriceModelSchema: Schema = {
 };
 
 export interface AriseProductQueryAriseProductDTO {
-  /** 详描模块 */
+  /** Detailed description module */
   detailSourceList?: Array<AriseProductQueryDetailSource>;
-  /** 货币单位。ARISE 的币种默认为"EUR"； */
+  /** Currency unit. The default currency for ARISE is "EUR"; */
   currencyCode?: string;
-  /** arise 类目id */
+  /** arise category id */
   categoryId?: number;
-  /** 海关描述：可以通过hscode预测接口或关键字搜索接口获取。global.hscode.forecast.query ； global.hscode.keywords.query ； */
+  /** Customs description: can be obtained via the hscode forecast API or keyword search API. global.hscode.forecast.query ; global.hscode.keywords.query ; */
   hsCodeDo?: AriseProductQueryHsCodeDO;
-  /** 资质信息 */
+  /** Qualification information */
   qualificationList?: Array<AriseProductQueryQualificationDTO>;
-  /** 产品安全警告模块 */
+  /** Product safety warning module */
   safetyWarning?: AriseProductQuerySafetyWarningModule;
-  /** 标题模块 */
+  /** Title module */
   subjectList?: Array<AriseProductQuerySubject>;
-  /** 修改时间 格式：2022-07-18 19:55:07 */
+  /** Update time, format: 2022-07-18 19:55:07 */
   gmtModified?: string;
-  /** 媒体模块 */
+  /** Media module */
   multimedia?: AriseProductQueryMultimedia;
-  /** sku模块 */
+  /** SKU module */
   productSkuList?: Array<AriseProductQueryProductSKU>;
-  /** 渠道商品id */
+  /** Channel product ID */
   productId?: Long;
-  /** 物流服务类型：0：平台物流，1：卖家物流 */
+  /** Logistics service type: 0: platform logistics, 1: seller logistics */
   deliverySelf?: string;
-  /** 商品创建时间 */
+  /** Product creation time */
   gmtCreate?: string;
-  /** 商品初始发布语种标记 格式：es_ES */
+  /** Initial publishing language marker of the product, format: es_ES */
   locale?: string;
-  /** 商品属性模块 */
+  /** Product attribute module */
   productPropertyList?: Array<AriseProductQueryProductProperty>;
 }
 
@@ -1720,9 +1720,9 @@ export const AriseProductQueryAriseProductDTOSchema: Schema = {
 };
 
 export interface AriseProductQueryDetailSource {
-  /** 多语言详描语种标记 */
+  /** Language marker of the multilingual detailed description */
   locale?: string;
-  /** 多语言详描， HTML原始类型 */
+  /** Multilingual detailed description, raw HTML type */
   webDetail?: string;
 }
 
@@ -1732,9 +1732,9 @@ export const AriseProductQueryDetailSourceSchema: Schema = {
 };
 
 export interface AriseProductQueryHsCodeDO {
-  /** hscode 主键，可以通过hscode预测接口或关键字搜索接口获取。global.hscode.forecast.query ； global.hscode.keywords.query ； */
+  /** hscode primary key, can be obtained via the hscode forecast API or keyword search API. global.hscode.forecast.query ; global.hscode.keywords.query ; */
   hsCode?: string;
-  /** 具体的海关描述文本说明 */
+  /** Specific customs description text */
   text?: string;
 }
 
@@ -1744,11 +1744,11 @@ export const AriseProductQueryHsCodeDOSchema: Schema = {
 };
 
 export interface AriseProductQueryMultimedia {
-  /** 视频模块 */
+  /** Video module */
   videoList?: Array<AriseProductQueryVideo>;
-  /** 营销图模块 */
+  /** Marketing image module */
   marketImageList?: Array<AriseProductQueryProductMarketImage>;
-  /** 主图url集合 ["URL1","url2"] */
+  /** Collection of main image URLs ["URL1","url2"] */
   mainImageList?: Array<string>;
 }
 
@@ -1763,9 +1763,9 @@ export const AriseProductQueryMultimediaSchema: Schema = {
 };
 
 export interface AriseProductQueryProductMarketImage {
-  /** 营销图类型。1：代表长图，大小为750*1000; 2：代表方图，大小为800*800 */
+  /** Marketing image type. 1: tall image, size 750*1000; 2: square image, size 800*800 */
   imageType?: number;
-  /** 营销图片URL */
+  /** Marketing image URL */
   url?: string;
 }
 
@@ -1775,13 +1775,13 @@ export const AriseProductQueryProductMarketImageSchema: Schema = {
 };
 
 export interface AriseProductQueryProductProperty {
-  /** 属性名， */
+  /** Attribute name */
   attrName?: string;
-  /** 属性名id，， */
+  /** Attribute name ID */
   attrNameId?: number;
-  /** 属性值id， */
+  /** Attribute value ID */
   attrValueId?: Long;
-  /** 属性值， */
+  /** Attribute value */
   attrValue?: string;
 }
 
@@ -1793,47 +1793,47 @@ export const AriseProductQueryProductPropertySchema: Schema = {
 };
 
 export interface AriseProductQueryProductSKU {
-  /** 制造商id，可以从：arise.merchant.manufacture.list查 */
+  /** Manufacturer id, can be queried from: arise.merchant.manufacture.list */
   manufacturerId?: Long;
-  /** 欧盟责任人id，可以从：arise.merchant.msr.list查 */
+  /** EU responsible person id, can be queried from: arise.merchant.msr.list */
   enResponsibleId?: Long;
-  /** 制造商名称 */
+  /** Manufacturer name */
   manufacturerName?: string;
-  /** 欧盟责任人名称 */
+  /** EU responsible person name */
   enResponsibleName?: string;
-  /** 包裹重量 */
+  /** Package weight */
   packageWeight?: string;
-  /** sku价格 */
+  /** SKU price */
   skuPrice?: string;
-  /** sku库存，该属性值的合理取值范围为0~999999，如该商品有SKU时，请确保至少有一个SKU是有货状态 */
+  /** SKU stock. The reasonable value range for this attribute is 0~999999. If the product has SKUs, make sure at least one SKU is in stock */
   skuStock?: number;
-  /** 包裹宽度 */
+  /** Package width */
   packageWidth?: string;
-  /** 包裹高度 */
+  /** Package height */
   packageHeight?: string;
-  /** sku日常促销价 */
+  /** SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** 销售属性模块 */
+  /** Sales attribute module */
   skuPropertyList?: Array<AriseProductQuerySKUProperty>;
   /** eanCode */
   eanCode?: string;
-  /** sku套图 */
+  /** SKU image set */
   skuImageList?: Array<string>;
-  /** 包裹长度 */
+  /** Package length */
   packageLength?: string;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。 */
+  /** SKU seller code. Format: half-width alphanumeric characters, length 20, must not contain spaces, greater-than or less-than signs. */
   skuCode?: string;
-  /** 平台生成的sku_id，每个sku唯一 */
+  /** Platform-generated sku_id, unique for each SKU */
   skuId?: Long;
-  /** sku状态，可选值为:上架 active, 下架 inactive */
+  /** SKU status, optional values: listed active, delisted inactive */
   status?: string;
-  /** 单位计数 */
+  /** Unit count */
   unitCount?: string;
-  /** 单位计数类型文本字段 */
+  /** Text field of the unit count type */
   unitCountTypeText?: string;
-  /** 单位计数类型id字段 */
+  /** id field of the unit count type */
   unitCountTypeValue?: string;
-  /** 低库存预警 */
+  /** Low inventory warning */
   lowStockAlert?: string;
 }
 
@@ -1866,11 +1866,11 @@ export const AriseProductQueryProductSKUSchema: Schema = {
 };
 
 export interface AriseProductQueryQualificationDTO {
-  /** 资质信息key, 每个类目下的key都不一样，请先调用资质信息查询接口：arise.category.qualifications.list，查询对应的key和type */
+  /** Qualification info key. The key differs for each category; first call the qualification info query API: arise.category.qualifications.list to query the corresponding key and type */
   key?: string;
-  /** 具体的资质信息：图片链接或文本。图片格式只允许jpg、png、jpeg这3种格式，请基于：global.mediacenter.image.channel.transfer将图片转存为fb-es.miravia域名再传入，否则报错 */
+  /** Specific qualification information: image link or text. Only jpg, png and jpeg image formats are allowed. Please first transfer the image to the fb-es.miravia domain via global.mediacenter.image.channel.transfer before passing it in, otherwise an error is reported */
   value?: string;
-  /** 资质信息类型 ："image","text" */
+  /** Qualification information type: "image","text" */
   type?: string;
 }
 
@@ -1881,9 +1881,9 @@ export const AriseProductQueryQualificationDTOSchema: Schema = {
 };
 
 export interface AriseProductQuerySafetyWarningDTO {
-  /** 多语言文案语种标记 */
+  /** Language marker of the multilingual copy */
   locale?: string;
-  /** 多语言内容，当未传入其他语种（西班牙语等）时，系统会自动翻译 */
+  /** Multilingual content. When other languages (Spanish, etc.) are not provided, the system translates automatically */
   value?: string;
 }
 
@@ -1893,9 +1893,9 @@ export const AriseProductQuerySafetyWarningDTOSchema: Schema = {
 };
 
 export interface AriseProductQuerySafetyWarningModule {
-  /** 产品安全警告多语言模块 */
+  /** Multilingual module for product safety warnings */
   safetyWarnings?: Array<AriseProductQuerySafetyWarningDTO>;
-  /** 该产品是否需要安全警告，如果为true，则safety_warnings下需要至少包含英文的安全警告内容 */
+  /** Whether this product requires a safety warning. If true, safety_warnings must contain at least an English safety warning */
   required?: boolean;
 }
 
@@ -1909,15 +1909,15 @@ export const AriseProductQuerySafetyWarningModuleSchema: Schema = {
 };
 
 export interface AriseProductQuerySKUProperty {
-  /** 属性值 */
+  /** Attribute value */
   skuPropertyValue?: string;
-  /** 属性值id */
+  /** Attribute value ID */
   propertyValueId?: number;
-  /** 属性名 */
+  /** Attribute name */
   skuPropertyName?: string;
-  /** 属性名id */
+  /** Attribute name ID */
   skuPropertyId?: number;
-  /** 自定义销售属性值名称 */
+  /** Custom sales attribute value name */
   propertyValueDefinitionName?: string;
 }
 
@@ -1930,9 +1930,9 @@ export const AriseProductQuerySKUPropertySchema: Schema = {
 };
 
 export interface AriseProductQuerySubject {
-  /** 多语言标题语种标记 */
+  /** Language marker of the multilingual title */
   locale?: string;
-  /** 多语言标题内容 */
+  /** Multilingual title content */
   value?: string;
 }
 
@@ -1942,13 +1942,13 @@ export const AriseProductQuerySubjectSchema: Schema = {
 };
 
 export interface AriseProductQueryVideo {
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 视频的类型 */
+  /** Video type */
   mediaType?: string;
-  /** 视频ID */
+  /** Video ID */
   mediaId?: number;
-  /** 视频播放链接 */
+  /** Video playback link */
   videoUrl?: string;
 }
 
@@ -1960,25 +1960,25 @@ export const AriseProductQueryVideoSchema: Schema = {
 };
 
 export interface AriseProductsListAriseProductSearchApiRequestDTO {
-  /** 创建时间范围（指定时间之后） case：2022-07-13 16:41:00 */
+  /** Create time range (after the specified time) case: 2022-07-13 16:41:00 */
   createAfter?: string;
-  /** 商品业务状态，目前提供5种，输入参数分别是：全部商品:all_exclude_delete（默认状态）上架:onSelling ；下架:inactive ；审核中:auditing ；平台下架:suspend；已删除:deleted； */
+  /** Product business status, currently 5 values are provided; the input parameters are: all products: all_exclude_delete (default); listed: onSelling; delisted: inactive; under review: auditing; delisted by platform: suspend; deleted: deleted; */
   productStatus?: string;
-  /** 每页商品数量 */
+  /** Number of products per page */
   pageSize?: Long;
-  /** 商品渠道 */
+  /** Product channel */
   channel?: string;
-  /** 更新时间范围（指定时间之前） case：2022-07-13 16:41:00 */
+  /** Update time range (before the specified time) case: 2022-07-13 16:41:00 */
   updateBefore?: string;
-  /** 渠道卖家ID */
+  /** Channel seller ID */
   channelSellerId?: Long;
-  /** 创建时间范围（指定时间之前） case：2022-07-13 16:41:00 */
+  /** Create time range (before the specified time) case: 2022-07-13 16:41:00 */
   createBefore?: string;
-  /** 更新时间范围（指定时间之后） case：2022-07-13 16:41:00 */
+  /** Update time range (after the specified time) case: 2022-07-13 16:41:00 */
   updateAfter?: string;
-  /** 其他过滤选项 json形式字符串 。productId": 商品ID "leafCategoryId": 商品所属类目ID case ：{ "productId":1355778035659611, "leafCategoryId":123 } */
+  /** Other filter options, a JSON-form string. productId": product ID "leafCategoryId": ID of the category the product belongs to case: { "productId":1355778035659611, "leafCategoryId":123 } */
   options?: string;
-  /** 当前页码 */
+  /** Current page number */
   currentPage?: Long;
 }
 
@@ -1996,31 +1996,31 @@ export const AriseProductsListAriseProductSearchApiRequestDTOSchema: Schema = {
 };
 
 export interface AriseProductsListAriseProductSearchApiSingleResultDTO {
-  /** 修改时间 */
+  /** Update time */
   modifiedTime?: string;
-  /** 商品ID */
+  /** Product ID */
   productId?: Long;
-  /** 库存 */
+  /** Inventory */
   totalStocks?: number;
-  /** 商品最低价 */
+  /** Lowest product price */
   productMinPrice?: string;
-  /** 图片信息 */
+  /** Image information */
   imageUrls?: string;
-  /** 创建时间 */
+  /** Creation time */
   createdTime?: string;
-  /** 商品最高价 */
+  /** Highest product price */
   productMaxPrice?: string;
-  /** 商品标题 */
+  /** Product title */
   title?: string;
-  /** 商品所叶类目ID */
+  /** ID of the leaf category of the product */
   leafCategoryId?: number;
   /** currency_code */
   currencyCode?: string;
-  /** 商品的状态： 1 ：表示正常在线； -2 ：卖家手动下架；-3：审核不通过或其他下架； -1：卖家删除；-4：表示小二删除 */
+  /** Product status: 1: normally online; -2: manually delisted by seller; -3: review failed or delisted for other reasons; -1: deleted by seller; -4: deleted by platform staff */
   auctionStatus?: number;
-  /** 商品审核状态。 审核中 (-1,"Pending"), 审核通过(1, "Approved"),拒绝(0, "Rejected"),批准中(-2,"APPROVING"),拒绝(-3,"LiveRejected"), 锁定商品不允许编辑和上架(-4, "Lock"); */
+  /** Product audit status. Under review (-1,"Pending"), approved (1, "Approved"), rejected (0, "Rejected"), being approved (-2,"APPROVING"), rejected (-3,"LiveRejected"), locked product, cannot be edited or listed (-4, "Lock"); */
   auditStatus?: number;
-  /** 平台下架原因 */
+  /** Platform delisting reason */
   suspendReason?: string;
 }
 
@@ -2042,9 +2042,9 @@ export const AriseProductsListAriseProductSearchApiSingleResultDTOSchema: Schema
   };
 
 export interface AriseProductStockUpdateSkuStockModel {
-  /** sku库存 */
+  /** SKU inventory */
   skuStock?: Long;
-  /** sku_id 需要与商品查询中的sku_id 保持一致 */
+  /** sku_id must be consistent with the sku_id in the product query */
   skuId?: Long;
 }
 
@@ -2054,31 +2054,31 @@ export const AriseProductStockUpdateSkuStockModelSchema: Schema = {
 };
 
 export interface AriseProductUpdateAriseProductDTO {
-  /** 标题模块 */
+  /** Title module */
   subjectList?: Array<AriseProductUpdateSubject>;
-  /** sku模块 */
+  /** SKU module */
   productSkuList?: Array<AriseProductUpdateProductSKU>;
-  /** 媒体模块 */
+  /** Media module */
   multimedia?: AriseProductUpdateMultimedia;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 物流服务类型：0：平台物流，1：卖家物流 */
+  /** Logistics service type: 0: platform logistics, 1: seller logistics */
   deliverySelf?: string;
-  /** 商品初始发布语种标记。 ja_JP ： 日本日语 ko_KR：韩国韩语 tr_TR：土耳其土耳其语 nl_NL：荷兰荷兰语 pl_PL：波兰波兰语 ru_RU：俄国俄语 fr_FR：法国法语 en_US：美国英语 th_TH：泰国泰语 de_DE：德国德语 es_ES：西班牙西班牙语 */
+  /** Language tag of the product's initial listing. ja_JP: Japanese (Japan) ko_KR: Korean (South Korea) tr_TR: Turkish (Turkey) nl_NL: Dutch (Netherlands) pl_PL: Polish (Poland) ru_RU: Russian (Russia) fr_FR: French (France) en_US: English (US) th_TH: Thai (Thailand) de_DE: German (Germany) es_ES: Spanish (Spain) */
   locale?: string;
-  /** 详描模块 */
+  /** Detailed description module */
   detailSourceList?: Array<AriseProductUpdateDetailSource>;
-  /** 商品属性模块 。可以从类目属性查询接口查询到类目下对应的 属性id和属性值id */
+  /** Product attribute module. The corresponding attribute ids and attribute value ids under the category can be queried from the category attribute query API */
   productPropertyList?: Array<AriseProductUpdateProductProperty>;
-  /** 货币单位。如果不提供该值信息，则默认为"USD"； */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; */
   currencyCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Long;
-  /** 海关描述：可以通过hscode预测接口或关键字搜索接口获取。global.hscode.forecast.query ； global.hscode.keywords.query ； */
+  /** Customs description: can be obtained via the hscode forecast API or keyword search API. global.hscode.forecast.query ; global.hscode.keywords.query ; */
   hsCodeDo?: AriseProductUpdateHsCodeDO;
-  /** 资质信息 */
+  /** Qualification information */
   qualificationList?: Array<AriseProductUpdateQualificationDTO>;
-  /** 产品安全警告模块 */
+  /** Product safety warning module */
   safetyWarningModule?: AriseProductUpdateSafetyWarningModule;
 }
 
@@ -2119,9 +2119,9 @@ export const AriseProductUpdateAriseProductDTOSchema: Schema = {
 };
 
 export interface AriseProductUpdateDetailSource {
-  /** 多语言详描语种标记 */
+  /** Language marker of the multilingual detailed description */
   locale?: string;
-  /** 多语言详描， HTML原始类型 */
+  /** Multilingual detailed description, raw HTML type */
   webDetail?: string;
 }
 
@@ -2131,9 +2131,9 @@ export const AriseProductUpdateDetailSourceSchema: Schema = {
 };
 
 export interface AriseProductUpdateHsCodeDO {
-  /** hscode 主键，可以通过hscode预测接口或关键字搜索接口获取。global.hscode.forecast.query ； global.hscode.keywords.query ； */
+  /** hscode primary key, can be obtained via the hscode forecast API or keyword search API. global.hscode.forecast.query ; global.hscode.keywords.query ; */
   hsCode?: string;
-  /** 具体的海关描述文本说明 */
+  /** Specific customs description text */
   text?: string;
 }
 
@@ -2143,11 +2143,11 @@ export const AriseProductUpdateHsCodeDOSchema: Schema = {
 };
 
 export interface AriseProductUpdateMultimedia {
-  /** 视频模块 */
+  /** Video module */
   videoList?: Array<AriseProductUpdateVideo>;
-  /** 营销图模块 */
+  /** Marketing image module */
   marketImageList?: Array<AriseProductUpdateProductMarketImage>;
-  /** 主图url集合 */
+  /** Main image URL collection */
   mainImageList?: Array<string>;
 }
 
@@ -2162,9 +2162,9 @@ export const AriseProductUpdateMultimediaSchema: Schema = {
 };
 
 export interface AriseProductUpdateProductMarketImage {
-  /** 营销图类型。1：代表长图，大小为750*1000; 2：代表方图，大小为800*800 */
+  /** Marketing image type. 1: tall image, size 750*1000; 2: square image, size 800*800 */
   imageType?: number;
-  /** 营销图片URL */
+  /** Marketing image URL */
   url?: string;
 }
 
@@ -2174,13 +2174,13 @@ export const AriseProductUpdateProductMarketImageSchema: Schema = {
 };
 
 export interface AriseProductUpdateProductProperty {
-  /** 属性值id，可以自定义属性值id */
+  /** Attribute value id; custom attribute value ids are allowed */
   attrValueId?: Long;
-  /** 属性值，可以自定义属性值 */
+  /** Attribute value; custom attribute values are allowed */
   attrValue?: string;
-  /** 属性名，可以自定义属性名 */
+  /** Attribute name; custom attribute names are allowed */
   attrName?: string;
-  /** 属性名id，，可以自定义属性名id */
+  /** Attribute name ID; custom attribute name IDs are allowed */
   attrNameId?: Long;
 }
 
@@ -2192,43 +2192,43 @@ export const AriseProductUpdateProductPropertySchema: Schema = {
 };
 
 export interface AriseProductUpdateProductSKU {
-  /** 包裹重量 */
+  /** Package weight */
   packageWeight?: string;
-  /** sku价格 */
+  /** SKU price */
   skuPrice?: string;
-  /** sku库存 */
+  /** SKU inventory */
   skuStock?: Long;
-  /** 包裹宽度 */
+  /** Package width */
   packageWidth?: string;
-  /** 包裹高度 */
+  /** Package height */
   packageHeight?: string;
-  /** sku日常促销价 */
+  /** SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** sku销售属性模块 。可以从类目属性查询接口查询到类目下对应的 属性id和属性值id */
+  /** SKU sales attribute module. The corresponding attribute ids and attribute value ids under the category can be queried from the category attribute query API */
   skuPropertyList?: Array<AriseProductUpdateSKUProperty>;
   /** eanCode */
   eanCode?: string;
-  /** sku套图 */
+  /** SKU image set */
   skuImageList?: Array<string>;
-  /** 包裹长度 */
+  /** Package length */
   packageLength?: string;
-  /** 平台生成的sku_id，每个sku唯一 */
+  /** Platform-generated sku_id, unique for each SKU */
   skuId?: Long;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。 */
+  /** SKU seller code. Format: half-width alphanumeric characters, length 20, must not contain spaces, greater-than or less-than signs. */
   skuCode?: string;
-  /** sku状态，可选值为:active,inactive */
+  /** SKU status, optional values: active,inactive */
   status?: string;
-  /** 单位计数 */
+  /** Unit count */
   unitCount?: string;
-  /** 单位计数类型文本字段 */
+  /** Text field of the unit count type */
   unitCountTypeText?: string;
-  /** 单位计数类型id字段 */
+  /** id field of the unit count type */
   unitCountTypeValue?: string;
-  /** 低库存预警 */
+  /** Low inventory warning */
   lowStockAlert?: string;
-  /** 制造商id，可以从：arise.merchant.manufacture.list查 */
+  /** Manufacturer id, can be queried from: arise.merchant.manufacture.list */
   manufacturerId?: Long;
-  /** 欧盟责任人id，可以从：arise.merchant.msr.list查 */
+  /** EU responsible person id, can be queried from: arise.merchant.msr.list */
   enResponsibleId?: Long;
 }
 
@@ -2259,11 +2259,11 @@ export const AriseProductUpdateProductSKUSchema: Schema = {
 };
 
 export interface AriseProductUpdateQualificationDTO {
-  /** 资质信息key, 每个类目下的key都不一样，请先调用资质信息查询接口：arise.category.qualifications.list，查询对应的key和type */
+  /** Qualification info key. The key differs for each category; first call the qualification info query API: arise.category.qualifications.list to query the corresponding key and type */
   key?: string;
-  /** 具体的资质信息：图片链接或文本。图片格式只允许jpg、png、jpeg这3种格式，请基于：global.mediacenter.image.channel.transfer将图片转存为fb-es.miravia域名再传入，否则报错 */
+  /** Specific qualification information: image link or text. Only jpg, png and jpeg image formats are allowed. Please first transfer the image to the fb-es.miravia domain via global.mediacenter.image.channel.transfer before passing it in, otherwise an error is reported */
   value?: string;
-  /** 资质信息类型 ："image","text" */
+  /** Qualification information type: "image","text" */
   type?: string;
 }
 
@@ -2274,9 +2274,9 @@ export const AriseProductUpdateQualificationDTOSchema: Schema = {
 };
 
 export interface AriseProductUpdateSafetyWarningDTO {
-  /** 多语言文案语种标记 */
+  /** Language marker of the multilingual copy */
   locale?: string;
-  /** 多语言内容，当未传入其他语种（西班牙语等）时，系统会自动翻译 */
+  /** Multilingual content. When other languages (Spanish, etc.) are not provided, the system translates automatically */
   value?: string;
 }
 
@@ -2286,9 +2286,9 @@ export const AriseProductUpdateSafetyWarningDTOSchema: Schema = {
 };
 
 export interface AriseProductUpdateSafetyWarningModule {
-  /** 产品安全警告多语言模块 */
+  /** Multilingual module for product safety warnings */
   safetyWarnings?: Array<AriseProductUpdateSafetyWarningDTO>;
-  /** 该产品是否需要安全警告，如果为true，则safety_warnings下需要至少包含英文的安全警告内容 */
+  /** Whether this product requires a safety warning. If true, safety_warnings must contain at least an English safety warning */
   required?: boolean;
 }
 
@@ -2302,13 +2302,13 @@ export const AriseProductUpdateSafetyWarningModuleSchema: Schema = {
 };
 
 export interface AriseProductUpdateSKUProperty {
-  /** 属性值 */
+  /** Attribute value */
   skuPropertyValue?: string;
-  /** 属性值id ,支持自定义销售属性值，自定义id从-2开始递减，不能重复 */
+  /** Attribute value id. Custom sales attribute values are supported; custom ids start from -2 and decrease, and must not be duplicated */
   propertyValueId?: Long;
-  /** 属性名 */
+  /** Attribute name */
   skuPropertyName?: string;
-  /** 属性名id，,支持自定义销售属性，自定义id从-2开始递减，不能重复 */
+  /** Attribute name id. Custom sales attributes are supported; custom ids start from -2 and decrease, and must not be duplicated */
   skuPropertyId?: Long;
 }
 
@@ -2320,9 +2320,9 @@ export const AriseProductUpdateSKUPropertySchema: Schema = {
 };
 
 export interface AriseProductUpdateSubject {
-  /** 多语言标题语种标记 。ja_JP ： 日本日语 ko_KR：韩国韩语 tr_TR：土耳其土耳其语 nl_NL：荷兰荷兰语 pl_PL：波兰波兰语 ru_RU：俄国俄语 fr_FR：法国法语 en_US：美国英语 th_TH：泰国泰语 de_DE：德国德语 es_ES：西班牙西班牙语 */
+  /** Multi-language title language tag. ja_JP: Japanese (Japan) ko_KR: Korean (South Korea) tr_TR: Turkish (Turkey) nl_NL: Dutch (Netherlands) pl_PL: Polish (Poland) ru_RU: Russian (Russia) fr_FR: French (France) en_US: English (US) th_TH: Thai (Thailand) de_DE: German (Germany) es_ES: Spanish (Spain) */
   locale?: string;
-  /** 多语言标题内容 */
+  /** Multilingual title content */
   value?: string;
 }
 
@@ -2332,13 +2332,13 @@ export const AriseProductUpdateSubjectSchema: Schema = {
 };
 
 export interface AriseProductUpdateVideo {
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 视频的类型。 主图视频： MAIN_IMAGE_VIDEO */
+  /** Video type. Main image video: MAIN_IMAGE_VIDEO */
   mediaType?: string;
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
-  /** 视频播放链接 */
+  /** Video playback link */
   videoUrl?: string;
 }
 
@@ -2350,21 +2350,21 @@ export const AriseProductUpdateVideoSchema: Schema = {
 };
 
 export interface AriseReverseOrderCancelResponseOpenApiCancelRequest {
-  /** 正向子单列表。处理用户取消订单申请时（无论同意/拒绝），都需要传入trade_order_id（主订单号）及主订单号下相同包裹下order_status=waitSellerConfirmCancel的子订单号（trade_orderline_id），这个包裹号对应的子订单号的集合需要一次性传入，不能分多几次执行同意/拒绝。同时，不同包裹号的子订单不能一次性传入，一次响应只能响应一个包裹号对应的子订单。 */
+  /** List of forward sub-orders. When handling a user's order cancellation request (whether approving or rejecting), you must pass trade_order_id (the main order number) and the sub-order numbers (trade_orderline_id) with order_status=waitSellerConfirmCancel under the same package of the main order. The set of sub-order numbers for this package must be passed in at once; approval/rejection cannot be executed in several separate calls. Also, sub-orders of different packages cannot be passed in at once; one response can only respond to the sub-orders of one package. */
   tradeOrderLineIds?: Array<Long>;
-  /** 图片信息，当操作为refuseCancel必填 */
+  /** Image information, required when the operation is refuseCancel */
   imageInfos?: Array<string>;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: Long;
-  /** 商家拒绝原因，当操作为refuseCancel必填 */
+  /** Merchant rejection reason, required when the operation is refuseCancel */
   reasonId?: Long;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 操作 agreeCancel： 表示同意买家取消；refuseCancel： 拒绝买家取消； */
+  /** Operation. agreeCancel: agree to the buyer's cancellation; refuseCancel: refuse the buyer's cancellation; */
   action?: string;
-  /** 否（当操作为refuseCancel必填） */
+  /** No (required when the operation is refuseCancel) */
   comment?: string;
-  /** 正向交易订单号 */
+  /** Forward transaction order number */
   tradeOrderId?: Long;
 }
 
@@ -2381,13 +2381,13 @@ export const AriseReverseOrderCancelResponseOpenApiCancelRequestSchema: Schema =
   };
 
 export interface AriseReverseOrderCancelResponseresultResponse {
-  /** 操作结果 */
+  /** Operation result */
   data?: string;
-  /** 操作结果 */
+  /** Operation result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -2399,9 +2399,9 @@ export const AriseReverseOrderCancelResponseresultResponseSchema: Schema = {
 };
 
 export interface AriseReverseOrderQueryLOPProductDTO {
-  /** 商品id */
+  /** Product ID */
   id?: Long;
-  /** 商品sku */
+  /** Product SKU */
   sku?: string;
 }
 
@@ -2411,7 +2411,7 @@ export const AriseReverseOrderQueryLOPProductDTOSchema: Schema = {
 };
 
 export interface AriseReverseOrderQueryLOPUserDTO {
-  /** 买家id */
+  /** Buyer ID */
   userId?: Long;
 }
 
@@ -2420,35 +2420,35 @@ export const AriseReverseOrderQueryLOPUserDTOSchema: Schema = {
 };
 
 export interface AriseReverseOrderQueryOpenApiQueryReverseOrder4SellerParam {
-  /** 履约状态 */
+  /** Fulfillment status */
   ofcStatusList?: Array<string>;
-  /** 毫秒时间戳，逆向单时间范围起始时间 */
+  /** Millisecond timestamp, start of the reverse order time range */
   reverseOrderLineTimeRangeStartTimeStamp?: Long;
-  /** 逆向主单id */
+  /** Reverse main order ID */
   reverseOrderId?: Long;
-  /** 正向主单id */
+  /** Forward main order ID */
   tradeOrderId?: Long;
   /** page size */
   pageSize?: number;
-  /** 毫秒时间戳，逆向单时间范围结束时间 */
+  /** Millisecond timestamp, end of the reverse order time range */
   reverseOrderLineTimeRangeEndTimeStamp?: Long;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 毫秒时间戳，正向单时间范围起始时间 */
+  /** Millisecond timestamp, start of the forward order time range */
   tradeOrderTimeRangeStartTimeStamp?: Long;
-  /** 毫秒时间戳，正向单时间范围结束时间 */
+  /** Millisecond timestamp, end of the forward order time range */
   tradeOrderTimeRangeEndTimeStamp?: Long;
   /** page no */
   pageNo?: number;
-  /** 在仲裁流程中 */
+  /** Whether in the arbitration process */
   disputeInProgress?: boolean;
-  /** 逆向物流单号 */
+  /** Reverse logistics tracking number */
   trackingNumber?: string;
-  /** 逆向状态列表 */
+  /** Reverse status list */
   reverseStatusList?: Array<string>;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: Long;
-  /** Miravia退货单id */
+  /** Miravia return order id */
   rbmTrackingNumber?: string;
 }
 
@@ -2484,57 +2484,57 @@ export const AriseReverseOrderQueryOpenApiQueryReverseOrder4SellerParamSchema: S
   };
 
 export interface AriseReverseOrderQueryOpenApiReverseOrderLineDTO {
-  /** 退款类型 */
+  /** Refund type */
   refundPaymentMethod?: string;
-  /** 逆向履约状态 */
+  /** Reverse fulfillment status */
   ofcStatus?: string;
-  /** 单价 */
+  /** Unit price */
   itemUnitPrice?: number;
-  /** 平台SKU ID */
+  /** Platform SKU ID */
   platformSkuId?: string;
-  /** 是否平台介入 */
+  /** Whether platform has intervened */
   dispute?: boolean;
-  /** 退货退款原因 */
+  /** Return and refund reason */
   reasonText?: string;
-  /** 逆向单创建时间 */
+  /** Reverse order creation time */
   returnOrderLineGmtCreate?: number;
-  /** EAN号 */
+  /** EAN number */
   eanNumber?: string;
-  /** 正向单创建时间 */
+  /** Forward order creation time */
   tradeOrderGmtCreate?: number;
   /** {} */
   productDto?: AriseReverseOrderQueryLOPProductDTO;
-  /** 商家skuid */
+  /** Merchant skuid */
   sellerSkuId?: string;
-  /** 逆向状态 */
+  /** Reverse status */
   reverseStatus?: string;
   /** {} */
   buyer?: AriseReverseOrderQueryLOPUserDTO;
-  /** 仓库质检结果（仅针对退回Arise质检仓质检的场景） */
+  /** Warehouse quality inspection result (only for the scenario of returns to the Arise quality inspection warehouse) */
   whqcDecision?: string;
-  /** 是否退款 */
+  /** Whether refunded */
   needRefund?: boolean;
-  /** 逆向子单id */
+  /** Reverse sub-order ID */
   reverseOrderLineId?: Long;
-  /** 逆向物流状态，如 "reverse fulfillment order created" "3pl received" "goods lost" "delivery failed" "delivered" "inbound_warehouse" "reverse_notify_fulfillment_to_close" */
+  /** Reverse logistics status, such as "reverse fulfillment order created" "3pl received" "goods lost" "delivery failed" "delivered" "inbound_warehouse" "reverse_notify_fulfillment_to_close" */
   goodsStatus?: string;
-  /** 逆向单编辑时间 */
+  /** Reverse order edit time */
   returnOrderLineGmtModified?: number;
-  /** 逆向原因码 */
+  /** Reverse reason code */
   reasonCode?: number;
-  /** 正向子单id */
+  /** Forward sub-order ID */
   tradeOrderLineId?: Long;
-  /** 退款金额 */
+  /** Refund amount */
   refundAmount?: number;
-  /** 逆向退款责任方 */
+  /** Party responsible for reverse refund */
   refundAmountSponsor?: string;
-  /** 逆向退款运费 */
+  /** Reverse refund shipping fee */
   shippingAmount?: string;
-  /** 逆向退款运费责任方 */
+  /** Party responsible for reverse refund shipping fee */
   shippingAmountSponsor?: string;
-  /** 是否需要承担逆向运费 */
+  /** Whether reverse shipping fee must be borne */
   affordReturnShippingFee?: string;
-  /** 是否不可退货 */
+  /** Whether returns are not allowed */
   isReturnableItem?: string;
 }
 
@@ -2572,19 +2572,19 @@ export const AriseReverseOrderQueryOpenApiReverseOrderLineDTOSchema: Schema = {
 };
 
 export interface AriseReverseOrderQueryOpenApiReverseOrderResponse {
-  /** 逆向类型，如RETURN，ONLY_REFUND */
+  /** Reverse type, e.g. RETURN, ONLY_REFUND */
   requestType?: string;
   /** {} */
   reverseOrderLineDtolist?: Array<AriseReverseOrderQueryOpenApiReverseOrderLineDTO>;
-  /** 正向主单id */
+  /** Forward main order ID */
   tradeOrderId?: Long;
-  /** 逆向主单id */
+  /** Reverse main order ID */
   reverseOrderId?: Long;
-  /** 物流类型，如DROP_OFF */
+  /** Logistics type, such as DROP_OFF */
   shippingType?: string;
-  /** 是否是退款快速退款订单 */
+  /** Whether it is a refund quick-refund order */
   fastRefund?: string;
-  /** instantRefund 为true ，表示小额退款。 */
+  /** instantRefund true indicates a small-amount refund. */
   reverseServiceTag?: string;
 }
 
@@ -2603,15 +2603,15 @@ export const AriseReverseOrderQueryOpenApiReverseOrderResponseSchema: Schema = {
 };
 
 export interface AriseReverseOrderQueryPagedResult {
-  /** 成功与否 */
+  /** Success or not */
   success?: boolean;
   /** {} */
   pageInfo?: AriseReverseOrderQueryPagedResultPageInfo;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 数据对象 */
+  /** Data object */
   dataSource?: Array<AriseReverseOrderQueryOpenApiReverseOrderResponse>;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -2632,11 +2632,11 @@ export const AriseReverseOrderQueryPagedResultSchema: Schema = {
 };
 
 export interface AriseReverseOrderQueryPagedResultPageInfo {
-  /** 当前页码 */
+  /** Current page number */
   current?: number;
-  /** 总共记录条数 */
+  /** Total number of records */
   total?: number;
-  /** 每页记录数 */
+  /** Records per page */
   pageSize?: number;
 }
 
@@ -2647,15 +2647,15 @@ export const AriseReverseOrderQueryPagedResultPageInfoSchema: Schema = {
 };
 
 export interface AriseReverseOrderReasonListOpenApiReasonRequest {
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 1：表示取消订单的拒绝原因列表，该字段和逆向子单id不能同时为空 */
+  /** 1: indicates the list of rejection reasons for order cancellation. This field and the reverse sub-order ID cannot both be empty */
   reverseType?: number;
-  /** 多语言，中文：zh_CN，英文：en_US，默认返回英文文案 */
+  /** Language, Chinese: zh_CN, English: en_US, English text is returned by default */
   locale?: string;
-  /** 逆向子单id，当这个字段不为空时，优先查询该子单对应的拒绝原因列表 */
+  /** Reverse sub-order ID. When this field is not empty, the list of rejection reasons for this sub-order is queried first */
   reverseOrderLineId?: Long;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: Long;
 }
 
@@ -2668,11 +2668,11 @@ export const AriseReverseOrderReasonListOpenApiReasonRequestSchema: Schema = {
 };
 
 export interface AriseReverseOrderReasonListOpenCancelReasonDTO {
-  /** 拒绝原因id */
+  /** Rejection reason ID */
   reasonId?: number;
-  /** 拒绝原因文案 */
+  /** Rejection reason text */
   text?: string;
-  /** 拒绝原因多语言文案 */
+  /** Multilingual copy of the rejection reason */
   mutiLanguageText?: string;
 }
 
@@ -2683,13 +2683,13 @@ export const AriseReverseOrderReasonListOpenCancelReasonDTOSchema: Schema = {
 };
 
 export interface AriseReverseOrderReasonListresultResponse {
-  /** 拒绝原因列表 */
+  /** Rejection reason list */
   data?: Array<AriseReverseOrderReasonListOpenCancelReasonDTO>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -2705,21 +2705,21 @@ export const AriseReverseOrderReasonListresultResponseSchema: Schema = {
 };
 
 export interface AriseReverseOrderReturnUpdateOpenApiReturnRequest {
-  /** 逆向子单 */
+  /** Reverse sub-order */
   reverseOrderItemIds?: Array<string>;
-  /** 图片信息 */
+  /** Image information */
   imageInfos?: Array<AriseReverseOrderReturnUpdateOpenApiReturnRequestImageInfo>;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: Long;
-  /** 商家拒绝原因 */
+  /** Merchant rejection reason */
   reasonId?: Long;
-  /** 逆向主单 */
+  /** Reverse main order */
   reverseOrderId?: Long;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 操作 InstantRefund：买家发起申请后直接同意退款 agreeReturn：同意退货 refuseReturn：拒绝退货 agreeRefund：同意退款 refuseRefund：拒绝退款 confirmDelivery：确认收货 forwardToAgent：申请平台介入 */
+  /** Action. InstantRefund: agree to the refund directly after the buyer submits the request; agreeReturn: agree to the return; refuseReturn: refuse the return; agreeRefund: agree to the refund; refuseRefund: refuse the refund; confirmDelivery: confirm receipt; forwardToAgent: request platform intervention */
   action?: string;
-  /** 否（当操作为forwardToAgent/refuseReturn/refuseRefund必填） */
+  /** No (required when the operation is forwardToAgent/refuseReturn/refuseRefund) */
   comment?: string;
 }
 
@@ -2739,7 +2739,7 @@ export const AriseReverseOrderReturnUpdateOpenApiReturnRequestSchema: Schema = {
 };
 
 export interface AriseReverseOrderReturnUpdateOpenApiReturnRequestImageInfo {
-  /** Object[] 否（当操作为forwardToAgent/refuseReturn/refuseRefund必填） */
+  /** Object[] No (required when the operation is forwardToAgent/refuseReturn/refuseRefund) */
   name?: string;
   /** image url */
   url?: string;
@@ -2752,11 +2752,11 @@ export const AriseReverseOrderReturnUpdateOpenApiReturnRequestImageInfoSchema: S
   };
 
 export interface AriseReverseOrderReturnUpdateOpenApiReturnResponse {
-  /** 原因 */
+  /** Reason */
   reasonInfos?: Array<AriseReverseOrderReturnUpdatereasonInfosMap>;
-  /** 逆向主单 */
+  /** Reverse main order */
   reverseOrderId?: Long;
-  /** 逆向子单列表 */
+  /** Reverse sub-order list */
   reverseOrderLineDos?: Array<AriseReverseOrderReturnUpdateReverseOrderLineAPIDTO>;
 }
 
@@ -2776,9 +2776,9 @@ export const AriseReverseOrderReturnUpdateOpenApiReturnResponseSchema: Schema =
   };
 
 export interface AriseReverseOrderReturnUpdatereasonInfosMap {
-  /** 退货退款原因 */
+  /** Return and refund reason */
   reasonName?: string;
-  /** 退货退款原因ID */
+  /** Return and refund reason ID */
   reasonId?: number;
 }
 
@@ -2788,13 +2788,13 @@ export const AriseReverseOrderReturnUpdatereasonInfosMapSchema: Schema = {
 };
 
 export interface AriseReverseOrderReturnUpdateresultResponse {
-  /** 操作结果 */
+  /** Operation result */
   data?: AriseReverseOrderReturnUpdateOpenApiReturnResponse;
-  /** 操作结果 */
+  /** Operation result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -2810,17 +2810,17 @@ export const AriseReverseOrderReturnUpdateresultResponseSchema: Schema = {
 };
 
 export interface AriseReverseOrderReturnUpdateReverseOrderLineAPIDTO {
-  /** 交易主单 */
+  /** Main transaction order */
   orderId?: Long;
-  /** 逆向主单 */
+  /** Reverse main order */
   reverseOrderId?: Long;
-  /** 申请原因 */
+  /** Application reason */
   applyReason?: string;
-  /** 逆向子单 */
+  /** Reverse sub-order */
   reverseOrderLineId?: Long;
-  /** 正向订单子单号 */
+  /** Forward order sub-order number */
   orderLineId?: string;
-  /** 退款金额，单位：分 */
+  /** Refund amount, unit: cents */
   refundAmount?: number;
 }
 
@@ -2835,11 +2835,11 @@ export const AriseReverseOrderReturnUpdateReverseOrderLineAPIDTOSchema: Schema =
   };
 
 export interface AriseSellerBrandsListAriseBrandDTO {
-  /** 品牌名称 */
+  /** Brand name */
   brandName?: string;
-  /** 品牌ID */
+  /** Brand ID */
   brandId?: Long;
-  /** 渠道 */
+  /** Channel */
   channel?: string;
 }
 
@@ -2851,23 +2851,23 @@ export const AriseSellerBrandsListAriseBrandDTOSchema: Schema = {
 
 /** Parameters for `arise.category.attributes.list`. */
 export interface AriseCategoryAttributesListParams {
-  /** 渠道账号ID */
+  /** Channel account ID */
   channelSellerId?: LongInput;
-  /** 渠道 */
+  /** Channel */
   channel?: string;
-  /** 语言 中文 ： zh_CN 英文：en_US */
+  /** Language Chinese: zh_CN English: en_US */
   locale?: string;
-  /** 渠道叶子类目ID */
+  /** Channel leaf category ID */
   categoryId?: LongInput;
-  /** 默认为false，为true时，返回类目下对应的sku描述属性 */
+  /** Default false. When true, returns the SKU description attributes under the category */
   isSkuDescAttr?: boolean;
 }
 
 /** Response of `arise.category.attributes.list`. */
 export interface AriseCategoryAttributesListResponse {
-  /** 成功失败 */
+  /** Success or failure */
   success?: boolean;
-  /** 属性列表 */
+  /** Attribute list */
   attributeList?: Array<AriseCategoryAttributesListAriseAttributeDTO>;
 }
 
@@ -2900,23 +2900,23 @@ export const ariseCategoryAttributesList: ApiDefinition<
 
 /** Parameters for `arise.category.qualifications.list`. */
 export interface AriseCategoryQualificationsListParams {
-  /** 类目id */
+  /** Category ID */
   categoryId?: LongInput;
-  /** 语言标 */
+  /** Language tag */
   locale?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）。目前接口只支持 ARISE_ES */
+  /** Channel (can be queried in this API: global.seller.relation.query). Currently the API only supports ARISE_ES */
   channel?: string;
-  /** 品牌号id */
+  /** Brand number ID */
   brandId?: string;
 }
 
 /** Response of `arise.category.qualifications.list`. */
 export interface AriseCategoryQualificationsListResponse {
-  /** 资质信息 */
+  /** Qualification information */
   qualificationList?: Array<AriseCategoryQualificationsListAriseQualificationDTO>;
-  /** 当前类目是否可以上传资质信息 */
+  /** Whether the current category can upload qualification information */
   support?: boolean;
 }
 
@@ -2949,19 +2949,19 @@ export const ariseCategoryQualificationsList: ApiDefinition<
 
 /** Parameters for `arise.category.tree.list`. */
 export interface AriseCategoryTreeListParams {
-  /** 渠道账号ID */
+  /** Channel account ID */
   channelSellerId?: LongInput;
-  /** 渠道 */
+  /** Channel */
   channel?: string;
-  /** 语言 。 目前支持中文 ：zh_CN 、 英文：en_US 西班牙语 ：es_ES */
+  /** Language. Currently supports Chinese: zh_CN, English: en_US, Spanish: es_ES */
   locale?: string;
-  /** 渠道类目ID。 查询一级类目时 category_id 不需要传 */
+  /** Channel category ID. Not required when querying first-level categories (category_id) */
   categoryId?: LongInput;
 }
 
 /** Response of `arise.category.tree.list`. */
 export interface AriseCategoryTreeListResponse {
-  /** 类目树数据 */
+  /** Category tree data */
   childrenCategoryList?: Array<AriseCategoryTreeListAriseCategoryDTO>;
 }
 
@@ -2992,19 +2992,19 @@ export const ariseCategoryTreeList: ApiDefinition<
 
 /** Parameters for `arise.logistics.awb.print`. */
 export interface AriseLogisticsAwbPrintParams {
-  /** 物流打印面单请求 */
+  /** Logistics waybill printing request */
   printAwbRequest?: AriseLogisticsAwbPrintPrintAWBApiRequestDTO;
 }
 
 /** Response of `arise.logistics.awb.print`. */
 export interface AriseLogisticsAwbPrintResponse {
-  /** 接口调用结果 */
+  /** API call result */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 面单内容 */
+  /** Waybill content */
   content?: string;
 }
 
@@ -3035,13 +3035,13 @@ export const ariseLogisticsAwbPrint: ApiDefinition<
 
 /** Parameters for `arise.logistics.pack`. */
 export interface AriseLogisticsPackParams {
-  /** 物流打包请求信息 */
+  /** Logistics packaging request information */
   packRequest?: AriseLogisticsPackPackApiRequestDTO;
 }
 
 /** Response of `arise.logistics.pack`. */
 export interface AriseLogisticsPackResponse {
-  /** 物流打包结果 */
+  /** Logistics packing result */
   result?: AriseLogisticsPackPackApiResponseDTO;
 }
 
@@ -3069,13 +3069,13 @@ export const ariseLogisticsPack: ApiDefinition<
 
 /** Parameters for `arise.logistics.packing`. */
 export interface AriseLogisticsPackingParams {
-  /** 物流打包请求信息 */
+  /** Logistics packaging request information */
   packRequest?: AriseLogisticsPackingPackApiRequestDTO;
 }
 
 /** Response of `arise.logistics.packing`. */
 export interface AriseLogisticsPackingResponse {
-  /** 物流打包结果 */
+  /** Logistics packing result */
   result?: AriseLogisticsPackingPackApiResponseDTO;
 }
 
@@ -3103,13 +3103,13 @@ export const ariseLogisticsPacking: ApiDefinition<
 
 /** Parameters for `arise.logistics.pkg.collection.confirm`. */
 export interface AriseLogisticsPkgCollectionConfirmParams {
-  /** 确认揽收的包裹信息 */
+  /** Information of packages confirmed for pickup */
   packageConfirmRequest?: AriseLogisticsPkgCollectionConfirmPackageConfirmCollectionApiRequestDTO;
 }
 
 /** Response of `arise.logistics.pkg.collection.confirm`. */
 export interface AriseLogisticsPkgCollectionConfirmResponse {
-  /** 确认揽收操作结果 */
+  /** Result of the pickup confirmation operation */
   result?: AriseLogisticsPkgCollectionConfirmPackageOperationApiResponseDTO;
 }
 
@@ -3143,13 +3143,13 @@ export const ariseLogisticsPkgCollectionConfirm: ApiDefinition<
 
 /** Parameters for `arise.logistics.pkg.delivery.confirm`. */
 export interface AriseLogisticsPkgDeliveryConfirmParams {
-  /** 确认揽收的包裹信息 */
+  /** Information of packages confirmed for pickup */
   packageConfirmRequest?: AriseLogisticsPkgDeliveryConfirmPackageConfirmDeliveryApiRequestDTO;
 }
 
 /** Response of `arise.logistics.pkg.delivery.confirm`. */
 export interface AriseLogisticsPkgDeliveryConfirmResponse {
-  /** 确认妥投操作结果 */
+  /** Result of the delivery confirmation operation */
   result?: AriseLogisticsPkgDeliveryConfirmPackageOperationApiResponseDTO;
 }
 
@@ -3182,13 +3182,13 @@ export const ariseLogisticsPkgDeliveryConfirm: ApiDefinition<
 
 /** Parameters for `arise.logistics.pkg.shipment.declare`. */
 export interface AriseLogisticsPkgShipmentDeclareParams {
-  /** 包裹声明发货请求 */
+  /** Package declared shipment request */
   packageDeclareShipmentRequest?: AriseLogisticsPkgShipmentDeclarePackageDeclareShipmentApiRequestDTO;
 }
 
 /** Response of `arise.logistics.pkg.shipment.declare`. */
 export interface AriseLogisticsPkgShipmentDeclareResponse {
-  /** 包裹声明发货结果 */
+  /** Result of package declared shipment */
   result?: AriseLogisticsPkgShipmentDeclarePackageDeclareShipmentApiResponseDTO;
 }
 
@@ -3222,13 +3222,13 @@ export const ariseLogisticsPkgShipmentDeclare: ApiDefinition<
 
 /** Parameters for `arise.logistics.repack`. */
 export interface AriseLogisticsRepackParams {
-  /** 作废包裹请求 */
+  /** Void package request */
   repackRequest?: AriseLogisticsRepackRepackApiRequestDTO;
 }
 
 /** Response of `arise.logistics.repack`. */
 export interface AriseLogisticsRepackResponse {
-  /** 作废包裹结果 */
+  /** Void package result */
   result?: AriseLogisticsRepackRepackApiResponseDTO;
 }
 
@@ -3256,13 +3256,13 @@ export const ariseLogisticsRepack: ApiDefinition<
 
 /** Parameters for `arise.logistics.shipment.confirm`. */
 export interface AriseLogisticsShipmentConfirmParams {
-  /** arise物流确认妥投状态请求 */
+  /** Request for arise logistics delivery confirmation status */
   packageConfirmRequest?: AriseLogisticsShipmentConfirmPackageConfirmApiRequestDTO;
 }
 
 /** Response of `arise.logistics.shipment.confirm`. */
 export interface AriseLogisticsShipmentConfirmResponse {
-  /** arise物流确认妥投状态结果 */
+  /** Result of arise logistics delivery confirmation status */
   result?: AriseLogisticsShipmentConfirmPackageConfirmApiResponseDTO;
 }
 
@@ -3294,13 +3294,13 @@ export const ariseLogisticsShipmentConfirm: ApiDefinition<
 
 /** Parameters for `arise.logistics.shipment.declare`. */
 export interface AriseLogisticsShipmentDeclareParams {
-  /** 声明发货请求 */
+  /** Declare shipment request */
   declareShipmentRequest?: AriseLogisticsShipmentDeclareDeclareShipmentApiRequestDTO;
 }
 
 /** Response of `arise.logistics.shipment.declare`. */
 export interface AriseLogisticsShipmentDeclareResponse {
-  /** 声明发货结果 */
+  /** Declare shipment result */
   result?: AriseLogisticsShipmentDeclareDeclareShipmentApiResponseDTO;
 }
 
@@ -3332,13 +3332,13 @@ export const ariseLogisticsShipmentDeclare: ApiDefinition<
 
 /** Parameters for `arise.logistics.shipment.provider.query`. */
 export interface AriseLogisticsShipmentProviderQueryParams {
-  /** 物流服务商查询请求信息 */
+  /** Logistics service provider query request information */
   shipmentProviderRequest?: AriseLogisticsShipmentProviderQueryShipmentProviderApiRequestDTO;
 }
 
 /** Response of `arise.logistics.shipment.provider.query`. */
 export interface AriseLogisticsShipmentProviderQueryResponse {
-  /** 物流服务商查询结果信息 */
+  /** Logistics service provider query result information */
   result?: AriseLogisticsShipmentProviderQueryShipmentProviderApiResponseDTO;
 }
 
@@ -3372,13 +3372,13 @@ export const ariseLogisticsShipmentProviderQuery: ApiDefinition<
 
 /** Parameters for `arise.logistics.shipment.update`. */
 export interface AriseLogisticsShipmentUpdateParams {
-  /** 修改声明发货请求 */
+  /** Modify declared shipment request */
   packageUpdateRequest?: AriseLogisticsShipmentUpdatePackageUpdateApiRequestDTO;
 }
 
 /** Response of `arise.logistics.shipment.update`. */
 export interface AriseLogisticsShipmentUpdateResponse {
-  /** 修改声明发货结果 */
+  /** Result of modifying declared shipment */
   result?: AriseLogisticsShipmentUpdatePackageUpdateApiResponseDTO;
 }
 
@@ -3410,25 +3410,25 @@ export const ariseLogisticsShipmentUpdate: ApiDefinition<
 
 /** Parameters for `arise.merchant.manufacture.list`. */
 export interface AriseMerchantManufactureListParams {
-  /** 页码 */
+  /** Page number */
   pageNum?: number;
-  /** 每页条数 */
+  /** Records per page */
   pageSize?: number;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）。目前接口只支持 ARISE_ES */
+  /** Channel (can be queried in this API: global.seller.relation.query). Currently the API only supports ARISE_ES */
   channel?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
 }
 
 /** Response of `arise.merchant.manufacture.list`. */
 export interface AriseMerchantManufactureListResponse {
-  /** 总条数 */
+  /** Total count */
   totalCount?: number;
-  /** 当前页数 */
+  /** Current page number */
   curPage?: number;
-  /** 每页条数 */
+  /** Records per page */
   pageSize?: number;
-  /** 欧盟责任人列表数据 */
+  /** EU responsible person list data */
   data?: Array<AriseMerchantManufactureListIdMapDTO>;
 }
 
@@ -3458,25 +3458,25 @@ export const ariseMerchantManufactureList: ApiDefinition<
 
 /** Parameters for `arise.merchant.msr.list`. */
 export interface AriseMerchantMsrListParams {
-  /** 页码 */
+  /** Page number */
   pageNum?: number;
-  /** 每页条数 */
+  /** Records per page */
   pageSize?: number;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）。目前接口只支持 ARISE_ES */
+  /** Channel (can be queried in this API: global.seller.relation.query). Currently the API only supports ARISE_ES */
   channel?: string;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
 }
 
 /** Response of `arise.merchant.msr.list`. */
 export interface AriseMerchantMsrListResponse {
-  /** 总条数 */
+  /** Total count */
   totalCount?: number;
-  /** 当前页数 */
+  /** Current page number */
   curPage?: number;
-  /** 每页条数 */
+  /** Records per page */
   pageSize?: number;
-  /** 欧盟责任人列表数据 */
+  /** EU responsible person list data */
   data?: Array<AriseMerchantMsrListIdMapDTO>;
 }
 
@@ -3506,13 +3506,13 @@ export const ariseMerchantMsrList: ApiDefinition<
 
 /** Parameters for `arise.order.detail.query`. */
 export interface AriseOrderDetailQueryParams {
-  /** 请求参数结构 */
+  /** Request parameter structure */
   param0?: AriseOrderDetailQueryOrderQueryDetailOpenRequest;
 }
 
 /** Response of `arise.order.detail.query`. */
 export interface AriseOrderDetailQueryResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AriseOrderDetailQueryBaseResponse;
 }
 
@@ -3540,13 +3540,13 @@ export const ariseOrderDetailQuery: ApiDefinition<
 
 /** Parameters for `arise.order.list.query`. */
 export interface AriseOrderListQueryParams {
-  /** 请求参数结构 */
+  /** Request parameter structure */
   param0?: AriseOrderListQueryOrderQueryListOpenRequest;
 }
 
 /** Response of `arise.order.list.query`. */
 export interface AriseOrderListQueryResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AriseOrderListQueryBaseResponse;
 }
 
@@ -3574,13 +3574,13 @@ export const ariseOrderListQuery: ApiDefinition<
 
 /** Parameters for `arise.order.memo.set`. */
 export interface AriseOrderMemoSetParams {
-  /** 请求参数结构 */
+  /** Request parameter structure */
   param0?: AriseOrderMemoSetMemoSetOpenRequest;
 }
 
 /** Response of `arise.order.memo.set`. */
 export interface AriseOrderMemoSetResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AriseOrderMemoSetBaseResponse;
 }
 
@@ -3604,17 +3604,17 @@ export const ariseOrderMemoSet: ApiDefinition<
 
 /** Parameters for `arise.product.create`. */
 export interface AriseProductCreateParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 商品模块 */
+  /** Product module */
   product?: AriseProductCreateAriseProductDTO;
 }
 
 /** Response of `arise.product.create`. */
 export interface AriseProductCreateResponse {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
 }
 
@@ -3640,25 +3640,25 @@ export const ariseProductCreate: ApiDefinition<
 
 /** Parameters for `arise.product.offline`. */
 export interface AriseProductOfflineParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 渠道商品id */
+  /** Channel product ID */
   productIds?: Array<LongInput>;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
 }
 
 /** Response of `arise.product.offline`. */
 export interface AriseProductOfflineResponse {
-  /** 错误信息 */
+  /** Error message */
   errorDetailList?: Array<AriseProductOfflineErrorDetail>;
-  /** 成功商品id */
+  /** Successful product ID */
   successProductIdList?: Array<Long>;
-  /** 请求结果 */
+  /** Request result */
   success?: string;
-  /** 异常信息 */
+  /** Exception information */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -3692,25 +3692,25 @@ export const ariseProductOffline: ApiDefinition<
 
 /** Parameters for `arise.product.online`. */
 export interface AriseProductOnlineParams {
-  /** 渠道sleeler id（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 渠道商品id */
+  /** Channel product ID */
   productIds?: Array<LongInput>;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
 }
 
 /** Response of `arise.product.online`. */
 export interface AriseProductOnlineResponse {
-  /** 错误信息 */
+  /** Error message */
   errorDetailList?: Array<AriseProductOnlineErrorDetail>;
-  /** 请求结果 */
+  /** Request result */
   success?: string;
-  /** 异常信息 */
+  /** Exception information */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 商品Id */
+  /** Product ID */
   successProductIdList?: Array<Long>;
 }
 
@@ -3744,19 +3744,19 @@ export const ariseProductOnline: ApiDefinition<
 
 /** Parameters for `arise.product.price.update`. */
 export interface AriseProductPriceUpdateParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 渠道商品id */
+  /** Channel product ID */
   productId?: LongInput;
-  /** 渠道 （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 价格模块 */
+  /** Price module */
   skuPriceModelList?: Array<AriseProductPriceUpdateSkuPriceModel>;
 }
 
 /** Response of `arise.product.price.update`. */
 export interface AriseProductPriceUpdateResponse {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
 }
 
@@ -3787,17 +3787,17 @@ export const ariseProductPriceUpdate: ApiDefinition<
 
 /** Parameters for `arise.product.query`. */
 export interface AriseProductQueryParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 渠道商品id */
+  /** Channel product ID */
   productId?: LongInput;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query）。目前接口只支持 ARISE_ES */
+  /** Channel (can be queried in this API: global.seller.relation.query). Currently the API only supports ARISE_ES */
   channel?: string;
 }
 
 /** Response of `arise.product.query`. */
 export interface AriseProductQueryResponse {
-  /** 商品模块 */
+  /** Product module */
   product?: AriseProductQueryAriseProductDTO;
 }
 
@@ -3823,19 +3823,19 @@ export const ariseProductQuery: ApiDefinition<
 
 /** Parameters for `arise.product.stock.update`. */
 export interface AriseProductStockUpdateParams {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 渠道商品id */
+  /** Channel product ID */
   productId?: LongInput;
-  /** 库存模块 */
+  /** Inventory module */
   skuStockModelList?: Array<AriseProductStockUpdateSkuStockModel>;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
 }
 
 /** Response of `arise.product.stock.update`. */
 export interface AriseProductStockUpdateResponse {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
 }
 
@@ -3866,11 +3866,11 @@ export const ariseProductStockUpdate: ApiDefinition<
 
 /** Parameters for `arise.product.update`. */
 export interface AriseProductUpdateParams {
-  /** 商品模块 */
+  /** Product module */
   product?: AriseProductUpdateAriseProductDTO;
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: LongInput;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
 }
 
@@ -3908,15 +3908,15 @@ export interface AriseProductsListParams {
 
 /** Response of `arise.products.list`. */
 export interface AriseProductsListResponse {
-  /** 总页数 */
+  /** Total pages */
   totalPage?: number;
-  /** 每页数量 */
+  /** Quantity per page */
   pageSize?: number;
-  /** 总数 */
+  /** Total */
   totalCount?: number;
-  /** 当前页号 */
+  /** Current page number */
   currentPage?: number;
-  /** 产品信息列表 */
+  /** Product information list */
   productList?: Array<AriseProductsListAriseProductSearchApiSingleResultDTO>;
 }
 
@@ -3958,7 +3958,7 @@ export interface AriseReverseOrderCancelResponseParams {
 
 /** Response of `arise.reverse.order.cancel.response`. */
 export interface AriseReverseOrderCancelResponseResponse {
-  /** 结果 */
+  /** Result */
   result?: AriseReverseOrderCancelResponseresultResponse;
 }
 
@@ -4024,7 +4024,7 @@ export const ariseReverseOrderQuery: ApiDefinition<
 
 /** Parameters for `arise.reverse.order.reason.list`. */
 export interface AriseReverseOrderReasonListParams {
-  /** 入参 */
+  /** Input parameters */
   param?: AriseReverseOrderReasonListOpenApiReasonRequest;
 }
 
@@ -4068,7 +4068,7 @@ export interface AriseReverseOrderReturnUpdateParams {
 
 /** Response of `arise.reverse.order.return.update`. */
 export interface AriseReverseOrderReturnUpdateResponse {
-  /** 结果 */
+  /** Result */
   result?: AriseReverseOrderReturnUpdateresultResponse;
 }
 
@@ -4100,19 +4100,19 @@ export const ariseReverseOrderReturnUpdate: ApiDefinition<
 
 /** Parameters for `arise.seller.brands.list`. */
 export interface AriseSellerBrandsListParams {
-  /** 渠道账号ID */
+  /** Channel account ID */
   channelSellerId?: LongInput;
-  /** 渠道 */
+  /** Channel */
   channel?: string;
-  /** 语言 ： en_US */
+  /** Language: en_US */
   locale?: string;
-  /** 渠道叶子类目ID。请isv做好前置校验，只有叶子类目才能查询到品牌数据 */
+  /** Channel leaf category ID. ISVs should perform prior validation; brand data can only be queried for leaf categories */
   categoryId?: LongInput;
 }
 
 /** Response of `arise.seller.brands.list`. */
 export interface AriseSellerBrandsListResponse {
-  /** 品牌列表 */
+  /** Brand list */
   brandList?: Array<AriseSellerBrandsListAriseBrandDTO>;
 }
 

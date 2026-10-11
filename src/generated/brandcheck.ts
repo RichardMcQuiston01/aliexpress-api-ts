@@ -10,25 +10,25 @@ import type {
 
 /** Parameters for `/aliexpress/brandcheck/tuling/image/add`. */
 export interface AliexpressBrandcheckTulingImageAddParams {
-  /** 图灵apikey */
+  /** Turing apikey */
   tulingApiKey?: string;
-  /** 图灵apisecret */
+  /** Turing apisecret */
   tulingApiSecret?: string;
-  /** 图灵整鉴id */
+  /** Turing full authentication ID */
   oaid?: string;
-  /** 质检单id */
+  /** Quality inspection order ID */
   sheetId?: string;
-  /** 图灵鉴定绑定码 */
+  /** Turing authentication binding code */
   code?: string;
-  /** 鉴定点said列表 */
+  /** List of appraisal point said */
   points?: Array<string>;
 }
 
 /** Response of `/aliexpress/brandcheck/tuling/image/add`. */
 export interface AliexpressBrandcheckTulingImageAddResponse {
-  /** 错误码 */
+  /** Error code */
   errCode?: Long;
-  /** 错误信息 */
+  /** Error message */
   errMsg?: string;
 }
 
@@ -58,23 +58,23 @@ export const aliexpressBrandcheckTulingImageAdd: ApiDefinition<
 
 /** Parameters for `/aliexpress/brandcheck/tuling/image/check`. */
 export interface AliexpressBrandcheckTulingImageCheckParams {
-  /** 图片链接 */
+  /** Image link */
   imageUrl?: string;
-  /** 图灵apiKey */
+  /** Turing apiKey */
   tulingApiKey?: string;
-  /** 图灵apiSecret */
+  /** Turing apiSecret */
   tulingApiSecret?: string;
-  /** 鉴定点位id */
+  /** Authentication point ID */
   pointId?: LongInput;
 }
 
 /** Response of `/aliexpress/brandcheck/tuling/image/check`. */
 export interface AliexpressBrandcheckTulingImageCheckResponse {
-  /** 图灵单鉴id */
+  /** Turing single authentication ID */
   said?: string;
-  /** 错误信息 */
+  /** Error message */
   errMsg?: string;
-  /** 错误码 */
+  /** Error code */
   errCode?: Long;
 }
 
@@ -103,25 +103,25 @@ export const aliexpressBrandcheckTulingImageCheck: ApiDefinition<
 
 /** Parameters for `/aliexpress/brandcheck/tuling/package/check`. */
 export interface AliexpressBrandcheckTulingPackageCheckParams {
-  /** 图灵key */
+  /** Turing key */
   tulingApiKey?: string;
-  /** 图灵secret */
+  /** Turing secret */
   tulingApiSecret?: string;
-  /** 鉴定点位对应的单鉴id列表 */
+  /** List of individual appraisal ids corresponding to appraisal points */
   points?: Array<string>;
-  /** 质检单id */
+  /** Quality inspection order ID */
   sheetId?: string;
-  /** 图灵鉴定码 */
+  /** Turing authentication code */
   code?: string;
 }
 
 /** Response of `/aliexpress/brandcheck/tuling/package/check`. */
 export interface AliexpressBrandcheckTulingPackageCheckResponse {
-  /** 整鉴id */
+  /** Full authentication ID */
   oaid?: string;
-  /** 错误码 */
+  /** Error code */
   errCode?: Long;
-  /** 错误信息 */
+  /** Error message */
   errMsg?: string;
 }
 
@@ -151,27 +151,27 @@ export const aliexpressBrandcheckTulingPackageCheck: ApiDefinition<
 
 /** Parameters for `/aliexpress/brandcheck/tuling/point/list`. */
 export interface AliexpressBrandcheckTulingPointListParams {
-  /** 图灵serectKey */
+  /** Turing serectKey */
   tulingApiKey?: string;
-  /** 图灵serecctValue */
+  /** Turing serecctValue */
   tulingApiSecret?: string;
-  /** 图灵类目id */
+  /** Turing category ID */
   categoryId?: LongInput;
-  /** 名称 */
+  /** Name */
   name?: string;
-  /** 商品名 */
+  /** Product name */
   skuName?: string;
-  /** sku图片 */
+  /** SKU image */
   skuImage?: string;
 }
 
 /** Response of `/aliexpress/brandcheck/tuling/point/list`. */
 export interface AliexpressBrandcheckTulingPointListResponse {
-  /** 鉴定点位 */
+  /** Authentication point */
   points?: string;
-  /** 错误信息 */
+  /** Error message */
   errMsg?: string;
-  /** 错误码 */
+  /** Error code */
   errCode?: Long;
 }
 
@@ -202,35 +202,35 @@ export const aliexpressBrandcheckTulingPointList: ApiDefinition<
 
 /** Parameters for `/aliexpress/brandcheck/tuling/result/detail/query`. */
 export interface AliexpressBrandcheckTulingResultDetailQueryParams {
-  /** 图灵apikey */
+  /** Turing apikey */
   tulingApiKey?: string;
-  /** 图灵apisecret */
+  /** Turing apisecret */
   tulingApiSecret?: string;
-  /** 图灵整鉴id */
+  /** Turing full authentication ID */
   oaid?: string;
-  /** 质检单id */
+  /** Quality inspection order ID */
   sheetId?: string;
-  /** 图灵鉴定绑定码 */
+  /** Turing authentication binding code */
   code?: string;
 }
 
 /** Response of `/aliexpress/brandcheck/tuling/result/detail/query`. */
 export interface AliexpressBrandcheckTulingResultDetailQueryResponse {
-  /** 错误码 */
+  /** Error code */
   errCode?: Long;
-  /** 错误信息 */
+  /** Error message */
   errMsg?: string;
-  /** 整鉴id */
+  /** Full authentication ID */
   oaid?: string;
-  /** 质检单id */
+  /** Quality inspection order ID */
   sheetId?: string;
-  /** 图灵鉴定绑定码 */
+  /** Turing authentication binding code */
   code?: string;
-  /** 鉴定结果 */
+  /** Authentication result */
   appraisalResult?: Long;
-  /** 鉴定建议 */
+  /** Authentication suggestion */
   suggestion?: string;
-  /** 明细列表 */
+  /** Detail list */
   details?: string;
 }
 

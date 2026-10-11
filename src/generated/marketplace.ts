@@ -10,7 +10,7 @@ import type {
 
 /** Parameters for `aliexpress.marketplace.service.get`. */
 export interface AliexpressMarketplaceServiceGetParams {
-  /** 测试服务code */
+  /** Test service code */
   serviceCode?: string;
 }
 

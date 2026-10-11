@@ -9,19 +9,19 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressMemberDsOrderdataSaveDserCollectDataDto {
-  /** AE商品ID */
+  /** AE product ID */
   aeProductId?: string;
-  /** SKU站外销售金额,保留2位小数 */
+  /** SKU off-site sales amount, 2 decimal places */
   productAmount?: string;
-  /** 订单站外销售金额,保留2位小数 */
+  /** Order off-site sales amount, 2 decimal places */
   orderAmount?: string;
-  /** 站外支付时间,GMT时间，格式YYYYMMDD:HHMMSS */
+  /** Off-site payment time, GMT time, format YYYYMMDD:HHMMSS */
   paytime?: string;
-  /** AE商品SKU信息,SKU键值对： "200000182:193;200007763:201336100" */
+  /** AE product SKU information, SKU key-value pairs: "200000182:193;200007763:201336100" */
   aeSkuInfo?: string;
-  /** 商品站外url */
+  /** Product off-site URL */
   productUrl?: string;
-  /** AE订单id */
+  /** AE order ID */
   aeOrderid?: string;
 }
 
@@ -64,11 +64,11 @@ export const AliexpressMemberOauthAuthorizeResultSchema: Schema = {
 };
 
 export interface AliexpressMemberQueryAeuicResult {
-  /** 数据结果 */
+  /** Data result */
   returnValue?: string;
-  /** 0表示请求成功 */
+  /** 0 means the request succeeded */
   resultCode?: number;
-  /** 错误信息 */
+  /** Error message */
   message?: string;
 }
 
@@ -79,13 +79,13 @@ export const AliexpressMemberQueryAeuicResultSchema: Schema = {
 };
 
 export interface AliexpressMemberRedefiningQueryaccountlevelAccountResultDTO {
-  /** 会员等级 */
+  /** Membership level */
   level?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
-  /** 查询是否成功 */
+  /** Whether the query succeeded */
   isSuccess?: boolean;
 }
 
@@ -99,19 +99,19 @@ export const AliexpressMemberRedefiningQueryaccountlevelAccountResultDTOSchema: 
 
 /** Parameters for `aliexpress.member.ds.orderdata.save`. */
 export interface AliexpressMemberDsOrderdataSaveParams {
-  /** DS订单和用户数据 */
+  /** DS order and user data */
   dserCollectData?: AliexpressMemberDsOrderdataSaveDserCollectDataDto;
 }
 
 /** Response of `aliexpress.member.ds.orderdata.save`. */
 export interface AliexpressMemberDsOrderdataSaveResponse {
-  /** 业务错误信息 */
+  /** Business error message */
   bizErrorMessage?: string;
-  /** 成功保存数据的行数 */
+  /** Number of rows of data saved successfully */
   updateRows?: number;
-  /** 业务错误Code */
+  /** Business error Code */
   bizErrorCode?: string;
-  /** 数据保存是否成功 */
+  /** Whether the data was saved successfully */
   isSuccess?: boolean;
 }
 
@@ -181,7 +181,7 @@ export const aliexpressMemberOauthAuthorize: ApiDefinition<
 
 /** Parameters for `aliexpress.member.query`. */
 export interface AliexpressMemberQueryParams {
-  /** userId列表 */
+  /** userId list */
   userIds?: Array<LongInput>;
 }
 
@@ -210,13 +210,13 @@ export const aliexpressMemberQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.member.queryaccountstatus`. */
 export interface AliexpressMemberQueryaccountstatusParams {
-  /** 用户accountId */
+  /** User accountId */
   accountId?: LongInput;
 }
 
 /** Response of `aliexpress.member.queryaccountstatus`. */
 export interface AliexpressMemberQueryaccountstatusResponse {
-  /** 用户状态 */
+  /** User status */
   status?: string;
 }
 
@@ -240,13 +240,13 @@ export const aliexpressMemberQueryaccountstatus: ApiDefinition<
 
 /** Parameters for `aliexpress.member.redefining.queryaccountlevel`. */
 export interface AliexpressMemberRedefiningQueryaccountlevelParams {
-  /** 买家账号ID */
+  /** Buyer account ID */
   loginId?: string;
 }
 
 /** Response of `aliexpress.member.redefining.queryaccountlevel`. */
 export interface AliexpressMemberRedefiningQueryaccountlevelResponse {
-  /** 会员等级情况 */
+  /** Membership level status */
   result?: AliexpressMemberRedefiningQueryaccountlevelAccountResultDTO;
 }
 
@@ -274,13 +274,13 @@ export const aliexpressMemberRedefiningQueryaccountlevel: ApiDefinition<
 
 /** Parameters for `aliexpress.member.redefining.uicquerytbnick`. */
 export interface AliexpressMemberRedefiningUicquerytbnickParams {
-  /** AE用户的登录ID */
+  /** Login ID of the AE user */
   loginId?: string;
 }
 
 /** Response of `aliexpress.member.redefining.uicquerytbnick`. */
 export interface AliexpressMemberRedefiningUicquerytbnickResponse {
-  /** taobao的nick name */
+  /** Taobao nick name */
   taobaoNick?: string;
 }
 

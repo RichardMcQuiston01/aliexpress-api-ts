@@ -9,43 +9,43 @@ import type {
 } from '../core/index.js';
 
 export interface JvShareProductListAliexpressShareProductDataDTO {
-  /** 商品名称 */
+  /** Product name */
   itemName?: string;
-  /** 商品图片列表 */
+  /** Product image list */
   itemImageUrlList?: string;
-  /** 叶子类目id */
+  /** Leaf category ID */
   cateId?: string;
-  /** 商品首次上架月份 */
+  /** Month the product was first listed */
   firstLiveMouth?: string;
-  /** 商品主图 */
+  /** Product main image */
   itemUrlMainImage?: string;
-  /** 店铺id */
+  /** Store ID */
   shopId?: string;
-  /** 价格带 */
+  /** Price range */
   priceRange?: string;
-  /** sku属性 */
+  /** SKU attributes */
   skuAttr?: string;
-  /** sku图片列表 */
+  /** SKU image list */
   skuImageUrlList?: string;
   /** skuId */
   skuId?: string;
-  /** 商品详情图片描述 */
+  /** Product detail image description */
   descImgs?: string;
-  /** sku主图 */
+  /** SKU main image */
   skuUrlMainImage?: string;
-  /** 商品描述 */
+  /** Product description */
   descTexts?: string;
-  /** 是否上线 */
+  /** Whether online */
   isOnline?: string;
-  /** 类目名称 */
+  /** Category name */
   cateName?: string;
-  /** 类目路径 */
+  /** Category path */
   cateNamePath?: string;
-  /** 商品ID */
+  /** Product ID */
   itemId?: string;
-  /** 平均星级 */
+  /** Average star rating */
   averageStar?: string;
-  /** 商品分层 */
+  /** Product tier */
   itemLayer?: string;
 }
 
@@ -73,29 +73,29 @@ export const JvShareProductListAliexpressShareProductDataDTOSchema: Schema = {
 
 /** Parameters for `jv.share.product.list`. */
 export interface JvShareProductListParams {
-  /** 数据所在分段 */
+  /** Segment the data belongs to */
   segmentNum?: string;
-  /** 页码 */
+  /** Page number */
   curPage?: string;
-  /** 增量或全量 */
+  /** Incremental or full */
   pullType?: string;
-  /** 数据分区 */
+  /** Data partition */
   partition?: string;
 }
 
 /** Response of `jv.share.product.list`. */
 export interface JvShareProductListResponse {
-  /** 段内总数据量 */
+  /** Total data volume in the segment */
   totalCount?: number;
-  /** 错误描述 */
+  /** Error description */
   errorMsg?: string;
-  /** 当前数据段 */
+  /** Current data segment */
   curSegmentNum?: number;
-  /** 当前段内总页数 */
+  /** Total pages in the current segment */
   totalPage?: number;
-  /** 接口调用是否成功 */
+  /** Whether the API call succeeded */
   success?: boolean;
-  /** 数据列表 */
+  /** Data list */
   dataList?: Array<JvShareProductListAliexpressShareProductDataDTO>;
 }
 

@@ -9,11 +9,11 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressMessageHistoryBuyerListAeImQuerySessionDTO {
-  /** 获取第一页时可能为空，获取下一页时请输入上一页响应字段last_buyer_id */
+  /** May be empty when getting the first page; to get the next page, enter the last_buyer_id response field from the previous page */
   lastBuyerId?: Long;
-  /** 页面大小 */
+  /** Page size */
   pageSize?: number;
-  /** 当请求第一页时，请输入当前时间戳，获取下一页，请输入上一页响应字段next_start_time */
+  /** When requesting the first page, enter the current timestamp; to get the next page, enter the next_start_time response field from the previous page */
   startTime?: Long;
 }
 
@@ -25,23 +25,23 @@ export const AliexpressMessageHistoryBuyerListAeImQuerySessionDTOSchema: Schema 
   };
 
 export interface AliexpressMessageHistoryListAeImMessageDTO {
-  /** 发送方账户类型, 11代表买家, 12 代表卖家 */
+  /** Sender account type, 11 means buyer, 12 means seller */
   fromAccountType?: number;
-  /** 接收方账户类型, 11 代表买家, 12 代表卖家 */
+  /** Receiver account type, 11 means buyer, 12 means seller */
   toAccountType?: number;
-  /** 发送方id */
+  /** Sender ID */
   fromAccountId?: string;
-  /** 接收方id */
+  /** Receiver ID */
   toAccountId?: string;
-  /** 消息id */
+  /** Message ID */
   messageId?: string;
-  /** 消息模版id 1： 正常文本消息 3： 图片消息 10006：表示商品卡片 10007：表示订单卡片 21004：优惠券卡片 */
+  /** Message template id 1: normal text message 3: image message 10006: product card 10007: order card 21004: coupon card */
   templateId?: Long;
-  /** 1： 消息来自用户 2： 消息来自系统 */
+  /** 1: message from the user 2: message from the system */
   type?: number;
-  /** json格式的消息内容 */
+  /** Message content in json format */
   content?: string;
-  /** 消息发送时间戳 */
+  /** Message send timestamp */
   sendTime?: Long;
 }
 
@@ -58,13 +58,13 @@ export const AliexpressMessageHistoryListAeImMessageDTOSchema: Schema = {
 };
 
 export interface AliexpressMessageHistoryListAeImQueryMessageDTO {
-  /** 页面大小，限 20 */
+  /** Page size, limited to 20 */
   pageSize?: number;
-  /** 开始时间戳，当请求第一页时，请输入当前时间戳，获取下一页，请输入上一页响应字段next_start_time */
+  /** Start timestamp. When requesting the first page, enter the current timestamp; to get the next page, enter the next_start_time response field from the previous page */
   startTime?: Long;
-  /** 最后一条消息的ID，获取第一页时可能为空，获取下一页时请输入上一页响应字段last_message_id */
+  /** ID of the last message. May be empty when getting the first page; to get the next page, enter the last_message_id response field from the previous page */
   lastMessageId?: string;
-  /** 买家id */
+  /** Buyer ID */
   buyerId?: Long;
 }
 
@@ -76,13 +76,13 @@ export const AliexpressMessageHistoryListAeImQueryMessageDTOSchema: Schema = {
 };
 
 export interface AliexpressMessageHistoryListFetchAeImMessageResultDTO {
-  /** 消息列表 */
+  /** Message list */
   messageList?: Array<AliexpressMessageHistoryListAeImMessageDTO>;
-  /** 标识是否有更多页面，使用此字段确定是否需要继续拉动 */
+  /** Flag indicating whether there are more pages; use this field to determine whether to continue fetching */
   hasMore?: boolean;
-  /** 下一页的开始时间戳，当拉动下一页时，需要将其作为输入参数传入 */
+  /** Start timestamp of the next page. Pass it as an input parameter when fetching the next page */
   nextStartTime?: Long;
-  /** 此页面上最后一条消息的ID。拉动下一页时，需要将其作为输入参数传入 */
+  /** ID of the last message on this page. Pass it as an input parameter when fetching the next page */
   lastMessageId?: string;
 }
 
@@ -99,13 +99,13 @@ export const AliexpressMessageHistoryListFetchAeImMessageResultDTOSchema: Schema
   };
 
 export interface AliexpressMessageHistoryListResult {
-  /** 响应内容 */
+  /** Response content */
   data?: AliexpressMessageHistoryListFetchAeImMessageResultDTO;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorMessage?: string;
-  /** 错误信息 */
+  /** Error message */
   errorCode?: string;
 }
 
@@ -121,23 +121,23 @@ export const AliexpressMessageHistoryListResultSchema: Schema = {
 };
 
 export interface AliexpressMessageList2AeImMessageDTO {
-  /** 消息id */
+  /** Message ID */
   messageId?: string;
-  /** json格式的消息内容 */
+  /** Message content in json format */
   content?: string;
-  /** 发送方id */
+  /** Sender ID */
   fromAccountId?: string;
-  /** 发送方账户类型, 11代表买家, 12 代表卖家 */
+  /** Sender account type, 11 means buyer, 12 means seller */
   fromAccountType?: number;
-  /** 消息发送时间戳 */
+  /** Message send timestamp */
   sendTime?: Long;
-  /** 消息模版id 1： 正常文本消息 3： 图片消息 10006：表示商品卡片 10007：表示订单卡片 21004：优惠券卡片 */
+  /** Message template id 1: normal text message 3: image message 10006: product card 10007: order card 21004: coupon card */
   templateId?: Long;
-  /** 接收方账户类型, 11 代表买家, 12 代表卖家 */
+  /** Receiver account type, 11 means buyer, 12 means seller */
   toAccountType?: number;
-  /** 接收方id */
+  /** Receiver ID */
   toAccountId?: string;
-  /** 1： 消息来自用户 2： 消息来自系统 */
+  /** 1: message from the user 2: message from the system */
   type?: number;
 }
 
@@ -154,13 +154,13 @@ export const AliexpressMessageList2AeImMessageDTOSchema: Schema = {
 };
 
 export interface AliexpressMessageList2AeImQueryMessageDTO {
-  /** 页面大小，限 20 */
+  /** Page size, limited to 20 */
   pageSize?: number;
-  /** 开始时间戳，当请求第一页时，请输入当前时间戳，获取下一页，请输入上一页响应字段next_start_time */
+  /** Start timestamp. When requesting the first page, enter the current timestamp; to get the next page, enter the next_start_time response field from the previous page */
   startTime?: Long;
-  /** 最后一条消息的ID，获取第一页时可能为空，获取下一页时请输入上一页响应字段last_message_id */
+  /** ID of the last message. May be empty when getting the first page; to get the next page, enter the last_message_id response field from the previous page */
   lastMessageId?: string;
-  /** 买家id */
+  /** Buyer ID */
   buyerId?: Long;
 }
 
@@ -172,13 +172,13 @@ export const AliexpressMessageList2AeImQueryMessageDTOSchema: Schema = {
 };
 
 export interface AliexpressMessageList2FetchAeImMessageResultDTO {
-  /** 标识是否有更多页面，使用此字段确定是否需要继续拉动 */
+  /** Flag indicating whether there are more pages; use this field to determine whether to continue fetching */
   hasMore?: boolean;
-  /** 下一页的开始时间戳，当拉动下一页时，需要将其作为输入参数传入 */
+  /** Start timestamp of the next page. Pass it as an input parameter when fetching the next page */
   nextStartTime?: Long;
-  /** 此页面上最后一条消息的ID。拉动下一页时，需要将其作为输入参数传入 */
+  /** ID of the last message on this page. Pass it as an input parameter when fetching the next page */
   lastMessageId?: string;
-  /** 消息列表 */
+  /** Message list */
   messageList?: Array<AliexpressMessageList2AeImMessageDTO>;
 }
 
@@ -194,13 +194,13 @@ export const AliexpressMessageList2FetchAeImMessageResultDTOSchema: Schema = {
 };
 
 export interface AliexpressMessageList2Result {
-  /** 响应内容 */
+  /** Response content */
   data?: AliexpressMessageList2FetchAeImMessageResultDTO;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -216,23 +216,23 @@ export const AliexpressMessageList2ResultSchema: Schema = {
 };
 
 export interface AliexpressMessageListAeImMessageDTO {
-  /** 发送方账户类型, 11代表买家, 12 代表卖家 */
+  /** Sender account type, 11 means buyer, 12 means seller */
   fromAccountType?: number;
-  /** 接收方账户类型, 11 代表买家, 12 代表卖家 */
+  /** Receiver account type, 11 means buyer, 12 means seller */
   toAccountType?: number;
-  /** 发送方id */
+  /** Sender ID */
   fromAccountId?: string;
-  /** 消息id */
+  /** Message ID */
   messageId?: string;
-  /** 接收方id */
+  /** Receiver ID */
   toAccountId?: string;
-  /** 消息模版id 1： 正常文本消息 3： 图片消息 10006：表示商品卡片 10007：表示订单卡片 21004：优惠券卡片 */
+  /** Message template id 1: normal text message 3: image message 10006: product card 10007: order card 21004: coupon card */
   templateId?: Long;
-  /** 1： 消息来自用户 2： 消息来自系统 */
+  /** 1: message from the user 2: message from the system */
   type?: number;
-  /** json格式的消息内容 */
+  /** Message content in json format */
   content?: string;
-  /** 消息发送时间戳 */
+  /** Message send timestamp */
   sendTime?: Long;
 }
 
@@ -249,13 +249,13 @@ export const AliexpressMessageListAeImMessageDTOSchema: Schema = {
 };
 
 export interface AliexpressMessageListAeImQueryMessageDTO {
-  /** 页面大小，限 20 */
+  /** Page size, limited to 20 */
   pageSize?: number;
-  /** 开始时间戳，当请求第一页时，请输入当前时间戳，获取下一页，请输入上一页响应字段next_start_time */
+  /** Start timestamp. When requesting the first page, enter the current timestamp; to get the next page, enter the next_start_time response field from the previous page */
   startTime?: Long;
-  /** 最后一条消息的ID，获取第一页时可能为空，获取下一页时请输入上一页响应字段last_message_id */
+  /** ID of the last message. May be empty when getting the first page; to get the next page, enter the last_message_id response field from the previous page */
   lastMessageId?: string;
-  /** 买家id */
+  /** Buyer ID */
   buyerId?: Long;
 }
 
@@ -267,13 +267,13 @@ export const AliexpressMessageListAeImQueryMessageDTOSchema: Schema = {
 };
 
 export interface AliexpressMessageListFetchAeImMessageResultDTO {
-  /** 消息列表 */
+  /** Message list */
   messageList?: Array<AliexpressMessageListAeImMessageDTO>;
-  /** 标识是否有更多页面，使用此字段确定是否需要继续拉动 */
+  /** Flag indicating whether there are more pages; use this field to determine whether to continue fetching */
   hasMore?: boolean;
-  /** 下一页的开始时间戳，当拉动下一页时，需要将其作为输入参数传入 */
+  /** Start timestamp of the next page. Pass it as an input parameter when fetching the next page */
   nextStartTime?: Long;
-  /** 此页面上最后一条消息的ID。拉动下一页时，需要将其作为输入参数传入 */
+  /** ID of the last message on this page. Pass it as an input parameter when fetching the next page */
   lastMessageId?: string;
 }
 
@@ -289,13 +289,13 @@ export const AliexpressMessageListFetchAeImMessageResultDTOSchema: Schema = {
 };
 
 export interface AliexpressMessageListResult {
-  /** 响应内容 */
+  /** Response content */
   data?: AliexpressMessageListFetchAeImMessageResultDTO;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -311,15 +311,15 @@ export const AliexpressMessageListResultSchema: Schema = {
 };
 
 export interface AliexpressMessageSendAeImSendMessageDTO {
-  /** 发送消息是否仅买家可见 true：仅买家可见 flase或不传：双方可见 */
+  /** Whether the message is visible only to the buyer. true: visible only to the buyer; false or not passed: visible to both parties */
   onlyForTarget?: boolean;
-  /** 场景id 1：基础接待 2：智能客服接待 3：自动催拍 4：自动催付 5：弃单挽回 6：物流呵护 */
+  /** Scenario id 1: basic reception 2: intelligent customer service reception 3: automatic order nudging 4: automatic payment reminder 5: abandoned order recovery 6: logistics care */
   sceneId?: number;
-  /** 消息模版id 1： 正常文本消息 3： 图片消息 10006：表示商品卡片 10007：表示订单卡片 21004：优惠券卡片 */
+  /** Message template id 1: normal text message 3: image message 10006: product card 10007: order card 21004: coupon card */
   templateId?: Long;
-  /** 买家id */
+  /** Buyer ID */
   buyerId?: Long;
-  /** 消息内容请求体 */
+  /** Message content request body */
   messageContentDto?: AliexpressMessageSendMessageContentDTO;
 }
 
@@ -336,19 +336,19 @@ export const AliexpressMessageSendAeImSendMessageDTOSchema: Schema = {
 };
 
 export interface AliexpressMessageSendMessageContentDTO {
-  /** 图片url */
+  /** Image URL */
   imgUrl?: string;
-  /** 消息内容 */
+  /** Message content */
   txt?: string;
-  /** 商品id */
+  /** Product ID */
   itemId?: string;
-  /** 订单id */
+  /** Order ID */
   orderId?: string;
-  /** 图片宽度 */
+  /** Image width */
   width?: number;
-  /** 营销id */
+  /** Marketing ID */
   promotionId?: string;
-  /** 图片高度 */
+  /** Image height */
   height?: number;
 }
 
@@ -363,7 +363,7 @@ export const AliexpressMessageSendMessageContentDTOSchema: Schema = {
 };
 
 export interface AliexpressMessageSessionGetAeImQuerySessionDTO {
-  /** 买家id */
+  /** Buyer ID */
   buyerId?: Long;
 }
 
@@ -372,9 +372,9 @@ export const AliexpressMessageSessionGetAeImQuerySessionDTOSchema: Schema = {
 };
 
 export interface AliexpressMessageSessionOpenAeImSessionOpenDTO {
-  /** 买家id */
+  /** Buyer ID */
   buyerId?: Long;
-  /** 买家登录id */
+  /** Buyer login ID */
   buyerLoginId?: string;
 }
 
@@ -384,9 +384,9 @@ export const AliexpressMessageSessionOpenAeImSessionOpenDTOSchema: Schema = {
 };
 
 export interface AliexpressMessageSessionOpenAeImSessionOpenResultDTO {
-  /** 是否开启成功，SUCCESS-成功，FAIL-失败 */
+  /** Whether enabling succeeded, SUCCESS - success, FAIL - failure */
   openResult?: string;
-  /** 当前的买家id */
+  /** Current buyer ID */
   currentBuyerId?: Long;
 }
 
@@ -397,13 +397,13 @@ export const AliexpressMessageSessionOpenAeImSessionOpenResultDTOSchema: Schema 
   };
 
 export interface AliexpressMessageSessionOpenResult {
-  /** 响应内容 */
+  /** Response content */
   data?: AliexpressMessageSessionOpenAeImSessionOpenResultDTO;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -419,11 +419,11 @@ export const AliexpressMessageSessionOpenResultSchema: Schema = {
 };
 
 export interface AliexpressMessageSessionTagUpdateAeImSessionViewUpdateDTO {
-  /** true：去标 false：打标 */
+  /** true: remove tag false: add tag */
   isDeleting?: boolean;
-  /** 标记码 0：重点关注 1：需关注 */
+  /** Marker code 0: key attention 1: needs attention */
   tagCode?: number;
-  /** 买家id */
+  /** Buyer ID */
   buyerId?: Long;
 }
 
@@ -435,7 +435,7 @@ export const AliexpressMessageSessionTagUpdateAeImSessionViewUpdateDTOSchema: Sc
   };
 
 export interface AliexpressMessageSyncAeImSyncDataDTO {
-  /** 当前客户端syncId */
+  /** Current client syncId */
   syncId?: Long;
 }
 
@@ -445,13 +445,13 @@ export const AliexpressMessageSyncAeImSyncDataDTOSchema: Schema = {
 
 /** Parameters for `aliexpress/message/customer/status/get`. */
 export interface AliexpressMessageCustomerStatusGetParams {
-  /** 请求dto */
+  /** Request DTO */
   imCustomerServiceDto?: string;
 }
 
 /** Response of `aliexpress/message/customer/status/get`. */
 export interface AliexpressMessageCustomerStatusGetResponse {
-  /** 响应结果 */
+  /** Response result */
   result?: Record<string, unknown>;
 }
 
@@ -475,13 +475,13 @@ export const aliexpressMessageCustomerStatusGet: ApiDefinition<
 
 /** Parameters for `aliexpress/message/history/buyer/list`. */
 export interface AliexpressMessageHistoryBuyerListParams {
-  /** 请求dto */
+  /** Request DTO */
   aeImQuerySessionDto?: AliexpressMessageHistoryBuyerListAeImQuerySessionDTO;
 }
 
 /** Response of `aliexpress/message/history/buyer/list`. */
 export interface AliexpressMessageHistoryBuyerListResponse {
-  /** 响应结果 */
+  /** Response result */
   result?: Record<string, unknown>;
 }
 
@@ -509,13 +509,13 @@ export const aliexpressMessageHistoryBuyerList: ApiDefinition<
 
 /** Parameters for `aliexpress/message/history/list`. */
 export interface AliexpressMessageHistoryListParams {
-  /** 请求dto */
+  /** Request DTO */
   imQueryMessageDto?: AliexpressMessageHistoryListAeImQueryMessageDTO;
 }
 
 /** Response of `aliexpress/message/history/list`. */
 export interface AliexpressMessageHistoryListResponse {
-  /** 响应结果 */
+  /** Response result */
   result?: AliexpressMessageHistoryListResult;
 }
 
@@ -543,13 +543,13 @@ export const aliexpressMessageHistoryList: ApiDefinition<
 
 /** Parameters for `aliexpress/message/list`. */
 export interface AliexpressMessageListParams {
-  /** 请求dto */
+  /** Request DTO */
   imQueryMessageDto?: AliexpressMessageListAeImQueryMessageDTO;
 }
 
 /** Response of `aliexpress/message/list`. */
 export interface AliexpressMessageListResponse {
-  /** 响应结果 */
+  /** Response result */
   result?: AliexpressMessageListResult;
 }
 
@@ -577,13 +577,13 @@ export const aliexpressMessageList: ApiDefinition<
 
 /** Parameters for `aliexpress/message/list2`. */
 export interface AliexpressMessageList2Params {
-  /** 请求dto */
+  /** Request DTO */
   imQueryMessageDto?: AliexpressMessageList2AeImQueryMessageDTO;
 }
 
 /** Response of `aliexpress/message/list2`. */
 export interface AliexpressMessageList2Response {
-  /** 响应结果 */
+  /** Response result */
   result?: AliexpressMessageList2Result;
 }
 
@@ -611,13 +611,13 @@ export const aliexpressMessageList2: ApiDefinition<
 
 /** Parameters for `aliexpress/message/send`. */
 export interface AliexpressMessageSendParams {
-  /** 请求dto */
+  /** Request DTO */
   imSendMessageDto?: AliexpressMessageSendAeImSendMessageDTO;
 }
 
 /** Response of `aliexpress/message/send`. */
 export interface AliexpressMessageSendResponse {
-  /** 响应结果 */
+  /** Response result */
   result?: Record<string, unknown>;
 }
 
@@ -645,13 +645,13 @@ export const aliexpressMessageSend: ApiDefinition<
 
 /** Parameters for `aliexpress/message/session/get`. */
 export interface AliexpressMessageSessionGetParams {
-  /** 请求dto */
+  /** Request DTO */
   imQuerySessionDto?: AliexpressMessageSessionGetAeImQuerySessionDTO;
 }
 
 /** Response of `aliexpress/message/session/get`. */
 export interface AliexpressMessageSessionGetResponse {
-  /** 响应结果 */
+  /** Response result */
   result?: Record<string, unknown>;
 }
 
@@ -679,13 +679,13 @@ export const aliexpressMessageSessionGet: ApiDefinition<
 
 /** Parameters for `aliexpress/message/session/open`. */
 export interface AliexpressMessageSessionOpenParams {
-  /** 请求dto */
+  /** Request DTO */
   imSessionOpenDto?: AliexpressMessageSessionOpenAeImSessionOpenDTO;
 }
 
 /** Response of `aliexpress/message/session/open`. */
 export interface AliexpressMessageSessionOpenResponse {
-  /** 响应结果 */
+  /** Response result */
   result?: AliexpressMessageSessionOpenResult;
 }
 
@@ -713,13 +713,13 @@ export const aliexpressMessageSessionOpen: ApiDefinition<
 
 /** Parameters for `aliexpress/message/session/tag/update`. */
 export interface AliexpressMessageSessionTagUpdateParams {
-  /** 请求dto */
+  /** Request DTO */
   imSessionViewUpdateDto?: AliexpressMessageSessionTagUpdateAeImSessionViewUpdateDTO;
 }
 
 /** Response of `aliexpress/message/session/tag/update`. */
 export interface AliexpressMessageSessionTagUpdateResponse {
-  /** 响应结果 */
+  /** Response result */
   result?: Record<string, unknown>;
 }
 
@@ -747,13 +747,13 @@ export const aliexpressMessageSessionTagUpdate: ApiDefinition<
 
 /** Parameters for `aliexpress/message/sync`. */
 export interface AliexpressMessageSyncParams {
-  /** 请求dto */
+  /** Request DTO */
   imSyncDataDto?: AliexpressMessageSyncAeImSyncDataDTO;
 }
 
 /** Response of `aliexpress/message/sync`. */
 export interface AliexpressMessageSyncResponse {
-  /** 响应结果 */
+  /** Response result */
   result?: Record<string, unknown>;
 }
 
@@ -781,13 +781,13 @@ export const aliexpressMessageSync: ApiDefinition<
 
 /** Parameters for `aliexpress/message/sync/rebase`. */
 export interface AliexpressMessageSyncRebaseParams {
-  /** 请求dto */
+  /** Request DTO */
   imSyncDataDto?: string;
 }
 
 /** Response of `aliexpress/message/sync/rebase`. */
 export interface AliexpressMessageSyncRebaseResponse {
-  /** 响应结果 */
+  /** Response result */
   result?: Record<string, unknown>;
 }
 

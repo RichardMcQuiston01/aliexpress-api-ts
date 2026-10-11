@@ -9,19 +9,19 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressImageRedefiningUploadtempimageAeopImageResponse {
-  /** 图片的高度。单位：像素 */
+  /** Image height. Unit: pixels */
   height?: Long;
-  /** 图片的文件名。 */
+  /** Image file name. */
   srcFileName?: string;
-  /** 本次操作的结果。 */
+  /** Result of this operation. */
   isSuccess?: boolean;
-  /** 图片的URL。 */
+  /** Image URL. */
   url?: string;
-  /** 图片的宽度。单位：像素 */
+  /** Image width. Unit: pixels */
   width?: Long;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -39,17 +39,17 @@ export const AliexpressImageRedefiningUploadtempimageAeopImageResponseSchema: Sc
 export interface AliexpressImageRedefiningUploadtempimageforsdkAeopImageResponse {
   /** 12345 */
   height?: Long;
-  /** 图片的文件名。 */
+  /** Image file name. */
   srcFileName?: string;
-  /** 本次操作的结果。 */
+  /** Result of this operation. */
   isSuccess?: boolean;
-  /** 图片的URL。 */
+  /** Image URL. */
   url?: string;
-  /** 图片的宽度。单位：像素 */
+  /** Image width. Unit: pixels */
   width?: Long;
-  /** 错误代码 */
+  /** Error code */
   errorCode?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
 }
 
@@ -66,9 +66,9 @@ export const AliexpressImageRedefiningUploadtempimageforsdkAeopImageResponseSche
 
 /** Parameters for `aliexpress.image.redefining.uploadtempimage`. */
 export interface AliexpressImageRedefiningUploadtempimageParams {
-  /** 图片原名 */
+  /** Original image name */
   srcFileName?: string;
-  /** 图片文件二进制数据流 */
+  /** Binary data stream of the image file */
   fileData?: FileInput;
 }
 
@@ -103,9 +103,9 @@ export const aliexpressImageRedefiningUploadtempimage: ApiDefinition<
 
 /** Parameters for `aliexpress.image.redefining.uploadtempimageforsdk`. */
 export interface AliexpressImageRedefiningUploadtempimageforsdkParams {
-  /** 图片原名。支持的图片格式：jpg, jpeg, gif */
+  /** Original image name. Supported image formats: jpg, jpeg, gif */
   srcFileName?: string;
-  /** 字符串形式的图片文件二进制数据流 */
+  /** Binary data stream of the image file as a string */
   fileData?: FileInput;
 }
 

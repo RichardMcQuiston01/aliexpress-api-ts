@@ -9,13 +9,13 @@ import type {
 } from '../core/index.js';
 
 export interface ComAidcSupplierFacadeIsvCpfrQueryGroupMemberCPFRGroupMemberInfo {
-  /** 租户 */
+  /** Tenant */
   merchantCode?: string;
-  /** 成员状态 - 2为正式 */
+  /** Member status - 2 is formal */
   memberStatus?: number;
-  /** 群类型 - 3为CPRF群 */
+  /** Group type - 3 is CPRF group */
   groupType?: number;
-  /** 群组织权限 - (当前支持) "openSalesForecastSnapshot": "开放销量预测快照" "enableStockoutWarning": "开启缺货预警" "autoOrderAcceptance": "自动接单" */
+  /** Group organization permissions - (currently supported) "openSalesForecastSnapshot": "open sales forecast snapshot" "enableStockoutWarning": "enable stockout warning" "autoOrderAcceptance": "automatic order acceptance" */
   groupPermissions?: Array<string>;
 }
 
@@ -28,13 +28,13 @@ export const ComAidcSupplierFacadeIsvCpfrQueryGroupMemberCPFRGroupMemberInfoSche
   };
 
 export interface ComAidcSupplierFacadeIsvCpfrQueryGroupMemberDataResult {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误文案 */
+  /** Error text */
   errorMsg?: string;
-  /** 数据体 */
+  /** Data body */
   data?: ComAidcSupplierFacadeIsvCpfrQueryGroupMemberCPFRGroupMemberInfo;
 }
 
@@ -52,9 +52,9 @@ export const ComAidcSupplierFacadeIsvCpfrQueryGroupMemberDataResultSchema: Schem
   };
 
 export interface ComAidcSupplierFacadeIsvCpfrQueryGroupMemberGroupMemberQueryRequest {
-  /** 渠道seller id（可以在这个API中查询：global.seller.relation.query），全托管此字段必填，请使用business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id, 当bizType=288000，即为半托管时，该字段选填 */
+  /** Channel seller id (can be queried with this API: global.seller.relation.query). Required for fully-managed; use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE. When bizType=288000, i.e. semi-managed, this field is optional */
   channelUserId?: Long;
-  /** 店铺的模式 正式全托管: AECHOICE 正式半托管: AEFF */
+  /** Store mode. Official fully managed: AECHOICE; official semi-managed: AEFF */
   merchantCode?: string;
 }
 
@@ -65,15 +65,15 @@ export const ComAidcSupplierFacadeIsvCpfrQueryGroupMemberGroupMemberQueryRequest
   };
 
 export interface ComAlibabaAidcSettlementFacadaFcbillQueryOrderCommonResult {
-  /** 错误码 */
+  /** Error code */
   code?: string;
-  /** 返回数据 */
+  /** Returned data */
   data?: Array<ComAlibabaAidcSettlementFacadaFcbillQueryOrderFcBillLogisticDTO>;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 是否业务错误 */
+  /** Whether it is a business error */
   bizException?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMsg?: string;
 }
 
@@ -94,23 +94,23 @@ export const ComAlibabaAidcSettlementFacadaFcbillQueryOrderCommonResultSchema: S
 export interface ComAlibabaAidcSettlementFacadaFcbillQueryOrderFcBillLogisticDTO {
   /** sellerId */
   sellerId?: string;
-  /** 理论重量 */
+  /** Theoretical weight */
   theoreticalWeight?: string;
-  /** 分层折扣 */
+  /** Tiered discount */
   sellerDiscountRate?: string;
-  /** 分摊占比 */
+  /** Allocation ratio */
   apportionRatio?: string;
-  /** 实际重量 */
+  /** Actual weight */
   weight?: string;
-  /** 业务字段 */
+  /** Business fields */
   bizBillCode?: string;
-  /** 业务主档id */
+  /** Business master record ID */
   bizOrderCode?: string;
-  /** 结算金额 */
+  /** Settlement amount */
   settleAmount?: string;
-  /** 分摊前金额 */
+  /** Amount before allocation */
   apportionChargeBaseAmount?: string;
-  /** 价卡折扣 */
+  /** Price card discount */
   discountRate?: string;
 }
 
@@ -129,9 +129,9 @@ export const ComAlibabaAidcSettlementFacadaFcbillQueryOrderFcBillLogisticDTOSche
   };
 
 export interface ComAlibabaAidcSettlementFacadaFcbillQueryOrderFcBillLogisticQueryByOrderCodeControllerRequestDTO {
-  /** 业务主单 */
+  /** Business main order */
   bizOrderCode?: string;
-  /** 渠道SellerID 全托场景必传 */
+  /** Channel SellerID; required in full-consignment scenarios */
   channelSellerId?: Long;
 }
 
@@ -142,11 +142,11 @@ export const ComAlibabaAidcSettlementFacadaFcbillQueryOrderFcBillLogisticQueryBy
   };
 
 export interface ComAliexpressPayAuthCalculateGroupItem {
-  /** 卖家id */
+  /** Seller ID */
   sellerId?: Long;
-  /** 订单币种 */
+  /** Order currency */
   orderCurrency?: string;
-  /** 订单号 */
+  /** Order number */
   outOrderNo?: string;
 }
 
@@ -157,11 +157,11 @@ export const ComAliexpressPayAuthCalculateGroupItemSchema: Schema = {
 };
 
 export interface ComAliexpressPayAuthPaymentAuthRequest {
-  /** 支付产品码 */
+  /** Payment product code */
   productCode?: string;
-  /** 订单列表 */
+  /** Order list */
   calculateGroupItems?: Array<ComAliexpressPayAuthCalculateGroupItem>;
-  /** 意向币种 */
+  /** Intended currency */
   intentionCurrency?: string;
 }
 
@@ -176,7 +176,7 @@ export const ComAliexpressPayAuthPaymentAuthRequestSchema: Schema = {
 };
 
 export interface ComAliexpressPayAuthPaymentAuthResponse {
-  /** 授权码 */
+  /** Authorization code */
   authCode?: string;
   /** 1 */
   responseMessage?: string;
@@ -311,13 +311,13 @@ export const comAidcSupplierFacadeIsvCpfrQueryGroupMember: ApiDefinition<
 
 /** Parameters for `com.alibaba.aidc.settlement.facada.fcbill.query.order`. */
 export interface ComAlibabaAidcSettlementFacadaFcbillQueryOrderParams {
-  /** 参数 */
+  /** Parameter */
   param0?: ComAlibabaAidcSettlementFacadaFcbillQueryOrderFcBillLogisticQueryByOrderCodeControllerRequestDTO;
 }
 
 /** Response of `com.alibaba.aidc.settlement.facada.fcbill.query.order`. */
 export interface ComAlibabaAidcSettlementFacadaFcbillQueryOrderResponse {
-  /** 返回对象 */
+  /** Returned object */
   result?: ComAlibabaAidcSettlementFacadaFcbillQueryOrderCommonResult;
 }
 

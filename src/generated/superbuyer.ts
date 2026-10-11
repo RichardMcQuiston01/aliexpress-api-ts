@@ -9,19 +9,19 @@ import type {
 } from '../core/index.js';
 
 export interface SuperbuyerPluginImageSearchImageSearchReq {
-  /** app版本号 */
+  /** App version number */
   appVersion?: string;
-  /** 流量来源 */
+  /** Traffic source */
   osf?: string;
-  /** 滚动id */
+  /** Scroll ID */
   streamId?: string;
-  /** app端版本号 */
+  /** App version number */
   appClientV?: string;
-  /** 页码 */
+  /** Page number */
   pageSize?: number;
-  /** 设备号 */
+  /** Device number */
   deviceId?: string;
-  /** 图片base64 */
+  /** Image base64 */
   imageBase64?: string;
   /** img_file_name */
   imgFileName?: string;
@@ -680,7 +680,7 @@ export const SuperbuyerPluginSameProductSearchSameReqSchema: Schema = {
 
 /** Parameters for `superbuyer.plugin.image.search`. */
 export interface SuperbuyerPluginImageSearchParams {
-  /** 入参描述 */
+  /** Input parameter description */
   imageSearchReq?: SuperbuyerPluginImageSearchImageSearchReq;
 }
 

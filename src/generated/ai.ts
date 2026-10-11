@@ -11,9 +11,9 @@ import type {
 export interface AiClothesSegment {
   /** url */
   imageUrl?: string;
-  /** 类型 */
+  /** Type */
   type?: string;
-  /** 服饰分割结果类型 */
+  /** Apparel segmentation result type */
   imageType?: string;
 }
 
@@ -28,7 +28,7 @@ export interface AiEditorComponentGetAllTagListDataResult {
   traceId?: string;
   /** null */
   reCode?: string;
-  /** 结果 */
+  /** Result */
   data?: Array<string>;
   /** null */
   level?: string;
@@ -88,21 +88,21 @@ export const AiEditorComponentGetFontListDataResultSchema: Schema = {
 };
 
 export interface AiEditorComponentGetFontListEditorComponent {
-  /** 预览图oss */
+  /** Preview image OSS */
   previewOssUrl?: string;
-  /** 编辑器json */
+  /** Editor JSON */
   schemaJson?: string;
-  /** 名称 */
+  /** Name */
   name?: string;
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 标签 */
+  /** Label */
   tag?: string;
   /** id */
   id?: number;
   /** preview_oss_path */
   previewOssPath?: string;
-  /** 类型 */
+  /** Type */
   type?: string;
   /** public_component_id */
   publicComponentId?: string;
@@ -163,15 +163,15 @@ export const AiEditorComponentGetStickerListDataResultSchema: Schema = {
 };
 
 export interface AiEditorComponentGetStickerListEditorComponent {
-  /** 预览图oss_url */
+  /** Preview image oss_url */
   previewOssUrl?: string;
-  /** 编辑器json */
+  /** Editor JSON */
   schemaJson?: string;
-  /** 名称 */
+  /** Name */
   name?: string;
-  /** 语言 */
+  /** Language */
   language?: string;
-  /** 标签 */
+  /** Label */
   tag?: string;
   /** id */
   id?: number;
@@ -196,13 +196,13 @@ export const AiEditorComponentGetStickerListEditorComponentSchema: Schema = {
 };
 
 export interface AiEditorComponentGetStickerListPageList {
-  /** 总条数 */
+  /** Total count */
   total?: number;
-  /** 分页单位 */
+  /** Pagination unit */
   pageNo?: number;
-  /** 分页单位 */
+  /** Pagination unit */
   pageSize?: number;
-  /** 数据集 */
+  /** Dataset */
   list?: Array<AiEditorComponentGetStickerListEditorComponent>;
 }
 
@@ -218,7 +218,7 @@ export const AiEditorComponentGetStickerListPageListSchema: Schema = {
 };
 
 export interface AiImageBackgroundGenerationBatchTaskSubmitResponse {
-  /** 返回任务id */
+  /** Returned task ID */
   taskId?: string;
 }
 
@@ -228,7 +228,7 @@ export const AiImageBackgroundGenerationBatchTaskSubmitResponseSchema: Schema =
   };
 
 export interface AiImageBackgroundGenerationCompose {
-  /** 素材json */
+  /** Material JSON */
   composeJson?: string;
 }
 
@@ -237,23 +237,23 @@ export const AiImageBackgroundGenerationComposeSchema: Schema = {
 };
 
 export interface AiImageBackgroundGenerationIframe {
-  /** 宽度 */
+  /** Width */
   width?: Long;
-  /** 高度 */
+  /** Height */
   height?: Long;
-  /** 商品url */
+  /** Product URL */
   imageFileUrl?: string;
   /** null */
   needLayout?: string;
-  /** 模型编号 */
+  /** Model number */
   modelNum?: string;
-  /** 图片数量 */
+  /** Number of images */
   imageNum?: Long;
-  /** 背景图url */
+  /** Background image URL */
   imageDftUrl?: string;
-  /** 用户输入词 */
+  /** User input words */
   userPrompt?: string;
-  /** 参考值最大1最小0 */
+  /** Reference value, maximum 1, minimum 0 */
   denoisingStrength?: string;
 }
 
@@ -270,13 +270,13 @@ export const AiImageBackgroundGenerationIframeSchema: Schema = {
 };
 
 export interface AiImageBackgroundGenerationQueryImageSceneGenerationInfo {
-  /** 返回任务信息 */
+  /** Returned task information */
   taskMessage?: string;
-  /** 任务状态 */
+  /** Task status */
   taskStatus?: string;
-  /** 返回任务id */
+  /** Returned task ID */
   taskId?: string;
-  /** 返回任务结果 */
+  /** Returned task result */
   taskResult?: Array<AiImageBackgroundGenerationQuerySceneImageContent>;
 }
 
@@ -293,15 +293,15 @@ export const AiImageBackgroundGenerationQueryImageSceneGenerationInfoSchema: Sch
   };
 
 export interface AiImageBackgroundGenerationQuerySceneImageContent {
-  /** 返回模板id */
+  /** Returned template ID */
   sceneTemplate?: string;
-  /** 返回图片url列表 */
+  /** Returns the list of image urls */
   imageUrlList?: Array<string>;
-  /** 返回历史数据信息 */
+  /** Returned historical data information */
   recordContent?: string;
-  /** 子任务状态 */
+  /** Subtask status */
   taskStatus?: string;
-  /** 返回子任务信息 */
+  /** Subtask information returned */
   taskMessage?: string;
 }
 
@@ -314,7 +314,7 @@ export const AiImageBackgroundGenerationQuerySceneImageContentSchema: Schema = {
 };
 
 export interface AiImageBackgroundGenerationScenarioPlatformGatewayResponse {
-  /** 结果json */
+  /** Result JSON */
   result?: Record<string, unknown>;
 }
 
@@ -324,21 +324,21 @@ export const AiImageBackgroundGenerationScenarioPlatformGatewayResponseSchema: S
   };
 
 export interface AiImageBackgroundGenerationScenarioString {
-  /** 商品图片URL。 跟imageBase64不能同时为空。如果同时存在imageUrl和iImageBase64，优先取 Base64。 图片尺寸应该大于512*512像素，小于3000*3000像素。 */
+  /** Product image URL. Cannot be empty at the same time as imageBase64. If both imageUrl and iImageBase64 exist, Base64 takes precedence. Image size must be greater than 512*512 pixels and less than 3000*3000 pixels. */
   imageFileUrl?: string;
-  /** 商品图片的Base64编码。 跟imageUrl不能同时为空。如果同时存在imageUrl和imageBase64，优先取 Base64。 图片尺寸应该大于512*512像素，小于3000*3000像素。 */
+  /** Base64 encoding of the product image. Cannot be empty at the same time as imageUrl. If both imageUrl and imageBase64 exist, Base64 takes precedence. Image size must be greater than 512*512 pixels and less than 3000*3000 pixels. */
   imgBase64?: string;
-  /** 需要生成的场景编号。场景编号的查询请使用“AI场景推荐&查询”接口。 */
+  /** Scenario number to generate. To query scenario numbers, use the "AI scenario recommendation & query" API. */
   modelNum?: string;
-  /** 是否需要对商品进行重新布局。取值范围： true：对商品位置进行重新布局。 false：使用传入图片的商品位置，不进行重新布局。 */
+  /** Whether the product needs to be re-laid out. Value range: true: re-lay out the product position. false: use the product position in the passed image without re-laying out. */
   needLayout?: boolean;
-  /** 商品标题。如果不需要自动布局，则无需传入。 仅支持中文或英文的商品标题。 */
+  /** Product title. Not needed if automatic layout is not required. Only Chinese or English product titles are supported. */
   productTitle?: string;
-  /** 期望生成的图片宽度。单位：像素。 目前仅支持1：1（宽800*高800）和3：4（宽750*高1000）的尺寸生成。 */
+  /** Expected width of the generated image. Unit: pixels. Currently only 1:1 (width 800 * height 800) and 3:4 (width 750 * height 1000) sizes are supported. */
   width?: number;
-  /** 期望生成的图片高度。单位：像素。目前仅支持1：1（宽800*高800）和3：4（宽750*高1000）的尺寸生成。 */
+  /** Desired height of the generated image. Unit: pixels. Currently only 1:1 (width 800 * height 800) and 3:4 (width 750 * height 1000) sizes are supported. */
   height?: number;
-  /** 期望生成的图片数量。单次任务最少生成2张，最多生成10张。如果不设置，默认生成4张。 取值范围：2-10 */
+  /** Desired number of generated images. A single task generates at least 2 and at most 10 images. If not set, 4 images are generated by default. Value range: 2-10 */
   imageNum?: number;
 }
 
@@ -354,11 +354,11 @@ export const AiImageBackgroundGenerationScenarioStringSchema: Schema = {
 };
 
 export interface AiImageCutFreeIframe {
-  /** 图片url */
+  /** Image URL */
   url?: string;
-  /** 图片放缩到指定宽, 正整数, 如'800' */
+  /** Scale the image to the specified width, positive integer, e.g. '800' */
   targetWidth?: string;
-  /** 图片放缩到指定高，正整数, 如'600' */
+  /** Scale the image to the specified height, positive integer, e.g. '600' */
   targetHeight?: string;
   /** null */
   aspectRatioW?: string;
@@ -374,9 +374,9 @@ export interface AiImageCutFreeIframe {
   fgHighRatio?: string;
   /** null */
   qualityLevel?: string;
-  /** 主体是否中心化，非'0'即可, 如 '1' */
+  /** Whether the subject is centered; any value other than '0' works, e.g. '1' */
   centered?: string;
-  /** 是否转换输出格式，非'0'即可, 如 '1' */
+  /** Whether to convert the output format; any value other than '0' works, e.g. '1' */
   toJPG?: string;
   /** null */
   bgColor?: string;
@@ -386,7 +386,7 @@ export interface AiImageCutFreeIframe {
   returnAlphaChannel?: string;
   /** null */
   sendTime?: string;
-  /** 是否从图片中切出主体， 如'1' */
+  /** Whether to cut out the main subject from the image, e.g. '1' */
   cropped?: string;
   /** null */
   pngSkipped?: string;
@@ -423,44 +423,44 @@ export const AiImageCutFreeIframeSchema: Schema = {
 };
 
 export interface AiImageCutIframe {
-  /** 图片url */
+  /** Image URL */
   url?: string;
-  /** 图片放缩到指定宽, 正整数, 如'800' */
+  /** Scale the image to the specified width, positive integer, e.g. '800' */
   targetWidth?: string;
-  /** 图片放缩到指定高，正整数, 如'600' */
+  /** Scale the image to the specified height, positive integer, e.g. '600' */
   targetHeight?: string;
-  /** 图片填充到指定宽高比，正整数， 如'1' */
+  /** Fill the image to the specified aspect ratio, positive integer, e.g. '1' */
   aspectRatioW?: string;
-  /** 图片填充到指定宽高比，正整数， 如'1' */
+  /** Fill the image to the specified aspect ratio, positive integer, e.g. '1' */
   aspectRatioH?: string;
-  /** 图片最大允许宽度，正整数，如 '800' */
+  /** Maximum allowed image width, positive integer, e.g. '800' */
   maxWidth?: string;
-  /** 图片最大允许高度，正整数，如 '800' */
+  /** Maximum allowed image height, positive integer, e.g. '800' */
   maxHeight?: string;
-  /** 限制主体占比下限,（0, 1), 如'0.1' */
+  /** Lower limit of the subject proportion, (0, 1), e.g. '0.1' */
   fgLowRatio?: string;
-  /** 限制主体占比上限， (0, 1]，如 '1.0' */
+  /** Upper limit of the subject proportion, (0, 1], e.g. '1.0' */
   fgHighRatio?: string;
-  /** 机器审核阈值， {1, .., 9}, 如 '5' */
+  /** Machine review threshold, {1, .., 9}, e.g. '5' */
   qualityLevel?: string;
-  /** 主体是否中心化，非'0'即可, 如 '1' */
+  /** Whether the subject is centered; any value other than '0' works, e.g. '1' */
   centered?: string;
-  /** 是否转换输出格式，非'0'即可, 如 '1' */
+  /** Whether to convert the output format; any value other than '0' works, e.g. '1' */
   toJPG?: string;
-  /** '255,255,255' 背景BGR色彩值, 默认值为白色， */
+  /** '255,255,255' background BGR color value, default is white, */
   bgColor?: string;
-  /** 文件名添加指定后缀 */
+  /** Add the specified suffix to the file name */
   postfix?: string;
-  /** 是否只返回图片的alpha通道， 非'0'即可, 如 '1' */
+  /** Whether to return only the alpha channel of the image; any value other than '0' works, e.g. '1' */
   returnAlphaChannel?: string;
   sendTime?: string;
-  /** 是否从图片中切出主体， 如'1' */
+  /** Whether to cut out the main subject from the image, e.g. '1' */
   cropped?: string;
   pngSkipped?: string;
   keepBG?: string;
-  /** 选填, 异步的场景透传的key */
+  /** Optional, key passed through in asynchronous scenarios */
   requestBizId?: string;
-  /** 选填, 异步的场景透传回来的key */
+  /** Optional, key passed through and returned in asynchronous scenarios */
   extraInfo?: string;
 }
 
@@ -489,11 +489,11 @@ export const AiImageCutIframeSchema: Schema = {
 };
 
 export interface AiImageCutOutIframeImageGenResponse {
-  /** 返回图片USL */
+  /** Returned image URL */
   imageUrl?: string;
-  /** 宽 */
+  /** Width */
   width?: number;
-  /** 高 */
+  /** Height */
   height?: number;
 }
 
@@ -504,13 +504,13 @@ export const AiImageCutOutIframeImageGenResponseSchema: Schema = {
 };
 
 export interface AiImageDetectionBatchImageDetectRequest {
-  /** 检测商品主体上的范围：（非必填但和non_object_detect_elements不可同为空）1=半透明元素；2=特殊名称；3=文字；4=含字色块） */
+  /** Range on the product main body to detect: (optional, but cannot be empty together with non_object_detect_elements) 1=semi-transparent elements; 2=special names; 3=text; 4=text color blocks) */
   objectDetectElements?: Array<number>;
-  /** 检测非商品主体的背景范围：（非必填但和object_detect_elements不可同为空）1=半透明元素；2=特殊名称；3=文字；4=牛皮癣） */
+  /** Background range to detect outside the product body: (optional, but cannot be empty together with object_detect_elements) 1=semi-transparent elements; 2=special names; 3=text; 4=watermark/spam text) */
   nonObjectDetectElements?: Array<number>;
-  /** 每张URL的BizID（请求唯一UUID标识）（非必填） */
+  /** BizID of each URL (unique UUID of the request) (optional) */
   requestBizId?: string;
-  /** 图片URL */
+  /** Image URL */
   imageUrl?: string;
 }
 
@@ -524,25 +524,25 @@ export const AiImageDetectionBatchImageDetectRequestSchema: Schema = {
 export interface AiImageDetectionIframeparamJsonObjObject {
   /** url */
   imageUrl?: string;
-  /** 主体水印 */
+  /** Subject watermark */
   objDetectWatermark?: number;
-  /** 主体文字 */
+  /** Subject text */
   objDetectCharacter?: number;
-  /** 主体logo */
+  /** Subject logo */
   objDetectLogo?: number;
-  /** 主体牛皮癣 */
+  /** Subject spam text overlay */
   objDetectNpx?: number;
-  /** 主体二维码 */
+  /** Subject QR code */
   objDetectQrcode?: number;
-  /** 非主体水印 */
+  /** Non-subject watermark */
   noobjDetectWatermark?: number;
-  /** 非主体文字 */
+  /** Non-subject text */
   noobjDetectCharacter?: number;
-  /** 非主体logo */
+  /** Non-subject logo */
   noobjDetectLogo?: number;
-  /** 非主体牛皮癣 */
+  /** Non-subject spam text overlay */
   noobjDetectNpx?: number;
-  /** 非主体二维码 */
+  /** Non-subject QR code */
   noobjDetectQrcode?: number;
 }
 
@@ -573,13 +573,13 @@ export const AiImageDetectionIframePlatformGatewayResponseSchema: Schema = {
 };
 
 export interface AiImageHumanDetectionFaceDetectRequestHumanDetectParam {
-  /** 图片url */
+  /** Image URL */
   image?: string;
-  /** 是否需要检测人脸 */
+  /** Whether face detection is needed */
   detectFace?: boolean;
-  /** 是否需要检测人体 */
+  /** Whether body detection is needed */
   detectBody?: boolean;
-  /** 请求图片唯一ID，用于结果标识所处理的图片对应关系 */
+  /** Unique ID of the requested image, used in the result to identify the corresponding processed image */
   requestBizId?: string;
 }
 
@@ -592,7 +592,7 @@ export const AiImageHumanDetectionFaceDetectRequestHumanDetectParamSchema: Schem
   };
 
 export interface AiImageHumanDetectionFaceDetectResponse {
-  /** 任务唯一ID，用于后续查询 */
+  /** Unique task ID, used for subsequent queries */
   taskId?: string;
 }
 
@@ -601,11 +601,11 @@ export const AiImageHumanDetectionFaceDetectResponseSchema: Schema = {
 };
 
 export interface AiImageHumanDetectionQueryFaceDetectGetResponse {
-  /** 任务结果json数据 */
+  /** Task result json data */
   taskResult?: Array<AiImageHumanDetectionQueryFaceDetectGetResult>;
-  /** 任务执行状态 */
+  /** Task execution status */
   taskStatus?: string;
-  /** 任务ID */
+  /** Task ID */
   taskId?: string;
 }
 
@@ -620,17 +620,17 @@ export const AiImageHumanDetectionQueryFaceDetectGetResponseSchema: Schema = {
 };
 
 export interface AiImageHumanDetectionQueryFaceDetectGetResult {
-  /** 任务结果json数据 */
+  /** Task result json data */
   taskResult?: AiImageHumanDetectionQueryFaceDetectResult;
-  /** 任务执行状态 */
+  /** Task execution status */
   taskStatus?: string;
-  /** 任务ID */
+  /** Task ID */
   taskId?: string;
-  /** 请求图片唯一ID，用于结果标识所处理的图片对应关系 */
+  /** Unique ID of the requested image, used in the result to identify the corresponding processed image */
   requestBizId?: string;
-  /** 任务错误返回信息 */
+  /** Task error return information */
   taskMessage?: string;
-  /** 任务错误码 */
+  /** Task error code */
   taskErrorCode?: string;
 }
 
@@ -648,17 +648,17 @@ export const AiImageHumanDetectionQueryFaceDetectGetResultSchema: Schema = {
 };
 
 export interface AiImageHumanDetectionQueryFaceDetectResult {
-  /** 检测结果json数据 */
+  /** Detection result json data */
   detectInfo?: AiImageHumanDetectionQueryFaceDetectResultDetectInfo;
-  /** 任务错误码 */
+  /** Task error code */
   taskErrorCode?: string;
-  /** 任务错误返回信息 */
+  /** Task error return information */
   taskMessage?: string;
-  /** 任务ID */
+  /** Task ID */
   taskId?: string;
-  /** 任务执行状态 */
+  /** Task execution status */
   taskStatus?: string;
-  /** 请求图片唯一ID，用于结果标识所处理的图片对应关系 */
+  /** Unique ID of the requested image, used in the result to identify the corresponding processed image */
   requestBizId?: string;
 }
 
@@ -676,11 +676,11 @@ export const AiImageHumanDetectionQueryFaceDetectResultSchema: Schema = {
 };
 
 export interface AiImageHumanDetectionQueryFaceDetectResultBodyInfo {
-  /** 人体位置和性别列表 */
+  /** List of body positions and genders */
   bodyLocationAndGenderList?: Array<AiImageHumanDetectionQueryFaceDetectResultBodyLocationAndGender>;
-  /** 是否包含人体 */
+  /** Whether a human body is included */
   hasBody?: boolean;
-  /** 检测人体数量 */
+  /** Number of human bodies detected */
   bodyCount?: number;
 }
 
@@ -697,9 +697,9 @@ export const AiImageHumanDetectionQueryFaceDetectResultBodyInfoSchema: Schema =
   };
 
 export interface AiImageHumanDetectionQueryFaceDetectResultBodyLocationAndGender {
-  /** 识别性别 */
+  /** Recognized gender */
   gender?: string;
-  /** 人体输出位置框，[左上x 左上y 右下x 右下y] */
+  /** Body output position box, [top-left x, top-left y, bottom-right x, bottom-right y] */
   bodyPred?: Array<Long>;
 }
 
@@ -710,9 +710,9 @@ export const AiImageHumanDetectionQueryFaceDetectResultBodyLocationAndGenderSche
   };
 
 export interface AiImageHumanDetectionQueryFaceDetectResultDetectInfo {
-  /** 人体检测json数据 */
+  /** Body detection json data */
   bodyInfo?: AiImageHumanDetectionQueryFaceDetectResultBodyInfo;
-  /** 人脸检测json数据 */
+  /** Face detection json data */
   faceInfo?: AiImageHumanDetectionQueryFaceDetectResultFaceInfo;
 }
 
@@ -731,11 +731,11 @@ export const AiImageHumanDetectionQueryFaceDetectResultDetectInfoSchema: Schema 
   };
 
 export interface AiImageHumanDetectionQueryFaceDetectResultFaceInfo {
-  /** 是否包含人脸 */
+  /** Whether a face is included */
   hasFace?: boolean;
-  /** 人脸输出位置框 */
+  /** Face output bounding box */
   faceLocationInfoList?: Array<AiImageHumanDetectionQueryFaceDetectResultFaceLocationInfo>;
-  /** 检测人脸数量 */
+  /** Number of faces detected */
   faceCount?: number;
 }
 
@@ -751,7 +751,7 @@ export const AiImageHumanDetectionQueryFaceDetectResultFaceInfoSchema: Schema =
   };
 
 export interface AiImageHumanDetectionQueryFaceDetectResultFaceLocationInfo {
-  /** 人脸输出位置框，[左上x 左上y 右下x 右下y] */
+  /** Face output position box, [top-left x, top-left y, bottom-right x, bottom-right y] */
   facePred?: Array<Long>;
 }
 
@@ -761,9 +761,9 @@ export const AiImageHumanDetectionQueryFaceDetectResultFaceLocationInfoSchema: S
   };
 
 export interface AiImageRepairIframe {
-  /** 图片url */
+  /** Image URL */
   url?: string;
-  /** 消除区域 */
+  /** Erase area */
   mask?: string;
 }
 
@@ -773,7 +773,7 @@ export const AiImageRepairIframeSchema: Schema = {
 };
 
 export interface AiImageSellingPointGenerationIframeComposeImageGenResponse {
-  /** 成图url */
+  /** Result image URL */
   imageUrl?: string;
 }
 
@@ -872,7 +872,7 @@ export const AiImageSellingPointGenerationIframeQuerySellImageTaskResultVOSchema
   };
 
 export interface AiImageSellingPointGenerationIframeQuerySellingPointImageGenForIframeGetResponse {
-  /** 生成图片url */
+  /** Generated image URL */
   generatedImageUrls?: string;
   /** - */
   taskMessage?: string;
@@ -901,25 +901,25 @@ export const AiImageSellingPointGenerationIframeQuerySellingPointImageGenForIfra
   };
 
 export interface AiImageSellingPointGenerationIframeSellingPointExtractionRequest {
-  /** 商品标题 */
+  /** Product title */
   productTitle?: string;
-  /** 商品类目 */
+  /** Product category */
   productCategory?: Array<string>;
-  /** 商品描述 */
+  /** Product description */
   productDescription?: string;
-  /** 商品核心参数 */
+  /** Product core parameters */
   productAttributes?: string;
-  /** 源语言 */
+  /** Source language */
   sourceLanguage?: string;
-  /** 目标语言 */
+  /** Target language */
   targetLanguage?: string;
-  /** 短标题最大字符数：（8-40） */
+  /** Maximum number of characters for the short title: (8-40) */
   maxLenOfMainTitle?: number;
-  /** Slogan最大字符数：（8-40） */
+  /** Maximum number of characters for the Slogan: (8-40) */
   maxLenOfSubTitle?: number;
-  /** 每条卖点最大字符数：（8-40） */
+  /** Maximum number of characters per selling point: (8-40) */
   maxLenOfSellingPoints?: number;
-  /** 生成卖点条数（3-6） */
+  /** Number of selling points to generate (3-6) */
   numsOfSellingPoints?: number;
 }
 
@@ -938,9 +938,9 @@ export const AiImageSellingPointGenerationIframeSellingPointExtractionRequestSch
   };
 
 export interface AiImageSellingPointGenerationIframeSellingPointImageGenTaskSubmitResponse {
-  /** 返回生成图片数 */
+  /** Number of generated images returned */
   imageNum?: number;
-  /** 返回任务id */
+  /** Returned task ID */
   taskId?: string;
 }
 
@@ -1002,7 +1002,7 @@ export interface AiImageSellingPointGenerationIframeTempSellingPointImageGenForI
   taskStatus?: string;
   taskMessage?: string;
   taskResult?: AiImageSellingPointGenerationIframeTempComposeInfo;
-  /** ai生图列表 */
+  /** AI-generated image list */
   imageUrls?: string;
 }
 
@@ -1020,7 +1020,7 @@ export const AiImageSellingPointGenerationIframeTempSellingPointImageGenForIfram
   };
 
 export interface AiImageSpecifyDetectionImageFilterResponse {
-  /** 0：识别结果命中；1：识别结果不包含；2：图片无主体 */
+  /** 0: recognition result matched; 1: recognition result not included; 2: image has no subject */
   imageStatus?: string;
 }
 
@@ -1029,9 +1029,9 @@ export const AiImageSpecifyDetectionImageFilterResponseSchema: Schema = {
 };
 
 export interface AiImageTranslationdataObject {
-  /** 生成结果图片URL */
+  /** URL of the generated result image */
   imageUrl?: string;
-  /** 图片编辑器协议ID(useImageEditor = true透出) */
+  /** Image editor protocol ID (exposed when useImageEditor = true) */
   imageEditorId?: string;
 }
 
@@ -1041,9 +1041,9 @@ export const AiImageTranslationdataObjectSchema: Schema = {
 };
 
 export interface AiImageTranslationImageDataImageTransResponse {
-  /** 数据id */
+  /** Data ID */
   imageEditorId?: string;
-  /** 图片数据 */
+  /** Image data */
   imageEditor?: string;
 }
 
@@ -1250,13 +1250,13 @@ export const AiMarketingGetTemplateCardsPagedTemplateCardSimpleDtoSchema: Schema
   };
 
 export interface AiMultimodalProductFeatureExtractionJSONObject {
-  /** 简短商品描述or商品原标题 目前只支持中英文入参， 标题为可选字段 */
+  /** Short product description or original product title. Currently only Chinese and English input is supported; the title is an optional field */
   productTitle?: string;
-  /** 原图 URL，跟 Base64 不能同时为空，优先取 Base64 */
+  /** Original image URL. Cannot be empty together with Base64; Base64 takes precedence */
   imageUrl?: string;
-  /** 图片Base64格式 */
+  /** Image in Base64 format */
   imageBase64?: string;
-  /** 支持的平台类型， 本次仅支持AliExpress */
+  /** Supported platform type, only AliExpress is supported this time */
   platform?: string;
 }
 
@@ -1268,7 +1268,7 @@ export const AiMultimodalProductFeatureExtractionJSONObjectSchema: Schema = {
 };
 
 export interface AiReviewAutoReplyCommentReplyGenerationResponse {
-  /** 回复内容 */
+  /** Reply content */
   replyContent?: string;
 }
 
@@ -1277,13 +1277,13 @@ export const AiReviewAutoReplyCommentReplyGenerationResponseSchema: Schema = {
 };
 
 export interface AiReviewAutoReplyResult {
-  /** 返回错误码 */
+  /** Returned error code */
   resCode?: number;
-  /** 返回数据内容 */
+  /** Returned data content */
   data?: AiReviewAutoReplyCommentReplyGenerationResponse;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 接口处理返回信息 */
+  /** API processing return information */
   resMessage?: string;
 }
 
@@ -1299,13 +1299,13 @@ export const AiReviewAutoReplyResultSchema: Schema = {
 };
 
 export interface AiSellingPointExtractionSellingPointExtractionResponse {
-  /** 主标题 */
+  /** Main title */
   mainTitle?: string;
-  /** Slogan（副标题） */
+  /** Slogan (subtitle) */
   subTitle?: string;
-  /** 卖点列表 */
+  /** Selling point list */
   sellingPoints?: Array<string>;
-  /** 卖点和长描述列表 */
+  /** List of selling points and long descriptions */
   sellingPointsWithDescription?: Array<AiSellingPointExtractionSellingPointTextDTO>;
 }
 
@@ -1322,9 +1322,9 @@ export const AiSellingPointExtractionSellingPointExtractionResponseSchema: Schem
   };
 
 export interface AiSellingPointExtractionSellingPointTextDTO {
-  /** 单个卖点 */
+  /** Single selling point */
   sellingPoint?: string;
-  /** 单个卖点对应长描述 */
+  /** Long description corresponding to a single selling point */
   description?: string;
 }
 
@@ -1334,7 +1334,7 @@ export const AiSellingPointExtractionSellingPointTextDTOSchema: Schema = {
 };
 
 export interface AiVirtualModelGenerationBatchVirtualModelGenerationResponse {
-  /** 任务唯一ID，用于后续查询 */
+  /** Unique task ID, used for subsequent queries */
   taskId?: string;
 }
 
@@ -1344,11 +1344,11 @@ export const AiVirtualModelGenerationBatchVirtualModelGenerationResponseSchema: 
   };
 
 export interface AiVirtualModelGenerationQueryImageGenClothesResponse {
-  /** 生成图片宽度 */
+  /** Generated image width */
   width?: number;
-  /** 生成图片URL */
+  /** Generated image URL */
   url?: string;
-  /** 生成图片高度 */
+  /** Generated image height */
   height?: number;
 }
 
@@ -1360,13 +1360,13 @@ export const AiVirtualModelGenerationQueryImageGenClothesResponseSchema: Schema 
   };
 
 export interface AiVirtualModelGenerationQueryVirtualModelGenerationGetResponse {
-  /** 任务返回信息 */
+  /** Task return information */
   taskMessage?: string;
-  /** 任务执行结果 */
+  /** Task execution result */
   taskResult?: Array<AiVirtualModelGenerationQueryImageGenClothesResponse>;
-  /** 任务执行ID */
+  /** Task execution ID */
   taskId?: string;
-  /** 任务执行状态 */
+  /** Task execution status */
   taskStatus?: string;
 }
 
@@ -1452,7 +1452,7 @@ export const AiVirtualTemplateTryOnVirtualResultSchema: Schema = {
 };
 
 export interface AiVirtualTryOnline {
-  /** 入参 */
+  /** Input parameters */
   params?: string;
 }
 
@@ -1462,7 +1462,7 @@ export const AiVirtualTryOnlineSchema: Schema = {
 
 /** Parameters for `/ai/appbuild/async/getResult`. */
 export interface AiAppbuildAsyncGetResultParams {
-  /** 结果id */
+  /** Result ID */
   taskId?: string;
 }
 
@@ -1501,17 +1501,17 @@ export const aiAppbuildAsyncGetResult: ApiDefinition<
 
 /** Parameters for `/ai/chat/translation/and/polishment`. */
 export interface AiChatTranslationAndPolishmentParams {
-  /** 对话文本 */
+  /** Conversation text */
   sourceTextList?: Array<string>;
-  /** 源语种 */
+  /** Source language */
   sourceLanguage?: string;
-  /** 目标语种 */
+  /** Target language */
   targetLanguage?: string;
   /** text/html */
   formatType?: string;
-  /** 翻译干预词表 */
+  /** Translation intervention glossary */
   glossary?: string;
-  /** 额外字段 */
+  /** Additional fields */
   extension?: Record<string, unknown>;
 }
 
@@ -1519,13 +1519,13 @@ export interface AiChatTranslationAndPolishmentParams {
 export interface AiChatTranslationAndPolishmentResponse {
   /** 200 */
   resCode?: number;
-  /** 返回data */
+  /** Returned data */
   data?: string;
   /** 12345565 */
   requestId?: string;
   /** true/false */
   success?: boolean;
-  /** 消息 */
+  /** Message */
   resMessage?: string;
 }
 
@@ -1558,15 +1558,15 @@ export const aiChatTranslationAndPolishment: ApiDefinition<
 
 /** Parameters for `/ai/clothes/segment`. */
 export interface AiClothesSegmentParams {
-  /** 入参 */
+  /** Input parameters */
   paramJson?: AiClothesSegment;
 }
 
 /** Response of `/ai/clothes/segment`. */
 export interface AiClothesSegmentResponse {
-  /** 请求id */
+  /** Request ID */
   requestId?: string;
-  /** 状态 */
+  /** Status */
   resCode?: Long;
   /** null */
   data?: string;
@@ -1594,21 +1594,21 @@ export const aiClothesSegment: ApiDefinition<
 
 /** Parameters for `/ai/demo`. */
 export interface AiDemoParams {
-  /** 是否异步 */
+  /** Whether asynchronous */
   async?: boolean;
 }
 
 /** Response of `/ai/demo`. */
 export interface AiDemoResponse {
-  /** 返回code */
+  /** Returned code */
   code?: string;
-  /** 返回值json */
+  /** Return value JSON */
   data?: string;
-  /** 唯一请求id */
+  /** Unique request ID */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   resMessage?: string;
 }
 
@@ -1636,15 +1636,15 @@ export interface AiDemo2Params {}
 
 /** Response of `/ai/demo2`. */
 export interface AiDemo2Response {
-  /** 返回code */
+  /** Returned code */
   code?: string;
-  /** 返回值json */
+  /** Return value JSON */
   data?: string;
-  /** 唯一请求id */
+  /** Unique request ID */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   resMessage?: string;
 }
 
@@ -1670,15 +1670,15 @@ export interface AiDemo3Params {}
 
 /** Response of `/ai/demo3`. */
 export interface AiDemo3Response {
-  /** 返回code */
+  /** Returned code */
   code?: number;
-  /** 返回值json */
+  /** Return value JSON */
   data?: string;
-  /** 唯一请求id */
+  /** Unique request ID */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   resMessage?: string;
 }
 
@@ -1704,15 +1704,15 @@ export interface AiDemo4Params {}
 
 /** Response of `/ai/demo4`. */
 export interface AiDemo4Response {
-  /** 返回code */
+  /** Returned code */
   code?: number;
-  /** 返回值json */
+  /** Return value JSON */
   data?: string;
-  /** 唯一请求id */
+  /** Unique request ID */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   resMessage?: string;
 }
 
@@ -1790,11 +1790,11 @@ export const aiEditorComponentGetComponentStickerPreviewsCached: ApiDefinition<
 
 /** Parameters for `/ai/editorComponent/getFontList`. */
 export interface AiEditorComponentGetFontListParams {
-  /** 分页 */
+  /** Pagination */
   pageNo?: number;
-  /** 分页 */
+  /** Pagination */
   pageSize?: number;
-  /** 语言 */
+  /** Language */
   language?: string;
 }
 
@@ -1826,9 +1826,9 @@ export const aiEditorComponentGetFontList: ApiDefinition<
 
 /** Parameters for `/ai/editorComponent/getStickerList`. */
 export interface AiEditorComponentGetStickerListParams {
-  /** 分页 */
+  /** Pagination */
   pageNo?: number;
-  /** 分页 */
+  /** Pagination */
   pageSize?: string;
   tag?: string;
 }
@@ -1865,33 +1865,33 @@ export const aiEditorComponentGetStickerList: ApiDefinition<
 
 /** Parameters for `/ai/image/background/generation/batch`. */
 export interface AiImageBackgroundGenerationBatchParams {
-  /** 商品标题 */
+  /** Product title */
   productTitle?: string;
-  /** 图片base64格式 */
+  /** Image in base64 format */
   imageBase64?: string;
-  /** 支持宽高800*800 或者 宽750 高1000 */
+  /** Supports width and height 800*800 or width 750 height 1000 */
   targetHeight?: number;
-  /** 是否需要自动布局，默认true */
+  /** Whether automatic layout is needed, default true */
   needLayout?: boolean;
-  /** 图片url */
+  /** Image URL */
   imageUrl?: string;
-  /** 商品类目标题 */
+  /** Product category title */
   productCategoryNames?: Array<string>;
-  /** 支持宽高800*800 或者 宽750 高1000 */
+  /** Supports width and height 800*800 or width 750 height 1000 */
   targetWidth?: number;
 }
 
 /** Response of `/ai/image/background/generation/batch`. */
 export interface AiImageBackgroundGenerationBatchResponse {
-  /** 返回任务code */
+  /** Returned task code */
   resCode?: number;
-  /** 返回结果json */
+  /** Returned result json */
   data?: AiImageBackgroundGenerationBatchTaskSubmitResponse;
-  /** 唯一键用于排查问题 */
+  /** Unique key used for troubleshooting */
   requestId?: string;
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 请求信息 */
+  /** Request information */
   resMessage?: string;
 }
 
@@ -1929,7 +1929,7 @@ export const aiImageBackgroundGenerationBatch: ApiDefinition<
 
 /** Parameters for `/ai/image/background/generation/compose`. */
 export interface AiImageBackgroundGenerationComposeParams {
-  /** 入参 */
+  /** Input parameters */
   paramJson?: AiImageBackgroundGenerationCompose;
 }
 
@@ -2015,21 +2015,21 @@ export const aiImageBackgroundGenerationIframe: ApiDefinition<
 
 /** Parameters for `/ai/image/background/generation/query`. */
 export interface AiImageBackgroundGenerationQueryParams {
-  /** 查询任务id */
+  /** Query task ID */
   taskId?: string;
 }
 
 /** Response of `/ai/image/background/generation/query`. */
 export interface AiImageBackgroundGenerationQueryResponse {
-  /** 返回code */
+  /** Returned code */
   resCode?: number;
-  /** 返回结果json */
+  /** Returned result json */
   data?: AiImageBackgroundGenerationQueryImageSceneGenerationInfo;
-  /** 唯一键 */
+  /** Unique key */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 请求信息 */
+  /** Request information */
   resMessage?: string;
 }
 
@@ -2061,21 +2061,21 @@ export const aiImageBackgroundGenerationQuery: ApiDefinition<
 
 /** Parameters for `/ai/image/background/generation/scenario`. */
 export interface AiImageBackgroundGenerationScenarioParams {
-  /** 请求参数对象 */
+  /** Request parameter object */
   requestParams?: Array<AiImageBackgroundGenerationScenarioString>;
 }
 
 /** Response of `/ai/image/background/generation/scenario`. */
 export interface AiImageBackgroundGenerationScenarioResponse {
-  /** 错误码 */
+  /** Error code */
   resCode?: number;
   /** requestId */
   requestId?: string;
-  /** 成功状态 */
+  /** Success status */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   resMessage?: string;
-  /** 结果json */
+  /** Result JSON */
   data?: AiImageBackgroundGenerationScenarioPlatformGatewayResponse;
 }
 
@@ -2111,27 +2111,27 @@ export const aiImageBackgroundGenerationScenario: ApiDefinition<
 
 /** Parameters for `/ai/image/background/generation/scene/query`. */
 export interface AiImageBackgroundGenerationSceneQueryParams {
-  /** 根据传入的商品标题推荐场景。仅支持中文或英文的商品标题。 */
+  /** Recommends scenes based on the provided product title. Only Chinese or English product titles are supported. */
   productTitle?: string;
-  /** 根据指定的场景类型查询场景。目前支持4种场景类型的选择。如果不设置，默认查询所有类型的场景。 取值范围： "Indoor"=室内；"Outdoor"=室外；"Atmosphere"=氛围；"Promotion"=营销节点； */
+  /** Query scenes by the specified scene type. Currently 4 scene types are supported. If not set, scenes of all types are queried by default. Value range: "Indoor"=indoor; "Outdoor"=outdoor; "Atmosphere"=atmosphere; "Promotion"=marketing event; */
   sceneType?: string;
-  /** 返回的最大场景数量。如果不设置，默认返回查询的所有数量。 取值范围：1-100 */
+  /** Maximum number of scenarios to return. If not set, all queried scenarios are returned by default. Value range: 1-100 */
   count?: number;
-  /** 根据传入的商品图片推荐场景。 */
+  /** Recommend scenes based on the provided product images. */
   imageUrl?: string;
-  /** 根据指定的商品类目查询场景。目前支持11个商品类别的选择。如果不设置，默认查询所有类目的场景。 取值范围： "General Purpose"=通用；"Consumer Electronics"=消费电子；"Home & Garden"=家居&园艺；"Automobiles, Parts & Accessories"=汽车配件；"Computer & Office"=电脑&办公配件；"Sports & Entertainment"=休闲娱乐；"Fashion"=服饰；"Beauty & Health"=美妆；"Tools"=工具五金；"Toys & Hobbies"=玩具；"Phones & Telecommunications"=手机； */
+  /** Query scenarios for the specified product category. Currently 11 product categories are supported. If not set, scenarios of all categories are queried by default. Value range: "General Purpose"=general; "Consumer Electronics"=consumer electronics; "Home & Garden"=home & garden; "Automobiles, Parts & Accessories"=auto parts & accessories; "Computer & Office"=computer & office accessories; "Sports & Entertainment"=leisure & entertainment; "Fashion"=apparel; "Beauty & Health"=beauty; "Tools"=tools & hardware; "Toys & Hobbies"=toys; "Phones & Telecommunications"=mobile phones; */
   categoryType?: string;
 }
 
 /** Response of `/ai/image/background/generation/scene/query`. */
 export interface AiImageBackgroundGenerationSceneQueryResponse {
-  /** 返回的结果码，其中200代表成功，详细错误码请参考错误码列表。 */
+  /** Returned result code, where 200 means success. For detailed error codes, see the error code list. */
   resCode?: string;
-  /** 返回的JSON结果数据。 modelNum 场景的唯一编号码。 coverUrl 场景对应的封面图。 name 场景名称。 categoryNameList 场景适用的类别标签。一个场景可能会对应多个类别标签。 sceneNameList 场景的类型标签。一个场景可能会对应多个类型标签。 */
+  /** Returned JSON result data. modelNum: unique scene number. coverUrl: cover image of the scene. name: scene name. categoryNameList: category tags the scene applies to; a scene may correspond to multiple category tags. sceneNameList: type tags of the scene; a scene may correspond to multiple type tags. */
   data?: string;
-  /** 返回的请求状态，代表请求是否成功。 */
+  /** Returned request status, indicating whether the request succeeded. */
   success?: boolean;
-  /** 返回的错误信息。 */
+  /** Returned error message. */
   resMessage?: string;
 }
 
@@ -2162,27 +2162,27 @@ export const aiImageBackgroundGenerationSceneQuery: ApiDefinition<
 
 /** Parameters for `/ai/image/cropping`. */
 export interface AiImageCroppingParams {
-  /** 图片base64格式 */
+  /** Image in base64 format */
   imageBase64?: string;
-  /** 目标高 */
+  /** Target height */
   targetHeight?: LongInput;
-  /** 图片url， url和base64两个必须有一个必填。 */
+  /** Image URL; at least one of url and base64 is required. */
   imageUrl?: string;
-  /** 目标宽 */
+  /** Target width */
   targetWidth?: LongInput;
 }
 
 /** Response of `/ai/image/cropping`. */
 export interface AiImageCroppingResponse {
-  /** 错误码 */
+  /** Error code */
   resCode?: number;
-  /** 返回裁剪的结果 */
+  /** Cropped result returned */
   data?: string;
-  /** 唯一键 */
+  /** Unique key */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 返回消息 */
+  /** Returned message */
   resMessage?: string;
 }
 
@@ -2291,29 +2291,29 @@ export const aiImageCutIframe: ApiDefinition<
 
 /** Parameters for `/ai/image/cut/out`. */
 export interface AiImageCutOutParams {
-  /** 背景类型：白底图（.jpg) ; 透明图（.png) 分别取值： WHITE_BACKGROUND=白底 TRANSPARENT=透明 */
+  /** Background type: white background image (.jpg); transparent image (.png). Values respectively: WHITE_BACKGROUND=white background TRANSPARENT=transparent */
   backGroundType?: string;
-  /** ImageUrl 或 ImageBase64：跟 Base64 不能同时为空，优先取 Base64 */
+  /** ImageUrl or ImageBase64: cannot both be empty together with Base64; Base64 takes precedence */
   imageBase64?: string;
-  /** 目标的高 */
+  /** Target height */
   targetHeight?: LongInput;
-  /** ImageUrl 或 ImageBase64：跟 Base64 不能同时为空，优先取 Base64 */
+  /** ImageUrl or ImageBase64: cannot both be empty together with Base64; Base64 takes precedence */
   imageUrl?: string;
-  /** 目标的宽 */
+  /** Target width */
   targetWidth?: LongInput;
 }
 
 /** Response of `/ai/image/cut/out`. */
 export interface AiImageCutOutResponse {
-  /** 返回的错误码，其中200代表成功 */
+  /** Returned error code, where 200 means success */
   resCode?: number;
-  /** 返回的抠图的结果 */
+  /** Returned cutout result */
   data?: string;
   /** 2132fec117007387353632161ea1e7 */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 返回结果消息 */
+  /** Returned result message */
   resMessage?: string;
 }
 
@@ -2345,7 +2345,7 @@ export const aiImageCutOut: ApiDefinition<
 
 /** Parameters for `/ai/image/cut/out/iframe`. */
 export interface AiImageCutOutIframeParams {
-  /** 背景类型：白底图（.jpg) ; 透明图（.png) 分别取值： WHITE_BACKGROUND=白底 TRANSPARENT=透明 */
+  /** Background type: white background image (.jpg); transparent image (.png). Values respectively: WHITE_BACKGROUND=white background TRANSPARENT=transparent */
   backGroundType?: string;
   /** ImageUrl */
   imageUrl?: string;
@@ -2355,15 +2355,15 @@ export interface AiImageCutOutIframeParams {
 
 /** Response of `/ai/image/cut/out/iframe`. */
 export interface AiImageCutOutIframeResponse {
-  /** 返回状态码 */
+  /** Returned status code */
   resCode?: string;
-  /** 返回数据json */
+  /** Returned data json */
   data?: AiImageCutOutIframeImageGenResponse;
   /** 2132fec117007387353632161ea1e7 */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 返回结果消息 */
+  /** Returned result message */
   resMessage?: string;
 }
 
@@ -2393,21 +2393,21 @@ export const aiImageCutOutIframe: ApiDefinition<
 
 /** Parameters for `/ai/image/detection/batch`. */
 export interface AiImageDetectionBatchParams {
-  /** 请求DTO列表 */
+  /** Request DTO list */
   imageDetectRequestList?: Array<AiImageDetectionBatchImageDetectRequest>;
 }
 
 /** Response of `/ai/image/detection/batch`. */
 export interface AiImageDetectionBatchResponse {
-  /** 返回码，200为成功 */
+  /** Return code, 200 means success */
   resCode?: number;
-  /** 返回值JSON，taskId为生成的任务ID，可用于轮询提交结果 */
+  /** Returned JSON; taskId is the generated task ID, which can be used to poll the submission result */
   data?: string;
-  /** 请求唯一ID */
+  /** Unique request ID */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 返回message */
+  /** Return message */
   resMessage?: string;
 }
 
@@ -2439,7 +2439,7 @@ export const aiImageDetectionBatch: ApiDefinition<
 
 /** Parameters for `/ai/image/detection/iframe`. */
 export interface AiImageDetectionIframeParams {
-  /** 请求参数 */
+  /** Request parameters */
   paramJsonObj?: AiImageDetectionIframeparamJsonObjObject;
 }
 
@@ -2489,21 +2489,21 @@ export const aiImageDetectionIframe: ApiDefinition<
 
 /** Parameters for `/ai/image/detection/query`. */
 export interface AiImageDetectionQueryParams {
-  /** 提交接口生成的taskId */
+  /** taskId generated by the submit API */
   taskId?: string;
 }
 
 /** Response of `/ai/image/detection/query`. */
 export interface AiImageDetectionQueryResponse {
-  /** 返回码，200为成功 */
+  /** Return code, 200 means success */
   resCode?: number;
-  /** 返回结果JSON，返回结果Listof每张图： 每张URL的BizID（为：回传后判断顺序） 主体水印：有/无； Product：Semi-Transparent Elements; 背景水印：有/无； Background：Semi-Transparent Elements; 主体文字：有/无； Product：Characters; 背景文字：有/无； Background：Characters; 主体Logo：有/无； Product：Specific Names; 背景Logo：有/无； Background：Specific Names; 主体含字色块：有/无； Product：Color-blocks with characters 背景含字色块：有/无； Background：Color-blocks with characters */
+  /** Result JSON; returns a list with one entry per image: the BizID of each URL (used to determine the order on return); Product watermark: yes/no; Product: Semi-Transparent Elements; Background watermark: yes/no; Background: Semi-Transparent Elements; Product text: yes/no; Product: Characters; Background text: yes/no; Background: Characters; Product logo: yes/no; Product: Specific Names; Background logo: yes/no; Background: Specific Names; Product color blocks with text: yes/no; Product: Color-blocks with characters; Background color blocks with text: yes/no; Background: Color-blocks with characters */
   data?: string;
-  /** 请求唯一ID */
+  /** Unique request ID */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 返回message */
+  /** Return message */
   resMessage?: string;
 }
 
@@ -2531,21 +2531,21 @@ export const aiImageDetectionQuery: ApiDefinition<
 
 /** Parameters for `/ai/image/Human/Detection`. */
 export interface AiImageHumanDetectionParams {
-  /** 人脸/人体json请求数据 */
+  /** Face/body json request data */
   humanDetectParams?: Array<AiImageHumanDetectionFaceDetectRequestHumanDetectParam>;
 }
 
 /** Response of `/ai/image/Human/Detection`. */
 export interface AiImageHumanDetectionResponse {
-  /** 请求返回code,200为成功 */
+  /** Request return code, 200 means success */
   resCode?: number;
-  /** 返回json结果数据 */
+  /** Returned json result data */
   data?: AiImageHumanDetectionFaceDetectResponse;
-  /** 请求唯一ID */
+  /** Unique request ID */
   requestId?: string;
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 请求返回信息 */
+  /** Request return information */
   resMessage?: string;
 }
 
@@ -2577,21 +2577,21 @@ export const aiImageHumanDetection: ApiDefinition<
 
 /** Parameters for `/ai/image/Human/Detection/query`. */
 export interface AiImageHumanDetectionQueryParams {
-  /** 任务唯一ID,用于任务查询 */
+  /** Unique task ID, used for task queries */
   taskId?: string;
 }
 
 /** Response of `/ai/image/Human/Detection/query`. */
 export interface AiImageHumanDetectionQueryResponse {
-  /** 服务code参数，200为成功 */
+  /** Service code parameter, 200 means success */
   resCode?: number;
-  /** 结果json数据 */
+  /** Result json data */
   data?: AiImageHumanDetectionQueryFaceDetectGetResponse;
-  /** 请求唯一ID */
+  /** Unique request ID */
   requestId?: string;
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 请求返回信息 */
+  /** Request return information */
   resMessage?: string;
 }
 
@@ -2623,29 +2623,29 @@ export const aiImageHumanDetectionQuery: ApiDefinition<
 
 /** Parameters for `/ai/image/removal`. */
 export interface AiImageRemovalParams {
-  /** 图片Base64值 */
+  /** Image Base64 value */
   imageBase64?: string;
-  /** 图片地址 */
+  /** Image URL */
   imageUrl?: string;
-  /** 非主体去除元素：1=半透明纯色元素；Semi-Transparent Elements； 2=特殊名字; Specific Names； 3=文字; Characters； 4=含文字色块；Color-blocks with Characters； */
+  /** Non-subject removal elements: 1=semi-transparent solid-color elements; Semi-Transparent Elements; 2=special names; Specific Names; 3=text; Characters; 4=color blocks containing text; Color-blocks with Characters; */
   nonObjectRemoveElements?: Array<number>;
-  /** 主体去除元素：1=半透明纯色元素；Semi-Transparent Elements； 2=特殊名字; Specific Names； 3=文字; Characters； 4=含文字色块；Color-blocks with Characters； */
+  /** Subject removal elements: 1=semi-transparent solid-color elements; Semi-Transparent Elements; 2=special names; Specific Names; 3=text; Characters; 4=color blocks containing text; Color-blocks with Characters; */
   objectRemoveElements?: Array<number>;
-  /** 具体消除部分（非必填，配合编辑器使用，入参格式为 RLE。若传入将优先使用，忽略non_object_remove_elements和object_remove_elements参数设置） */
+  /** Specific parts to remove (optional, used with the editor, input format is RLE. If provided, it takes precedence and the non_object_remove_elements and object_remove_elements parameter settings are ignored) */
   mask?: string;
 }
 
 /** Response of `/ai/image/removal`. */
 export interface AiImageRemovalResponse {
-  /** 返回码，200为成功 */
+  /** Return code, 200 means success */
   resCode?: string;
-  /** 返回值JSON */
+  /** Return value JSON */
   data?: string;
-  /** 请求唯一ID */
+  /** Unique request ID */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 返回message */
+  /** Return message */
   resMessage?: string;
 }
 
@@ -2677,7 +2677,7 @@ export const aiImageRemoval: ApiDefinition<
 
 /** Parameters for `/ai/image/repair/iframe`. */
 export interface AiImageRepairIframeParams {
-  /** 入参 */
+  /** Input parameters */
   paramJson?: AiImageRepairIframe;
 }
 
@@ -2716,35 +2716,35 @@ export const aiImageRepairIframe: ApiDefinition<
 
 /** Parameters for `/ai/image/selling/point/generation/iframe`. */
 export interface AiImageSellingPointGenerationIframeParams {
-  /** 生图类型 */
+  /** Image generation type */
   generateType?: string;
-  /** 原始任务ID */
+  /** Original task ID */
   originTaskId?: LongInput;
-  /** 模板JSON */
+  /** Template JSON */
   composeJson?: string;
-  /** 模板卡片id */
+  /** Template card ID */
   templateCardId?: string;
-  /** 商品图 */
+  /** Product image */
   productImageUrl?: string;
-  /** 生图数量 */
+  /** Image generation count */
   imageNum?: number;
-  /** 素材id */
+  /** Material ID */
   materialId?: LongInput;
-  /** 卖点生成所需入参 */
+  /** Input parameters required for selling point generation */
   sellingPointExtractionRequest?: AiImageSellingPointGenerationIframeSellingPointExtractionRequest;
 }
 
 /** Response of `/ai/image/selling/point/generation/iframe`. */
 export interface AiImageSellingPointGenerationIframeResponse {
-  /** 返回业务code */
+  /** Returned business code */
   resCode?: number;
-  /** 返回结果json */
+  /** Returned result json */
   data?: AiImageSellingPointGenerationIframeSellingPointImageGenTaskSubmitResponse;
-  /** 请求唯一键用于排查问题 */
+  /** Unique request key for troubleshooting */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 请求返回信息 */
+  /** Request return information */
   resMessage?: string;
 }
 
@@ -2789,23 +2789,23 @@ export const aiImageSellingPointGenerationIframe: ApiDefinition<
 
 /** Parameters for `/ai/image/selling/point/generation/iframe/compose`. */
 export interface AiImageSellingPointGenerationIframeComposeParams {
-  /** 素材id */
+  /** Material ID */
   materialId?: LongInput;
-  /** 合图JSON */
+  /** Composite image JSON */
   composeJson?: string;
 }
 
 /** Response of `/ai/image/selling/point/generation/iframe/compose`. */
 export interface AiImageSellingPointGenerationIframeComposeResponse {
-  /** 业务code */
+  /** Business code */
   resCode?: number;
-  /** 返回结果json */
+  /** Returned result json */
   data?: AiImageSellingPointGenerationIframeComposeImageGenResponse;
-  /** 唯一键用于排查问题 */
+  /** Unique key used for troubleshooting */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 请求返回信息 */
+  /** Request return information */
   resMessage?: string;
 }
 
@@ -2838,7 +2838,7 @@ export const aiImageSellingPointGenerationIframeCompose: ApiDefinition<
 
 /** Parameters for `/ai/image/selling/point/generation/iframe/query`. */
 export interface AiImageSellingPointGenerationIframeQueryParams {
-  /** 查询任务id */
+  /** Query task ID */
   taskId?: string;
 }
 
@@ -2846,7 +2846,7 @@ export interface AiImageSellingPointGenerationIframeQueryParams {
 export interface AiImageSellingPointGenerationIframeQueryResponse {
   /** code */
   resCode?: number;
-  /** 返回参数json */
+  /** Returned parameter json */
   data?: AiImageSellingPointGenerationIframeQuerySellingPointImageGenForIframeGetResponse;
   /** - */
   requestId?: string;
@@ -2885,7 +2885,7 @@ export const aiImageSellingPointGenerationIframeQuery: ApiDefinition<
 
 /** Parameters for `/ai/image/selling/point/generation/iframe/temp`. */
 export interface AiImageSellingPointGenerationIframeTempParams {
-  /** 素材id */
+  /** Material ID */
   materialId?: LongInput;
 }
 
@@ -2895,7 +2895,7 @@ export interface AiImageSellingPointGenerationIframeTempResponse {
   requestId?: string;
   success?: boolean;
   resMessage?: string;
-  /** 返回结果json */
+  /** Returned result json */
   data?: AiImageSellingPointGenerationIframeTempSellingPointImageGenForIframeGetTempResponse;
 }
 
@@ -2928,23 +2928,23 @@ export const aiImageSellingPointGenerationIframeTemp: ApiDefinition<
 
 /** Parameters for `/ai/image/specify/detection`. */
 export interface AiImageSpecifyDetectionParams {
-  /** 扩展参数备用 */
+  /** Reserved extension parameters */
   extendParams?: Record<string, unknown>;
-  /** 图片链接 */
+  /** Image link */
   imageUrl?: string;
 }
 
 /** Response of `/ai/image/specify/detection`. */
 export interface AiImageSpecifyDetectionResponse {
-  /** 返回状态，200为成功 */
+  /** Return status, 200 means success */
   code?: number;
-  /** 返回数据结果 */
+  /** Returned data result */
   data?: AiImageSpecifyDetectionImageFilterResponse;
-  /** 请求唯一ID */
+  /** Unique request ID */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 返回消息 */
+  /** Returned message */
   resMessage?: string;
 }
 
@@ -2973,29 +2973,29 @@ export const aiImageSpecifyDetection: ApiDefinition<
 
 /** Parameters for `/ai/image/translation`. */
 export interface AiImageTranslationParams {
-  /** 原图 URL */
+  /** Original image URL */
   imageUrl?: string;
-  /** 源语种：英(en)、中(zh)、土耳其语(tr) */
+  /** Source language: English (en), Chinese (zh), Turkish (tr) */
   sourceLanguage?: string;
-  /** 目标语种：英(en)、西(es)、法(fr)、葡(pt)、韩(ko)、日(ja)、俄(ru)、繁体(zh-tw)、越南语(vi)、阿拉伯语(ar)、希伯来语(he) */
+  /** Target language: English (en), Spanish (es), French (fr), Portuguese (pt), Korean (ko), Japanese (ja), Russian (ru), Traditional Chinese (zh-tw), Vietnamese (vi), Arabic (ar), Hebrew (he) */
   targetLanguage?: string;
-  /** 是否翻译商品主体上文字（false=不翻译商品主体上文字（默认），true=翻译商品主体上文字） */
+  /** Whether to translate the text on the product body (false = do not translate the text on the product body (default), true = translate the text on the product body) */
   translatingTextInTheProduct?: boolean;
   useImageEditor?: boolean;
-  /** 是否翻译品牌上文字（false=不翻译（默认），true=翻译） */
+  /** Whether to translate text on the brand (false=do not translate (default), true=translate) */
   translatingBrandInTheProduct?: boolean;
 }
 
 /** Response of `/ai/image/translation`. */
 export interface AiImageTranslationResponse {
-  /** 服务code参数，200为成功 */
+  /** Service code parameter, 200 means success */
   resCode?: number;
   data?: AiImageTranslationdataObject;
-  /** 唯一键用来排查问题 */
+  /** Unique key used for troubleshooting */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 返回消息 */
+  /** Returned message */
   resMessage?: string;
 }
 
@@ -3034,15 +3034,15 @@ export interface AiImageTranslationImageDataParams {
 
 /** Response of `/ai/image/translation/imageData`. */
 export interface AiImageTranslationImageDataResponse {
-  /** 服务code参数，200为成功 */
+  /** Service code parameter, 200 means success */
   resCode?: number;
-  /** 返回结果JSON */
+  /** Returned result JSON */
   data?: AiImageTranslationImageDataImageTransResponse;
-  /** 请求id */
+  /** Request ID */
   requestId?: string;
-  /** 返回状态 */
+  /** Returned status */
   resMessage?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
 }
 
@@ -3074,17 +3074,17 @@ export const aiImageTranslationImageData: ApiDefinition<
 
 /** Parameters for `/ai/livechat/translation/and/polishment`. */
 export interface AiLivechatTranslationAndPolishmentParams {
-  /** 对话文本 */
+  /** Conversation text */
   sourceTextList?: Array<string>;
-  /** 请使用语言代码，源语种和目标语种不一致 支持语言：英语en、中文zh、西班牙语es、法语fr、葡萄牙语pt、韩语ko、阿拉伯语ar、德语de、意大利语it、土耳其语tr、越南语vi、印尼语id、乌尔都语（Romanized）ur、波兰语pl、荷兰语nl、日语ja、乌克兰语uk、泰语th、马来语ms、孟加拉语bn、希腊语el、罗马尼亚语ro、匈牙利语hu、捷克语cs、僧伽罗语si、尼泊尔语ne、希伯来语he、俄语ru、芬兰语fi、印地语hi、缅甸语my、瑞典语sv */
+  /** Please use language codes; the source language and target language must differ. Supported languages: English en, Chinese zh, Spanish es, French fr, Portuguese pt, Korean ko, Arabic ar, German de, Italian it, Turkish tr, Vietnamese vi, Indonesian id, Urdu (Romanized) ur, Polish pl, Dutch nl, Japanese ja, Ukrainian uk, Thai th, Malay ms, Bengali bn, Greek el, Romanian ro, Hungarian hu, Czech cs, Sinhala si, Nepali ne, Hebrew he, Russian ru, Finnish fi, Hindi hi, Burmese my, Swedish sv */
   sourceLanguage?: string;
-  /** 请使用语言代码，源语种和目标语种不一致 支持语言：英语en、中文zh、西班牙语es、法语fr、葡萄牙语pt、韩语ko、阿拉伯语ar、德语de、意大利语it、土耳其语tr、越南语vi、印尼语id、乌尔都语（Romanized）ur、波兰语pl、荷兰语nl、日语ja、乌克兰语uk、泰语th、马来语ms、孟加拉语bn、希腊语el、罗马尼亚语ro、匈牙利语hu、捷克语cs、僧伽罗语si、尼泊尔语ne、希伯来语he、俄语ru、芬兰语fi、印地语hi、缅甸语my、瑞典语sv */
+  /** Please use language codes; the source language and target language must differ. Supported languages: English en, Chinese zh, Spanish es, French fr, Portuguese pt, Korean ko, Arabic ar, German de, Italian it, Turkish tr, Vietnamese vi, Indonesian id, Urdu (Romanized) ur, Polish pl, Dutch nl, Japanese ja, Ukrainian uk, Thai th, Malay ms, Bengali bn, Greek el, Romanian ro, Hungarian hu, Czech cs, Sinhala si, Nepali ne, Hebrew he, Russian ru, Finnish fi, Hindi hi, Burmese my, Swedish sv */
   targetLanguage?: string;
   /** text/html */
   formatType?: string;
-  /** 翻译干预词表 */
+  /** Translation intervention glossary */
   glossary?: string;
-  /** 额外字段 */
+  /** Additional fields */
   extension?: Record<string, unknown>;
 }
 
@@ -3092,13 +3092,13 @@ export interface AiLivechatTranslationAndPolishmentParams {
 export interface AiLivechatTranslationAndPolishmentResponse {
   /** 200 */
   resCode?: number;
-  /** 返回data */
+  /** Returned data */
   data?: string;
   /** 12345565 */
   requestId?: string;
   /** true/false */
   success?: boolean;
-  /** 消息 */
+  /** Message */
   resMessage?: string;
 }
 
@@ -3131,7 +3131,7 @@ export const aiLivechatTranslationAndPolishment: ApiDefinition<
 
 /** Parameters for `/ai/marketing/generate`. */
 export interface AiMarketingGenerateParams {
-  /** 参数 */
+  /** Parameter */
   paramJson?: AiMarketingGenerate;
 }
 
@@ -3170,9 +3170,9 @@ export const aiMarketingGenerate: ApiDefinition<
 
 /** Parameters for `/ai/marketing/getImageJson`. */
 export interface AiMarketingGetImageJsonParams {
-  /** 子任务id */
+  /** Subtask ID */
   materialId?: LongInput;
-  /** 业务id */
+  /** Business ID */
   marketCode?: string;
 }
 
@@ -3203,9 +3203,9 @@ export const aiMarketingGetImageJson: ApiDefinition<
 
 /** Parameters for `/ai/marketing/getResult`. */
 export interface AiMarketingGetResultParams {
-  /** 任务id */
+  /** Task ID */
   taskId?: LongInput;
-  /** 业务code */
+  /** Business code */
   marketCode?: string;
 }
 
@@ -3248,9 +3248,9 @@ export interface AiMarketingGetTemplateCardsPagedParams {
   category?: string;
   /** null */
   returnTemplateJson?: boolean;
-  /** 语言筛选 */
+  /** Language filter */
   languageTag?: string;
-  /** 数据源类型：API,PIC_COPILOT,YODA,DUI_YOU */
+  /** Data source type: API,PIC_COPILOT,YODA,DUI_YOU */
   appList?: Array<string>;
 }
 
@@ -3291,21 +3291,21 @@ export const aiMarketingGetTemplateCardsPaged: ApiDefinition<
 
 /** Parameters for `/ai/multimodal/product/feature/extraction`. */
 export interface AiMultimodalProductFeatureExtractionParams {
-  /** 请求参数对象 */
+  /** Request parameter object */
   requestParams?: AiMultimodalProductFeatureExtractionJSONObject;
 }
 
 /** Response of `/ai/multimodal/product/feature/extraction`. */
 export interface AiMultimodalProductFeatureExtractionResponse {
-  /** 返回结果码，其中200代表成功，详细错误码请参考错误码列表 */
+  /** Returned result code, where 200 means success. For detailed error codes, see the error code list */
   resCode?: number;
-  /** 算法返回的类目等识别以及属性识别的结果 */
+  /** Results of category and attribute recognition returned by the algorithm */
   data?: string;
   /** debug requestId */
   requestId?: string;
-  /** 成功与否 */
+  /** Success or not */
   success?: boolean;
-  /** 返回消息 */
+  /** Returned message */
   resMessage?: string;
 }
 
@@ -3347,15 +3347,15 @@ export interface AiNhciOssGenIframeUploadPolicyParams {
 
 /** Response of `/ai/nhci/oss/genIframeUploadPolicy`. */
 export interface AiNhciOssGenIframeUploadPolicyResponse {
-  /** 返回结果码，其中200代表成功，详细错误码请参考错误码列表 */
+  /** Returned result code, where 200 means success. For detailed error codes, see the error code list */
   resCode?: number;
-  /** 算法返回的类目等识别以及属性识别的结果 */
+  /** Results of category and attribute recognition returned by the algorithm */
   data?: string;
   /** debug requestId */
   requestId?: string;
-  /** 成功与否 */
+  /** Success or not */
   success?: boolean;
-  /** 返回消息 */
+  /** Returned message */
   resMessage?: string;
 }
 
@@ -3385,37 +3385,37 @@ export const aiNhciOssGenIframeUploadPolicy: ApiDefinition<
 
 /** Parameters for `/ai/piccopilot/templates`. */
 export interface AiPiccopilotTemplatesParams {
-  /** 尺寸 */
+  /** Size */
   resolution?: string;
-  /** 类目 */
+  /** Category */
   category?: string;
-  /** 页码 */
+  /** Page number */
   pageNo?: string;
-  /** 单页面数据数量 */
+  /** Number of records per page */
   pageSize?: string;
-  /** 营销标签 */
+  /** Marketing label */
   marketingTag?: string;
-  /** 语言 */
+  /** Language */
   languageTag?: string;
 }
 
 /** Response of `/ai/piccopilot/templates`. */
 export interface AiPiccopilotTemplatesResponse {
-  /** 总数 */
+  /** Total */
   total?: number;
-  /** 返回码 */
+  /** Return code */
   code?: number;
-  /** 数据 */
+  /** Data */
   data?: string;
-  /** 页码 */
+  /** Page number */
   pageNo?: number;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 单页面数据数量 */
+  /** Number of records per page */
   pageSize?: number;
-  /** 调试信息 */
+  /** Debug information */
   debugInfo?: Record<string, unknown>;
-  /** 信息 */
+  /** Information */
   resMessage?: string;
 }
 
@@ -3451,31 +3451,31 @@ export const aiPiccopilotTemplates: ApiDefinition<
 
 /** Parameters for `/ai/product/description/generation`. */
 export interface AiProductDescriptionGenerationParams {
-  /** 目标语言（一次选择一种输出语言 英/西/法/葡/韩） */
+  /** Target language (select one output language at a time: English/Spanish/French/Portuguese/Korean) */
   targetLanguage?: string;
-  /** 商品标题（中英输入） */
+  /** Product title (Chinese or English input) */
   productTitle?: string;
-  /** 商品类目名称（中英输入） */
+  /** Product category name (Chinese or English input) */
   productCategory?: string;
-  /** 商品卖点或优势关键词 */
+  /** Product selling points or advantage keywords */
   productKeyWords?: Array<string>;
-  /** Specification/Parameter属性（CPV）（Key1：Value1，Key2：Value2） */
+  /** Specification/Parameter attributes (CPV) (Key1: Value1, Key2: Value2) */
   itemSpecs?: string;
-  /** 详描Description原文本 */
+  /** Original text of the detailed Description */
   productDescription?: string;
 }
 
 /** Response of `/ai/product/description/generation`. */
 export interface AiProductDescriptionGenerationResponse {
-  /** 请求响应code */
+  /** Request response code */
   resCode?: number;
-  /** 请求响应 */
+  /** Request response */
   data?: string;
-  /** 请求ID */
+  /** Request ID */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 请求响应Message */
+  /** Request response Message */
   resMessage?: string;
 }
 
@@ -3508,33 +3508,33 @@ export const aiProductDescriptionGeneration: ApiDefinition<
 
 /** Parameters for `/ai/product/title/generation`. */
 export interface AiProductTitleGenerationParams {
-  /** 目标语言（支持英语：en、西班牙语：es、法语：fr、葡萄牙语：pt、韩语：ko 中文：zh） */
+  /** Target language (supports English: en, Spanish: es, French: fr, Portuguese: pt, Korean: ko, Chinese: zh) */
   targetLanguage?: string;
-  /** 商品名称或标题 */
+  /** Product name or title */
   productName?: string;
-  /** 商品类目 */
+  /** Product category */
   productCategory?: Array<string>;
-  /** 商品描述 */
+  /** Product description */
   productDescription?: string;
-  /** 生成数量（1-6） */
+  /** Quantity to generate (1-6) */
   generateCounts?: LongInput;
-  /** 商品关键词 */
+  /** Product keywords */
   productKeyword?: Array<string>;
-  /** 商品规格 */
+  /** Product specifications */
   itemSpec?: string;
 }
 
 /** Response of `/ai/product/title/generation`. */
 export interface AiProductTitleGenerationResponse {
-  /** 服务code参数，200为成功 */
+  /** Service code parameter, 200 means success */
   resCode?: number;
-  /** 返回结果JSON */
+  /** Returned result JSON */
   data?: string;
-  /** 唯一请求id */
+  /** Unique request ID */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 返回消息 */
+  /** Returned message */
   resMessage?: string;
 }
 
@@ -3588,31 +3588,31 @@ export const aiPublishApi: ApiDefinition<
 
 /** Parameters for `/ai/review/auto/reply`. */
 export interface AiReviewAutoReplyParams {
-  /** 评价内容 */
+  /** Review content */
   commentContent?: string;
-  /** 源语言，支持语种：德语(de); 法语(fr); 意大利语(it); 西班牙语(es); 日语(ja); 马来语(ms); 泰语(th); 越南语(vi); 印尼语(id); 韩语(ko); 俄语(ru); 英语(en); 中文(zh); 葡萄牙语(pt); 荷兰语(nl); 土耳其语(tr); 阿拉伯语(ar)，持续新增中 */
+  /** Source language. Supported languages: German (de); French (fr); Italian (it); Spanish (es); Japanese (ja); Malay (ms); Thai (th); Vietnamese (vi); Indonesian (id); Korean (ko); Russian (ru); English (en); Chinese (zh); Portuguese (pt); Dutch (nl); Turkish (tr); Arabic (ar); more being added */
   sourceLanguage?: string;
-  /** 目标语言，支持语种：德语(de); 法语(fr); 意大利语(it); 西班牙语(es); 日语(ja); 马来语(ms); 泰语(th); 越南语(vi); 印尼语(id); 韩语(ko); 俄语(ru); 英语(en); 中文(zh); 葡萄牙语(pt); 荷兰语(nl); 土耳其语(tr); 阿拉伯语(ar),持续新增中 */
+  /** Target language. Supported languages: German (de); French (fr); Italian (it); Spanish (es); Japanese (ja); Malay (ms); Thai (th); Vietnamese (vi); Indonesian (id); Korean (ko); Russian (ru); English (en); Chinese (zh); Portuguese (pt); Dutch (nl); Turkish (tr); Arabic (ar); more being added */
   targetLanguage?: string;
-  /** 回复长度， 0 =短(5-10个词)、1=中(15-30个词)、2=长(30-50个词) */
+  /** Reply length, 0 = short (5-10 words), 1 = medium (15-30 words), 2 = long (30-50 words) */
   replyLenght?: number;
-  /** 评级星级，取值 1~5 */
+  /** Rating stars, value 1~5 */
   commentStarRating?: number;
-  /** 商品标题 */
+  /** Product title */
   productTitle?: string;
-  /** 一级类目 */
+  /** First-level category */
   rootCategory?: string;
-  /** 叶子类目 */
+  /** Leaf category */
   leafCategory?: string;
-  /** 平台来源，例如 AE */
+  /** Platform source, e.g. AE */
   platformSource?: string;
-  /** 扩展参数 */
+  /** Extension parameters */
   extendParams?: string;
 }
 
 /** Response of `/ai/review/auto/reply`. */
 export interface AiReviewAutoReplyResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: AiReviewAutoReplyResult;
 }
 
@@ -3645,39 +3645,39 @@ export const aiReviewAutoReply: ApiDefinition<
 
 /** Parameters for `/ai/selling/point/extraction`. */
 export interface AiSellingPointExtractionParams {
-  /** 请输入商品标题 */
+  /** Please enter the product title */
   productTitle?: string;
-  /** 请输入商品类目，精确到多级叶子类目，逗号分割； */
+  /** Enter the product category, down to multi-level leaf categories, separated by commas; */
   productCategory?: Array<string>;
-  /** 请输入商品介绍描述文本，长度限制在4096个token以内。商品详描和商品核心参数二选一必填 */
+  /** Enter the product introduction text, with a length limit of 4096 tokens. Either the detailed product description or the core product parameters is required */
   productDescription?: string;
-  /** 请输入商品核心参数。 多个核心参数，请用逗号分割：Key1：Value1，Key2：Value2，Key3：Value3。长度限制在4096个token以内。商品详描和商品核心参数二选一必填 */
+  /** Enter the product core parameters. Separate multiple core parameters with commas: Key1:Value1,Key2:Value2,Key3:Value3. Length is limited to 4096 tokens. Either the product description or the product core parameters is required. */
   productAttributes?: string;
-  /** 请输入源语言，例如：en */
+  /** Enter the source language, e.g.: en */
   sourceLanguage?: string;
-  /** 请输入目标语言，例如：en */
+  /** Enter the target language, e.g.: en */
   targetLanguage?: string;
-  /** 请输入主标题预期最大字符数。 8-40字符 （请填入预期生成字符数，但生成内容长度，存在一定范围调整） */
+  /** Enter the expected maximum number of characters for the main title. 8-40 characters (enter the expected number of characters; the length of the generated content may vary within a certain range) */
   maxLenOfMainTitle?: number;
-  /** 请输入Slogan（副标题）预期最大字符数。 8-40字符 （请填入预期生成字符数，但生成内容长度，存在一定范围调整） */
+  /** Enter the expected maximum number of characters for the Slogan (subtitle). 8-40 characters (enter the expected number of generated characters; the length of the generated content may vary within a certain range) */
   maxLenOfSubTitle?: number;
-  /** 请输入每条卖点预期最大字符数。 8-40字符 （请填入预期生成字符数，但生成内容长度，存在一定范围调整） */
+  /** Enter the expected maximum number of characters for each selling point. 8-40 characters (enter the expected number of characters; the length of the generated content may vary within a certain range) */
   maxLenOfSellingPoints?: number;
-  /** 请输入生成卖点条数。 3-6，默认3条，最多6条 */
+  /** Enter the number of selling points to generate. 3-6, default 3, maximum 6 */
   numsOfSellingPoints?: number;
 }
 
 /** Response of `/ai/selling/point/extraction`. */
 export interface AiSellingPointExtractionResponse {
-  /** 返回状态码 */
+  /** Returned status code */
   resCode?: number;
-  /** 返回结果json */
+  /** Returned result json */
   data?: AiSellingPointExtractionSellingPointExtractionResponse;
-  /** 返回唯一键用于排查问题 */
+  /** Unique return key for troubleshooting */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 请求信息 */
+  /** Request information */
   resMessage?: string;
 }
 
@@ -3718,25 +3718,25 @@ export const aiSellingPointExtraction: ApiDefinition<
 
 /** Parameters for `/ai/super/resolution`. */
 export interface AiSuperResolutionParams {
-  /** 图片base64格式 */
+  /** Image in base64 format */
   imageBase64?: string;
-  /** 放大倍数：1-4 （默认：2） */
+  /** Magnification: 1-4 (default: 2) */
   upscaleFactor?: LongInput;
-  /** 图片链接 */
+  /** Image link */
   imageUrl?: string;
 }
 
 /** Response of `/ai/super/resolution`. */
 export interface AiSuperResolutionResponse {
-  /** 返回码，其中200代表成功。其他返回请看错误码部分 */
+  /** Return code, where 200 means success. For other return codes, see the error code section */
   resCode?: number;
-  /** 返回的完整超分后的数据，请看示例里的JSON例子 */
+  /** The complete returned super-resolution data, see the JSON example */
   data?: string;
-  /** 唯一键，用来排查定位问题 */
+  /** Unique key, used for troubleshooting */
   requestId?: string;
-  /** true/false。判断当前请求是否成功 */
+  /** true/false. Whether the current request succeeded */
   success?: boolean;
-  /** 返回消息。包括错误消息。 */
+  /** Return message. Includes error messages. */
   resMessage?: string;
 }
 
@@ -3766,29 +3766,29 @@ export const aiSuperResolution: ApiDefinition<
 
 /** Parameters for `/ai/text/marco/translator`. */
 export interface AiTextMarcoTranslatorParams {
-  /** 待翻译文本；总字符长度不超过 50000，List 不超过 50 条。 */
+  /** Text to translate; total character length must not exceed 50000, and the List must not exceed 50 entries. */
   text?: Array<string>;
-  /** 源语言代码；使用 ISO 693-1 语言代码规范，例如“英文”的语言代码为 “en”，中文的语言代码为“zh”。支持的语向见如下支持语向列表。 */
+  /** Source language code; uses the ISO 693-1 language code standard, e.g. the code for "English" is "en" and for Chinese is "zh". See the supported language pairs list below. */
   sourceLanguage?: string;
-  /** 目标语言代码；使用 ISO 693-1 语言代码规范，请选择如下支持的翻译语向入参；当前支持的翻译语向列表（源语言-目标语言)：中(zh)→英(en)；中(zh)/英(en)→乌尔都语(ur)/孟加拉语(bn)/乌克兰语(uk)/波兰语(pl)/俄语(ru)/法语(fr)/西语(es)/葡语(pt)/韩语(ko)/意大利语(it)/阿拉伯语(ar)/德语(de)/土耳其语(tr)/日语(ja)/希伯来语(he)/印尼语(id)/马来语(ms)/荷兰语(nl)/泰语(th)/越南语(vi)；土耳其语(tr)→阿拉伯语(ar)/英语(en)/德语(de)/罗马尼亚语(ro)/希腊语(el)/匈牙利语(hu)/捷克语(cs) */
+  /** Target language code; uses the ISO 693-1 language code standard, please choose from the supported translation directions below. Currently supported translation directions (source language-target language): Chinese (zh) to English (en); Chinese (zh)/English (en) to Urdu (ur)/Bengali (bn)/Ukrainian (uk)/Polish (pl)/Russian (ru)/French (fr)/Spanish (es)/Portuguese (pt)/Korean (ko)/Italian (it)/Arabic (ar)/German (de)/Turkish (tr)/Japanese (ja)/Hebrew (he)/Indonesian (id)/Malay (ms)/Dutch (nl)/Thai (th)/Vietnamese (vi); Turkish (tr) to Arabic (ar)/English (en)/German (de)/Romanian (ro)/Greek (el)/Hungarian (hu)/Czech (cs) */
   targetLanguage?: string;
-  /** 源文本的格式类型；支持 text/html 类型。 */
+  /** Format type of the source text; text/html is supported. */
   formatType?: string;
-  /** 干预词表 ID，干预词表需要单独创建后在入参中提供干预词表的 ID，支持传入多个干预词表。如果传入的干预词表 ID 为空，则不对翻译结果进行干预。 */
+  /** Intervention glossary ID. The intervention glossary must be created separately and its ID provided in the input; multiple intervention glossaries can be passed. If the intervention glossary ID passed is empty, no intervention is applied to the translation result. */
   glossary?: string;
 }
 
 /** Response of `/ai/text/marco/translator`. */
 export interface AiTextMarcoTranslatorResponse {
-  /** 响应代码； 200 代表调用成功，其他的响应代码可以参考错误码信息。 */
+  /** Response code; 200 means the call succeeded; for other response codes, refer to the error code information. */
   resCode?: number;
-  /** 返回的翻译结果结构体信息。 */
+  /** Returned translation result structure. */
   data?: string;
-  /** 请求 ID；用来识别唯一一次请求调用。 */
+  /** Request ID; used to identify a unique request call. */
   requestId?: string;
-  /** 是否成功；true 代表成功，false 代表失败。 */
+  /** Whether successful; true means success, false means failure. */
   success?: boolean;
-  /** 报错信息，例如"content has sensitive data, please try other input"。 */
+  /** Error message, e.g. "content has sensitive data, please try other input". */
   resMessage?: string;
 }
 
@@ -3820,31 +3820,31 @@ export const aiTextMarcoTranslator: ApiDefinition<
 
 /** Parameters for `/ai/text/translation/and/polishment`. */
 export interface AiTextTranslationAndPolishmentParams {
-  /** 待翻译文本；总字符长度不超过 1000，List 建议不超过 50 条。 使用离线接口来实现大量文本的翻译。 */
+  /** Text to translate; total character length must not exceed 1000, and the List is recommended to have no more than 50 entries. Use the offline API to translate large amounts of text. */
   sourceTextList?: Array<string>;
-  /** 源语言代码；使用 ISO 693-1 语言代码规范，例如“英文”的语言代码为 “en”，中文的语言代码为“zh”。支持的语向见如下支持语向列表。 暂不支持语种自动检测能力。 */
+  /** Source language code; uses the ISO 693-1 language code standard, e.g. the code for "English" is "en" and for Chinese is "zh". See the supported language pairs list below. Automatic language detection is not supported yet. */
   sourceLanguage?: string;
-  /** 目标语言代码；使用 ISO 693-1 语言代码规范，请选择如下支持的翻译语向入参；当前支持的翻译语向列表（源语言-目标语言)：中(zh)→英(en)；中(zh)/英(en)→乌尔都语(ur)/孟加拉语(bn)/乌克兰语(uk)/波兰语(pl)/俄语(ru)/法语(fr)/西语(es)/葡语(pt)/韩语(ko)/意大利语(it)/阿拉伯语(ar)/德语(de)/土耳其语(tr)/日语(ja)/希伯来语(he)/印尼语(id)/马来语(ms)/荷兰语(nl)/泰语(th)/越南语(vi)；土耳其语(tr)→阿拉伯语(ar)/英语(en)/德语(de)/罗马尼亚语(ro)/希腊语(el)/匈牙利语(hu)/捷克语(cs) */
+  /** Target language code; uses the ISO 693-1 language code standard, please choose from the supported translation directions below. Currently supported translation directions (source language-target language): Chinese (zh) to English (en); Chinese (zh)/English (en) to Urdu (ur)/Bengali (bn)/Ukrainian (uk)/Polish (pl)/Russian (ru)/French (fr)/Spanish (es)/Portuguese (pt)/Korean (ko)/Italian (it)/Arabic (ar)/German (de)/Turkish (tr)/Japanese (ja)/Hebrew (he)/Indonesian (id)/Malay (ms)/Dutch (nl)/Thai (th)/Vietnamese (vi); Turkish (tr) to Arabic (ar)/English (en)/German (de)/Romanian (ro)/Greek (el)/Hungarian (hu)/Czech (cs) */
   targetLanguage?: string;
-  /** 源文本的格式类型；支持 text/html 类型。 */
+  /** Format type of the source text; text/html is supported. */
   formatType?: string;
-  /** 干预词表 ID，干预词表需要单独创建后在入参中提供干预词表的 ID，支持传入多个干预词表。如果传入的干预词表 ID 为空，则不对翻译结果进行干预。 */
+  /** Intervention glossary ID. The intervention glossary must be created separately and its ID provided in the input; multiple intervention glossaries can be passed. If the intervention glossary ID passed is empty, no intervention is applied to the translation result. */
   glossary?: string;
-  /** 额外字段，目前子字段translate_scene(String)支持 商品详描(description)/商品标题(title)/ 商品问答和回复（qa）/商品评论(review)的翻译场景。 */
+  /** Extra field. Currently the sub-field translate_scene(String) supports the translation scenarios: product description (description) / product title (title) / product Q&A and replies (qa) / product reviews (review). */
   extension?: Record<string, unknown>;
 }
 
 /** Response of `/ai/text/translation/and/polishment`. */
 export interface AiTextTranslationAndPolishmentResponse {
-  /** 响应代码； 200 代表调用成功，其他的响应代码可以参考错误码信息。 */
+  /** Response code; 200 means the call succeeded; for other response codes, refer to the error code information. */
   resCode?: number;
-  /** 返回的翻译结果结构体信息。 */
+  /** Returned translation result structure. */
   data?: string;
-  /** 请求 ID；用来识别唯一一次请求调用。 */
+  /** Request ID; used to identify a unique request call. */
   requestId?: string;
-  /** 是否成功；true 代表成功，false 代表失败。 */
+  /** Whether successful; true means success, false means failure. */
   success?: boolean;
-  /** 报错信息，例如"content has sensitive data, please try other input"。 */
+  /** Error message, e.g. "content has sensitive data, please try other input". */
   resMessage?: string;
 }
 
@@ -3877,31 +3877,31 @@ export const aiTextTranslationAndPolishment: ApiDefinition<
 
 /** Parameters for `/ai/text/translation/and/polishment/iframe`. */
 export interface AiTextTranslationAndPolishmentIframeParams {
-  /** 待翻译文本；总字符长度不超过 1000，List 建议不超过 50 条。 使用离线接口来实现大量文本的翻译。 */
+  /** Text to translate; total character length must not exceed 1000, and the List is recommended to have no more than 50 entries. Use the offline API to translate large amounts of text. */
   sourceTextList?: Array<string>;
-  /** 源语言代码；使用 ISO 693-1 语言代码规范，例如“英文”的语言代码为 “en”，中文的语言代码为“zh”。支持的语向见如下支持语向列表。 暂不支持语种自动检测能力。 */
+  /** Source language code; uses the ISO 693-1 language code standard, e.g. the code for "English" is "en" and for Chinese is "zh". See the supported language pairs list below. Automatic language detection is not supported yet. */
   sourceLanguage?: string;
-  /** 目标语言代码；使用 ISO 693-1 语言代码规范，请选择如下支持的翻译语向入参；当前支持的翻译语向列表（源语言-目标语言)：中(zh)→英(en)；中(zh)/英(en)→乌尔都语(ur)/孟加拉语(bn)/乌克兰语(uk)/波兰语(pl)/俄语(ru)/法语(fr)/西语(es)/葡语(pt)/韩语(ko)/意大利语(it)/阿拉伯语(ar)/德语(de)/土耳其语(tr)/日语(ja)/希伯来语(he)/印尼语(id)/马来语(ms)/荷兰语(nl)/泰语(th)/越南语(vi)；土耳其语(tr)→阿拉伯语(ar)/英语(en)/德语(de)/罗马尼亚语(ro)/希腊语(el)/匈牙利语(hu)/捷克语(cs) */
+  /** Target language code; uses the ISO 693-1 language code standard, please choose from the supported translation directions below. Currently supported translation directions (source language-target language): Chinese (zh) to English (en); Chinese (zh)/English (en) to Urdu (ur)/Bengali (bn)/Ukrainian (uk)/Polish (pl)/Russian (ru)/French (fr)/Spanish (es)/Portuguese (pt)/Korean (ko)/Italian (it)/Arabic (ar)/German (de)/Turkish (tr)/Japanese (ja)/Hebrew (he)/Indonesian (id)/Malay (ms)/Dutch (nl)/Thai (th)/Vietnamese (vi); Turkish (tr) to Arabic (ar)/English (en)/German (de)/Romanian (ro)/Greek (el)/Hungarian (hu)/Czech (cs) */
   targetLanguage?: string;
-  /** 源文本的格式类型；支持 text/html 类型。 */
+  /** Format type of the source text; text/html is supported. */
   formatType?: string;
-  /** 干预词表 ID，干预词表需要单独创建后在入参中提供干预词表的 ID，支持传入多个干预词表。如果传入的干预词表 ID 为空，则不对翻译结果进行干预。 */
+  /** Intervention glossary ID. The intervention glossary must be created separately and its ID provided in the input; multiple intervention glossaries can be passed. If the intervention glossary ID passed is empty, no intervention is applied to the translation result. */
   glossary?: string;
-  /** 额外字段，目前子字段translate_scene(String)支持 商品详描(description)/商品标题(title)/ 商品问答和回复（qa）/商品评论(review)的翻译场景。 */
+  /** Extra field. Currently the sub-field translate_scene(String) supports the translation scenarios: product description (description) / product title (title) / product Q&A and replies (qa) / product reviews (review). */
   extension?: Record<string, unknown>;
 }
 
 /** Response of `/ai/text/translation/and/polishment/iframe`. */
 export interface AiTextTranslationAndPolishmentIframeResponse {
-  /** 响应代码； 200 代表调用成功，其他的响应代码可以参考错误码信息。 */
+  /** Response code; 200 means the call succeeded; for other response codes, refer to the error code information. */
   resCode?: number;
-  /** 返回的翻译结果结构体信息。 */
+  /** Returned translation result structure. */
   data?: string;
-  /** 请求 ID；用来识别唯一一次请求调用。 */
+  /** Request ID; used to identify a unique request call. */
   requestId?: string;
-  /** 是否成功；true 代表成功，false 代表失败。 */
+  /** Whether successful; true means success, false means failure. */
   success?: boolean;
-  /** 报错信息，例如"content has sensitive data, please try other input"。 */
+  /** Error message, e.g. "content has sensitive data, please try other input". */
   resMessage?: string;
 }
 
@@ -3934,39 +3934,39 @@ export const aiTextTranslationAndPolishmentIframe: ApiDefinition<
 
 /** Parameters for `/ai/virtual/model/generation/batch`. */
 export interface AiVirtualModelGenerationBatchParams {
-  /** 模特类型,目前支持WHITE; BLACK; YELLOW; BROWN; */
+  /** Model type. Currently supports WHITE; BLACK; YELLOW; BROWN; */
   model?: string;
-  /** 模特性别，目前支持MALE；FEMALE */
+  /** Model gender, currently supports MALE; FEMALE */
   gender?: string;
-  /** 期望生成图片数量 */
+  /** Expected number of images to generate */
   count?: number;
-  /** 原图base64 */
+  /** Original image base64 */
   imageBase64?: string;
-  /** 原图url */
+  /** Original image URL */
   imageUrl?: string;
-  /** 是否保持背景 */
+  /** Whether to keep the background */
   maskKeepBg?: boolean;
-  /** 图片类型，目前只支持真人图 */
+  /** Image type, currently only real-person images are supported */
   imageStyle?: string;
-  /** 模特年龄段，目前支持YOUTH,MIDDLE_AGE,OLD_AGE三种 */
+  /** Model age group. Currently supports three: YOUTH, MIDDLE_AGE, OLD_AGE */
   age?: string;
-  /** 背景风格，目前支持studio; European_street; room; beach四种 */
+  /** Background style. Currently supports four: studio; European_street; room; beach */
   bgStyle?: string;
-  /** 生成图片尺寸，目前支持768-2048 */
+  /** Generated image size, currently supports 768-2048 */
   dimension?: string;
 }
 
 /** Response of `/ai/virtual/model/generation/batch`. */
 export interface AiVirtualModelGenerationBatchResponse {
-  /** 请求返回code,200为成功 */
+  /** Request return code, 200 means success */
   resCode?: number;
-  /** 返回json数据 */
+  /** Returned json data */
   data?: AiVirtualModelGenerationBatchVirtualModelGenerationResponse;
-  /** 请求唯一ID */
+  /** Unique request ID */
   requestId?: string;
-  /** 请求是否成功 */
+  /** Whether the request succeeded */
   success?: boolean;
-  /** 请求返回信息 */
+  /** Request return information */
   resMessage?: string;
 }
 
@@ -4007,21 +4007,21 @@ export const aiVirtualModelGenerationBatch: ApiDefinition<
 
 /** Parameters for `/ai/virtual/model/generation/query`. */
 export interface AiVirtualModelGenerationQueryParams {
-  /** 任务执行ID */
+  /** Task execution ID */
   taskId?: string;
 }
 
 /** Response of `/ai/virtual/model/generation/query`. */
 export interface AiVirtualModelGenerationQueryResponse {
-  /** 服务code参数，200为成功 */
+  /** Service code parameter, 200 means success */
   resCode?: number;
-  /** 结果json数据 */
+  /** Result json data */
   data?: AiVirtualModelGenerationQueryVirtualModelGenerationGetResponse;
-  /** 唯一标志用来排查问题 */
+  /** Unique identifier used for troubleshooting */
   requestId?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 请求message */
+  /** Request message */
   resMessage?: string;
 }
 
@@ -4098,7 +4098,7 @@ export const aiVirtualTemplate: ApiDefinition<
 
 /** Parameters for `/ai/virtual/try/online`. */
 export interface AiVirtualTryOnlineParams {
-  /** 入参 */
+  /** Input parameters */
   paramJson?: AiVirtualTryOnline;
 }
 
@@ -4140,15 +4140,15 @@ export const aiVirtualTryOnline: ApiDefinition<
 
 /** Parameters for `ai/product/text/translation/and/polishment`. */
 export interface AiProductTextTranslationAndPolishmentParams {
-  /** 英文 */
+  /** English */
   targetLanguage?: string;
-  /** 翻译文本 */
+  /** Text to translate */
   sourceText?: string;
-  /** 格式 */
+  /** Format */
   formatType?: string;
-  /** 土耳其 */
+  /** Turkey */
   sourceLanguage?: string;
-  /** 翻译场景 */
+  /** Translation scenario */
   translateScene?: string;
 }
 
@@ -4156,13 +4156,13 @@ export interface AiProductTextTranslationAndPolishmentParams {
 export interface AiProductTextTranslationAndPolishmentResponse {
   /** 200 */
   resCode?: number;
-  /** 返回数据 */
+  /** Returned data */
   data?: string;
-  /** 唯一键 */
+  /** Unique key */
   requestId?: string;
   /** true/false */
   success?: boolean;
-  /** 成功 */
+  /** Success */
   resMessage?: string;
 }
 

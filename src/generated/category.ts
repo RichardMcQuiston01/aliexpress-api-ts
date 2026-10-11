@@ -9,9 +9,9 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressCategoryEuResponsiblePersonsListEuContactModule {
-  /** 欧盟责任人名字 */
+  /** EU responsible person name */
   name?: string;
-  /** 欧盟责任人id */
+  /** EU responsible person ID */
   msrEuId?: Long;
 }
 
@@ -22,19 +22,19 @@ export const AliexpressCategoryEuResponsiblePersonsListEuContactModuleSchema: Sc
   };
 
 export interface AliexpressCategoryItemQualificationListQualificationModule {
-  /** 资质信息名称 */
+  /** Qualification information name */
   label?: string;
-  /** 资质信息类型 ："image","text" */
+  /** Qualification information type: "image","text" */
   type?: string;
-  /** 资质信息key, */
+  /** Qualification information key, */
   key?: string;
-  /** 资质信息说明 */
+  /** Qualification information description */
   tips?: string;
-  /** 国家码 */
+  /** Country code */
   countryCode?: string;
-  /** 是否必填 */
+  /** Required */
   required?: boolean;
-  /** 父采集项名称 */
+  /** Parent collection item name */
   parentName?: string;
 }
 
@@ -50,25 +50,25 @@ export const AliexpressCategoryItemQualificationListQualificationModuleSchema: S
   };
 
 export interface AliexpressCategoryItemQualificationListQualityRenderRequest {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: Long;
-  /** 商品英文标题 */
+  /** Product English title */
   title?: string;
-  /** 标准属性项与属性值Id列表Map */
+  /** Map of standard attribute items to attribute value ID lists */
   properties?: Record<string, unknown>;
-  /** 商品实际售卖国家列表，不在列表中的资质不会返回 */
+  /** List of countries where the product is actually sold; qualifications for countries not in the list are not returned */
   shipToCountry?: Array<string>;
-  /** 卖家注册国二位国家码 */
+  /** Two-letter country code of the seller's registration country */
   sellerRegisterCountry?: string;
-  /** 商品业务类型（自营：self，全托管：fullyManaged，半托管：semiHosted，海外托管：overseasHosting，POP：pop） */
+  /** Product business type (self-operated: self, fully managed: fullyManaged, semi-managed: semiHosted, overseas managed: overseasHosting, POP: pop) */
   businessType?: string;
-  /** 商品首次发布时间的毫秒时间戳，新发取当前调用时间，编辑取商品首次发布时间 */
+  /** Millisecond timestamp of the product's first publish time. For new publishing, use the current call time; for editing, use the product's first publish time */
   firstPublishTime?: Long;
-  /** 商品加入半托管的国家列表 */
+  /** List of countries where the product joined semi-consignment */
   semiHostedCountry?: Array<string>;
-  /** 卖家申请售卖的国家列表，为false的国家的资质不会返回 */
+  /** List of countries the seller applied to sell in; qualifications for countries marked false are not returned */
   regionSaleableCondition?: Record<string, unknown>;
 }
 
@@ -87,15 +87,15 @@ export const AliexpressCategoryItemQualificationListQualityRenderRequestSchema: 
   };
 
 export interface AliexpressCategoryLogisticAttributeQueryCascadePropConfig {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 分业务配置 */
+  /** Per-business configuration */
   businessConfig?: Record<string, unknown>;
-  /** 错误原因 */
+  /** Error reason */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 数据源 */
+  /** Data source */
   dataSource?: Array<AliexpressCategoryLogisticAttributeQueryCascadePropConfigCascadeProp>;
 }
 
@@ -114,15 +114,15 @@ export const AliexpressCategoryLogisticAttributeQueryCascadePropConfigSchema: Sc
   };
 
 export interface AliexpressCategoryLogisticAttributeQueryCascadePropConfigCascadeProp {
-  /** 当前层级 值ID */
+  /** Current level value ID */
   valueId?: number;
-  /** 下一级选项 */
+  /** Next-level options */
   children?: Array<AliexpressCategoryLogisticAttributeQueryCascadePropConfigCascadeProp>;
-  /** tag 值兼容老字段 */
+  /** tag value compatible with the old field */
   tag?: string;
-  /** 文本 */
+  /** Text */
   label?: string;
-  /** 上一级值 ID */
+  /** Parent value ID */
   parentValueId?: number;
 }
 
@@ -141,19 +141,19 @@ export const AliexpressCategoryLogisticAttributeQueryCascadePropConfigCascadePro
   };
 
 export interface AliexpressCategoryQualificationsListQualificationModule {
-  /** 资质信息名称 */
+  /** Qualification information name */
   label?: string;
-  /** 资质信息类型 ："image","text" */
+  /** Qualification information type: "image","text" */
   type?: string;
-  /** 资质信息key, 每个类目下的key都不一样，请先调用资质信息查询接口：aliexpress.category.qualifications.list，查询对应的key和type */
+  /** Qualification info key. The key differs for each category; first call the qualification info query API: aliexpress.category.qualifications.list to query the corresponding key and type */
   key?: string;
-  /** 资质信息说明 */
+  /** Qualification information description */
   tips?: string;
-  /** 是否必填 */
+  /** Required */
   required?: boolean;
-  /** 父采集项名称 */
+  /** Parent collection item name */
   parentName?: string;
-  /** 国家码 */
+  /** Country code */
   countryCode?: string;
 }
 
@@ -169,25 +169,25 @@ export const AliexpressCategoryQualificationsListQualificationModuleSchema: Sche
   };
 
 export interface AliexpressCategoryQualificationsListQualityRenderRequest {
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: Long;
-  /** 商品英文标题 */
+  /** Product English title */
   title?: string;
-  /** 标准属性项与属性值Id列表Map */
+  /** Map of standard attribute items to attribute value ID lists */
   properties?: Record<string, unknown>;
-  /** 商品实际售卖国家列表，不在列表中的资质不会返回 */
+  /** List of countries where the product is actually sold; qualifications for countries not in the list are not returned */
   shipToCountry?: Array<string>;
-  /** 卖家注册国二位国家码 */
+  /** Two-letter country code of the seller's registration country */
   sellerRegisterCountry?: string;
-  /** 商品业务类型（自营：self，全托管：fullyManaged，半托管：semiHosted，海外托管：overseasHosting，POP：pop） */
+  /** Product business type (self-operated: self, fully managed: fullyManaged, semi-managed: semiHosted, overseas managed: overseasHosting, POP: pop) */
   businessType?: string;
-  /** 商品首次发布时间的毫秒时间戳，新发取当前调用时间，编辑取商品首次发布时间 */
+  /** Millisecond timestamp of the product's first publish time. For new publishing, use the current call time; for editing, use the product's first publish time */
   firstPublishTime?: Long;
-  /** 商品加入半托管的国家列表，非半托可空 */
+  /** List of countries where the product joined semi-managed; may be empty for non-semi-managed */
   semiHostedCountry?: Array<string>;
-  /** 卖家申请售卖的国家列表，为false的国家的资质不会返回 */
+  /** List of countries the seller applied to sell in; qualifications for countries marked false are not returned */
   regionSaleableCondition?: Record<string, unknown>;
 }
 
@@ -206,37 +206,37 @@ export const AliexpressCategoryQualificationsListQualityRenderRequestSchema: Sch
   };
 
 export interface AliexpressCategoryRedefiningGetallchildattributesresultAeopAttributeDTO {
-  /** 当前属性是否支持自定义枚举类型属性值。 web页面展示为“请输入或从列表选择” */
+  /** Whether the current attribute supports custom enum-type attribute values. Displayed on the web page as "Enter or select from the list" */
   supportEnumInput?: boolean;
-  /** 发布属性展现样式。list_box：下拉列表，input：输入框，input_int：输入数字，input_string：输入文本，check_box：多选框，radio：单选，other，group_table：check_box属性含有子属性，group_item：check_box多选子属性，unit：单位，interval：区间输入框 */
+  /** Display style of the listing attribute. list_box: dropdown list, input: input box, input_int: numeric input, input_string: text input, check_box: checkbox, radio: single choice, other, group_table: check_box attribute that contains child attributes, group_item: check_box multi-select child attribute, unit: unit, interval: interval input box */
   attributeShowTypeValue?: string;
-  /** sku的销售属性是否可自定义名称，页面是否展示输入框，比如可以自定义不存在的颜色值：red123 */
+  /** Whether the SKU sales attribute allows custom names, i.e. whether the page shows an input box, for example allowing a custom, non-existent color value: red123 */
   customizedName?: boolean;
-  /** sku的销售属性是否可自定义图片，页面是否展示上传按钮，比如可以在web后台给sku的颜色属性上传图片 */
+  /** Whether the SKU sales attribute allows custom images, i.e. whether the page shows an upload button, for example uploading an image for the SKU color attribute in the web console */
   customizedPic?: boolean;
-  /** 属性id */
+  /** Attribute ID */
   id?: Long;
-  /** 文本输入框型属性输入格式 文本:STRING, 数字:NUMBER， */
+  /** Input format of the text input box attribute. Text: STRING, number: NUMBER, */
   inputType?: string;
-  /** 发布属性是否关键,填写关键属性可以提高商品质量，提升转化 */
+  /** Whether the publishing attribute is key. Filling in key attributes improves product quality and conversion */
   keyAttribute?: boolean;
-  /** 属性名称 */
+  /** Attribute name */
   names?: string;
-  /** 发布属性是否必填 */
+  /** Whether the publishing attribute is required */
   required?: boolean;
-  /** 发布属性是否是sku的销售属性 */
+  /** Whether the publishing attribute is a sales attribute of the SKU */
   sku?: boolean;
-  /** sku属性展现样式（色卡|普通） */
+  /** SKU attribute display style (color swatch | normal) */
   skuStyleValue?: string;
-  /** 只有当前属性是SKU销售属性时有效，代表sku销售属性页面展示排序值：1～6。（推荐使用） */
+  /** Only valid when the current attribute is a SKU sales attribute. Represents the display sort value of the SKU sales attribute on the page: 1~6. (Recommended) */
   spec?: Long;
-  /** 发布属性单位 */
+  /** Publishing attribute unit */
   units?: Array<AliexpressCategoryRedefiningGetallchildattributesresultAeopUnit>;
-  /** 发布属性值 */
+  /** Publishing attribute value */
   values?: Array<AliexpressCategoryRedefiningGetallchildattributesresultAeopAttrValueDTO>;
-  /** 属性是否可见，true：页面可以展示。false：页面隐藏请isv过滤掉 */
+  /** Whether the attribute is visible. true: can be displayed on the page. false: hidden on the page, ISVs should filter it out */
   visible?: boolean;
-  /** feature的map */
+  /** feature map */
   features?: string;
 }
 
@@ -271,13 +271,13 @@ export const AliexpressCategoryRedefiningGetallchildattributesresultAeopAttribut
   };
 
 export interface AliexpressCategoryRedefiningGetallchildattributesresultAeopAttributeResponse {
-  /** 发布属性list */
+  /** Publishing attribute list */
   attributes?: Array<AliexpressCategoryRedefiningGetallchildattributesresultAeopAttributeDTO>;
   /** errorCode */
   errorCode?: string;
   /** errorMessage */
   errorMessage?: string;
-  /** 服务调用是否成功 */
+  /** Whether the service call succeeded */
   success?: boolean;
 }
 
@@ -295,15 +295,15 @@ export const AliexpressCategoryRedefiningGetallchildattributesresultAeopAttribut
   };
 
 export interface AliexpressCategoryRedefiningGetallchildattributesresultAeopAttrValueDTO {
-  /** 下一层属性 */
+  /** Next-level attributes */
   attributes?: Array<string>;
-  /** 属性值id */
+  /** Attribute value ID */
   id?: Long;
-  /** 属性值名称 */
+  /** Attribute value name */
   names?: string;
   /** valueTags */
   valueTags?: string;
-  /** 属性值下是否有子属性 */
+  /** Whether there are sub-attributes under the attribute value */
   hasSubAttr?: boolean;
 }
 
@@ -317,9 +317,9 @@ export const AliexpressCategoryRedefiningGetallchildattributesresultAeopAttrValu
   };
 
 export interface AliexpressCategoryRedefiningGetallchildattributesresultAeopUnit {
-  /** 和标准属性对换比率 */
+  /** Exchange ratio with the standard attribute */
   rate?: string;
-  /** 单位名称 */
+  /** Unit name */
   unitName?: string;
 }
 
@@ -330,37 +330,37 @@ export const AliexpressCategoryRedefiningGetallchildattributesresultAeopUnitSche
   };
 
 export interface AliexpressCategoryRedefiningGetchildattributesresultbypostcateidandpathAeopAttributeDTO {
-  /** 当前属性是否支持自定义枚举类型属性值。 web页面展示为“请输入或从列表选择” */
+  /** Whether the current attribute supports custom enum-type attribute values. Displayed on the web page as "Enter or select from the list" */
   supportEnumInput?: boolean;
-  /** 发布属性展现样式。list_box：下拉列表，input：输入框，input_int：输入数字，input_string：输入文本，check_box：多选框，radio：单选，other，group_table：check_box 属性含有子属性，group_item：check_box 多选子属性，unit：单位，interval：区间输入框 */
+  /** Display style of the listing attribute. list_box: dropdown list, input: input box, input_int: numeric input, input_string: text input, check_box: checkbox, radio: single choice, other, group_table: check_box attribute that contains child attributes, group_item: check_box multi-select child attribute, unit: unit, interval: interval input box */
   attributeShowTypeValue?: string;
-  /** sku的销售属性是否可自定义名称，页面是否展示输入框，比如可以自定义不存在的颜色值：red123 */
+  /** Whether the SKU sales attribute allows custom names, i.e. whether the page shows an input box, for example allowing a custom, non-existent color value: red123 */
   customizedName?: boolean;
-  /** sku的销售属性是否可自定义图片，页面是否展示上传按钮，比如可以在web后台给sku的颜色属性上传图片 */
+  /** Whether the SKU sales attribute allows custom images, i.e. whether the page shows an upload button, for example uploading an image for the SKU color attribute in the web console */
   customizedPic?: boolean;
-  /** 属性id */
+  /** Attribute ID */
   id?: Long;
-  /** 文本输入框型属性输入格式 文本:STRING, 数字:NUMBER， */
+  /** Input format of the text input box attribute. Text: STRING, number: NUMBER, */
   inputType?: string;
-  /** 发布属性是否关键,填写关键属性可以提高商品质量，提升转化 */
+  /** Whether the publishing attribute is key. Filling in key attributes improves product quality and conversion */
   keyAttribute?: boolean;
-  /** 属性名称 */
+  /** Attribute name */
   names?: string;
-  /** 发布属性是否必填 */
+  /** Whether the publishing attribute is required */
   required?: boolean;
-  /** 发布属性是否是sku的销售属性 */
+  /** Whether the publishing attribute is a sales attribute of the SKU */
   sku?: boolean;
-  /** sku属性展现样式（色卡|普通） */
+  /** SKU attribute display style (color swatch | normal) */
   skuStyleValue?: string;
-  /** 只有当前属性是SKU销售属性时有效，代表sku销售属性页面展示排序值：1～6。（推荐使用） */
+  /** Only valid when the current attribute is a SKU sales attribute. Represents the display sort value of the SKU sales attribute on the page: 1~6. (Recommended) */
   spec?: Long;
-  /** 发布属性单位 */
+  /** Publishing attribute unit */
   units?: Array<AliexpressCategoryRedefiningGetchildattributesresultbypostcateidandpathAeopUnit>;
-  /** 发布属性值 */
+  /** Publishing attribute value */
   values?: Array<AliexpressCategoryRedefiningGetchildattributesresultbypostcateidandpathAeopAttrValueDTO>;
-  /** 属性是否可见，true：页面可以展示。false：页面隐藏请isv过滤掉 */
+  /** Whether the attribute is visible. true: can be displayed on the page. false: hidden on the page, ISVs should filter it out */
   visible?: boolean;
-  /** 类目属性的feature集合。因为AE的类目属性有国别化的需求，有的国家需要必填有的国家需要非必填，所以属性上会有一个AE_FEATURE_PRequireStrategy 这样的feature字段，对应的值是国家的缩写（逗号分隔），表示哪些国家需要必填，例如: {"AE_FEATURE_PRequireStrategy": "IT,RU,TR,CN,FR,ES"}。目前支持的feature有 AE_FEATURE_PRequireStrategy和AE_FEATURE_car_cascade_property。AE_FEATURE_car_cascade_property是车型库相关特征，需要使用请咨询对应技术支持。 */
+  /** Feature set of the category attribute. Because AE category attributes are country-specific, an attribute may be required in some countries and optional in others, so attributes carry a feature field such as AE_FEATURE_PRequireStrategy, whose value is a comma-separated list of country abbreviations indicating which countries require it, for example: {"AE_FEATURE_PRequireStrategy": "IT,RU,TR,CN,FR,ES"}. The currently supported features are AE_FEATURE_PRequireStrategy and AE_FEATURE_car_cascade_property. AE_FEATURE_car_cascade_property is a feature related to the vehicle model library; consult the corresponding technical support if you need it. */
   features?: string;
 }
 
@@ -395,13 +395,13 @@ export const AliexpressCategoryRedefiningGetchildattributesresultbypostcateidand
   };
 
 export interface AliexpressCategoryRedefiningGetchildattributesresultbypostcateidandpathAeopAttributeResponse {
-  /** 异常信息 */
+  /** Exception information */
   errorMessage?: string;
-  /** 异常编码 */
+  /** Exception code */
   errorCode?: string;
-  /** 发布属性list */
+  /** Publishing attribute list */
   attributes?: Array<AliexpressCategoryRedefiningGetchildattributesresultbypostcateidandpathAeopAttributeDTO>;
-  /** 服务调用是否成功 */
+  /** Whether the service call succeeded */
   success?: boolean;
 }
 
@@ -419,17 +419,17 @@ export const AliexpressCategoryRedefiningGetchildattributesresultbypostcateidand
   };
 
 export interface AliexpressCategoryRedefiningGetchildattributesresultbypostcateidandpathAeopAttrValueDTO {
-  /** 车型库相关 ，车型id。 使用场景详见。 https://open.aliexpress.com/doc/api.htm#/api?cid=20904&path=aliexpress.carmodel.update.product.carInfo&methodType=GET/POST */
+  /** Car model library related, car model id. See the following for usage scenarios. https://open.aliexpress.com/doc/api.htm#/api?cid=20904&path=aliexpress.carmodel.update.product.carInfo&methodType=GET/POST */
   afId?: string;
-  /** 下一层属性 */
+  /** Next-level attributes */
   attributes?: Array<string>;
-  /** 属性值id */
+  /** Attribute value ID */
   id?: Long;
-  /** 属性值名称 */
+  /** Attribute value name */
   names?: string;
   /** valueTags */
   valueTags?: string;
-  /** 该属性值下是否有子属性 */
+  /** Whether there are sub-attributes under this attribute value */
   hasSubAttr?: boolean;
 }
 
@@ -444,9 +444,9 @@ export const AliexpressCategoryRedefiningGetchildattributesresultbypostcateidand
   };
 
 export interface AliexpressCategoryRedefiningGetchildattributesresultbypostcateidandpathAeopUnit {
-  /** 和标准属性对换比率 */
+  /** Exchange ratio with the standard attribute */
   rate?: string;
-  /** 单位名称 */
+  /** Unit name */
   unitName?: string;
 }
 
@@ -457,15 +457,15 @@ export const AliexpressCategoryRedefiningGetchildattributesresultbypostcateidand
   };
 
 export interface AliexpressCategoryRedefiningGetchildrenpostcategorybyidAeopPostCategoryDTO {
-  /** 发布类目ID */
+  /** Publishing category ID */
   id?: Long;
-  /** 是否叶子发布类目 */
+  /** Whether it is a leaf publishing category */
   isleaf?: boolean;
-  /** 发布类目层级 */
+  /** Publishing category level */
   level?: Long;
-  /** 类目多语言名称 */
+  /** Category multilingual names */
   names?: string;
-  /** 类目特征的map。AE_FEATURE_CAR_TYPE ： 当前类目是否支持车型库API，value为 汽车："car" 、摩托车："motor"。AE_FEATURE_UserDefineSalesProperty ：分国家是否支持销售属性自定义，value为对应的国家。 */
+  /** Map of category features. AE_FEATURE_CAR_TYPE: whether the current category supports the car model library API, value is car: "car", motorcycle: "motor". AE_FEATURE_UserDefineSalesProperty: whether custom sales attributes are supported per country, value is the corresponding country. */
   features?: string;
 }
 
@@ -479,9 +479,9 @@ export const AliexpressCategoryRedefiningGetchildrenpostcategorybyidAeopPostCate
   };
 
 export interface AliexpressCategoryRedefiningGetchildrenpostcategorybyidAeopPostCategoryResponse {
-  /** 孩子发布类目 */
+  /** Child publishing categories */
   aeopPostCategoryList?: Array<AliexpressCategoryRedefiningGetchildrenpostcategorybyidAeopPostCategoryDTO>;
-  /** 服务调用是否成功 */
+  /** Whether the service call succeeded */
   success?: boolean;
 }
 
@@ -497,15 +497,15 @@ export const AliexpressCategoryRedefiningGetchildrenpostcategorybyidAeopPostCate
   };
 
 export interface AliexpressCategoryRedefiningGetpostcategorybyidAeopPostCategoryDTO {
-  /** 发布类目id */
+  /** Publishing category ID */
   id?: Long;
-  /** 是否叶子发布类目 */
+  /** Whether it is a leaf publishing category */
   isleaf?: boolean;
-  /** 发布类目层级 */
+  /** Publishing category level */
   level?: Long;
-  /** 发布类目多语言名称 */
+  /** Multilingual name of the publishing category */
   names?: string;
-  /** 类目特征的map。AE_FEATURE_CAR_TYPE ： 当前类目是否支持车型库API，value为 汽车："car" 、摩托车："motor"。AE_FEATURE_UserDefineSalesProperty ：分国家是否支持销售属性自定义，value为对应的国家。 */
+  /** Map of category features. AE_FEATURE_CAR_TYPE: whether the current category supports the car model library API, value is car: "car", motorcycle: "motor". AE_FEATURE_UserDefineSalesProperty: whether custom sales attributes are supported per country, value is the corresponding country. */
   features?: string;
 }
 
@@ -519,9 +519,9 @@ export const AliexpressCategoryRedefiningGetpostcategorybyidAeopPostCategoryDTOS
   };
 
 export interface AliexpressCategoryRedefiningGetpostcategorybyidAeopPostCategoryResponse {
-  /** 发布类目 */
+  /** Publishing category */
   aeopPostCategoryList?: Array<AliexpressCategoryRedefiningGetpostcategorybyidAeopPostCategoryDTO>;
-  /** 服务调用是否成功 */
+  /** Whether the service call succeeded */
   success?: boolean;
 }
 
@@ -573,29 +573,29 @@ export const AliexpressCategoryRedefiningGetPropValueFeatureAeopResultSchema: Sc
   };
 
 export interface AliexpressCategoryRedefiningQueryCascadePropertiesAeopCategoryCascadePropertyDTO {
-  /** 属性特征 */
+  /** Attribute features */
   features?: string;
-  /** 属性值 id */
+  /** Attribute value ID */
   valueId?: number;
-  /** 属性值 名称 */
+  /** Attribute value name */
   valueName?: string;
-  /** 属性 level 层级 */
+  /** Attribute level */
   level?: number;
-  /** 次级 级联属性list */
+  /** Secondary cascading attribute list */
   subValues?: Array<AliexpressCategoryRedefiningQueryCascadePropertiesAeopCategoryCascadePropertyDTO>;
-  /** 属性 id */
+  /** Attribute ID */
   propId?: number;
-  /** 属性组ID */
+  /** Attribute group ID */
   groupId?: string;
-  /** 父属性-属性值 id */
+  /** Parent attribute - attribute value id */
   parentValueId?: string;
-  /** 名称 */
+  /** Name */
   label?: string;
-  /** 属性 名称 */
+  /** Attribute name */
   propName?: string;
-  /** 父属性-属性 id */
+  /** Parent attribute - attribute id */
   parentPropId?: string;
-  /** 是否必填 */
+  /** Required */
   required?: string;
 }
 
@@ -623,11 +623,11 @@ export const AliexpressCategoryRedefiningQueryCascadePropertiesAeopCategoryCasca
 export interface AliexpressCategoryRedefiningQueryCascadePropertiesAeopCategoryCascadeResponse {
   /** success */
   success?: boolean;
-  /** 类目级联属性list */
+  /** Category cascading attribute list */
   categoryCascadeProperties?: Array<AliexpressCategoryRedefiningQueryCascadePropertiesAeopCategoryCascadePropertyDTO>;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -645,15 +645,15 @@ export const AliexpressCategoryRedefiningQueryCascadePropertiesAeopCategoryCasca
   };
 
 export interface AliexpressCategoryTreeListAeopPostCategoryDTO {
-  /** 类目特征的map。AE_FEATURE_CAR_TYPE ： 当前类目是否支持车型库API，value为 汽车："car" 、摩托车："motor"。AE_FEATURE_UserDefineSalesProperty ：分国家是否支持销售属性自定义，value为对应的国家。 */
+  /** Map of category features. AE_FEATURE_CAR_TYPE: whether the current category supports the car model library API, value is car: "car", motorcycle: "motor". AE_FEATURE_UserDefineSalesProperty: whether custom sales attributes are supported per country, value is the corresponding country. */
   features?: Record<string, unknown>;
-  /** 类目多语言名称 */
+  /** Category multilingual names */
   names?: Record<string, unknown>;
-  /** 发布类目ID */
+  /** Publishing category ID */
   id?: Long;
-  /** 是否叶子发布类目 */
+  /** Whether it is a leaf publishing category */
   isleaf?: boolean;
-  /** 发布类目层级 */
+  /** Publishing category level */
   level?: string;
 }
 
@@ -667,19 +667,19 @@ export const AliexpressCategoryTreeListAeopPostCategoryDTOSchema: Schema = {
 
 /** Parameters for `aliexpress.category.eu.responsible.persons.list`. */
 export interface AliexpressCategoryEuResponsiblePersonsListParams {
-  /** 类目ID。由于只有部分类目支持关联欧盟责任人，所有发布或编辑商品之前需要先查询当前类目是否支持关联欧盟责任人，然后返回可选的欧盟责任人列表 */
+  /** Category ID. Since only some categories support linking an EU responsible person, before publishing or editing a product you must first query whether the current category supports linking an EU responsible person, which then returns the list of selectable EU responsible persons */
   categoryId?: LongInput;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 不传默认查询对应的AE的普通账号数据，渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** If not passed, queries the data of the corresponding regular AE account by default. Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelSellerId?: string;
 }
 
 /** Response of `aliexpress.category.eu.responsible.persons.list`. */
 export interface AliexpressCategoryEuResponsiblePersonsListResponse {
-  /** 欧盟责任人列表 */
+  /** EU responsible person list */
   euContactModuleList?: Array<AliexpressCategoryEuResponsiblePersonsListEuContactModule>;
-  /** 当前类目是否可以关联欧盟责任人 */
+  /** Whether the current category can be linked to an EU responsible person */
   support?: boolean;
 }
 
@@ -710,27 +710,27 @@ export const aliexpressCategoryEuResponsiblePersonsList: ApiDefinition<
 
 /** Parameters for `aliexpress.category.itemQualification.list`. */
 export interface AliexpressCategoryItemQualificationListParams {
-  /** 类目id */
+  /** Category ID */
   categoryId?: LongInput;
-  /** 多语言语种标记 。zh_CN ：中文 ja_JP ： 日本日语 ko_KR：韩国韩语 tr_TR：土耳其土耳其语 nl_NL：荷兰荷兰语 pl_PL：波兰波兰语 ru_RU：俄国俄语 fr_FR：法国法语 en_US：美国英语 th_TH：泰国泰语 de_DE：德国德语 es_ES：西班牙西班牙语 */
+  /** Multi-language language tag. zh_CN: Chinese ja_JP: Japanese (Japan) ko_KR: Korean (South Korea) tr_TR: Turkish (Turkey) nl_NL: Dutch (Netherlands) pl_PL: Polish (Poland) ru_RU: Russian (Russia) fr_FR: French (France) en_US: English (US) th_TH: Thai (Thailand) de_DE: German (Germany) es_ES: Spanish (Spain) */
   local?: string;
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: LongInput;
-  /** 商品id，product_id与custom_property传一个即可 */
+  /** Product id. Pass either product_id or custom_property */
   productId?: LongInput;
-  /** 完整资质查询请求可配置信息 */
+  /** Configurable information of the full qualification query request */
   customProperty?: AliexpressCategoryItemQualificationListQualityRenderRequest;
 }
 
 /** Response of `aliexpress.category.itemQualification.list`. */
 export interface AliexpressCategoryItemQualificationListResponse {
-  /** 时间戳 */
+  /** Timestamp */
   timeStamp?: string;
-  /** 访问是否成功 */
+  /** Whether the access succeeded */
   success?: boolean;
-  /** 资质信息 */
+  /** Qualification information */
   qualificationModuleList?: Array<AliexpressCategoryItemQualificationListQualificationModule>;
-  /** 当前类目是否可以上传资质信息 */
+  /** Whether the current category can upload qualification information */
   support?: boolean;
 }
 
@@ -769,13 +769,13 @@ export const aliexpressCategoryItemQualificationList: ApiDefinition<
 
 /** Parameters for `aliexpress.category.logistic.attribute.query`. */
 export interface AliexpressCategoryLogisticAttributeQueryParams {
-  /** 类目ID */
+  /** Category ID */
   categoryId?: LongInput;
 }
 
 /** Response of `aliexpress.category.logistic.attribute.query`. */
 export interface AliexpressCategoryLogisticAttributeQueryResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressCategoryLogisticAttributeQueryCascadePropConfig;
 }
 
@@ -803,23 +803,23 @@ export const aliexpressCategoryLogisticAttributeQuery: ApiDefinition<
 
 /** Parameters for `aliexpress.category.qualifications.list`. */
 export interface AliexpressCategoryQualificationsListParams {
-  /** 类目id */
+  /** Category ID */
   categoryId?: LongInput;
-  /** 多语言语种标记 。zh_CN ：中文 ja_JP ： 日本日语 ko_KR：韩国韩语 tr_TR：土耳其土耳其语 nl_NL：荷兰荷兰语 pl_PL：波兰波兰语 ru_RU：俄国俄语 fr_FR：法国法语 en_US：美国英语 th_TH：泰国泰语 de_DE：德国德语 es_ES：西班牙西班牙语 */
+  /** Multi-language language tag. zh_CN: Chinese ja_JP: Japanese (Japan) ko_KR: Korean (South Korea) tr_TR: Turkish (Turkey) nl_NL: Dutch (Netherlands) pl_PL: Polish (Poland) ru_RU: Russian (Russia) fr_FR: French (France) en_US: English (US) th_TH: Thai (Thailand) de_DE: German (Germany) es_ES: Spanish (Spain) */
   local?: string;
-  /** 渠道卖家id */
+  /** Channel seller ID */
   channelSellerId?: LongInput;
-  /** 商品id，product_id与custom_property传一个即可 */
+  /** Product id. Pass either product_id or custom_property */
   productId?: LongInput;
-  /** 完整资质查询请求可配置信息 */
+  /** Configurable information of the full qualification query request */
   customProperty?: AliexpressCategoryQualificationsListQualityRenderRequest;
 }
 
 /** Response of `aliexpress.category.qualifications.list`. */
 export interface AliexpressCategoryQualificationsListResponse {
-  /** 资质信息 */
+  /** Qualification information */
   qualificationModuleList?: Array<AliexpressCategoryQualificationsListQualificationModule>;
-  /** 当前类目是否可以上传资质信息 */
+  /** Whether the current category can upload qualification information */
   support?: boolean;
 }
 
@@ -856,17 +856,17 @@ export const aliexpressCategoryQualificationsList: ApiDefinition<
 
 /** Parameters for `aliexpress.category.redefining.getallchildattributesresult`. */
 export interface AliexpressCategoryRedefiningGetallchildattributesresultParams {
-  /** 叶子类目ID。通过产品获取类目ID，如果只传cid，则返回一级属性。 */
+  /** Leaf category ID. Get the category ID via the product; if only cid is passed, first-level attributes are returned. */
   cateId?: string;
-  /** 获取属性值文本对应的多语言信息 */
+  /** Get multilingual information corresponding to the attribute value text */
   locale?: string;
-  /** 类目子属性路径,由该子属性上层的类目属性id和类目属性值id组成,格式参考示例，多个用逗号隔开，第二个属性及为第一个的属性值的子属性，第三个属性为第二个属性的子属性，以此类推。如需返回此类目对应的子属性，则需同cateid一起进行提交。 */
+  /** Category child attribute path, composed of the category attribute id and category attribute value id above this child attribute; see the example for the format; multiple are separated by commas; the second attribute is a child attribute of the first attribute's value, the third is a child attribute of the second, and so on. To return the child attributes of this category, submit it together with cateid. */
   parentAttrvalueList?: Array<string>;
 }
 
 /** Response of `aliexpress.category.redefining.getallchildattributesresult`. */
 export interface AliexpressCategoryRedefiningGetallchildattributesresultResponse {
-  /** 发布属性，每个类目下的普通属性都可以支持新增自定义属性名和属性值具体操作请看商品发布接口，sku下有部分销售属性可以自定义名称和图片。 */
+  /** Publishing attributes. Ordinary attributes under each category support adding custom attribute names and values; see the product publishing API for details. Some sales attributes under SKU can have custom names and images. */
   result?: AliexpressCategoryRedefiningGetallchildattributesresultAeopAttributeResponse;
 }
 
@@ -899,23 +899,23 @@ export const aliexpressCategoryRedefiningGetallchildattributesresult: ApiDefinit
 
 /** Parameters for `aliexpress.category.redefining.getchildattributesresultbypostcateidandpath`. */
 export interface AliexpressCategoryRedefiningGetchildattributesresultbypostcateidandpathParams {
-  /** 不传默认查询对应的AE的普通账号数据，渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** If not passed, queries the data of the corresponding regular AE account by default. Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelSellerId?: LongInput;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 获取属性值文本对应的多语言信息：en_US */
+  /** Get the multilingual information corresponding to the attribute value text: en_US */
   locale?: string;
-  /** 全托管商品备仓类型，channel_seller_id传全托管店铺id时生效， 枚举： 0（国内备仓），1（JIT类型），2（海外备仓）。目前的区别是 0和1 查询没有发货地属性，2 查询有发货地属性，并且海外仓发货地必填 */
+  /** Stocking type of fully-managed products, takes effect when channel_seller_id is the fully-managed store id. Enum: 0 (domestic stocking), 1 (JIT type), 2 (overseas stocking). Currently the difference is that queries for 0 and 1 have no shipping-origin attribute, while queries for 2 have a shipping-origin attribute, and the shipping origin is required for overseas warehouses */
   productType?: string;
-  /** 叶子类目ID。通过产品获取类目ID，如果只传cid，则返回一级属性。 */
+  /** Leaf category ID. Get the category ID via the product; if only cid is passed, first-level attributes are returned. */
   param1?: LongInput;
-  /** 类目子属性路径,由该子属性上层的类目属性id和类目属性值id组成,格式参考示例，多个用逗号隔开，第二个属性及为第一个的属性值的子属性，第三个属性为第二个属性的子属性，以此类推。如需返回此类目对应的子属性，则需同cateid一起进行提交。 */
+  /** Category child attribute path, composed of the category attribute id and category attribute value id above this child attribute; see the example for the format; multiple are separated by commas; the second attribute is a child attribute of the first attribute's value, the third is a child attribute of the second, and so on. To return the child attributes of this category, submit it together with cateid. */
   param2?: Array<string>;
 }
 
 /** Response of `aliexpress.category.redefining.getchildattributesresultbypostcateidandpath`. */
 export interface AliexpressCategoryRedefiningGetchildattributesresultbypostcateidandpathResponse {
-  /** 发布属性，每个类目下的普通属性都可以支持新增自定义属性名和属性值具体操作请看商品发布接口，sku下有部分销售属性可以自定义名称和图片。 */
+  /** Publishing attributes. Ordinary attributes under each category support adding custom attribute names and values; see the product publishing API for details. Some sales attributes under SKU can have custom names and images. */
   result?: AliexpressCategoryRedefiningGetchildattributesresultbypostcateidandpathAeopAttributeResponse;
 }
 
@@ -952,13 +952,13 @@ export const aliexpressCategoryRedefiningGetchildattributesresultbypostcateidand
 
 /** Parameters for `aliexpress.category.redefining.getchildrenpostcategorybyid`. */
 export interface AliexpressCategoryRedefiningGetchildrenpostcategorybyidParams {
-  /** 发布类目ID */
+  /** Publishing category ID */
   param0?: LongInput;
 }
 
 /** Response of `aliexpress.category.redefining.getchildrenpostcategorybyid`. */
 export interface AliexpressCategoryRedefiningGetchildrenpostcategorybyidResponse {
-  /** 孩子发布类目对象 */
+  /** Child publishing category object */
   result?: AliexpressCategoryRedefiningGetchildrenpostcategorybyidAeopPostCategoryResponse;
 }
 
@@ -989,13 +989,13 @@ export const aliexpressCategoryRedefiningGetchildrenpostcategorybyid: ApiDefinit
 
 /** Parameters for `aliexpress.category.redefining.getpostcategorybyid`. */
 export interface AliexpressCategoryRedefiningGetpostcategorybyidParams {
-  /** 发布类目ID */
+  /** Publishing category ID */
   param0?: LongInput;
 }
 
 /** Response of `aliexpress.category.redefining.getpostcategorybyid`. */
 export interface AliexpressCategoryRedefiningGetpostcategorybyidResponse {
-  /** 发布类目对象 */
+  /** Publishing category object */
   result?: AliexpressCategoryRedefiningGetpostcategorybyidAeopPostCategoryResponse;
 }
 
@@ -1064,17 +1064,17 @@ export const aliexpressCategoryRedefiningGetPropValueFeature: ApiDefinition<
 
 /** Parameters for `aliexpress.category.redefining.queryCascadeProperties`. */
 export interface AliexpressCategoryRedefiningQueryCascadePropertiesParams {
-  /** locale 值，说明希望返回的属性语言 */
+  /** locale value, specifies the desired language of the returned attributes */
   locale?: string;
-  /** 类目 id */
+  /** Category ID */
   categoryId?: LongInput;
-  /** 行业属性库 ID */
+  /** Industry attribute library ID */
   groupId?: LongInput;
 }
 
 /** Response of `aliexpress.category.redefining.queryCascadeProperties`. */
 export interface AliexpressCategoryRedefiningQueryCascadePropertiesResponse {
-  /** 结果 */
+  /** Result */
   result?: AliexpressCategoryRedefiningQueryCascadePropertiesAeopCategoryCascadeResponse;
 }
 
@@ -1106,13 +1106,13 @@ export const aliexpressCategoryRedefiningQueryCascadeProperties: ApiDefinition<
 
 /** Parameters for `aliexpress.category.redefining.sizemodelsrequiredforpostcat`. */
 export interface AliexpressCategoryRedefiningSizemodelsrequiredforpostcatParams {
-  /** 叶子发布类目ID */
+  /** Leaf publishing category ID */
   param0?: LongInput;
 }
 
 /** Response of `aliexpress.category.redefining.sizemodelsrequiredforpostcat`. */
 export interface AliexpressCategoryRedefiningSizemodelsrequiredforpostcatResponse {
-  /** 类目必须尺码表 */
+  /** Category requires size chart */
   result?: boolean;
 }
 
@@ -1138,21 +1138,21 @@ export const aliexpressCategoryRedefiningSizemodelsrequiredforpostcat: ApiDefini
 
 /** Parameters for `aliexpress.category.tree.list`. */
 export interface AliexpressCategoryTreeListParams {
-  /** 不传默认查询对应的AE的普通账号数据，渠道seller id （可以在这个API中查询：global.seller.relation.query）， 请使用 business_type = ONE_STOP_SERVICE 的全托管店铺 channel_seller_id */
+  /** If not passed, queries the data of the corresponding regular AE account by default. Channel seller id (can be queried with this API: global.seller.relation.query). Use the channel_seller_id of the fully-managed store with business_type = ONE_STOP_SERVICE */
   channelSellerId?: LongInput;
-  /** 是否只查询有权限的类目 */
+  /** Whether to query only categories with permission */
   onlyWithPermission?: boolean;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: LongInput;
 }
 
 /** Response of `aliexpress.category.tree.list`. */
 export interface AliexpressCategoryTreeListResponse {
-  /** 返回的子类目信息 */
+  /** Returned child category information */
   aeopPostCategoryList?: Array<AliexpressCategoryTreeListAeopPostCategoryDTO>;
-  /** 请求成功 */
+  /** Request succeeded */
   success?: string;
 }
 

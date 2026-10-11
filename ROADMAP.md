@@ -23,7 +23,6 @@ These items close the gaps in what is already built.
 1. **Test against the live gateway.** Every test so far uses a mock gateway. Run `npm run test:live` with a real app, then fix anything it finds. This covers signing, request routing, and response decoding.
 2. **Confirm the login address.** The address in `getAuthorizationUrl` is not in the Java Software Development Kit (SDK), and no one has checked it against a real login yet. Run one and fix it if it is wrong.
 3. **Confirm the `GET` rule.** The Java SDK sends every method that is not `POST`, including `HSF`, as a `GET`. This package copies that rule. Check that the gateway accepts it for all 66 `HSF` methods, and change the rule if it does not.
-4. **Translate the comments.** About 12,700 lines in 76 generated files still hold Chinese text from the Java SDK. Add English text so editor hints are useful for everyone.
 
 [Back to Top](#roadmap)
 
@@ -31,6 +30,7 @@ These items close the gaps in what is already built.
 
 These are ideas. None of them has started.
 
+- **Proofread the translations.** The English comments were machine translated and checked by script, not by a native speaker. A careful read-through would catch awkward or wrong wording.
 - **Retries.** Try again after a network failure or a timeout, with a growing wait between tries. Today the client makes one attempt per call.
 - **Paging helpers.** Many list methods return one page at a time. A helper could walk through every page.
 - **Token refresh.** Renew an access token before it expires, so long-running programs keep working.

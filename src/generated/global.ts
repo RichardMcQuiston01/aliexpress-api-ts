@@ -9,9 +9,9 @@ import type {
 } from '../core/index.js';
 
 export interface GlobalCategoryAttributesListBaseAttributeValueDTO {
-  /** 属性值名称 */
+  /** Attribute value name */
   name?: string;
-  /** 属性值id */
+  /** Attribute value ID */
   id?: Long;
 }
 
@@ -21,27 +21,27 @@ export const GlobalCategoryAttributesListBaseAttributeValueDTOSchema: Schema = {
 };
 
 export interface GlobalCategoryAttributesListCspAttributeDTO {
-  /** 是否有色卡图 */
+  /** Whether there is a color swatch image */
   hasThumbnail?: boolean;
-  /** sku图片是否必传 */
+  /** Whether SKU images are required */
   requiredImage?: boolean;
-  /** 属性值列表 */
+  /** Attribute value list */
   values?: Array<GlobalCategoryAttributesListBaseAttributeValueDTO>;
-  /** 是否是sku销售属性 */
+  /** Whether it is a SKU sales attribute */
   isSaleProp?: boolean;
-  /** 属性展现样式 ：单选或多选 、是否可输入等。 1：文本 2：富文本 3：单选 4：多选 5：日历 6：数值 7：枚举单选可输入 8：枚举多选可输入 9：图片 */
+  /** Attribute display style: single or multiple choice, whether input is allowed, etc. 1: text 2: rich text 3: single choice 4: multiple choice 5: calendar 6: numeric 7: enum single choice with input 8: enum multiple choice with input 9: image */
   attributeShowTypeValue?: string;
-  /** 是否是关键属性 */
+  /** Whether it is a key attribute */
   isKeyAttribute?: boolean;
-  /** 是否可以自定义sku图片： 标记商品sku属性中可以挂载sku图片的销售属性 */
+  /** Whether SKU images can be customized: marks the sales attributes in the product's SKU attributes to which SKU images can be attached */
   customizedPic?: boolean;
-  /** 是否必填 */
+  /** Required */
   required?: boolean;
-  /** 是否是品牌 */
+  /** Whether it is a brand */
   isBrandProperty?: boolean;
-  /** 属性名 */
+  /** Attribute name */
   name?: string;
-  /** 属性值 */
+  /** Attribute value */
   id?: number;
 }
 
@@ -130,15 +130,15 @@ export const GlobalCategoryTreeGetResultSchema: Schema = {
 };
 
 export interface GlobalCategoryTreeListCspCategoryDTO {
-  /** 有权限渠道 */
+  /** Channels with permission */
   channels?: Array<string>;
-  /** 类目等级 */
+  /** Category level */
   level?: number;
-  /** 是否叶子结点 */
+  /** Whether it is a leaf node */
   leaf?: boolean;
-  /** 类目名称 */
+  /** Category name */
   categoryName?: string;
-  /** 类目ID */
+  /** Category ID */
   categoryId?: Long;
 }
 
@@ -303,15 +303,15 @@ export const GlobalDsaPcQueryConditionSchema: Schema = {
 };
 
 export interface GlobalHscodeForecastQueryCspHsCodeApiRequestDTO {
-  /** 主图链接："https://ae01.alicdn.com/kf/S74f777cfd20b4e22a936e68667fa7ab4r.jpg" */
+  /** Main image link: "https://ae01.alicdn.com/kf/S74f777cfd20b4e22a936e68667fa7ab4r.jpg" */
   imageUrl?: string;
-  /** 渠道必填，目前支持的渠道有全球商品：AE_GLOBAL 。 arise商品：ARISE_ES 。 */
+  /** Required for channels. Currently supported channels: global products: AE_GLOBAL; arise products: ARISE_ES. */
   channel?: string;
-  /** 商品英文标题 */
+  /** Product English title */
   title?: string;
-  /** 商品普通属性列表。可以参照商品发布接口填写 */
+  /** List of product common attributes. Can be filled in by referring to the product publishing API */
   productPropertyList?: Array<GlobalHscodeForecastQueryProductProperty>;
-  /** 叶子类目id。 可以传统一的叶子类目，也可以传arise的叶子类目。 category_id 和 channel必须对应上，当channel = AE_GLOBAL 时只能传 统一的叶子类目 ； 当channel = ARISE_ES 时只能传 arise的叶子类目。 */
+  /** Leaf category id. Either the unified leaf category or the arise leaf category can be passed. category_id and channel must match: when channel = AE_GLOBAL only the unified leaf category can be passed; when channel = ARISE_ES only the arise leaf category can be passed. */
   categoryId?: Long;
 }
 
@@ -328,9 +328,9 @@ export const GlobalHscodeForecastQueryCspHsCodeApiRequestDTOSchema: Schema = {
 };
 
 export interface GlobalHscodeForecastQueryHsCodeResponseDTO {
-  /** 叶子hscode列表，全球商品和渠道商品中使用的都是hscode都是leaf_hs_code中选择的 */
+  /** Leaf hscode list. The hscodes used in global products and channel products are all selected from leaf_hs_code */
   leafHsCodeList?: Array<GlobalHscodeForecastQueryLeafHsCode>;
-  /** 叶子hscode对应的父节点。 是将父节点压缩都一个list集合中，方便查询，已经按照层级结构进行排序 */
+  /** Parent nodes of the leaf hscode. The parent nodes are compressed into a list for easy querying, already sorted by hierarchy */
   parentHsCodeList?: Array<GlobalHscodeForecastQueryParentHsCode>;
 }
 
@@ -348,13 +348,13 @@ export const GlobalHscodeForecastQueryHsCodeResponseDTOSchema: Schema = {
 };
 
 export interface GlobalHscodeForecastQueryLeafHsCode {
-  /** hscode的英文描述 */
+  /** English description of the hscode */
   hsCodeDesc?: string;
-  /** hscode主键，叶子结点的hs_code才能用来发品 */
+  /** hscode primary key; only the hs_code of a leaf node can be used for listing products */
   hsCode?: string;
-  /** hscode的长度 */
+  /** Length of the hscode */
   hsCodeLength?: number;
-  /** 叶子hscode的排列顺序，2 -> 2-1 -> 2-2 -> 2-3 */
+  /** Order of the leaf hscode, 2 -> 2-1 -> 2-2 -> 2-3 */
   rank?: string;
 }
 
@@ -366,11 +366,11 @@ export const GlobalHscodeForecastQueryLeafHsCodeSchema: Schema = {
 };
 
 export interface GlobalHscodeForecastQueryParentHsCode {
-  /** hscode的英文描述 */
+  /** English description of the hscode */
   hsCodeDesc?: string;
-  /** hscode主键，非叶子结点 */
+  /** hscode primary key, non-leaf node */
   hsCode?: string;
-  /** hscode的长度，长度越短，代表越靠近根结点。 父节点的层级顺序是 4-> 6。或 4-> 5->6 */
+  /** Length of the hscode. The shorter the length, the closer it is to the root node. The level order of parent nodes is 4-> 6, or 4-> 5->6 */
   hsCodeLength?: number;
 }
 
@@ -381,13 +381,13 @@ export const GlobalHscodeForecastQueryParentHsCodeSchema: Schema = {
 };
 
 export interface GlobalHscodeForecastQueryProductProperty {
-  /** 商品普通属性值id。可以参照商品发布接口填写 */
+  /** Product common attribute value ID. Can be filled in by referring to the product publishing API */
   attrValueId?: Long;
-  /** 商品普通属性值名称。可以参照商品发布接口填写 */
+  /** Product common attribute value name. Can be filled in by referring to the product publishing API */
   attrValue?: string;
-  /** 商品普通属性名称。可以参照商品发布接口填写 */
+  /** Product common attribute name. Can be filled in by referring to the product publishing API */
   attrName?: string;
-  /** 商品普通属性id。可以参照商品发布接口填写 */
+  /** Product common attribute ID. Can be filled in by referring to the product publishing API */
   attrNameId?: Long;
 }
 
@@ -399,9 +399,9 @@ export const GlobalHscodeForecastQueryProductPropertySchema: Schema = {
 };
 
 export interface GlobalHscodeKeywordsQueryHsCodeResponseDTO {
-  /** 叶子hscode列表，全球商品和渠道商品中使用的都是hscode都是leaf_hs_code_list中选择的 */
+  /** Leaf hscode list. The hscodes used in global products and channel products are all selected from leaf_hs_code_list */
   leafHsCodeList?: Array<GlobalHscodeKeywordsQueryLeafHsCode>;
-  /** 叶子hscode对应的父节点。 是将父节点压缩都一个list集合中，方便查询，已经按照层级结构进行排序 */
+  /** Parent nodes of the leaf hscode. The parent nodes are compressed into a list for easy querying, already sorted by hierarchy */
   parentHsCodeList?: Array<GlobalHscodeKeywordsQueryParentHsCode>;
 }
 
@@ -419,13 +419,13 @@ export const GlobalHscodeKeywordsQueryHsCodeResponseDTOSchema: Schema = {
 };
 
 export interface GlobalHscodeKeywordsQueryLeafHsCode {
-  /** hscode的英文描述 */
+  /** English description of the hscode */
   hsCodeDesc?: string;
-  /** hscode主键，叶子结点才能用来发品 */
+  /** hscode primary key; only leaf nodes can be used for listing products */
   hsCode?: string;
-  /** hscode的长度 */
+  /** Length of the hscode */
   hsCodeLength?: number;
-  /** 叶子hscode的排列顺序，2 -> 2-1 -> 2-2 -> 2-3 */
+  /** Order of the leaf hscode, 2 -> 2-1 -> 2-2 -> 2-3 */
   rank?: string;
 }
 
@@ -437,11 +437,11 @@ export const GlobalHscodeKeywordsQueryLeafHsCodeSchema: Schema = {
 };
 
 export interface GlobalHscodeKeywordsQueryParentHsCode {
-  /** hscode的英文描述 */
+  /** English description of the hscode */
   hsCodeDesc?: string;
-  /** hscode主键，非叶子结点。 */
+  /** hscode primary key, non-leaf node. */
   hsCode?: string;
-  /** hscode的长度，非叶子结点的长度越短，代表越靠近根结点。 父节点的层级顺序是 4-> 6。或 4-> 5->6 */
+  /** Length of the hscode. The shorter the length of a non-leaf node, the closer it is to the root node. The level order of parent nodes is 4-> 6, or 4-> 5->6 */
   hsCodeLength?: number;
 }
 
@@ -452,13 +452,13 @@ export const GlobalHscodeKeywordsQueryParentHsCodeSchema: Schema = {
 };
 
 export interface GlobalManufactureDetailSellerAuthResponse {
-  /** 数据 */
+  /** Data */
   data?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   error?: string;
 }
 
@@ -470,13 +470,13 @@ export const GlobalManufactureDetailSellerAuthResponseSchema: Schema = {
 };
 
 export interface GlobalManufactureListSellerAuthResponse {
-  /** 数据 */
+  /** Data */
   data?: string;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   error?: string;
 }
 
@@ -488,13 +488,13 @@ export const GlobalManufactureListSellerAuthResponseSchema: Schema = {
 };
 
 export interface GlobalMediacenterBaseinfoGetBaseResultDTO {
-  /** 容量信息 */
+  /** Capacity information */
   baseInfo?: GlobalMediacenterBaseinfoGetMediaGalleryOpenDTO;
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -510,9 +510,9 @@ export const GlobalMediacenterBaseinfoGetBaseResultDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterBaseinfoGetMediaGalleryOpenDTO {
-  /** 总容量大小，单位字节 */
+  /** Total capacity, unit: bytes */
   capicity?: string;
-  /** 已使用容量，单位字节 */
+  /** Used capacity, unit: bytes */
   usage?: string;
 }
 
@@ -522,13 +522,13 @@ export const GlobalMediacenterBaseinfoGetMediaGalleryOpenDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterFolderQueryBaseResultDTO {
-  /** 文件夹信息 */
+  /** Folder information */
   folderList?: Array<GlobalMediacenterFolderQueryMediaFolderOpenDTO>;
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -544,11 +544,11 @@ export const GlobalMediacenterFolderQueryBaseResultDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterFolderQueryMediaFolderOpenDTO {
-  /** 文件夹id */
+  /** Folder ID */
   id?: Long;
-  /** 文件夹名称 */
+  /** Folder name */
   name?: string;
-  /** 父(上层)文件夹id */
+  /** Parent (upper-level) folder id */
   parentFolderId?: Long;
 }
 
@@ -559,7 +559,7 @@ export const GlobalMediacenterFolderQueryMediaFolderOpenDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterFolderQueryMediaFolderQueryParamsOpenDTO {
-  /** 文件夹id，必须大于等于0。0表示根文件夹 */
+  /** Folder ID, must be greater than or equal to 0. 0 means the root folder */
   folderId?: Long;
 }
 
@@ -569,13 +569,13 @@ export const GlobalMediacenterFolderQueryMediaFolderQueryParamsOpenDTOSchema: Sc
   };
 
 export interface GlobalMediacenterImageChannelTransferBaseResultDTO {
-  /** 对应渠道的图片URL */
+  /** Image URL for the corresponding channel */
   channelImageUrl?: string;
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -588,9 +588,9 @@ export const GlobalMediacenterImageChannelTransferBaseResultDTOSchema: Schema =
   };
 
 export interface GlobalMediacenterImageChannelTransferMediaImageOpsParamsOpenDTO {
-  /** 目标渠道。可选项：AE_GLOBAL,ARISE_ES,ARISE_FR */
+  /** Target channel. Options: AE_GLOBAL,ARISE_ES,ARISE_FR */
   channel?: string;
-  /** 媒体中心中的图片id */
+  /** Image id in the media center */
   id?: Long;
 }
 
@@ -601,11 +601,11 @@ export const GlobalMediacenterImageChannelTransferMediaImageOpsParamsOpenDTOSche
   };
 
 export interface GlobalMediacenterImageDeleteBaseResultDTO {
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -616,7 +616,7 @@ export const GlobalMediacenterImageDeleteBaseResultDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterImageDeleteMediaImageOpsParamsOpenDTO {
-  /** 媒体中心中的图片id */
+  /** Image id in the media center */
   id?: Long;
 }
 
@@ -626,13 +626,13 @@ export const GlobalMediacenterImageDeleteMediaImageOpsParamsOpenDTOSchema: Schem
   };
 
 export interface GlobalMediacenterImageListbypathBaseResultDTO {
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 图片信息 */
+  /** Image information */
   imageList?: Array<GlobalMediacenterImageListbypathMediaImageOpenDTO>;
 }
 
@@ -648,21 +648,21 @@ export const GlobalMediacenterImageListbypathBaseResultDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterImageListbypathMediaImageOpenDTO {
-  /** 图片名称 */
+  /** Image name */
   name?: string;
-  /** 图片URL */
+  /** Image URL */
   url?: string;
-  /** 图片大小 */
+  /** Image size */
   size?: number;
-  /** 图片宽度 */
+  /** Image width */
   width?: number;
-  /** 图片高度 */
+  /** Image height */
   height?: number;
-  /** 图片格式 */
+  /** Image format */
   fileFormat?: string;
-  /** 文件夹id */
+  /** Folder ID */
   folderId?: Long;
-  /** 图片id */
+  /** Image ID */
   id?: Long;
 }
 
@@ -678,7 +678,7 @@ export const GlobalMediacenterImageListbypathMediaImageOpenDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterImageListbypathMediaImageQueryParamsOpenDTO {
-  /** 图片path信息，数组长度不能超过50。如已查询媒体中心中某图片URL为https://ae01.alicdn.com/kf/S89bbccac0eb54d68a641fa93e984e4fr.jpeg，其path为S89bbccac0eb54d68a641fa93e984e4fr.jpeg */
+  /** Image path information; the array length cannot exceed 50. For example, if an image URL found in the media center is https://ae01.alicdn.com/kf/S89bbccac0eb54d68a641fa93e984e4fr.jpeg, its path is S89bbccac0eb54d68a641fa93e984e4fr.jpeg */
   pathNameList?: Array<string>;
 }
 
@@ -688,21 +688,21 @@ export const GlobalMediacenterImageListbypathMediaImageQueryParamsOpenDTOSchema:
   };
 
 export interface GlobalMediacenterImageListpageMediaImageOpenDTO {
-  /** 图片id */
+  /** Image ID */
   id?: Long;
-  /** 图片名称 */
+  /** Image name */
   name?: string;
-  /** 图片URL */
+  /** Image URL */
   url?: string;
-  /** 图片大小 */
+  /** Image size */
   size?: number;
-  /** 图片宽度 */
+  /** Image width */
   width?: number;
-  /** 图片高度 */
+  /** Image height */
   height?: number;
-  /** 图片格式 */
+  /** Image format */
   fileFormat?: string;
-  /** 文件夹id */
+  /** Folder ID */
   folderId?: Long;
 }
 
@@ -718,11 +718,11 @@ export const GlobalMediacenterImageListpageMediaImageOpenDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterImageListpageMediaImageQueryParamsOpenDTO {
-  /** 分页的单页数据量。不能超过50 */
+  /** Data volume per page. Cannot exceed 50 */
   pageSize?: number;
-  /** 分页页码。从1开始 */
+  /** Page number for pagination. Starts from 1 */
   currentPage?: number;
-  /** 文件夹id，必须大于等于0。0表示根文件夹 */
+  /** Folder ID, must be greater than or equal to 0. 0 means the root folder */
   folderId?: Long;
 }
 
@@ -734,21 +734,21 @@ export const GlobalMediacenterImageListpageMediaImageQueryParamsOpenDTOSchema: S
   };
 
 export interface GlobalMediacenterImageListpagePageResultDTO {
-  /** 图片信息列表 */
+  /** Image information list */
   imageList?: Array<GlobalMediacenterImageListpageMediaImageOpenDTO>;
-  /** 总页数 */
+  /** Total pages */
   totalPage?: number;
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 每页数据量 */
+  /** Data volume per page */
   pageSize?: number;
-  /** 查询条件下的图片总数量 */
+  /** Total number of images under the query conditions */
   totalCount?: number;
-  /** 当前页面。从1开始 */
+  /** Current page. Starts from 1 */
   currentPage?: number;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -768,13 +768,13 @@ export const GlobalMediacenterImageListpagePageResultDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterImageUploadBaseResultDTO {
-  /** 图片信息 */
+  /** Image information */
   data?: GlobalMediacenterImageUploadMediaImageOpenDTO;
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -790,21 +790,21 @@ export const GlobalMediacenterImageUploadBaseResultDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterImageUploadMediaImageOpenDTO {
-  /** 图片id */
+  /** Image ID */
   id?: Long;
-  /** 图片上传时的名称 */
+  /** Name when uploading the image */
   name?: string;
-  /** 图片的URL */
+  /** Image URL */
   url?: string;
-  /** 图片大小，单位字节 */
+  /** Image size, unit: bytes */
   size?: number;
-  /** 图片宽度 */
+  /** Image width */
   width?: number;
-  /** 图片长度 */
+  /** Image length */
   height?: number;
-  /** 图片格式 */
+  /** Image format */
   fileFormat?: string;
-  /** 图片所在文件夹id */
+  /** ID of the folder containing the image */
   folderId?: Long;
 }
 
@@ -820,13 +820,13 @@ export const GlobalMediacenterImageUploadMediaImageOpenDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterVideoChannelTransferBaseResultDTO {
-  /** 视频信息 */
+  /** Video information */
   videoInfo?: GlobalMediacenterVideoChannelTransferMediaVideoOpenDTO;
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -843,9 +843,9 @@ export const GlobalMediacenterVideoChannelTransferBaseResultDTOSchema: Schema =
   };
 
 export interface GlobalMediacenterVideoChannelTransferMediaVideoOpenDTO {
-  /** 视频播放地址 */
+  /** Video playback URL */
   url?: string;
-  /** 视频存储id。用于发布商品时使用 */
+  /** Video storage id. Used when publishing a product */
   storeName?: string;
 }
 
@@ -856,11 +856,11 @@ export const GlobalMediacenterVideoChannelTransferMediaVideoOpenDTOSchema: Schem
   };
 
 export interface GlobalMediacenterVideoDeleteBaseResultDTO {
-  /** 是否删除成功 */
+  /** Whether deletion succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -871,13 +871,13 @@ export const GlobalMediacenterVideoDeleteBaseResultDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterVideoGetbystoragenameBaseResultDTO {
-  /** 视频信息 */
+  /** Video information */
   videoInfo?: GlobalMediacenterVideoGetbystoragenameMediaVideoOpenDTO;
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -894,25 +894,25 @@ export const GlobalMediacenterVideoGetbystoragenameBaseResultDTOSchema: Schema =
   };
 
 export interface GlobalMediacenterVideoGetbystoragenameMediaVideoOpenDTO {
-  /** 媒体中心视频id。用于管理媒体中心的视频文件 */
+  /** Media center video ID. Used to manage video files in the media center */
   id?: Long;
-  /** 视频存储id。用于发布商品时使用 */
+  /** Video storage id. Used when publishing a product */
   storeName?: string;
-  /** 自定义视频名称。 */
+  /** Custom video name. */
   name?: string;
-  /** 视频文件格式 */
+  /** Video file format */
   fileFormat?: string;
-  /** 视频文件大小，单位byte */
+  /** Video file size, unit: byte */
   size?: number;
-  /** 视频封面图片URL */
+  /** Video cover image URL */
   coverUrl?: string;
-  /** 视频时长，单位秒 */
+  /** Video duration, in seconds */
   duration?: number;
-  /** 视频宽高比 */
+  /** Video aspect ratio */
   ratio?: string;
-  /** 视频播放地址 */
+  /** Video playback URL */
   url?: string;
-  /** 是否通过审核：1 通过，-1 不通过， 0 审核中 */
+  /** Whether review passed: 1 passed, -1 not passed, 0 under review */
   auditStatus?: string;
 }
 
@@ -931,25 +931,25 @@ export const GlobalMediacenterVideoGetbystoragenameMediaVideoOpenDTOSchema: Sche
   };
 
 export interface GlobalMediacenterVideoListpageMediaVideoOpenDTO {
-  /** 自定义视频名称 */
+  /** Custom video name */
   name?: string;
-  /** 视频文件格式 */
+  /** Video file format */
   fileFormat?: string;
-  /** 视频文件大小，单位byte */
+  /** Video file size, unit: byte */
   size?: number;
-  /** 视频封面图片URL */
+  /** Video cover image URL */
   coverUrl?: string;
-  /** 视频时长，单位秒 */
+  /** Video duration, in seconds */
   duration?: number;
-  /** 视频宽高比 */
+  /** Video aspect ratio */
   ratio?: string;
-  /** 视频播放地址 */
+  /** Video playback URL */
   url?: string;
-  /** 是否通过审核,1：通过，-1：不通过， 0：审核中 */
+  /** Whether review passed, 1: passed, -1: not passed, 0: under review */
   auditStatus?: string;
-  /** 媒体中心视频id。用于管理媒体中心的视频文件 */
+  /** Media center video ID. Used to manage video files in the media center */
   id?: Long;
-  /** 视频存储id。用于发布商品时使用 */
+  /** Video storage id. Used when publishing a product */
   storeName?: string;
 }
 
@@ -967,21 +967,21 @@ export const GlobalMediacenterVideoListpageMediaVideoOpenDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterVideoListpagePageResultDTO {
-  /** 总页数 */
+  /** Total pages */
   totalPage?: number;
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 每页数据量 */
+  /** Data volume per page */
   pageSize?: number;
-  /** 查询条件下的图片总数量 */
+  /** Total number of images under the query conditions */
   totalCount?: number;
-  /** 当前页面。从1开始 */
+  /** Current page. Starts from 1 */
   currentPage?: number;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 视频信息列表 */
+  /** Video information list */
   videoList?: Array<GlobalMediacenterVideoListpageMediaVideoOpenDTO>;
 }
 
@@ -1001,13 +1001,13 @@ export const GlobalMediacenterVideoListpagePageResultDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterVideoUploadbyurlBaseResultDTO {
-  /** 视频转存结果 */
+  /** Video transfer result */
   data?: GlobalMediacenterVideoUploadbyurlMediaVideoProcessOpenDTO;
-  /** 调用是否成功 */
+  /** Whether the call succeeded */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -1023,23 +1023,23 @@ export const GlobalMediacenterVideoUploadbyurlBaseResultDTOSchema: Schema = {
 };
 
 export interface GlobalMediacenterVideoUploadbyurlMediaVideoOpenDTO {
-  /** 媒体中心视频id。用于管理媒体中心的视频文件 */
+  /** Media center video ID. Used to manage video files in the media center */
   id?: Long;
-  /** 视频存储id。 需要等视频审核通过才能发品。 视频审核状态请监听消息推送或者调用视频查询接口：global.mediacenter.video.getbystoragename */
+  /** Video storage id. The video must pass review before the product can be published. For the video review status, listen to message push or call the video query API: global.mediacenter.video.getbystoragename */
   storeName?: string;
-  /** 自定义视频名称。等于入参中的videoName */
+  /** Custom video name. Equal to videoName in the input parameters */
   name?: string;
-  /** 视频文件格式 */
+  /** Video file format */
   fileFormat?: string;
-  /** 视频文件大小，单位byte */
+  /** Video file size, unit: byte */
   size?: number;
-  /** 视频封面图片URL */
+  /** Video cover image URL */
   coverUrl?: string;
-  /** 视频时长，单位秒 */
+  /** Video duration, in seconds */
   duration?: number;
-  /** 视频宽高比 */
+  /** Video aspect ratio */
   ratio?: string;
-  /** 视频播放地址 */
+  /** Video playback URL */
   url?: string;
 }
 
@@ -1057,13 +1057,13 @@ export const GlobalMediacenterVideoUploadbyurlMediaVideoOpenDTOSchema: Schema =
   };
 
 export interface GlobalMediacenterVideoUploadbyurlMediaVideoProcessOpenDTO {
-  /** 0表示转存成功，1表示转存失败，2表示处理中。同一个URL首次上传时，返回2 */
+  /** 0 means the transfer succeeded, 1 means it failed, 2 means processing. When the same URL is uploaded for the first time, 2 is returned */
   transferStatus?: number;
-  /** 入参中的bizId，原样返回 */
+  /** bizId from the input parameters, returned as is */
   bizId?: string;
-  /** 视频信息。transferStatus!=0时为空 */
+  /** Video information. Empty when transferStatus!=0 */
   videoInfo?: GlobalMediacenterVideoUploadbyurlMediaVideoOpenDTO;
-  /** transfer_status=1转存失败时，此字段将给出错误原因 */
+  /** When transfer_status=1 (transfer failed), this field gives the error reason */
   errorMsg?: string;
 }
 
@@ -1080,27 +1080,27 @@ export const GlobalMediacenterVideoUploadbyurlMediaVideoProcessOpenDTOSchema: Sc
   };
 
 export interface GlobalMerchantAicInvLogAicISVWarehouseInvLogDTO {
-  /** 动帐后数量 */
+  /** Quantity after posting */
   resultQuantity?: number;
-  /** 业务单据 */
+  /** Business document */
   bizNo?: string;
-  /** 库存类型，0良品，1残品 */
+  /** Inventory type, 0 good, 1 defective */
   inventoryType?: number;
-  /** LBX单据 */
+  /** LBX document */
   whOrderCode?: string;
-  /** 业务类型 */
+  /** Business type */
   bizType?: string;
-  /** 交易主单 */
+  /** Main transaction order */
   bizTradeId?: string;
-  /** 动帐时间 */
+  /** Posting time */
   operateTime?: Long;
-  /** 交易子单 */
+  /** Transaction sub-order */
   bizSubTradeId?: string;
-  /** 动帐数量 */
+  /** Posting quantity */
   changeQuantity?: number;
-  /** 货品信息 */
+  /** Goods information */
   scItemInfo?: GlobalMerchantAicInvLogScItemInfo;
-  /** 仓信息 */
+  /** Warehouse information */
   storeInfo?: GlobalMerchantAicInvLogStoreInfo;
 }
 
@@ -1123,13 +1123,13 @@ export const GlobalMerchantAicInvLogAicISVWarehouseInvLogDTOSchema: Schema = {
 };
 
 export interface GlobalMerchantAicInvLogScItemInfo {
-  /** 货品名称 */
+  /** Goods name */
   scItemName?: string;
-  /** 货品编码 */
+  /** Goods code */
   scItemCode?: string;
-  /** 货品id */
+  /** Goods ID */
   scItemId?: string;
-  /** 货品条形码 */
+  /** Goods barcode */
   scItemBarcode?: string;
 }
 
@@ -1141,11 +1141,11 @@ export const GlobalMerchantAicInvLogScItemInfoSchema: Schema = {
 };
 
 export interface GlobalMerchantAicInvLogStoreInfo {
-  /** 仓类型 */
+  /** Warehouse type */
   storeType?: string;
-  /** 仓名称 */
+  /** Warehouse name */
   storeName?: string;
-  /** 仓code */
+  /** Warehouse code */
   storeCode?: string;
 }
 
@@ -1156,21 +1156,21 @@ export const GlobalMerchantAicInvLogStoreInfoSchema: Schema = {
 };
 
 export interface GlobalMerchantAicIsvInventoryLockRecordAicIsvInventoryDetailDTO {
-  /** 在途库存类型 */
+  /** In-transit inventory type */
   inventoryType?: string;
-  /** 业务单据 */
+  /** Business document */
   bizNo?: string;
-  /** 业务类型 */
+  /** Business type */
   bizType?: string;
-  /** 占用开始时间 */
+  /** Occupation start time */
   createTime?: string;
-  /** 货品信息 */
+  /** Goods information */
   scItemInfo?: GlobalMerchantAicIsvInventoryLockRecordScItemInfo;
-  /** 仓信息 */
+  /** Warehouse information */
   storeInfo?: GlobalMerchantAicIsvInventoryLockRecordStoreInfo;
-  /** 占用件数 */
+  /** Occupied pieces */
   remainQuantity?: string;
-  /** 占用天数 */
+  /** Occupied days */
   day?: string;
 }
 
@@ -1195,11 +1195,11 @@ export const GlobalMerchantAicIsvInventoryLockRecordAicIsvInventoryDetailDTOSche
   };
 
 export interface GlobalMerchantAicIsvInventoryLockRecordScItemInfo {
-  /** 货品名称 */
+  /** Goods name */
   scItemName?: string;
-  /** 货品编码 */
+  /** Goods code */
   scItemCode?: string;
-  /** 货品ID */
+  /** Goods ID */
   scItemId?: string;
 }
 
@@ -1210,11 +1210,11 @@ export const GlobalMerchantAicIsvInventoryLockRecordScItemInfoSchema: Schema = {
 };
 
 export interface GlobalMerchantAicIsvInventoryLockRecordStoreInfo {
-  /** 仓类型 */
+  /** Warehouse type */
   storeType?: string;
-  /** 仓名称 */
+  /** Warehouse name */
   storeName?: string;
-  /** 仓code */
+  /** Warehouse code */
   storeCode?: string;
 }
 
@@ -1225,23 +1225,23 @@ export const GlobalMerchantAicIsvInventoryLockRecordStoreInfoSchema: Schema = {
 };
 
 export interface GlobalMerchantAicIsvInventoryOnwayRecordAicIsvInventoryDetailDTO {
-  /** 在途库存类型 */
+  /** In-transit inventory type */
   inventoryType?: string;
-  /** 业务单据 */
+  /** Business document */
   bizNo?: string;
-  /** 业务类型 */
+  /** Business type */
   bizType?: string;
-  /** 在途创建时间 */
+  /** In-transit creation time */
   createTime?: string;
-  /** 货品信息 */
+  /** Goods information */
   scItemInfo?: GlobalMerchantAicIsvInventoryOnwayRecordScItemInfo;
-  /** 仓信息 */
+  /** Warehouse information */
   storeInfo?: GlobalMerchantAicIsvInventoryOnwayRecordStoreInfo;
-  /** 在途件数 */
+  /** In-transit pieces */
   remainQuantity?: string;
-  /** 在途天数 */
+  /** In-transit days */
   day?: string;
-  /** 在途已售数量 */
+  /** In-transit sold quantity */
   soldQuantity?: string;
 }
 
@@ -1267,11 +1267,11 @@ export const GlobalMerchantAicIsvInventoryOnwayRecordAicIsvInventoryDetailDTOSch
   };
 
 export interface GlobalMerchantAicIsvInventoryOnwayRecordScItemInfo {
-  /** 货品名称 */
+  /** Goods name */
   scItemName?: string;
-  /** 货品编码 */
+  /** Goods code */
   scItemCode?: string;
-  /** 货品ID */
+  /** Goods ID */
   scItemId?: string;
 }
 
@@ -1283,11 +1283,11 @@ export const GlobalMerchantAicIsvInventoryOnwayRecordScItemInfoSchema: Schema =
   };
 
 export interface GlobalMerchantAicIsvInventoryOnwayRecordStoreInfo {
-  /** 仓类型 */
+  /** Warehouse type */
   storeType?: string;
-  /** 仓名称 */
+  /** Warehouse name */
   storeName?: string;
-  /** 仓code */
+  /** Warehouse code */
   storeCode?: string;
 }
 
@@ -1298,115 +1298,115 @@ export const GlobalMerchantAicIsvInventoryOnwayRecordStoreInfoSchema: Schema = {
 };
 
 export interface GlobalMerchantAicIsvJxcAicISVJxcDTO {
-  /** 期间_调拨入库件数_总量 */
+  /** Period: transfer inbound quantity - total */
   midInboundTsfTotalQuantity?: string;
-  /** 期间_报废出库件数_良品 */
+  /** Period: scrap outbound quantity - good */
   midOutBoundScrapGoodQuantity?: string;
-  /** 期初_在途总件数 */
+  /** Opening total in-transit pieces */
   startOnWayTotalQuantity?: string;
-  /** 进销存结束时间 */
+  /** Inventory movement end time */
   endDate?: string;
-  /** 期间_异常总量 */
+  /** Total abnormal quantity during the period */
   midAbnormalTotalQuantity?: string;
-  /** 期初_销售退货在途 */
+  /** Period start: sales returns in transit */
   startOnwayRsoQuantity?: string;
-  /** 期间_库存类型调整出库件数_良品 */
+  /** Period: outbound quantity from inventory type adjustment - good */
   midOutBoundTypeChangeGoodQuantity?: string;
-  /** 期间_库存类型调整入库件数_良品 */
+  /** Period: inbound quantity from inventory type adjustment - good */
   midInboundTypeChangeGoodQuantity?: string;
-  /** 期初_补货在途 */
+  /** Opening replenishment in transit */
   startOnwayPoQuantity?: string;
-  /** 期间_报废出库件数_残品 */
+  /** Period: scrap outbound quantity - defective */
   midOutBoundScrapBadQuantity?: string;
-  /** 期末_补货在途 */
+  /** Closing replenishment in transit */
   endOnwayPoQuantity?: string;
-  /** 期间_良转残件数 */
+  /** Pieces converted from good to defective during the period */
   midGoodToBadQuantity?: string;
-  /** 期间_盘盈入库件数_良品 */
+  /** Period: inventory surplus inbound quantity - good */
   midInboundAdjSurplusGoodQuantity?: string;
-  /** 期末_在仓总件数_残品 */
+  /** Period end: total units in warehouse - defective */
   endWarehouseBadQuantity?: string;
-  /** 品信息 */
+  /** Goods information */
   scItemInfo?: GlobalMerchantAicIsvJxcScItemInfo;
-  /** 期末_在仓总件数 */
+  /** Closing total in-warehouse pieces */
   endWarehouseTotalQuantity?: string;
-  /** 期初_在仓总件数_良品 */
+  /** Period start: total units in warehouse - good */
   startWarehouseGoodQuantity?: string;
-  /** 期间_盘亏出库件数_残品 */
+  /** Period: inventory shortage outbound quantity - defective */
   midOutBoundAdjLossBadQuantity?: string;
-  /** 期间_补货入库件数_良品 */
+  /** Period: replenishment inbound quantity - good */
   midInboundPoGoodQuantity?: string;
-  /** 期间_销售退货入库件数_总量 */
+  /** Period: sales return inbound quantity - total */
   midInboundRsoTotalQuantity?: string;
-  /** 期间_报废出库件数_总量 */
+  /** Period: scrap outbound quantity - total */
   midOutBoundScrapTotalQuantity?: string;
-  /** 期间_库存类型调整入库件数_残品 */
+  /** Period: inbound quantity from inventory type adjustment - defective */
   midInboundTypeChangeBadQuantity?: string;
-  /** 期末_在仓总件数_良品 */
+  /** Period end: total units in warehouse - good */
   endWarehouseGoodQuantity?: string;
-  /** 期间_调拨出库件数_残品 */
+  /** Period: transfer outbound quantity - defective */
   midOutBoundTsfBadQuantity?: string;
-  /** 期初_调拨在途 */
+  /** Opening transfer in transit */
   startOnwayTsfQuantity?: string;
-  /** 期间_库存类型调整入库件数_总量 */
+  /** Period: inbound quantity from inventory type adjustment - total */
   midInboundTypeChangeTotalQuantity?: string;
-  /** 进销存开始时间 */
+  /** Inventory movement start time */
   startDate?: string;
-  /** 期初_在仓总件数 */
+  /** Opening total in-warehouse pieces */
   startWarehouseTotalQuantity?: string;
-  /** 期间_库存类型调整出库件数_总量 */
+  /** Period: outbound quantity from inventory type adjustment - total */
   midOutBoundTypeChangeTotalQuantity?: string;
-  /** 期间_调拨入库件数_残品 */
+  /** Period: transfer inbound quantity - defective */
   midInboundTsfBadQuantity?: string;
-  /** 期间_补货入库件数_残品 */
+  /** Period: replenishment inbound quantity - defective */
   midInboundPoBadQuantity?: string;
-  /** 期间_库存类型调整出库件数_残品 */
+  /** Period: outbound quantity from inventory type adjustment - defective */
   midOutBoundTypeChangeBadQuantity?: string;
-  /** 期间_盘亏出库件数_总量 */
+  /** Period: inventory shortage outbound quantity - total */
   midOutBoundAdjLossTotalQuantity?: string;
-  /** 期间_盘盈入库件数_总量 */
+  /** Period: inventory surplus inbound quantity - total */
   midInboundAdjSurplusTotalQuantity?: string;
-  /** 期间_销售出库件数_总量 */
+  /** Period: sales outbound quantity - total */
   midOutBoundSoTotalQuantity?: string;
-  /** 期间_调拨丢货件数 */
+  /** Period: transfer lost units */
   midTsfDiffQuantity?: string;
-  /** 期末_调拨在途 */
+  /** Closing transfer in transit */
   endOnwayTsfQuantity?: string;
-  /** 期末_销售退货在途 */
+  /** Period end: sales returns in transit */
   endOnwayRsoQuantity?: string;
-  /** 期间_盘盈入库件数_残品 */
+  /** Period: inventory surplus inbound quantity - defective */
   midInboundAdjSurplusBadQuantity?: string;
-  /** 期间_仓内净盘亏件数 */
+  /** Period: net inventory loss units in warehouse */
   midAdjNetQuantity?: string;
-  /** 期间_补货入库件数_总量 */
+  /** Period: replenishment inbound quantity - total */
   midInboundPoTotalQuantity?: string;
-  /** 期末_在途总件数 */
+  /** Closing total in-transit pieces */
   endOnWayTotalQuantity?: string;
-  /** 期间_销售退货入库件数_良品 */
+  /** Period: sales return inbound quantity - good */
   midInboundRsoGoodQuantity?: string;
-  /** 期间_销售出库件数_残品 */
+  /** Period: sales outbound quantity - defective */
   midOutBoundSoBadQuantity?: string;
-  /** 期间_销售退货入库件数_残品 */
+  /** Period: sales return inbound quantity - defective */
   midInboundRsoBadQuantity?: string;
-  /** 期初_销售在途 */
+  /** Opening sales in transit */
   startOnwaySoQuantity?: string;
-  /** 期末_销售在途 */
+  /** Closing sales in transit */
   endOnwaySoQuantity?: string;
-  /** 期间_调拨出库件数_总量 */
+  /** Period: transfer outbound quantity - total */
   midOutBoundTsfTotalQuantity?: string;
-  /** 期间_盘亏出库件数_良品 */
+  /** Period: inventory shortage outbound quantity - good */
   midOutBoundAdjLossGoodQuantity?: string;
-  /** 期间_调拨出库件数_良品 */
+  /** Period: transfer outbound quantity - good */
   midOutBoundTsfGoodQuantity?: string;
-  /** 期间_销售退货丢货件数 */
+  /** Period: sales return lost units */
   midRsoDiffQuantity?: string;
-  /** 期初_在仓总件数_残品 */
+  /** Period start: total units in warehouse - defective */
   startWarehouseBadQuantity?: string;
-  /** 期间_销售出库件数_良品 */
+  /** Period: sales outbound quantity - good */
   midOutBoundSoGoodQuantity?: string;
-  /** 仓信息 */
+  /** Warehouse information */
   storeInfo?: GlobalMerchantAicIsvJxcStoreInfo;
-  /** 期间_调拨入库件数_良品 */
+  /** Period: transfer inbound quantity - good */
   midInboundTsfGoodQuantity?: string;
 }
 
@@ -1503,11 +1503,11 @@ export const GlobalMerchantAicIsvJxcAicISVJxcDTOSchema: Schema = {
 };
 
 export interface GlobalMerchantAicIsvJxcScItemInfo {
-  /** 品名称 */
+  /** Goods name */
   scItemName?: string;
-  /** 品编码 */
+  /** Goods code */
   scItemCode?: string;
-  /** 品id */
+  /** Goods ID */
   scItemId?: string;
 }
 
@@ -1518,11 +1518,11 @@ export const GlobalMerchantAicIsvJxcScItemInfoSchema: Schema = {
 };
 
 export interface GlobalMerchantAicIsvJxcStoreInfo {
-  /** 仓类型 */
+  /** Warehouse type */
   storeType?: string;
-  /** 仓名称 */
+  /** Warehouse name */
   storeName?: string;
-  /** 仓code */
+  /** Warehouse code */
   storeCode?: string;
 }
 
@@ -1533,59 +1533,59 @@ export const GlobalMerchantAicIsvJxcStoreInfoSchema: Schema = {
 };
 
 export interface GlobalMerchantAicRealTimeInvAicISVRealTimeDTO {
-  /** 采购创单在途件数 */
+  /** Pieces in transit from created purchase orders */
   createdTransitQuantity?: number;
-  /** 采购供应商确认在途件数 */
+  /** Units in transit confirmed by the purchasing supplier */
   approvedTransitQuantity?: number;
-  /** 可仓退件数 */
+  /** Pieces eligible for warehouse return */
   returnAbleQuantity?: number;
-  /** 销售占用件数 */
+  /** Pieces occupied by sales */
   soLockQuantity?: number;
-  /** 历史7天销量件数 */
+  /** Pieces sold in the past 7 days */
   day7SoSaleQuantity?: number;
-  /** 盘点占用件数 */
+  /** Pieces occupied by stocktaking */
   lossLockQuantity?: number;
-  /** 历史30天销量件数 */
+  /** Units sold in the last 30 days */
   day30SoSaleQuantity?: number;
-  /** 调拨占用件数 */
+  /** Pieces occupied by transfers */
   tsfLockQuantity?: number;
-  /** 采购预约在途 */
+  /** Purchase appointment in transit */
   appointedTransitQuantity?: number;
-  /** 总库存件数 */
+  /** Total inventory pieces */
   totalQuantity?: number;
-  /** 残品库存件数 */
+  /** Defective inventory pieces */
   defectiveQuantity?: number;
-  /** 销售在途件数 */
+  /** Sales in-transit pieces */
   soInTransitQuantity?: number;
-  /** 补货在途件数 */
+  /** Replenishment in-transit pieces */
   poInTransitQuantity?: number;
-  /** 在仓良品可售库存件数 */
+  /** Sellable good-condition inventory units in warehouse */
   warehouseSalable?: number;
-  /** 历史14天销量件数 */
+  /** Units sold in the last 14 days */
   day14SoSaleQuantity?: number;
-  /** 历史1天销量件数 */
+  /** Pieces sold in the past 1 day */
   day1SoSaleQuantity?: number;
-  /** 货品信息 */
+  /** Goods information */
   scItemInfo?: GlobalMerchantAicRealTimeInvScItemInfo;
-  /** 已收货待上架件数 */
+  /** Pieces received and awaiting shelving */
   waitToUpShelf?: number;
-  /** 在仓总库存件数 */
+  /** Total in-warehouse inventory pieces */
   warehouse?: number;
-  /** 调拨在途件数 */
+  /** Transfer in-transit pieces */
   toInTransitQuantity?: number;
-  /** 退仓占用件数 */
+  /** Pieces occupied by warehouse returns */
   rtvLockQuantity?: number;
-  /** 销售退货在途件数 */
+  /** Pieces in transit from sales returns */
   rsoInTransitQuantity?: number;
-  /** 在仓不可售库存件数 */
+  /** Unsellable inventory units in warehouse */
   warehouseUnsalable?: number;
-  /** 报废占用件数 */
+  /** Pieces occupied by scrapping */
   scrapLockQuantity?: number;
-  /** 在途库存件数 */
+  /** In-transit inventory pieces */
   transitQuantity?: number;
-  /** 仓信息 */
+  /** Warehouse information */
   storeInfo?: GlobalMerchantAicRealTimeInvStoreInfo;
-  /** 在途已售数量 */
+  /** In-transit sold quantity */
   onwaySoldQuantity?: Long;
 }
 
@@ -1628,13 +1628,13 @@ export const GlobalMerchantAicRealTimeInvAicISVRealTimeDTOSchema: Schema = {
 };
 
 export interface GlobalMerchantAicRealTimeInvScItemInfo {
-  /** 货品名称 */
+  /** Goods name */
   scItemName?: string;
-  /** 货品编码 */
+  /** Goods code */
   scItemCode?: string;
-  /** 货品id */
+  /** Goods ID */
   scItemId?: string;
-  /** 货品条形码 */
+  /** Goods barcode */
   scItemBarcode?: string;
 }
 
@@ -1646,11 +1646,11 @@ export const GlobalMerchantAicRealTimeInvScItemInfoSchema: Schema = {
 };
 
 export interface GlobalMerchantAicRealTimeInvStoreInfo {
-  /** 仓类型 */
+  /** Warehouse type */
   storeType?: string;
-  /** 仓名称 */
+  /** Warehouse name */
   storeName?: string;
-  /** 仓code */
+  /** Warehouse code */
   storeCode?: string;
 }
 
@@ -1661,13 +1661,13 @@ export const GlobalMerchantAicRealTimeInvStoreInfoSchema: Schema = {
 };
 
 export interface GlobalMsrDetailSellerAuthResponse {
-  /** 数据 */
+  /** Data */
   data?: string;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   error?: string;
 }
 
@@ -1679,13 +1679,13 @@ export const GlobalMsrDetailSellerAuthResponseSchema: Schema = {
 };
 
 export interface GlobalMsrListSellerAuthResponse {
-  /** msr列表 */
+  /** MSR list */
   data?: string;
-  /** 成功 */
+  /** Success */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   error?: string;
 }
 
@@ -1697,15 +1697,15 @@ export const GlobalMsrListSellerAuthResponseSchema: Schema = {
 };
 
 export interface GlobalProductCreateCspChannelSkuApiDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: Long;
-  /** 渠道sku日常促销价 */
+  /** Channel SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 渠道sku价格 */
+  /** Channel SKU price */
   skuPrice?: string;
-  /** 渠道sku库存 */
+  /** Channel SKU inventory */
   skuStock?: Long;
 }
 
@@ -1718,29 +1718,29 @@ export const GlobalProductCreateCspChannelSkuApiDTOSchema: Schema = {
 };
 
 export interface GlobalProductCreateCspProduct {
-  /** 标题模块 */
+  /** Title module */
   subjectList?: Array<GlobalProductCreateSubject>;
-  /** 运费模版ID。通过运费接口listFreightTemplate获取。 */
+  /** Shipping fee template ID. Obtained via the freight API listFreightTemplate. */
   freightTemplateId?: Long;
-  /** 备货期。取值范围:1-7;单位:天。 */
+  /** Stocking period. Value range: 1-7; unit: days. */
   deliveryTime?: number;
-  /** 商品初始发布语种标记 */
+  /** Initial publish language marker of the product */
   locale?: string;
-  /** 商品属性模块 */
+  /** Product attribute module */
   productPropertyList?: Array<GlobalProductCreateProductProperty>;
-  /** sku模块 */
+  /** SKU module */
   productSkuList?: Array<GlobalProductCreateProductSKU>;
-  /** 媒体模块 */
+  /** Media module */
   multimedia?: GlobalProductCreateMultimedia;
-  /** 包裹模块 */
+  /** Package module */
   packageInfo?: GlobalProductCreatePackageInfo;
-  /** 详描信息 */
+  /** Detailed description information */
   detailSourceList?: Array<GlobalProductCreateDetailSource>;
-  /** 货币单位。如果不提供该值信息，则默认为"USD"； */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; */
   currencyCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Long;
-  /** 海关描述：可以通过hscode预测接口或关键字搜索接口获取。global.hscode.forecast.query ； global.hscode.keywords.query ； */
+  /** Customs description: can be obtained via the hscode forecast API or keyword search API. global.hscode.forecast.query ; global.hscode.keywords.query ; */
   hsCodeDo?: GlobalProductCreateHsCodeDO;
 }
 
@@ -1776,9 +1776,9 @@ export const GlobalProductCreateCspProductSchema: Schema = {
 };
 
 export interface GlobalProductCreateDetailSource {
-  /** 多语言详描语种标记 。ja_JP ： 日本日语 ko_KR：韩国韩语 tr_TR：土耳其土耳其语 nl_NL：荷兰荷兰语 pl_PL：波兰波兰语 ru_RU：俄国俄语 fr_FR：法国法语 en_US：美国英语 th_TH：泰国泰语 de_DE：德国德语 es_ES：西班牙西班牙语 */
+  /** Multi-language detailed description language tag. ja_JP: Japanese (Japan) ko_KR: Korean (South Korea) tr_TR: Turkish (Turkey) nl_NL: Dutch (Netherlands) pl_PL: Polish (Poland) ru_RU: Russian (Russia) fr_FR: French (France) en_US: English (US) th_TH: Thai (Thailand) de_DE: German (Germany) es_ES: Spanish (Spain) */
   locale?: string;
-  /** 多语言详描， HTML原始类型 */
+  /** Multilingual detailed description, raw HTML type */
   webDetail?: string;
 }
 
@@ -1788,9 +1788,9 @@ export const GlobalProductCreateDetailSourceSchema: Schema = {
 };
 
 export interface GlobalProductCreateHsCodeDO {
-  /** hscode 主键，可以通过hscode预测接口或关键字搜索接口获取。global.hscode.forecast.query ； global.hscode.keywords.query ； */
+  /** hscode primary key, can be obtained via the hscode forecast API or keyword search API. global.hscode.forecast.query ; global.hscode.keywords.query ; */
   hsCode?: string;
-  /** 具体的海关描述文本说明 */
+  /** Specific customs description text */
   text?: string;
 }
 
@@ -1800,11 +1800,11 @@ export const GlobalProductCreateHsCodeDOSchema: Schema = {
 };
 
 export interface GlobalProductCreateMultimedia {
-  /** 视频模块 */
+  /** Video module */
   videoList?: Array<GlobalProductCreateVideo>;
-  /** 营销图模块 */
+  /** Marketing image module */
   marketImageList?: Array<GlobalProductCreateProductMarketImage>;
-  /** 主图url集合 */
+  /** Main image URL collection */
   mainImageList?: Array<string>;
 }
 
@@ -1819,13 +1819,13 @@ export const GlobalProductCreateMultimediaSchema: Schema = {
 };
 
 export interface GlobalProductCreatePackageInfo {
-  /** 包裹高度 */
+  /** Package height */
   packageHeight?: string;
-  /** 包裹重量。取值范围:0.001-500.000,保留三位小数,采用进位制,单位:公斤。 */
+  /** Package weight. Value range: 0.001-500.000, three decimal places, rounded up, unit: kilograms. */
   packageWeight?: string;
-  /** 包裹长度 */
+  /** Package length */
   packageLength?: string;
-  /** 包裹宽度 */
+  /** Package width */
   packageWidth?: string;
 }
 
@@ -1837,9 +1837,9 @@ export const GlobalProductCreatePackageInfoSchema: Schema = {
 };
 
 export interface GlobalProductCreateProductMarketImage {
-  /** 营销图类型。1：代表长图，大小为750*1000; 2：代表方图，大小为800*800 */
+  /** Marketing image type. 1: tall image, size 750*1000; 2: square image, size 800*800 */
   imageType?: number;
-  /** 营销图片URL */
+  /** Marketing image URL */
   url?: string;
 }
 
@@ -1849,13 +1849,13 @@ export const GlobalProductCreateProductMarketImageSchema: Schema = {
 };
 
 export interface GlobalProductCreateProductProperty {
-  /** 属性值id */
+  /** Attribute value ID */
   attrValueId?: Long;
-  /** 属性值 */
+  /** Attribute value */
   attrValue?: string;
-  /** 属性名 */
+  /** Attribute name */
   attrName?: string;
-  /** 属性名id */
+  /** Attribute name ID */
   attrNameId?: Long;
 }
 
@@ -1867,21 +1867,21 @@ export const GlobalProductCreateProductPropertySchema: Schema = {
 };
 
 export interface GlobalProductCreateProductSKU {
-  /** sku日常促销价 */
+  /** SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** 销售属性模块 */
+  /** Sales attribute module */
   skuPropertyList?: Array<GlobalProductCreateSKUProperty>;
-  /** sku价格 */
+  /** SKU price */
   skuPrice?: string;
-  /** sku库存，channel_sku_list中的库存加和 */
+  /** SKU inventory, the sum of the inventory in channel_sku_list */
   skuStock?: Long;
-  /** 渠道价格库存信息。 */
+  /** Channel price and inventory information. */
   channelSkuList?: Array<GlobalProductCreateCspChannelSkuApiDTO>;
-  /** sku套图 */
+  /** SKU image set */
   imageList?: Array<string>;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。 */
+  /** SKU seller code. Format: half-width alphanumeric characters, length 20, must not contain spaces, greater-than or less-than signs. */
   skuCode?: string;
-  /** 女装类目色卡图 */
+  /** Women's clothing category color swatch image */
   colourImage?: string;
 }
 
@@ -1905,15 +1905,15 @@ export const GlobalProductCreateProductSKUSchema: Schema = {
 };
 
 export interface GlobalProductCreateSKUProperty {
-  /** 属性值 */
+  /** Attribute value */
   skuPropertyValue?: string;
-  /** 属性值id，支持自定义销售属性值，id从-2开始递减，不允许重复 */
+  /** Attribute value ID. Custom sales attribute values are supported; IDs decrement starting from -2 and must not repeat */
   propertyValueId?: Long;
-  /** 属性名 */
+  /** Attribute name */
   skuPropertyName?: string;
-  /** 属性名id，支持自定义销售属性，id从-2开始递减，不允许重复 */
+  /** Attribute name ID. Custom sales attributes are supported; IDs decrement starting from -2 and must not repeat */
   skuPropertyId?: Long;
-  /** 自定义销售属性值名称 */
+  /** Custom sales attribute value name */
   propertyValueDefinitionName?: string;
 }
 
@@ -1926,9 +1926,9 @@ export const GlobalProductCreateSKUPropertySchema: Schema = {
 };
 
 export interface GlobalProductCreateSubject {
-  /** 多语言标题语种标记 。ja_JP ： 日本日语 ko_KR：韩国韩语 tr_TR：土耳其土耳其语 nl_NL：荷兰荷兰语 pl_PL：波兰波兰语 ru_RU：俄国俄语 fr_FR：法国法语 en_US：美国英语 th_TH：泰国泰语 de_DE：德国德语 es_ES：西班牙西班牙语 */
+  /** Multi-language title language tag. ja_JP: Japanese (Japan) ko_KR: Korean (South Korea) tr_TR: Turkish (Turkey) nl_NL: Dutch (Netherlands) pl_PL: Polish (Poland) ru_RU: Russian (Russia) fr_FR: French (France) en_US: English (US) th_TH: Thai (Thailand) de_DE: German (Germany) es_ES: Spanish (Spain) */
   locale?: string;
-  /** 多语言标题内容 */
+  /** Multilingual title content */
   value?: string;
 }
 
@@ -1938,11 +1938,11 @@ export const GlobalProductCreateSubjectSchema: Schema = {
 };
 
 export interface GlobalProductCreateVideo {
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 视频的类型。 主图视频： MAIN_IMAGE_VIDEO */
+  /** Video type. Main image video: MAIN_IMAGE_VIDEO */
   mediaType?: string;
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
 }
 
@@ -1953,15 +1953,15 @@ export const GlobalProductCreateVideoSchema: Schema = {
 };
 
 export interface GlobalProductPriceUpdateCspChannelSkuApiDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: Long;
-  /** 渠道商品日常促销价 */
+  /** Channel product daily promotion price */
   skuDiscountPrice?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 渠道商品价格 */
+  /** Channel product price */
   skuPrice?: string;
-  /** sku_id 。统一商品查询结果channel_sku_list中对应的sku_id */
+  /** sku_id. The corresponding sku_id in channel_sku_list of the unified product query result */
   skuId?: Long;
 }
 
@@ -1974,11 +1974,11 @@ export const GlobalProductPriceUpdateCspChannelSkuApiDTOSchema: Schema = {
 };
 
 export interface GlobalProductPublishedChannelsListGlobalProductPublishedChannelDTO {
-  /** 渠道商家id */
+  /** Channel merchant ID */
   channelSellerId?: Long;
-  /** 渠道名 */
+  /** Channel name */
   channel?: string;
-  /** 渠道商品id */
+  /** Channel product ID */
   channelProductId?: Long;
 }
 
@@ -1990,17 +1990,17 @@ export const GlobalProductPublishedChannelsListGlobalProductPublishedChannelDTOS
   };
 
 export interface GlobalProductQueryCspChannelSkuApiDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: Long;
-  /** 渠道sku日常促销价 */
+  /** Channel SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 渠道sku价格。返回的是各个渠道商品的实时价格 */
+  /** Channel SKU price. Returns the real-time price of each channel product */
   skuPrice?: string;
-  /** 渠道sku库存 返回的是各个渠道商品的实时库存 */
+  /** Channel SKU inventory. Returns the real-time inventory of each channel product */
   skuStock?: Long;
-  /** 渠道sku_id */
+  /** Channel sku_id */
   skuId?: Long;
 }
 
@@ -2014,35 +2014,35 @@ export const GlobalProductQueryCspChannelSkuApiDTOSchema: Schema = {
 };
 
 export interface GlobalProductQueryCspProduct {
-  /** 标题模块 */
+  /** Title module */
   subjectList?: Array<GlobalProductQuerySubject>;
-  /** 修改时间 格式：2022-07-18 19:55:07 */
+  /** Update time, format: 2022-07-18 19:55:07 */
   gmtModified?: string;
-  /** 运费模版ID。通过运费接口listFreightTemplate获取。 */
+  /** Shipping fee template ID. Obtained via the freight API listFreightTemplate. */
   freightTemplateId?: Long;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 备货期。取值范围:1-7;单位:天。 */
+  /** Stocking period. Value range: 1-7; unit: days. */
   deliveryTime?: number;
-  /** 商品初始发布语种标记 格式：en_US */
+  /** Initial publishing language marker of the product, format: en_US */
   locale?: string;
-  /** 商品创建时间。格式：2022-07-18 19:55:07 */
+  /** Product creation time. Format: 2022-07-18 19:55:07 */
   gmtCreate?: string;
-  /** 商品属性模块 */
+  /** Product attribute module */
   productPropertyList?: Array<GlobalProductQueryProductProperty>;
-  /** sku模块 */
+  /** SKU module */
   productSkuList?: Array<GlobalProductQueryProductSKU>;
-  /** 媒体模块 */
+  /** Media module */
   multimedia?: GlobalProductQueryMultimedia;
-  /** 包裹模块 */
+  /** Package module */
   packageInfo?: GlobalProductQueryPackageInfo;
-  /** 详描信息 */
+  /** Detailed description information */
   detailSourceList?: Array<GlobalProductQueryDetailSource>;
-  /** 货币单位。如果不提供该值信息，则默认为"USD"； */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; */
   currencyCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Long;
-  /** 海关描述：可以通过hscode预测接口或关键字搜索接口获取。global.hscode.forecast.query ； global.hscode.keywords.query ； */
+  /** Customs description: can be obtained via the hscode forecast API or keyword search API. global.hscode.forecast.query ; global.hscode.keywords.query ; */
   hsCodeDo?: GlobalProductQueryHsCodeDO;
 }
 
@@ -2077,9 +2077,9 @@ export const GlobalProductQueryCspProductSchema: Schema = {
 };
 
 export interface GlobalProductQueryDetailSource {
-  /** 多语言详描语种标记 */
+  /** Language marker of the multilingual detailed description */
   locale?: string;
-  /** 多语言详描， HTML原始类型 */
+  /** Multilingual detailed description, raw HTML type */
   webDetail?: string;
 }
 
@@ -2089,9 +2089,9 @@ export const GlobalProductQueryDetailSourceSchema: Schema = {
 };
 
 export interface GlobalProductQueryHsCodeDO {
-  /** hscode 主键，可以通过hscode预测接口或关键字搜索接口获取。global.hscode.forecast.query ； global.hscode.keywords.query ； */
+  /** hscode primary key, can be obtained via the hscode forecast API or keyword search API. global.hscode.forecast.query ; global.hscode.keywords.query ; */
   hsCode?: string;
-  /** 具体的海关描述文本说明 */
+  /** Specific customs description text */
   text?: string;
 }
 
@@ -2101,11 +2101,11 @@ export const GlobalProductQueryHsCodeDOSchema: Schema = {
 };
 
 export interface GlobalProductQueryMultimedia {
-  /** 视频模块 */
+  /** Video module */
   videoList?: Array<GlobalProductQueryVideo>;
-  /** 营销图模块 */
+  /** Marketing image module */
   marketImageList?: Array<GlobalProductQueryProductMarketImage>;
-  /** 主图url集合 */
+  /** Main image URL collection */
   mainImageList?: Array<string>;
 }
 
@@ -2120,13 +2120,13 @@ export const GlobalProductQueryMultimediaSchema: Schema = {
 };
 
 export interface GlobalProductQueryPackageInfo {
-  /** 包裹高度 */
+  /** Package height */
   packageHeight?: string;
-  /** 包裹重量。取值范围:0.001-500.000,保留三位小数,采用进位制,单位:公斤。 */
+  /** Package weight. Value range: 0.001-500.000, three decimal places, rounded up, unit: kilograms. */
   packageWeight?: string;
-  /** 包裹长度 */
+  /** Package length */
   packageLength?: string;
-  /** 包裹宽度 */
+  /** Package width */
   packageWidth?: string;
 }
 
@@ -2138,9 +2138,9 @@ export const GlobalProductQueryPackageInfoSchema: Schema = {
 };
 
 export interface GlobalProductQueryProductMarketImage {
-  /** 营销图类型。1：代表长图，大小为750*1000; 2：代表方图，大小为800*800 */
+  /** Marketing image type. 1: tall image, size 750*1000; 2: square image, size 800*800 */
   imageType?: number;
-  /** 营销图片URL */
+  /** Marketing image URL */
   url?: string;
 }
 
@@ -2150,13 +2150,13 @@ export const GlobalProductQueryProductMarketImageSchema: Schema = {
 };
 
 export interface GlobalProductQueryProductProperty {
-  /** 属性值id */
+  /** Attribute value ID */
   attrValueId?: Long;
-  /** 属性值 */
+  /** Attribute value */
   attrValue?: string;
-  /** 属性名 */
+  /** Attribute name */
   attrName?: string;
-  /** 属性名id */
+  /** Attribute name ID */
   attrNameId?: Long;
 }
 
@@ -2168,23 +2168,23 @@ export const GlobalProductQueryProductPropertySchema: Schema = {
 };
 
 export interface GlobalProductQueryProductSKU {
-  /** sku日常促销价 */
+  /** SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** 销售属性模块 */
+  /** Sales attribute module */
   skuPropertyList?: Array<GlobalProductQuerySKUProperty>;
-  /** sku价格 */
+  /** SKU price */
   skuPrice?: string;
-  /** sku库存，该属性值的合理取值范围为0~999999，如该商品有SKU时，请确保至少有一个SKU是有货状态 */
+  /** SKU stock. The reasonable value range for this attribute is 0~999999. If the product has SKUs, make sure at least one SKU is in stock */
   skuStock?: Long;
-  /** 渠道价格库存信息。 新发未铺货成功的统一商品不会返回channel_sku_list 。 当channel_sku_list不返回时说明当前统一商品的渠道商品铺货失败或不存在。 需要先完成铺货 */
+  /** Channel price and inventory info. channel_sku_list is not returned for newly published unified products that have not been distributed successfully. When channel_sku_list is not returned, the channel product distribution of the current unified product has failed or does not exist. Distribution must be completed first. */
   channelSkuList?: Array<GlobalProductQueryCspChannelSkuApiDTO>;
-  /** sku套图 */
+  /** SKU image set */
   imageList?: Array<string>;
-  /** 统一商品 sku_id */
+  /** Unified product sku_id */
   skuId?: Long;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。 */
+  /** SKU seller code. Format: half-width alphanumeric characters, length 20, must not contain spaces, greater-than or less-than signs. */
   skuCode?: string;
-  /** 女装类目色卡图 */
+  /** Women's clothing category color swatch image */
   colourImage?: string;
 }
 
@@ -2209,15 +2209,15 @@ export const GlobalProductQueryProductSKUSchema: Schema = {
 };
 
 export interface GlobalProductQuerySKUProperty {
-  /** 属性值 */
+  /** Attribute value */
   skuPropertyValue?: string;
-  /** 属性值id */
+  /** Attribute value ID */
   propertyValueId?: Long;
-  /** 属性名 */
+  /** Attribute name */
   skuPropertyName?: string;
-  /** 属性名id */
+  /** Attribute name ID */
   skuPropertyId?: Long;
-  /** 自定义销售属性值名称 */
+  /** Custom sales attribute value name */
   propertyValueDefinitionName?: string;
 }
 
@@ -2230,9 +2230,9 @@ export const GlobalProductQuerySKUPropertySchema: Schema = {
 };
 
 export interface GlobalProductQuerySubject {
-  /** 多语言标题语种标记 格式：en_US */
+  /** Multilingual title language marker, format: en_US */
   locale?: string;
-  /** 多语言标题内容 */
+  /** Multilingual title content */
   value?: string;
 }
 
@@ -2242,11 +2242,11 @@ export const GlobalProductQuerySubjectSchema: Schema = {
 };
 
 export interface GlobalProductQueryVideo {
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 视频的类型 */
+  /** Video type */
   mediaType?: string;
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
 }
 
@@ -2257,23 +2257,23 @@ export const GlobalProductQueryVideoSchema: Schema = {
 };
 
 export interface GlobalProductsListCspProductSearchApiRequestDTO {
-  /** 创建时间范围（指定时间之后） */
+  /** Creation time range (after the specified time) */
   createAfter?: string;
-  /** 商品状态（0或不填是全部，1 是上架 ，-1 是删除 ， -2 是下架 ，-5 是 审核中 ，-10 是 草稿 ， 101 是废弃 ） */
+  /** Product status (0 or empty means all, 1 is listed, -1 is deleted, -2 is delisted, -5 is under review, -10 is draft, 101 is discarded) */
   productStatus?: number;
-  /** 每页商品数量 ，最多查询20个商品 */
+  /** Number of products per page; at most 20 products can be queried */
   pageSize?: Long;
-  /** 更新时间范围（指定时间之前） */
+  /** Update time range (before the specified time) */
   updateBefore?: string;
-  /** 商品拥有的渠道 */
+  /** Channels the product belongs to */
   channels?: Array<string>;
-  /** 创建时间范围（指定时间之前） */
+  /** Creation time range (before the specified time) */
   createBefore?: string;
-  /** 更新时间范围（指定时间之后） */
+  /** Update time range (after the specified time) */
   updateAfter?: string;
-  /** 其他过滤选项 。 "productId": 商品ID "leafCategoryId":商品所属类目 "lowerPrice": 商品价格范围（最低价） "upperPrice": 商品价格范围（最高价） case. :{ "productId":121871222887, "leafCategoryId":622451821, "lowerPrice":"10", "upperPrice":"30" } */
+  /** Other filter options. "productId": product ID "leafCategoryId": category the product belongs to "lowerPrice": product price range (lowest price) "upperPrice": product price range (highest price) case. :{ "productId":121871222887, "leafCategoryId":622451821, "lowerPrice":"10", "upperPrice":"30" } */
   options?: string;
-  /** 当前页码 */
+  /** Current page number */
   currentPage?: Long;
 }
 
@@ -2290,29 +2290,29 @@ export const GlobalProductsListCspProductSearchApiRequestDTOSchema: Schema = {
 };
 
 export interface GlobalProductsListCspProductSearchApiSingleResultDTO {
-  /** 修改时间 */
+  /** Update time */
   modifiedTime?: string;
-  /** 商品ID */
+  /** Product ID */
   productId?: number;
-  /** 商品最低价 */
+  /** Lowest product price */
   productMinPrice?: string;
-  /** 全球商品总库存 */
+  /** Global total product inventory */
   totalStocks?: string;
-  /** sku信息 */
+  /** SKU information */
   skuInfos?: Array<GlobalProductsListProductSearchApiSingleBaseResultDTOSkuInfo>;
-  /** 商品最高价 */
+  /** Highest product price */
   productMaxPrice?: string;
-  /** 商品标题 */
+  /** Product title */
   title?: string;
-  /** 商品渠道信息 */
+  /** Product channel information */
   channels?: Array<GlobalProductsListCspProductSearchApiSingleResultDTOSaleChannel>;
-  /** 创建时间 */
+  /** Creation time */
   createdTime?: string;
-  /** 商品主图 */
+  /** Product main image */
   mainImageUrl?: string;
-  /** 商品所属叶属性ID */
+  /** Leaf attribute ID the product belongs to */
   leafCategoryId?: number;
-  /** 商品状态（0或不填是全部，1 是上架 ，-1 是删除 ， -2 是下架 ，-5 是 审核中 ，-10 是 草稿 ， 101 是废弃 ） */
+  /** Product status (0 or empty means all, 1 is listed, -1 is deleted, -2 is delisted, -5 is under review, -10 is draft, 101 is discarded) */
   productStatus?: string;
 }
 
@@ -2342,13 +2342,13 @@ export const GlobalProductsListCspProductSearchApiSingleResultDTOSchema: Schema 
   };
 
 export interface GlobalProductsListCspProductSearchApiSingleResultDTOSaleChannel {
-  /** 渠道商品ID */
+  /** Channel product ID */
   channelItemId?: string;
-  /** 渠道名称 */
+  /** Channel name */
   channelName?: string;
-  /** 渠道值 */
+  /** Channel value */
   value?: string;
-  /** 渠道铺货状态. : ASSORTMENT_FALSE(0), ASSORTMENT_DRAFT(4), ASSORTMENT_ONLINE(1), ASSORTMENT_OFFLINE(2), ASSORTMENT_ING(3) */
+  /** Channel distribution status. : ASSORTMENT_FALSE(0), ASSORTMENT_DRAFT(4), ASSORTMENT_ONLINE(1), ASSORTMENT_OFFLINE(2), ASSORTMENT_ING(3) */
   publishStatus?: string;
 }
 
@@ -2361,9 +2361,9 @@ export const GlobalProductsListCspProductSearchApiSingleResultDTOSaleChannelSche
   };
 
 export interface GlobalProductsListProductSearchApiSingleBaseResultDTOSkuInfo {
-  /** sku价格 */
+  /** SKU price */
   price?: string;
-  /** 卖家SKU，sellerSku，outSkuId。 */
+  /** Seller SKU, sellerSku, outSkuId. */
   sellerSku?: string;
   /** suk_id */
   skuId?: number;
@@ -2377,13 +2377,13 @@ export const GlobalProductsListProductSearchApiSingleBaseResultDTOSkuInfoSchema:
   };
 
 export interface GlobalProductStockUpdateCspChannelSkuApiDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: Long;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** sku库存 */
+  /** SKU inventory */
   skuStock?: Long;
-  /** sku_id 。统一商品查询结果channel_sku_list中对应的sku_id */
+  /** sku_id. The corresponding sku_id in channel_sku_list of the unified product query result */
   skuId?: Long;
 }
 
@@ -2395,17 +2395,17 @@ export const GlobalProductStockUpdateCspChannelSkuApiDTOSchema: Schema = {
 };
 
 export interface GlobalProductUpdateCspChannelSkuApiDTO {
-  /** 渠道seller id （可以在这个API中查询：global.seller.relation.query） */
+  /** Channel seller id (can be queried via this API: global.seller.relation.query) */
   channelSellerId?: Long;
-  /** 渠道sku日常促销价 */
+  /** Channel SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** 渠道（可以在这个API中查询：global.seller.relation.query） */
+  /** Channel (can be queried via this API: global.seller.relation.query) */
   channel?: string;
-  /** 渠道sku价格 */
+  /** Channel SKU price */
   skuPrice?: string;
-  /** 渠道sku库存 */
+  /** Channel SKU inventory */
   skuStock?: Long;
-  /** 渠道sku_id */
+  /** Channel sku_id */
   skuId?: Long;
 }
 
@@ -2419,31 +2419,31 @@ export const GlobalProductUpdateCspChannelSkuApiDTOSchema: Schema = {
 };
 
 export interface GlobalProductUpdateCspProduct {
-  /** 标题模块 */
+  /** Title module */
   subjectList?: Array<GlobalProductUpdateSubject>;
-  /** 运费模版ID。通过运费接口listFreightTemplate获取。 */
+  /** Shipping fee template ID. Obtained via the freight API listFreightTemplate. */
   freightTemplateId?: Long;
-  /** 商品id */
+  /** Product ID */
   productId?: Long;
-  /** 备货期。取值范围:1-7;单位:天。 */
+  /** Stocking period. Value range: 1-7; unit: days. */
   deliveryTime?: number;
-  /** 商品初始发布语种标记 */
+  /** Initial publish language marker of the product */
   locale?: string;
-  /** 商品属性模块 */
+  /** Product attribute module */
   productPropertyList?: Array<GlobalProductUpdateProductProperty>;
-  /** sku模块 */
+  /** SKU module */
   productSkuList?: Array<GlobalProductUpdateProductSKU>;
-  /** 媒体模块 */
+  /** Media module */
   multimedia?: GlobalProductUpdateMultimedia;
-  /** 包裹模块 */
+  /** Package module */
   packageInfo?: GlobalProductUpdatePackageInfo;
-  /** 详描信息 */
+  /** Detailed description information */
   detailSourceList?: Array<GlobalProductUpdateDetailSource>;
-  /** 货币单位。如果不提供该值信息，则默认为"USD"； */
+  /** Currency unit. If this value is not provided, it defaults to "USD"; */
   currencyCode?: string;
-  /** 类目id */
+  /** Category ID */
   categoryId?: Long;
-  /** 海关描述：可以通过hscode预测接口或关键字搜索接口获取。global.hscode.forecast.query ； global.hscode.keywords.query ； */
+  /** Customs description: can be obtained via the hscode forecast API or keyword search API. global.hscode.forecast.query ; global.hscode.keywords.query ; */
   hsCodeDo?: GlobalProductUpdateHsCodeDO;
 }
 
@@ -2480,9 +2480,9 @@ export const GlobalProductUpdateCspProductSchema: Schema = {
 };
 
 export interface GlobalProductUpdateDetailSource {
-  /** 多语言详描语种标记 。ja_JP ： 日本日语 ko_KR：韩国韩语 tr_TR：土耳其土耳其语 nl_NL：荷兰荷兰语 pl_PL：波兰波兰语 ru_RU：俄国俄语 fr_FR：法国法语 en_US：美国英语 th_TH：泰国泰语 de_DE：德国德语 es_ES：西班牙西班牙语 */
+  /** Multi-language detailed description language tag. ja_JP: Japanese (Japan) ko_KR: Korean (South Korea) tr_TR: Turkish (Turkey) nl_NL: Dutch (Netherlands) pl_PL: Polish (Poland) ru_RU: Russian (Russia) fr_FR: French (France) en_US: English (US) th_TH: Thai (Thailand) de_DE: German (Germany) es_ES: Spanish (Spain) */
   locale?: string;
-  /** 多语言详描， HTML原始类型 */
+  /** Multilingual detailed description, raw HTML type */
   webDetail?: string;
 }
 
@@ -2492,9 +2492,9 @@ export const GlobalProductUpdateDetailSourceSchema: Schema = {
 };
 
 export interface GlobalProductUpdateHsCodeDO {
-  /** hscode 主键，可以通过hscode预测接口或关键字搜索接口获取。global.hscode.forecast.query ； global.hscode.keywords.query ； */
+  /** hscode primary key, can be obtained via the hscode forecast API or keyword search API. global.hscode.forecast.query ; global.hscode.keywords.query ; */
   hsCode?: string;
-  /** 具体的海关描述文本说明 */
+  /** Specific customs description text */
   text?: string;
 }
 
@@ -2504,11 +2504,11 @@ export const GlobalProductUpdateHsCodeDOSchema: Schema = {
 };
 
 export interface GlobalProductUpdateMultimedia {
-  /** 视频模块 */
+  /** Video module */
   videoList?: Array<GlobalProductUpdateVideo>;
-  /** 营销图模块 */
+  /** Marketing image module */
   marketImageList?: Array<GlobalProductUpdateProductMarketImage>;
-  /** 主图url集合 */
+  /** Main image URL collection */
   mainImageList?: Array<string>;
 }
 
@@ -2523,13 +2523,13 @@ export const GlobalProductUpdateMultimediaSchema: Schema = {
 };
 
 export interface GlobalProductUpdatePackageInfo {
-  /** 包裹高度 */
+  /** Package height */
   packageHeight?: string;
-  /** 包裹重量。取值范围:0.001-500.000,保留三位小数,采用进位制,单位:公斤。 */
+  /** Package weight. Value range: 0.001-500.000, three decimal places, rounded up, unit: kilograms. */
   packageWeight?: string;
-  /** 包裹长度 */
+  /** Package length */
   packageLength?: string;
-  /** 包裹宽度 */
+  /** Package width */
   packageWidth?: string;
 }
 
@@ -2541,9 +2541,9 @@ export const GlobalProductUpdatePackageInfoSchema: Schema = {
 };
 
 export interface GlobalProductUpdateProductMarketImage {
-  /** 营销图类型。1：代表长图，大小为750*1000; 2：代表方图，大小为800*800 */
+  /** Marketing image type. 1: tall image, size 750*1000; 2: square image, size 800*800 */
   imageType?: number;
-  /** 营销图片URL */
+  /** Marketing image URL */
   url?: string;
 }
 
@@ -2553,13 +2553,13 @@ export const GlobalProductUpdateProductMarketImageSchema: Schema = {
 };
 
 export interface GlobalProductUpdateProductProperty {
-  /** 属性值id */
+  /** Attribute value ID */
   attrValueId?: Long;
-  /** 属性值 */
+  /** Attribute value */
   attrValue?: string;
-  /** 属性名 */
+  /** Attribute name */
   attrName?: string;
-  /** 属性名id */
+  /** Attribute name ID */
   attrNameId?: Long;
 }
 
@@ -2571,23 +2571,23 @@ export const GlobalProductUpdateProductPropertySchema: Schema = {
 };
 
 export interface GlobalProductUpdateProductSKU {
-  /** sku日常促销价 */
+  /** SKU daily promotion price */
   skuDiscountPrice?: string;
-  /** 销售属性模块 */
+  /** Sales attribute module */
   skuPropertyList?: Array<GlobalProductUpdateSKUProperty>;
-  /** sku价格 */
+  /** SKU price */
   skuPrice?: string;
-  /** sku库存，该属性值的合理取值范围为0~999999，如该商品有SKU时，请确保至少有一个SKU是有货状态 */
+  /** SKU stock. The reasonable value range for this attribute is 0~999999. If the product has SKUs, make sure at least one SKU is in stock */
   skuStock?: Long;
-  /** 渠道价格库存信息。 */
+  /** Channel price and inventory information. */
   channelSkuList?: Array<GlobalProductUpdateCspChannelSkuApiDTO>;
-  /** sku套图 */
+  /** SKU image set */
   imageList?: Array<string>;
-  /** 统一sku_id */
+  /** Unified sku_id */
   skuId?: Long;
-  /** Sku商家编码。 格式:半角英数字,长度20,不包含空格大于号和小于号。 */
+  /** SKU seller code. Format: half-width alphanumeric characters, length 20, must not contain spaces, greater-than or less-than signs. */
   skuCode?: string;
-  /** 女装类目色卡图 */
+  /** Women's clothing category color swatch image */
   colourImage?: string;
 }
 
@@ -2612,13 +2612,13 @@ export const GlobalProductUpdateProductSKUSchema: Schema = {
 };
 
 export interface GlobalProductUpdateSKUProperty {
-  /** 属性值 */
+  /** Attribute value */
   skuPropertyValue?: string;
-  /** 属性值id，支持自定义销售属性，id从-2开始递减，不允许重复 */
+  /** Attribute value ID. Custom sales attributes are supported; IDs decrement starting from -2 and must not repeat */
   propertyValueId?: Long;
-  /** 属性名 */
+  /** Attribute name */
   skuPropertyName?: string;
-  /** 属性名id，支持自定义销售属性，id从-2开始递减，不允许重复 */
+  /** Attribute name ID. Custom sales attributes are supported; IDs decrement starting from -2 and must not repeat */
   skuPropertyId?: Long;
 }
 
@@ -2630,9 +2630,9 @@ export const GlobalProductUpdateSKUPropertySchema: Schema = {
 };
 
 export interface GlobalProductUpdateSubject {
-  /** 多语言标题语种标记 。ja_JP ： 日本日语 ko_KR：韩国韩语 tr_TR：土耳其土耳其语 nl_NL：荷兰荷兰语 pl_PL：波兰波兰语 ru_RU：俄国俄语 fr_FR：法国法语 en_US：美国英语 th_TH：泰国泰语 de_DE：德国德语 es_ES：西班牙西班牙语 */
+  /** Multi-language title language tag. ja_JP: Japanese (Japan) ko_KR: Korean (South Korea) tr_TR: Turkish (Turkey) nl_NL: Dutch (Netherlands) pl_PL: Polish (Poland) ru_RU: Russian (Russia) fr_FR: French (France) en_US: English (US) th_TH: Thai (Thailand) de_DE: German (Germany) es_ES: Spanish (Spain) */
   locale?: string;
-  /** 多语言标题内容 */
+  /** Multilingual title content */
   value?: string;
 }
 
@@ -2642,11 +2642,11 @@ export const GlobalProductUpdateSubjectSchema: Schema = {
 };
 
 export interface GlobalProductUpdateVideo {
-  /** 视频封面图片的URL */
+  /** URL of the video cover image */
   posterUrl?: string;
-  /** 视频的类型。 主图视频： MAIN_IMAGE_VIDEO */
+  /** Video type. Main image video: MAIN_IMAGE_VIDEO */
   mediaStatus?: string;
-  /** 视频ID */
+  /** Video ID */
   mediaId?: Long;
 }
 
@@ -2657,17 +2657,17 @@ export const GlobalProductUpdateVideoSchema: Schema = {
 };
 
 export interface GlobalPublishTaskQueryGlobalProductPublishedChannelDTO {
-  /** 渠道商家id */
+  /** Channel merchant ID */
   channelSellerId?: Long;
-  /** 渠道名 */
+  /** Channel name */
   channel?: string;
-  /** 若铺货成功，展示渠道商品id */
+  /** If distribution succeeded, the channel product id is shown */
   channelProductId?: Long;
-  /** 若铺货失败，展示失败原因 */
+  /** If distribution failed, the failure reason is shown */
   failedReason?: string;
-  /** 全球商品id */
+  /** Global product ID */
   globalProductId?: string;
-  /** 铺货状态：代表铺货的成功或失败。 1：初始化； 2：数据准备； 3：等待执行； 4：执行中； 5：执行失败； 6：执行成功 */
+  /** Distribution status: indicates success or failure of distribution. 1: initialized; 2: data preparation; 3: awaiting execution; 4: executing; 5: execution failed; 6: execution succeeded */
   assortmentStatus?: string;
 }
 
@@ -2682,9 +2682,9 @@ export const GlobalPublishTaskQueryGlobalProductPublishedChannelDTOSchema: Schem
   };
 
 export interface GlobalSellerBrandsListCspBrandDTO {
-  /** 品牌名称 */
+  /** Brand name */
   brandName?: string;
-  /** 品牌ID */
+  /** Brand ID */
   brandId?: Long;
 }
 
@@ -2694,13 +2694,13 @@ export const GlobalSellerBrandsListCspBrandDTOSchema: Schema = {
 };
 
 export interface GlobalSellerChannelInfoGetApiSellerDTO {
-  /** 是否是bStore */
+  /** Whether it is a bStore */
   bStore?: boolean;
-  /** 主Seller归属国 */
+  /** Home country of the main Seller */
   country?: string;
   /** 2618468003 */
   sellerId?: Long;
-  /** 主Seller报价币种 */
+  /** Quote currency of the main Seller */
   globalCurrency?: string;
   /** seller_relation_list */
   sellerRelationList?: Array<GlobalSellerChannelInfoGetApiSellerRelationDTO>;
@@ -2719,15 +2719,15 @@ export const GlobalSellerChannelInfoGetApiSellerDTOSchema: Schema = {
 };
 
 export interface GlobalSellerChannelInfoGetApiSellerRelationDTO {
-  /** 渠道Seller */
+  /** Channel seller */
   channelSellerId?: Long;
-  /** 渠道Seller报价币种 */
+  /** Quote currency of the channel Seller */
   channelCurrency?: string;
-  /** 渠道类型,包含：AE_GLOBAL,AE_LOCAL,ARISE_ES，LAZADA_MY，DARAZ_PK */
+  /** Channel type, including: AE_GLOBAL,AE_LOCAL,ARISE_ES,LAZADA_MY,DARAZ_PK */
   channel?: string;
-  /** 渠道Seller店铺名称 */
+  /** Store name of the channel Seller */
   channelShopName?: string;
-  /** 业务模式,包括：POP,POP_CHOICE，LOCAL_SERVICE，ONE_STOP_SERVICE，LAZADA，MIRAVIA，DARAZ，SELF_OPERATED */
+  /** Business model, including: POP, POP_CHOICE, LOCAL_SERVICE, ONE_STOP_SERVICE, LAZADA, MIRAVIA, DARAZ, SELF_OPERATED */
   businessType?: string;
 }
 
@@ -2742,11 +2742,11 @@ export const GlobalSellerChannelInfoGetApiSellerRelationDTOSchema: Schema = {
 export interface GlobalSellerChannelInfoGetResultDTO {
   /** data */
   data?: GlobalSellerChannelInfoGetApiSellerDTO;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 参数异常 */
+  /** Parameter exception */
   msgInfo?: string;
-  /** 参数异常 */
+  /** Parameter exception */
   msgCode?: string;
 }
 
@@ -2758,17 +2758,17 @@ export const GlobalSellerChannelInfoGetResultDTOSchema: Schema = {
 };
 
 export interface GlobalSellerRelationQuerySellerRelationApiDTO {
-  /** 渠道sellerId */
+  /** Channel sellerId */
   channelSellerId?: Long;
-  /** 全球sellerId */
+  /** Global sellerId */
   sellerId?: Long;
-  /** 渠道商品币种 */
+  /** Channel product currency */
   channelCurrency?: string;
-  /** 渠道标识 */
+  /** Channel identifier */
   channel?: string;
-  /** 渠道店铺名称 */
+  /** Channel store name */
   channelShopName?: string;
-  /** 业务类型： ONE_STOP_SERVICE ： 全托管店铺； POP_CHOICE：POP与半托管店铺； LOCAL_SERVICE ： 海外托管店铺 */
+  /** Business type: ONE_STOP_SERVICE: fully managed store; POP_CHOICE: POP and semi-managed store; LOCAL_SERVICE: overseas managed store */
   businessType?: string;
 }
 
@@ -2855,17 +2855,17 @@ export const globalCategoryTreeGet: ApiDefinition<
 
 /** Parameters for `global.category.attributes.list`. */
 export interface GlobalCategoryAttributesListParams {
-  /** 语言 中文：zh_CN，英文： en_US */
+  /** Language Chinese: zh_CN, English: en_US */
   locale?: string;
-  /** 统一叶子类目ID */
+  /** Unified leaf category ID */
   categoryId?: LongInput;
 }
 
 /** Response of `global.category.attributes.list`. */
 export interface GlobalCategoryAttributesListResponse {
-  /** 成功失败 */
+  /** Success or failure */
   success?: boolean;
-  /** 商品属性列表 */
+  /** Product attribute list */
   attributeList?: Array<GlobalCategoryAttributesListCspAttributeDTO>;
 }
 
@@ -2895,15 +2895,15 @@ export const globalCategoryAttributesList: ApiDefinition<
 
 /** Parameters for `global.category.tree.list`. */
 export interface GlobalCategoryTreeListParams {
-  /** 语言。 zh_CN ：中文 en_US：美国英语 th_TH：泰国泰语 de_DE：德国德语 es_ES：西班牙西班牙语 ja_JP ： 日本日语 ko_KR：韩国韩语 tr_TR：土耳其土耳其语 nl_NL：荷兰荷兰语 pl_PL：波兰波兰语 ru_RU：俄国俄语 fr_FR：法国法语 */
+  /** Language. zh_CN: Chinese en_US: English (US) th_TH: Thai (Thailand) de_DE: German (Germany) es_ES: Spanish (Spain) ja_JP: Japanese (Japan) ko_KR: Korean (South Korea) tr_TR: Turkish (Turkey) nl_NL: Dutch (Netherlands) pl_PL: Polish (Poland) ru_RU: Russian (Russia) fr_FR: French (France) */
   locale?: string;
-  /** 类目ID。 查询一级目录时category_id不需要传。 */
+  /** Category ID. Not required when querying first-level categories (category_id). */
   categoryId?: LongInput;
 }
 
 /** Response of `global.category.tree.list`. */
 export interface GlobalCategoryTreeListResponse {
-  /** 类目树数据 */
+  /** Category tree data */
   childrenCategoryList?: Array<GlobalCategoryTreeListCspCategoryDTO>;
 }
 
@@ -3046,7 +3046,7 @@ export const globalDsaPcQuery: ApiDefinition<
 
 /** Parameters for `global.hscode.forecast.query`. */
 export interface GlobalHscodeForecastQueryParams {
-  /** 入参 */
+  /** Input parameters */
   requestParam?: GlobalHscodeForecastQueryCspHsCodeApiRequestDTO;
 }
 
@@ -3084,15 +3084,15 @@ export const globalHscodeForecastQuery: ApiDefinition<
 
 /** Parameters for `global.hscode.keywords.query`. */
 export interface GlobalHscodeKeywordsQueryParams {
-  /** 关键字，目前只支持英文 */
+  /** Keyword, currently only English is supported */
   keyWords?: string;
-  /** 渠道，目前支持 全球商品：AE_GLOBAL 。 渠道商品 ： ARISE_ES */
+  /** Channel. Currently supports global products: AE_GLOBAL; channel products: ARISE_ES */
   channel?: string;
 }
 
 /** Response of `global.hscode.keywords.query`. */
 export interface GlobalHscodeKeywordsQueryResponse {
-  /** 成功、失败 */
+  /** Success or failure */
   success?: boolean;
   /** hscode list */
   hsCodeResponseList?: Array<GlobalHscodeKeywordsQueryHsCodeResponseDTO>;
@@ -3191,13 +3191,13 @@ export const globalManufactureList: ApiDefinition<
 
 /** Parameters for `global.mediacenter.baseinfo.get`. */
 export interface GlobalMediacenterBaseinfoGetParams {
-  /** 查询默认参数 */
+  /** Query default parameters */
   requestParams?: string;
 }
 
 /** Response of `global.mediacenter.baseinfo.get`. */
 export interface GlobalMediacenterBaseinfoGetResponse {
-  /** 查询结果 */
+  /** Query result */
   result?: GlobalMediacenterBaseinfoGetBaseResultDTO;
 }
 
@@ -3225,13 +3225,13 @@ export const globalMediacenterBaseinfoGet: ApiDefinition<
 
 /** Parameters for `global.mediacenter.folder.query`. */
 export interface GlobalMediacenterFolderQueryParams {
-  /** 请求参数 */
+  /** Request parameters */
   requestParams?: GlobalMediacenterFolderQueryMediaFolderQueryParamsOpenDTO;
 }
 
 /** Response of `global.mediacenter.folder.query`. */
 export interface GlobalMediacenterFolderQueryResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: GlobalMediacenterFolderQueryBaseResultDTO;
 }
 
@@ -3263,13 +3263,13 @@ export const globalMediacenterFolderQuery: ApiDefinition<
 
 /** Parameters for `global.mediacenter.image.channel.transfer`. */
 export interface GlobalMediacenterImageChannelTransferParams {
-  /** 请求参数 */
+  /** Request parameters */
   requestParams?: GlobalMediacenterImageChannelTransferMediaImageOpsParamsOpenDTO;
 }
 
 /** Response of `global.mediacenter.image.channel.transfer`. */
 export interface GlobalMediacenterImageChannelTransferResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: GlobalMediacenterImageChannelTransferBaseResultDTO;
 }
 
@@ -3302,13 +3302,13 @@ export const globalMediacenterImageChannelTransfer: ApiDefinition<
 
 /** Parameters for `global.mediacenter.image.delete`. */
 export interface GlobalMediacenterImageDeleteParams {
-  /** 请求参数 */
+  /** Request parameters */
   requestParams?: GlobalMediacenterImageDeleteMediaImageOpsParamsOpenDTO;
 }
 
 /** Response of `global.mediacenter.image.delete`. */
 export interface GlobalMediacenterImageDeleteResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: GlobalMediacenterImageDeleteBaseResultDTO;
 }
 
@@ -3340,13 +3340,13 @@ export const globalMediacenterImageDelete: ApiDefinition<
 
 /** Parameters for `global.mediacenter.image.listbypath`. */
 export interface GlobalMediacenterImageListbypathParams {
-  /** 请求参数 */
+  /** Request parameters */
   requestParams?: GlobalMediacenterImageListbypathMediaImageQueryParamsOpenDTO;
 }
 
 /** Response of `global.mediacenter.image.listbypath`. */
 export interface GlobalMediacenterImageListbypathResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: GlobalMediacenterImageListbypathBaseResultDTO;
 }
 
@@ -3378,13 +3378,13 @@ export const globalMediacenterImageListbypath: ApiDefinition<
 
 /** Parameters for `global.mediacenter.image.listpage`. */
 export interface GlobalMediacenterImageListpageParams {
-  /** 请求参数 */
+  /** Request parameters */
   requestParams?: GlobalMediacenterImageListpageMediaImageQueryParamsOpenDTO;
 }
 
 /** Response of `global.mediacenter.image.listpage`. */
 export interface GlobalMediacenterImageListpageResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: GlobalMediacenterImageListpagePageResultDTO;
 }
 
@@ -3416,17 +3416,17 @@ export const globalMediacenterImageListpage: ApiDefinition<
 
 /** Parameters for `global.mediacenter.image.upload`. */
 export interface GlobalMediacenterImageUploadParams {
-  /** 图片文件名称 */
+  /** Image file name */
   originFileName?: string;
-  /** 文件夹id，必须大于等于0。0表示根文件夹 */
+  /** Folder ID, must be greater than or equal to 0. 0 means the root folder */
   folderId?: LongInput;
-  /** 图片文件内容的字节流数组，图片大小不能超过3MB */
+  /** Byte stream array of the image file content, image size must not exceed 3MB */
   content?: FileInput;
 }
 
 /** Response of `global.mediacenter.image.upload`. */
 export interface GlobalMediacenterImageUploadResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: GlobalMediacenterImageUploadBaseResultDTO;
 }
 
@@ -3456,15 +3456,15 @@ export const globalMediacenterImageUpload: ApiDefinition<
 
 /** Parameters for `global.mediacenter.video.channel.transfer`. */
 export interface GlobalMediacenterVideoChannelTransferParams {
-  /** 目标渠道。可选项：AE_GLOBAL,ARISE_ES */
+  /** Target channel. Options: AE_GLOBAL,ARISE_ES */
   channel?: string;
-  /** 媒体中心视频id。用于管理媒体中心的视频文件 */
+  /** Media center video ID. Used to manage video files in the media center */
   id?: LongInput;
 }
 
 /** Response of `global.mediacenter.video.channel.transfer`. */
 export interface GlobalMediacenterVideoChannelTransferResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: GlobalMediacenterVideoChannelTransferBaseResultDTO;
 }
 
@@ -3493,13 +3493,13 @@ export const globalMediacenterVideoChannelTransfer: ApiDefinition<
 
 /** Parameters for `global.mediacenter.video.delete`. */
 export interface GlobalMediacenterVideoDeleteParams {
-  /** 媒体中心视频id。用于管理媒体中心的视频文件 */
+  /** Media center video ID. Used to manage video files in the media center */
   id?: LongInput;
 }
 
 /** Response of `global.mediacenter.video.delete`. */
 export interface GlobalMediacenterVideoDeleteResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: GlobalMediacenterVideoDeleteBaseResultDTO;
 }
 
@@ -3527,13 +3527,13 @@ export const globalMediacenterVideoDelete: ApiDefinition<
 
 /** Parameters for `global.mediacenter.video.getbystoragename`. */
 export interface GlobalMediacenterVideoGetbystoragenameParams {
-  /** 视频存储id。用于发布商品时使用 */
+  /** Video storage id. Used when publishing a product */
   storeName?: string;
 }
 
 /** Response of `global.mediacenter.video.getbystoragename`. */
 export interface GlobalMediacenterVideoGetbystoragenameResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: GlobalMediacenterVideoGetbystoragenameBaseResultDTO;
 }
 
@@ -3561,17 +3561,17 @@ export const globalMediacenterVideoGetbystoragename: ApiDefinition<
 
 /** Parameters for `global.mediacenter.video.listpage`. */
 export interface GlobalMediacenterVideoListpageParams {
-  /** 上传视频时自定义的视频名称 */
+  /** Custom video name when uploading the video */
   videoName?: string;
-  /** 分页的单页数据量。不能超过50 */
+  /** Data volume per page. Cannot exceed 50 */
   pageSize?: number;
-  /** 分页页码。从1开始 */
+  /** Page number for pagination. Starts from 1 */
   currentPage?: number;
 }
 
 /** Response of `global.mediacenter.video.listpage`. */
 export interface GlobalMediacenterVideoListpageResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: GlobalMediacenterVideoListpagePageResultDTO;
 }
 
@@ -3601,17 +3601,17 @@ export const globalMediacenterVideoListpage: ApiDefinition<
 
 /** Parameters for `global.mediacenter.video.uploadbyurl`. */
 export interface GlobalMediacenterVideoUploadbyurlParams {
-  /** 自定义视频名称 */
+  /** Custom video name */
   videoName?: string;
-  /** 待转存视频文件URL */
+  /** URL of the video file to be transferred */
   originVideoUrl?: string;
-  /** 自定义业务id，如商品id。视频异步上传处理完成后，将原样返回给ISV */
+  /** Custom business id, such as a product id. It is returned unchanged after the asynchronous video upload is processed, to the ISV */
   bizId?: string;
 }
 
 /** Response of `global.mediacenter.video.uploadbyurl`. */
 export interface GlobalMediacenterVideoUploadbyurlResponse {
-  /** 返回结果 */
+  /** Returned result */
   result?: GlobalMediacenterVideoUploadbyurlBaseResultDTO;
 }
 
@@ -3647,9 +3647,9 @@ export interface GlobalMerchantAicInvLogParams {
   inventoryType?: number;
   /** 1 */
   storeCodes?: string;
-  /** 交易主单 */
+  /** Main transaction order */
   bizTradeIds?: string;
-  /** 操作主单 */
+  /** Operation main order */
   operationOrderIds?: string;
   /** 1 */
   pageSize?: number;
@@ -3671,25 +3671,25 @@ export interface GlobalMerchantAicInvLogParams {
 
 /** Response of `global.merchant.aic.invLog`. */
 export interface GlobalMerchantAicInvLogResponse {
-  /** 请求结果 */
+  /** Request result */
   result?: Array<GlobalMerchantAicInvLogAicISVWarehouseInvLogDTO>;
-  /** 租户/经营组织 */
+  /** Tenant/operating organization */
   merchantCode?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 总页数 */
+  /** Total pages */
   totalPage?: number;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 总条数 */
+  /** Total count */
   totalCount?: number;
-  /** 结果信息 */
+  /** Result information */
   message?: string;
-  /** 分页索引 */
+  /** Pagination index */
   pageNum?: number;
 }
 
@@ -3738,41 +3738,41 @@ export const globalMerchantAicInvLog: ApiDefinition<
 
 /** Parameters for `global.merchant.aic.isv.inventory.lock.record`. */
 export interface GlobalMerchantAicIsvInventoryLockRecordParams {
-  /** 经营组织 */
+  /** Operating organization */
   merchantCode?: string;
-  /** 仓库code，多个用,号隔开,最多支持5个 */
+  /** Warehouse code, separate multiple with commas, up to 5 supported */
   storeCodes?: string;
-  /** 业务单据，多个用,号隔开，最多支持5个 */
+  /** Business documents, separate multiple with commas, up to 5 supported */
   bizNos?: string;
-  /** 单据类型，固定值 */
+  /** Document type, fixed value */
   bizOperateType?: string;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 渠道商家id，全托必填，半托不填 */
+  /** Channel merchant id; required for full-consignment, leave empty for semi-consignment */
   channelSellerId?: string;
-  /** 当前页 */
+  /** Current page */
   pageIndex?: number;
-  /** 货品ID，多个用,号隔开，最多支持5个 */
+  /** Item IDs, separate multiple with commas, up to 5 supported */
   scItemIds?: string;
 }
 
 /** Response of `global.merchant.aic.isv.inventory.lock.record`. */
 export interface GlobalMerchantAicIsvInventoryLockRecordResponse {
-  /** 结果 */
+  /** Result */
   result?: Array<GlobalMerchantAicIsvInventoryLockRecordAicIsvInventoryDetailDTO>;
-  /** 总页数 */
+  /** Total pages */
   totalPage?: number;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误详情 */
+  /** Error details */
   errorMessage?: string;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 总数 */
+  /** Total */
   totalCount?: number;
-  /** 当前页 */
+  /** Current page */
   pageNum?: number;
 }
 
@@ -3814,41 +3814,41 @@ export const globalMerchantAicIsvInventoryLockRecord: ApiDefinition<
 
 /** Parameters for `global.merchant.aic.isv.inventory.onway.record`. */
 export interface GlobalMerchantAicIsvInventoryOnwayRecordParams {
-  /** 经营组织 */
+  /** Operating organization */
   merchantCode?: string;
-  /** 仓库code，多个用,号隔开,最多支持5个 */
+  /** Warehouse code, separate multiple with commas, up to 5 supported */
   storeCodes?: string;
-  /** 单据类型，固定值 */
+  /** Document type, fixed value */
   bizOperateType?: string;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 业务单据，多个用,号隔开，最多支持5个 */
+  /** Business documents, separate multiple with commas, up to 5 supported */
   bizNos?: string;
-  /** 渠道商家id，全托必填，半托不填 */
+  /** Channel merchant id; required for full-consignment, leave empty for semi-consignment */
   channelSellerId?: string;
-  /** 当前页 */
+  /** Current page */
   pageIndex?: number;
-  /** 货品ID，多个用,号隔开，最多支持5个 */
+  /** Item IDs, separate multiple with commas, up to 5 supported */
   scItemIds?: string;
 }
 
 /** Response of `global.merchant.aic.isv.inventory.onway.record`. */
 export interface GlobalMerchantAicIsvInventoryOnwayRecordResponse {
-  /** 结果 */
+  /** Result */
   result?: Array<GlobalMerchantAicIsvInventoryOnwayRecordAicIsvInventoryDetailDTO>;
-  /** 总页数 */
+  /** Total pages */
   totalPage?: number;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误详情 */
+  /** Error details */
   errorMessage?: string;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 总数 */
+  /** Total */
   totalCount?: number;
-  /** 当前页 */
+  /** Current page */
   pageNum?: number;
 }
 
@@ -3891,41 +3891,41 @@ export const globalMerchantAicIsvInventoryOnwayRecord: ApiDefinition<
 
 /** Parameters for `global.merchant.aic.isv.jxc`. */
 export interface GlobalMerchantAicIsvJxcParams {
-  /** 经营组织 */
+  /** Operating organization */
   merchantCode?: string;
-  /** 仓code */
+  /** Warehouse code */
   storeCodes?: string;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 渠道商家id，全托必填，半托不填 */
+  /** Channel merchant id; required for full-consignment, leave empty for semi-consignment */
   channelSellerId?: LongInput;
-  /** 当前页数 */
+  /** Current page number */
   pageIndex?: number;
-  /** 品id */
+  /** Goods ID */
   scItemIds?: string;
-  /** 进销存开始时间 */
+  /** Inventory movement start time */
   beginTime?: string;
-  /** 进销存结束时间 */
+  /** Inventory movement end time */
   endTime?: string;
 }
 
 /** Response of `global.merchant.aic.isv.jxc`. */
 export interface GlobalMerchantAicIsvJxcResponse {
-  /** 进销存数据 */
+  /** Inventory movement data */
   result?: Array<GlobalMerchantAicIsvJxcAicISVJxcDTO>;
-  /** 总分数 */
+  /** Total score */
   totalPage?: number;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 错误详情 */
+  /** Error details */
   errorMessage?: string;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 总数 */
+  /** Total */
   totalCount?: number;
-  /** 当前页数 */
+  /** Current page number */
   pageNum?: number;
 }
 
@@ -3963,37 +3963,37 @@ export const globalMerchantAicIsvJxc: ApiDefinition<
 
 /** Parameters for `global.merchant.aic.realTimeInv`. */
 export interface GlobalMerchantAicRealTimeInvParams {
-  /** 渠道商家id，全托必填，半托不填 */
+  /** Channel merchant id; required for full-consignment, leave empty for semi-consignment */
   channelSellerId?: string;
-  /** 分页索引 */
+  /** Pagination index */
   pageIndex?: number;
-  /** 货品id，多个用逗号隔开 */
+  /** Product ids, multiple separated by commas */
   scItemIds?: string;
-  /** 租户 */
+  /** Tenant */
   merchantCode?: string;
-  /** 仓code，多个用逗号隔开 */
+  /** Warehouse codes, multiple separated by commas */
   storeCodes?: string;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
 }
 
 /** Response of `global.merchant.aic.realTimeInv`. */
 export interface GlobalMerchantAicRealTimeInvResponse {
-  /** 结果 */
+  /** Result */
   result?: Array<GlobalMerchantAicRealTimeInvAicISVRealTimeDTO>;
-  /** 总页数 */
+  /** Total pages */
   totalPage?: string;
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
-  /** 分页大小 */
+  /** Pagination size */
   pageSize?: number;
-  /** 总条数 */
+  /** Total count */
   totalCount?: number;
-  /** 分页索引 */
+  /** Pagination index */
   pageNum?: number;
-  /** 错误码 */
+  /** Error code */
   errorCode?: string;
-  /** 错误信息 */
+  /** Error message */
   message?: string;
 }
 
@@ -4096,13 +4096,13 @@ export const globalMsrList: ApiDefinition<
 
 /** Parameters for `global.product.create`. */
 export interface GlobalProductCreateParams {
-  /** 商品模块 */
+  /** Product module */
   product?: GlobalProductCreateCspProduct;
 }
 
 /** Response of `global.product.create`. */
 export interface GlobalProductCreateResponse {
-  /** 统一商品id */
+  /** Unified product ID */
   productId?: Long;
 }
 
@@ -4126,13 +4126,13 @@ export const globalProductCreate: ApiDefinition<
 
 /** Parameters for `global.product.offline`. */
 export interface GlobalProductOfflineParams {
-  /** 统一商品id */
+  /** Unified product ID */
   productId?: LongInput;
 }
 
 /** Response of `global.product.offline`. */
 export interface GlobalProductOfflineResponse {
-  /** 下架成功的统一商品id */
+  /** Unified product id successfully delisted */
   productId?: Long;
 }
 
@@ -4156,13 +4156,13 @@ export const globalProductOffline: ApiDefinition<
 
 /** Parameters for `global.product.online`. */
 export interface GlobalProductOnlineParams {
-  /** 统一商品id */
+  /** Unified product ID */
   productId?: LongInput;
 }
 
 /** Response of `global.product.online`. */
 export interface GlobalProductOnlineResponse {
-  /** 上架成功统一商品id */
+  /** Unified product id successfully listed */
   productId?: Long;
 }
 
@@ -4186,15 +4186,15 @@ export const globalProductOnline: ApiDefinition<
 
 /** Parameters for `global.product.price.update`. */
 export interface GlobalProductPriceUpdateParams {
-  /** 统一商品id */
+  /** Unified product ID */
   productId?: LongInput;
-  /** 渠道sku价格列表 */
+  /** Channel SKU price list */
   channelSkuList?: Array<GlobalProductPriceUpdateCspChannelSkuApiDTO>;
 }
 
 /** Response of `global.product.price.update`. */
 export interface GlobalProductPriceUpdateResponse {
-  /** 编辑成功的商品id */
+  /** Product ids edited successfully */
   productId?: Long;
 }
 
@@ -4223,13 +4223,13 @@ export const globalProductPriceUpdate: ApiDefinition<
 
 /** Parameters for `global.product.published.channels.list`. */
 export interface GlobalProductPublishedChannelsListParams {
-  /** 全球商品id */
+  /** Global product ID */
   globalProductId?: LongInput;
 }
 
 /** Response of `global.product.published.channels.list`. */
 export interface GlobalProductPublishedChannelsListResponse {
-  /** 所铺的渠道信息 */
+  /** Channel information of the store */
   publishedChannels?: Array<GlobalProductPublishedChannelsListGlobalProductPublishedChannelDTO>;
 }
 
@@ -4258,13 +4258,13 @@ export const globalProductPublishedChannelsList: ApiDefinition<
 
 /** Parameters for `global.product.query`. */
 export interface GlobalProductQueryParams {
-  /** 统一商品id */
+  /** Unified product ID */
   productId?: LongInput;
 }
 
 /** Response of `global.product.query`. */
 export interface GlobalProductQueryResponse {
-  /** 商品模块 */
+  /** Product module */
   product?: GlobalProductQueryCspProduct;
 }
 
@@ -4288,15 +4288,15 @@ export const globalProductQuery: ApiDefinition<
 
 /** Parameters for `global.product.stock.update`. */
 export interface GlobalProductStockUpdateParams {
-  /** 统一商品id */
+  /** Unified product ID */
   productId?: LongInput;
-  /** 渠道库存信息 */
+  /** Channel inventory information */
   channelSkuList?: Array<GlobalProductStockUpdateCspChannelSkuApiDTO>;
 }
 
 /** Response of `global.product.stock.update`. */
 export interface GlobalProductStockUpdateResponse {
-  /** 编辑成功的统一商品id */
+  /** Unified product id successfully edited */
   productId?: Long;
 }
 
@@ -4325,13 +4325,13 @@ export const globalProductStockUpdate: ApiDefinition<
 
 /** Parameters for `global.product.update`. */
 export interface GlobalProductUpdateParams {
-  /** 商品模块 */
+  /** Product module */
   product?: GlobalProductUpdateCspProduct;
 }
 
 /** Response of `global.product.update`. */
 export interface GlobalProductUpdateResponse {
-  /** 统一商品id */
+  /** Unified product ID */
   productId?: Long;
 }
 
@@ -4361,15 +4361,15 @@ export interface GlobalProductsListParams {
 
 /** Response of `global.products.list`. */
 export interface GlobalProductsListResponse {
-  /** 总页数 */
+  /** Total pages */
   totalPage?: number;
-  /** 每页数量 */
+  /** Quantity per page */
   pageSize?: number;
-  /** 总数 */
+  /** Total */
   totalCount?: number;
-  /** 当前页号 */
+  /** Current page number */
   currentPage?: number;
-  /** 产品信息列表 */
+  /** Product information list */
   productList?: Array<GlobalProductsListCspProductSearchApiSingleResultDTO>;
 }
 
@@ -4405,19 +4405,19 @@ export const globalProductsList: ApiDefinition<
 
 /** Parameters for `global.publish.task.create`. */
 export interface GlobalPublishTaskCreateParams {
-  /** 铺货任务备注 */
+  /** Distribution task remarks */
   remark?: string;
-  /** 渠道商家id, 通过global.seller.relation.query获得 */
+  /** Channel seller id, obtained via global.seller.relation.query */
   channelSellerId?: LongInput;
   /** AE_GLOBAL,ARISE_ES,ARISE_FR */
   channel?: string;
-  /** 全球商品id,通过global.product.create获得 */
+  /** Global product ID, obtained via global.product.create */
   globalProductId?: LongInput;
 }
 
 /** Response of `global.publish.task.create`. */
 export interface GlobalPublishTaskCreateResponse {
-  /** 任务id */
+  /** Task ID */
   taskId?: string;
 }
 
@@ -4444,17 +4444,17 @@ export const globalPublishTaskCreate: ApiDefinition<
 
 /** Parameters for `global.publish.task.query`. */
 export interface GlobalPublishTaskQueryParams {
-  /** 任务id */
+  /** Task ID */
   taskId?: string;
 }
 
 /** Response of `global.publish.task.query`. */
 export interface GlobalPublishTaskQueryResponse {
-  /** 任务调度状态，代表任务是否开始执行，不代表铺货状态。一共三种状态： waiting、success、failed ； 铺货状态在 published_list 中 */
+  /** Task scheduling status, indicating whether the task has started executing, not the distribution status. Three statuses: waiting, success, failed; the distribution status is in published_list */
   publishedList?: Array<GlobalPublishTaskQueryGlobalProductPublishedChannelDTO>;
-  /** 任务状态 一共三种： waiting、success、failed */
+  /** Task status. Three in total: waiting, success, failed */
   taskStatus?: string;
-  /** 铺货任务备注，创建铺货任务时传入 */
+  /** Remarks for the product distribution task, passed in when creating the task */
   remark?: string;
 }
 
@@ -4484,15 +4484,15 @@ export const globalPublishTaskQuery: ApiDefinition<
 
 /** Parameters for `global.seller.brands.list`. */
 export interface GlobalSellerBrandsListParams {
-  /** 语言 :en_US */
+  /** Language: en_US */
   locale?: string;
-  /** 统一叶子类目ID，请isv做好前置校验，只有叶子类目上才能查询到品牌 */
+  /** Unified leaf category ID. ISVs should perform prior validation; brands can only be queried on leaf categories */
   categoryId?: LongInput;
 }
 
 /** Response of `global.seller.brands.list`. */
 export interface GlobalSellerBrandsListResponse {
-  /** 品牌列表 */
+  /** Brand list */
   brandList?: Array<GlobalSellerBrandsListCspBrandDTO>;
 }
 
@@ -4549,11 +4549,11 @@ export interface GlobalSellerRelationQueryParams {}
 
 /** Response of `global.seller.relation.query`. */
 export interface GlobalSellerRelationQueryResponse {
-  /** 渠道账号列表 */
+  /** Channel account list */
   sellerRelationList?: Array<GlobalSellerRelationQuerySellerRelationApiDTO>;
-  /** 成功失败 */
+  /** Success or failure */
   success?: boolean;
-  /** 全球商品币种 */
+  /** Global product currency */
   globalCurrency?: string;
 }
 

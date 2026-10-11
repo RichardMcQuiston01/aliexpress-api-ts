@@ -9,23 +9,23 @@ import type {
 } from '../core/index.js';
 
 export interface AliexpressEcowarehouseInventoryChangeGetInventoryChangeNotifyRequest {
-  /** 库存变更模型 */
+  /** Inventory change model */
   aeTradeOrderId?: string;
-  /** 库存变更模型 */
+  /** Inventory change model */
   outBizId?: string;
-  /** 库存变更模型 */
+  /** Inventory change model */
   quantity?: Long;
-  /** 库存变更模型 */
+  /** Inventory change model */
   warehouseCustomerId?: string;
-  /** 库存变更模型 */
+  /** Inventory change model */
   ownerId?: string;
-  /** 库存变更模型 */
+  /** Inventory change model */
   type?: string;
-  /** 库存变更模型 */
+  /** Inventory change model */
   skuId?: string;
-  /** 库存变更模型 */
+  /** Inventory change model */
   warehouseCode?: string;
-  /** 全局幂等ID */
+  /** Global idempotency ID */
   idempotentId?: string;
 }
 
@@ -43,13 +43,13 @@ export const AliexpressEcowarehouseInventoryChangeGetInventoryChangeNotifyReques
   };
 
 export interface AliexpressEcowarehouseInventoryChangeGetTopResponseDO {
-  /** 返回模型 */
+  /** Returned model */
   data?: string;
-  /** 返回模型 */
+  /** Returned model */
   success?: boolean;
-  /** 返回模型 */
+  /** Returned model */
   errorMessage?: string;
-  /** 返回模型 */
+  /** Returned model */
   errorCode?: string;
 }
 
@@ -62,11 +62,11 @@ export const AliexpressEcowarehouseInventoryChangeGetTopResponseDOSchema: Schema
   };
 
 export interface AliexpressEcowarehouseInventoryNotifyGetInventoryNotifyRequest {
-  /** 输入 */
+  /** Input */
   skuInventoryList?: Array<AliexpressEcowarehouseInventoryNotifyGetWarehouseSkuInventory>;
-  /** 服务商 */
+  /** Service provider */
   warehouseCustomerId?: string;
-  /** 通知类型 */
+  /** Notification type */
   type?: string;
 }
 
@@ -82,13 +82,13 @@ export const AliexpressEcowarehouseInventoryNotifyGetInventoryNotifyRequestSchem
   };
 
 export interface AliexpressEcowarehouseInventoryNotifyGetTopResponseDO {
-  /** 设置成功与否。如果为false说明有业务错误 */
+  /** Whether the setting succeeded. If false, there is a business error */
   data?: string;
-  /** 调用成功与否。如果为false说明有系统错误。比如NPE */
+  /** Whether the call succeeded. If false, there is a system error, such as an NPE */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -101,11 +101,11 @@ export const AliexpressEcowarehouseInventoryNotifyGetTopResponseDOSchema: Schema
   };
 
 export interface AliexpressEcowarehouseInventoryNotifyGetWarehouseSkuInventory {
-  /** 货主ID */
+  /** Cargo owner ID */
   ownerId?: string;
   /** sku id */
   skuId?: string;
-  /** 输入 */
+  /** Input */
   warehouseCodeInventory?: Array<AliexpressEcowarehouseInventoryNotifyGetWmsCodeInventoryPair>;
 }
 
@@ -121,9 +121,9 @@ export const AliexpressEcowarehouseInventoryNotifyGetWarehouseSkuInventorySchema
   };
 
 export interface AliexpressEcowarehouseInventoryNotifyGetWmsCodeInventoryPair {
-  /** 可售库存 */
+  /** Sellable inventory */
   availableStock?: number;
-  /** 仓code */
+  /** Warehouse code */
   warehouseCode?: string;
 }
 
@@ -246,13 +246,13 @@ export const AliexpressEcowarehouseOrderStatusPostSendPackageSkuSchema: Schema =
   };
 
 export interface AliexpressEcowarehouseOrderStatusPostTopResponseDO {
-  /** 数据返回 */
+  /** Data returned */
   data?: string;
-  /** 接口调用结果。 */
+  /** API call result. */
   success?: boolean;
-  /** 错误信息 */
+  /** Error message */
   errorMessage?: string;
-  /** 错误编码 */
+  /** Error code */
   errorCode?: string;
 }
 
@@ -267,13 +267,13 @@ export const AliexpressEcowarehouseOrderStatusPostTopResponseDOSchema: Schema =
 export interface AliexpressEcowarehouseReturnOrderFeePostReturnFeeDetailCallbackRequest {
   /** warehouse_customer_id */
   warehouseCustomerId?: string;
-  /** 退仓单ID */
+  /** Warehouse return order ID */
   outBizId?: string;
-  /** 货主ID */
+  /** Cargo owner ID */
   goodsOwnerId?: string;
-  /** 时间戳 */
+  /** Timestamp */
   timeStamp?: Long;
-  /** 仓code */
+  /** Warehouse code */
   warehouseCode?: string;
   /** package_info_list */
   packageInfo?: Array<AliexpressEcowarehouseReturnOrderFeePostString>;
@@ -301,23 +301,23 @@ export const AliexpressEcowarehouseReturnOrderFeePostReturnFeeDetailCallbackRequ
   };
 
 export interface AliexpressEcowarehouseReturnOrderFeePostString {
-  /** 长，单位：mm */
+  /** Length, unit: mm */
   length?: number;
-  /** 宽，单位：mm */
+  /** Width, unit: mm */
   width?: number;
-  /** 高，单位：mm */
+  /** Height, unit: mm */
   height?: number;
-  /** 重，单位：g */
+  /** Weight, unit: g */
   weight?: number;
-  /** 币种单位，例如：USD/CNY */
+  /** Currency unit, e.g. USD/CNY */
   currency?: string;
-  /** 费用项名称，例如：运费、质检、销毁、换标、装袋、其他 */
+  /** Fee item name, e.g.: freight, quality inspection, destruction, label change, bagging, other */
   expenseCode?: string;
-  /** 单价，币种最小单位，例如：1.23元，返回为123 */
+  /** Unit price, in the smallest currency unit, e.g.: 1.23 yuan is returned as 123 */
   unitPrice?: number;
-  /** 数量 */
+  /** Quantity */
   quantity?: number;
-  /** 总价，数量*单价 */
+  /** Total price, quantity * unit price */
   totalAmount?: number;
 }
 
@@ -334,13 +334,13 @@ export const AliexpressEcowarehouseReturnOrderFeePostStringSchema: Schema = {
 };
 
 export interface AliexpressEcowarehouseReturnOrderStatusPostTopResponseDO {
-  /** 业务字段 true|false */
+  /** Business field true|false */
   success?: boolean;
-  /** 错误码 */
+  /** Error code */
   errorMessage?: string;
-  /** 错误信息 */
+  /** Error message */
   errorCode?: string;
-  /** 业务字段 true|false */
+  /** Business field true|false */
   data?: boolean;
 }
 
@@ -353,23 +353,23 @@ export const AliexpressEcowarehouseReturnOrderStatusPostTopResponseDOSchema: Sch
   };
 
 export interface AliexpressEcowarehouseReturnOrderStatusPostWarehouseReturnCallbackRequest {
-  /** 寄送服务商 */
+  /** Delivery service provider */
   shippingProvider?: string;
-  /** 寄送运单号 */
+  /** Delivery waybill number */
   trackingNumbers?: string;
-  /** 拒单原因 */
+  /** Order rejection reason */
   rejectReason?: string;
-  /** 退仓单ID */
+  /** Warehouse return order ID */
   outBizId?: string;
-  /** 交接凭证 */
+  /** Handover voucher */
   handoverDoc?: string;
-  /** 易仓多租户路由ID，自研系统为固定值 */
+  /** Yicang multi-tenant routing ID, a fixed value for self-developed systems */
   warehouseCustomerId?: string;
-  /** 状态码 */
+  /** Status code */
   eventCode?: string;
-  /** 货主ID */
+  /** Cargo owner ID */
   goodsOwnerId?: string;
-  /** 时间戳 */
+  /** Timestamp */
   timeStamp?: Long;
 }
 
@@ -406,19 +406,19 @@ export const AliexpressEcowarehouseReverseOrderFeePostPackageInfoSchema: Schema 
   };
 
 export interface AliexpressEcowarehouseReverseOrderFeePostReverseFeeDetailCallbackRequest {
-  /** 易仓多租户路由ID，自研系统为固定值 */
+  /** Yicang multi-tenant routing ID, a fixed value for self-developed systems */
   warehouseCustomerId?: string;
-  /** 仓单号 */
+  /** Warehouse order number */
   outBizId?: string;
-  /** 货主ID */
+  /** Cargo owner ID */
   goodsOwnerId?: string;
-  /** wms仓订单号 */
+  /** WMS warehouse order number */
   wmsOrderId?: string;
-  /** 时间戳 */
+  /** Timestamp */
   timeStamp?: Long;
-  /** 仓code */
+  /** Warehouse code */
   warehouseCode?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNumber?: string;
   /** package_info */
   packageInfo?: AliexpressEcowarehouseReverseOrderFeePostPackageInfo;
@@ -450,13 +450,13 @@ export const AliexpressEcowarehouseReverseOrderFeePostReverseFeeDetailCallbackRe
 export interface AliexpressEcowarehouseReverseOrderFeePostString {
   /** USD/CNY */
   currency?: string;
-  /** 费用code */
+  /** Fee code */
   expenseCode?: string;
-  /** 单价 */
+  /** Unit price */
   unitPrice?: number;
-  /** 数量 */
+  /** Quantity */
   quantity?: number;
-  /** 总价 */
+  /** Total price */
   totalAmount?: number;
 }
 
@@ -469,13 +469,13 @@ export const AliexpressEcowarehouseReverseOrderFeePostStringSchema: Schema = {
 };
 
 export interface AliexpressEcowarehouseReverseOrderFeePostTopResponseDO {
-  /** 是否成功 */
+  /** Whether successful */
   success?: boolean;
   /** error_message */
   errorMessage?: string;
   /** error_code */
   errorCode?: string;
-  /** 是否成功 */
+  /** Whether successful */
   data?: string;
 }
 
@@ -498,15 +498,15 @@ export interface AliexpressEcowarehouseReverseOrderStatusPostLogisticParam {
   shippingMethod?: string;
   /** consign_type */
   consignType?: string;
-  /** 揽收类型 */
+  /** Pickup type */
   collectType?: string;
-  /** 二维码URL */
+  /** QR code URL */
   qrCodeUrl?: string;
-  /** 二维码code */
+  /** QR code */
   qrCode?: string;
-  /** 自提柜数字码 */
+  /** Parcel locker numeric code */
   lockerPickupCode?: string;
-  /** 自提柜二维码图片链接 */
+  /** Image link of the pickup locker QR code */
   lockerPickupQrCode?: string;
 }
 
@@ -525,7 +525,7 @@ export const AliexpressEcowarehouseReverseOrderStatusPostLogisticParamSchema: Sc
   };
 
 export interface AliexpressEcowarehouseReverseOrderStatusPostLogisticParamExtend {
-  /** 二段运单号 */
+  /** Second-leg waybill number */
   secondWayBill?: AliexpressEcowarehouseReverseOrderStatusPostWayBill;
 }
 
@@ -637,11 +637,11 @@ export interface AliexpressEcowarehouseReverseOrderStatusPostSendReverseCallback
   logisticParam?: AliexpressEcowarehouseReverseOrderStatusPostLogisticParam;
   /** item_list */
   itemList?: Array<AliexpressEcowarehouseReverseOrderStatusPostString>;
-  /** 为true表示为照片只拍摄整单维度 */
+  /** true indicates the photo shoots only the whole-order dimension */
   picForWholePkg?: string;
-  /** 包裹明细 */
+  /** Package details */
   packageList?: Array<AliexpressEcowarehouseReverseOrderStatusPostReversePackage>;
-  /** 物流参数扩展信息 */
+  /** Logistics parameter extension information */
   logisticParamExtend?: AliexpressEcowarehouseReverseOrderStatusPostLogisticParamExtend;
   /** reverse_merge_network */
   reverseMergeNetwork?: string;
@@ -730,13 +730,13 @@ export const AliexpressEcowarehouseReverseOrderStatusPostStringSchema: Schema =
   };
 
 export interface AliexpressEcowarehouseReverseOrderStatusPostTopResponseDO {
-  /** 成功与否 */
+  /** Success or not */
   success?: boolean;
   /** error_message */
   errorMessage?: string;
   /** error_code */
   errorCode?: string;
-  /** 成功与否 */
+  /** Success or not */
   data?: boolean;
 }
 
@@ -749,11 +749,11 @@ export const AliexpressEcowarehouseReverseOrderStatusPostTopResponseDOSchema: Sc
   };
 
 export interface AliexpressEcowarehouseReverseOrderStatusPostWayBill {
-  /** 物流公司code */
+  /** Logistics company code */
   logisticsCompanyCode?: string;
-  /** 物流公司名称 */
+  /** Logistics company name */
   logisticsCompanyName?: string;
-  /** 运单号 */
+  /** Waybill number */
   trackingNo?: string;
 }
 
@@ -785,13 +785,13 @@ export const AliexpressEcowarehouseReverseOrderUploadTopResponseDOSchema: Schema
 
 /** Parameters for `aliexpress.ecowarehouse.inventory.change.get`. */
 export interface AliexpressEcowarehouseInventoryChangeGetParams {
-  /** 库存变更模型 */
+  /** Inventory change model */
   inventoryChangeNotifyRequest?: AliexpressEcowarehouseInventoryChangeGetInventoryChangeNotifyRequest;
 }
 
 /** Response of `aliexpress.ecowarehouse.inventory.change.get`. */
 export interface AliexpressEcowarehouseInventoryChangeGetResponse {
-  /** 返回模型 */
+  /** Returned model */
   result?: AliexpressEcowarehouseInventoryChangeGetTopResponseDO;
 }
 
@@ -824,13 +824,13 @@ export const aliexpressEcowarehouseInventoryChangeGet: ApiDefinition<
 
 /** Parameters for `aliexpress.ecowarehouse.inventory.notify.get`. */
 export interface AliexpressEcowarehouseInventoryNotifyGetParams {
-  /** 输入 */
+  /** Input */
   inventoryNotifyRequest?: AliexpressEcowarehouseInventoryNotifyGetInventoryNotifyRequest;
 }
 
 /** Response of `aliexpress.ecowarehouse.inventory.notify.get`. */
 export interface AliexpressEcowarehouseInventoryNotifyGetResponse {
-  /** 输入 */
+  /** Input */
   result?: AliexpressEcowarehouseInventoryNotifyGetTopResponseDO;
 }
 
@@ -869,7 +869,7 @@ export interface AliexpressEcowarehouseOrderStatusPostParams {
 
 /** Response of `aliexpress.ecowarehouse.order.status.post`. */
 export interface AliexpressEcowarehouseOrderStatusPostResponse {
-  /** 结构体 */
+  /** Structure */
   result?: AliexpressEcowarehouseOrderStatusPostTopResponseDO;
 }
 
@@ -1054,9 +1054,9 @@ export const aliexpressEcowarehouseReverseOrderStatusPost: ApiDefinition<
 
 /** Parameters for `aliexpress.ecowarehouse.reverse.order.upload`. */
 export interface AliexpressEcowarehouseReverseOrderUploadParams {
-  /** 字符串 */
+  /** String */
   warehouseCustomerId?: string;
-  /** 文件流 */
+  /** File stream */
   fileStream?: FileInput;
 }
 

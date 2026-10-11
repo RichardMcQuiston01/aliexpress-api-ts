@@ -10,15 +10,15 @@ import type {
 
 /** Parameters for `/august/fourteen/online/first/api`. */
 export interface AugustFourteenOnlineFirstApiParams {
-  /** 对应ID */
+  /** Corresponding ID */
   iD?: LongInput;
 }
 
 /** Response of `/august/fourteen/online/first/api`. */
 export interface AugustFourteenOnlineFirstApiResponse {
-  /** 对应姓名 */
+  /** Corresponding name */
   name?: string;
-  /** 对应年龄 */
+  /** Corresponding age */
   age?: Long;
 }
 
