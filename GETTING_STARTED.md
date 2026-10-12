@@ -110,20 +110,25 @@ const refreshed = await client.auth.tokenRefresh({ refreshToken });
 
 ## Run the Live Tests
 
-The normal tests use a mock gateway. The live tests call the real AliExpress gateway. They are off unless you set three environment variables:
+The normal tests use a mock gateway. The live tests call the real AliExpress gateway. They are off unless you set your app key and secret.
 
-```bash
-export ALIEXPRESS_APP_KEY=your-key
-export ALIEXPRESS_APP_SECRET=your-secret
-export ALIEXPRESS_ACCESS_TOKEN=token-from-get-token
+Affiliate tests need only the key and the secret. They make three read-only calls:
+
+- `affiliate.categoryGet`
+- `affiliate.productQuery`
+- One call signed with a wrong secret. It should come back as an API error, not a network error.
+
+On Windows `cmd`, set the variables like this:
+
+```bat
+set ALIEXPRESS_APP_KEY=your-key
+set ALIEXPRESS_APP_SECRET=your-secret
 npm run test:live
 ```
 
-The live tests make three read-only calls:
+On macOS or Linux, use `export` instead of `set`. Set `ALIEXPRESS_TRACKING_ID` too if you have one. It is sent with the product query.
 
-- `solution.productListGet`
-- `solution.sellerCategoryTreeQuery`
-- One call signed with a wrong secret. It should come back as an API error, not a network error.
+Seller tests are off by default. They need a seller access token, and they run only if you also set `ALIEXPRESS_ACCESS_TOKEN` and `ALIEXPRESS_SELLER_TESTS=1`. They call `solution.productListGet` and `solution.sellerCategoryTreeQuery`.
 
 If a live test fails, the error message names the API and the error code. Start there.
 

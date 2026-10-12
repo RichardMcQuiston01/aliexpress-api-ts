@@ -90,7 +90,9 @@ The package itself reads no environment variables. The scripts and live tests in
 | --- | --- | --- |
 | `ALIEXPRESS_APP_KEY` | `get-token`, live tests | Your app key. |
 | `ALIEXPRESS_APP_SECRET` | `get-token`, live tests | Your app secret. |
-| `ALIEXPRESS_ACCESS_TOKEN` | live tests | A seller access token. |
+| `ALIEXPRESS_ACCESS_TOKEN` | seller live tests | A seller access token. |
+| `ALIEXPRESS_SELLER_TESTS` | live tests | Set to `1` to run the seller tests. |
+| `ALIEXPRESS_TRACKING_ID` | live tests | Optional. Sent with affiliate product queries. |
 | `ALIEXPRESS_REDIRECT_URI` | `get-token` | Your registered callback URL. |
 | `ALIEXPRESS_BASE_URL` | `get-token`, live tests | Optional. Replaces the default gateway. |
 
