@@ -2,12 +2,13 @@
 
 [Back to README](./README.md)
 
-| [Unreleased](#unreleased) | [0.2.2](#022) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
+| [0.2.3](#023) | [0.2.2](#022) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
 
-## Unreleased
+## 0.2.3
 
 - Live tests now run Affiliate calls with only an app key and secret. Seller tests are opt-in.
 - Verified against the real gateway: request signing, TOP routing for POST calls, response decoding, and API error handling, using `affiliate.categoryGet` and `affiliate.productQuery`.
+- No changes to the package code.
 
 [Back to Top](#changelog)
 
