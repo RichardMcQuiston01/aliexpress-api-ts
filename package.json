@@ -1,6 +1,6 @@
 {
   "name": "@richardmcquiston01/unofficial-aliexpress-api",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Unofficial, fully typed TypeScript client for the AliExpress Open Platform (IOP) API.",
   "license": "Apache-2.0",
   "author": "Richard McQuiston (https://richardmcquiston.com/)",

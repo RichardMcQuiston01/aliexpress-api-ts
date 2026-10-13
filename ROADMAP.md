@@ -12,6 +12,7 @@ This roadmap is a plan, not a promise. The order can change. Ideas marked "Later
 - **0.2.0:** Security fixes for URL building, the login `state` value, credential exposure, error text, and redirects.
 - **0.2.1:** A new README, four guides, and the `get-token` script. No code changes.
 - **0.2.2:** English comments in the generated code. No code changes.
+- **0.2.3:** Live tests for the Affiliate APIs, which passed against the real gateway. No code changes.
 
 See the [Changelog](./CHANGELOG.md) for the details.
 
