@@ -2,7 +2,14 @@
 
 [Back to README](./README.md)
 
-| [0.2.2](#022) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
+| [Unreleased](#unreleased) | [0.2.2](#022) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
+
+## Unreleased
+
+- Live tests now run Affiliate calls with only an app key and secret. Seller tests are opt-in.
+- Verified against the real gateway: request signing, TOP routing for POST calls, response decoding, and API error handling, using `affiliate.categoryGet` and `affiliate.productQuery`.
+
+[Back to Top](#changelog)
 
 ## 0.2.2
 

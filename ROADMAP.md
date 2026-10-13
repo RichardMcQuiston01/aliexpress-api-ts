@@ -11,6 +11,7 @@ This roadmap is a plan, not a promise. The order can change. Ideas marked "Later
 - **0.1.0:** A typed client for all 932 methods of the AliExpress Application Programming Interface (API), with namespaced access, request signing, file uploads, and clear errors.
 - **0.2.0:** Security fixes for URL building, the login `state` value, credential exposure, error text, and redirects.
 - **0.2.1:** A new README, four guides, and the `get-token` script. No code changes.
+- **0.2.2:** English comments in the generated code. No code changes.
 
 See the [Changelog](./CHANGELOG.md) for the details.
 
@@ -20,7 +21,7 @@ See the [Changelog](./CHANGELOG.md) for the details.
 
 These items close the gaps in what is already built.
 
-1. **Test against the live gateway.** Every test so far uses a mock gateway. Run `npm run test:live` with a real app, then fix anything it finds. This covers signing, request routing, and response decoding.
+1. **Finish the live gateway tests.** The Affiliate calls `categoryGet` and `productQuery` now pass against the real gateway. That covers signing, TOP routing for POST calls, and response decoding. Still untested live: the other request style (names that start with `/`, such as `auth.tokenCreate`) and the seller APIs, which need an app with seller access.
 2. **Confirm the login address.** The address in `getAuthorizationUrl` is not in the Java Software Development Kit (SDK), and no one has checked it against a real login yet. Run one and fix it if it is wrong.
 3. **Confirm the `GET` rule.** The Java SDK sends every method that is not `POST`, including `HSF`, as a `GET`. This package copies that rule. Check that the gateway accepts it for all 66 `HSF` methods, and change the rule if it does not.
 
