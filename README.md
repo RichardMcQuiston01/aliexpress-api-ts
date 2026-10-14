@@ -15,7 +15,7 @@ It covers all 932 API methods from the AliExpress Java Software Development Kit 
 
 This package is not made by, or tied to, AliExpress or Alibaba. Its models come from version 1.3.5-ae of the Java SDK.
 
-The tests use a mock gateway. Live tests also exist, but you run them yourself with your own app key. See the [Getting Started Guide](./GETTING_STARTED.md).
+The tests use a mock gateway. The Affiliate calls `categoryGet` and `productQuery` have also passed against the real gateway. The other APIs, including all Seller APIs, have not been tried live, because the author's app has Affiliate access only. If you have seller access, please run the live tests and report what you find. See the [Getting Started Guide](./GETTING_STARTED.md#run-the-live-tests).
 
 [Back to Top](#table-of-contents)
 
@@ -96,7 +96,11 @@ Upload a file. Any API with a file field sends the request as a multipart form:
 
 ```ts
 await client.affiliate.imageSearch({
-  imageFileBytes: { fileName: 'photo.png', content: bytes, mimeType: 'image/png' },
+  imageFileBytes: {
+    fileName: 'photo.png',
+    content: bytes,
+    mimeType: 'image/png',
+  },
 });
 ```
 

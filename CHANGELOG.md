@@ -2,7 +2,15 @@
 
 [Back to README](./README.md)
 
-| [0.2.3](#023) | [0.2.2](#022) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
+| [Unreleased](#unreleased) | [0.2.3](#023) | [0.2.2](#022) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
+
+## Unreleased
+
+- More Affiliate live tests: `hotproductQuery`, `productdetailGet`, and `productShippingGet`.
+- Document that only the Affiliate APIs have been verified live, and ask for help testing the Seller APIs.
+- No changes to the package code.
+
+[Back to Top](#changelog)
 
 ## 0.2.3
 

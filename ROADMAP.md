@@ -22,7 +22,7 @@ See the [Changelog](./CHANGELOG.md) for the details.
 
 These items close the gaps in what is already built.
 
-1. **Finish the live gateway tests.** The Affiliate calls `categoryGet` and `productQuery` now pass against the real gateway. That covers signing, TOP routing for POST calls, and response decoding. Still untested live: the other request style (names that start with `/`, such as `auth.tokenCreate`) and the seller APIs, which need an app with seller access.
+1. **Finish the live gateway tests.** The Affiliate calls now pass against the real gateway. That covers signing, TOP routing for POST calls, and response decoding. Still untested live: the other request style (names that start with `/`, such as `auth.tokenCreate`) and every Seller API. The author has Affiliate access only, so these need help from someone with seller access. See [Run the Live Tests](./GETTING_STARTED.md#run-the-live-tests).
 2. **Confirm the login address.** The address in `getAuthorizationUrl` is not in the Java Software Development Kit (SDK), and no one has checked it against a real login yet. Run one and fix it if it is wrong.
 3. **Confirm the `GET` rule.** The Java SDK sends every method that is not `POST`, including `HSF`, as a `GET`. This package copies that rule. Check that the gateway accepts it for all 66 `HSF` methods, and change the rule if it does not.
 

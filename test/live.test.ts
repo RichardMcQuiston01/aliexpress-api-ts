@@ -64,6 +64,50 @@ describe.skipIf(!hasAppCredentials)(
       }
     });
 
+    it('affiliate.hotproductQuery returns a typed result', async () => {
+      const result = await makeClient().affiliate.hotproductQuery({
+        keywords: 'phone case',
+        pageNo: 1,
+        pageSize: 1,
+        trackingId,
+      });
+      expect(result.ok, result.ok ? '' : result.error.message).toBe(true);
+      if (result.ok) {
+        expect(result.requestId).toBeTruthy();
+        expect(result.data.respResult).toBeDefined();
+      }
+    });
+
+    it('affiliate.productdetailGet and productShippingGet accept a product id from a query', async () => {
+      const client = makeClient();
+      const query = await client.affiliate.productQuery({
+        keywords: 'phone case',
+        pageNo: 1,
+        pageSize: 1,
+        trackingId,
+      });
+      expect(query.ok, query.ok ? '' : query.error.message).toBe(true);
+      if (!query.ok) return;
+      const productId = query.data.respResult?.result?.products?.[0]?.productId;
+      expect(productId, 'the product query returned no products').toBeDefined();
+      if (productId === undefined) return;
+
+      const detail = await client.affiliate.productdetailGet({
+        productIds: String(productId),
+        trackingId,
+      });
+      expect(detail.ok, detail.ok ? '' : detail.error.message).toBe(true);
+      if (detail.ok) {
+        expect(detail.data.respResult).toBeDefined();
+      }
+
+      const shipping = await client.affiliate.productShippingGet({
+        productId,
+        shipToCountry: 'US',
+      });
+      expect(shipping.ok, shipping.ok ? '' : shipping.error.message).toBe(true);
+    });
+
     it('a request signed with a wrong secret is rejected as an api error', async () => {
       const result = await makeClient(
         'definitely-not-the-secret'
