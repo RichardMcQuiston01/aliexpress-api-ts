@@ -2,10 +2,17 @@
 
 [Back to README](./README.md)
 
-| [Unreleased](#unreleased) | [0.2.3](#023) | [0.2.2](#022) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
+| [Unreleased](#unreleased) | [0.2.4](#024) | [0.2.3](#023) | [0.2.2](#022) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
 
 ## Unreleased
 
+- Nothing yet.
+
+[Back to Top](#changelog)
+
+## 0.2.4
+
+- Add a `funding` link to `package.json`, so `npm fund` and the npm page show the donate link.
 - More Affiliate live tests: `hotproductQuery`, `productdetailGet`, and `productShippingGet`.
 - Document that only the Affiliate APIs have been verified live, and ask for help testing the Seller APIs.
 - No changes to the package code.
