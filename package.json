@@ -8,6 +8,10 @@
     "type": "git",
     "url": "git+https://github.com/RichardMcQuiston01/aliexpress-api-ts.git"
   },
+  "funding": {
+    "type": "individual",
+    "url": "https://donate.stripe.com/00w5kD3Gj1Xo9v7gVOcs800"
+  },
   "keywords": ["aliexpress", "api", "sdk", "typescript", "dropshipping", "iop"],
   "type": "module",
   "sideEffects": false,
