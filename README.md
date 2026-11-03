@@ -130,9 +130,9 @@ await client.solution.productListGet(params, {
 
 If this app, code, or repository has helped you or someone you know, please consider donating. I appreciate any help to offset the costs of development and/or AI Credits.
 
-[**Donate via Stripe**](https://donate.stripe.com/00w5kD3Gj1Xo9v7gVOcs800), or scan:
+[**Donate via PayPal**](https://www.paypal.com/ncp/payment/HUQUSUYQVBBEA), or scan:
 
-[![Donate via Stripe](./donate.svg)](https://donate.stripe.com/00w5kD3Gj1Xo9v7gVOcs800)
+<a href="https://www.paypal.com/ncp/payment/HUQUSUYQVBBEA"><img src="./donate.png" alt="Donate via PayPal" width="180"></a>
 
 [Back to Top](#table-of-contents)
 
