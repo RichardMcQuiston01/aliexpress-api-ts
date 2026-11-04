@@ -1,6 +1,6 @@
 {
   "name": "@richardmcquiston01/unofficial-aliexpress-api",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Unofficial, fully typed TypeScript client for the AliExpress Open Platform (IOP) API.",
   "license": "Apache-2.0",
   "author": "Richard McQuiston (https://richardmcquiston.com/)",
@@ -10,7 +10,7 @@
   },
   "funding": {
     "type": "individual",
-    "url": "https://donate.stripe.com/00w5kD3Gj1Xo9v7gVOcs800"
+    "url": "https://ko-fi.com/P1V529Z7ZP"
   },
   "keywords": ["aliexpress", "api", "sdk", "typescript", "dropshipping", "iop"],
   "type": "module",
