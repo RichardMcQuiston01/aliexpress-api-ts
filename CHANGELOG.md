@@ -2,11 +2,17 @@
 
 [Back to README](./README.md)
 
-| [Unreleased](#unreleased) | [0.2.4](#024) | [0.2.3](#023) | [0.2.2](#022) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
+| [Unreleased](#unreleased) | [0.2.5](#025) | [0.2.4](#024) | [0.2.3](#023) | [0.2.2](#022) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
 
 ## Unreleased
 
 - Nothing yet.
+
+[Back to Top](#changelog)
+
+## 0.2.5
+
+- No code changes. Donate links and the `funding` entry now point to PayPal, and the README donate QR image is 180 px wide.
 
 [Back to Top](#changelog)
 
