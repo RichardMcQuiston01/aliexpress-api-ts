@@ -6,7 +6,7 @@
 
 ## Unreleased
 
-- Nothing yet.
+- No code changes. Donate links and the `funding` entry now point to Ko-fi (replacing the PayPal link from 0.2.5), and `.github/FUNDING.yml` enables GitHub's Sponsor button.
 
 [Back to Top](#changelog)
 
