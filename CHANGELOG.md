@@ -2,9 +2,15 @@
 
 [Back to README](./README.md)
 
-| [Unreleased](#unreleased) | [0.2.5](#025) | [0.2.4](#024) | [0.2.3](#023) | [0.2.2](#022) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
+| [Unreleased](#unreleased) | [0.2.6](#026) | [0.2.5](#025) | [0.2.4](#024) | [0.2.3](#023) | [0.2.2](#022) | [0.2.1](#021) | [0.2.0](#020) | [0.1.0](#010) |
 
 ## Unreleased
+
+- Nothing yet.
+
+[Back to Top](#changelog)
+
+## 0.2.6
 
 - No code changes. Donate links and the `funding` entry now point to Ko-fi (replacing the PayPal link from 0.2.5), and `.github/FUNDING.yml` enables GitHub's Sponsor button.
 
